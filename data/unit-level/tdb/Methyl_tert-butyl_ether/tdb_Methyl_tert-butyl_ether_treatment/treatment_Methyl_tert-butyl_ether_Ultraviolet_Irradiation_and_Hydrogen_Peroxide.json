@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Methyl tert-butyl ether",
+  "Function": "Ultraviolet Irradiation and Hydrogen Peroxide",
+  "Details": "Indirect photolysis caused by UV irradiation in the presence of hydrogen peroxide generates the hydroxyl radicals needed to degrade MTBE.   These studies included pilot- and full-scale treatment of ground waters.  Removals exceeded 90% when H2O2 doses were below 5 mg/L and when they exceeded 10 mg/L.  Generally, above 10 mg/L, increasing levels of hydrogen peroxide increased MTBE removal efficiency.  EPA has noted advanced oxidation processes like UV and H2O2 as effective for MTBE control.\nMTBE removal (and by-products removal) were more sensitive to hydrogen peroxide level than UV dose. The efficiency of the UV/H2O2 process is dependent on factors such as absorbance efficiency of applied UV by hydrogen peroxide in the solution, the fraction of generated hydroxyl radicals reacting with MTBE versus scavenging species, and the effect of pH on these processes. UV/H2O2 application after pre-treatment of raw waters with high TOC and carbonate species increased MTBE removal efficiency."
+}

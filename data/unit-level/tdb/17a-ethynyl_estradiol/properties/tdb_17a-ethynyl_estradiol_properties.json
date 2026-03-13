@@ -1,0 +1,66 @@
+[
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Chemical Formula",
+    "Value": "C20H24O2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Molecular Weight",
+    "Value": "296.41",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Solubility",
+    "Value": "11.3",
+    "Units": "mg/L",
+    "Condition": "27°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Vapor Pressure",
+    "Value": "2.67·10-9",
+    "Units": "mmHg",
+    "Condition": "25°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Henry's Law Constant",
+    "Value": "7.94·10-12",
+    "Units": "atm-m3/mole",
+    "Condition": "25°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Kow",
+    "Value": "3.67",
+    "Units": "N/A",
+    "Condition": "LogP",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Koc",
+    "Value": "4840",
+    "Units": "N/A",
+    "Condition": "aquifer material",
+    "Ref#": "520"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Parameter": "Melting Point",
+    "Value": "183",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  }
+]

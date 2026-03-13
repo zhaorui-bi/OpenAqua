@@ -1,0 +1,114 @@
+[
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Chemical Formula",
+    "Value": "C11H15NO2S",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Class",
+    "Value": "Carbamate pesticide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Molecular Weight",
+    "Value": "225.3",
+    "Units": "g/mol",
+    "Condition": "N/A",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Solubility",
+    "Value": "27",
+    "Units": "mg/L",
+    "Condition": "in water @ 20 degrees Celcius",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Density",
+    "Value": "1.25",
+    "Units": "g/cc",
+    "Condition": "N/A",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Vapor Pressure",
+    "Value": "2.7 x 10-7",
+    "Units": "mm Hg",
+    "Condition": "@ 25 degrees Celcius",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.5x10-2",
+    "Units": "mPa",
+    "Condition": "25 C",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.08x10-7",
+    "Units": "dimensionless",
+    "Condition": "20 C",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.18 x 10-9",
+    "Units": "atm-cu m/mol",
+    "Condition": "@ 20 degrees Celcius",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Kow",
+    "Value": "3.18",
+    "Units": "log",
+    "Condition": "pH 7, 20 C",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Kow",
+    "Value": "2.92",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Koc",
+    "Value": "660",
+    "Units": "mg/L",
+    "Condition": "N/A",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Melting Point",
+    "Value": "119",
+    "Units": "degrees Celcius",
+    "Condition": "N/A",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Odor",
+    "Value": "Phenol-like odor",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2116"
+  }
+]

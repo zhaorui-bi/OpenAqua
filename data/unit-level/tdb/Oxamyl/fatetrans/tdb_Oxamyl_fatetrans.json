@@ -1,0 +1,42 @@
+[
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Degradates",
+    "Value": "oxime",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Degradates",
+    "Value": "dimethyloxamic acid (DMOA)",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "2 to 4",
+    "Units": "week",
+    "Condition": "aerobic condition in soil",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "<1",
+    "Units": "week",
+    "Condition": "anaerobic conditions in soil",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "2",
+    "Units": "day",
+    "Condition": "initial pH 9.1",
+    "Ref#": "1518"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Chemical Formula",
+    "Value": "C10H19O6PS2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "735"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Molecular Weight",
+    "Value": "330.36",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Solubility",
+    "Value": "145",
+    "Units": "ppm",
+    "Condition": "N/A",
+    "Ref#": "733"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Solubility",
+    "Value": "145",
+    "Units": "mg/l",
+    "Condition": "at 20oC",
+    "Ref#": "737"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Density",
+    "Value": "1.23",
+    "Units": "g/cm3",
+    "Condition": "at 25oC",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Vapor Pressure",
+    "Value": "3.38 x 10-6",
+    "Units": "torr",
+    "Condition": "at 30oC",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Vapor Pressure",
+    "Value": "5.0 x 10-6",
+    "Units": "torr",
+    "Condition": "at 25oC",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.78 x 10-4",
+    "Units": "mm Hg",
+    "Condition": "at 25oC",
+    "Ref#": "737"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Henry's Law Constant",
+    "Value": "4.9 x 10-9",
+    "Units": "atm m3/mol",
+    "Condition": "at 25oC",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Kow",
+    "Value": "229.08",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Kow",
+    "Value": "776.25",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Koc",
+    "Value": "1778.28",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Melting Point",
+    "Value": "2.9",
+    "Units": "oC",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Boiling Point",
+    "Value": "156-157",
+    "Units": "oC",
+    "Condition": "N/A",
+    "Ref#": "736"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Odor",
+    "Value": "skunk or garlic like",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "735"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Odor",
+    "Value": "Garlic-like",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Water Odor Threshold",
+    "Value": "1",
+    "Units": "mg/l",
+    "Condition": "60oC",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Trade Names",
+    "Value": "Fyfanon®",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Trade Names",
+    "Value": "Cekumal",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Trade Names",
+    "Value": "Maltox®",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Trade Names",
+    "Value": "Malixol®",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "738"
+  }
+]

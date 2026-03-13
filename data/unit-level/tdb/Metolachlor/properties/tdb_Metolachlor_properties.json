@@ -1,0 +1,82 @@
+[
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Chemical Formula",
+    "Value": "C15H22ClNO2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Molecular Weight",
+    "Value": "283.80",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Solubility",
+    "Value": "530",
+    "Units": "mg/L",
+    "Condition": "20°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Vapor Pressure",
+    "Value": "3.14·10-5",
+    "Units": "mmHg",
+    "Condition": "25°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Henry's Law Constant",
+    "Value": "9·10-9",
+    "Units": "atm-m[3]/mole",
+    "Condition": "20°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Kow",
+    "Value": "3.13",
+    "Units": "N/A",
+    "Condition": "LogP",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Koc",
+    "Value": "200",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "495"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Melting Point",
+    "Value": "-62.1",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Boiling Point",
+    "Value": "100",
+    "Units": "°C",
+    "Condition": "0.001 mmHg",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Parameter": "Odor",
+    "Value": "odorless",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "495"
+  }
+]

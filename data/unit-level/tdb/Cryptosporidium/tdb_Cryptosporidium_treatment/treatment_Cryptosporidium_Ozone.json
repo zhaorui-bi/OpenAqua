@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Cryptosporidium",
+  "Function": "Ozone",
+  "Details": "Inactivation of Cryptosporidium in water by ozone can be very effective (1- to over 3-log inactivation) where the effectiveness is highly dependent on temperature, ozone dose, contact time, and water quality. Ozonation is in the LT2 tool box for control of Cryptosporidium. CT (concentration X time) requirements for 3-log inactivation of Cryptosporidium with ozone at 22°C are 8.0-8.3 mg-min/L whereas at 1°C the values are ~76 mg-min/L. Reactor modeling can be used to calculate the applied ozone dose and CT. Synergism between chlorine dioxide, free chlorine and monochloramine have all been documented where sufficiently long contact times are provided for the secondary disinfectant when ozone is used as primary disinfectant."
+}

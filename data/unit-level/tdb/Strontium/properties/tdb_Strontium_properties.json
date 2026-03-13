@@ -1,0 +1,186 @@
+[
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Chemical Formula",
+    "Value": "Sr",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Chemical Formula",
+    "Value": "SrCl2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Class",
+    "Value": "Alkaline Earth Metal",
+    "Units": "N/A",
+    "Condition": "Group IIA",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Isotopes",
+    "Value": "Sr-84, Sr-86, Sr-87, Sr-88",
+    "Units": "N/A",
+    "Condition": "Naturally occuring stable isotopes",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Isotopes",
+    "Value": "Sr-89, Sr-90",
+    "Units": "N/A",
+    "Condition": "Anthropogenic, radioactive isotopes",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Radiation Type, Decay Mode",
+    "Value": "Beta",
+    "Units": "N/A",
+    "Condition": "Sr-90",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Half Life",
+    "Value": "29",
+    "Units": "years",
+    "Condition": "Sr-90",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Specific Activity",
+    "Value": "143",
+    "Units": "Ci/g",
+    "Condition": "Sr-90",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Oxidation States",
+    "Value": "1",
+    "Units": "N/A",
+    "Condition": "+2",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Electronegativity",
+    "Value": "0.95",
+    "Units": "Pauling Scale",
+    "Condition": "N/A",
+    "Ref#": "1761"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Molecular Weight",
+    "Value": "87.62",
+    "Units": "g/mol",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Molecular Weight",
+    "Value": "158.53",
+    "Units": "g/mol",
+    "Condition": "SrCl2",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Solubility",
+    "Value": "Soluble in Alcohol",
+    "Units": "N/A",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Solubility",
+    "Value": "Decomposes in Water",
+    "Units": "N/A",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Solubility",
+    "Value": "538",
+    "Units": "g/L",
+    "Condition": "SrCl2; water at 20 degrees Celsius",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Solubility",
+    "Value": "Soluble in Alcohol and Acetone",
+    "Units": "N/A",
+    "Condition": "SrCl2",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Density",
+    "Value": "3.05",
+    "Units": "g/mol",
+    "Condition": "SrCl2",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Density",
+    "Value": "2.64",
+    "Units": "g/cm3",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Vapor Pressure",
+    "Value": "5",
+    "Units": "mm Hg",
+    "Condition": "847 degrees Celsius",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Melting Point",
+    "Value": "857",
+    "Units": "°C",
+    "Condition": "SrCl2",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Melting Point",
+    "Value": "777",
+    "Units": "°C",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Boiling Point",
+    "Value": "1382",
+    "Units": "°C",
+    "Condition": "Sr(0)",
+    "Ref#": "1760"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Parameter": "Boiling Point",
+    "Value": "1250",
+    "Units": "°C",
+    "Condition": "SrCl2",
+    "Ref#": "1760"
+  }
+]

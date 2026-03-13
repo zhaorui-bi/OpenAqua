@@ -1,0 +1,138 @@
+[
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Chemical Formula",
+    "Value": "Co",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Class",
+    "Value": "First Transitional Series",
+    "Units": "N/A",
+    "Condition": "Group 9 (VIII)",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Isotopes",
+    "Value": "Co-59",
+    "Units": "N/A",
+    "Condition": "Naturally occuring stable isotope",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Isotopes",
+    "Value": "Co-57, Co-58, Co-60",
+    "Units": "N/A",
+    "Condition": "Anthropogenic, radioactive isotopes",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Radiation Type, Decay Mode",
+    "Value": "Beta",
+    "Units": "N/A",
+    "Condition": "Co-58",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Radiation Type, Decay Mode",
+    "Value": "Beta",
+    "Units": "N/A",
+    "Condition": "Co-60",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Half Life",
+    "Value": "71",
+    "Units": "days",
+    "Condition": "Co-58",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Half Life",
+    "Value": "5.27",
+    "Units": "years",
+    "Condition": "Co-60",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Oxidation States",
+    "Value": "2",
+    "Units": "N/A",
+    "Condition": "+2, +3",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Electronegativity",
+    "Value": "1.38",
+    "Units": "Pauling Scale",
+    "Condition": "Co-59",
+    "Ref#": "1763"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Molecular Weight",
+    "Value": "58.93",
+    "Units": "g/mol",
+    "Condition": "Co-59",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Solubility",
+    "Value": "Insoluble in Water",
+    "Units": "N/A",
+    "Condition": "Cobalt metal",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Solubility",
+    "Value": "Insoluble in Organic Solvents",
+    "Units": "N/A",
+    "Condition": "Cobalt metal",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Density",
+    "Value": "8.9",
+    "Units": "g/cm3",
+    "Condition": "20 degrees Celsius",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Vapor Pressure",
+    "Value": "1",
+    "Units": "mm Hg",
+    "Condition": "1910 degrees Celsius",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Melting Point",
+    "Value": "1495",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "1762"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Parameter": "Boiling Point",
+    "Value": "2870",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "1762"
+  }
+]

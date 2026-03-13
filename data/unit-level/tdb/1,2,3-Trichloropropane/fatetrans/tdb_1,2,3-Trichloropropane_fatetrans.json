@@ -1,0 +1,74 @@
+[
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "44 to 74",
+    "Units": "years",
+    "Condition": "N/A",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Volitization Half Life",
+    "Value": "5.7",
+    "Units": "days",
+    "Condition": "lake model",
+    "Ref#": "2414"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Volitization Half Life",
+    "Value": "6.7",
+    "Units": "hours",
+    "Condition": "river model",
+    "Ref#": "2414"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Volitization Half Life",
+    "Value": "92",
+    "Units": "min",
+    "Condition": "river water",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Volitization Half Life",
+    "Value": "2.2 - 3.5",
+    "Units": "days",
+    "Condition": "soil",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Volitization Half Life",
+    "Value": "93",
+    "Units": "min",
+    "Condition": "seawater",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Oxidation Half Life",
+    "Value": "30.5",
+    "Units": "days",
+    "Condition": "hydroxy. radical concentration of 15 x 10^6 molecules/cu cm",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Oxidation Half Life",
+    "Value": "27.2",
+    "Units": "days",
+    "Condition": "hydroxy. radical concentration of 5 x 10^5 molecules/cu cm",
+    "Ref#": "2415"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Parameter": "Oxidation Half Life",
+    "Value": "46",
+    "Units": "days",
+    "Condition": "N/A",
+    "Ref#": "2414"
+  }
+]

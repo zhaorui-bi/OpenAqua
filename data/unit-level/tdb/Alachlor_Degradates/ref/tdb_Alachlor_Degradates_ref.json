@@ -1,0 +1,29 @@
+[
+  {
+    "Contaminant Name": "Alachlor Degradates",
+    "Ref#": "1449",
+    "Treatment Process": "N/A",
+    "Author": "Hladik, M., Roberts, A. and Bouwer, E.",
+    "Year": "2005",
+    "Title": "Removal of neutral chloroacetamide herbicide degradates during simulated unit processes for drinking water treatment",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Alachlor Degradates",
+    "Ref#": "1446",
+    "Treatment Process": "Ozone",
+    "Author": "Verstraeten, I., Thurman, E., Lindsey, M., Lee, E. and Smith, R.",
+    "Year": "2002",
+    "Title": "Changes in concentrations of triazine and acetamide herbicides by bank filtration, ozonation and chlorination in a public water supply",
+    "Source": "J. Hydrol."
+  },
+  {
+    "Contaminant Name": "Alachlor Degradates",
+    "Ref#": "1450",
+    "Treatment Process": "N/A",
+    "Author": "Hladik, M., Bouwer, E. and Roberts, A.",
+    "Year": "2008",
+    "Title": "Neutral degradates of chloroacetamide herbicides: occurence in drinking water and removal during conventional water treatment",
+    "Source": "Wat. Res."
+  }
+]

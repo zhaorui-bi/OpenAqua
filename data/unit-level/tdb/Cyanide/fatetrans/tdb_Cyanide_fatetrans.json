@@ -1,0 +1,18 @@
+[
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Degradates",
+    "Value": "Ammonia",
+    "Units": "N/A",
+    "Condition": "by bacteria and protozoa",
+    "Ref#": "1324"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Photolysis Half Life",
+    "Value": "530",
+    "Units": "day",
+    "Condition": "vapor hydrogen cyanide at 25 °C in the air",
+    "Ref#": "1323"
+  }
+]

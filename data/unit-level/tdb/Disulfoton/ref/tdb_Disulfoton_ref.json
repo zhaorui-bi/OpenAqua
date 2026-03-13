@@ -1,0 +1,74 @@
+[
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1809",
+    "Treatment Process": "N/A",
+    "Author": "ATSDR",
+    "Year": "1996",
+    "Title": "ToxFAQs for Disulfoton",
+    "Source": "http://www.atsdr.cdc.gov/toxfaqs/tf.asp?id=977&tid=205"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1790",
+    "Treatment Process": "N/A",
+    "Author": "Syracuse Research Corporation",
+    "Year": "2010",
+    "Title": "SRC PhysProp Database",
+    "Source": "http://www.syrres.com/what-we-do/databaseforms.aspx?id=386"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1808",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Zamy, C., Mazellier, P. and Legube, B.",
+    "Year": "2004",
+    "Title": "Phototransformation of selected organophosphorus pesticides in dilute aqueous solutions",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "8",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Huston, P. and Pignatello, J.",
+    "Year": "1999",
+    "Title": "Degradation of selected pesticide active ingredients and commercial formulations in water by the photo-assisted Fenton reaction",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1799",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Shemer, H., Sharpless, C., Elovitz, M., and Linden, K.",
+    "Year": "2006",
+    "Title": "Relative Rate Constants of Contaminant Candidate List Pesticides with Hydroxyl Radicals",
+    "Source": "Environ. Sci. Technol."
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1805",
+    "Treatment Process": "N/A",
+    "Author": "Agriculture and Environment Research Unit, University of Hertfordshire",
+    "Year": "2010",
+    "Title": "Pesticide Properties Database - Disulfoton",
+    "Source": "sitem.herts.ac.uk/aeru/iupac/257.htm"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1807",
+    "Treatment Process": "Chlorine",
+    "Author": "Kamel, A., Byrne, C., Vigo, C., Ferrario, J., Stafford, C., Verdin, G., Siegelman, F., Knizer, S. and Hetrick, J.",
+    "Year": "2009",
+    "Title": "Oxidation of selected organophosphate pesticides during chlorination of simulated drinking water",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Ref#": "1806",
+    "Treatment Process": "N/A",
+    "Author": "U.S. Department of Health and Human Services, Public Health Service Agency for Toxic Substances and Disease Registry",
+    "Year": "1996",
+    "Title": "Disulfoton CAS # 298-04-4",
+    "Source": "http://www.atsdr.cdc.gov/tfacts65.pdf"
+  }
+]

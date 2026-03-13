@@ -1,0 +1,1194 @@
+[
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "1,2,3-TCP"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "NCI-C60220"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "TCP"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "allyl trichloride"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "glycerol trichlorohydrin"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "glyceryl trichlorohydrin"
+  },
+  {
+    "Contaminant Name": "1,2,3-Trichloropropane",
+    "Synonyms": "trichlorohydrin"
+  },
+  {
+    "Contaminant Name": "1,2-Dibromoethane",
+    "Synonyms": "EDB"
+  },
+  {
+    "Contaminant Name": "1,2-Dibromoethane",
+    "Synonyms": "Ethylene bromide"
+  },
+  {
+    "Contaminant Name": "1,2-Dibromoethane",
+    "Synonyms": "Ethylene dibromide"
+  },
+  {
+    "Contaminant Name": "1,2-Dibromoethane",
+    "Synonyms": "Glycol bromide"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Synonyms": "diethylene dioxide"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Synonyms": "diethylene ether"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Synonyms": "dioxane"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Synonyms": "glycol ethylene ether"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Synonyms": "p-dioxane"
+  },
+  {
+    "Contaminant Name": "17a-ethynyl estradiol",
+    "Synonyms": "EE2"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Synonyms": "4-n-Nonylphenol"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Synonyms": "NP"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Synonyms": "Nonylphenol"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Synonyms": "p-Nonylphenol"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Synonyms": "para-Nonylphenol"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Synonyms": "Acenit"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Synonyms": "Harness"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Synonyms": "Surpass"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Synonyms": "Top Hand"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Synonyms": "Trophy"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Synonyms": "acetochlor ethanesulfonic acid (ESA)"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Synonyms": "acetochlor oxanilic acid (OXA)"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Synonyms": "acetochlor sulfinylacetic acid"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Alanex"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Alochlor"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Lasso"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Lazo"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Metachlor"
+  },
+  {
+    "Contaminant Name": "Alachlor",
+    "Synonyms": "Pillarzo"
+  },
+  {
+    "Contaminant Name": "Alachlor Degradates",
+    "Synonyms": "alachlor oxanilic acid (OA)"
+  },
+  {
+    "Contaminant Name": "Alachlor Degradates",
+    "Synonyms": "alachlor ethanesulfonic acid (ESA)"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "Ambush"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "OMS 771"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "Temic"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "Temik"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "UC 21149"
+  },
+  {
+    "Contaminant Name": "Aldicarb",
+    "Synonyms": "Unioin Carbide 21149"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Synonyms": "ATX-a"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Synonyms": "Blue-green algae"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Synonyms": "toxoid"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Synonyms": "Very Fast Death Factor"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Synonyms": "Arsenate"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Synonyms": "Arsenite"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Synonyms": "As(3)"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Synonyms": "As(5)"
+  },
+  {
+    "Contaminant Name": "B. anthracis",
+    "Synonyms": "Anthrax"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Synonyms": "Benzol"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Synonyms": "Coal naphtha"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Synonyms": "Phene"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Synonyms": "Polystream"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Synonyms": "Pyrobenzol"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Synonyms": "Curaterr"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Synonyms": "Furadan"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Synonyms": "Yaltox"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "7-chlorotetracycline"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "Aureomycin"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "CLTC"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "CTC"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "Chlorotetracyline"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Synonyms": "Chlortetracyclin"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Chromium (III)"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Chromium (VI)"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Cr (III)"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Cr (VI)"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Hexavalent Chromium"
+  },
+  {
+    "Contaminant Name": "Chromium",
+    "Synonyms": "Trivalent Chromium"
+  },
+  {
+    "Contaminant Name": "Cis-1,2-dichloroethylene",
+    "Synonyms": "cis-1,2-dichloroethene"
+  },
+  {
+    "Contaminant Name": "Cis-1,2-dichloroethylene",
+    "Synonyms": "cis-12-DCE"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Synonyms": "Co-57"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Synonyms": "Co-58"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Synonyms": "Co-59"
+  },
+  {
+    "Contaminant Name": "Cobalt",
+    "Synonyms": "Co-60"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Synonyms": "C. parvum"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Synonyms": "Cryptosporidium parvum"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Synonyms": "Hydrocyanic acid"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Synonyms": "Hydrogen cyanide"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Synonyms": "Prussic acid"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "Cyclonite"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "Hexogen"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "RDX"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "Research Department Explosive"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "Royal Demolition Explosive"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Synonyms": "Royal Dutch Explosive"
+  },
+  {
+    "Contaminant Name": "Cylindrospermopsin",
+    "Synonyms": "Blue-green algae"
+  },
+  {
+    "Contaminant Name": "Cylindrospermopsin",
+    "Synonyms": "cyanotoxin"
+  },
+  {
+    "Contaminant Name": "Cylindrospermopsin",
+    "Synonyms": "algal toxin"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Synonyms": "DCPA"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Synonyms": "Dimethyl tetrachloroterephthalate"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Synonyms": "MTP"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Synonyms": "TPA"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Synonyms": "monomethyl tetrachlorophthalate,tetrachlororterephthalic acid"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Basudin"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Dazzel"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Gardentox"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Kayazol"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Knox Out"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Nucidol"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Synonyms": "Spectracide"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Synonyms": "DDVP"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Synonyms": "Vapona"
+  },
+  {
+    "Contaminant Name": "Dicrotophos",
+    "Synonyms": "Bidrin"
+  },
+  {
+    "Contaminant Name": "Dicrotophos",
+    "Synonyms": "Carbicron"
+  },
+  {
+    "Contaminant Name": "Dicrotophos",
+    "Synonyms": "Diapadrin"
+  },
+  {
+    "Contaminant Name": "Dicrotophos",
+    "Synonyms": "Dicron"
+  },
+  {
+    "Contaminant Name": "Dicrotophos",
+    "Synonyms": "Ektafos"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Bayer 19639"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Di-syston"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Disipton"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Disyston"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Disystox"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Frumin"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Solvirex"
+  },
+  {
+    "Contaminant Name": "Disulfoton",
+    "Synonyms": "Thiodemeton"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "Crisuron"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "Diater"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "Direx"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "Karmex"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "N-(3,4-dichlorophenyl)-N"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "N-dimethyl urea"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Synonyms": "Unidron"
+  },
+  {
+    "Contaminant Name": "E. coli O157",
+    "Synonyms": "E. coli O157:H7,Escherichia coli ,enterohemorrhagic E. coli (EHEC),shiga toxin-producing E. coli (STEC),verocytotoxic E. coli (VTEC)"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "B68138"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "Bay 68138"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "Bayer 68138"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "ENT 27572"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "Nemacur"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Synonyms": "Phenamiphos"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Synonyms": "fluorhydric acid"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Synonyms": "fluoric acid"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Synonyms": "hydrofluoric acid"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Synonyms": "hydrofluoride"
+  },
+  {
+    "Contaminant Name": "Glyphosate",
+    "Synonyms": "Pondmaster"
+  },
+  {
+    "Contaminant Name": "Glyphosate",
+    "Synonyms": "Rodeo"
+  },
+  {
+    "Contaminant Name": "Glyphosate",
+    "Synonyms": "Rondo"
+  },
+  {
+    "Contaminant Name": "Glyphosate",
+    "Synonyms": "Roundup"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Synonyms": "Advil"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Synonyms": "Brufen"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Synonyms": "Hydratropic acid"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Synonyms": "Ibufen"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Synonyms": "Motrin"
+  },
+  {
+    "Contaminant Name": "Lithium",
+    "Synonyms": "Li"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Synonyms": "Cekumal"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Synonyms": "Fyfanon"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Synonyms": "Malixol"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Synonyms": "Maltox"
+  },
+  {
+    "Contaminant Name": "Mercury",
+    "Synonyms": "Hg(0)"
+  },
+  {
+    "Contaminant Name": "Mercury",
+    "Synonyms": "Hg(2)"
+  },
+  {
+    "Contaminant Name": "Mercury",
+    "Synonyms": "hydrargyrum"
+  },
+  {
+    "Contaminant Name": "Mercury",
+    "Synonyms": "quicksilver"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Synonyms": "Draza"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Synonyms": "Mercaptodimethur"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Synonyms": "Mesurol"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Synonyms": "Metmercapturon"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Synonyms": "Lannate"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Synonyms": "Lanox"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Synonyms": "Methavin"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Synonyms": "Metofan"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Synonyms": "Nudrin"
+  },
+  {
+    "Contaminant Name": "Methyl tert-butyl ether",
+    "Synonyms": "MTBE"
+  },
+  {
+    "Contaminant Name": "Methyl tert-butyl ether",
+    "Synonyms": "methyl tertiary-butyl ether"
+  },
+  {
+    "Contaminant Name": "Methyl tert-butyl ether",
+    "Synonyms": "methyl-t-butyl ether"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Synonyms": "Bicep"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Synonyms": "Codal"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Synonyms": "Dual"
+  },
+  {
+    "Contaminant Name": "Metolachlor",
+    "Synonyms": "Milocep"
+  },
+  {
+    "Contaminant Name": "Metolachlor Degradates",
+    "Synonyms": "Metolachlor ESA"
+  },
+  {
+    "Contaminant Name": "Metolachlor Degradates",
+    "Synonyms": "Metolachlor OA"
+  },
+  {
+    "Contaminant Name": "Metolachlor Degradates",
+    "Synonyms": "Metolachlor ethane sulfonic acid"
+  },
+  {
+    "Contaminant Name": "Metolachlor Degradates",
+    "Synonyms": "Metolachlor oxanilic acid"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Apavinphos"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Duraphos"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Fosdrin"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Gesfid"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Menite"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Mevinox"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Phosdrin"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Synonyms": "Phosfene"
+  },
+  {
+    "Contaminant Name": "Microcystins",
+    "Synonyms": "Microcystin-LR"
+  },
+  {
+    "Contaminant Name": "Microcystins",
+    "Synonyms": "blue-green algae"
+  },
+  {
+    "Contaminant Name": "Microcystins",
+    "Synonyms": "algal toxin"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Synonyms": "Hydram"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Synonyms": "Ordram"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Synonyms": "Yalan"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "AOC"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "BDOC"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "DOC"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "DOM"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "NOM"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "SUVA"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "TOC"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "assimilable organic carbon"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "biodegradable dissolved organic carbon"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "dissolved organic carbon"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "dissolved organic matter"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "fulvic acid"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "humic acid"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "specific ultraviolet absorbance"
+  },
+  {
+    "Contaminant Name": "Natural Organic Matter",
+    "Synonyms": "total organic carbon"
+  },
+  {
+    "Contaminant Name": "Nitrobenzene",
+    "Synonyms": "Mirbane oil"
+  },
+  {
+    "Contaminant Name": "Nitrobenzene",
+    "Synonyms": "Oil of mirbane"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Synonyms": "Niclofen"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Synonyms": "Nip"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Synonyms": "Methyl N'"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Synonyms": "N'-dimethyl-N-[(methylcarbamoyl)oxy]-1-thiooxamimidate"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Synonyms": "Vydate"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Synonyms": "Vydate L"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Synonyms": "PFAS"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Synonyms": "perfluorinated compounds (PFCs)"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Synonyms": "other synonyms listed below"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Synonyms": "Ammonium perchlorate"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Synonyms": "3-phenoxybenzyl (IRS)-cis"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Synonyms": "trans-3-(2,2-dichlorovinyl)-2"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Synonyms": "2-dimethylcyclopropanecarboxylate"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Arprocarb"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Baygon"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Blattanex"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Bolfo"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Propyon"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Rhoden"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Sendran"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Suncide"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Tendex"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Synonyms": "Unden"
+  },
+  {
+    "Contaminant Name": "Radium",
+    "Synonyms": "Ra-226"
+  },
+  {
+    "Contaminant Name": "Radium",
+    "Synonyms": "Ra-228"
+  },
+  {
+    "Contaminant Name": "Ricin",
+    "Synonyms": "Ricinus communis lectin"
+  },
+  {
+    "Contaminant Name": "Ricin",
+    "Synonyms": "ricin D"
+  },
+  {
+    "Contaminant Name": "Ricin",
+    "Synonyms": "ricin toxin"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Synonyms": "Bacillus typhosus"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Synonyms": "Eberthella typhosa"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Synonyms": "Salmonella enterica serovar Typhi"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Synonyms": "Salmonella typhosa"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Aquazine"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Framed"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Gesatop"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Premazine"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Primatol"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Princep"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Synonyms": "Simadex"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Synonyms": "Sr-89"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Synonyms": "Sr-90"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Synonyms": "strontium carbonate"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Synonyms": "strontium chloride"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Certox"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Dolco mouse cereal"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Kwik-kil"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Mole death"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Mole-nots"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Mouse-rid"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Mouse-tox"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Pied piper mouse seed"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "RCRA waste number P108"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Rodex"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Sanaseed"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Strychnidin-10-one"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "Strychnos"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Synonyms": "UN 1692"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "Ethyltrianol"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "Etiltrianol"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "Fenetrazole"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "Terbuconazole"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "Terbutrazole,(+/-)-alpha-(2-(4-chlorophenyl)ethyl)-alpha-(1,1-dimethylethyl)-1H-1,2,4-triazol-1-ethanol ,1-(4-Chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazole-1-yl-methyl)pentane-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazol-1-ylmethyl)pentan-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazolylmethyl)pentan-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentan-3-ol,1-(4-chlorphenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorphenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentan-3-ol,1H-1,2,4-triazole-1-ethanol"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "a-[2-(4-chlorophenyl)ethyl]-a-(1,1-dimethylethyl)-,1H-1,2,4-triazole-1-ethanol"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "a-[2-(4-chlorophenyl)ethyl]-a-(1,1-dimethylethyl)-"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Synonyms": "(±)-,Bay HWG 1680,Elite,Folicur,Folicur 1.2 EC ,GWG 1609 ,HWG 1608,Lynx 1.2 ,Preventol A 8,Raxil,a-(2-(4-chlorophenyl)ethyl)-a-(1,1-dimethylethyl)-1H-1,2,4-triazole-1-ethanol"
+  },
+  {
+    "Contaminant Name": "Tebufenozide",
+    "Synonyms": "Confirm"
+  },
+  {
+    "Contaminant Name": "Tebufenozide",
+    "Synonyms": "Mimic"
+  },
+  {
+    "Contaminant Name": "Tebufenozide",
+    "Synonyms": "Romdan"
+  },
+  {
+    "Contaminant Name": "Terbufos",
+    "Synonyms": "AC 92100"
+  },
+  {
+    "Contaminant Name": "Terbufos",
+    "Synonyms": "Aragran"
+  },
+  {
+    "Contaminant Name": "Terbufos",
+    "Synonyms": "Contraven"
+  },
+  {
+    "Contaminant Name": "Terbufos",
+    "Synonyms": "Counter"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Synonyms": "1,1,2,2-tetrachloroethylene,Ethylene tetrachloride,PCE,PERC,Perchloroethene,Perchloroethylene,Tetrachloroethene"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Synonyms": "Dicarbasulf"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Synonyms": "Judge"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Synonyms": "Larvin"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Synonyms": "Lepicron"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Synonyms": "Toro"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Synonyms": "TCE"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Synonyms": "Trichloroethene"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Synonyms": "U-234"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Synonyms": "U-235"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Synonyms": "U-238"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Synonyms": "Comma bacillus"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Synonyms": "BAS 352F"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Synonyms": "Ronilan"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Synonyms": "Vorlan"
+  },
+  {
+    "Contaminant Name": "Vinyl Chloride",
+    "Synonyms": "Chloroethene"
+  },
+  {
+    "Contaminant Name": "Vinyl Chloride",
+    "Synonyms": "Ethylene monochloride"
+  },
+  {
+    "Contaminant Name": "Vinyl Chloride",
+    "Synonyms": "Monochloroethylene"
+  },
+  {
+    "Contaminant Name": "Vinyl Chloride",
+    "Synonyms": "Vinyl chloride monomer (VCM)"
+  }
+]

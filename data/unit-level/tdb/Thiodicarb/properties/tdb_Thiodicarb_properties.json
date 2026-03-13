@@ -1,0 +1,130 @@
+[
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Chemical Formula",
+    "Value": "C10H18N4O4S3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Molecular Weight",
+    "Value": "354.47",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Solubility",
+    "Value": "35",
+    "Units": "mg/L",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Solubility",
+    "Value": "19",
+    "Units": "mg/L",
+    "Condition": "25 C",
+    "Ref#": "1950"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Solubility",
+    "Value": "22.2",
+    "Units": "mg/L",
+    "Condition": "20 C",
+    "Ref#": "2004"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Density",
+    "Value": "1.47",
+    "Units": "g/mL",
+    "Condition": "N/A",
+    "Ref#": "2004"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Vapor Pressure",
+    "Value": "2.7",
+    "Units": "mPa",
+    "Condition": "25 C",
+    "Ref#": "2004"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Vapor Pressure",
+    "Value": "4.3x10^-5",
+    "Units": "mm Hg",
+    "Condition": "20 C",
+    "Ref#": "1950"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Vapor Pressure",
+    "Value": "7E-05",
+    "Units": "mm Hg",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Henry's Law Constant",
+    "Value": "9.33E-07",
+    "Units": "atm-m3/mole",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.1x10^-6",
+    "Units": "atm-m^3/mol",
+    "Condition": "N/A",
+    "Ref#": "1950"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Kow",
+    "Value": "1.70",
+    "Units": "N/A",
+    "Condition": "Log P",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Kow",
+    "Value": "1.62",
+    "Units": "log",
+    "Condition": "pH 7, 20 C",
+    "Ref#": "2004"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Koc",
+    "Value": "485",
+    "Units": "mL/g",
+    "Condition": "N/A",
+    "Ref#": "1950"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Melting Point",
+    "Value": "173",
+    "Units": "deg C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Thiodicarb",
+    "Parameter": "Boiling Point",
+    "Value": "decomposes before boiling",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2004"
+  }
+]

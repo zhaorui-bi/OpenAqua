@@ -1,0 +1,74 @@
+[
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Degradates",
+    "Value": "4-ketomolinate",
+    "Units": "N/A",
+    "Condition": "metabolite in tap water",
+    "Ref#": "1492"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Degradates",
+    "Value": "ketohexamethyleneimine",
+    "Units": "N/A",
+    "Condition": "metabolite in tap water",
+    "Ref#": "1792"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Degradates",
+    "Value": "3-hydroxymolinate",
+    "Units": "N/A",
+    "Condition": "metabolite in tap water",
+    "Ref#": "1792"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Degradates",
+    "Value": "4-hydroxymolinate",
+    "Units": "N/A",
+    "Condition": "metabolite in tap water",
+    "Ref#": "1792"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Degradates",
+    "Value": "molinate sulfoxide",
+    "Units": "N/A",
+    "Condition": "metabolite in tap water",
+    "Ref#": "1792"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "129",
+    "Units": "days",
+    "Condition": "In soil under anaerobic conditions at 30 degC",
+    "Ref#": "1793"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "28",
+    "Units": "days",
+    "Condition": "In soil under aerobic conditions at 20 degC",
+    "Ref#": "1791"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "365",
+    "Units": "days",
+    "Condition": "pH 7",
+    "Ref#": "1791"
+  },
+  {
+    "Contaminant Name": "Molinate",
+    "Parameter": "Photolysis Half Life",
+    "Value": "Stable",
+    "Units": "N/A",
+    "Condition": "natural sunlight (290 nm)",
+    "Ref#": "1792"
+  }
+]

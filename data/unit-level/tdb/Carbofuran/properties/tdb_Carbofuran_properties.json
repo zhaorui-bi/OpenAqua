@@ -1,0 +1,194 @@
+[
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Chemical Formula",
+    "Value": "C2H14NO3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "741"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Molecular Weight",
+    "Value": "221.3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "741"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Molecular Weight",
+    "Value": "221.25",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Solubility",
+    "Value": "320",
+    "Units": "mg/l",
+    "Condition": "at 25oC",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Solubility",
+    "Value": "350",
+    "Units": "mg/l",
+    "Condition": "at 35°C",
+    "Ref#": "755"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Density",
+    "Value": "1.18",
+    "Units": "g/cm3",
+    "Condition": "N/A",
+    "Ref#": "755"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Vapor Pressure",
+    "Value": "2.7",
+    "Units": "mPa",
+    "Condition": "at 33°C",
+    "Ref#": "755"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Vapor Pressure",
+    "Value": "2.7",
+    "Units": "mPa",
+    "Condition": "at 33o",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Koc",
+    "Value": "14 to 160",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "757"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Melting Point",
+    "Value": "150",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "755"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Boiling Point",
+    "Value": "D 1221",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Boiling Point",
+    "Value": "Chinofur",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Boiling Point",
+    "Value": "Carbosip",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Boiling Point",
+    "Value": "Yaltox",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Furacarb",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "ENT 27164",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Kenafuran",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Pillarfuron",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Rampart",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Nex",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Bay 70143",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Carbodan",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "758"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Furadan",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "741"
+  },
+  {
+    "Contaminant Name": "Carbofuran",
+    "Parameter": "Trade Names",
+    "Value": "Curaterr",
+    "Units": "--",
+    "Condition": "N/A",
+    "Ref#": "747"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "789",
+    "Treatment Process": "Membrane Filtration",
+    "Author": "Acero, J., Javier Benitez, F., Real, F. and Garcia, C.",
+    "Year": "2009",
+    "Title": "Removal of phenyl-urea herbicides in natural waters by UF membranes: Permeate flux, analysis of resistances and rejection coefficients",
+    "Source": "Sep Purif Tech"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "787",
+    "Treatment Process": "Membrane Filtration",
+    "Author": "Javier Benitez, F., Acero, J., Real, F. and Garcia, C.",
+    "Year": "2009",
+    "Title": "Removal of phenyl-urea herbicides in ultrapure water by ultrafiltration and nanofiltration processes",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "781",
+    "Treatment Process": "N/A",
+    "Author": "Extension Toxicology Network",
+    "Year": "2009",
+    "Title": "Pesticide information profiles: Diuron",
+    "Source": "http://extoxnet.orst.edu/pips/diuron.htm"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "1458",
+    "Treatment Process": "Ozone",
+    "Author": "Meijers, R., Oderwald-Muller, E., Nuhn, P. and Kruithof, J.",
+    "Year": "1995",
+    "Title": "Degradation of pesticides by ozonation and advanced oxidation",
+    "Source": "Ozone Sci. Eng."
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "784",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Van der Bruggen, B., Schaep, J., Maes, W., Wilms, D. and Vandecasteele, C.",
+    "Year": "1998",
+    "Title": "Nanofiltration as a treatment method for the removal of pesticides from ground waters",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "782",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Catalkaya, E. and Kargi, F.",
+    "Year": "2008",
+    "Title": "Advanced oxidation of diuron by photo-fenton treatment as a function of operating parameters",
+    "Source": "Env. Eng."
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "785",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Javier Benitez, F., Real, F., Acero, J. and Garcia, C.",
+    "Year": "2006",
+    "Title": "Photochemical oxidation processes for the elimination of phenyl-urea herbicides in waters",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "723",
+    "Treatment Process": "Ozone",
+    "Author": "Ormad, M., Miguel, N., Claver, A., Matesanz, J.and Ovelleiro, J.",
+    "Year": "2008",
+    "Title": "Pesticides removal in the process of drinking water production",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "786",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Boussahel. R., Bouland, S., Moussaoui, K. and Montiel, A.",
+    "Year": "2000",
+    "Title": "Removal of pesticide residues in water using the nanofiltration process",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "788",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Javier Benitez, F., Acero, J., Real, F. and Garcia, C.",
+    "Year": "2009",
+    "Title": "Nanofiltration processes applied to the removal of phenyl-ureas in natural waters",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "791",
+    "Treatment Process": "N/A",
+    "Author": "Chen, W. and Young, T.",
+    "Year": "2008",
+    "Title": "NDMA formation during chlorination and chloramination of aqueous diuron solutions",
+    "Source": "Environ. Sci. Technol."
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "783",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Berg, P., Hagmeyer, G. and Gimbel, R.",
+    "Year": "1997",
+    "Title": "Removal of pesticides and other micropollutants by nanofiltration",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "722",
+    "Treatment Process": "Ozone",
+    "Author": "Maldonado, M., Malato, S., Perez-Estrada, L., Gernjak, W., Oller, I. Domenech, X. and Peral, J.",
+    "Year": "2006",
+    "Title": "Partial degradation of five pesticides and an industrial pollutant by ozonation in a pilot-plant scale reactor",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "620",
+    "Treatment Process": "N/A",
+    "Author": "USEPA Office of Ground Water and Drinking Water",
+    "Year": "2008",
+    "Title": "Contaminant Candidate List 3 (CCL3)",
+    "Source": "USEPA Office of Ground Water and Drinking Water"
+  },
+  {
+    "Contaminant Name": "Diuron",
+    "Ref#": "790",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Jose Farre, M., Domenech, X. and Peral, J.",
+    "Year": "2006",
+    "Title": "Assessment of photo-Fenton and biological treatment coupling for Diuron and Linuron removal from water",
+    "Source": "Wat. Res."
+  }
+]

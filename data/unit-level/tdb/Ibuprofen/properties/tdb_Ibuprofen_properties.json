@@ -1,0 +1,66 @@
+[
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Chemical Formula",
+    "Value": "C13H18O2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Molecular Weight",
+    "Value": "206.29",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Solubility",
+    "Value": "21",
+    "Units": "mg/L",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.000186",
+    "Units": "mm Hg",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.5E-007",
+    "Units": "atm-m3/mole",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "pKa",
+    "Value": "4.91",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Kow",
+    "Value": "3.97",
+    "Units": "N/A",
+    "Condition": "as Log P",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Ibuprofen",
+    "Parameter": "Melting Point",
+    "Value": "76",
+    "Units": "deg C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  }
+]

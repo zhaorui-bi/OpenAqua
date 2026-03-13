@@ -1,0 +1,154 @@
+[
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Chemical Formula",
+    "Value": "C21H22N2O2",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Molecular Weight",
+    "Value": "334.42",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "200",
+    "Units": "g/L",
+    "Condition": "in chloroform",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "3.85",
+    "Units": "g/L",
+    "Condition": "in methanol",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "3.13",
+    "Units": "g/L",
+    "Condition": "in glycerol",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "5.56",
+    "Units": "g/L",
+    "Condition": "in benzene",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "4.55",
+    "Units": "g/L",
+    "Condition": "in amyl alcohol",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "143",
+    "Units": "mg/L",
+    "Condition": "at room temperature, 0.02 wt % @ 20°C (pH=9.5)",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "6.67",
+    "Units": "g/L",
+    "Condition": "in alcohol",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Solubility",
+    "Value": "5",
+    "Units": "g/L",
+    "Condition": "in toluene",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Density",
+    "Value": "1.36",
+    "Units": "N/A",
+    "Condition": "20/4°C",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "pKa",
+    "Value": "11.7",
+    "Units": "N/A",
+    "Condition": "pK2 @ 20°C",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "pKa",
+    "Value": "6.0",
+    "Units": "N/A",
+    "Condition": "pK1 @ 20°C",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Kow",
+    "Value": "1.93",
+    "Units": "log",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Koc",
+    "Value": "2.45",
+    "Units": "log",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Melting Point",
+    "Value": "286-288",
+    "Units": "°C",
+    "Condition": "with decomposition",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Boiling Point",
+    "Value": "270",
+    "Units": "°C",
+    "Condition": "5 mmHg",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Odor",
+    "Value": "Odorless",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  },
+  {
+    "Contaminant Name": "Strychnine",
+    "Parameter": "Taste",
+    "Value": "Very bitter",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2153"
+  }
+]

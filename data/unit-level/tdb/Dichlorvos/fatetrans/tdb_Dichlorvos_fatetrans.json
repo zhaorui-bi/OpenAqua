@@ -1,0 +1,58 @@
+[
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Degradates",
+    "Value": "dimethyl phosphate",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "521"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Degradates",
+    "Value": "Dichloroethanol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "521"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Degradates",
+    "Value": "Dichloracetic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "521"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Degradates",
+    "Value": "ethyl dichloroacetate",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "521"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "0.2",
+    "Units": "days",
+    "Condition": "pH 7",
+    "Ref#": "560"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "260",
+    "Units": "hours",
+    "Condition": "pH 6.9, 20°C, solvent: 80/20 water/ethanol",
+    "Ref#": "498"
+  },
+  {
+    "Contaminant Name": "Dichlorvos",
+    "Parameter": "Photolysis Half Life",
+    "Value": "0",
+    "Units": "days",
+    "Condition": "stable with longer irradiated half-lives than dark control",
+    "Ref#": "608"
+  }
+]

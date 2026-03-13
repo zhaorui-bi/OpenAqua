@@ -1,0 +1,98 @@
+[
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Chemical Formula",
+    "Value": "HCN",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Molecular Weight",
+    "Value": "27.03",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Solubility",
+    "Value": "miscible with water",
+    "Units": "N/A",
+    "Condition": "30 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Solubility",
+    "Value": "soluble in ethanol",
+    "Units": "N/A",
+    "Condition": "30 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Density",
+    "Value": "0.937",
+    "Units": "g/cm3",
+    "Condition": "vapours at 31 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Vapor Pressure",
+    "Value": "107.2",
+    "Units": "kPa",
+    "Condition": "27.2 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Vapor Pressure",
+    "Value": "35.2",
+    "Units": "kPa",
+    "Condition": "0 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Henry's Law Constant",
+    "Value": "180 to 300",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "pKa",
+    "Value": "9.22",
+    "Units": "N/A",
+    "Condition": "25 °C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Kow",
+    "Value": "4.57",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Boiling Point",
+    "Value": "25.70",
+    "Units": "N/A",
+    "Condition": "°C",
+    "Ref#": "1356"
+  },
+  {
+    "Contaminant Name": "Cyanide",
+    "Parameter": "Odor",
+    "Value": "bitter almond",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1356"
+  }
+]

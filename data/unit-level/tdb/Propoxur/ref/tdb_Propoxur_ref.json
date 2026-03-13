@@ -1,0 +1,101 @@
+[
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2116",
+    "Treatment Process": "N/A",
+    "Author": "United States National Library of Medicine",
+    "Year": "2011",
+    "Title": "TOXNET - Toxicology Data Network",
+    "Source": "http://toxnet.nlm.nih.gov/cgi-bin/sis/htmlgen?HSDB"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2125",
+    "Treatment Process": "N/A",
+    "Author": "Sun, L and Lee, H K",
+    "Year": "2003",
+    "Title": "Stability studies of propoxur herbicide in environmental water samples by liquid chromatography-atmospheric pressure chemical ionization ion-trap mass spectrometry",
+    "Source": "Jour Chromatrography A"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2112",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Lu, M., Chen, J. and Chang, K.",
+    "Year": "1999",
+    "Title": "Effect of adsorbents coated with titanium dioxide on the photocatalytic degradation of propoxur",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2117",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Lu, M., Roam, G., Chen, P. and Huang, C.",
+    "Year": "1995",
+    "Title": "Photocatalytic mineralization of toxic chemicals with illuminated TiO2",
+    "Source": "Chemical engineering communications"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2113",
+    "Treatment Process": "N/A",
+    "Author": "Mahalakshmi, M., Priya, S., Arabindoo, B., Palanichamy, M. and Murugesan, V.",
+    "Year": "2009",
+    "Title": "Photocatalytic degradation of aqueous propoxur solution using TiO2 and Hβ zeolite-supported TiO2",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2124",
+    "Treatment Process": "N/A",
+    "Author": "Egyptian Environmental Affairs Agency",
+    "Year": "2011",
+    "Title": "Propoxur",
+    "Source": "http://www.eeaa.gov.eg/English/NIPP/substances/chlordane/propoxur.doc"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2123",
+    "Treatment Process": "N/A",
+    "Author": "Cornell University",
+    "Year": "2011",
+    "Title": "Pesticide Management Education Program - Extoxnet",
+    "Source": "http://pmep.cce.cornell.edu/profiles/extoxnet/metiram-propoxur/propoxur-ext.html"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2115",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Sanjuan, A., Aguirre, G., Alvaro, M., Garcia, H. and Scaiano, J.",
+    "Year": "2000",
+    "Title": "Degradation of propoxur in water using 2,4,6-triphenylpyryliumZeolite Y as photocatalyst Product study and laser flash photolysis",
+    "Source": "Applied Catalysis B: Environmental"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2114",
+    "Treatment Process": "Chlorine",
+    "Author": "Mason, Y., Choshen, E. and Rav-Acha, C.",
+    "Year": "1990",
+    "Title": "Carbamate insecticide removal from water by chlorination and ozonation",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2126",
+    "Treatment Process": "N/A",
+    "Author": "Centers for Disease Control and Prevention",
+    "Year": "2010",
+    "Title": "Propoxur",
+    "Source": "http://www.cdc.gov/exposurereport/data_tables/Propoxur_ChemicalInformation.html"
+  },
+  {
+    "Contaminant Name": "Propoxur",
+    "Ref#": "2122",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "1997",
+    "Title": "R.E.D. Facts: Propoxur",
+    "Source": "EPA-738-F-97-009"
+  }
+]

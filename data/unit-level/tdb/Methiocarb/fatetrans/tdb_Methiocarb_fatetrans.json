@@ -1,0 +1,114 @@
+[
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb sulfoxide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb sulfone phenol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb methoxy sulfone",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb sulfone",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb phenol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "N-hydroxymethyl methiocarb sulfoxide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Degradates",
+    "Value": "Methiocarb sulfoxide phenol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2119"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "17 to 111",
+    "Units": "days",
+    "Condition": "aerobic conditions in soil",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "64",
+    "Units": "days",
+    "Condition": "anaerobic conditions in soil",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "24",
+    "Units": "days",
+    "Condition": "pH 7, 20 C",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "35",
+    "Units": "days",
+    "Condition": "pH 7",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "6",
+    "Units": "hours",
+    "Condition": "pH 9",
+    "Ref#": "2116"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Photolysis Half Life",
+    "Value": "11",
+    "Units": "days",
+    "Condition": "pH 7",
+    "Ref#": "2127"
+  },
+  {
+    "Contaminant Name": "Methiocarb",
+    "Parameter": "Photolysis Half Life",
+    "Value": "23",
+    "Units": "minutes",
+    "Condition": "river water with UV exposure",
+    "Ref#": "2116"
+  }
+]

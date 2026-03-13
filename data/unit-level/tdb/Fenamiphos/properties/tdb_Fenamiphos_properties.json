@@ -1,0 +1,82 @@
+[
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Chemical Formula",
+    "Value": "C13H22NO3PS",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1509"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Class",
+    "Value": "Organophosphorous pesticide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1509"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Molecular Weight",
+    "Value": "303.4",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1509"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Solubility",
+    "Value": "400",
+    "Units": "mg/L",
+    "Condition": "25 °C",
+    "Ref#": "1503"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Density",
+    "Value": "1.191",
+    "Units": "g/cm3",
+    "Condition": "23 °C",
+    "Ref#": "1504"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Vapor Pressure",
+    "Value": "7.5E-7",
+    "Units": "mmHg",
+    "Condition": "30 °C",
+    "Ref#": "1503"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Vapor Pressure",
+    "Value": "4.7E-5",
+    "Units": "mmHg",
+    "Condition": "20 °C",
+    "Ref#": "1509"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Kow",
+    "Value": "1.70E+3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1505"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Melting Point",
+    "Value": "49.2",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "1503"
+  },
+  {
+    "Contaminant Name": "Fenamiphos",
+    "Parameter": "Trade Names",
+    "Value": "Nemacur",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1509"
+  }
+]

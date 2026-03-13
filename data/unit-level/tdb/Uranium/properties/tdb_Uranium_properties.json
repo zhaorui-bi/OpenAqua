@@ -1,0 +1,146 @@
+[
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Chemical Formula",
+    "Value": "U",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Class",
+    "Value": "Transition Metal",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "622"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Isotopes",
+    "Value": "U-234, U-235, U-238",
+    "Units": "N/A",
+    "Condition": "Naturally occuring isotopes",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Radiation Type, Decay Mode",
+    "Value": "Alpha",
+    "Units": "N/A",
+    "Condition": "U-234, U-235, U-238",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Half Life",
+    "Value": "4460000000",
+    "Units": "years",
+    "Condition": "U-238",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Half Life",
+    "Value": "245000",
+    "Units": "years",
+    "Condition": "U-234",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Half Life",
+    "Value": "704000000",
+    "Units": "years",
+    "Condition": "U-235",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Specific Activity",
+    "Value": "0.0063",
+    "Units": "Ci/g",
+    "Condition": "U-234",
+    "Ref#": "623"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Specific Activity",
+    "Value": "0.00000034",
+    "Units": "Ci/g",
+    "Condition": "U-238",
+    "Ref#": "623"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Specific Activity",
+    "Value": "0.0000022",
+    "Units": "Ci/g",
+    "Condition": "U-235",
+    "Ref#": "623"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Oxidation States",
+    "Value": "5",
+    "Units": "N/A",
+    "Condition": "+2, +3, +4, +5, +6",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Electronegativity",
+    "Value": "1.38",
+    "Units": "Pauling Scale",
+    "Condition": "N/A",
+    "Ref#": "624"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Molecular Weight",
+    "Value": "238.0289",
+    "Units": "g/mol",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Solubility",
+    "Value": "Insoluble in Water",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Solubility",
+    "Value": "Soluble in Acids",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Density",
+    "Value": "18.95",
+    "Units": "g/cm3",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Melting Point",
+    "Value": "1135",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "621"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Parameter": "Boiling Point",
+    "Value": "4131",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "621"
+  }
+]

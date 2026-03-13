@@ -1,0 +1,170 @@
+[
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Chemical Formula",
+    "Value": "C2Cl4",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Molecular Weight",
+    "Value": "165.83",
+    "Units": "g/mol",
+    "Condition": "N/A",
+    "Ref#": "2431"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Solubility",
+    "Value": "66",
+    "Units": "mg/L",
+    "Condition": "10 degrees Celsius",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Solubility",
+    "Value": "76.2",
+    "Units": "mg/L",
+    "Condition": "12 degrees Celsius",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Solubility",
+    "Value": "150",
+    "Units": "mg/L",
+    "Condition": "25 degrees Celsius",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Density",
+    "Value": "1.64",
+    "Units": "unitless",
+    "Condition": "10 degrees Celsius",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Density",
+    "Value": "1.623",
+    "Units": "unitless",
+    "Condition": "not stated",
+    "Ref#": "2431"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Density",
+    "Value": "1.6311",
+    "Units": "g/cm3",
+    "Condition": "not stated",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Vapor Pressure",
+    "Value": "7.95",
+    "Units": "mm Hg",
+    "Condition": "10 degrees Celsius",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Vapor Pressure",
+    "Value": "9.00",
+    "Units": "mm Hg",
+    "Condition": "12 degrees Celsius",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Vapor Pressure",
+    "Value": "77",
+    "Units": "mm Hg",
+    "Condition": "25 degrees Celsius",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.295",
+    "Units": "dimensionless (concentration air/concentration water)",
+    "Condition": "12 to 13 degrees Celsius",
+    "Ref#": "2303"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.0287",
+    "Units": "atm-m3/mole",
+    "Condition": "25 degrees Celsius",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.533",
+    "Units": "dimensionless (concentration air/concentration water)",
+    "Condition": "20 degrees Celsius",
+    "Ref#": "2304"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Kow",
+    "Value": "2.53",
+    "Units": "unitless (log Kow)",
+    "Condition": "not stated",
+    "Ref#": "2423"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Kow",
+    "Value": "2.88",
+    "Units": "unitless (log Kow)",
+    "Condition": "not stated",
+    "Ref#": "2431"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Koc",
+    "Value": "126",
+    "Units": "L/kg",
+    "Condition": "not stated",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Melting Point",
+    "Value": "-22.0",
+    "Units": "degrees Celsius",
+    "Condition": "not stated",
+    "Ref#": "2431"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Melting Point",
+    "Value": "-22.4",
+    "Units": "degrees Celsius",
+    "Condition": "not stated",
+    "Ref#": "2434"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Boiling Point",
+    "Value": "394",
+    "Units": "degrees Kelvin",
+    "Condition": "N/A",
+    "Ref#": "2436"
+  },
+  {
+    "Contaminant Name": "Tetrachloroethylene",
+    "Parameter": "Boiling Point",
+    "Value": "121.0",
+    "Units": "degrees Celsius",
+    "Condition": "not stated",
+    "Ref#": "2431"
+  }
+]
