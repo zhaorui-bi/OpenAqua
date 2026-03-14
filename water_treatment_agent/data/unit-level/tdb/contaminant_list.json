@@ -1,0 +1,485 @@
+[
+  {
+    "name": "1,2,3-Trichloropropane",
+    "cas": "96-18-4",
+    "synonyms": "1,2,3-TCP, NCI-C60220, TCP, allyl trichloride, glycerol trichlorohydrin, glyceryl trichlorohydrin, trichlorohydrin",
+    "type": "Chemical",
+    "id": "11040"
+  },
+  {
+    "name": "1,2-Dibromoethane",
+    "cas": "106-93-4",
+    "synonyms": "EDB, Ethylene bromide, Ethylene dibromide, Glycol bromide",
+    "type": "Chemical",
+    "id": "10981"
+  },
+  {
+    "name": "1,4-dioxane",
+    "cas": "123-91-1",
+    "synonyms": "diethylene dioxide, diethylene ether, dioxane, glycol ethylene ether, p-dioxane",
+    "type": "Chemical",
+    "id": "10860"
+  },
+  {
+    "name": "17a-ethynyl estradiol",
+    "cas": "57-63-6",
+    "synonyms": "EE2",
+    "type": "Chemical",
+    "id": "-1013719332"
+  },
+  {
+    "name": "4-Nonylphenol",
+    "cas": "104-40-5",
+    "synonyms": "4-Nonylphenol, 4-n-Nonylphenol, NP, Nonylphenol, p-Nonylphenol, para-Nonylphenol",
+    "type": "Chemical",
+    "id": "10220"
+  },
+  {
+    "name": "Acetochlor",
+    "cas": "34256-82-1",
+    "synonyms": "Acenit, Harness, Surpass, Top Hand, Trophy",
+    "type": "Chemical",
+    "id": "10041"
+  },
+  {
+    "name": "Acetochlor Degradates",
+    "cas": "N/A",
+    "synonyms": "acetochlor ethanesulfonic acid (ESA), acetochlor oxanilic acid (OXA), acetochlor sulfinylacetic acid",
+    "type": "Chemical",
+    "id": "10660"
+  },
+  {
+    "name": "Alachlor",
+    "cas": "15972-60-8",
+    "synonyms": "Alanex, Alochlor, Lasso, Lazo, Metachlor, Pillarzo",
+    "type": "Chemical",
+    "id": "10060"
+  },
+  {
+    "name": "Alachlor Degradates",
+    "cas": "N/A",
+    "synonyms": "alachlor oxanilic acid (OA), alachlor ethanesulfonic acid (ESA)",
+    "type": "Chemical",
+    "id": "10500"
+  },
+  {
+    "name": "Aldicarb",
+    "cas": "116-06-3",
+    "synonyms": "Ambush, OMS 771, Temic, Temik, UC 21149, Unioin Carbide 21149",
+    "type": "Chemical",
+    "id": "10160"
+  },
+  {
+    "name": "Anatoxin-a",
+    "cas": "64285-06-9",
+    "synonyms": "ATX-a, Blue-green algae, toxoid, Very Fast Death Factor",
+    "type": "Chemical",
+    "id": "1183142532"
+  },
+  {
+    "name": "Arsenic",
+    "cas": "7440-38-2",
+    "synonyms": "Arsenate, Arsenite, As(3), As(5)",
+    "type": "Chemical",
+    "id": "1175876466"
+  },
+  {
+    "name": "B. anthracis",
+    "cas": "N/A",
+    "synonyms": "Anthrax",
+    "type": "Microbial",
+    "id": "1183142251"
+  },
+  {
+    "name": "Benzene",
+    "cas": "71-43-2",
+    "synonyms": "Benzol, Coal naphtha, Phene, Polystream, Pyrobenzol",
+    "type": "Chemical",
+    "id": "10140"
+  },
+  {
+    "name": "Carbofuran",
+    "cas": "1563-66-2",
+    "synonyms": "Curaterr, Furadan, Yaltox",
+    "type": "Chemical",
+    "id": "10023"
+  },
+  {
+    "name": "Chlortetracycline",
+    "cas": "57-62-5",
+    "synonyms": "7-chlorotetracycline, Aureomycin, CLTC, CTC, Chlorotetracyline, Chlortetracyclin",
+    "type": "Chemical",
+    "id": "10240"
+  },
+  {
+    "name": "Chromium",
+    "cas": "7440-47-3",
+    "synonyms": "Chromium (III), Chromium (VI), Cr (III), Cr (VI), Hexavalent Chromium, Trivalent Chromium",
+    "type": "Chemical",
+    "id": "10040"
+  },
+  {
+    "name": "Cis-1,2-dichloroethylene",
+    "cas": "156-59-2",
+    "synonyms": "cis-1,2-dichloroethene, cis-12-DCE",
+    "type": "Chemical",
+    "id": "10980"
+  },
+  {
+    "name": "Cobalt",
+    "cas": "7440-48-4",
+    "synonyms": "Co-57, Co-58, Co-59, Co-60",
+    "type": "Radiological",
+    "id": "10640"
+  },
+  {
+    "name": "Cryptosporidium",
+    "cas": "N/A",
+    "synonyms": "C. parvum, Cryptosporidium parvum",
+    "type": "Microbial",
+    "id": "253534853"
+  },
+  {
+    "name": "Cyanide",
+    "cas": "74-90-8",
+    "synonyms": "Hydrocyanic acid, Hydrogen cyanide, Prussic acid",
+    "type": "Chemical",
+    "id": "10080"
+  },
+  {
+    "name": "Cyclonite (RDX)",
+    "cas": "121-82-4",
+    "synonyms": "Cyclonite, Hexogen, RDX, Research Department Explosive, Royal Demolition Explosive, Royal Dutch Explosive",
+    "type": "Chemical",
+    "id": "10560"
+  },
+  {
+    "name": "Cylindrospermopsin",
+    "cas": "143545-90-8",
+    "synonyms": "Blue-green algae, cyanotoxin, algal toxin",
+    "type": "Chemical",
+    "id": "1183142552"
+  },
+  {
+    "name": "Dacthal and Dacthal Degradates",
+    "cas": "1861-32-1",
+    "synonyms": "DCPA, Dimethyl tetrachloroterephthalate, MTP, TPA, monomethyl tetrachlorophthalate,tetrachlororterephthalic acid",
+    "type": "Chemical",
+    "id": "10120"
+  },
+  {
+    "name": "Diazinon",
+    "cas": "333-41-5",
+    "synonyms": "Basudin, Dazzel, Gardentox, Kayazol, Knox Out, Nucidol, Spectracide",
+    "type": "Chemical",
+    "id": "10360"
+  },
+  {
+    "name": "Dichlorvos",
+    "cas": "62-73-7",
+    "synonyms": "DDVP, Vapona",
+    "type": "Chemical",
+    "id": "658891153"
+  },
+  {
+    "name": "Dicrotophos",
+    "cas": "141-66-2",
+    "synonyms": "Bidrin, Carbicron, Diapadrin, Dicron, Ektafos",
+    "type": "Chemical",
+    "id": "10760"
+  },
+  {
+    "name": "Disulfoton",
+    "cas": "298-04-4",
+    "synonyms": "Bayer 19639, Di-syston, Disipton, Disyston, Disystox, Frumin, Solvirex, Thiodemeton",
+    "type": "Chemical",
+    "id": "10680"
+  },
+  {
+    "name": "Diuron",
+    "cas": "330-54-1",
+    "synonyms": "Crisuron, Diater, Direx, Karmex, N-(3,4-dichlorophenyl)-N, N-dimethyl urea, Unidron",
+    "type": "Chemical",
+    "id": "10440"
+  },
+  {
+    "name": "E. coli O157",
+    "cas": "N/A",
+    "synonyms": "E. coli O157:H7,Escherichia coli ,enterohemorrhagic E. coli (EHEC),shiga toxin-producing E. coli (STEC),verocytotoxic E. coli (VTEC)",
+    "type": "Microbial",
+    "id": "10100"
+  },
+  {
+    "name": "Fenamiphos",
+    "cas": "22224-92-6",
+    "synonyms": "B68138, Bay 68138, Bayer 68138, ENT 27572, Nemacur, Phenamiphos",
+    "type": "Chemical",
+    "id": "10181"
+  },
+  {
+    "name": "Fluoride",
+    "cas": "16984-48-8",
+    "synonyms": "fluorhydric acid, fluoric acid, hydrofluoric acid, hydrofluoride",
+    "type": "Chemical",
+    "id": "10700"
+  },
+  {
+    "name": "Glyphosate",
+    "cas": "1071-83-6",
+    "synonyms": "Pondmaster, Rodeo, Rondo, Roundup",
+    "type": "Chemical",
+    "id": "10480"
+  },
+  {
+    "name": "Ibuprofen",
+    "cas": "15687-27-1",
+    "synonyms": "Advil, Brufen, Hydratropic acid, Ibufen, Motrin",
+    "type": "Chemical",
+    "id": "10022"
+  },
+  {
+    "name": "Lithium",
+    "cas": "7439-93-2",
+    "synonyms": "Li",
+    "type": "Chemical",
+    "id": "1183142512"
+  },
+  {
+    "name": "Malathion",
+    "cas": "121-75-5",
+    "synonyms": "Cekumal, Fyfanon, Malixol, Maltox",
+    "type": "Chemical",
+    "id": "10021"
+  },
+  {
+    "name": "Mercury",
+    "cas": "7439-97-6",
+    "synonyms": "Hg(0), Hg(2), hydrargyrum, quicksilver",
+    "type": "Chemical",
+    "id": "10341"
+  },
+  {
+    "name": "Methiocarb",
+    "cas": "2032-65-7",
+    "synonyms": "Draza, Mercaptodimethur, Mesurol, Metmercapturon",
+    "type": "Chemical",
+    "id": "10881"
+  },
+  {
+    "name": "Methomyl",
+    "cas": "16752-77-5",
+    "synonyms": "Lannate, Lanox, Methavin, Metofan, Nudrin",
+    "type": "Chemical",
+    "id": "10840"
+  },
+  {
+    "name": "Methyl tert-butyl ether",
+    "cas": "1634-04-4",
+    "synonyms": "MTBE, methyl tertiary-butyl ether, methyl-t-butyl ether",
+    "type": "Chemical",
+    "id": "10340"
+  },
+  {
+    "name": "Metolachlor",
+    "cas": "51218-45-2",
+    "synonyms": "Bicep, Codal, Dual, Milocep",
+    "type": "Chemical",
+    "id": "-13570946"
+  },
+  {
+    "name": "Metolachlor Degradates",
+    "cas": "N/A",
+    "synonyms": "Metolachlor ESA, Metolachlor OA, Metolachlor ethane sulfonic acid, Metolachlor oxanilic acid",
+    "type": "Chemical",
+    "id": "-107821529"
+  },
+  {
+    "name": "Mevinphos",
+    "cas": "7786-34-7",
+    "synonyms": "Apavinphos, Duraphos, Fosdrin, Gesfid, Menite, Mevinox, Phosdrin, Phosfene",
+    "type": "Chemical",
+    "id": "10580"
+  },
+  {
+    "name": "Microcystins",
+    "cas": "77238-39-2",
+    "synonyms": "Microcystin-LR, blue-green algae, algal toxin",
+    "type": "Chemical",
+    "id": "-1336577584"
+  },
+  {
+    "name": "Molinate",
+    "cas": "2212-67-1",
+    "synonyms": "Hydram, Ordram, Yalan",
+    "type": "Chemical",
+    "id": "10620"
+  },
+  {
+    "name": "Natural Organic Matter",
+    "cas": "N/A",
+    "synonyms": "AOC, BDOC, DOC, DOM, NOM, SUVA, TOC, assimilable organic carbon, biodegradable dissolved organic carbon, dissolved organic carbon, dissolved organic matter, fulvic acid, humic acid, specific ultraviolet absorbance, total organic carbon",
+    "type": "Chemical",
+    "id": "11080"
+  },
+  {
+    "name": "Nitrobenzene",
+    "cas": "98-95-3",
+    "synonyms": "Mirbane oil, Oil of mirbane",
+    "type": "Chemical",
+    "id": "10740"
+  },
+  {
+    "name": "Nitrofen",
+    "cas": "1836-75-5",
+    "synonyms": "Niclofen, Nip",
+    "type": "Chemical",
+    "id": "10780"
+  },
+  {
+    "name": "Oxamyl",
+    "cas": "23135-22-0",
+    "synonyms": "Methyl N', N'-dimethyl-N-[(methylcarbamoyl)oxy]-1-thiooxamimidate, Vydate, Vydate L",
+    "type": "Chemical",
+    "id": "10200"
+  },
+  {
+    "name": "Per- and Polyfluoroalkyl Substances",
+    "cas": "Listed below respectively",
+    "synonyms": "PFAS, perfluorinated compounds (PFCs), other synonyms listed below",
+    "type": "Chemical",
+    "id": "11020"
+  },
+  {
+    "name": "Perchlorate",
+    "cas": "14797-73-0",
+    "synonyms": "Ammonium perchlorate",
+    "type": "Chemical",
+    "id": "1176389556"
+  },
+  {
+    "name": "Permethrin",
+    "cas": "52645-53-1",
+    "synonyms": "3-phenoxybenzyl (IRS)-cis, trans-3-(2,2-dichlorovinyl)-2, 2-dimethylcyclopropanecarboxylate",
+    "type": "Chemical",
+    "id": "10180"
+  },
+  {
+    "name": "Propoxur",
+    "cas": "114-26-1",
+    "synonyms": "Arprocarb, Baygon, Blattanex, Bolfo, Propyon, Rhoden, Sendran, Suncide, Tendex, Unden",
+    "type": "Chemical",
+    "id": "10880"
+  },
+  {
+    "name": "Radium",
+    "cas": "7440-14-4",
+    "synonyms": "Ra-226, Ra-228",
+    "type": "Radiological",
+    "id": "1176143754"
+  },
+  {
+    "name": "Ricin",
+    "cas": "9009-86-3",
+    "synonyms": "Ricinus communis lectin, ricin D, ricin toxin",
+    "type": "Chemical",
+    "id": "10300"
+  },
+  {
+    "name": "S. typhi",
+    "cas": "N/A",
+    "synonyms": "Bacillus typhosus, Eberthella typhosa, Salmonella enterica serovar Typhi, Salmonella typhosa",
+    "type": "Microbial",
+    "id": "10460"
+  },
+  {
+    "name": "Simazine and Simazine Degradates",
+    "cas": "122-34-9",
+    "synonyms": "Aquazine, Framed, Gesatop, Premazine, Primatol, Princep, Simadex",
+    "type": "Chemical",
+    "id": "10260"
+  },
+  {
+    "name": "Strontium",
+    "cas": "7440-24-6",
+    "synonyms": "Sr-89, Sr-90, strontium carbonate, strontium chloride",
+    "type": "Radiological",
+    "id": "10600"
+  },
+  {
+    "name": "Strychnine",
+    "cas": "57-24-9",
+    "synonyms": "Certox, Dolco mouse cereal, Kwik-kil, Mole death, Mole-nots, Mouse-rid, Mouse-tox, Pied piper mouse seed, RCRA waste number P108, Rodex, Sanaseed, Strychnidin-10-one, Strychnos, UN 1692",
+    "type": "Chemical",
+    "id": "10920"
+  },
+  {
+    "name": "Tebuconazole",
+    "cas": "107534-96-3",
+    "synonyms": "Ethyltrianol, Etiltrianol, Fenetrazole, Terbuconazole, Terbutrazole,(+/-)-alpha-(2-(4-chlorophenyl)ethyl)-alpha-(1,1-dimethylethyl)-1H-1,2,4-triazol-1-ethanol ,1-(4-Chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazole-1-yl-methyl)pentane-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazol-1-ylmethyl)pentan-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1,2,4-triazolylmethyl)pentan-3-ol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorophenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentan-3-ol,1-(4-chlorphenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)-3-pentanol,1-(4-chlorphenyl)-4,4-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentan-3-ol,1H-1,2,4-triazole-1-ethanol, a-[2-(4-chlorophenyl)ethyl]-a-(1,1-dimethylethyl)-,1H-1,2,4-triazole-1-ethanol, a-[2-(4-chlorophenyl)ethyl]-a-(1,1-dimethylethyl)-, (±)-,Bay HWG 1680,Elite,Folicur,Folicur 1.2 EC ,GWG 1609 ,HWG 1608,Lynx 1.2 ,Preventol A 8,Raxil,a-(2-(4-chlorophenyl)ethyl)-a-(1,1-dimethylethyl)-1H-1,2,4-triazole-1-ethanol",
+    "type": "Chemical",
+    "id": "10900"
+  },
+  {
+    "name": "Tebufenozide",
+    "cas": "112410-23-8",
+    "synonyms": "Confirm, Mimic, Romdan",
+    "type": "Chemical",
+    "id": "10800"
+  },
+  {
+    "name": "Terbufos",
+    "cas": "13071-79-9",
+    "synonyms": "AC 92100, Aragran, Contraven, Counter",
+    "type": "Chemical",
+    "id": "10820"
+  },
+  {
+    "name": "Tetrachloroethylene",
+    "cas": "127-18-4",
+    "synonyms": "1,1,2,2-tetrachloroethylene,Ethylene tetrachloride,PCE,PERC,Perchloroethene,Perchloroethylene,Tetrachloroethene",
+    "type": "Chemical",
+    "id": "11060"
+  },
+  {
+    "name": "Thiodicarb",
+    "cas": "59669-26-0",
+    "synonyms": "Dicarbasulf, Judge, Larvin, Lepicron, Toro",
+    "type": "Chemical",
+    "id": "10781"
+  },
+  {
+    "name": "Trichloroethylene",
+    "cas": "79-01-6",
+    "synonyms": "TCE, Trichloroethene",
+    "type": "Chemical",
+    "id": "10380"
+  },
+  {
+    "name": "Uranium",
+    "cas": "7440-61-1",
+    "synonyms": "U-234, U-235, U-238",
+    "type": "Radiological",
+    "id": "10001"
+  },
+  {
+    "name": "V. cholerae",
+    "cas": "N/A",
+    "synonyms": "Comma bacillus",
+    "type": "Microbial",
+    "id": "10540"
+  },
+  {
+    "name": "Vinclozolin",
+    "cas": "50471-44-8",
+    "synonyms": "BAS 352F, Ronilan, Vorlan",
+    "type": "Chemical",
+    "id": "10042"
+  },
+  {
+    "name": "Vinyl Chloride",
+    "cas": "75-01-4",
+    "synonyms": "Chloroethene, Ethylene monochloride, Monochloroethylene, Vinyl chloride monomer (VCM)",
+    "type": "Chemical",
+    "id": "1183142492"
+  }
+]

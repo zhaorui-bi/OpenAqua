@@ -1,0 +1,83 @@
+[
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2745",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bialczyka, J., Natkańskib, P., Kuśtrowskib, P., Czaja-Prokopa, U., Bobera, B., and Kaminski, A.",
+    "Year": "2017",
+    "Title": "Removal of cyanobacterial anatoxin-a from water by natural clay adsorbents",
+    "Source": "Applied Clay Science"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2764",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Liu, J., Greenwood, D.R., Kuntz, L., Wright, L.J., and Singhal, N.",
+    "Year": "2022",
+    "Title": "Oxidative degradation of cylindrospermopsin and anatoxin-a by FeIII–B*/H2O2",
+    "Source": "Environ. Sci.: Water Res. Technol."
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2786",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Vlad, S., Peldszuz, S., Anderson, W.B., and Huck, P.M.",
+    "Year": "2019",
+    "Title": "Anatoxin-a adsorption by virgin and preloaded granular activated carbon",
+    "Source": "AWWA Water Science"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2785",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Vlad, S.",
+    "Year": "2015",
+    "Title": "Treatment of the Cyanotoxin Anatoxin-a via Activated Carbon Adsorption",
+    "Source": "A thesis presented to the University of Waterloo in fulfillment of the thesis requirement for the degree of Master of Applied Science in Civil Engineering Waterloo, Ontario, Canada, 2015"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2781",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Tak, S.-Y., Kim, M.-K., Lee, J.-E., Lee, Y.-M., and Zoh, K.-D.",
+    "Year": "2016",
+    "Title": "Degradation mechanism of anatoxin-a in UV-C/H2O2 reaction",
+    "Source": "Chemical Engineering Journal"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2769",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Munoz, M., Nieto-Sandoval, J., Cires, S., de Pedro, Z.M., Quesada, A., and Casas, J.A.",
+    "Year": "2019",
+    "Title": "Degradation of widespread cyanotoxins with high impact in drinking water (microcystins, cylindrospermopsin, anatoxin-a and saxitoxin) by CWPO",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2776",
+    "Treatment Process": "Chlorine",
+    "Author": "Rodríguez, E., Sordo, A., Metcalf, J.A., and Aceroa, J.L.",
+    "Year": "2007",
+    "Title": "Kinetics of the oxidation of cylindrospermopsin and anatoxin-a with chlorine, monochloramine and permanganat",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2768",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Momani, F.A.",
+    "Year": "2007",
+    "Title": "Degradation of cyanobacteria anatoxin-a by advanced oxidation processes",
+    "Source": "Separation and Purification Technology"
+  },
+  {
+    "Contaminant Name": "Anatoxin-a",
+    "Ref#": "2775",
+    "Treatment Process": "Chlorine",
+    "Author": "Rodrıguez, E., Onstad, G.D., Kull, T.P.J., Metcalf, J.S., Acero, J.L., and von Gunten, U.",
+    "Year": "2007",
+    "Title": "Oxidative elimination of cyanotoxins: Comparison of ozone, chlorine, chlorine dioxide and permanganate",
+    "Source": "Water Research"
+  }
+]

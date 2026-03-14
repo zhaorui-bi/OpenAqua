@@ -1,0 +1,50 @@
+[
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Molecular Weight",
+    "Value": "222.15",
+    "Units": "g",
+    "Condition": "N/A",
+    "Ref#": "1719"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Solubility",
+    "Value": "43.2",
+    "Units": "mg/L",
+    "Condition": "at 23 +/- 2 degrees C",
+    "Ref#": "1719"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Solubility",
+    "Value": "59.9 +/- 1.2",
+    "Units": "mg/L",
+    "Condition": "at 25 +/- 0.2 degrees C",
+    "Ref#": "1719"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Density",
+    "Value": "1.82",
+    "Units": "g/cm^3",
+    "Condition": "N/A",
+    "Ref#": "1719"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Kow",
+    "Value": "0.87, 0.88",
+    "Units": "N/A",
+    "Condition": "Log Kow",
+    "Ref#": "1719"
+  },
+  {
+    "Contaminant Name": "Cyclonite (RDX)",
+    "Parameter": "Koc",
+    "Value": "2.0",
+    "Units": "N/A",
+    "Condition": "Log Koc",
+    "Ref#": "1719"
+  }
+]

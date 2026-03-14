@@ -1,0 +1,82 @@
+[
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Taxomony",
+    "Value": "Salmonella",
+    "Units": "N/A",
+    "Condition": "Genus",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Taxomony",
+    "Value": "S. enterica",
+    "Units": "N/A",
+    "Condition": "Species",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Taxomony",
+    "Value": "Enterobacteriaceae",
+    "Units": "N/A",
+    "Condition": "Family",
+    "Ref#": "965"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Apperance, Size",
+    "Value": "0.5 to 0.7",
+    "Units": "µm",
+    "Condition": "Thickness",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Apperance, Size",
+    "Value": "1 to 3",
+    "Units": "µm",
+    "Condition": "Length",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Apperance, Shape",
+    "Value": "Rods",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Pathogenic Hosts",
+    "Value": "Human",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "953"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Thermal Inactivation",
+    "Value": "60",
+    "Units": "°C",
+    "Condition": "Inactivated after 15 minutes",
+    "Ref#": "964"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Thermal Inactivation",
+    "Value": "37",
+    "Units": "°C",
+    "Condition": "Optimal growth",
+    "Ref#": "964"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Parameter": "Acid Stability",
+    "Value": "<2",
+    "Units": "pH unit",
+    "Condition": "Killed instantly",
+    "Ref#": "965"
+  }
+]

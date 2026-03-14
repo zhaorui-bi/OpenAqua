@@ -1,0 +1,52 @@
+2026-03-13 22:04:40 | INFO     | run_full_demo | run_full_demo started — output dir: D:\WR-agent\water_treatment_agent\data\processed\runs\20260313_220440
+2026-03-13 22:04:41 | INFO     | run_full_demo | Demo query built: contaminants=['Arsenic'] source_water=groundwater
+2026-03-13 22:04:41 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:41 | INFO     | run_full_demo | STEP 1/5 — Task Parser Agent
+2026-03-13 22:04:41 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:42 | INFO     | app.agents.parser_agent | TaskParserAgent: processing query_id=15de2452
+2026-03-13 22:04:45 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:04:46 | INFO     | app.agents.parser_agent | TaskParserAgent: LLM extraction succeeded
+2026-03-13 22:04:46 | INFO     | app.agents.parser_agent | TaskParserAgent: done — contaminants=['Arsenic'] missing=[]
+2026-03-13 22:04:46 | INFO     | run_full_demo | Step 1 done in 4.97s — contaminants=['Arsenic'] missing=[]
+2026-03-13 22:04:46 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\01_normalized_query.json
+2026-03-13 22:04:46 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:46 | INFO     | run_full_demo | STEP 2/5 — Retrieval Agent
+2026-03-13 22:04:46 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:46 | INFO     | app.agents.retrieval_agent | RetrievalAgent: retrieving for query 15de2452
+2026-03-13 22:04:46 | INFO     | app.rag.hybrid_retriever | HybridRetriever: loading corpus from D:\WR-agent\water_treatment_agent\data\processed\indexes\corpus.jsonl
+2026-03-13 22:04:47 | INFO     | app.rag.hybrid_retriever | HybridRetriever: loaded 929 chunks
+2026-03-13 22:04:47 | INFO     | app.rag.hybrid_retriever | HybridRetriever: unit=5 template=0 case=0 (query='groundwater Arsenic drinking water treatment for rural well ')
+2026-03-13 22:04:47 | INFO     | app.agents.retrieval_agent | RetrievalAgent: retrieved 5 total chunks
+2026-03-13 22:04:47 | INFO     | run_full_demo | Step 2 done in 0.35s — total_retrieved=5
+2026-03-13 22:04:47 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\02_retrieval_bundle.json
+2026-03-13 22:04:47 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:47 | INFO     | run_full_demo | STEP 3/5 — Process Planning Agent
+2026-03-13 22:04:47 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:47 | INFO     | app.agents.planner_agent | ProcessPlannerAgent: generating 5 candidates for query 15de2452
+2026-03-13 22:04:50 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:04:59 | INFO     | app.agents.planner_agent | ProcessPlannerAgent: 5 valid candidates produced
+2026-03-13 22:04:59 | INFO     | run_full_demo | Step 3 done in 12.27s — 5 candidates
+2026-03-13 22:04:59 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\03_candidates.json
+2026-03-13 22:04:59 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:59 | INFO     | run_full_demo | STEP 4/5 — Constraint / Critic Agent
+2026-03-13 22:04:59 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:59 | INFO     | app.agents.critic_agent | ConstraintCriticAgent: checking 5 candidates for query 15de2452
+2026-03-13 22:04:59 | INFO     | app.agents.critic_agent | ConstraintCriticAgent: PASS=5 WARN=0 DROP=0
+2026-03-13 22:04:59 | INFO     | run_full_demo | Step 4 done in 0.00s — revise=[] drop=[]
+2026-03-13 22:04:59 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\04_constraint_report.json
+2026-03-13 22:04:59 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\04_revision_actions.json
+2026-03-13 22:04:59 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:59 | INFO     | run_full_demo | STEP 5/5 — Explanation Agent
+2026-03-13 22:04:59 | INFO     | run_full_demo | ============================================================
+2026-03-13 22:04:59 | INFO     | app.agents.explanation_agent | ExplanationAgent: building report for query 15de2452
+2026-03-13 22:04:59 | INFO     | app.agents.planner_agent | planner_agent: CONTAMINANT_UNIT_MAP built for 66 contaminants
+2026-03-13 22:05:01 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:05:09 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:05:15 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:05:26 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:05:34 | INFO     | httpx | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-13 22:05:40 | INFO     | app.agents.explanation_agent | ExplanationAgent: returning 3 recommendations
+2026-03-13 22:05:40 | INFO     | run_full_demo | Step 5 done in 41.23s — 3 recommendations
+2026-03-13 22:05:40 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\05_final_report.json
+2026-03-13 22:05:40 | INFO     | run_full_demo | Saved → data\processed\runs\20260313_220440\05_final_report.md
+2026-03-13 22:05:40 | INFO     | run_full_demo | run_full_demo finished — total 58.87s

@@ -1,0 +1,395 @@
+{
+  "query_id": "15de2452",
+  "normalized_query": {
+    "query_id": "15de2452",
+    "source_water": "groundwater",
+    "water_quality": {
+      "pH": 7.2,
+      "turbidity_NTU": null,
+      "arsenic_ug_L": 25.0,
+      "nitrate_mg_L": null,
+      "fluoride_mg_L": null,
+      "toc_mg_L": null,
+      "iron_mg_L": 0.08,
+      "hardness_mg_L": null,
+      "e_coli_CFU_100mL": null,
+      "lead_ug_L": null,
+      "extra": {}
+    },
+    "contaminants": [
+      "Arsenic"
+    ],
+    "treatment_targets": {
+      "arsenic_ug_L": 10.0,
+      "nitrate_mg_L": null,
+      "fluoride_mg_L": null,
+      "turbidity_NTU": null,
+      "toc_mg_L": null,
+      "e_coli": null,
+      "compliance_standard": "WHO",
+      "extra": {}
+    },
+    "constraints": {
+      "budget": "medium",
+      "energy": null,
+      "brine_disposal": false,
+      "operator_skill": null,
+      "use_for_drinking": true,
+      "footprint_constraint": null,
+      "chemical_dosing_allowed": null,
+      "extra": {}
+    },
+    "context": "drinking water treatment for rural well — arsenic removal",
+    "missing_fields": [],
+    "assumptions": [
+      "The water quality parameters provided (arsenic, pH, iron) are representative of the groundwater source.",
+      "There are no other major contaminants present in the groundwater besides arsenic.",
+      "The user wants to treat the water to meet the WHO drinking water standard of 10 ug/L for arsenic."
+    ],
+    "normalization_notes": [
+      "Mapped contaminants: ['Arsenic'] → ['Arsenic']"
+    ]
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "chain_id": "CAND-1",
+      "chain": [
+        "Chemical Treatment",
+        "Adsorptive Media",
+        "Chlorine"
+      ],
+      "rank_score": {
+        "total": 0.3,
+        "coverage_score": 0.0,
+        "constraint_score": 1.0,
+        "evidence_score": 0.0,
+        "risk_penalty": 0.0,
+        "score_breakdown": {
+          "coverage_weight": 0.35,
+          "constraint_weight": 0.3,
+          "evidence_weight": 0.25,
+          "risk_weight": 1.0
+        }
+      },
+      "why_it_works": "The treatment chain targets arsenic through multiple barriers: 1) Chemical pre-treatment likely oxidizes As(III) to As(V), though specific oxidation details are not provided in evidence. 2) Adsorptive media is documented as an effective arsenic removal technology using polymeric/inorganic hybrid sorbents [tdb_Arsenic_ref]. 3) Final chlorination provides disinfection, though specific interaction with arsenic is not evidenced. The natural occurrence of arsenic in both inorganic and organic forms [tdb_Arsenic_description] suggests the importance of the oxidation and adsorption steps.",
+      "evidence": [
+        {
+          "chunk_id": "tdb_Arsenic_info::tdb_Arsenic_info",
+          "source_id": "tdb_Arsenic_info",
+          "claim": "Technical data for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | CAS Number: 7440-38-2 | DTXSID: DTXSID4023886 | Synonyms: Arsenate, Arsenite, As(3), As(5) | Contaminant Type: Chemical"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Aeration_and_Air_Stripping::treatment_Arsenic_Aeration_and_Air_Stripping",
+          "source_id": "treatment_Arsenic_Aeration_and_Air_Stripping",
+          "claim": "Aeration and Air Stripping effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Aeration and Air Stripping | Details: Effect of aeration on the removal of arsenic was studied in full-scale on a well water sample. Aeration was used as a pre-treatment for the oxidation of arsenic prior to remo"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Membrane_Separation::treatment_Arsenic_Membrane_Separation",
+          "source_id": "treatment_Arsenic_Membrane_Separation",
+          "claim": "Membrane Separation effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Membrane Separation | Details: Removal of As(III), As(V), total arsenic, and arsenite from water by membrane separation processes can be very effective (25 to greater than 99 percent removal; 15 to greater than 9"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_ref::tdb_Arsenic_ref",
+          "source_id": "tdb_Arsenic_ref",
+          "claim": "Literature evidence for Arsenic treatment methods",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Ref#: 170 | Treatment Process: Adsorptive Media | Author: DeMarco, M. J., SenGupta, A. K. and Greenleaf, J. E. | Year: 2003 | Title: Arsenic removal using a polymeric/inorganic hybrid sorbent | Source: Wat. Res. Contaminan"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_description::tdb_Arsenic_description",
+          "source_id": "tdb_Arsenic_description",
+          "claim": "Background and regulatory context for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Description: Arsenic occurs naturally in rock, soil and biota, all of which release it to water. In water, inorganic forms are more common in than organic forms. [595]\nMost (90 percent) arsenic use in the US is for the woo"
+        }
+      ],
+      "assumptions": [
+        "Influent arsenic is primarily in inorganic form [tdb_Arsenic_description]",
+        "Chemical pre-treatment achieves oxidation of As(III) to As(V)",
+        "Adsorptive media is properly selected for arsenic removal",
+        "System pH is optimized for arsenic adsorption (specific range not evidenced)",
+        "Regular monitoring and maintenance program is in place",
+        "The water quality parameters provided (arsenic, pH, iron) are representative of the groundwater source.",
+        "There are no other major contaminants present in the groundwater besides arsenic.",
+        "The user wants to treat the water to meet the WHO drinking water standard of 10 ug/L for arsenic."
+      ],
+      "risks": [
+        "Incomplete oxidation of As(III) to As(V) could reduce adsorption efficiency",
+        "Competition from other ions for adsorption sites (insufficient evidence for specific competing ions)",
+        "Media saturation and breakthrough requiring replacement",
+        "Potential for arsenic leaching if adsorption conditions change"
+      ],
+      "retrieved_cases": [],
+      "constraint_report": {
+        "chain_id": "CAND-1",
+        "overall_status": "PASS",
+        "checks": [
+          {
+            "rule_id": "R-001",
+            "rule_description": "All process units must be in the controlled taxonomy",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "All units are valid taxonomy entries."
+          },
+          {
+            "rule_id": "R-002",
+            "rule_description": "Disinfection barrier required for drinking / microbial safety",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "Disinfection barrier present."
+          },
+          {
+            "rule_id": "R-003",
+            "rule_description": "RO/NF prohibited when brine disposal is unavailable",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "No brine-generating units; constraint satisfied."
+          },
+          {
+            "rule_id": "R-004",
+            "rule_description": "High-energy chains penalized when energy is limited",
+            "status": "N/A",
+            "violated_by": null,
+            "message": "Energy constraint not restricted."
+          }
+        ],
+        "revision_actions": []
+      },
+      "uncertainty": "low"
+    },
+    {
+      "rank": 2,
+      "chain_id": "CAND-2",
+      "chain": [
+        "Aeration and Air Stripping",
+        "Ion Exchange",
+        "Ultraviolet Irradiation"
+      ],
+      "rank_score": {
+        "total": 0.3,
+        "coverage_score": 0.0,
+        "constraint_score": 1.0,
+        "evidence_score": 0.0,
+        "risk_penalty": 0.0,
+        "score_breakdown": {
+          "coverage_weight": 0.35,
+          "constraint_weight": 0.3,
+          "evidence_weight": 0.25,
+          "risk_weight": 1.0
+        }
+      },
+      "why_it_works": "Aeration serves as a pre-treatment step for arsenic oxidation [treatment_Arsenic_Aeration_and_Air_Stripping]. Arsenic exists in both inorganic and organic forms in water, with inorganic being more common [tdb_Arsenic_description]. Insufficient evidence for specific ion exchange and UV mechanisms for arsenic removal. While membrane separation shows 25-99% arsenic removal [treatment_Arsenic_Membrane_Separation], this is not part of the proposed chain.",
+      "evidence": [
+        {
+          "chunk_id": "tdb_Arsenic_info::tdb_Arsenic_info",
+          "source_id": "tdb_Arsenic_info",
+          "claim": "Technical data for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | CAS Number: 7440-38-2 | DTXSID: DTXSID4023886 | Synonyms: Arsenate, Arsenite, As(3), As(5) | Contaminant Type: Chemical"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Aeration_and_Air_Stripping::treatment_Arsenic_Aeration_and_Air_Stripping",
+          "source_id": "treatment_Arsenic_Aeration_and_Air_Stripping",
+          "claim": "Aeration and Air Stripping effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Aeration and Air Stripping | Details: Effect of aeration on the removal of arsenic was studied in full-scale on a well water sample. Aeration was used as a pre-treatment for the oxidation of arsenic prior to remo"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Membrane_Separation::treatment_Arsenic_Membrane_Separation",
+          "source_id": "treatment_Arsenic_Membrane_Separation",
+          "claim": "Membrane Separation effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Membrane Separation | Details: Removal of As(III), As(V), total arsenic, and arsenite from water by membrane separation processes can be very effective (25 to greater than 99 percent removal; 15 to greater than 9"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_ref::tdb_Arsenic_ref",
+          "source_id": "tdb_Arsenic_ref",
+          "claim": "Literature evidence for Arsenic treatment methods",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Ref#: 170 | Treatment Process: Adsorptive Media | Author: DeMarco, M. J., SenGupta, A. K. and Greenleaf, J. E. | Year: 2003 | Title: Arsenic removal using a polymeric/inorganic hybrid sorbent | Source: Wat. Res. Contaminan"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_description::tdb_Arsenic_description",
+          "source_id": "tdb_Arsenic_description",
+          "claim": "Background and regulatory context for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Description: Arsenic occurs naturally in rock, soil and biota, all of which release it to water. In water, inorganic forms are more common in than organic forms. [595]\nMost (90 percent) arsenic use in the US is for the woo"
+        }
+      ],
+      "assumptions": [
+        "Arsenic is primarily in inorganic form",
+        "Source water contains oxidizable arsenic species",
+        "Ion exchange media is specifically selected for arsenic removal",
+        "Pre-oxidation by aeration is sufficient for downstream treatment",
+        "The water quality parameters provided (arsenic, pH, iron) are representative of the groundwater source.",
+        "There are no other major contaminants present in the groundwater besides arsenic.",
+        "The user wants to treat the water to meet the WHO drinking water standard of 10 ug/L for arsenic."
+      ],
+      "risks": [
+        "Aeration alone may not provide complete arsenic oxidation",
+        "Insufficient evidence to confirm ion exchange effectiveness for arsenic",
+        "Unknown interference from competing ions in ion exchange process",
+        "UV effectiveness for arsenic removal not supported by provided evidence"
+      ],
+      "retrieved_cases": [],
+      "constraint_report": {
+        "chain_id": "CAND-2",
+        "overall_status": "PASS",
+        "checks": [
+          {
+            "rule_id": "R-001",
+            "rule_description": "All process units must be in the controlled taxonomy",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "All units are valid taxonomy entries."
+          },
+          {
+            "rule_id": "R-002",
+            "rule_description": "Disinfection barrier required for drinking / microbial safety",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "Disinfection barrier present."
+          },
+          {
+            "rule_id": "R-003",
+            "rule_description": "RO/NF prohibited when brine disposal is unavailable",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "No brine-generating units; constraint satisfied."
+          },
+          {
+            "rule_id": "R-004",
+            "rule_description": "High-energy chains penalized when energy is limited",
+            "status": "N/A",
+            "violated_by": null,
+            "message": "Energy constraint not restricted."
+          }
+        ],
+        "revision_actions": []
+      },
+      "uncertainty": "low"
+    },
+    {
+      "rank": 3,
+      "chain_id": "CAND-3",
+      "chain": [
+        "Permanganate",
+        "Granular Activated Carbon",
+        "Chloramine"
+      ],
+      "rank_score": {
+        "total": 0.3,
+        "coverage_score": 0.0,
+        "constraint_score": 1.0,
+        "evidence_score": 0.0,
+        "risk_penalty": 0.0,
+        "score_breakdown": {
+          "coverage_weight": 0.35,
+          "constraint_weight": 0.3,
+          "evidence_weight": 0.25,
+          "risk_weight": 1.0
+        }
+      },
+      "why_it_works": "The treatment chain employs permanganate for initial oxidation of arsenic, though effectiveness cannot be directly confirmed from evidence. Aeration studies suggest oxidation is beneficial as pre-treatment [treatment_Arsenic_Aeration_and_Air_Stripping]. GAC provides adsorptive removal, similar to other adsorptive media documented for arsenic removal [tdb_Arsenic_ref]. Chloramine provides residual disinfection, but its specific interaction with arsenic cannot be confirmed from available evidence.",
+      "evidence": [
+        {
+          "chunk_id": "tdb_Arsenic_info::tdb_Arsenic_info",
+          "source_id": "tdb_Arsenic_info",
+          "claim": "Technical data for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | CAS Number: 7440-38-2 | DTXSID: DTXSID4023886 | Synonyms: Arsenate, Arsenite, As(3), As(5) | Contaminant Type: Chemical"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Aeration_and_Air_Stripping::treatment_Arsenic_Aeration_and_Air_Stripping",
+          "source_id": "treatment_Arsenic_Aeration_and_Air_Stripping",
+          "claim": "Aeration and Air Stripping effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Aeration and Air Stripping | Details: Effect of aeration on the removal of arsenic was studied in full-scale on a well water sample. Aeration was used as a pre-treatment for the oxidation of arsenic prior to remo"
+        },
+        {
+          "chunk_id": "treatment_Arsenic_Membrane_Separation::treatment_Arsenic_Membrane_Separation",
+          "source_id": "treatment_Arsenic_Membrane_Separation",
+          "claim": "Membrane Separation effectiveness for Arsenic removal",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Function: Membrane Separation | Details: Removal of As(III), As(V), total arsenic, and arsenite from water by membrane separation processes can be very effective (25 to greater than 99 percent removal; 15 to greater than 9"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_ref::tdb_Arsenic_ref",
+          "source_id": "tdb_Arsenic_ref",
+          "claim": "Literature evidence for Arsenic treatment methods",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Ref#: 170 | Treatment Process: Adsorptive Media | Author: DeMarco, M. J., SenGupta, A. K. and Greenleaf, J. E. | Year: 2003 | Title: Arsenic removal using a polymeric/inorganic hybrid sorbent | Source: Wat. Res. Contaminan"
+        },
+        {
+          "chunk_id": "tdb_Arsenic_description::tdb_Arsenic_description",
+          "source_id": "tdb_Arsenic_description",
+          "claim": "Background and regulatory context for Arsenic",
+          "support_type": "evidence_backed",
+          "text_excerpt": "Contaminant Name: Arsenic | Description: Arsenic occurs naturally in rock, soil and biota, all of which release it to water. In water, inorganic forms are more common in than organic forms. [595]\nMost (90 percent) arsenic use in the US is for the woo"
+        }
+      ],
+      "assumptions": [
+        "Arsenic is present in both As(III) and As(V) forms [tdb_Arsenic_description]",
+        "Source water contains minimal competing ions for GAC adsorption",
+        "GAC media will be replaced or regenerated before breakthrough",
+        "pH conditions are suitable for oxidation and adsorption processes",
+        "Iron levels in source water are low enough to prevent GAC fouling",
+        "The water quality parameters provided (arsenic, pH, iron) are representative of the groundwater source.",
+        "There are no other major contaminants present in the groundwater besides arsenic.",
+        "The user wants to treat the water to meet the WHO drinking water standard of 10 ug/L for arsenic."
+      ],
+      "risks": [
+        "Incomplete oxidation of As(III) to As(V) could reduce overall removal efficiency",
+        "Competition from other ions for GAC adsorption sites may reduce arsenic removal",
+        "Need to monitor GAC breakthrough to ensure continued arsenic removal",
+        "Potential formation of disinfection by-products with residual organics"
+      ],
+      "retrieved_cases": [],
+      "constraint_report": {
+        "chain_id": "CAND-3",
+        "overall_status": "PASS",
+        "checks": [
+          {
+            "rule_id": "R-001",
+            "rule_description": "All process units must be in the controlled taxonomy",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "All units are valid taxonomy entries."
+          },
+          {
+            "rule_id": "R-002",
+            "rule_description": "Disinfection barrier required for drinking / microbial safety",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "Disinfection barrier present."
+          },
+          {
+            "rule_id": "R-003",
+            "rule_description": "RO/NF prohibited when brine disposal is unavailable",
+            "status": "PASS",
+            "violated_by": null,
+            "message": "No brine-generating units; constraint satisfied."
+          },
+          {
+            "rule_id": "R-004",
+            "rule_description": "High-energy chains penalized when energy is limited",
+            "status": "N/A",
+            "violated_by": null,
+            "message": "Energy constraint not restricted."
+          }
+        ],
+        "revision_actions": []
+      },
+      "uncertainty": "low"
+    }
+  ],
+  "system_notes": [],
+  "pipeline_version": "0.1.0"
+}

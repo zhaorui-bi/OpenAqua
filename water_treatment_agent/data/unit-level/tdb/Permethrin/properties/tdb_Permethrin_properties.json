@@ -1,0 +1,42 @@
+[
+  {
+    "Contaminant Name": "Permethrin",
+    "Parameter": "Chemical Formula",
+    "Value": "C21H20Cl2O3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1434"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Parameter": "Molecular Weight",
+    "Value": "391.294",
+    "Units": "g/mol",
+    "Condition": "N/A",
+    "Ref#": "1434"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Parameter": "Solubility",
+    "Value": "0.2",
+    "Units": "mg/litre",
+    "Condition": "at 30 degrees C",
+    "Ref#": "1434"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Parameter": "Melting Point",
+    "Value": "34 - 39",
+    "Units": "degrees C",
+    "Condition": "N/A",
+    "Ref#": "1434"
+  },
+  {
+    "Contaminant Name": "Permethrin",
+    "Parameter": "Boiling Point",
+    "Value": "220",
+    "Units": "degrees C",
+    "Condition": "N/A",
+    "Ref#": "1434"
+  }
+]

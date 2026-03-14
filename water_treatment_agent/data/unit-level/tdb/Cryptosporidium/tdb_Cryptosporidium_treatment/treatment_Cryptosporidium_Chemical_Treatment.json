@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Cryptosporidium",
+  "Function": "Chemical Treatment",
+  "Details": "Inactivation of Cryptosporidium in water by iodine, ammonia, and bromine can be marginally effective (nearly 1-log inactivation) where the effectiveness is dependent on dose. However, the doses required for inactivation are significantly higher than what is typically used in water treatment.\nInactivation of Cryptosporidium in water by mixed oxidants (MIOX-electrodialysis of a brine solution) was found to be very effective for one study (from 1.3 to >4.6-log inactivation at a dosage of 5 mg/L and contact times of 60 and 240 minutes, respectively). However, another study showed no inactivation for a dosage of 5 mg/L and a contact time of 90 minutes.\nInactivation of Cryptosporidium in water by iodine bromide, sulfur dioxide, chlorate, sodium thiosulfate, and sulfur dioxide is not effective. Simultaneous disinfection with chlorite and sodium thiosulfate and chlorate and sodium thiosulfate was also found to be ineffective for Cryptosporidium inactivation."
+}

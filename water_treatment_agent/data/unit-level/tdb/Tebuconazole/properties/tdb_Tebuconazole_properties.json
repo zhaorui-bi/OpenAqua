@@ -1,0 +1,194 @@
+[
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Chemical Formula",
+    "Value": "C16H22ClN3O",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Class",
+    "Value": "Triazole fungicide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Molecular Weight",
+    "Value": "307.8",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Solubility",
+    "Value": "0.032",
+    "Units": "g/L",
+    "Condition": "in water @ 20 °C",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Density",
+    "Value": "1.25",
+    "Units": "g/mL",
+    "Condition": "Bulk density",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Vapor Pressure",
+    "Value": "9.8x10(-9)",
+    "Units": "mmHg",
+    "Condition": "20°C",
+    "Ref#": "2151"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.30x10(-3)",
+    "Units": "mPa",
+    "Condition": "25°C",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Henry's Law Constant",
+    "Value": "5.14x10(-9)",
+    "Units": "dimensionless",
+    "Condition": "20°C",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.00x10(-5)",
+    "Units": "Pa m3 mol(-1)",
+    "Condition": "25°C",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "pKa",
+    "Value": "Very weak base",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Kow",
+    "Value": "3.7",
+    "Units": "log",
+    "Condition": "20 °C, pH 7",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Koc",
+    "Value": "2.9",
+    "Units": "log",
+    "Condition": "Folicur ME 10% WG",
+    "Ref#": "2145"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Melting Point",
+    "Value": "102.4",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Boiling Point",
+    "Value": "Decomposes before boiling",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Odor",
+    "Value": "Chalk like",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2149"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Horizon",
+    "Units": "N/A",
+    "Condition": "25% tebuconazole",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Libero",
+    "Units": "N/A",
+    "Condition": "25% tebuconazole and 20% carbendazim",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Folicur",
+    "Units": "N/A",
+    "Condition": "12.5, 25, or 38.7% tebuconazole",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Aurore",
+    "Units": "N/A",
+    "Condition": "12.5% tebuconazole and 16.5% tridemorph",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Folicur EM",
+    "Units": "N/A",
+    "Condition": "10% tebuconazole and 40% tolyfluanid",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Raxil",
+    "Units": "N/A",
+    "Condition": "2, 2.5, 10, 25, or 40% tebuconazole",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Folicur E",
+    "Units": "N/A",
+    "Condition": "10% tebuconazole and 40% dichlofluanid",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Matador",
+    "Units": "N/A",
+    "Condition": "25% tebuconazole and 12.5% triadimenol; and 22.5% tebuconazole and 7.5% triadimenol",
+    "Ref#": "2148"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Trade Names",
+    "Value": "Silvacur and Folicur plus",
+    "Units": "N/A",
+    "Condition": "22.5% tebuconazole and 12.5% triaimenol",
+    "Ref#": "2148"
+  }
+]

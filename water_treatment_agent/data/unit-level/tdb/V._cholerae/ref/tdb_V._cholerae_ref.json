@@ -1,0 +1,182 @@
+[
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "951",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Wilson, B.R., Roessler, P.F., Van Dellen, E., Abbaszadegan, M. and Gerba, C.P.",
+    "Year": "1992",
+    "Title": "Coliphage MS-2 as a UV water disinfection efficacy test surrogate for bacterial and viral pathogens",
+    "Source": "AWWA WQTC"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1675",
+    "Treatment Process": "N/A",
+    "Author": "Nair G.B., Sack, D.A, Gorbach, S.L. (Ed.), Bartlett, J.G. (Ed.) and Blackflow, N.R. (Ed.)",
+    "Year": "2004",
+    "Title": "Vibrios",
+    "Source": "Infectious Diseases"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1684",
+    "Treatment Process": "Direct Filtration",
+    "Author": "Huq, A., Xu, B., Chowdhury, M.A.R., Islam, M.S., Montilla, R. and Colewell, R.R.",
+    "Year": "1996",
+    "Title": "A simple filtration method to remove planton-associated Vibrio cholerae in raw water supplies in developing countries",
+    "Source": "Appl. & Env. Microbiol."
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1669",
+    "Treatment Process": "N/A",
+    "Author": "Cash, R.A.,S., Music, I., Libonati, J.P., Snyder, M.J., Wenzel, R.P. and Hornick, R.B.",
+    "Year": "1974",
+    "Title": "Response of man to infection with Vibrio cholerae. 1. Clinical serologic and bacteriologic responses to a known inoculum",
+    "Source": "J. Infect. Dis."
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "955",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Abbaszadegan, M., Hasan, M.N., Gerba, C.P., Roessler, P.F., Wilson, B.R., Kuennen, R. and Van Dellen, E.",
+    "Year": "1997",
+    "Title": "The disinfection efficacy of a point-of-use water treatment system against bacterial, viral and protozoan waterborne pathogens",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1680",
+    "Treatment Process": "N/A",
+    "Author": "Hall-Baker, P.A., Nieves, E., Jajosky, R.A., Adams, D.A, Sharp, P., Anderson, W.J., Aponte, J.J., Aranas, A.E., Katz, S.B., Mayes, M., Wodajo, M.S., Onweh, D.H., Baillie, J. and Park, M.",
+    "Year": "2008",
+    "Title": "Summary of Notifiable Diseases - United States, 2008",
+    "Source": "Morbidity and Mortality Weekly Report"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1685",
+    "Treatment Process": "Direct Filtration",
+    "Author": "Colwell, R.R., Huq, A, Islam, M.S., Aziz, K.M.A., Yunus, M., Khan, N.H., Mahmud, A., Sack, R.B., Nair, G.B., Chakraborty, J., Scak, D.A. and Russek-Cohen, E.",
+    "Year": "2003",
+    "Title": "Reduction of cholera in Bangladeshi villages by simple filtration",
+    "Source": "Proc. Natl. Acad. Sci."
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1683",
+    "Treatment Process": "N/A",
+    "Author": "Pesigan, T.P., Plantilla, J. and Rolda, M.",
+    "Year": "1967",
+    "Title": "Applied studies on the viability of El Tor Vibrios",
+    "Source": "Bull World Health Organ."
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1670",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Concroy, R.M., Meegan, M.E., Joyce, T., McGuigan, K. and Barnes, J.",
+    "Year": "2001",
+    "Title": "Solar disinfection of drinking water protects against cholera in children under 6 years of age",
+    "Source": "Arch. Dis. Child"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1668",
+    "Treatment Process": "N/A",
+    "Author": "Rice, E.W. and Johnson, C.H.",
+    "Year": "1991",
+    "Title": "Cholera in Peru",
+    "Source": "The Lancet"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1666",
+    "Treatment Process": "Chlorine",
+    "Author": "Harding, H.W. and Lond, M.D.",
+    "Year": "1910",
+    "Title": "The action of chlorine upon water containing the Cholera Vibrio",
+    "Source": "The Lancet"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1677",
+    "Treatment Process": "N/A",
+    "Author": "New Zealand Food Safety Authority",
+    "Year": "2001",
+    "Title": "Vibrio cholerae",
+    "Source": "http://www.nzfsa.govt.nz/science/data-sheets/vibrio-cholerae.pdf"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1681",
+    "Treatment Process": "N/A",
+    "Author": "Groseclose, S.L., Hall, P.A., Knowles, C.M., Adams, D.A., Park, S., Perry, F., Sharp, P., Anderson, W.J., Snavely, K., Fagan, R.F., Aponte, J.J., Jones, G.F., Nitschke, D.A., Worsham, C.A., Glynn, M.K., Chang, M.H., Doyle, T. and Jajosky, R.A.",
+    "Year": "2001",
+    "Title": "Summary of Notifiable Diseases, United States, 1999",
+    "Source": "Morbidity and Mortality Weekly Report"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1678",
+    "Treatment Process": "Direct Filtration",
+    "Author": "Craun, G., Swerdlow, D., Tauxe, R., Clark, R., Fox, K., Geldreich, E., Reasoner, D. and Rice E.",
+    "Year": "1991",
+    "Title": "Prevention of waterborne cholera in the United States",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1682",
+    "Treatment Process": "N/A",
+    "Author": "WHO",
+    "Year": "2010",
+    "Title": "Cholera",
+    "Source": "Cholera"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "2008",
+    "Treatment Process": "Chlorine",
+    "Author": "Centers for Disease Control and Prevention",
+    "Year": "2010",
+    "Title": "Cholera",
+    "Source": "http://www.cdc.gov/cholera/index.html"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "956",
+    "Treatment Process": "Chlorine",
+    "Author": "Souter, P.F., Cruickshank, G.D., Tankerville, M.Z., Keswick, B.H., Ellis, B.D., Langworthy, D.E., Metz, K.A., Appleby, M.R., Hamilton, N., Jones A.L. and Perry, J.D.",
+    "Year": "2003",
+    "Title": "Evaluation of a new water treatment for point-of-use household applications to remove microorganisms and arsenic from drinking water",
+    "Source": "Journal of Water and Health"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1679",
+    "Treatment Process": "N/A",
+    "Author": "Craun, M.F., Craun, G.F., Calderon, R. and Beach, M.J.",
+    "Year": "2006",
+    "Title": "Waterborne outbreaks reported in the United States",
+    "Source": "Journal of Water and Health"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "1676",
+    "Treatment Process": "N/A",
+    "Author": "Wikipedia",
+    "Year": "2010",
+    "Title": "Vibrio cholerae",
+    "Source": "http://en.wikipedia.org/wiki/Vibrio_cholerae"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Ref#": "957",
+    "Treatment Process": "Chlorine",
+    "Author": "Rodda, N., Bateman, B. and Kfir, R.",
+    "Year": "1993",
+    "Title": "Removal of Salmonella typhi, Shigella dysenteriae, Vibrio cholerae and Rotavirus from water using a water treatment tablet",
+    "Source": "Wat. Sci. Tech."
+  }
+]

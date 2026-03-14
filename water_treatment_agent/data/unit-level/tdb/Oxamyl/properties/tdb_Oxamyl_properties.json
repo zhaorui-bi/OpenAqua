@@ -1,0 +1,82 @@
+[
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Chemical Formula",
+    "Value": "C7H13N3O3S",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Class",
+    "Value": "carbamate pesticide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Molecular Weight",
+    "Value": "219.3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Solubility",
+    "Value": "280",
+    "Units": "g/L",
+    "Condition": "25 °C",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Density",
+    "Value": "0.97",
+    "Units": "g/cm3",
+    "Condition": "25 °C",
+    "Ref#": "1513"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Vapor Pressure",
+    "Value": "3.84E-7",
+    "Units": "mmHg",
+    "Condition": "25 °C",
+    "Ref#": "1511"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Kow",
+    "Value": "0.34",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1514"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Melting Point",
+    "Value": "100 to 102",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "1512"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Odor",
+    "Value": "slight sulfurous odor",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1512"
+  },
+  {
+    "Contaminant Name": "Oxamyl",
+    "Parameter": "Trade Names",
+    "Value": "Vydate",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1511"
+  }
+]

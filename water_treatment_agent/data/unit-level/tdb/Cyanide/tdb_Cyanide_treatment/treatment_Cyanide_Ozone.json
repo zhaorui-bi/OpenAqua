@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Cyanide",
+  "Function": "Ozone",
+  "Details": "Ozone reacts with cyanide ion extremely rapidly in alkaline media (i.e. pH 10.5 – 11.0) and produces cyanate ion (CNO-) [1363]. However, the oxidation of cyanate ion by ozone is much slower [1363]. In addition, the complex cyanides of copper, iron and other metals are less amenable to ozone decomposition [1363]. In general, ozone consumption for complete cyanide ion removal is so high that ozone is more suitable for treatment of cyanide ion at concentrations above 15 to 20 mg/L CN- [1363]. Bench-scale studies with influent concentrations of 240 to 500 mg/L confirm the effectiveness of ozone at these high concentrations [2458, 2460].\nAlthough a bench-scale lab study suggests ozone can remove cyanide at low concentrations efficiently, a pilot study showed that ozone removed approximately 22 percent of initial cyanide of 0.2 mg/L in a surface water in France [1362]. Another pilot study showed removal of 99.5 percent, but with an initial cyanide concentration of 28.7 mg/L [2460]. The end products of ozonation were not identified in the lab and pilot studies."
+}

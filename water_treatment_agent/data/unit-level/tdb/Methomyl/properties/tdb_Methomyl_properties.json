@@ -1,0 +1,146 @@
+[
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Chemical Formula",
+    "Value": "C5H10N2O2S",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Molecular Weight",
+    "Value": "162.21",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Solubility",
+    "Value": "55000",
+    "Units": "mg/L",
+    "Condition": "20 C",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Solubility",
+    "Value": "5.8E+04",
+    "Units": "mg/L",
+    "Condition": "in water, 25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Density",
+    "Value": "1.32",
+    "Units": "g/mL",
+    "Condition": "N/A",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Vapor Pressure",
+    "Value": "5.4E-06",
+    "Units": "mm Hg",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Vapor Pressure",
+    "Value": "7.2x10^-4",
+    "Units": "Pa",
+    "Condition": "25 C",
+    "Ref#": "2005"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.72",
+    "Units": "mPa",
+    "Condition": "25 C",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.97E-11",
+    "Units": "atm-m3/mole",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.8x10^-10",
+    "Units": "atm m^3/mol",
+    "Condition": "N/A",
+    "Ref#": "2000"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Henry's Law Constant",
+    "Value": "2.13x10^-6",
+    "Units": "Pa m^3/mol",
+    "Condition": "25 C",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Kow",
+    "Value": "1.24",
+    "Units": "N/A",
+    "Condition": "pH 7, 20 c",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Koc",
+    "Value": "25.2",
+    "Units": "mL/g",
+    "Condition": "N/A",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Koc",
+    "Value": "25.2",
+    "Units": "mL/g",
+    "Condition": "N/A",
+    "Ref#": "2005"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Koc",
+    "Value": "19-34",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2000"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Melting Point",
+    "Value": "78",
+    "Units": "deg C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Melting Point",
+    "Value": "79.6",
+    "Units": "C",
+    "Condition": "N/A",
+    "Ref#": "2006"
+  },
+  {
+    "Contaminant Name": "Methomyl",
+    "Parameter": "Odor",
+    "Value": "slightly sulfurous",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "495"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Contaminant Name": "B. anthracis",
+    "Parameter": "Nutrient Source",
+    "Value": "hemin and hemoglobin",
+    "Units": "N/A",
+    "Condition": "nutrient iron source during infection",
+    "Ref#": "524"
+  },
+  {
+    "Contaminant Name": "B. anthracis",
+    "Parameter": "Life Span",
+    "Value": ">40",
+    "Units": "years",
+    "Condition": "spores in ambient environment",
+    "Ref#": "522"
+  }
+]

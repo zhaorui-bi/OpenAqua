@@ -1,0 +1,66 @@
+[
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Degradates",
+    "Value": "4-epi-chlortetracycline",
+    "Units": "N/A",
+    "Condition": "neutral conditions",
+    "Ref#": "1347"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Degradates",
+    "Value": "anhydro-chlortetracycline",
+    "Units": "N/A",
+    "Condition": "acidic conditions",
+    "Ref#": "1347"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Degradates",
+    "Value": "4-epi-anhydro-chlortetracycline",
+    "Units": "N/A",
+    "Condition": "acidic conditions",
+    "Ref#": "1347"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Degradates",
+    "Value": "isochlortetracycline",
+    "Units": "N/A",
+    "Condition": "alkaline conditions",
+    "Ref#": "1347"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "< 25",
+    "Units": "days",
+    "Condition": "pH 8.5, aerobic, 6 °C to 20 °C, with and without light",
+    "Ref#": "1530"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "10 to 45",
+    "Units": "days",
+    "Condition": "pH 5.6, aerobic, 6 °C to 20 °C, with and without light",
+    "Ref#": "1530"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "25 to 70",
+    "Units": "days",
+    "Condition": "pH 3.0, aerobic, 6 °C to 20 °C, with and without light",
+    "Ref#": "1530"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Photolysis Rate",
+    "Value": "3.8E-4 to 6.2E-4",
+    "Units": "per second",
+    "Condition": "aqueous solution with pH 5, natural sunlight",
+    "Ref#": "1529"
+  }
+]

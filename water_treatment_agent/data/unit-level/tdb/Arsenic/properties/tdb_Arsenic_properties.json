@@ -1,0 +1,218 @@
+[
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Chemical Formula",
+    "Value": "H3AsO4",
+    "Units": "N/A",
+    "Condition": "Arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Chemical Formula",
+    "Value": "As2O3",
+    "Units": "N/A",
+    "Condition": "Arsenic trioxide",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Chemical Formula",
+    "Value": "As",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Class",
+    "Value": "Metalloid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Molecular Weight",
+    "Value": "197.84",
+    "Units": "N/A",
+    "Condition": "Arsenic trioxide",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Molecular Weight",
+    "Value": "141.944",
+    "Units": "N/A",
+    "Condition": "Arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Molecular Weight",
+    "Value": "74.9216",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Solubility",
+    "Value": "1.7·104",
+    "Units": "mg/L",
+    "Condition": "Arsenic trioxide 16°C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Solubility",
+    "Value": "302",
+    "Units": "g/L",
+    "Condition": "12.5°C for arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Solubility",
+    "Value": "Insoluble",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Density",
+    "Value": "2.2",
+    "Units": "g/cm3",
+    "Condition": "Arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Density",
+    "Value": "5.778",
+    "Units": "g/cm3",
+    "Condition": "25°C",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Vapor Pressure",
+    "Value": "5.75·10-19",
+    "Units": "mm Hg",
+    "Condition": "25°C for arsenic acid",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Vapor Pressure",
+    "Value": "7.5·10-3",
+    "Units": "mm Hg",
+    "Condition": "28°C",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "pKa",
+    "Value": "2.22",
+    "Units": "N/A",
+    "Condition": "pKa1 for arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "pKa",
+    "Value": "6.98",
+    "Units": "N/A",
+    "Condition": "pKa2 for arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "pKa",
+    "Value": "11.53",
+    "Units": "N/A",
+    "Condition": "pKa3 for arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Kow",
+    "Value": "-3.14",
+    "Units": "N/A",
+    "Condition": "Arsenic acid",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Kow",
+    "Value": "-0.13",
+    "Units": "N/A",
+    "Condition": "Arsenic trioxide",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Koc",
+    "Value": "100000",
+    "Units": "N/A",
+    "Condition": "Arsenic acid",
+    "Ref#": "493"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Melting Point",
+    "Value": "35",
+    "Units": "°C",
+    "Condition": "Arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Melting Point",
+    "Value": "817",
+    "Units": "°C",
+    "Condition": "28 atm",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Boiling Point",
+    "Value": "465",
+    "Units": "°C",
+    "Condition": "Arsenic trioxide",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Boiling Point",
+    "Value": "Loses water at 160",
+    "Units": "°C",
+    "Condition": "Arsenic acid",
+    "Ref#": "470"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Odor",
+    "Value": "Odorless",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "482"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Taste",
+    "Value": "Nearly Tasteless",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "482"
+  },
+  {
+    "Contaminant Name": "Arsenic",
+    "Parameter": "Oxidation States",
+    "Value": "-3, 0, +3, +5",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "470"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "query_id": "be771b69",
+  "candidates": [
+    {
+      "chain_id": "CAND-1",
+      "chain": [
+        "Chemical Treatment",
+        "Adsorptive Media",
+        "Chlorine"
+      ],
+      "key_units": [
+        "Adsorptive Media"
+      ],
+      "rationale": "Uses iron-based adsorptive media for arsenic removal after oxidation via chemical pre-treatment. Chlorine provides final disinfection and maintains residual in distribution system.",
+      "energy_intensity": "low",
+      "generates_brine": false,
+      "requires_disinfection": true
+    },
+    {
+      "chain_id": "CAND-2",
+      "chain": [
+        "Ion Exchange",
+        "Chloramine"
+      ],
+      "key_units": [
+        "Ion Exchange"
+      ],
+      "rationale": "Ion exchange effectively removes arsenic after oxidation converts As(III) to As(V). Chloramine provides longer-lasting disinfection residual compared to free chlorine.",
+      "energy_intensity": "medium",
+      "generates_brine": false,
+      "requires_disinfection": true
+    },
+    {
+      "chain_id": "CAND-3",
+      "chain": [
+        "Permanganate",
+        "Granular Activated Carbon",
+        "Ultraviolet Irradiation"
+      ],
+      "key_units": [
+        "Granular Activated Carbon"
+      ],
+      "rationale": "Permanganate oxidizes arsenic species while GAC provides removal through adsorption. UV provides final disinfection without chemical residuals.",
+      "energy_intensity": "medium",
+      "generates_brine": false,
+      "requires_disinfection": true
+    },
+    {
+      "chain_id": "CAND-4",
+      "chain": [
+        "Ozone",
+        "Conventional Treatment",
+        "Chlorine"
+      ],
+      "key_units": [
+        "Conventional Treatment"
+      ],
+      "rationale": "Ozone oxidizes arsenic for enhanced removal via coagulation/filtration in conventional treatment. Chlorination provides final disinfection barrier.",
+      "energy_intensity": "medium",
+      "generates_brine": false,
+      "requires_disinfection": true
+    },
+    {
+      "chain_id": "CAND-5",
+      "chain": [
+        "Chemical Treatment",
+        "Direct Filtration",
+        "Chlorine Dioxide"
+      ],
+      "key_units": [
+        "Direct Filtration"
+      ],
+      "rationale": "Chemical oxidation followed by direct filtration removes arsenic through coagulation and filtration. Chlorine dioxide provides effective disinfection with minimal DBP formation.",
+      "energy_intensity": "low",
+      "generates_brine": false,
+      "requires_disinfection": true
+    }
+  ],
+  "planning_notes": [
+    "LLM generated 5 valid candidates"
+  ]
+}

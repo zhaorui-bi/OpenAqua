@@ -1,0 +1,74 @@
+[
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Chemical Formula",
+    "Value": "C6H6",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Molecular Weight",
+    "Value": "78.12",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Solubility",
+    "Value": "1790",
+    "Units": "mg/L",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Vapor Pressure",
+    "Value": "94.8",
+    "Units": "mm Hg",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.00555",
+    "Units": "atm-m3/mole",
+    "Condition": "25 deg C",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Kow",
+    "Value": "2.13",
+    "Units": "N/A",
+    "Condition": "Log P",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Koc",
+    "Value": "60 to 83",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "687"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Melting Point",
+    "Value": "5.5",
+    "Units": "deg C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  },
+  {
+    "Contaminant Name": "Benzene",
+    "Parameter": "Boiling Point",
+    "Value": "80",
+    "Units": "deg C",
+    "Condition": "N/A",
+    "Ref#": "492"
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "mono- and diformate esters of 1,2-ethanediol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "methoxyacetic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "formic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "glycolic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "glyoxal",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "oxalic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "acetic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "glyoxylic acid",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "formaldehyde",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Degradates",
+    "Value": "acetaldehyde",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2070"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "resistant",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "2062"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "336",
+    "Units": "days",
+    "Condition": "pH 7",
+    "Ref#": "2062"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Parameter": "Photolysis Half Life",
+    "Value": "1 to 3",
+    "Units": "days",
+    "Condition": "in air",
+    "Ref#": "2062"
+  }
+]

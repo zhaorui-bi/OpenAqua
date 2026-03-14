@@ -1,0 +1,398 @@
+[
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1251",
+    "Treatment Process": "N/A",
+    "Author": "US Department of Health and Human Services, Agency for Toxic Substances and Disease Registry",
+    "Year": "2003",
+    "Title": "Trichloroethylene CAS # 79-01-6 Division of Toxicology ToxFAQs",
+    "Source": "Trichloroethylene CAS # 79-01-6 Division of Toxicology ToxFAQs"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1610",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Kilduff, J., Karanfil, T. and Weber Jr., W.",
+    "Year": "1998",
+    "Title": "TCE adsorption by GAC preloaded with humic substances",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1622",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Love, T. and Eilers, R.",
+    "Year": "1982",
+    "Title": "Treatment of drinking water containing trichloroethylene and related industrial solvents",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2130",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "DeLuca, S.J., Chao, A.C. and Smallwood, C.",
+    "Year": "1983",
+    "Title": "Removal of organic priority pollutants by oxidation‐coagulation",
+    "Source": "Journal of Environmental Engineering"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1623",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Aieta, E., Reagan, K., Lang, J., McReynolds, L., Kang, J.-W. and Glaze, W.",
+    "Year": "1988",
+    "Title": "Advanced oxidation processes for treating groundwater contaminated with TCE and PCE: pilot-scale evaluations",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2129",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "He, J., Arnold, R., Saez, E., Betterton, E. and Ela, W.",
+    "Year": "2004",
+    "Title": "Removal of aqueous phase trichloroethylene using membrane air stripping contactors",
+    "Source": "J. Environ. Eng."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1608",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Ducom, G. and Cabassud, C.",
+    "Year": "1999",
+    "Title": "Interests and limitations of nanofiltration for the removal of volatile organic compounds in drinking water production",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1624",
+    "Treatment Process": "Ozone",
+    "Author": "Glaze, W. and Kang, J.-W.",
+    "Year": "1988",
+    "Title": "Advanced oxidation processes for treating groundwater contaminated with TCE and PCE: laboratory studies",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1628",
+    "Treatment Process": "N/A",
+    "Author": "Semmens, M., Qin, R. and Zander, A.",
+    "Year": "1989",
+    "Title": "Using a microporous hollow-fiber membrane to separate VOCs from water",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2128",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Sato, C., and Yao, J.",
+    "Year": "2006",
+    "Title": "Simultaneous and sequential photosonolysis of TCE and PCE",
+    "Source": "Journal of Environmental Engineering"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1247",
+    "Treatment Process": "Permanganate",
+    "Author": "Yan, Y. and Schwartz, F.",
+    "Year": "1999",
+    "Title": "Oxidative degradation and kinetics of chlorinated ethylenes by potassium permanganate",
+    "Source": "Journal of Contaminant Hydrology"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1611",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Linek, V., Sinkule, J. and Janda, V.",
+    "Year": "1998",
+    "Title": "Design of packed aeration towers to strip volatile organic contaminants from water",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2132",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Lewis, S.R., Datta, S., Gui, M., Coker, E.L., Huggins, F.E., Daunert, S., Bachas, L. and Bhattacharyya, D.",
+    "Year": "2011",
+    "Title": "Reactive nanostructured membranes for water purification",
+    "Source": "Proceedings of National Academy of Science of the United States of America."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1613",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Sunder, M. and Hempel, D.-C.",
+    "Year": "1997",
+    "Title": "Oxidation of tri- and perchloroethene in aqueous solution with ozone and hydrogen peroxide in a tube reactor",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2133",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Rashid, M.M. and Sato, C.",
+    "Year": "2011",
+    "Title": "Photolysis, sonolysis, and photosonolysis of trichloroethane (TCA), trichloroethylene (TCE), and tetrachloroethylene (PCE) without catalyst",
+    "Source": "Water Air Soil Pollut"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2134",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Yu, J.J. and Chou, S.Y.",
+    "Year": "2000",
+    "Title": "Contaminated site remedial investigation and feasibility removal of chlorinated volatile organic compounds from groundwater by activated carbon fiber adsorption",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1614",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Hirvonen, A., Tuhkanen, T. and Kalliokoski, P.",
+    "Year": "1996",
+    "Title": "Treatment of TCE- and PCE-contaminated groundwater using UV/H2O2 and O3/H2O2 oxidation processes",
+    "Source": "Wat. Sci. Tech."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1246",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Gross, R. and TerMaath, S.",
+    "Year": "1985",
+    "Title": "Packed tower aeration strips trichloroethylene from groundwater",
+    "Source": "Environmental Progress"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1607",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Ogura, J., Kajiyama, Y. and Shiode, S.",
+    "Year": "2006",
+    "Title": "Report of BAC replacement in Osaka City",
+    "Source": "Water Practice & Technology"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2135",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Yangali-Quintanilla, V., Kim, T.-U., Kennedy, M. and Amy, G.",
+    "Year": "2008",
+    "Title": "Prediction of RO/NF membrane rejections of PhACs and organic compounds: a statistical analysis",
+    "Source": "http://www.drink-water-eng-sci-discuss.net/1/21/2008/dwesd-1-21-2008.html"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1629",
+    "Treatment Process": "N/A",
+    "Author": "World Health Organization",
+    "Year": "2005",
+    "Title": "Trichloroethene in drinking-water - Background document for development of WHO Guidelines for Drinking-water Quality",
+    "Source": "Trichloroethene in drinking-water - Background document for development of WHO Guidelines for Drinking-water Quality"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1627",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Zander, A., Semmens, M. and Narbaitz, R.",
+    "Year": "1989",
+    "Title": "Removing VOCs by membrane stripping",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2131",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Choo, K., Chang, D., Park, K. and Kim, M.",
+    "Year": "2008",
+    "Title": "Use of an integrated photocatalysis/hollow fiber microfiltration system for the removal of trichloroethylene in water",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2136",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Erto, A., Andreozzi, R., Natale, F.D., Lancia, A. and Musmarra, D.",
+    "Year": "2010",
+    "Title": "Experimental and statistical analysis of trichloroethylene adsorption onto activated carbon",
+    "Source": "Chemical Engineering Journal"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2103",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Sato, C., Hartenstein, S.D. and Motes, W.",
+    "Year": "2001",
+    "Title": "Photosonolysis of TCA, TCE, and PCE in flow-through reactor system",
+    "Source": "Journal of Environmental Engineering"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1625",
+    "Treatment Process": "N/A",
+    "Author": "Mouawad, J.",
+    "Year": "1994",
+    "Title": "Treatment of trichloroethylene-contaminated water",
+    "Source": "University of California Los Angeles"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1633",
+    "Treatment Process": "Permanganate",
+    "Author": "Huang, K.-C., Hoag, G., Chheda, P., Woody, B. and Dobbs, G.",
+    "Year": "1999",
+    "Title": "Kinetic study of oxidation of trichloroethylene by potassium permanganate",
+    "Source": "Envir. Engrg. Sci."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "616",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Speth, T. and Miltner, R.",
+    "Year": "1990",
+    "Title": "Adsorption capacity of GAC for synthetic organics",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1620",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "McKinnon, R. and Dyksen, J.",
+    "Year": "1984",
+    "Title": "Removing organics from groundwater through aeration plus GAC",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1635",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Byers, W. and Morton, C.",
+    "Year": "1985",
+    "Title": "Removing VOC from groundwater; pilot, scale-up, and operating experience",
+    "Source": "Environmental Progress"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1612",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Karimi, A., Redman, J., Glaze, W. and Stolarik, G.",
+    "Year": "1997",
+    "Title": "Evaluating an AOP for TCE and PCE removal",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1631",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Yasunaga, N. and Hirotsuji, J.",
+    "Year": "2008",
+    "Title": "Efficient decomposition of trichloroethylene (TCE) in groundwater by ozone-hydrogen peroxide treatment",
+    "Source": "Ozone: Science and Engineering"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2137",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Crittenden, J.C., Liu, J., Hand, D.W. and Perram, D.L.",
+    "Year": "1997",
+    "Title": "Photocatalytic oxidation of chlorinated hydrocarbons in water",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1609",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Pota, A.",
+    "Year": "1998",
+    "Title": "Enhanced removal of TCE from drinking waters using reverse stratified tapered adsorbers",
+    "Source": "AWWA Annual Conference"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1606",
+    "Treatment Process": "Aeration and Air Stripping",
+    "Author": "Amy, G., Narbaitz, R. and Cooper, W.",
+    "Year": "1987",
+    "Title": "Removing VOCs from groundwater containing humic substances by means of coupled air stripping and adsorption",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1619",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Crittenden, J., Luft, P., Hand, D., Oravitz, J., Loper, S. and Ari, M.",
+    "Year": "1985",
+    "Title": "Prediction of multicomponent adsorption equilibria using ideal adsorbed solution theory",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2138",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Hirvonen, A., Tuhkanen, T. and Kalliokoski, P.",
+    "Year": "1996",
+    "Title": "Formation of chlorinated acetic acids during UV/H2O2-oxidation of ground water contaminated with chlorinated ethylenes",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2140",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Topudurti, K., Keefe, M., Wooliever, P. and Norma, L.",
+    "Year": "1994",
+    "Title": "Field evaluation of Perox-Pure chemical oxidation technology",
+    "Source": "Wat. Sci. Tech."
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1634",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Li, L., Quinlivan, P. and Knappe, D.",
+    "Year": "2002",
+    "Title": "Effects of activated carbon surface chemistry and pore structure on teh adsorption of organic contaminants from aqueous solution",
+    "Source": "Carbon"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "2102",
+    "Treatment Process": "Ultraviolet Irradiation and Ozone",
+    "Author": "Even-Ezra, I., Mizrahi, A., Gerrity, D., Snyder, S., Salveson, A. and Lahav, O.",
+    "Year": "2009",
+    "Title": "Application of a novel plasma-based advanced oxidation process for efficient and cost-effective destruction of refractory organics in tertiary effluents and contaminated groundwater",
+    "Source": "Desalination and Water Treatment"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1250",
+    "Treatment Process": "N/A",
+    "Author": "Electronic Code of Federal Regulations, United States",
+    "Year": "2009",
+    "Title": "Title 40, Part 141, Subpart G, Section 141.61 Maximum contaminant levels for organic contaminants",
+    "Source": "http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&sid=a05e26cfb3d8ea7be7ac637c411c4c39&rgn=div8&view=text&node=40:22.0.1.1.3.7.16.2&idno=40"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1621",
+    "Treatment Process": "N/A",
+    "Author": "Ball, W., Jones, M. and Kavanaugh, M.",
+    "Year": "1984",
+    "Title": "Mass transfer of volatile organic compounds in packed tower aeration",
+    "Source": "Journal of the Water Pollution Control Federation"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1252",
+    "Treatment Process": "N/A",
+    "Author": "US Department of Health and Human Services, Agency for Toxic Substances and Disease Registry",
+    "Year": "1997",
+    "Title": "Toxicological Profile for Trichloroethylene",
+    "Source": "Toxicological Profile for Trichloroethylene"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Ref#": "1618",
+    "Treatment Process": "Ozone",
+    "Author": "Gehringer, P., Proksch, E. and Szinovatz, W.",
+    "Year": "1988",
+    "Title": "Decomposition of trichloroethylene and tetrachloroethylene in drinking water by a combined radiation/ozone treatment",
+    "Source": "Wat. Res."
+  }
+]
