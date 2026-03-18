@@ -1,0 +1,348 @@
+{
+  "case_id": "WContBench_D_117",
+  "case_name": "Agricultural reuse of mixed industrial-municipal wastewater with cyanide, chlorinated solvent legacy impacts, and cobalt under uncertain influent composition",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Cyanide",
+      "Cis-1,2-dichloroethylene",
+      "Cobalt"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "legacy_contamination",
+      "evolving_standards",
+      "mixed_organic_inorganic"
+    ],
+    "pollution_pattern": "complex_mixed_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for treating mixed industrial-municipal wastewater to agricultural reuse quality under uncertain contaminant variability, mixed organic-inorganic pollution, and evolving compliance expectations.",
+  "input_data": {
+    "scenario_background": "A peri-urban utility receives municipal wastewater blended with intermittent industrial contributions from metal finishing, electroplating, and a legacy solvent-impacted drainage area. Cyanide and cobalt are periodically detected, while cis-1,2-dichloroethylene appears episodically after rainfall and groundwater intrusion, suggesting a partially characterized legacy plume rather than a steady source. The irrigation district wants reuse water for non-potable agricultural application, but regulators have signaled that future scrutiny may increase for trace organics and metal accumulation in soils. The exact peak concentrations and presence of related chlorinated VOCs are not fully known, so treatment must be robust to uncertainty rather than optimized only for average conditions.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_wastewater",
+      "pH": 7.3,
+      "temperature_C": 24,
+      "turbidity_NTU": 19,
+      "TSS_mg_L": 42,
+      "COD_mg_L": 118,
+      "BOD5_mg_L": 46,
+      "TOC_mg_L": 24,
+      "ammonia_mg_L_as_N": 17,
+      "nitrate_mg_L_as_N": 2.8,
+      "total_nitrogen_mg_L_as_N": 26,
+      "total_phosphorus_mg_L_as_P": 5.1,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 210,
+      "TDS_mg_L": 960,
+      "conductivity_uS_cm": 1520,
+      "chloride_mg_L": 210,
+      "sulfate_mg_L": 118,
+      "cyanide_total_mg_L": 0.18,
+      "cobalt_mg_L": 0.11,
+      "cis_1_2_dichloroethylene_ug_L": 46,
+      "iron_mg_L": 0.9,
+      "zinc_mg_L": 0.14,
+      "oil_and_grease_mg_L": 4.5,
+      "fecal_coliform_CFU_100mL": 180000,
+      "influent_variability": "high",
+      "trace_contaminant_note": "cis_1_2_dichloroethylene_is_confirmed_but_other_related_chlorinated_VOCs_and_complexed_metal_species_are_suspected_not_fully_characterized",
+      "sampling_note": "cyanide_and_cobalt_show_pulses_during_industrial_discharge_windows_and_VOC_spikes_are_observed_after_wet_weather_events"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Produce reclaimed water suitable for agricultural reuse with reliable reduction of pathogens, suspended solids, nitrogen-related impacts, cyanide, cobalt, and chlorinated solvent risk, while maintaining salinity at a level acceptable for the intended irrigation crops and soils.",
+      "secondary_goals": [
+        "maintain performance under intermittent industrial shock loads",
+        "limit long-term soil metal accumulation risk",
+        "address uncertain legacy VOC occurrences with a defensible multi-barrier approach",
+        "avoid recommending a train that is overly sensitive to fluctuating cyanide toxicity",
+        "balance agricultural reuse quality with moderate budget and operator capability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "metal-bearing sludge can be managed off-site in limited quantities; frequent carbon replacement or large brine volumes are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_industrial_inputs_and_uncertain_legacy_VOC_peaks"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_source_control_buffering",
+          "alkaline_chlorination_or_equivalent_controlled_cyanide_oxidation",
+          "coagulation_precipitation_for_metals_and_clarification",
+          "biological_nutrient_removal",
+          "dual_media_filtration",
+          "air_stripping_or_packed_tower_aeration_with_off_gas_control",
+          "granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_source_control_buffering": "dampen variable industrial pulses, enable safer cyanide management, and reduce shock loading to downstream biological treatment",
+          "alkaline_chlorination_or_equivalent_controlled_cyanide_oxidation": "destroy cyanide under controlled pH and oxidation conditions before biological exposure",
+          "coagulation_precipitation_for_metals_and_clarification": "remove cobalt and associated particulate or hydroxide-forming metals and reduce suspended solids",
+          "biological_nutrient_removal": "reduce BOD, residual COD, ammonia, and nitrogen-related irrigation impacts",
+          "dual_media_filtration": "polish solids and protect downstream VOC and organics polishing units",
+          "air_stripping_or_packed_tower_aeration_with_off_gas_control": "remove volatile chlorinated solvent mass including cis-1,2-dichloroethylene where transfer conditions are favorable",
+          "granular_activated_carbon_polishing": "capture residual VOCs and other trace organics not fully characterized",
+          "final_disinfection": "control pathogen risk for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "this train directly addresses the mixed inorganic and organic profile using staged barriers rather than relying on one dominant unit process",
+          "cyanide should be managed before biological treatment because episodic toxicity could destabilize nitrification and broader biological performance",
+          "cobalt removal is reasonably aligned with precipitation-based metals control after cyanide destruction and pH adjustment",
+          "air stripping plus GAC provides a risk-aware response to confirmed cis-1,2-dichloroethylene and suspected related VOC uncertainty",
+          "the train better matches agricultural reuse than desalination-heavy options because TDS is elevated but not so high that RO is automatically justified for all crop scenarios",
+          "equalization is essential because the influent is explicitly variable and partially characterized"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "cyanide oxidation must be tightly controlled to avoid incomplete destruction or formation of undesirable oxidant byproducts, especially under variable industrial chemistry",
+          "air stripping effectiveness for cis-1,2-dichloroethylene depends on temperature, Henrys-law behavior, and off-gas treatment design; site piloting is advisable",
+          "if cobalt is present in strong complexes, precipitation performance may be lower than expected and polishing may be needed",
+          "other chlorinated VOCs are suspected but not fully characterized, so GAC empty-bed contact time and replacement frequency remain uncertain",
+          "salinity and chloride may still restrict use on salt-sensitive crops even if contaminant removal is successful"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_cyanide_oxidation_and_industrial_wastewater_control",
+          "EPA_and_state_reuse_guidance_for_agricultural_reclaimed_water",
+          "engineering_practice_for_metal_precipitation_in_mixed_industrial_wastewater",
+          "EPA_case_knowledge_on_air_stripping_and_GAC_for_VOC_control",
+          "WHO_FAO_irrigation_water_quality_salinity_and_trace_element_guidance"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "cyanide_oxidation",
+          "metal_precipitation_and_high_rate_clarification",
+          "MBR",
+          "granular_activated_carbon",
+          "UV_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable influent quality and flow",
+          "cyanide_oxidation": "reduce acute cyanide toxicity before biomass contact",
+          "metal_precipitation_and_high_rate_clarification": "remove cobalt and lower solids loading",
+          "MBR": "provide strong BOD, ammonia, and solids removal with compact high-quality effluent",
+          "granular_activated_carbon": "polish residual VOCs and trace organics",
+          "UV_or_chlorine_disinfection": "ensure pathogen control for reuse application"
+        },
+        "applicability_rationale": [
+          "MBR can provide stable low-turbidity effluent that is attractive for irrigation reuse distribution systems",
+          "the approach is compact and robust for municipal-organic loading while still allowing front-end control of cyanide and cobalt",
+          "GAC provides a flexible polishing barrier where VOC composition is not completely known",
+          "this option may outperform conventional activated sludge on solids polishing and pathogen precursor reduction"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "membrane fouling risk rises if front-end metals and oxidant residual control are inconsistent",
+          "MBR biology remains vulnerable if cyanide spikes bypass or overwhelm the oxidation step",
+          "GAC alone may be insufficient for higher-than-expected VOC peaks or unknown co-contaminants",
+          "operator skill and maintenance demand may exceed a medium-complexity preference during upset conditions"
+        ],
+        "evidence_list": [
+          "water_reuse_frameworks_supporting_MBR_for_nonpotable_reuse",
+          "EPA_guidance_on_cyanide_toxicity_and_need_for_pretreatment_before_biological_processes",
+          "public_case_knowledge_for_GAC_polishing_of_chlorinated_organics",
+          "membrane_bioreactor_design_practice_for_municipal_industrial_blends"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "cyanide_oxidation",
+          "coagulation_precipitation_and_clarification",
+          "biological_treatment",
+          "ozone_or_UV_peroxide_as_contingency_polishing",
+          "biological_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent and allow controlled dosing",
+          "cyanide_oxidation": "destroy cyanide prior to downstream biological exposure",
+          "coagulation_precipitation_and_clarification": "remove cobalt and reduce suspended and colloidal matter",
+          "biological_treatment": "remove conventional organics and ammonia",
+          "ozone_or_UV_peroxide_as_contingency_polishing": "provide additional oxidation capacity for partially characterized trace organics where adsorption alone may be insufficient",
+          "biological_activated_carbon": "adsorb and biologically polish residual dissolved organics",
+          "final_disinfection": "meet microbial expectations for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "this is a defensible multi-barrier option when the utility wants an explicit response to evolving standards for trace organics",
+          "advanced oxidation can serve as a contingency where VOC and unknown organics profiles shift over time",
+          "biological activated carbon offers broader polishing than conventional filtration alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "advanced oxidation is less directly efficient for all chlorinated solvent scenarios than physical removal and may not be the most economical primary control for cis-1,2-dichloroethylene",
+          "oxidation chemistry under variable bromide or organic matrix conditions may create byproduct-management questions",
+          "process tuning is more complex and may be difficult without detailed characterization of the emerging contaminant profile",
+          "this option may over-treat average conditions while still requiring pilot verification for peak events"
+        ],
+        "evidence_list": [
+          "AWWA_and_water_reuse_guidance_on_advanced_oxidation_for_trace_organics",
+          "EPA_guidance_for_agricultural_reuse_multi_barrier_treatment",
+          "engineering_case_knowledge_for_BAC_polishing_after_oxidation",
+          "public_guidance_on_metal_precipitation_and_clarification"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "cyanide_oxidation",
+          "coagulation_and_clarification",
+          "biological_treatment",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer flow and concentration swings",
+          "cyanide_oxidation": "protect biology and lower cyanide concentration",
+          "coagulation_and_clarification": "remove cobalt and suspended solids",
+          "biological_treatment": "reduce BOD and ammonia",
+          "ultrafiltration": "polish solids and protect RO",
+          "reverse_osmosis": "reduce TDS, metals, and many dissolved contaminants to produce high-quality reclaimed water",
+          "final_disinfection": "ensure microbial safety"
+        },
+        "applicability_rationale": [
+          "RO is a technically strong polishing barrier if regulators or crop plans become highly restrictive for salinity and trace contaminant exposure",
+          "the train offers substantial contaminant removal margin under uncertainty",
+          "it may become attractive if future standards tighten or if salt-sensitive crops dominate reuse demand"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "this option is likely over-conservative for current average water quality and conflicts with the stated sensitivity to energy and residuals",
+          "brine management is a major unresolved issue for agricultural reuse facilities with limited concentrate disposal options",
+          "membrane fouling or oxidation residual carryover can increase operational fragility",
+          "RO does not remove the need for robust front-end cyanide control and source monitoring"
+        ],
+        "evidence_list": [
+          "water_reuse_guidance_on_UF_RO_trains_for_high_quality_reclaimed_water",
+          "EPA_case_knowledge_on_membrane_treatment_tradeoffs_and_brine_management",
+          "FAO_irrigation_guidance_relating_salinity_control_to_crop_tolerance"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "conventional_activated_sludge",
+          "secondary_clarification",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "conventional_activated_sludge": "remove biodegradable organics under standard municipal treatment conditions",
+          "secondary_clarification": "settle biomass solids",
+          "sand_filtration": "provide basic effluent polishing",
+          "chlorination": "reduce microbial risk"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline to show that standard municipal treatment alone is not sufficient for this mixed contaminant scenario",
+          "it may address routine BOD and solids reduction but does not provide targeted control for cyanide, cobalt, or chlorinated solvent uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "medium_good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cyanide shock loads could inhibit biological treatment and cause compliance instability",
+          "cobalt removal would be unreliable and may permit gradual soil accumulation risk under irrigation reuse",
+          "cis-1,2-dichloroethylene would not be adequately addressed by this train",
+          "conventional treatment without targeted polishing is poorly aligned with evolving standards and legacy contamination concerns"
+        ],
+        "evidence_list": [
+          "basic_municipal_treatment_references_showing_limitations_for_industrial_trace_contaminants",
+          "EPA_reuse_guidance_emphasizing_fit_for_purpose_multi_barrier_design"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "treatment trains with explicit cyanide pretreatment should rank above trains that expose biology directly to uncertain cyanide pulses",
+        "multi-barrier trains addressing both VOC uncertainty and cobalt removal should rank above conventional municipal-only approaches",
+        "equalization should appear in higher-ranked options because influent variability and episodic wet-weather VOC intrusion are central to the case",
+        "desalination-heavy options may appear but should not automatically rank first because agricultural reuse need is crop- and salinity-specific rather than universally requiring RO"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "legacy solvent contamination is episodic and not fully characterized, so recommendations should include uncertainty-aware polishing or contingency logic",
+        "mixed organic-inorganic contamination requires staged treatment rather than single-process solutions",
+        "agricultural reuse requires discussion of pathogens, salinity, and long-term soil metal implications",
+        "energy and residuals constraints should temper enthusiasm for RO or highly chemical-intensive treatment"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why cyanide should usually be controlled before biological treatment",
+        "why cobalt is commonly handled through precipitation or related metal-removal chemistry",
+        "why VOC management may need air stripping, adsorption, or another dedicated barrier rather than relying only on conventional biology",
+        "why simple municipal treatment is insufficient under uncertain industrial and legacy contamination conditions"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty about related chlorinated VOCs beyond cis-1,2-dichloroethylene",
+        "possible cyanide toxicity shocks to nitrification and biomass stability",
+        "cobalt speciation or complexation uncertainty affecting precipitation performance",
+        "off-gas handling needs if air stripping is recommended",
+        "salinity and chloride impacts on crop suitability even if contaminant targets are met",
+        "tradeoffs between stronger contaminant barriers and increased sludge, carbon replacement, or brine burdens"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

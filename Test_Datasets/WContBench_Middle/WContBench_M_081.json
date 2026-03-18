@@ -1,0 +1,320 @@
+{
+  "case_id": "WContBench_M_081",
+  "case_name": "Potable reuse treatment for surface water impacted by Salmonella enterica serovar Typhi, chlortetracycline, and cyanide under cost and low-complexity constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "S. typhi",
+      "Chlortetracycline",
+      "Cyanide"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface water intended for potable reuse that contains Salmonella enterica serovar Typhi, chlortetracycline, and cyanide while balancing contaminant removal, cost, operator burden, and residuals handling.",
+  "input_data": {
+    "scenario_background": "A peri-urban utility is upgrading a riverbank-fed surface water reuse scheme to produce potable reuse water after repeated upstream sewage intrusion and intermittent discharge from a small metal-finishing and livestock-pharmaceutical corridor. The source shows microbial risk from Salmonella enterica serovar Typhi, detectable antibiotic contamination, and cyanide at levels requiring reliable reduction before finished water production. The utility has limited staffing and cannot support highly complex membrane or advanced oxidation systems unless the performance benefit clearly outweighs added cost and residuals burden. The treatment choice therefore hinges on balancing pathogen control, trace-organic and cyanide reduction, sludge or brine management, and stable compliance under variable surface-water quality.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 24.0,
+      "turbidity_NTU": 18.5,
+      "color_PCU": 46,
+      "DOC_mg_L": 6.9,
+      "TOC_mg_L": 8.1,
+      "UV254_cm_1": 0.182,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 134,
+      "conductivity_uS_cm": 512,
+      "ammonia_mg_L_as_N": 0.62,
+      "nitrate_mg_L_as_N": 3.7,
+      "chloride_mg_L": 41,
+      "sulfate_mg_L": 58,
+      "iron_mg_L": 0.28,
+      "manganese_mg_L": 0.05,
+      "target_contaminants": {
+        "S_typhi_CFU_per_100mL": 180,
+        "Chlortetracycline_ug_L": 3.8,
+        "Cyanide_mg_L": 0.095
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should achieve reliable pathogen inactivation and contaminant reduction suitable for potable reuse, including cyanide reduction to below drinking-water-relevant levels and strong reduction of chlortetracycline.",
+      "secondary_goals": [
+        "maintain low operator burden for a small utility",
+        "avoid difficult brine or hazardous residual generation",
+        "provide robustness to turbidity and contaminant variability",
+        "limit disinfection byproduct precursor carryover"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low",
+      "residuals_management": "prefer conventional sludge handling and avoid high-strength concentrate or specialized hazardous residual streams where possible",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment train should tolerate seasonal swings in turbidity, organic matter, and intermittent cyanide spikes without highly specialized operator intervention"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "granular_activated_carbon",
+          "chlorination_with_controlled_breakpoint_and_contact_time",
+          "final_disinfection_residual_management"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and a portion of organic matter to stabilize downstream treatment",
+          "rapid_sand_filtration": "polish particulate matter and reduce pathogen shielding",
+          "granular_activated_carbon": "adsorb chlortetracycline and reduce oxidant demand and organic precursors",
+          "chlorination_with_controlled_breakpoint_and_contact_time": "inactivate Salmonella enterica serovar Typhi and oxidize free cyanide under controlled pH and CT conditions",
+          "final_disinfection_residual_management": "maintain distribution protection and verify finished-water microbiological safety"
+        },
+        "applicability_rationale": [
+          "This train combines conventional clarification and filtration for variable surface water with a relatively simple adsorptive-polishing step and familiar disinfection chemistry.",
+          "Granular activated carbon is a practical route for reducing chlortetracycline after solids and natural organic matter are lowered, improving adsorption efficiency and reducing oxidant demand.",
+          "Chlorination is a well-established barrier for Salmonella control and can also oxidize free cyanide at the modest concentration present when process control is maintained.",
+          "Compared with membrane-based or ozone-based trains, this option better matches medium-low capital and O&M limits and avoids concentrate management.",
+          "Residuals are mainly conventional sludge and spent carbon, which are generally easier to manage than brine or multiple chemical residual streams."
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "High DOC or seasonal turbidity spikes can shorten GAC run length and increase chlorine demand.",
+          "Cyanide oxidation performance depends on cyanide speciation and pH control; complexed cyanide would be less amenable than free cyanide.",
+          "Chlorination following organic-rich water can elevate disinfection byproduct formation if upstream NOM removal is not maintained.",
+          "Spent carbon replacement or reactivation logistics are still required."
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_safe_drinking_water_disinfection_and_enteric_pathogen_control",
+          "EPA_surface_water_treatment_principles_for_coagulation_filtration_and_disinfection",
+          "AWWA_case_knowledge_for_GAC_removal_of_trace_organic_micropollutants",
+          "public_guidance_on_cyanide_oxidation_by_chlorination_in_water_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "powdered_activated_carbon",
+          "chlorination_with_controlled_breakpoint_and_contact_time",
+          "final_disinfection_residual_management"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove bulk suspended matter and associated organic load",
+          "rapid_sand_filtration": "provide clarification polishing before final barriers",
+          "powdered_activated_carbon": "adsorb chlortetracycline as a flexible dose-adjustable micropollutant control step",
+          "chlorination_with_controlled_breakpoint_and_contact_time": "inactivate Salmonella enterica serovar Typhi and oxidize free cyanide",
+          "final_disinfection_residual_management": "maintain disinfectant residual and final potable reuse protection"
+        },
+        "applicability_rationale": [
+          "PAC can be a credible alternative to GAC when capital funds are tighter and the utility wants dosing flexibility for intermittent pharmaceutical peaks.",
+          "The train still relies on well-known conventional treatment and chlorination, which fits low-complexity operations better than advanced membrane systems.",
+          "PAC can be integrated into existing clarification infrastructure with lower upfront cost than constructing dedicated GAC contactors.",
+          "This route is favored when source contamination is somewhat episodic and media replacement infrastructure for GAC is less attractive."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC transfers contaminants into sludge, increasing sludge mass and potentially complicating residuals handling.",
+          "Micropollutant removal can be less predictable than fixed-bed GAC if dosing and contact time are not optimized.",
+          "Poor solids separation can reduce the benefit of PAC and increase carryover.",
+          "Chlorine demand remains sensitive to upstream organic fluctuations."
+        ],
+        "evidence_list": [
+          "AWWA_and_utility_practice_references_for_PAC_use_in_taste_odor_and_micropollutant_control",
+          "EPA_surface_water_treatment_guidance_for_clarification_filtration_and_disinfection",
+          "public_case_knowledge_on_chlorination_for_enteric_bacteria_inactivation",
+          "public_guidance_on_free_cyanide_oxidation_with_hypochlorite"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "biological_activated_carbon",
+          "chloramination_or_free_chlorine_final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and part of the natural organic matter load",
+          "rapid_sand_filtration": "provide turbidity reduction before biologically active adsorption",
+          "biological_activated_carbon": "combine adsorption and biodegradation for partial chlortetracycline and biodegradable organic matter removal",
+          "chloramination_or_free_chlorine_final_disinfection": "provide final pathogen control and distribution residual"
+        },
+        "applicability_rationale": [
+          "BAC can be attractive where the utility wants longer-term carbon utilization and some biological polishing of organics.",
+          "This route may reduce downstream disinfectant demand compared with disinfection alone and can support trace-organic attenuation better than conventional treatment by itself.",
+          "It remains less energy intensive than membranes and avoids brine generation."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Biological filter management is more complex than standard GAC, especially for a low-staff utility.",
+          "BAC is not a standalone disinfection barrier and still requires robust final pathogen inactivation.",
+          "Cyanide reduction by BAC is not the primary control mechanism, so final oxidant management remains critical.",
+          "Biofilter upsets, seasonal temperature changes, or nutrient limitations can affect performance."
+        ],
+        "evidence_list": [
+          "public_knowledge_on_BAC_for_surface_water_organic_matter_and_trace_organic_control",
+          "EPA_and_AWWA_guidance_on_filtration_followed_by_final_disinfection",
+          "case_knowledge_on_biologically_active_carbon_operation_for_drinking_water"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "ozonation",
+          "biological_filtration",
+          "final_chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and reduce oxidant demand before ozone",
+          "media_filtration": "protect ozone and biological polishing from particulate load",
+          "ozonation": "oxidize chlortetracycline and contribute to cyanide transformation while improving disinfection",
+          "biological_filtration": "remove biodegradable oxidation byproducts and polish organics",
+          "final_chlorination": "provide final inactivation barrier and residual protection"
+        },
+        "applicability_rationale": [
+          "This is technically strong for simultaneous micropollutant degradation and robust multi-barrier pathogen control.",
+          "Ozone can be effective against many antibiotic compounds and can support cyanide oxidation, while biological filtration addresses oxidation byproducts.",
+          "The route may be justified where contaminant variability is severe and a stronger oxidation barrier is desired."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Ozone systems require higher operator skill, tighter process control, and more instrumentation than desired for this utility.",
+          "Bromate formation risk must be managed if bromide is present, even at modest concentrations.",
+          "Oxidation byproducts from chlortetracycline transformation require downstream biological polishing and verification.",
+          "This option may exceed the utility's preferred capital and O&M envelope despite technical capability."
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_ozonation_and_bromate_control_guidance",
+          "WHO_guidance_on_multi_barrier_disinfection_for_potable_water",
+          "public_case_knowledge_on_ozone_BAF_for_micropollutant_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "enhanced_pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "advanced_oxidation_or_uv_disinfection",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_pretreatment": "protect membranes from fouling and solids loading",
+          "nanofiltration_or_reverse_osmosis": "provide broad rejection of dissolved contaminants including cyanide species and some trace organics",
+          "advanced_oxidation_or_uv_disinfection": "provide additional pathogen and micropollutant control",
+          "stabilization": "adjust permeate chemistry for corrosion and distribution suitability",
+          "final_disinfection": "maintain finished-water microbiological protection"
+        },
+        "applicability_rationale": [
+          "Membrane-based treatment is technically capable and offers broad contaminant control suitable for potable reuse applications.",
+          "It can create a strong barrier against multiple dissolved contaminants and pathogens when integrated with proper pretreatment and post-treatment.",
+          "This option may be attractive if future regulations or source deterioration demand very high removal certainty across many contaminants."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "Concentrate management is a major misfit because cyanide- and antibiotic-containing reject streams require careful disposal or further treatment.",
+          "Membrane fouling risk is significant for variable surface water with moderate DOC and turbidity, increasing operator burden.",
+          "Post-treatment stabilization and advanced controls increase system complexity for a low-staff plant.",
+          "Although technically effective, it is overmatched to the stated cost and residuals constraints."
+        ],
+        "evidence_list": [
+          "EPA_water_reuse_and_membrane_treatment_guidance",
+          "public_guidance_on_RO_NF_concentrate_management_challenges",
+          "AWWA_case_knowledge_on_high_pressure_membrane_operation_for_surface_water_reuse"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional clarification_filtration plus activated carbon and chlorination should rank near the top",
+        "PAC-based treatment should appear as a plausible lower-capex alternative but not necessarily first due to sludge trade-offs",
+        "ozone-based and membrane-based options should rank below simpler trains because of cost and operator complexity",
+        "at least one technically capable advanced option should be downgraded due to residuals or complexity misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited staffing and preference for familiar low-complexity treatment",
+        "importance of avoiding difficult brine or specialized hazardous residual handling",
+        "need to balance microbial safety with trace-organic and cyanide reduction rather than optimizing only one contaminant"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why clarification and filtration are needed ahead of adsorption or disinfection for variable surface water",
+        "why chlorination is relevant for Salmonella enterica serovar Typhi control and can also address free cyanide under controlled conditions",
+        "why activated carbon helps with chlortetracycline but creates media or sludge management trade-offs",
+        "why technically strong membrane or ozone routes are downgraded under the stated cost and O&M constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "cyanide speciation uncertainty",
+        "DBP formation risk under chlorination",
+        "adsorbent exhaustion or sludge handling burden",
+        "surface-water variability and treatment robustness"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "case_id": "WContBench_M_094",
+  "case_name": "River water treatment for nitrobenzene and molinate prior to groundwater recharge under moderate cost and limited-operator conditions",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Nitrobenzene",
+      "Molinate"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river water containing nitrobenzene and molinate intended for groundwater recharge, balancing contaminant removal, cost, operational simplicity, and residuals handling.",
+  "input_data": {
+    "scenario_background": "A regional water reuse project plans to divert seasonally impacted river water to infiltration basins for managed aquifer recharge. Monitoring has detected nitrobenzene from upstream industrial discharge and molinate associated with agricultural runoff during irrigation season. Several treatment routes are technically possible, but the utility has only moderately trained operators and wants to avoid both high-pressure systems and treatment trains that create difficult residual streams. The ranking therefore depends on balancing reliable removal of both organics with moderate capital cost, practical operation, and manageable solids or spent-media handling.",
+    "water_quality": {
+      "source_type": "river_water",
+      "pH": 7.6,
+      "temperature_C": 19.4,
+      "turbidity_NTU": 12.8,
+      "TSS_mg_L": 18.0,
+      "DOC_mg_L": 5.4,
+      "TOC_mg_L": 6.8,
+      "UV254_cm_1": 0.142,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 146,
+      "conductivity_uS_cm": 472,
+      "ammonia_mg_L_as_N": 0.21,
+      "nitrate_mg_L_as_N": 2.9,
+      "sulfate_mg_L": 41,
+      "chloride_mg_L": 36,
+      "iron_ug_L": 180,
+      "manganese_ug_L": 24,
+      "target_contaminants": {
+        "Nitrobenzene_ug_L": 38,
+        "Molinate_ug_L": 21
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should achieve robust reduction of nitrobenzene and molinate to support protective groundwater recharge operation and minimize risk of trace-organic migration to the aquifer.",
+      "secondary_goals": [
+        "maintain stable performance despite variable river-water turbidity and organic matter",
+        "avoid highly specialized operator oversight",
+        "limit difficult concentrate or hazardous residual generation",
+        "preserve a treatment train practical for year-round municipal operation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids handling or spent-media replacement over complex liquid concentrate management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal swings in turbidity and natural organic matter without frequent expert intervention"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "managed_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and reduce particulate and dissolved organic loading ahead of adsorption",
+          "dual_media_filtration": "polish turbidity and protect downstream carbon beds from fouling",
+          "granular_activated_carbon": "adsorb nitrobenzene and molinate and provide buffering against concentration fluctuations",
+          "managed_recharge_post_stabilization": "confirm water quality compatibility for infiltration and aquifer protection"
+        },
+        "applicability_rationale": [
+          "both nitrobenzene and molinate are hydrophobic organic micropollutants for which activated carbon is a recognized control approach",
+          "upstream clarification and filtration are important because the river has moderate turbidity and DOC that would otherwise shorten GAC bed life",
+          "the process train uses conventional surface-water unit operations familiar to municipal operators and avoids the higher complexity of ozone-biological or membrane systems",
+          "spent carbon handling is generally more manageable than liquid concentrate disposal for this utility",
+          "this route provides a practical balance of contaminant removal reliability, moderate cost, and limited operator burden"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "DOC competition can increase carbon replacement frequency during high-organic periods",
+          "breakthrough monitoring is needed because molinate and nitrobenzene loading may vary seasonally",
+          "clarifier sludge and spent carbon still require proper off-site management"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_GAC_for_synthetic_organic_chemical_removal",
+          "surface_water_treatment_practice_for_clarification_filtration_before_adsorption",
+          "managed_aquifer_recharge_case_knowledge_emphasizing_trace_organic_control_before_recharge"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "biological_activated_filtration",
+          "managed_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and part of NOM to improve downstream adsorption and biological stability",
+          "dual_media_filtration": "provide particulate polishing",
+          "powdered_activated_carbon_contact": "capture a portion of dissolved organic micropollutants during periods of contamination",
+          "biological_activated_filtration": "polish biodegradable organics and support additional removal after PAC-assisted treatment",
+          "managed_recharge_post_stabilization": "ensure finished water remains suitable for recharge application"
+        },
+        "applicability_rationale": [
+          "PAC can be effective for episodic organic contaminant events and may reduce fixed-bed replacement needs",
+          "the approach can be cost-competitive when contamination is seasonal rather than constant",
+          "biological filtration can help lower assimilable organic matter and improve overall water quality for recharge",
+          "this route remains more conventional than advanced oxidation plus biologically active treatment, but it requires more process attention than fixed-bed GAC"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing control and sludge production increase operational attention",
+          "micropollutant removal can be less predictable than well-designed GAC beds if contact time is insufficient",
+          "biological filtration performance can vary with temperature and nutrient conditions"
+        ],
+        "evidence_list": [
+          "AWWA_case_knowledge_for_PAC_use_during_taste_odor_and_trace_organic_events",
+          "public_guidance_on_biological_filtration_as_polishing_after_adsorbent_or_oxidation_steps",
+          "surface_water_plant_operational_references_on_PAC_and_solids_handling"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "managed_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and reduce precursor loading before oxidation",
+          "dual_media_filtration": "protect ozone and BAC stages from particulate upsets",
+          "ozonation": "oxidize susceptible organic contaminants and transform part of the dissolved organic matrix",
+          "biological_activated_carbon": "adsorb residual organics and biologically polish ozonation byproducts",
+          "managed_recharge_post_stabilization": "verify compatibility with recharge objectives"
+        },
+        "applicability_rationale": [
+          "ozone followed by BAC is a technically strong multi-barrier route for many trace organics in surface water",
+          "the combination can improve resilience when there are mixed organic contaminants and variable river-water quality",
+          "BAC provides additional buffering if oxidation alone does not fully control target compounds",
+          "however, ozone systems add process complexity, off-gas safety considerations, and tighter operator control requirements than adsorption-dominant options"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation effectiveness for specific compounds depends on reaction kinetics and water matrix conditions",
+          "formation of transformation products requires attention and BAC performance monitoring",
+          "operator training and instrumentation demands are higher than for conventional clarification plus GAC"
+        ],
+        "evidence_list": [
+          "EPA_and_AWWA_guidance_on_ozone_BAC_for_trace_organic_control",
+          "public_drinking_water_practice_references_for_ozonation_followed_by_biological_filtration",
+          "case_knowledge_on_need_for_byproduct_and_biological_polishing_management_after_ozone"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "enhanced_coagulation",
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "post_treatment_stabilization"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "lower fouling load ahead of membrane processes",
+          "ultrafiltration": "provide strong suspended solids and colloid control for membrane protection",
+          "nanofiltration_or_reverse_osmosis": "reject a broad range of dissolved organics including target micropollutants",
+          "post_treatment_stabilization": "adjust treated water chemistry for recharge compatibility"
+        },
+        "applicability_rationale": [
+          "high-pressure membranes are technically capable of achieving strong contaminant reduction across multiple organic targets",
+          "this route may be attractive if future source-water deterioration introduces salts or additional dissolved contaminants not well handled by adsorption alone",
+          "despite technical strength, it is downgraded because the project has moderate cost limits, limited operator skill, and a stated preference against difficult liquid residuals",
+          "for this case the broader capability of NF or RO is more than is necessary and does not align well with operating constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major challenge for inland facilities supporting recharge projects",
+          "membrane fouling and cleaning increase operational complexity and chemical handling needs",
+          "post-treatment is needed because low-mineral permeate may not be ideal for infiltration or aquifer compatibility"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_NF_RO_for_synthetic_organic_contaminant_control",
+          "membrane_treatment_case_knowledge_highlighting_concentrate_disposal_constraints",
+          "managed_recharge_practice_references_on_post_treatment_and_compatibility_after_RO"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "managed_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity and lower UV transmittance interferences before AOP",
+          "dual_media_filtration": "polish solids and protect UV reactors",
+          "uv_hydrogen_peroxide_advanced_oxidation": "generate hydroxyl radicals to oxidize susceptible dissolved organic contaminants",
+          "managed_recharge_post_stabilization": "confirm finished water quality for recharge use"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can degrade some organic micropollutants and is therefore technically plausible",
+          "the route is included because it may be considered where destruction rather than phase transfer is desired",
+          "it ranks low because river-water DOC and UV absorbance reduce AOP efficiency, increasing energy and oxidant demand",
+          "without downstream biologically active or adsorptive polishing, treatment reliability for mixed organics and byproducts is less attractive for a limited-skill utility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "water matrix scavenging can substantially reduce oxidation efficiency",
+          "transformation products may require additional polishing rather than direct recharge after AOP alone",
+          "lamp maintenance, peroxide handling, and process validation add complexity"
+        ],
+        "evidence_list": [
+          "public_guidance_on_UV_H2O2_AOP_for_trace_organic_contaminants",
+          "AOP_design_references_on_DOC_and_UV254_scavenging_effects",
+          "case_knowledge_showing_need_for_post_AOP_biological_or_adsorptive_polishing"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "adsorption-based trains with conventional pretreatment should rank near the top",
+        "ozone_BAC may appear as a technically strong but lower-ranked option because of operator-skill and cost constraints",
+        "NF_or_RO should not rank first under moderate cost and residuals-management limitations",
+        "at least one technically capable destruction-oriented option should rank below simpler adsorption routes"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "need to manage two organic micropollutants rather than a single contaminant",
+        "moderate municipal budget and avoidance of excessive energy demand",
+        "limited operator skill and preference for familiar surface-water treatment operations",
+        "concern about difficult concentrate handling for recharge projects"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why pretreatment is important before carbon or oxidation for river water with turbidity and DOC",
+        "why GAC or PAC are plausible for nitrobenzene and molinate as hydrophobic synthetic organic contaminants",
+        "why membrane systems are technically capable yet downgraded by residuals and complexity constraints",
+        "why oxidation routes may need polishing and more operational control"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal contaminant variability",
+        "DOC competition or oxidant scavenging effects",
+        "spent carbon or sludge management",
+        "transformation-product or breakthrough monitoring"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

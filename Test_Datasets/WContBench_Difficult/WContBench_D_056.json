@@ -1,0 +1,338 @@
+{
+  "case_id": "WContBench_D_056",
+  "case_name": "Stormwater recharge planning under uncertain pesticide and endocrine disruptor pulses near a mixed agricultural-industrial catchment",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Vinclozolin",
+      "17a-ethynyl estradiol",
+      "Aldicarb",
+      "Dichlorvos",
+      "Metolachlor"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "industrial_shock_load",
+      "brine_management_constraint",
+      "membrane_fouling_risk"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for stormwater runoff intended for groundwater recharge where pesticide and endocrine-active contaminants occur episodically and part of the dissolved organic contaminant mixture is not fully characterized.",
+  "input_data": {
+    "scenario_background": "A managed aquifer recharge project captures stormwater from a basin draining orchards, roadside drainage, warehouse areas, and a light industrial parcel with intermittent washdown events. Monitoring has confirmed several target pesticides and 17a-ethynyl estradiol, but storm-event sampling is sparse and short-duration concentration spikes are suspected during first flush and occasional industrial shock loads. The dissolved organic mixture is only partially characterized, with unknown transformation products and possible co-occurring urban runoff contaminants, so treatment must be robust under uncertainty rather than optimized for a fully defined influent.",
+    "water_quality": {
+      "source_type": "stormwater_runoff_from_mixed_agricultural_urban_catchment",
+      "pH": 7.4,
+      "temperature_C": 19.2,
+      "turbidity_NTU": 78,
+      "TSS_mg_L": 112,
+      "COD_mg_L": 46,
+      "BOD5_mg_L": 12,
+      "DOC_mg_L": 11.8,
+      "TOC_mg_L": 14.1,
+      "UV254_cm_1": 0.21,
+      "conductivity_uS_cm": 920,
+      "TDS_mg_L": 590,
+      "alkalinity_mg_L_as_CaCO3": 138,
+      "hardness_mg_L_as_CaCO3": 168,
+      "nitrate_mg_L_as_N": 3.6,
+      "ammonia_mg_L_as_N": 0.42,
+      "total_phosphorus_mg_L": 0.54,
+      "chloride_mg_L": 86,
+      "sulfate_mg_L": 74,
+      "iron_total_mg_L": 0.62,
+      "manganese_mg_L": 0.08,
+      "oil_and_grease_mg_L": 3.1,
+      "E_coli_CFU_100mL": 1800,
+      "contaminants_ug_L": {
+        "Vinclozolin": 0.62,
+        "17a_ethynyl_estradiol": 0.012,
+        "Aldicarb": 2.4,
+        "Dichlorvos": 0.35,
+        "Metolachlor": 1.8
+      },
+      "trace_contaminant_note": "additional_pesticide_metabolites_PFAS_and_urban_runoff_organics_are_suspected_but_not_fully_characterized",
+      "influent_variability": "high",
+      "event_pattern_note": "first_flush_peaks_and_occasional_industrial_washdown_shock_loads_are_possible"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should be appropriate for groundwater recharge with strong reduction of suspended solids, pathogens, dissolved organic matter, and trace organic contaminants including endocrine-active compounds and pesticides, while minimizing risk of passing unknown micropollutants to the aquifer.",
+      "secondary_goals": [
+        "maintain performance under storm-event variability and first-flush spikes",
+        "reduce fouling risk for any membrane-based barrier",
+        "limit concentrate production because brine disposal options are constrained",
+        "provide a conservative multi-barrier approach under incomplete contaminant characterization"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "spent_media_and_sludge_can_be_managed_but_brine_disposal_is_difficult_and_high-volume concentrate generation is strongly discouraged",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_quality_swings_and_possible_industrial_shock_loads"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "offline_equalization_or_detention",
+          "screening_and_hydrodynamic_separation",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_UV_H2O2",
+          "biological_activated_carbon",
+          "cartridge_or_media_filtration",
+          "UV_or_chloramination_for_recharge_system_biosecurity"
+        ],
+        "core_unit_functions": {
+          "offline_equalization_or_detention": "buffer first-flush peaks and damp short-term contaminant spikes before advanced treatment",
+          "screening_and_hydrodynamic_separation": "remove gross solids, grit, and floatables to reduce solids loading",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and particle-associated organic matter that would interfere with downstream oxidation and adsorption",
+          "ozonation_or_UV_H2O2": "oxidize many pesticides and endocrine-active trace organics and improve biodegradability of some dissolved organics",
+          "biological_activated_carbon": "adsorb residual micropollutants and biologically polish oxidation byproducts and DOC",
+          "cartridge_or_media_filtration": "final solids polishing and protection for recharge distribution infrastructure",
+          "UV_or_chloramination_for_recharge_system_biosecurity": "reduce pathogen risk in the finished recharge water and control biological regrowth in conveyance"
+        },
+        "applicability_rationale": [
+          "a non-brine multi-barrier train fits groundwater recharge where strong micropollutant control is needed but concentrate disposal is constrained",
+          "equalization is important because stormwater quality is highly variable and first-flush pesticide pulses are expected",
+          "advanced oxidation plus BAC is a defensible combination when the target list includes endocrine-active compounds such as 17a-ethynyl estradiol and pesticides with uncertain co-contaminants",
+          "pretreatment solids removal is necessary because stormwater turbidity and TSS are high enough to undermine oxidation efficiency and downstream adsorption",
+          "this train is more robust to partially characterized dissolved organics than adsorption alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation performance depends on water matrix effects and actual radical demand, which are uncertain because unknown organics are suspected",
+          "ozonation may create transformation products that require BAC polishing and confirmation monitoring",
+          "if shock loads are larger than assumed, BAC exhaustion or oxidation underdosing could allow breakthrough",
+          "pathogen targets for recharge may require site-specific validation beyond simple indicator removal"
+        ],
+        "evidence_list": [
+          "EPA_stormwater_reuse_and_managed_aquifer_recharge_multi_barrier_guidance",
+          "public_guidance_on_advanced_oxidation_and_BAC_for_trace_organic_control",
+          "case_knowledge_for_ozone_BAC_polishing_of_pesticides_and_endocrine_active_compounds"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_basin",
+          "coagulation_flocculation_and_settling",
+          "dual_media_filtration",
+          "granular_activated_carbon_lead_lag",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_basin": "moderate event-driven contaminant variability and protect downstream adsorbers from short-term spikes",
+          "coagulation_flocculation_and_settling": "reduce turbidity, TSS, and part of natural organic matter",
+          "dual_media_filtration": "polish solids and reduce particulate fouling of carbon beds",
+          "granular_activated_carbon_lead_lag": "adsorb hydrophobic and semi-polar micropollutants and provide operational redundancy for breakthrough management",
+          "UV_disinfection": "provide pathogen reduction for recharge application"
+        },
+        "applicability_rationale": [
+          "GAC is often appropriate for stormwater polishing where a broad but incompletely characterized trace organic mixture is present",
+          "lead-lag carbon operation is useful under uncertainty because it allows breakthrough tracking and conservative bed changeout",
+          "this option avoids brine generation and is simpler than membrane desalination trains",
+          "it is especially relevant if salinity is not the primary limiting factor for recharge and the main concern is organic micropollutant attenuation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "adsorption alone may be less reliable for very polar or rapidly varying compounds than oxidation-plus-BAC combinations",
+          "competitive adsorption from DOC and unknown organics may shorten bed life significantly",
+          "without a destructive step, some oxidation-sensitive contaminants or metabolites may persist",
+          "performance during severe industrial shock loads is uncertain unless equalization volume is adequate"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_GAC_use_in_organic_micropollutant_control",
+          "stormwater_treatment_case_knowledge_for_media_filtration_and_GAC_polishing",
+          "managed_aquifer_recharge_practice_emphasizing_source_control_and_multi_barrier_trace_organic_reduction"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_pre_sedimentation",
+          "coagulation_flocculation",
+          "ultrafiltration",
+          "nanofiltration",
+          "UV_advanced_oxidation_or_GAC_post_polish",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_pre_sedimentation": "buffer event variability and reduce coarse particulate load",
+          "coagulation_flocculation": "remove colloids and lower organic fouling precursors",
+          "ultrafiltration": "provide a strong particulate and microbial barrier and protect NF",
+          "nanofiltration": "remove a broad range of dissolved organics including many pesticides and reduce hardness and some dissolved salts",
+          "UV_advanced_oxidation_or_GAC_post_polish": "address lower-molecular-weight compounds, possible transformation products, and residual micropollutants",
+          "final_disinfection": "ensure microbiological safety in recharge conveyance"
+        },
+        "applicability_rationale": [
+          "this train offers a high-confidence dissolved contaminant barrier when conservative recharge protection is prioritized",
+          "NF can be effective for many trace organics and also improves broader water quality beyond the known target list",
+          "UF pretreatment is justified because stormwater solids are high and membrane fouling risk is otherwise substantial",
+          "post-polishing is prudent because the contaminant mixture is not fully characterized and membrane rejection alone should not be treated as complete assurance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine or concentrate management is a major drawback and conflicts with the stated residuals constraint",
+          "membrane fouling risk is significant under stormwater conditions, especially during first flush events or oil-and-grease excursions",
+          "actual rejection of all unknown transformation products is uncertain and should not be assumed without testing",
+          "higher operator skill and more intensive integrity monitoring are required"
+        ],
+        "evidence_list": [
+          "public_guidance_for_UF_NF_barriers_in_water_reuse_and_recharge",
+          "EPA_membrane_treatment_guidance_on_fouling_control_and_concentrate_management",
+          "case_knowledge_for_membrane_plus_post_polish_trains_when_trace_organics_are_uncertain"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "constructed_wetland_or_biofiltration_basin",
+          "coagulation_flocculation_if_needed",
+          "rapid_sand_filtration",
+          "powdered_activated_carbon_contact",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "constructed_wetland_or_biofiltration_basin": "attenuate solids, some nutrients, and part of the organic contaminant load through settling, filtration, sorption, and biodegradation",
+          "coagulation_flocculation_if_needed": "provide event-based enhancement when turbidity and colloids are too high for stable filtration",
+          "rapid_sand_filtration": "remove remaining particulates and polish biofilter effluent",
+          "powdered_activated_carbon_contact": "provide episodic adsorption support for micropollutants during storm events",
+          "UV_disinfection": "reduce pathogen indicators before recharge"
+        },
+        "applicability_rationale": [
+          "nature-based pretreatment with targeted chemical polishing can fit stormwater infrastructure and lower energy use",
+          "biofiltration is commonly used in stormwater management and can reduce particulate and some dissolved contaminant loads before advanced barriers",
+          "this option may be attractive where footprint is available and operators prefer less membrane dependence",
+          "it is included because stormwater treatment trains often leverage biofiltration before recharge, but uncertainty in the pesticide and endocrine-active fraction limits confidence"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "removal of the named micropollutants is likely too variable to rely on as a sole high-confidence recharge barrier",
+          "performance is weather-sensitive and may decline under cold conditions or hydraulic overloads",
+          "PAC dosing and solids separation during shock events can be operationally difficult",
+          "unknown dissolved contaminants may not be adequately controlled without stronger advanced treatment"
+        ],
+        "evidence_list": [
+          "stormwater_biofiltration_and_managed_aquifer_recharge_guidance",
+          "public_case_knowledge_on_constructed_wetlands_for_stormwater_polishing",
+          "guidance_on_PAC_as_contingency_adsorption_for_trace_organic_spikes"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "screening",
+          "sedimentation",
+          "sand_filtration",
+          "chlorination_or_UV"
+        ],
+        "core_unit_functions": {
+          "screening": "remove gross debris",
+          "sedimentation": "settle larger suspended solids",
+          "sand_filtration": "provide basic solids polishing",
+          "chlorination_or_UV": "reduce microbial indicators"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline conventional train",
+          "it can improve appearance and basic solids and microbial parameters but does not provide a robust barrier for dissolved pesticides and endocrine-active contaminants",
+          "it may only be suitable as front-end pretreatment to a stronger downstream process, not as a standalone recharge solution for this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of dissolved trace organics including 17a-ethynyl estradiol and the listed pesticides",
+          "offers little resilience against unknown contaminant fractions or industrial shock loads",
+          "does not adequately address recharge-specific precautionary concerns for aquifer protection",
+          "could create false confidence because conventional metrics may improve while micropollutants remain"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_references_for_stormwater",
+          "managed_aquifer_recharge_guidance_indicating_need_for_multi_barrier_control_of_trace_organics"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that explicitly address variable stormwater quality and dissolved micropollutants should rank above simple conventional treatment",
+        "non-brine advanced treatment options should generally outrank membrane concentrate-generating options because brine management is constrained",
+        "equalization or detention should appear in higher-ranked solutions because first-flush variability and shock loads are important"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "groundwater recharge requires conservative treatment logic because aquifer impacts are hard to reverse",
+        "the pollutant mixture is only partially characterized, so recommendations should not rely on a single mechanism of removal",
+        "membrane fouling risk from high stormwater solids and DOC should be explicitly recognized where UF NF or RO appears",
+        "brine management limitations should lower the ranking of desalination-heavy options even if they are technically effective"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why oxidation and/or activated carbon are relevant for pesticides and endocrine-active compounds",
+        "why pretreatment for turbidity and particulate matter is important before advanced polishing",
+        "why simpler stormwater treatment trains are inadequate as standalone solutions for uncertain micropollutant control in recharge applications"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty from sparse event-based sampling and suspected unknown transformation products",
+        "industrial shock load risk from intermittent washdown contributions to the catchment",
+        "breakthrough risk in activated carbon under high DOC competition or concentration spikes",
+        "membrane fouling and concentrate disposal if NF or RO-based options are proposed",
+        "possible formation of oxidation byproducts and the need for post-polishing and confirmatory monitoring"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

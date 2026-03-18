@@ -1,0 +1,371 @@
+{
+  "case_id": "WContBench_D_123",
+  "case_name": "Mine drainage potable reuse under uncertain mixed toxic-organic contamination and variable metals loading",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mine_drainage",
+    "contaminant_type": [
+      "Ricin",
+      "Natural Organic Matter",
+      "Methiocarb",
+      "Strychnine",
+      "Chlortetracycline"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for converting partially characterized mine drainage with mixed toxic organic contaminants into potable-reuse feed water under uncertainty, cost-energy tradeoffs, and residuals constraints.",
+  "input_data": {
+    "scenario_background": "A legacy mining district is evaluating treatment of collected mine drainage blended with seepage and intermittent storm-impacted holding-pond water for indirect potable reuse after advanced treatment. The water is consistently acidic and metal-bearing, but recent screening also detected several unusual toxic organics that may be linked to illegal dumping or historic pest-control storage near the site. Concentrations of the organics are based on limited grab samples, and additional unknown organic fractions are suspected but not fully characterized. Flow, iron loading, sulfate, and dissolved organic matter vary significantly during rainfall events, creating uncertainty in pretreatment and polishing requirements.",
+    "water_quality": {
+      "source_type": "mine_drainage_blended_with_storm_impacted_site_runoff",
+      "pH": 3.4,
+      "temperature_C": 14.8,
+      "turbidity_NTU": 41,
+      "TSS_mg_L": 58,
+      "acidity_mg_L_as_CaCO3": 310,
+      "alkalinity_mg_L_as_CaCO3": 8,
+      "conductivity_uS_cm": 2280,
+      "TDS_mg_L": 1490,
+      "sulfate_mg_L": 980,
+      "chloride_mg_L": 62,
+      "hardness_mg_L_as_CaCO3": 420,
+      "TOC_mg_L": 14.2,
+      "DOC_mg_L": 10.8,
+      "UV254_cm_1": 0.24,
+      "color_PCU": 95,
+      "natural_organic_matter_mg_L_as_DOC": 10.8,
+      "ammonia_mg_L_as_N": 0.3,
+      "nitrate_mg_L_as_N": 2.1,
+      "iron_total_mg_L": 46,
+      "manganese_mg_L": 7.8,
+      "aluminum_mg_L": 5.2,
+      "zinc_mg_L": 1.6,
+      "copper_mg_L": 0.22,
+      "lead_mg_L": 0.018,
+      "arsenic_mg_L": 0.013,
+      "selenium_mg_L": 0.006,
+      "ricin_ug_L": 0.12,
+      "methiocarb_ug_L": 5.4,
+      "strychnine_ug_L": 1.8,
+      "chlortetracycline_ug_L": 3.1,
+      "E_coli_CFU_100mL": 120,
+      "trace_pollutant_note": "ricin_detection_is_based_on_limited_screening_and_requires_confirmatory_analysis; additional_polar_or_unknown_organics_are_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water supplied to downstream potable-reuse barriers should reliably achieve strong removal of acidity, metals, sulfate-related scaling risk, natural organic matter, and identified toxic organics while providing multiple barriers for pathogens and unknown trace contaminants.",
+      "secondary_goals": [
+        "maintain robustness under storm-driven variability",
+        "minimize disinfection byproduct precursor carryover",
+        "provide resilience to uncertain toxin characterization",
+        "balance advanced treatment performance with cost and energy demand",
+        "avoid creating an unmanageable metal-rich residual stream"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "metal-rich sludge can be handled off-site at moderate cost, but high-volume brine disposal is difficult and should be minimized",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_chemical_variability_and_partially_characterized_toxic_organics"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_contingency_storage",
+          "alkaline_neutralization",
+          "high_density_sludge_precipitation_and_clarification",
+          "dual_media_filtration",
+          "nanofiltration_or_high_recovery_reverse_osmosis",
+          "granular_activated_carbon",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_contingency_storage": "buffer storm-driven changes in acidity, metals, sulfate, and trace-organic concentrations and allow diversion of extreme events",
+          "alkaline_neutralization": "raise pH and reduce corrosivity while preparing for metal precipitation",
+          "high_density_sludge_precipitation_and_clarification": "remove iron, aluminum, manganese-associated solids and part of arsenic and suspended matter with lower sludge volume than simple precipitation",
+          "dual_media_filtration": "polish residual solids to protect downstream membranes and adsorbent media",
+          "nanofiltration_or_high_recovery_reverse_osmosis": "reduce dissolved salts, sulfate, hardness, metals residuals, and part of small dissolved organics for potable-reuse feed quality",
+          "granular_activated_carbon": "adsorb pesticides, alkaloids, antibiotic residues, and residual natural organic matter not fully rejected or transformed upstream",
+          "advanced_oxidation_uv_hydrogen_peroxide": "provide destructive polishing for uncertain toxic organics and create an additional barrier for trace compounds of concern",
+          "final_stabilization_and_disinfection": "adjust finished-water chemistry and provide pathogen control before potable-reuse integration"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the source combines classic mine drainage chemistry with unusual toxic organics and only partial characterization",
+          "equalization is especially important because rainfall events can sharply change iron loading, pH, sulfate, and dissolved organic matter",
+          "neutralization and high-density sludge treatment are well suited to acidic mine drainage and reduce membrane scaling and fouling pressure",
+          "membrane desalting is needed because sulfate, TDS, and hardness remain too high for a reliable potable-reuse feed if only precipitation is used",
+          "GAC followed by advanced oxidation provides both adsorptive and destructive barriers for methiocarb, strychnine, chlortetracycline, and any unidentified co-contaminants",
+          "the sequence is more robust to uncertainty than relying on a single advanced step alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "uncertainty flag: ricin occurrence at environmental trace levels should be confirmed analytically because treatment credit and response planning depend on verified presence and form",
+          "high sulfate and hardness can still drive scaling in NF or RO unless antiscalant use and recovery are conservatively managed",
+          "metal-rich sludge requires careful dewatering and off-site disposal",
+          "AOP performance may be reduced or become inefficient if residual NOM is higher than expected during storm events",
+          "brine management remains a significant challenge if RO rather than tighter NF is selected",
+          "toxin breakthrough risk is possible if adsorbent exhaustion is not monitored with appropriate surrogate and target analyses"
+        ],
+        "evidence_list": [
+          "mine_drainage_neutralization_and_high_density_sludge_case_knowledge",
+          "EPA_guidance_on_mine_influenced_water_treatment_and_metals_precipitation",
+          "potable_reuse_multi_barrier_principles_for_trace_organic_control",
+          "activated_carbon_and_uv_peroxide_guidance_for_micropollutant_polishing",
+          "membrane_desalination_guidance_for_sulfate_and_tds_reduction"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_contingency_storage",
+          "alkaline_neutralization",
+          "high_density_sludge_precipitation_and_clarification",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "biologically_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_contingency_storage": "dampen influent variability and provide operational flexibility for abnormal events",
+          "alkaline_neutralization": "correct acidity and support precipitation of dissolved metals",
+          "high_density_sludge_precipitation_and_clarification": "remove bulk metals and suspended solids before membranes",
+          "ultrafiltration": "provide reliable solids barrier and protect RO from particulate fouling",
+          "reverse_osmosis": "remove sulfate, dissolved salts, metals residuals, microorganisms, and a substantial fraction of dissolved organics",
+          "advanced_oxidation_uv_hydrogen_peroxide": "oxidize low-molecular-weight and uncertain residual organics after RO",
+          "biologically_activated_carbon": "polish biodegradable oxidation byproducts and residual dissolved organics",
+          "final_disinfection": "ensure pathogen control in the finished potable-reuse feed"
+        },
+        "applicability_rationale": [
+          "this train emphasizes strong membrane protection and very high dissolved-contaminant removal",
+          "UF plus RO is a conventional advanced reuse architecture and can achieve high and stable effluent quality if pretreatment is effective",
+          "BAC after AOP can be beneficial where oxidized byproducts and biodegradable residuals are concerns",
+          "it is particularly attractive if sulfate reduction and pathogen barriers are prioritized above minimizing energy use"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "uncertainty flag: if unknown organics are more adsorbable than oxidizable, post-RO AOP may not be the most cost-effective polishing sequence",
+          "RO brine volume and concentrate disposal may be problematic under the stated residuals constraint",
+          "UF and RO fouling risk remains high if iron oxidation states and colloidal carryover fluctuate",
+          "BAC requires careful biological control and can become less predictable with intermittent toxic influent shocks",
+          "high energy demand may be difficult to justify if source-water quality improves seasonally"
+        ],
+        "evidence_list": [
+          "advanced_potable_reuse_train_guidance_for_UF_RO_AOP_BAC",
+          "EPA_membrane_treatment_guidance_for_groundwater_and_reuse",
+          "mine_water_case_knowledge_for_precipitation_followed_by_membrane_polishing",
+          "trace_organic_control_references_for_AOP_followed_by_BAC"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_contingency_storage",
+          "alkaline_neutralization",
+          "high_density_sludge_precipitation_and_clarification",
+          "constructed_wetland_or_passive_biopolishing",
+          "rapid_sand_or_cloth_media_filtration",
+          "granular_activated_carbon",
+          "reverse_osmosis_or_nanofiltration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_contingency_storage": "manage variable inflow and isolate highly contaminated batches",
+          "alkaline_neutralization": "raise pH and reduce acute acidity",
+          "high_density_sludge_precipitation_and_clarification": "remove major metal load and solids",
+          "constructed_wetland_or_passive_biopolishing": "provide supplemental attenuation of residual metals, nutrients, some organics, and solids through adsorption, plant uptake, and microbial transformation",
+          "rapid_sand_or_cloth_media_filtration": "remove particulate carryover from passive treatment",
+          "granular_activated_carbon": "adsorb residual NOM and trace organic contaminants",
+          "reverse_osmosis_or_nanofiltration": "provide final dissolved-contaminant reduction for potable-reuse compatibility",
+          "final_disinfection": "provide pathogen barrier"
+        },
+        "applicability_rationale": [
+          "this hybrid active-passive option is grounded in natural-system treatment principles and may reduce chemical demand ahead of high-end polishing",
+          "passive biopolishing can add resilience and buffering when influent quality varies, especially for solids and some dissolved constituents",
+          "it may be attractive where land is available and the operator wants an intermediate polishing step before expensive membranes",
+          "the train still retains advanced barriers because passive systems alone are not sufficient for potable reuse"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "uncertainty flag: passive systems are not dependable as primary barriers for acutely toxic trace organics such as ricin or strychnine without strong downstream polishing",
+          "wetland performance can be seasonal and less predictable for poorly characterized emerging contaminants",
+          "footprint needs may become significant depending on flow and hydraulic retention targets",
+          "metal accumulation in wetland media or biomass can complicate long-term maintenance",
+          "if the unknown fraction includes mobile polar organics, GAC plus passive treatment may provide uneven removal before membranes"
+        ],
+        "evidence_list": [
+          "CASE_023_small_scale_natural_wastewater_treatment_systems_principles_and_regulatory_framework",
+          "constructed_wetland_case_knowledge_for_mine_impacted_water_polishing",
+          "EPA_guidance_on_passive_and_active_mine_water_treatment",
+          "GAC_and_membrane_multi_barrier_guidance_for_potable_reuse"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "alkaline_neutralization",
+          "chemical_precipitation_and_clarification",
+          "powdered_activated_carbon_contact",
+          "ultrafiltration",
+          "advanced_oxidation_ozone_or_uv_peroxide",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and chemical swings",
+          "alkaline_neutralization": "correct pH and reduce corrosivity",
+          "chemical_precipitation_and_clarification": "remove metals and suspended solids",
+          "powdered_activated_carbon_contact": "provide flexible short-term adsorption capacity for episodic organic contaminant spikes",
+          "ultrafiltration": "remove solids and PAC carryover",
+          "advanced_oxidation_ozone_or_uv_peroxide": "oxidize residual dissolved organics and improve toxicity control",
+          "final_disinfection": "provide microbiological barrier"
+        },
+        "applicability_rationale": [
+          "this route may be considered as a contingency-oriented, adsorptive-oxidative train when membrane desalination is financially constrained or brine disposal is infeasible",
+          "PAC can be dosed adaptively when uncertain trace-organic spikes occur",
+          "the process is more flexible for short-term response than fixed GAC alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "this train is lower ranked because it does not adequately reduce sulfate, TDS, and hardness for a robust potable-reuse feed",
+          "uncertainty flag: oxidation can transform some organics into byproducts that remain problematic if downstream desalting or BAC is absent",
+          "PAC consumption could be high and difficult to optimize under poorly characterized contaminant mixtures",
+          "residual NOM may continue to exert oxidant demand and DBP precursor risk",
+          "without NF or RO, dissolved salt and scaling risks remain unresolved"
+        ],
+        "evidence_list": [
+          "PAC_use_guidance_for_spill_response_and_variable_trace_organic_control",
+          "AOP_guidance_for_pesticides_and_trace_organics_in_drinking_water",
+          "mine_water_precipitation_case_examples_for_metal_removal"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "neutralization",
+          "sedimentation",
+          "media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "neutralization": "raise pH from acidic mine drainage conditions",
+          "sedimentation": "remove settleable precipitates and solids",
+          "media_filtration": "polish turbidity and remaining particulate matter",
+          "disinfection": "control microbial contamination"
+        },
+        "applicability_rationale": [
+          "included as a clearly inferior baseline conventional approach",
+          "it can improve acidity, turbidity, and some metal-associated solids but lacks sufficient barriers for potable-reuse treatment goals",
+          "it may only be suitable as preliminary treatment before much more advanced downstream processes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "fails to address dissolved sulfate, TDS, hardness, residual metals, and uncertain dissolved toxic organics to potable-reuse expectations",
+          "uncertainty flag: reliance on simple conventional treatment is especially inappropriate when the contaminant profile is not fully characterized",
+          "disinfection alone does not manage NOM-related byproduct precursor issues",
+          "toxin and micropollutant removal would be highly unreliable"
+        ],
+        "evidence_list": [
+          "basic_conventional_water_treatment_references",
+          "potable_reuse_guidance_emphasizing_multi_barrier_advanced_treatment",
+          "mine_drainage_treatment_references_showing_limits_of_simple_neutralization_only"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "treatment trains that first stabilize acidic mine drainage and remove metals before advanced polishing should rank above direct advanced-only trains",
+        "multi-barrier solutions combining conventional mine-water pretreatment with adsorption and/or oxidation should outrank simple conventional treatment",
+        "desalting or strong dissolved-solids control should appear in higher-ranked options because potable reuse requires control of sulfate, TDS, and hardness",
+        "equalization or contingency storage should be recognized as important because influent variability and unknown contaminant fractions are explicit"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "acidic mine drainage requires pH correction and metals management before sensitive downstream units",
+        "potable reuse demands stronger barriers than nonpotable reuse, including attention to NOM and unknown trace organics",
+        "high uncertainty should drive recommendations toward robust, staged treatment rather than single-process solutions",
+        "cost-energy tradeoffs should acknowledge that RO and AOP improve confidence but increase operating burden",
+        "residuals discussion should address both metal sludge and concentrate disposal constraints"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why neutralization and precipitation are foundational for mine drainage before membranes or carbon",
+        "why adsorption and advanced oxidation are included to manage methiocarb, strychnine, chlortetracycline, ricin uncertainty, and unknown organics",
+        "why natural treatment elements may help buffer variability but are not sufficient as standalone potable-reuse barriers",
+        "why simple clarification-filtration-disinfection trains are inadequate for dissolved salts and trace toxin risk"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "analytical uncertainty and need to confirm ricin detection and broader unknown-organic characterization",
+        "storm-driven influent variability affecting pH, iron, sulfate, and organic load",
+        "membrane scaling, fouling, and brine-management challenges under high sulfate and hardness conditions",
+        "oxidant demand and possible transformation byproducts when NOM fluctuates",
+        "residuals risks associated with metal-rich sludge or passive-system media accumulation",
+        "the need for contingency storage or operational diversion during extreme influent events"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

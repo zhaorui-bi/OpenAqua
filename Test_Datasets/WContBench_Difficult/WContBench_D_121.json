@@ -1,0 +1,346 @@
+{
+  "case_id": "WContBench_D_121",
+  "case_name": "Agricultural reuse of partially characterized reclaimed water containing herbicide residues, TCP, and chromium under uncertain contaminant variability",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "reclaimed_water_source",
+    "contaminant_type": [
+      "Glyphosate",
+      "1,2,3-Trichloropropane",
+      "Chromium",
+      "Alachlor Degradates"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "incomplete_characterization",
+      "multi_barrier_required",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of treatment process chains for producing agriculturally reusable water from a reclaimed-water source with incompletely characterized pesticide-related organics, TCP, and chromium under variable influent conditions and cost-energy constraints.",
+  "input_data": {
+    "scenario_background": "A peri-urban water reuse scheme blends tertiary-treated municipal effluent with intermittent return flows from drainage canals and small commercial areas, then seeks seasonal reuse for orchard and fodder irrigation. Monitoring has repeatedly detected glyphosate, 1,2,3-trichloropropane, chromium, and alachlor degradates, but concentration peaks appear episodic and the full organic byproduct mixture is not yet characterized. Operators suspect additional low-level transformation products and occasional storm-driven contaminant pulses, so the recommended train must be robust to uncertainty rather than optimized only for a fixed influent composition.",
+    "water_quality": {
+      "source_type": "blended_reclaimed_water_with_secondary_and_tertiary_municipal_origin",
+      "pH": 7.3,
+      "turbidity_NTU": 6.8,
+      "TSS_mg_L": 11,
+      "COD_mg_L": 34,
+      "BOD5_mg_L": 9,
+      "TOC_mg_L": 8.1,
+      "DOC_mg_L": 6.4,
+      "ammonia_mg_L_as_N": 2.6,
+      "nitrate_mg_L_as_N": 12.4,
+      "phosphate_mg_L_as_P": 2.1,
+      "TDS_mg_L": 980,
+      "conductivity_uS_cm": 1540,
+      "hardness_mg_L_as_CaCO3": 245,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "UV254_cm_1": 0.118,
+      "chloride_mg_L": 172,
+      "sulfate_mg_L": 96,
+      "sodium_mg_L": 138,
+      "SAR": 4.7,
+      "glyphosate_ug_L": 18.5,
+      "1_2_3_trichloropropane_ug_L": 0.17,
+      "chromium_total_mg_L": 0.072,
+      "chromium_hexavalent_mg_L": 0.021,
+      "alachlor_degradates_total_ug_L": 1.9,
+      "E_coli_CFU_100mL": 1400,
+      "influent_variability": "high",
+      "trace_contaminant_note": "pesticide_transformation_products_and_other_polar_micropollutants_suspected_but_not_fully_characterized",
+      "data_gap_note": "event_based_peaks_after_irrigation_return_flows_and_first_flush_storms_are_likely_underrepresented_in_routine_sampling"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Finished water should be suitable for agricultural irrigation with improved microbial safety, reduced chromium and trace organic contaminant risk, and salinity/sodicity kept manageable for long-term soil and crop protection.",
+      "secondary_goals": [
+        "maintain robustness under uncertain contaminant pulses",
+        "avoid overdesigning purely for desalination when irrigation rather than potable reuse is intended",
+        "control formation of oxidation byproducts where precursor mixture is uncertain",
+        "provide a practical multi-barrier approach with moderate operating burden"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "metal-bearing sludge can be hauled offsite in limited quantities, but high-volume brine disposal is difficult and expensive",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_incomplete_characterization_and_seasonal_quality_swings"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending_control",
+          "coagulation_flocculation_and_clarification",
+          "reduction_precipitation_for_chromium_if_needed",
+          "dual_media_filtration",
+          "biologically_activated_carbon",
+          "advanced_oxidation_or_uv_hydrogen_peroxide_as_contingency_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending_control": "buffer variable inflow quality and damp episodic contaminant spikes before downstream treatment",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and some contaminant-associated particulate matter to protect polishing units",
+          "reduction_precipitation_for_chromium_if_needed": "convert and remove hexavalent chromium where speciation indicates need for targeted metals control",
+          "dual_media_filtration": "polish residual solids and improve downstream adsorptive and oxidation performance",
+          "biologically_activated_carbon": "remove biodegradable dissolved organics and adsorb a broad range of trace organics including uncertain pesticide-related compounds",
+          "advanced_oxidation_or_uv_hydrogen_peroxide_as_contingency_polishing": "provide additional destruction of persistent organics such as TCP or residual micropollutants if BAC alone is insufficient",
+          "disinfection": "reduce pathogen risk for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "a staged multi-barrier train is justified because the contaminant mixture is only partially characterized and includes both metals and trace organics",
+          "equalization is important because monitoring suggests episodic peaks that routine grab samples may miss",
+          "targeted chromium reduction and precipitation is appropriate because both total chromium and hexavalent chromium are present at meaningful levels",
+          "BAC is a strong central barrier for reclaimed water with low to moderate TOC and uncertain pesticide transformation products, while avoiding routine dependence on high-pressure desalination",
+          "advanced oxidation is best positioned as a polishing or contingency step because TCP is difficult to remove by many conventional processes and because oxidation demand may vary with uncharacterized organics",
+          "this train better matches agricultural reuse than full RO because the main need is risk reduction for trace contaminants and microbes rather than aggressive demineralization"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "BAC breakthrough for polar pesticides or TCP may occur if empty bed contact time and replacement strategy are undersized",
+          "AOP performance is uncertain until the actual background scavenging demand and byproduct formation potential are validated",
+          "chromium speciation may fluctuate, so underdosing reducing chemical could leave residual Cr(VI)",
+          "disinfection selection must consider crop-specific reuse guidance and possible chlorinated byproduct issues",
+          "uncertainty flag: suspected uncharacterized organics could shift the relative value of BAC versus AOP after pilot testing"
+        ],
+        "evidence_list": [
+          "epa_water_reuse_guidelines_for_agricultural_reuse_multi_barrier_approach",
+          "epa_guidance_for_chromium_removal_using_reduction_and_precipitation",
+          "adsorptive_and_bac_case_knowledge_for_micropollutant_polishing_in_reclaimed_water",
+          "public_guidance_on_advanced_oxidation_for_refractory_trace_organics_in_water_reuse"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "reduction_precipitation_for_chromium",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "uv_advanced_oxidation",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce short-term variability and improve treatability consistency",
+          "coagulation_flocculation_and_clarification": "lower suspended solids and colloidal load",
+          "reduction_precipitation_for_chromium": "remove chromium through valence adjustment and hydroxide precipitation",
+          "ultrafiltration": "provide strong solids and microbial barrier and protect carbon and oxidation stages",
+          "granular_activated_carbon": "adsorb trace hydrophobic and semi-polar organics and reduce AOP demand",
+          "uv_advanced_oxidation": "destroy persistent residual organics including compounds not sufficiently captured by GAC",
+          "final_disinfection": "provide pathogen control and reuse compliance support"
+        },
+        "applicability_rationale": [
+          "this is a robust high-confidence multi-barrier option when uncertainty about trace organics is a major concern",
+          "UF provides reliable pretreatment and can stabilize downstream GAC/AOP operation under variable suspended solids conditions",
+          "the GAC plus AOP pairing is reasonable where both adsorbable compounds and oxidation-resistant concerns coexist",
+          "ranked below the top option because it is somewhat more energy- and operations-intensive than needed for many agricultural reuse settings"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher operator attention is needed for membrane integrity, GAC replacement, and UV-AOP dose control",
+          "UF does not remove dissolved organics by itself, so carbon and oxidation remain critical barriers",
+          "uncertainty flag: if uncharacterized compounds are highly polar and poorly adsorbed, GAC performance may be weaker than expected",
+          "chemical sludge from chromium treatment still requires careful handling"
+        ],
+        "evidence_list": [
+          "water_reuse_practice_references_for_uf_gac_aop_multi_barrier_trains",
+          "epa_guidance_for_hexavalent_chromium_control_in_water_treatment",
+          "public_case_knowledge_on_gac_for_trace_organic_removal",
+          "uv_hydrogen_peroxide_guidance_for_reuse_polishing_of_refractory_micropollutants"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "reduction_precipitation_and_clarification_for_chromium",
+          "media_filtration",
+          "nanofiltration",
+          "activated_carbon_post_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen quality swings and allow managed feed blending",
+          "reduction_precipitation_and_clarification_for_chromium": "remove chromium before membrane treatment and reduce scaling/fouling interactions",
+          "media_filtration": "polish solids and protect membranes",
+          "nanofiltration": "partially reduce dissolved organics, multivalent ions, and some trace contaminants while lowering sodium-related irrigation risk somewhat",
+          "activated_carbon_post_polishing": "capture membrane passage contaminants and improve residual trace organics control",
+          "disinfection": "ensure microbial reduction for irrigation reuse"
+        },
+        "applicability_rationale": [
+          "NF can be considered when there is concern about both trace organics and irrigation chemistry, including hardness, sulfate, and some dissolved contaminant reduction",
+          "it may provide a middle ground between no desalination and full RO for selected crops or salt-sensitive soils",
+          "the approach is ranked below carbon-centered options because brine management is difficult at this site and many agricultural reuse goals may be met without membrane concentrate generation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major site mismatch because brine handling is constrained",
+          "TCP rejection through NF can be uncertain and should not be assumed adequate without validation",
+          "uncertainty flag: if the unknown contaminant fraction includes low-molecular-weight neutral compounds, membrane passage may be significant",
+          "membrane fouling risk rises during storm-affected water quality excursions"
+        ],
+        "evidence_list": [
+          "public_reuse_guidance_on_membrane_processes_for_nonpotable_reuse",
+          "engineering_case_knowledge_for_nf_in_agricultural_water_reuse",
+          "epa_and_industry_guidance_on_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "constructed_wetland_or_storage_buffer",
+          "coagulation_flocculation",
+          "sand_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable inflow and support more stable downstream operation",
+          "constructed_wetland_or_storage_buffer": "provide additional natural attenuation, hydraulic balancing, and partial nutrient and solids reduction",
+          "coagulation_flocculation": "remove particulates and some associated contaminants",
+          "sand_filtration": "polish remaining suspended solids",
+          "granular_activated_carbon": "provide trace organic adsorption barrier",
+          "disinfection": "reduce pathogen risk"
+        },
+        "applicability_rationale": [
+          "this lower-energy route may appeal where agricultural reuse budgets are tight and some land is available",
+          "wetland or buffer storage can help smooth variable influent quality and can complement reuse scheduling",
+          "however, this train is less reliable for persistent organics like TCP and does not explicitly provide a strong chromium barrier unless expanded with dedicated metals treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "chromium removal may be inadequate without a dedicated reduction-precipitation step",
+          "GAC alone may not consistently control TCP or unknown polar degradates",
+          "seasonal wetland performance can vary with temperature and hydraulic loading",
+          "uncertainty flag: apparent average performance may hide poor peak-event protection"
+        ],
+        "evidence_list": [
+          "nature_based_and_hybrid_reuse_treatment_guidance_for_agricultural_applications",
+          "public_gac_guidance_for_pesticide_related_trace_organics",
+          "case_knowledge_on_equalization_and_storage_for_variable_reclaimed_water_quality"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "media_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "aggregate suspended solids and reduce turbidity",
+          "sedimentation": "separate flocculated solids",
+          "media_filtration": "provide residual solids polishing",
+          "chlorination": "provide disinfection residual for reuse distribution"
+        },
+        "applicability_rationale": [
+          "included as a baseline conventional option because it is simple and comparatively low cost",
+          "it may improve turbidity and microbial control but does not provide a defensible barrier for the identified trace organics and chromium risk profile",
+          "it is therefore not suitable as a standalone recommendation for this uncertain and mixed-contaminant case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient removal of glyphosate, alachlor degradates, and TCP",
+          "no reliable dissolved chromium control without targeted chemistry",
+          "uncertainty flag: uncharacterized contaminant fraction remains essentially unaddressed",
+          "chlorination may create byproducts while not solving the core micropollutant problem"
+        ],
+        "evidence_list": [
+          "basic_conventional_reclaimed_water_treatment_references",
+          "public_guidance_showing_limits_of_conventional_treatment_for_trace_organic_contaminants",
+          "epa_reuse_guidance_supporting_multi_barrier_treatment_for_higher_risk_reuse_cases"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with equalization and dedicated chromium control should rank above simple conventional treatment",
+        "carbon-based trace-organic polishing should appear in higher-ranked options because the organic mixture is incompletely characterized",
+        "full high-pressure desalination should not automatically dominate because the intended use is agricultural reuse and brine disposal is constrained",
+        "processes that can accommodate uncertain peak loads and provide contingency polishing for TCP should rank higher than single-barrier solutions"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "incomplete characterization requires robust rather than narrowly optimized treatment selection",
+        "agricultural reuse emphasizes pathogen control, manageable salinity and sodicity, and protection against trace contaminant carryover to soil and crops",
+        "cost and energy sensitivity should temper the use of RO-like solutions unless strongly justified",
+        "residuals and concentrate management limitations should be explicitly considered when recommending metals removal or membrane processes"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization or storage is important under event-driven contaminant variability",
+        "why targeted chromium reduction-precipitation is relevant when hexavalent chromium is present",
+        "why activated carbon or BAC is attractive for uncertain pesticide-related organics in reclaimed water",
+        "why advanced oxidation may be treated as a polishing or contingency step for TCP and unknown refractory compounds",
+        "why simple clarification-filtration-disinfection alone is insufficient for this case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "sampling uncertainty and the likelihood that routine monitoring underestimates episodic contaminant peaks",
+        "uncertain adsorption and oxidation performance for incompletely characterized polar transformation products",
+        "chromium speciation variability and the need to verify Cr(VI) control rather than relying on total chromium alone",
+        "byproduct formation risk during oxidation or chlorination when precursor chemistry is incompletely known",
+        "membrane concentrate disposal risk if NF or RO is proposed despite brine constraints",
+        "need for pilot testing or treatability confirmation before locking in BAC, GAC, or AOP sizing"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

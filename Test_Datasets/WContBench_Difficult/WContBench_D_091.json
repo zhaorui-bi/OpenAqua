@@ -1,0 +1,336 @@
+{
+  "case_id": "WContBench_D_091",
+  "case_name": "Agricultural drainage discharge with intermittent microbial spikes and uncertain 1,4-dioxane co-contamination",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "agricultural_drainage",
+    "contaminant_type": [
+      "1,4-dioxane",
+      "E. coli O157"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "regulatory_ambiguity",
+      "co_occurring_pollutants",
+      "limited_site_data"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for agricultural drainage requiring environmental discharge compliance under uncertain co-occurring pathogen and 1,4-dioxane risks with limited site characterization.",
+  "input_data": {
+    "scenario_background": "A drainage district is evaluating treatment for a seasonal agricultural return-flow channel before discharge to a stream used downstream for recreation and habitat. Monitoring has confirmed periodic detections of E. coli and low-to-moderate 1,4-dioxane, but the source of dioxane is unclear and may reflect episodic inputs from off-site waste handling, recycled irrigation water, or mixed rural runoff. Flow and quality vary sharply after irrigation cycles and storm events, and only a limited set of grab samples is available, so co-occurring pesticides and dissolved organic precursors are suspected but not fully characterized. Regulatory expectations are ambiguous because the discharge permit focuses on indicator bacteria and conventional parameters, while concern about emerging contaminants is increasing at the watershed level.",
+    "water_quality": {
+      "source_type": "agricultural_drainage",
+      "flow_m3_d": 4200,
+      "pH": 7.6,
+      "temperature_C": 21.5,
+      "turbidity_NTU": 42,
+      "TSS_mg_L": 58,
+      "COD_mg_L": 34,
+      "BOD5_mg_L": 9,
+      "TOC_mg_L": 7.8,
+      "DOC_mg_L": 5.9,
+      "nitrate_mg_L_as_N": 12.4,
+      "ammonia_mg_L_as_N": 0.6,
+      "total_phosphorus_mg_L": 0.84,
+      "conductivity_uS_cm": 1280,
+      "TDS_mg_L": 780,
+      "hardness_mg_L_as_CaCO3": 260,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "chloride_mg_L": 96,
+      "sulfate_mg_L": 118,
+      "bromide_mg_L": 0.18,
+      "UV254_cm_1": 0.14,
+      "1,4-dioxane_ug_L": 18.0,
+      "E_coli_CFU_100mL": 2400,
+      "fecal_coliform_CFU_100mL": 6800,
+      "dissolved_oxygen_mg_L": 5.4,
+      "trace_pollutant_note": "1,4-dioxane confirmed in limited samples; pesticides, veterinary pharmaceuticals, and other oxygenated solvents are suspected but not fully characterized",
+      "influent_variability": "high",
+      "variability_note": "microbial counts and turbidity increase substantially during first-flush irrigation return and rainfall events; dioxane occurrence appears intermittent"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Produce a discharge suitable for receiving-stream protection with reliable pathogen control, reduction of suspended solids and nutrient-associated impacts, and meaningful mitigation of 1,4-dioxane risk despite incomplete characterization and uncertain future permit expectations.",
+      "secondary_goals": [
+        "provide a robust train for highly variable seasonal agricultural drainage",
+        "avoid recommending a pathogen-only solution that ignores emerging contaminant concern",
+        "minimize formation of problematic oxidation byproducts where bromide and natural organic matter are present",
+        "support phased monitoring and adaptive operation because site data are incomplete"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "screenings and solids can be handled on site, but concentrated brines or hazardous residuals are difficult and costly to manage in this rural district",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_seasonal_flow_swings_event_driven_microbial_spikes_and_uncertain_emerging_contaminant_profile"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_flow_buffering",
+          "coagulation_flocculation_and_clarification",
+          "media_filtration_or_membrane_microfiltration",
+          "ozonation_with_biologically_active_filtration",
+          "UV_or_peracetic_acid_final_disinfection",
+          "adaptive_monitoring_program"
+        ],
+        "core_unit_functions": {
+          "equalization_and_flow_buffering": "dampen event-driven hydraulic and quality swings and improve downstream process stability",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, particulate organic matter, and a portion of phosphorus and pathogen-associated particles",
+          "media_filtration_or_membrane_microfiltration": "polish turbidity and solids to improve UV transmittance and oxidation reliability",
+          "ozonation_with_biologically_active_filtration": "provide advanced oxidation and transformation of 1,4-dioxane precursors or co-contaminants while biologically removing biodegradable oxidation byproducts",
+          "UV_or_peracetic_acid_final_disinfection": "provide robust pathogen inactivation with lower reliance on chlorine residual in a variable NOM matrix",
+          "adaptive_monitoring_program": "track 1,4-dioxane variability, byproducts, and seasonal performance to refine operation under uncertainty"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the case includes both a chlorine-tolerant emerging organic contaminant concern and intermittent pathogen spikes",
+          "equalization ranks highly because agricultural drainage quality is highly variable and limited grab data create design uncertainty",
+          "pretreatment is important to reduce turbidity and particulate shielding before UV and ozone-based treatment",
+          "ozonation combined with biologically active filtration is more defensible than adsorption alone for 1,4-dioxane, which is poorly removed by conventional GAC unless specially designed and frequently replaced",
+          "the final disinfection step remains necessary because oxidation aimed at 1,4-dioxane does not by itself guarantee reliable E. coli O157 control across peak events",
+          "this option balances emerging contaminant mitigation with environmental discharge needs better than desalination-heavy options that create difficult residuals"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "1,4-dioxane destruction may be incomplete if ozone dose, hydroxyl radical generation, or contact time are insufficient; pilot testing is advisable",
+          "bromide and natural organic matter create uncertainty about bromate or other oxidation byproduct control",
+          "UV performance may degrade during turbidity spikes if pretreatment is not consistently effective",
+          "limited source characterization means additional trace organics could alter ozone demand and treatment economics",
+          "seasonal low temperatures or low biodegradable carbon could reduce biofiltration polishing performance"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_treatability_information_for_1_4_dioxane_in_water",
+          "EPA_surface_water_and_wastewater_disinfection_guidance_for_pathogen_control",
+          "CASE-006_CWSRF_emerging_contaminants_case_using_membrane_filtration_and_ozone_for_mixed_EC_control",
+          "public_case_knowledge_on_ozone_biofiltration_for_trace_organic_polishing_under_variable_surface_influents"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_prescreening",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration",
+          "UV_hydrogen_peroxide_advanced_oxidation",
+          "final_UV_disinfection",
+          "targeted_confirmation_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_prescreening": "buffer quality fluctuations and remove coarse debris common in agricultural drainage channels",
+          "coagulation_flocculation_and_clarification": "lower turbidity and organic scavengers that would otherwise consume oxidant or reduce UV efficiency",
+          "dual_media_filtration": "improve solids polishing and UV transmittance for downstream AOP",
+          "UV_hydrogen_peroxide_advanced_oxidation": "generate hydroxyl radicals to degrade 1,4-dioxane more directly than conventional disinfection",
+          "final_UV_disinfection": "provide a dedicated pathogen barrier independent of the dioxane destruction objective",
+          "targeted_confirmation_monitoring": "verify dioxane reduction and manage uncertainty in influent occurrence and treatment dose-response"
+        },
+        "applicability_rationale": [
+          "UV/H2O2 is a strong technical candidate when 1,4-dioxane is a primary concern because the compound is resistant to conventional biological treatment and chlorination",
+          "separating pretreatment, AOP, and final disinfection gives clearer operational control for a mixed regulatory problem",
+          "this train may be preferable if bromate formation risk makes ozonation less attractive",
+          "it is ranked below the top option mainly because energy demand and UV transmittance sensitivity may be challenging for a rural agricultural drainage application with high event variability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "high power demand and peroxide consumption may strain operating budgets",
+          "AOP efficiency can drop substantially during turbid or high-UV-absorbing episodes if pretreatment underperforms",
+          "without robust upstream solids control, sleeves and lamps may foul rapidly",
+          "site data are insufficient to confirm whether intermittent dioxane peaks justify continuous AOP operation or whether event-triggered treatment would be more cost-effective"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_treatability_information_for_1_4_dioxane_in_water",
+          "CASE-009_Montana_monitoring_case_highlighting_need_for_expanded_1_4_dioxane_monitoring_capability",
+          "public_drinking_water_and_reuse_case_knowledge_for_UV_H2O2_on_1_4_dioxane",
+          "EPA_UV_disinfection_guidance_for_microbial_pathogen_inactivation"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "constructed_wetland_or_high_rate_pond_pretreatment",
+          "cloth_media_or_disc_filtration",
+          "UV_disinfection",
+          "contingency_side_stream_AOP_for_high_dioxane_events",
+          "enhanced_monitoring_and_source_investigation"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce short-term peak loading and improve downstream controllability",
+          "constructed_wetland_or_high_rate_pond_pretreatment": "buffer solids and nutrients and provide ecological polishing before final treatment",
+          "cloth_media_or_disc_filtration": "remove remaining suspended solids and improve downstream disinfection reliability",
+          "UV_disinfection": "inactivate E. coli O157 and other microbial indicators when turbidity is adequately controlled",
+          "contingency_side_stream_AOP_for_high_dioxane_events": "provide targeted advanced treatment during confirmed dioxane excursions rather than full-time high-energy operation",
+          "enhanced_monitoring_and_source_investigation": "address the major uncertainty that the dioxane source and occurrence pattern are not well defined"
+        },
+        "applicability_rationale": [
+          "this phased approach is attractive when site data are limited and the district wants lower baseline energy use while still acknowledging emerging contaminant risk",
+          "nature-based or lagoon-style pretreatment can fit agricultural settings and help manage conventional pollutant swings before final disinfection",
+          "a contingency AOP concept explicitly recognizes that dioxane occurrence is intermittent and not yet fully characterized",
+          "it ranks below more engineered trains because passive systems alone are not reliable for 1,4-dioxane removal and may struggle to assure pathogen compliance during acute storm events"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "constructed wetlands or ponds are not dependable primary barriers for 1,4-dioxane and should not be interpreted as solving the emerging contaminant problem",
+          "seasonal wildlife and algal growth can complicate microbial interpretation and solids control",
+          "UV reliability still depends on maintaining low enough turbidity and particle counts",
+          "if dioxane becomes continuously regulated at low levels, the contingency-only AOP strategy may prove insufficient"
+        ],
+        "evidence_list": [
+          "CASE-010_New_York_source_water_protection_planning_for_PFAS_and_1_4_dioxane_showing_value_of_planning_under_emerging_contaminant_uncertainty",
+          "public_guidance_on_constructed_wetlands_and_polishing_ponds_for_agricultural_return_flows",
+          "EPA_UV_disinfection_guidance_for_surface_water_and_wastewater_applications",
+          "public_case_knowledge_supporting_monitoring_first_and_source_investigation_when_emerging_contaminant_occurrence_is_not_well_characterized"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "post_treatment_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize hydraulic and contaminant variation",
+          "coagulation_flocculation_and_clarification": "reduce suspended solids and fouling load",
+          "ultrafiltration": "provide strong solids and pathogen barrier and protect downstream membranes",
+          "nanofiltration_or_reverse_osmosis": "remove a broad range of dissolved contaminants and can partially address 1,4-dioxane depending on membrane selection and operating conditions",
+          "post_treatment_disinfection": "ensure microbial protection in final discharge"
+        },
+        "applicability_rationale": [
+          "this train offers a conservative physical barrier approach when co-occurring pollutants are suspected but poorly characterized",
+          "membrane barriers can provide strong pathogen and dissolved contaminant control if the district anticipates future tightening of discharge expectations",
+          "it is not ranked higher because environmental discharge does not usually justify the cost, energy use, and residual burden of desalination-style treatment for an agricultural drainage stream"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major drawback in a rural setting with limited brine disposal options",
+          "1,4-dioxane rejection by NF can be weak and RO is more effective but still not ideal as a sole strategy depending on membrane characteristics",
+          "membrane fouling risk is high under event-driven solids and organic spikes",
+          "the process may be overdesigned relative to environmental discharge needs and financially unrealistic"
+        ],
+        "evidence_list": [
+          "CASE-006_CWSRF_emerging_contaminants_case_using_membrane_filtration_for_emerging_contaminant_control",
+          "EPA_treatability_documents_noting_limits_and_tradeoffs_of_membranes_for_low_molecular_weight_miscible_contaminants",
+          "public_engineering_guidance_on_UF_RO_for_high_reliability_pathogen_and_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "sedimentation",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "sedimentation": "remove settleable solids",
+          "sand_filtration": "polish suspended solids",
+          "chlorination": "provide conventional microbial disinfection and some residual protection"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional option because it can address part of the bacterial problem at relatively low complexity",
+          "it may help with routine solids and indicator bacteria management where infrastructure and budgets are highly constrained",
+          "it ranks last because it does not meaningfully address 1,4-dioxane and may be unreliable for E. coli O157 during high-turbidity events without stronger pretreatment and contact control"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "1,4-dioxane will largely pass through untreated",
+          "chlorine demand and particle shielding can undermine pathogen control during runoff events",
+          "disinfection byproduct concerns remain if chlorine is heavily dosed in the presence of natural organic matter",
+          "this option is poorly aligned with the emerging-contaminant uncertainty that defines the case"
+        ],
+        "evidence_list": [
+          "basic_conventional_surface_water_treatment_references",
+          "EPA_disinfection_guidance_showing_importance_of_particle_control_and_contact_time",
+          "EPA_treatability_information_indicating_conventional_treatment_is_not_effective_for_1_4_dioxane"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that address both pathogen control and 1,4-dioxane uncertainty should rank above conventional disinfection-only trains",
+        "equalization or flow buffering should be recognized as important because agricultural drainage influent variability is high",
+        "advanced oxidation should appear in higher-ranked solutions because 1,4-dioxane is poorly controlled by conventional treatment and chlorination",
+        "membrane-desalination-heavy options should not automatically rank first because the use is environmental discharge and residuals management is constrained"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited site data and intermittent contaminant occurrence require adaptive monitoring or phased implementation logic",
+        "regulatory ambiguity means recommendations should discuss both current permit compliance and likely future emerging-contaminant scrutiny",
+        "co-occurring legacy and emerging pollutants require more than a single-unit treatment answer",
+        "rural residuals and energy constraints should be weighed explicitly against high-end treatment choices"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why pretreatment for turbidity and solids matters before UV or advanced oxidation",
+        "why conventional chlorination alone is insufficient for 1,4-dioxane",
+        "why a dedicated disinfection barrier is still needed even when advanced oxidation is used for trace-organic control",
+        "why monitoring and source investigation are important given intermittent 1,4-dioxane occurrence"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in the true source and frequency of 1,4-dioxane contamination",
+        "storm and irrigation return events causing microbial and turbidity spikes",
+        "possible bromate or other oxidation byproduct risk if ozone-based treatment is selected",
+        "UV transmittance sensitivity and pretreatment dependence",
+        "concentrate disposal and fouling risks if membrane options are proposed despite discharge-oriented goals",
+        "the possibility that uncharacterized pesticides or other trace organics may change treatment demand and ranking"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

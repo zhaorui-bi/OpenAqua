@@ -1,0 +1,336 @@
+{
+  "case_id": "WContBench_D_026",
+  "case_name": "Emergency potable reuse from contaminated stormwater runoff with fluctuating pesticide and benzene pulses",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Methomyl",
+      "Thiodicarb",
+      "Diazinon",
+      "Benzene"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for emergency conversion of contaminated stormwater runoff to potable reuse feedwater under fluctuating mixed organic contaminant loads and incomplete characterization.",
+  "input_data": {
+    "scenario_background": "Following severe flooding near mixed agricultural land, roadside fuel handling areas, and suburban drainage infrastructure, a temporary water supply is needed using captured stormwater runoff stored in a balancing pond. Monitoring confirms methomyl, thiodicarb, diazinon, and benzene, but event-based spikes are expected and the full dissolved organic contaminant profile is not fully characterized. Turbidity, NOM, and hydrocarbon sheen vary sharply between storm events, and some pesticide degradates or co-contaminants are suspected but not yet quantified. The treatment system must be deployable quickly, scalable over days to weeks, and conservative enough for potable reuse despite uncertainty.",
+    "water_quality": {
+      "source_type": "captured_urban_agricultural_stormwater_runoff",
+      "pH": 7.2,
+      "turbidity_NTU": 86,
+      "temperature_C": 18,
+      "TSS_mg_L": 112,
+      "TOC_mg_L": 13.8,
+      "DOC_mg_L": 9.6,
+      "UV254_cm_1": 0.24,
+      "alkalinity_mg_L_as_CaCO3": 78,
+      "hardness_mg_L_as_CaCO3": 124,
+      "conductivity_uS_cm": 610,
+      "TDS_mg_L": 395,
+      "ammonia_mg_L_as_N": 0.46,
+      "nitrate_mg_L_as_N": 3.8,
+      "phosphate_mg_L_as_P": 0.72,
+      "COD_mg_L": 31,
+      "oil_and_grease_mg_L": 2.4,
+      "benzene_ug_L": 38,
+      "methomyl_ug_L": 22,
+      "thiodicarb_ug_L": 11,
+      "diazinon_ug_L": 4.8,
+      "fecal_indicator_note": "microbial_contamination_likely_elevated_after_storm_events_but_not_fully_quantified",
+      "trace_contaminant_note": "pesticide_degradates_and_other_petroleum_related_VOCs_suspected_but_not_fully_characterized",
+      "influent_variability": "high",
+      "variability_note": "first_flush_events_show_sharp_increases_in_turbidity_NOM_and_dissolved_organics_with_possible_short_duration_contaminant_peaks"
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Produce water suitable as a potable reuse finished supply through a robust multi-barrier train capable of reducing particulates, NOM, pathogens, benzene, and pesticides to very low levels with conservative protection against uncertain storm-event spikes.",
+      "secondary_goals": [
+        "support rapid emergency deployment and modular scale-up",
+        "maintain treatment robustness under highly variable first-flush conditions",
+        "minimize breakthrough risk for dissolved organics despite incomplete characterization",
+        "provide clear residuals and concentrate management considerations",
+        "avoid recommending overly simple trains that are not defensible for potable reuse"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "backwash waste and spent carbon replacement are manageable on site; concentrate hauling is possible but logistically constrained during emergency operations",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_potable_reuse_target_and_highly_variable_runoff_quality"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "screening_and_equalization",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration_or_ultrafiltration",
+          "powdered_or_granular_activated_carbon",
+          "reverse_osmosis",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "remove gross solids and buffer hydraulic and contaminant surges from storm pulses",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, particulate NOM, and reduce fouling load on downstream barriers",
+          "dual_media_filtration_or_ultrafiltration": "polish particulates and provide a stable low-turbidity feed to carbon and membranes",
+          "powdered_or_granular_activated_carbon": "adsorb benzene and many pesticides while damping short-term dissolved organic spikes",
+          "reverse_osmosis": "provide high-rejection barrier for dissolved contaminants, salts, and many trace organics for potable reuse reliability",
+          "advanced_oxidation_uv_hydrogen_peroxide": "destroy residual low-molecular-weight organics and provide an additional barrier for compounds not fully removed upstream",
+          "final_stabilization_and_disinfection": "restore finished-water stability and maintain microbial protection in distribution"
+        },
+        "applicability_rationale": [
+          "a conservative multi-barrier potable reuse train is warranted because the source is stormwater runoff with high microbial and chemical uncertainty",
+          "equalization is especially important because first-flush contaminant peaks and turbidity spikes are expected",
+          "activated carbon is valuable for benzene and pesticide adsorption and offers resilience against contaminants not yet fully characterized",
+          "RO plus advanced oxidation provides redundancy for potable reuse where single-barrier reliance would be difficult to justify",
+          "the train can be assembled in modular emergency configurations using mobile clarification, filtration, carbon, and membrane skids"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "high NOM and solids variability can increase fouling and shorten carbon run times if pretreatment is underdesigned",
+          "RO concentrate management is a significant emergency logistics issue",
+          "advanced oxidation effectiveness depends on UV transmittance and peroxide control after upstream treatment",
+          "uncertainty remains around uncharacterized pesticide degradates and possible additional VOCs, so confirmation monitoring is essential",
+          "rapid deployment may strain operator skill and online monitoring requirements"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_multiple_barrier_approaches_for_potable_water_and_reuse",
+          "stormwater_treatment_practice_references_for_coagulation_filtration_and_carbon",
+          "drinking_water_guidance_for_gac_and_pac_removal_of_synthetic_organic_chemicals",
+          "potable_reuse_case_knowledge_using_ro_and_uv_aop_for_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "screening_and_equalization",
+          "ballasted_clarification_or_high_rate_clarification",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "buffer storm-driven variability and protect compact downstream units",
+          "ballasted_clarification_or_high_rate_clarification": "rapidly reduce turbidity and suspended solids with a footprint suitable for emergency deployment",
+          "ultrafiltration": "provide strong particulate and microbial barrier and consistent feed to adsorption and oxidation",
+          "granular_activated_carbon": "remove benzene, diazinon, methomyl, thiodicarb, and a portion of unknown organics by adsorption",
+          "advanced_oxidation_uv_hydrogen_peroxide": "oxidize residual dissolved organics and add protection against breakthrough from variable influent loads",
+          "final_disinfection": "maintain pathogen control after advanced treatment"
+        },
+        "applicability_rationale": [
+          "this train is attractive when very rapid deployment and scale-up are priorities and full desalination is not essential because source TDS is moderate",
+          "high-rate clarification and UF are widely used modular barriers for emergency polishing of turbid waters",
+          "GAC plus UV-AOP directly targets the named organics and provides dual barriers for incompletely characterized dissolved contaminants",
+          "compared with RO-based trains, this approach reduces energy demand and avoids concentrate production"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "without RO, overall dissolved contaminant robustness is lower and performance depends more heavily on carbon replacement frequency and oxidation design",
+          "short contaminant spikes could challenge GAC empty-bed contact time if bed exhaustion is not closely monitored",
+          "some oxidation byproduct control and quenching strategy may be needed depending on bromide and NOM conditions",
+          "potable reuse defensibility may be weaker if regulators or owners expect a membrane desalination barrier for emergency indirect potable use"
+        ],
+        "evidence_list": [
+          "awwa_and_utility_practice_references_for_high_rate_clarification_and_uf",
+          "epa_drinking_water_guidance_for_gac_control_of_vocs_and_pesticides",
+          "uv_hydrogen_peroxide_guidance_for_trace_organic_reduction_in_drinking_water",
+          "emergency_mobile_water_treatment_case_knowledge_for_modular_surface_water_barriers"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "screening_and_equalization",
+          "coagulation_flocculation_and_dissolved_air_flotation",
+          "ultrafiltration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "moderate hydraulic surges and variable first-flush quality",
+          "coagulation_flocculation_and_dissolved_air_flotation": "remove algae, floatables, hydrocarbon-associated solids, and part of NOM under variable runoff conditions",
+          "ultrafiltration": "provide low-turbidity membrane feed and microbial barrier",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "add strong dissolved contaminant reduction with potentially lower energy than full RO depending on target margins",
+          "granular_activated_carbon_polishing": "capture residual organics and act as a polishing safeguard against membrane passage or operational excursions",
+          "final_disinfection": "maintain microbiological safety"
+        },
+        "applicability_rationale": [
+          "DAF can outperform sedimentation-based solids removal when runoff contains floatables, emulsified hydrocarbons, or highly variable particulate characteristics",
+          "NF or low-pressure RO can provide an intermediate approach between non-desalting trains and full potable reuse RO systems",
+          "post-membrane GAC improves confidence for residual benzene or pesticides and helps address uncertainty in the dissolved organic mixture",
+          "this configuration can be suitable where modular membrane skids are available but full RO-AOP deployment is constrained"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "NF may not provide as much rejection margin as RO for all low-molecular-weight compounds under all conditions",
+          "DAF chemical control and solids handling add operational sensitivity during emergency operation",
+          "membrane fouling and recovery instability remain concerns with fluctuating stormwater NOM",
+          "if unknown VOCs are present at higher than expected levels, post-carbon polishing may need larger capacity than initially planned"
+        ],
+        "evidence_list": [
+          "surface_water_treatment_guidance_for_daf_under_variable_source_conditions",
+          "membrane_treatment_references_for_nf_and_ro_in_trace_organic_control",
+          "public_drinking_water_practice_for_gac_as_polishing_barrier_after_membranes"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "screening_and_equalization",
+          "powdered_activated_carbon_contact",
+          "coagulation_flocculation_and_clarification",
+          "media_filtration",
+          "ozonation_and_biological_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "reduce the impact of rapidly changing runoff quality",
+          "powdered_activated_carbon_contact": "provide quick-response adsorption for benzene and pesticide spikes before solids separation",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and PAC-associated particles",
+          "media_filtration": "polish residual turbidity and protect downstream biological carbon",
+          "ozonation_and_biological_activated_carbon": "oxidize and biologically polish dissolved organics and improve taste and odor control",
+          "final_disinfection": "ensure microbial protection"
+        },
+        "applicability_rationale": [
+          "this is a plausible emergency route when carbon and oxidant-based treatment assets are easier to mobilize than high-pressure membranes",
+          "PAC can be dosed flexibly during contaminant spikes, which is useful under uncertain event-driven loads",
+          "BAC can provide continuing removal of biodegradable oxidation products and some dissolved organic matter"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "for potable reuse, this train is less robust than RO-based options for unknown dissolved contaminants and may not satisfy conservative risk tolerance",
+          "ozonation of poorly characterized water can create byproduct concerns and needs bromide awareness",
+          "benzene and some pesticide removal reliability may vary with PAC dose control and contact time",
+          "biological activated carbon start-up and stability may be difficult in a short emergency deployment window"
+        ],
+        "evidence_list": [
+          "drinking_water_references_for_pac_and_gac_use_during_organic_contamination_events",
+          "ozonation_and_bac_guidance_for_natural_organic_matter_and_micropollutant_control",
+          "surface_water_emergency_treatment_case_knowledge_with_flexible_adsorption_dosing"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "screening",
+          "coagulation_flocculation_and_sedimentation",
+          "rapid_sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "screening": "remove debris and protect basic downstream equipment",
+          "coagulation_flocculation_and_sedimentation": "reduce suspended solids and some particulate-associated contaminants",
+          "rapid_sand_filtration": "provide further turbidity polishing",
+          "chlorination": "provide disinfectant residual and pathogen inactivation"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional train that could improve physical quality quickly",
+          "it may serve as temporary pretreatment ahead of more advanced barriers but is not sufficient as a standalone potable reuse solution for this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "does not reliably remove benzene, methomyl, thiodicarb, diazinon, or other dissolved trace organics to potable reuse confidence levels",
+          "offers limited protection against incompletely characterized dissolved contaminants",
+          "chlorination alone may transform some organics without adequately reducing total chemical risk",
+          "insufficient as a defensible emergency potable reuse barrier train under high uncertainty"
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_guidance_showing_limits_for_dissolved_organic_micropollutants",
+          "drinking_water_practice_references_for_need_of_advanced_barriers_when_vocs_and_pesticides_are_present"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier potable reuse trains with equalization and advanced dissolved-organic control should rank above simple conventional trains",
+        "options combining carbon adsorption with either membrane separation or advanced oxidation should appear in the top ranks because the contaminant set includes VOC and pesticide compounds under uncertainty",
+        "purely conventional clarification-filtration-disinfection should be ranked last or near last as insufficient for potable reuse from contaminated stormwater"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency deployment and rapid scale-up favor modular high-rate pretreatment, carbon, UF, and packaged membrane systems",
+        "high influent variability requires buffering or equalization and explicit surge-management reasoning",
+        "potable reuse requires conservative multiple barriers for pathogens and dissolved organics, not just turbidity removal",
+        "tradeoffs between RO robustness and concentrate logistics should be discussed explicitly"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is particularly relevant for benzene and pesticide risk reduction",
+        "why stormwater first-flush variability changes pretreatment needs and favors equalization or rapid clarification",
+        "why additional barriers such as RO, NF, or UV-AOP are justified given incomplete characterization of co-contaminants",
+        "why simple chlorination after conventional solids removal is not adequate for this potable reuse scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertain contaminant spikes during storm events and first-flush conditions",
+        "possible presence of unmeasured pesticide degradates or additional petroleum-related VOCs",
+        "fouling and carbon exhaustion risk driven by variable NOM and turbidity",
+        "concentrate handling risk if RO is selected during emergency deployment",
+        "uncertainty about regulatory acceptability of lower-barrier non-RO trains for potable reuse"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

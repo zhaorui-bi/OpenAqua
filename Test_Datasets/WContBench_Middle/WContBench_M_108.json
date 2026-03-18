@@ -1,0 +1,313 @@
+{
+  "case_id": "WContBench_M_108",
+  "case_name": "Surface water with TCE and fenamiphos under strict potable limits and footprint constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Trichloroethylene",
+      "Fenamiphos"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for treating surface water containing trichloroethylene and fenamiphos for drinking water while balancing strict effluent compliance, limited site footprint, and moderate cost limits.",
+  "input_data": {
+    "scenario_background": "A municipal utility draws from a small river reach impacted by upstream legacy solvent releases and seasonal agricultural pesticide runoff. The utility must consistently meet very low finished-water concentrations for both volatile organic compounds and pesticides, but the treatment plant site has little room for major expansion. Several technologies are technically capable, but the best option depends on trade-offs among compactness, operating burden, media replacement or residuals handling, and the need for reliable compliance during seasonal water-quality variation.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "temperature_C": 16.8,
+      "pH": 7.5,
+      "turbidity_NTU": 8.6,
+      "TOC_mg_L": 4.7,
+      "DOC_mg_L": 3.9,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 355,
+      "UV254_cm_1": 0.118,
+      "TSS_mg_L": 11.0,
+      "dissolved_oxygen_mg_L": 8.1,
+      "ammonia_mg_L_as_N": 0.14,
+      "nitrate_mg_L_as_N": 1.9,
+      "target_contaminants": {
+        "trichloroethylene_ug_L": 18.0,
+        "fenamiphos_ug_L": 1.2
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve stable drinking-water compliance for trichloroethylene and fenamiphos at strict low-level targets with adequate treatment robustness.",
+      "secondary_goals": [
+        "fit within a constrained plant footprint",
+        "avoid disproportionately high life-cycle cost",
+        "maintain reliable performance during seasonal turbidity and organic matter variation",
+        "limit difficult residuals or off-gas management burdens"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "medium",
+      "residuals_management": "prefer manageable media replacement or standard sludge handling; avoid highly burdensome concentrated hazardous residual streams where possible",
+      "footprint_constraint": "high",
+      "robustness_requirement": "system should tolerate seasonal changes in turbidity and dissolved organic matter without frequent compliance excursions"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "compact_clarification_or_inline_coagulation",
+          "dual_media_filtration",
+          "air_stripping_with_off_gas_treatment",
+          "granular_activated_carbon_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "compact_clarification_or_inline_coagulation": "reduce suspended solids and part of the natural organic matter load ahead of downstream units",
+          "dual_media_filtration": "provide particulate removal and protect stripping and adsorption performance",
+          "air_stripping_with_off_gas_treatment": "remove volatile trichloroethylene from water while controlling vapor-phase emissions",
+          "granular_activated_carbon_polishing": "adsorb fenamiphos and polish residual dissolved organics including any remaining trace VOCs",
+          "disinfection": "ensure microbiological safety for potable supply"
+        },
+        "applicability_rationale": [
+          "this train separates the treatment duties according to contaminant properties, using air stripping for the volatile solvent and GAC for the pesticide fraction",
+          "air stripping is effective for TCE and can be designed in a relatively compact tower footprint compared with large contactor trains",
+          "GAC polishing is a well-established barrier for pesticide removal and also provides additional compliance margin for trace organics",
+          "pretreatment is important because the source is surface water with moderate turbidity and DOC that would otherwise shorten GAC life and destabilize performance",
+          "the overall route balances strict effluent goals with a manageable footprint and moderate total cost better than membrane-intensive alternatives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "off-gas from the stripper requires vapor-phase carbon or equivalent control and associated monitoring",
+          "high seasonal DOC or pesticide spikes can accelerate GAC exhaustion",
+          "insufficient pretreatment can increase headloss and reduce downstream reliability"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_drinking_water",
+          "EPA_and_state_guidance_on_GAC_for_pesticide_and_synthetic_organic_chemical_control",
+          "standard_surface_water_treatment_practice_for_protecting_adsorptive_processes",
+          "case_knowledge_on_combining_stripping_and_GAC_for_mixed_VOC_and_pesticide_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "compact_clarification_or_inline_coagulation",
+          "dual_media_filtration",
+          "packed_tower_aeration",
+          "advanced_oxidation_uv_h2o2",
+          "biologically_active_or_GAC_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "compact_clarification_or_inline_coagulation": "remove turbidity and lower oxidant demand from surface water",
+          "dual_media_filtration": "protect oxidation and polishing steps",
+          "packed_tower_aeration": "remove most of the trichloroethylene load through volatilization",
+          "advanced_oxidation_uv_h2o2": "degrade fenamiphos and other oxidation-susceptible trace organics",
+          "biologically_active_or_GAC_polishing": "remove oxidation byproducts and provide polishing for residual organics",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "this route can meet strict mixed-contaminant targets by pairing physical VOC removal with destructive treatment for the pesticide",
+          "advanced oxidation may reduce dependence on frequent GAC replacement where pesticide loading is variable",
+          "the process train remains relatively compact compared with full membrane treatment",
+          "it is plausible when the utility is willing to accept somewhat higher process sophistication in exchange for stronger polishing margin"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "UV and peroxide systems raise OPEX and require tighter operator control",
+          "natural organic matter can increase oxidant demand and reduce oxidation efficiency",
+          "oxidation byproducts and quenching needs must be managed carefully"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_trichloroethylene_and_other_VOCs",
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants_in_drinking_water",
+          "AWWA_case_knowledge_on_AOP_with_GAC_polishing_for_pesticide_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "compact_clarification_or_inline_coagulation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "air_stripping_with_off_gas_treatment",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "compact_clarification_or_inline_coagulation": "prepare variable surface water by reducing suspended solids",
+          "dual_media_filtration": "stabilize downstream operation and improve particulate removal",
+          "powdered_activated_carbon_contact": "adsorb fenamiphos during contact and solids separation stages",
+          "air_stripping_with_off_gas_treatment": "remove trichloroethylene from finished process water",
+          "disinfection": "final microbial barrier"
+        },
+        "applicability_rationale": [
+          "PAC plus stripping is technically capable for the contaminant mix and can sometimes be retrofitted into existing conventional treatment basins",
+          "this option may be attractive if the plant already has chemical feed and solids handling infrastructure",
+          "it can moderate capital spending compared with adding multiple fixed-bed adsorbers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC dosing control can be less stable than fixed-bed GAC for very strict low-level pesticide targets",
+          "additional solids production increases sludge handling burden",
+          "performance is sensitive to contact time, dose optimization, and seasonal organic matter competition"
+        ],
+        "evidence_list": [
+          "public_guidance_on_powdered_activated_carbon_for_pesticide_taste_odor_and_trace_organic_control",
+          "EPA_guidance_for_packed_tower_aeration_of_volatile_organic_contaminants",
+          "case_knowledge_on_PAC_limitations_when_very_low_finished_water_targets_are_required"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_coagulation_filtration",
+          "reverse_osmosis",
+          "post_stabilization",
+          "granular_activated_carbon_or_air_stripping_for_residual_management",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_coagulation_filtration": "reduce fouling potential before membrane treatment",
+          "reverse_osmosis": "provide broad-spectrum rejection of dissolved contaminants including fenamiphos and some TCE transfer control",
+          "post_stabilization": "restore finished-water mineral balance and corrosion stability",
+          "granular_activated_carbon_or_air_stripping_for_residual_management": "polish permeate or address residual organics depending on system design",
+          "disinfection": "ensure potable microbiological protection"
+        },
+        "applicability_rationale": [
+          "RO is technically capable and compact, and it offers strong multi-contaminant control if the utility anticipates future broader water-quality issues",
+          "the option provides a high compliance margin for many dissolved contaminants beyond the two current targets",
+          "it is included as a plausible route because strict effluent limits and high footprint pressure can sometimes favor compact membrane systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major drawback, especially when concentrated solvent and pesticide residuals require careful disposal",
+          "surface-water fouling control raises pretreatment and operational complexity",
+          "post-treatment and membrane integrity management increase lifecycle burden"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_drinking_water_contaminant_control",
+          "public_references_on_RO_concentrate_management_challenges",
+          "case_knowledge_showing_membranes_are_often_downgraded_when_residuals_and_cost_are_constrained"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "compact_clarification_or_inline_coagulation",
+          "dual_media_filtration",
+          "granular_activated_carbon_lead_lag",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "compact_clarification_or_inline_coagulation": "reduce particulates and some organic matter before adsorption",
+          "dual_media_filtration": "protect adsorber performance",
+          "granular_activated_carbon_lead_lag": "adsorb fenamiphos and some dissolved organics including limited TCE polishing",
+          "disinfection": "provide final pathogen barrier"
+        },
+        "applicability_rationale": [
+          "GAC is a strong option for the pesticide component and is relatively familiar in drinking-water practice",
+          "a lead-lag arrangement improves breakthrough management and compliance monitoring",
+          "the train has simpler residuals handling than membrane systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "GAC alone is not the preferred primary barrier for TCE because adsorption capacity for volatile chlorinated solvents in this surface-water matrix may be less economical and less robust than stripping",
+          "moderate DOC competes for adsorption sites and shortens bed life",
+          "the need for larger carbon contactor volume can conflict with tight site footprint"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_GAC_use_in_synthetic_organic_chemical_and_pesticide_control",
+          "public_case_knowledge_that_air_stripping_is_typically_more_efficient_than_GAC_for_TCE_bulk_removal",
+          "guidance_on_natural_organic_matter_competition_in_GAC_adsorption_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid routes that match contaminant properties should rank near the top",
+        "air_stripping_should_appear_in_high-ranked_options_for_TCE_control",
+        "GAC_or_other_adsorptive_or_oxidative_steps_should_be_used_for_fenamiphos_control",
+        "RO_or_broad_membrane_options_should_not_rank_first_under_moderate_cost_and_residuals_constraints",
+        "a technically_capable_but_misaligned_option_should_rank_lower_due_to_cost_or_residuals_or_footprint_tradeoffs"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict low finished-water limits for both a volatile solvent and a pesticide",
+        "limited plant footprint that favors compact or duty-separated processes",
+        "moderate capex and opex limits rather than unconstrained treatment selection",
+        "the burden of off-gas handling or concentrate disposal in ranking decisions"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why TCE is well suited to air stripping because it is volatile",
+        "why fenamiphos requires adsorption or oxidation rather than stripping alone",
+        "why surface-water turbidity and DOC create a need for pretreatment and affect GAC consumption",
+        "why membrane treatment can be technically strong yet rank lower because of concentrate, cost, and complexity"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal organic matter competition and breakthrough risk",
+        "off-gas treatment needs for stripped VOCs",
+        "sludge or spent carbon management",
+        "oxidation byproduct or membrane concentrate management concerns"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

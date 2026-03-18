@@ -1,0 +1,286 @@
+{
+  "case_id": "WContBench_E_072",
+  "case_name": "Disinfection-focused treatment selection for E. coli O157 in groundwater used for drinking water",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "E. coli O157"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for groundwater contaminated with E. coli O157 intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A small municipal well system has detected repeated fecal contamination events associated with surface influence after heavy rainfall, with E. coli O157 identified as the primary acute health concern. The raw groundwater is otherwise relatively clear and chemically stable, and the utility prefers conventional, proven treatment with moderate cost and straightforward operation. The objective is to implement a robust pathogen-control treatment train suitable for drinking water production without resorting to unnecessarily complex high-energy systems.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.2,
+      "turbidity_NTU": 1.4,
+      "DOC_mg_L": 1.7,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrate_mg_L_as_N": 2.6,
+      "chloride_mg_L": 24,
+      "sulfate_mg_L": 31,
+      "temperature_C": 12.0,
+      "total_coliform_CFU_per_100mL": 38,
+      "e_coli_O157_CFU_per_100mL": 8
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable pathogen inactivation and removal so that E. coli is not detectable in the distributed drinking water and treatment remains consistent during contamination events.",
+      "secondary_goals": [
+        "use proven drinking water disinfection practice",
+        "maintain moderate operating complexity",
+        "avoid excessive energy consumption",
+        "provide a multiple-barrier approach appropriate for public health protection"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited sludge handling preferred; routine filter backwash management is acceptable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable operation during periodic pathogen spikes and variable raw water quality is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_or_media_prefiltration",
+          "chlorination",
+          "clearwell_contact_time",
+          "distribution_residual_maintenance"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_media_prefiltration": "reduce particulate shielding and improve disinfection reliability in relatively clear groundwater",
+          "chlorination": "provide primary inactivation of E. coli O157",
+          "clearwell_contact_time": "ensure adequate disinfectant contact time for pathogen control",
+          "distribution_residual_maintenance": "maintain microbial protection through storage and distribution"
+        },
+        "applicability_rationale": [
+          "E. coli O157 is the clear primary contaminant and is effectively controlled by conventional chlorine disinfection when CT and residual are properly managed",
+          "raw groundwater turbidity is modest, so a simple polishing filtration step supports reliable disinfection without requiring a full advanced treatment train",
+          "this approach matches a small municipal system with conventional operational capability",
+          "the process chain is a standard multiple-barrier drinking water strategy with strong public health relevance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "insufficient disinfectant contact time or poor baffling can reduce pathogen inactivation performance",
+          "elevated turbidity during contamination events may increase particle shielding if pretreatment is not maintained",
+          "disinfection by-product formation must still be monitored even though DOC is relatively low"
+        ],
+        "evidence_list": [
+          "EPA_ground_water_rule_multiple_barrier_disinfection_principles",
+          "EPA_guidance_for_surface_water_treatment_and_pathogen_inactivation_credit",
+          "drinking_water_case_knowledge_for_chlorine_control_of_enteric_bacteria"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pressure_filtration",
+          "UV_disinfection",
+          "secondary_chlorination"
+        ],
+        "core_unit_functions": {
+          "pressure_filtration": "lower turbidity and particulate interference before UV exposure",
+          "UV_disinfection": "provide effective primary inactivation of E. coli O157",
+          "secondary_chlorination": "maintain a disinfectant residual in storage and the distribution system"
+        },
+        "applicability_rationale": [
+          "UV is highly effective for bacterial pathogen inactivation and works well for clear groundwater",
+          "secondary chlorination addresses the practical need for residual protection in drinking water delivery",
+          "the train remains proven and compact while adding a second barrier approach",
+          "this is attractive where operators want strong microbial control without heavy chemical dependence for primary disinfection"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "UV performance depends on lamp maintenance and adequate UV transmittance",
+          "loss of power or lamp fouling can compromise primary disinfection if alarms and redundancy are weak",
+          "secondary chlorination is still needed because UV alone does not provide a residual"
+        ],
+        "evidence_list": [
+          "EPA_UV_disinfection_guidance_manual_for_microbial_pathogens",
+          "public_health_practice_for_UV_plus_chlorine_in_drinking_water_systems",
+          "conventional_groundwater_pathogen_barrier_case_examples"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation",
+          "rapid_mixed_media_filtration",
+          "chlorination",
+          "clearwell_contact_time"
+        ],
+        "core_unit_functions": {
+          "coagulation": "promote aggregation of fine particles and any microbially associated solids",
+          "rapid_mixed_media_filtration": "remove formed flocs and reduce turbidity prior to disinfection",
+          "chlorination": "inactivate E. coli O157",
+          "clearwell_contact_time": "provide verified disinfectant exposure before distribution"
+        },
+        "applicability_rationale": [
+          "this is a well-established conventional treatment route for microbial risk reduction",
+          "it provides stronger solids removal than simple prefiltration if the utility expects episodic raw water deterioration",
+          "the train is robust and familiar in municipal treatment settings",
+          "it may be preferred where source vulnerability suggests a need for more than minimal pretreatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "greater chemical dosing and process control are required than for simpler disinfection-centered trains",
+          "sludge and backwash residuals management become more significant",
+          "added complexity may be unnecessary when pathogen contamination is the only substantial issue and turbidity is low"
+        ],
+        "evidence_list": [
+          "conventional_drinking_water_treatment_guidance_for_filtration_plus_disinfection",
+          "EPA_surface_water_treatment_rule_filtration_and_disinfection_concepts",
+          "public_case_knowledge_on_particle_removal_supporting_pathogen_control"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "microfiltration_or_ultrafiltration",
+          "chlorination",
+          "distribution_residual_maintenance"
+        ],
+        "core_unit_functions": {
+          "microfiltration_or_ultrafiltration": "provide physical removal of bacteria and suspended solids",
+          "chlorination": "add a chemical disinfection barrier and maintain microbial protection",
+          "distribution_residual_maintenance": "sustain disinfectant residual throughout the system"
+        },
+        "applicability_rationale": [
+          "membrane filtration can physically remove bacteria effectively and produce very low turbidity water",
+          "adding chlorination provides the needed residual barrier for drinking water distribution",
+          "the process is technically strong for pathogen control"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher capital cost and membrane integrity monitoring burden may be disproportionate for a single-contaminant bacterial case",
+          "membrane fouling and backwash management increase operator workload",
+          "this can be more sophisticated than necessary for relatively clear groundwater"
+        ],
+        "evidence_list": [
+          "drinking_water_membrane_filtration_guidance_for_microbial_removal",
+          "public_case_knowledge_on_low_turbidity_groundwater_membrane_applications",
+          "multiple_barrier_practice_with_membrane_plus_chlorine"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "post_stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide broad contaminant rejection including microbial reduction",
+          "post_stabilization": "restore suitable finished water chemistry after aggressive desalting",
+          "disinfection": "ensure final microbiological protection and distribution safety"
+        },
+        "applicability_rationale": [
+          "high-pressure membranes are technically capable of strong microbial control",
+          "they may be considered only if a broader dissolved contaminant problem also exists"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management adds a major residuals burden",
+          "energy use and operator skill requirements are unnecessarily high for a straightforward E. coli O157 case",
+          "finished water stabilization needs add complexity not justified by the stated problem"
+        ],
+        "evidence_list": [
+          "membrane_treatment_reference_examples_for_drinking_water",
+          "engineering_guidance_showing_high_pressure_membranes_as_nonpreferred_for_simple_pathogen_only_cases",
+          "case_knowledge_on_RO_complexity_and_concentrate_management"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional disinfection-centered trains with simple pretreatment and chlorine residual should rank first",
+        "UV plus secondary chlorination can rank highly but usually below simple chlorination for moderate-cost conventional groundwater systems",
+        "high-pressure membrane options should not rank first for a single bacterial contaminant case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven drinking water disinfection practice",
+        "moderate operational capability of a small municipal groundwater utility",
+        "avoidance of unnecessarily complex and high-energy treatment"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why disinfection is the central control barrier for E. coli O157",
+        "why low to moderate turbidity supports simple pretreatment rather than advanced solids treatment",
+        "why a distribution disinfectant residual is important for drinking water systems",
+        "why membrane-intensive options rank lower under the stated constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "contact time and hydraulic baffling limitations",
+        "particle shielding and turbidity spikes during contamination events",
+        "need for residual maintenance in the distribution system",
+        "UV maintenance or membrane fouling where applicable"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

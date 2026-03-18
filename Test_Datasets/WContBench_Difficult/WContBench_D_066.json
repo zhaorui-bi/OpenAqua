@@ -1,0 +1,341 @@
+{
+  "case_id": "WContBench_D_066",
+  "case_name": "Municipal wastewater reuse with uncertain radium occurrence and protozoan barrier requirements for industrial supply",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "municipal_wastewater",
+    "contaminant_type": [
+      "Radium",
+      "Cryptosporidium"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "legacy_contamination",
+      "evolving_standards",
+      "mixed_organic_inorganic"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process trains for municipal wastewater reclamation to industrial reuse under uncertain radium occurrence, Cryptosporidium risk, and partially characterized dissolved contaminant conditions.",
+  "input_data": {
+    "scenario_background": "A coastal municipality plans to expand industrial reuse of tertiary-treated municipal wastewater for boiler makeup pre-treatment and cooling-system supply to a mixed industrial estate. Recent spot sampling detected low but non-zero combined radium activity in the reclaimed-water feed blending system, likely linked to legacy groundwater infiltration and intermittent contributions from dewatering return flows, but the frequency and speciation are not fully characterized. Cryptosporidium is a critical concern because the upstream biological process occasionally experiences wet-weather bypasses and solids upsets, and direct oocyst monitoring data are sparse. Additional trace dissolved organics and scaling ions are suspected but not fully characterized, so the treatment recommendation must be robust under uncertainty rather than optimized to a fully defined influent.",
+    "water_quality": {
+      "source_type": "secondary_effluent_with_variable_tertiary_performance",
+      "pH": 7.3,
+      "turbidity_NTU": 7.8,
+      "TSS_mg_L": 11,
+      "COD_mg_L": 38,
+      "BOD5_mg_L": 9,
+      "TOC_mg_L": 12.5,
+      "ammonia_mg_L_as_N": 3.4,
+      "nitrate_mg_L_as_N": 9.8,
+      "total_phosphorus_mg_L": 1.7,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 245,
+      "TDS_mg_L": 910,
+      "conductivity_uS_cm": 1480,
+      "chloride_mg_L": 190,
+      "sulfate_mg_L": 118,
+      "silica_mg_L_as_SiO2": 19,
+      "DOC_mg_L": 8.4,
+      "UV254_cm-1": 0.19,
+      "radium_226_pCi_L": 2.1,
+      "radium_228_pCi_L": 1.6,
+      "combined_radium_note": "intermittently_detected_near_or_above_5_pCi_L_in_some_blended_feed_samples_but_temporal_pattern_uncertain",
+      "cryptosporidium_oocysts_per_100L": 0.8,
+      "microbial_risk_note": "wet_weather_events_and_upstream_solids_breakthroughs_create_uncertain_protozoan_log_removal_credit_without_additional_barriers",
+      "trace_contaminant_note": "low_level_refractory_organics_and_possible_PFAS_or_NORM_associated_particulates_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Produce a reliable reclaimed water suitable for industrial cooling and further site-specific polishing for higher-pressure uses, with strong protozoan control, effective management of intermittent radium risk, reduced organics and solids, and improved stability for downstream industrial systems.",
+      "secondary_goals": [
+        "maintain barrier performance during wet-weather and hydraulic surges",
+        "provide a defensible response to uncertain radium occurrence and evolving reuse expectations",
+        "limit scaling and membrane fouling risk for industrial users",
+        "avoid overcommitting to a treatment route that cannot handle partially characterized dissolved contaminants",
+        "make residuals and concentrate management explicit"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "radioactivity-bearing solids or brine can be managed off-site in limited quantities, but residual generation should be minimized and clearly justified",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_influent_and_uncertain_radium_spikes"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending",
+          "coagulation_flocculation_and_high_rate_clarification",
+          "dual_media_filtration_or_membrane_microfiltration",
+          "cartridge_prefiltration",
+          "reverse_osmosis",
+          "selective_radium_polishing_with_ion_exchange_or_lime_softening_sidestream_as_needed",
+          "UV_disinfection",
+          "chlorine_residual_management"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer wet-weather variability and dampen intermittent contaminant spikes before advanced treatment",
+          "coagulation_flocculation_and_high_rate_clarification": "remove suspended solids, particle-associated radionuclides, and part of the organic-fouling load",
+          "dual_media_filtration_or_membrane_microfiltration": "provide robust particulate and protozoan barrier pretreatment and protect RO",
+          "cartridge_prefiltration": "final particulate protection upstream of RO",
+          "reverse_osmosis": "reduce dissolved salts, dissolved organics, and likely lower dissolved radium activity while producing stable industrial reuse water",
+          "selective_radium_polishing_with_ion_exchange_or_lime_softening_sidestream_as_needed": "provide contingency polishing if combined radium remains elevated or speciation proves less amenable to the primary train",
+          "UV_disinfection": "add a validated pathogen barrier independent of chlorine efficacy against protozoa",
+          "chlorine_residual_management": "support downstream biological control in industrial distribution where appropriate"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is most defensible because both a particulate protozoan hazard and an uncertain dissolved radionuclide issue are present",
+          "equalization is important because radium detections are intermittent and upstream wastewater quality varies significantly during rain events",
+          "clarification plus filtration or MF improves Cryptosporidium control and reduces solids loading that would otherwise increase RO fouling risk",
+          "RO is attractive for industrial reuse because it improves salinity, scaling control, and dissolved contaminant reduction simultaneously",
+          "including a conditional radium-polishing step acknowledges uncertainty in radium speciation and breakthrough risk rather than assuming RO alone will always be sufficient",
+          "UV is favored over chlorine as the primary final microbial barrier because Cryptosporidium is chlorine-resistant"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "radium removal performance may vary depending on dissolved versus particulate partitioning and should not be assumed from limited spot data alone",
+          "RO concentrate and any spent ion exchange media or lime sludge may require special handling if radionuclides accumulate",
+          "membrane fouling risk remains significant if wet-weather solids carryover is not well controlled",
+          "Cryptosporidium barrier credit depends on validated integrity monitoring for MF or filtration and UV dose verification",
+          "the train may be more costly than necessary if later characterization shows radium detections were episodic and source-specific"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_in_drinking_water_using_ion_exchange_lime_softening_and_membranes",
+          "EPA_and_state_reuse_guidance_supporting_multi_barrier_treatment_for_municipal_reclaimed_water",
+          "US_water_industry_case_knowledge_on_UF_or_MF_plus_RO_for_industrial_reuse",
+          "Cryptosporidium_control_guidance_emphasizing_filtration_integrity_and_UV_barriers"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "enhanced_coagulation_flocculation",
+          "cloth_media_or_disc_filtration",
+          "ultrafiltration",
+          "nanofiltration_or_low_pressure_RO",
+          "UV_disinfection",
+          "contingency_radium_selective_ion_exchange"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce hydraulic and quality swings and improve downstream process stability",
+          "enhanced_coagulation_flocculation": "capture colloids, reduce organic fouling precursors, and remove particle-associated contaminants",
+          "cloth_media_or_disc_filtration": "polish solids prior to membranes",
+          "ultrafiltration": "provide strong physical barrier to protozoa and suspended solids",
+          "nanofiltration_or_low_pressure_RO": "reduce hardness, multivalent ions, and a portion of dissolved radionuclides and organics with lower pressure than full RO in some configurations",
+          "UV_disinfection": "provide independent pathogen inactivation barrier for reuse distribution",
+          "contingency_radium_selective_ion_exchange": "target residual radium if membrane removal alone proves inconsistent"
+        },
+        "applicability_rationale": [
+          "this is a strong option when explicit protozoan barrier performance is prioritized through UF while seeking somewhat lower pressure than conventional high-recovery RO",
+          "NF or low-pressure RO can improve industrial suitability by reducing hardness and some dissolved ions, which is useful for cooling systems",
+          "the train remains adaptable because radium-specific polishing is reserved as a contingency after additional characterization",
+          "it fits situations where evolving reuse standards may later require more formal pathogen log-removal demonstration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "NF may be less reliable than full RO for dissolved radium control depending on water chemistry and membrane selection",
+          "multiple membrane stages increase integrity monitoring and cleaning complexity",
+          "if non-characterized dissolved organics are significant, NF performance may be less protective than expected",
+          "residual radium risk remains unless confirmatory monitoring supports membrane-only removal"
+        ],
+        "evidence_list": [
+          "membrane_reuse_guidance_for_municipal_effluent_polishing_and_industrial_reuse",
+          "EPA_radionuclide_treatment_reference_identifying_membranes_and_ion_exchange_as_feasible_options",
+          "Cryptosporidium_barrier_case_knowledge_for_UF_in_water_reclamation"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "lime_softening_and_clarification",
+          "recarbonation_or_pH_adjustment",
+          "granular_media_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection",
+          "final_chlorination"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent and support consistent chemical dosing",
+          "lime_softening_and_clarification": "remove hardness, some radium through co-precipitation, and suspended solids",
+          "recarbonation_or_pH_adjustment": "restore stable chemistry after softening",
+          "granular_media_filtration": "polish carryover solids and improve downstream performance",
+          "granular_activated_carbon": "reduce dissolved organic matter and some trace organic uncertainty",
+          "UV_disinfection": "provide protozoan-relevant final disinfection barrier",
+          "final_chlorination": "maintain residual in storage and distribution"
+        },
+        "applicability_rationale": [
+          "this route directly reflects established radium treatment knowledge because lime softening can remove radium while also reducing hardness important for industrial reuse",
+          "it avoids full desalination when the industrial users can tolerate moderate TDS and mainly need stable, softened reclaimed water",
+          "GAC is included because the dissolved organic fraction is only partially characterized and may contribute to odor, fouling, or downstream compatibility issues",
+          "the overall train may suit plants seeking a more conventional chemical approach rather than extensive membrane deployment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "treated TDS may remain too high for some industrial applications compared with membrane-based options",
+          "radium removal by softening can be chemistry-dependent and may underperform if the radium is not effectively co-precipitated",
+          "softening sludge may concentrate radionuclides and create handling and disposal complications",
+          "Cryptosporidium control depends on robust filtration and UV validation because chlorine alone is insufficient"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_using_lime_softening",
+          "public_water_treatment_case_knowledge_on_softening_for_hardness_and_radionuclide_reduction",
+          "reuse_guidance_indicating_UV_as_key_barrier_for_protozoan_risk_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_DAF_or_clarification",
+          "ultrafiltration",
+          "GAC_or_BAC_polishing",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable wastewater quality and flow surges",
+          "coagulation_flocculation_and_DAF_or_clarification": "remove solids and reduce particulate contaminant load",
+          "ultrafiltration": "provide strong physical removal barrier for Cryptosporidium-sized particles and stable low-turbidity effluent",
+          "GAC_or_BAC_polishing": "reduce residual organics and improve reclaimed-water aesthetics and compatibility",
+          "UV_disinfection": "supply final pathogen inactivation barrier"
+        },
+        "applicability_rationale": [
+          "this is a plausible lower-energy option if the industrial user can accept moderate salinity and if subsequent monitoring shows radium is mostly particle-associated and infrequent",
+          "UF plus UV provides a clearer and more defensible protozoan barrier than conventional tertiary filtration alone",
+          "the train is simpler than desalination-focused alternatives and may be attractive where energy sensitivity is high"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this route is risky under uncertainty because it may not adequately remove dissolved radium if the source is truly soluble rather than particulate",
+          "lack of desalination may leave scaling and corrosion concerns for industrial systems",
+          "GAC does not address radionuclides and should not be treated as a substitute for radium control",
+          "the recommendation is only conditionally acceptable pending better characterization of radium frequency and industrial salt tolerance"
+        ],
+        "evidence_list": [
+          "municipal_reuse_case_examples_with_UF_UV_for_pathogen_control",
+          "Cryptosporidium_treatment_guidance_supporting_physical_removal_plus_UV",
+          "engineering_knowledge_that_conventional_reuse_trains_without_dissolved_contaminant_control_are_limited_for_radionuclide_uncertainty"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "tertiary_clarification",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "tertiary_clarification": "remove settleable solids",
+          "sand_filtration": "polish remaining suspended solids",
+          "chlorination": "provide disinfectant residual for distribution"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline to illustrate a common but insufficient conventional upgrade path",
+          "it may improve appearance and bacterial control at low complexity but does not adequately address the combined uncertainty around Cryptosporidium and radium",
+          "the train lacks a strong dissolved contaminant barrier and lacks a robust protozoan-focused final barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "chlorine is not a reliable primary control for Cryptosporidium",
+          "sand filtration and clarification alone provide limited assurance against intermittent solids breakthroughs and uncertain oocyst events",
+          "there is essentially no dedicated dissolved radium control",
+          "finished water salinity and hardness remain problematic for many industrial reuse settings"
+        ],
+        "evidence_list": [
+          "basic_conventional_tertiary_treatment_references",
+          "Cryptosporidium_guidance_showing_limited_chlorine_effectiveness",
+          "EPA_radionuclide_treatment_references_indicating_need_for_targeted_removal_processes"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with both protozoan control and explicit radium management contingency should rank above simpler tertiary-only options",
+        "equalization should be recognized as important because radium occurrence and wet-weather wastewater quality are variable",
+        "solutions that include UV or an equivalent protozoan-relevant barrier should rank above chlorine-only disinfection trains",
+        "industrial reuse-oriented desalination or hardness/salt control should appear in higher-ranked solutions unless clearly caveated"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the contaminant problem combines legacy radionuclide concern with microbial reuse risk rather than a single contaminant issue",
+        "uncertain radium speciation and frequency require contingency logic rather than absolute claims of removal",
+        "mixed organic and inorganic water quality means pretreatment for solids and fouling control should be discussed",
+        "residuals management must address the possibility of radionuclides concentrating in sludge, brine, or spent media",
+        "energy and complexity tradeoffs should be balanced against industrial reuse reliability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why chlorine alone is insufficient for Cryptosporidium-focused risk management",
+        "why radium treatment may require ion exchange, lime softening, membrane removal, or a staged/contingency approach",
+        "why equalization and solids pretreatment matter before advanced membranes under municipal wastewater variability",
+        "why simpler conventional-only trains are inadequate under uncertain dissolved contaminant conditions"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in radium source, dissolved versus particulate form, and temporal spikes",
+        "possibility that radionuclides accumulate in concentrate, sludge, or spent media and create residual handling issues",
+        "need for validated protozoan barrier performance and monitoring because direct Cryptosporidium data are sparse",
+        "membrane fouling and scaling risk from municipal effluent organics, hardness, and wet-weather solids carryover",
+        "risk that evolving industrial reuse expectations or site-specific user requirements may make non-desalting options insufficient"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

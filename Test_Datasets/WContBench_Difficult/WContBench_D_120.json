@@ -1,0 +1,349 @@
+{
+  "case_id": "WContBench_D_120",
+  "case_name": "Fluctuating agrochemical manufacturing wastewater with radionuclide concern and partially characterised trace organics for discharge compliance",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "Malathion",
+      "Natural Organic Matter",
+      "Radium",
+      "Acetochlor"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of treatment process trains for variable industrial wastewater containing pesticides, natural organic matter, radium, and uncertain trace contaminants to achieve reliable environmental discharge under operational and uncertainty constraints.",
+  "input_data": {
+    "scenario_background": "A pesticide formulation and equipment washdown facility sends a mixed wastewater stream to an on-site treatment plant before discharge to a small receiving water. The influent varies by production campaign, stormwater ingress, and intermittent tank-cleaning events, so pesticide concentrations and suspended solids are not stable over time. Screening data confirmed malathion, acetochlor, elevated natural organic matter, and measurable radium, but some co-formulants, degradation products, and other trace organic contaminants are suspected but not fully characterised. The owner wants a robust train that can meet discharge expectations and reduce ecological risk despite incomplete source characterisation.",
+    "water_quality": {
+      "source_type": "industrial_wastewater_from_agrochemical_formulation_and_washdown",
+      "pH": 7.2,
+      "temperature_C": 24,
+      "turbidity_NTU": 46,
+      "TSS_mg_L": 82,
+      "COD_mg_L": 235,
+      "BOD5_mg_L": 68,
+      "TOC_mg_L": 29,
+      "DOC_mg_L": 18,
+      "UV254_cm_minus_1": 0.41,
+      "color_Pt_Co": 110,
+      "alkalinity_mg_L_as_CaCO3": 178,
+      "hardness_mg_L_as_CaCO3": 265,
+      "conductivity_uS_cm": 1420,
+      "TDS_mg_L": 910,
+      "ammonia_mg_L_as_N": 6.4,
+      "nitrate_mg_L_as_N": 3.8,
+      "total_phosphorus_mg_L": 2.1,
+      "chloride_mg_L": 118,
+      "sulfate_mg_L": 162,
+      "iron_mg_L": 0.9,
+      "manganese_mg_L": 0.12,
+      "oil_and_grease_mg_L": 4.6,
+      "malathion_ug_L": 320,
+      "acetochlor_ug_L": 185,
+      "radium_226_Bq_L": 0.68,
+      "radium_228_Bq_L": 0.31,
+      "natural_organic_matter_note": "moderate_to_high_humic_fraction_inferred_from_DOC_color_and_UV254",
+      "trace_pollutant_note": "surfactants_solvents_pesticide_byproducts_and_other_formulation_additives_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Treated effluent should consistently support environmental discharge with strong reduction of pesticides, suspended solids, biodegradable organics, natural organic matter, and radium, while limiting acute and chronic aquatic toxicity and coping with fluctuating influent quality.",
+      "secondary_goals": [
+        "maintain performance under batch-related concentration spikes",
+        "include a polishing barrier for uncertain trace organics",
+        "minimize generation of difficult mixed radioactive and hazardous residuals",
+        "provide an operable train for a medium-skill industrial site",
+        "allow future tightening if discharge limits become more stringent"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "chemical_sludge_can_be_handled_offsite_but mixed_radium_and_organic_residuals_should_be_minimized_and_concentrates_are_unfavorable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_campaign_based_influent_swings_and_incomplete_trace_contaminant_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "radium_targeted_barium_or_sulfate_precipitation",
+          "biological_treatment",
+          "media_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant spikes from production campaigns and washdown events",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and a meaningful fraction of NOM, color, and particle-associated organics",
+          "radium_targeted_barium_or_sulfate_precipitation": "co-precipitate dissolved radium into a controlled sludge phase for subsequent solids removal",
+          "biological_treatment": "reduce biodegradable COD, BOD, and some readily degradable organic co-contaminants",
+          "media_filtration": "polish residual solids and protect downstream adsorption",
+          "granular_activated_carbon": "adsorb malathion, acetochlor, residual dissolved organics, and uncertain trace pesticide-related compounds",
+          "final_disinfection": "reduce pathogen risk before discharge and provide final barrier integrity"
+        },
+        "applicability_rationale": [
+          "a staged multi-barrier train is appropriate because the wastewater contains both conventional pollutants and trace pesticides with high influent variability",
+          "equalization is especially important because campaign-based loading swings create uncertainty for both chemistry and biology",
+          "coagulation followed by targeted radium precipitation provides a practical route for radionuclide control without relying on concentrate-generating membranes",
+          "biological treatment is justified because the COD and BOD indicate a biodegradable fraction that should be removed before carbon polishing",
+          "GAC is a strong polishing step where pesticides and unknown trace organics are present but not fully characterised",
+          "this configuration better balances environmental discharge needs with residuals and energy constraints than membrane-intensive options"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "radium precipitation effectiveness depends on water chemistry and may require jar testing and isotope-specific verification",
+          "mixed chemical sludge may require special handling because it can contain both radium and adsorbed organic contaminants",
+          "pesticide shock loads could inhibit biological treatment unless equalization and load management are well designed",
+          "GAC breakthrough for acetochlor or malathion is uncertain without site-specific adsorption testing and monitoring",
+          "unknown co-formulants or solvent residues may not be fully removed if they are poorly biodegradable and weakly adsorbable"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_by_lime_softening_and_barium_sulfate_coprecipitation",
+          "EPA_and_state_guidance_on_granular_activated_carbon_for_pesticide_and_trace_organic_removal",
+          "industrial_wastewater_equalization_and_multi_barrier_design_practice",
+          "CASE_023_small_scale_natural_wastewater_treatment_systems_principles_for_combined_sedimentation_biological_degradation_and_adsorption"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "radium_targeted_chemical_softening",
+          "membrane_bioreactor",
+          "powdered_or_granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce short-term variability and dampen toxic shocks",
+          "coagulation_flocculation_and_clarification": "lower suspended solids and part of the NOM burden before advanced treatment",
+          "radium_targeted_chemical_softening": "remove dissolved radium by co-precipitation and associated solids separation",
+          "membrane_bioreactor": "provide compact biological oxidation with high-quality low-TSS effluent",
+          "powdered_or_granular_activated_carbon_polishing": "capture residual pesticides and uncertain dissolved trace organics after biological treatment",
+          "final_disinfection": "provide final pathogen control for environmental discharge"
+        },
+        "applicability_rationale": [
+          "MBR offers strong solids control and more stable downstream adsorption feed quality where effluent consistency is important",
+          "this option is attractive when footprint is limited and high effluent clarity is desired",
+          "carbon polishing remains necessary because the confirmed pesticides and possible unknown organics may not be sufficiently removed by biology alone",
+          "separating dedicated radium treatment from biological treatment reduces the chance of radionuclide accumulation in biological solids"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MBR fouling and process upset risk increase under highly variable industrial influent and surfactant-like co-contaminants",
+          "operator skill demand is higher than for conventional activated sludge plus filtration",
+          "radium-bearing softening sludge still requires controlled management",
+          "uncertain pesticide byproducts could pass if adsorption contact time is undersized",
+          "this train may be over-complex for sites with only moderate operational staffing"
+        ],
+        "evidence_list": [
+          "membrane_bioreactor_case_knowledge_for_variable_industrial_wastewater",
+          "EPA_guidance_for_radium_removal_using_softening_processes",
+          "public_guidance_on_activated_carbon_as_polishing_for_pesticides_and_micropollutants"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "radium_targeted_precipitation",
+          "biological_treatment",
+          "ozonation_or_UV_H2O2",
+          "biologically_active_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize influent quality before sensitive downstream steps",
+          "coagulation_flocculation_and_clarification": "remove solids and reduce NOM that would otherwise consume oxidant",
+          "radium_targeted_precipitation": "chemically remove dissolved radium before polishing",
+          "biological_treatment": "remove biodegradable organics and reduce baseline oxygen demand",
+          "ozonation_or_UV_H2O2": "oxidize residual pesticides and some unknown trace organic contaminants",
+          "biologically_active_carbon": "adsorb and biologically polish oxidation byproducts and remaining dissolved organics",
+          "final_disinfection": "deliver final hygienic barrier"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is reasonable when unknown trace organics are a major concern and adsorption alone may be uncertain",
+          "placing coagulation and biology ahead of oxidation reduces oxidant demand and improves process efficiency",
+          "BAC provides a useful polishing and buffering step after oxidation, especially for partially transformed organics",
+          "this train is flexible if later monitoring identifies additional micropollutants of concern"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation performance is highly matrix-dependent and NOM can drive high oxidant demand if pretreatment is insufficient",
+          "transformation products may form and require verification by toxicity testing or targeted analysis",
+          "this option does not avoid the need for radium-specific solids management",
+          "advanced oxidation may be difficult to justify if the unknown trace contaminant issue proves minor after better characterisation"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_pesticide_and_trace_organic_removal",
+          "EPA_and_research_case_knowledge_on_biologically_active_carbon_after_oxidation",
+          "industrial_wastewater_multibarrier_polishing_practice_for_uncertain_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "lime_soda_softening_with_clarification",
+          "sand_or_dual_media_filtration",
+          "granular_activated_carbon",
+          "constructed_wetland_or_polishing_pond",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen flow and concentration variability",
+          "lime_soda_softening_with_clarification": "reduce hardness, co-precipitate radium, and remove some NOM and suspended solids",
+          "sand_or_dual_media_filtration": "remove carryover solids from clarification",
+          "granular_activated_carbon": "adsorb residual pesticides and dissolved organics",
+          "constructed_wetland_or_polishing_pond": "provide additional settling, biological degradation, and ecological polishing before discharge",
+          "final_disinfection": "control microbial risk if required by discharge permit"
+        },
+        "applicability_rationale": [
+          "this hybrid train draws on sedimentation, biological degradation, and adsorption principles that are often effective for mixed wastewater polishing",
+          "natural polishing systems can add resilience and attenuation for residual organics when flows are not excessively large",
+          "softening is one of the known practical approaches for radium removal and also improves downstream carbon performance",
+          "the train can be appealing where receiving-water protection is important and some land area is available"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "performance of wetlands or ponds is less predictable under cold weather, toxic spikes, or sudden pesticide loads",
+          "land requirement and vector/odor management may limit applicability",
+          "radium-containing softening sludge remains a residuals challenge",
+          "natural systems are polishing tools and should not be assumed to replace robust source control and primary contaminant removal",
+          "uncertain trace organics may persist if adsorption capacity is insufficient or hydraulic short-circuiting occurs"
+        ],
+        "evidence_list": [
+          "CASE_023_small_scale_natural_wastewater_treatment_systems_principles_and_regulatory_framework",
+          "EPA_guidance_for_radium_removal_via_lime_softening",
+          "constructed_wetland_case_knowledge_for_wastewater_polishing_of_organics_and_suspended_solids"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "clarification",
+          "sand_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and remove a portion of particulate-associated contaminants",
+          "clarification": "separate formed floc and settled solids",
+          "sand_filtration": "polish residual suspended solids",
+          "final_disinfection": "provide basic microbial control"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked conventional baseline for comparison",
+          "it may improve turbidity and part of the NOM load but does not provide a reliable barrier for dissolved pesticides or radium",
+          "the simple train has operational advantages but is not aligned with the uncertainty and mixed dissolved contaminant profile in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient removal of malathion and acetochlor for environmentally protective discharge",
+          "no dedicated dissolved radium control step",
+          "unknown trace organic contaminants would remain largely unaddressed",
+          "process simplicity comes at the cost of significant compliance risk under variable influent conditions"
+        ],
+        "evidence_list": [
+          "basic_conventional_wastewater_treatment_references",
+          "public_guidance_indicating_adsorption_or_advanced_polishing_needed_for_dissolved_pesticides"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with equalization and a dedicated radium removal step should rank above simple solids-removal-only options",
+        "processes that combine conventional removal, biological reduction of bulk organics, and adsorption or oxidation polishing for pesticides should be favored",
+        "membrane-heavy options may rank below robust non-concentrating trains when residuals and operational complexity are major concerns for environmental discharge"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "influent variability requires buffering and shock management rather than direct treatment without equalization",
+        "unknown trace pollutants justify a polishing barrier such as activated carbon or advanced oxidation with follow-up polishing",
+        "radium requires a specific dissolved-phase control strategy and cannot be assumed removable by ordinary clarification alone",
+        "residuals management tradeoffs should explicitly consider mixed radium-bearing sludge and avoidance of difficult concentrate streams",
+        "the user-provided constraint tag reuse_quality_required should be interpreted as a need for conservative effluent quality reliability even though the stated end use is environmental discharge"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why bulk organics and NOM reduction upstream helps downstream pesticide polishing",
+        "why radium-targeted precipitation or softening is introduced as a dedicated step",
+        "why activated carbon or advanced oxidation is justified under incomplete trace-organic characterisation",
+        "why natural polishing systems can only be supplementary in a variable industrial wastewater context",
+        "why simple clarification and filtration alone are insufficient for dissolved pesticides and radionuclides"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in co-formulants, degradation products, and other unknown trace organics",
+        "possible biological inhibition during batch discharge or tank-cleaning spikes",
+        "site-specific testing uncertainty for radium co-precipitation efficiency and sludge classification",
+        "adsorbent breakthrough or oxidant demand uncertainty caused by fluctuating NOM",
+        "the risk that a membrane option could create problematic concentrated residuals containing both organics and radionuclides"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

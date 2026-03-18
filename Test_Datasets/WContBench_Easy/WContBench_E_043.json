@@ -1,0 +1,313 @@
+{
+  "case_id": "WContBench_E_043",
+  "case_name": "Removal of alachlor degradates from agricultural surface water for municipal drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Alachlor Degradates"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for removing alachlor degradates from surface water intended for drinking water supply under moderate cost and conventional operation constraints.",
+  "input_data": {
+    "scenario_background": "A municipal utility draws water from a river-influenced reservoir in an agricultural catchment where herbicide transformation products are detected during spring and early summer runoff. The utility already operates conventional clarification and filtration and wants a proven upgrade that can reliably reduce alachlor degradates for drinking water compliance and public confidence. Natural organic matter and seasonal turbidity are present, so matrix effects on adsorption and oxidation performance must be considered.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.3,
+      "temperature_C": 17.5,
+      "turbidity_NTU": 11.8,
+      "color_PCU": 28,
+      "DOC_mg_L": 5.6,
+      "TOC_mg_L": 6.8,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 96,
+      "hardness_mg_L_as_CaCO3": 132,
+      "ammonia_mg_L_as_N": 0.12,
+      "nitrate_mg_L_as_N": 3.4,
+      "sulfate_mg_L": 34,
+      "chloride_mg_L": 22,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.03,
+      "bromide_mg_L": 0.06,
+      "alachlor_ESA_ug_L": 2.4,
+      "alachlor_OXA_ug_L": 1.1,
+      "alachlor_parent_ug_L": 0.08,
+      "microcystin_LR_ug_L": 0.15,
+      "e_coli_CFU_100mL": 48
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable control of alachlor degradates and associated organic micropollutant risk while meeting normal drinking water treatment expectations for turbidity and microbiological safety.",
+      "secondary_goals": [
+        "use established and defensible treatment technology",
+        "maintain moderate operating complexity",
+        "limit energy consumption",
+        "fit with existing conventional surface water treatment infrastructure"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "existing sludge handling is available for clarification residuals, but the utility wants to avoid difficult liquid concentrate disposal",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "seasonally robust operation is required during runoff-related contaminant peaks"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize particles and reduce natural organic matter that can compete for downstream adsorption capacity",
+          "flocculation": "form settleable flocs from coagulated particles",
+          "sedimentation": "remove bulk suspended solids and associated organic matter",
+          "rapid_sand_filtration": "polish remaining particulates and protect downstream adsorber performance",
+          "granular_activated_carbon": "adsorb alachlor degradates and other trace organic contaminants",
+          "disinfection": "provide final microbial inactivation and distribution system protection"
+        },
+        "applicability_rationale": [
+          "GAC is a well-established drinking water barrier for organic micropollutants in surface water",
+          "existing conventional treatment can be retained and used as effective pretreatment to reduce fouling and competitive adsorption from NOM",
+          "the utility prefers proven and robust technology rather than highly specialized advanced treatment",
+          "this train avoids high-pressure membranes and difficult concentrate management while directly addressing the primary contaminant class"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "high DOC and seasonal organic peaks can shorten GAC bed life and require more frequent replacement or reactivation",
+          "breakthrough monitoring is needed because degradates may be more mobile than parent pesticides on carbon",
+          "upstream clarification performance directly affects carbon run length"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_gac",
+          "public_surface_water_practice_of_conventional_pretreatment_followed_by_gac_for_pesticides",
+          "awwa_case_knowledge_on_natural_organic_matter_effects_on_gac_adsorption_of_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "ozonation",
+          "biologically_active_filtration_or_gac",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce turbidity and part of the organic matrix before oxidation",
+          "flocculation": "grow flocs for efficient solids separation",
+          "sedimentation": "remove settled floc and lower particle load",
+          "rapid_sand_filtration": "polish clarified water before ozonation",
+          "ozonation": "oxidize selected trace organics and improve downstream biodegradability of organic matter",
+          "biologically_active_filtration_or_gac": "remove biodegradable oxidation byproducts and provide additional adsorption or biofiltration polishing",
+          "disinfection": "ensure microbial safety after treatment"
+        },
+        "applicability_rationale": [
+          "ozonation combined with biologically active filtration is an established advanced treatment approach for surface water organics",
+          "this train can provide broader micropollutant control than adsorption alone when oxidizable compounds are present",
+          "pretreatment is already conventional and compatible with the utility's current skill set"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "alachlor degradates may not be removed as predictably by ozone as by well-designed GAC adsorption",
+          "bromide in source water introduces bromate formation risk that requires careful ozone control",
+          "operator attention is needed for ozone dose control and biofilter management"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_ozonation_and_biological_filtration_for_organic_contaminant_control",
+          "drinking_water_case_knowledge_for_advanced_oxidation_and_biofiltration_in_surface_water",
+          "public_guidance_on_bromate_control_during_ozonation"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "powdered_activated_carbon_addition",
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "powdered_activated_carbon_addition": "provide flexible episodic adsorption of alachlor degradates during seasonal peaks",
+          "coagulation": "capture PAC and reduce suspended matter and NOM",
+          "flocculation": "form flocs containing PAC and particles",
+          "sedimentation": "remove PAC-laden floc and clarified solids",
+          "filtration": "remove carryover solids and polish effluent",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "PAC is a conventional add-on approach for seasonal taste, odor, and organic micropollutant events in surface water plants",
+          "it can be implemented with existing conventional treatment assets and is useful when contaminant peaks are intermittent",
+          "the process is familiar to many operators and avoids high energy demand"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance can be variable for polar degradates and can be strongly reduced by high DOC competition",
+          "higher chemical and solids loading increases sludge production",
+          "contact time and PAC selection are critical and may be hard to optimize for sustained low-level contaminant control"
+        ],
+        "evidence_list": [
+          "epa_treatability_information_for_powdered_activated_carbon_on_organic_contaminants",
+          "awwa_operational_guidance_for_pac_application_during_seasonal_surface_water_events",
+          "public_case_examples_of_pac_for_pesticide_related_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "ultrafiltration_or_low_pressure_membrane",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce colloids and some NOM prior to membrane treatment",
+          "flocculation": "improve upstream solids aggregation",
+          "sedimentation": "lower solids loading to downstream membrane units",
+          "ultrafiltration_or_low_pressure_membrane": "provide strong particulate and pathogen barrier and stable pretreatment for adsorption",
+          "granular_activated_carbon": "remove dissolved alachlor degradates and other trace organics",
+          "disinfection": "maintain distribution system microbial protection"
+        },
+        "applicability_rationale": [
+          "this train offers excellent physical water quality control and protects downstream carbon beds",
+          "UF plus GAC is technically sound for surface water with organic micropollutants",
+          "it may be considered where treated water stability and pathogen barriers are highly valued"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "membrane addition increases capital cost and operational complexity beyond what is necessary for an easy case",
+          "it does not by itself remove dissolved degradates, so GAC remains essential",
+          "membrane fouling control and cleaning requirements add O&M burden"
+        ],
+        "evidence_list": [
+          "public_drinking_water_guidance_on_low_pressure_membranes_for_surface_water",
+          "case_knowledge_for_combining_membrane_pretreatment_with_gac_for_micropollutant_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide strong rejection of dissolved organic contaminants including many pesticide-related compounds",
+          "stabilization": "restore finished water chemistry and corrosivity balance after high-rejection membrane treatment",
+          "disinfection": "ensure final microbial protection"
+        },
+        "applicability_rationale": [
+          "high-pressure membranes are technically capable of controlling dissolved degradates",
+          "they may be justified when multiple dissolved contaminants require simultaneous deep removal",
+          "this option is included as a lower-ranked technically feasible alternative"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is inconsistent with the utility's desire to avoid difficult residual streams",
+          "energy demand and membrane O&M are unnecessarily high for a case suited to conventional plus adsorption treatment",
+          "post-treatment stabilization is required and increases system complexity"
+        ],
+        "evidence_list": [
+          "epa_desalination_and_membrane_guidance_for_drinking_water_applications",
+          "public_membrane_case_examples_for_micropollutant_rejection_with_concentrate_management_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional_surface_water_treatment_plus_gac should rank first",
+        "PAC-based seasonal enhancement can rank below fixed-bed GAC because of less reliable sustained control",
+        "high-pressure membrane options should rank last under moderate cost and conventional operation constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven drinking water technologies compatible with existing clarification and filtration",
+        "moderate operational capability rather than highly specialized advanced treatment",
+        "avoidance of unnecessary energy use and difficult concentrate disposal"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "the role of natural organic matter and turbidity as matrix effects that reduce adsorption efficiency",
+        "why GAC is a conventional and well-supported barrier for pesticide-related organic micropollutants",
+        "why ozone-based treatment is plausible but less directly supported for alachlor degradates than adsorption",
+        "why nanofiltration or reverse osmosis ranks lower despite technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "GAC breakthrough and media replacement frequency under elevated DOC",
+        "bromate formation risk if ozonation is considered",
+        "sludge increase with PAC or clarification-intensive approaches",
+        "concentrate disposal burden for membrane options"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

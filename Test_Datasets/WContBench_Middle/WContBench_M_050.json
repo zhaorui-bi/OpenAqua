@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_M_050",
+  "case_name": "Brackish groundwater polishing for potable reuse with radionuclide, hardness-associated metal, and pesticide constraints under tight footprint limits",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Radium",
+      "Strontium",
+      "Oxamyl"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing radium, strontium, and oxamyl intended for potable reuse, balancing strict finished-water goals against footprint, cost, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A coastal industrial park plans to blend a reclaimed brackish groundwater source into an advanced potable reuse train to improve drought resilience. The source is limited in area for new treatment equipment, and the utility can support moderate but not premium lifecycle cost. The challenge is that radium and strontium can be addressed by several established routes, while oxamyl pushes the design toward higher-barrier treatment or adsorptive polishing, so the best option depends on balancing footprint, operating complexity, waste handling, and confidence in meeting very strict potable reuse expectations.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.4,
+      "temperature_C": 19.0,
+      "turbidity_NTU": 1.2,
+      "TDS_mg_L": 2480,
+      "conductivity_uS_cm": 3850,
+      "DOC_mg_L": 2.6,
+      "TOC_mg_L": 3.1,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 430,
+      "calcium_mg_L": 118,
+      "magnesium_mg_L": 33,
+      "sodium_mg_L": 410,
+      "chloride_mg_L": 710,
+      "sulfate_mg_L": 285,
+      "silica_mg_L_as_SiO2": 21,
+      "nitrate_mg_L_as_N": 4.6,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.04,
+      "target_contaminants": {
+        "radium_226_pCi_L": 4.1,
+        "radium_228_pCi_L": 2.7,
+        "combined_radium_226_228_pCi_L": 6.8,
+        "strontium_mg_L": 6.4,
+        "oxamyl_ug_L": 42
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should reliably achieve potable-reuse-quality treatment with combined radium below drinking water standards, substantial strontium reduction for conservative blending control, and robust oxamyl removal to very low finished-water concentrations.",
+      "secondary_goals": [
+        "minimize treatment footprint on a constrained site",
+        "avoid process selections with disproportionate residuals burden",
+        "provide stable compliance under moderate source-water variability",
+        "limit total lifecycle cost to a moderate range"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "concentrate or radioactive residuals are manageable only at moderate volume; options creating high-volume brine or difficult mixed wastes are disfavored",
+      "footprint_constraint": "high",
+      "robustness_requirement": "treatment should tolerate moderate salinity and hardness variability and maintain a high compliance margin for potable reuse"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "nanofiltration",
+          "granular_activated_carbon_polishing",
+          "uv_advanced_oxidation",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect membranes by removing suspended solids and particulates",
+          "nanofiltration": "reject multivalent ions including radium and strontium while reducing salinity and hardness",
+          "granular_activated_carbon_polishing": "reduce residual organic micropollutant loading and provide additional adsorption barrier",
+          "uv_advanced_oxidation": "provide strong polishing for oxamyl and other trace organics relevant to potable reuse",
+          "stabilization": "adjust permeate chemistry and corrosion stability after membrane treatment",
+          "final_disinfection": "provide final microbial protection in finished water"
+        },
+        "applicability_rationale": [
+          "nanofiltration provides a compact, high-confidence barrier for radium and strontium in brackish groundwater and is generally less energy-intensive than full reverse osmosis at this salinity",
+          "oxamyl is more reliably controlled in a potable-reuse context when a strong dissolved-organic barrier is paired with advanced oxidation polishing",
+          "the combined train matches the strict effluent expectation better than single-mechanism processes because it addresses inorganic and organic targets through separate robust barriers",
+          "although more expensive than softening-only routes, the footprint is favorable and the compliance margin is strong enough to justify the moderate cost ceiling"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "nanofiltration concentrate will contain elevated radium and strontium and requires controlled disposal planning",
+          "membrane scaling risk is significant due to hardness and sulfate and requires disciplined antiscalant and cleaning management",
+          "AOP performance and oxidant dose must be validated for oxamyl and broader potable reuse trace organic objectives"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_combined_radium_removal_in_groundwater",
+          "brane_and_multivalent_ion_rejection_case_knowledge_for_brackish_groundwater",
+          "potable_reuse_guidance_supporting_multiple_barriers_for_trace_organic_control",
+          "public_references_on_uv_aop_for_micropollutant_polishing"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "oxidant_addition",
+          "lime_soda_softening",
+          "solids_separation",
+          "recarbonation",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidant_addition": "condition iron and manganese and improve downstream solids handling where needed",
+          "lime_soda_softening": "remove hardness-associated radium and reduce strontium through co-precipitation and precipitation mechanisms",
+          "solids_separation": "separate softening sludge containing precipitated radionuclides and hardness solids",
+          "recarbonation": "stabilize pH after chemical softening",
+          "granular_activated_carbon": "provide adsorption polishing for oxamyl and other organic compounds",
+          "final_disinfection": "provide finished-water microbial protection"
+        },
+        "applicability_rationale": [
+          "enhanced softening is a recognized radium control approach and can also lower strontium, making it a technically credible non-membrane route",
+          "this route may offer lower energy demand than membrane systems and avoids high-pressure operation",
+          "GAC polishing can contribute oxamyl reduction, especially after bulk inorganic treatment has reduced competing fouling concerns",
+          "it ranks below nanofiltration because the site has severe footprint constraints and because achieving a consistently strong oxamyl barrier is less compact and potentially less certain than membrane-plus-polishing"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "softening generates sludge requiring management as radium-bearing residuals",
+          "process footprint for reactors, clarifiers, and sludge handling is unfavorable on a constrained site",
+          "oxamyl adsorption performance may require frequent carbon changeout depending on competing organics and target finishing levels"
+        ],
+        "evidence_list": [
+          "EPA_groundwater_treatment_guidance_for_radium_by_lime_softening",
+          "AWWA_case_knowledge_on_hardness_and_strontium_reduction_by_softening",
+          "public_guidance_on_GAC_for_pesticide_control_in_drinking_water"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "strong_acid_cation_exchange_softening",
+          "granular_activated_carbon_dual_bed",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect ion exchange resin and carbon beds from particulate loading",
+          "strong_acid_cation_exchange_softening": "remove hardness ions and capture radium and strontium through cation exchange",
+          "granular_activated_carbon_dual_bed": "adsorb oxamyl and provide staged breakthrough protection",
+          "final_disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "cation exchange is compact and can be effective for radium in groundwater while also reducing strontium and hardness, which helps with space limitation",
+          "dual-bed GAC gives a practical organic polishing barrier and improves breakthrough management for oxamyl compared with a single bed",
+          "the overall footprint is smaller than softening and can be attractive where civil expansion is difficult",
+          "it ranks below the top two because brackish water with high competing cations can shorten resin run length and increase regenerant demand, raising operating uncertainty and residuals burden"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "high sodium, calcium, and magnesium concentrations can reduce selective exchange capacity and increase regeneration frequency",
+          "spent brine or regenerant may be radionuclide-bearing and difficult to manage",
+          "GAC alone may not provide as much oxamyl compliance margin as advanced oxidation under stringent potable reuse expectations"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_by_ion_exchange",
+          "groundwater_cation_exchange_case_knowledge_for_hardness_and_alkaline_earth_metals",
+          "public_references_on_GAC_breakthrough_management_for_pesticides"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "reverse_osmosis",
+          "uv_advanced_oxidation",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect reverse osmosis membranes from particulate fouling",
+          "reverse_osmosis": "provide broad rejection of dissolved salts, radium, strontium, and many organic contaminants",
+          "uv_advanced_oxidation": "add a polishing barrier for oxamyl and other trace organics after membrane treatment",
+          "stabilization": "adjust low-mineral permeate for corrosion control and compatibility with distribution/blending",
+          "final_disinfection": "provide finished-water microbial safety"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically very capable and offers the strongest overall dissolved-contaminant barrier among the listed options",
+          "it may be preferred if future source deterioration or broader reuse contaminant control becomes the dominant objective",
+          "the process is compact in plan area and aligns with stringent potable reuse philosophy"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate volume and disposal difficulty are significant for a brackish source and can be especially problematic when radionuclides are concentrated",
+          "higher energy and cleaning demand weaken fit under moderate cost sensitivity",
+          "membrane scaling and pretreatment demands increase with hardness, sulfate, and silica"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_radionuclides_and_dissolved_inorganics",
+          "brackish_groundwater_ro_design_case_knowledge",
+          "potable_reuse_multiple_barrier_guidance_for_trace_organics"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "manganese_dioxide_or_barium_sulfate_seeded_adsorptive_media",
+          "anion_or_specialty_adsorptive_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "manganese_dioxide_or_barium_sulfate_seeded_adsorptive_media": "target radium removal through adsorption or co-precipitative media mechanisms",
+          "anion_or_specialty_adsorptive_polishing": "provide limited polishing for specific dissolved organics depending on media selection",
+          "final_disinfection": "provide microbial protection"
+        },
+        "applicability_rationale": [
+          "specialty media systems can be compact and are sometimes used for radionuclide control in groundwater applications",
+          "this route is included as a technically plausible but weakly aligned option where the driver is highly space-constrained radionuclide treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "this approach does not provide a strong or broadly validated barrier for oxamyl in a potable reuse context",
+          "strontium removal may be limited or inconsistent compared with membrane or softening routes",
+          "spent media may become radioactive residual requiring special management"
+        ],
+        "evidence_list": [
+          "public_guidance_on_adsorptive_media_for_radium_in_groundwater",
+          "case_knowledge_showing_limits_of_single_media_solutions_for_mixed_inorganic_and_pesticide_challenges"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "a compact membrane-based route with explicit oxamyl polishing should rank near the top",
+        "softening and ion-exchange routes should appear as credible alternatives for radium and strontium but be penalized for sludge or regenerant handling and oxamyl robustness",
+        "reverse_osmosis should not rank first because its concentrate and energy burden are misaligned with moderate-cost and residuals constraints despite high technical capability",
+        "a technically capable radionuclide-focused media option should rank low due to weak fit for mixed contaminant control"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict potable reuse expectations favor multiple barriers for the pesticide contaminant",
+        "space limitation favors compact trains over large softening basins and sludge systems",
+        "moderate cost constraint prevents selecting the highest-capability option solely on removal performance",
+        "residuals handling for radionuclide-bearing sludge, spent regenerant, or membrane concentrate must affect ranking"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why multivalent-ion membrane processes are attractive for radium and strontium in brackish groundwater",
+        "why oxamyl pushes the design toward stronger dissolved-organic polishing rather than radionuclide-only treatment",
+        "why softening and ion exchange are plausible but not automatically best under footprint and residuals constraints",
+        "why reverse osmosis is downgraded despite broad contaminant rejection"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "radionuclide-bearing residuals management",
+        "membrane scaling and concentrate disposal",
+        "resin regeneration waste or capacity loss from competing ions",
+        "oxamyl breakthrough or incomplete polishing risk"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

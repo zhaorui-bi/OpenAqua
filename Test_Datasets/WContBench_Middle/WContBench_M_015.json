@@ -1,0 +1,309 @@
+{
+  "case_id": "WContBench_M_015",
+  "case_name": "Drinking water treatment selection for 4-Nonylphenol in remote surface water under pilot-scale and capital constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "4-Nonylphenol"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for 4-Nonylphenol-contaminated surface water intended for drinking water, balancing removal performance against pilot-only scale limits, capital constraints, remote operation, and co-contaminants.",
+  "input_data": {
+    "scenario_background": "A remote settlement is evaluating a small pilot drinking water system using river water affected by upstream municipal discharge and seasonal runoff. Monitoring found 4-Nonylphenol at elevated microgram-per-liter levels along with moderate natural organic matter and occasional turbidity spikes. Several treatment routes are technically plausible, but the community cannot support a highly instrumented process train or expensive concentrate management, and the immediate decision is for a pilot-scale installation that could later be expanded.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 14.8,
+      "turbidity_NTU": 12.4,
+      "TOC_mg_L": 6.9,
+      "DOC_mg_L": 5.7,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 428,
+      "color_PCU": 28,
+      "ammonia_mg_L_as_N": 0.18,
+      "nitrate_mg_L_as_N": 1.9,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.04,
+      "E_coli_CFU_100mL": 110,
+      "target_contaminants": {
+        "4_Nonylphenol_ug_L": 3.4,
+        "anionic_surfactants_MBAS_mg_L": 0.23,
+        "geosmin_ng_L": 18,
+        "microcystin_LR_ug_L": 0.7
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably achieve potable-water quality with strong reduction of 4-Nonylphenol and co-contaminants while maintaining a practical pilot configuration for remote operation.",
+      "secondary_goals": [
+        "reduce hydrophobic trace organics and taste-odor risk",
+        "maintain microbial safety for drinking water",
+        "avoid process trains requiring difficult concentrate disposal",
+        "prefer modular units that can be piloted and later scaled"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "residual solids handling is acceptable at small scale, but avoid hazardous or high-volume liquid concentrate streams that are difficult to manage in a remote location",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system must tolerate seasonal turbidity and organic matter variation with limited operator attendance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation_or_compact_clarification",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "reduce particulate load and part of natural organic matter to protect downstream adsorptive media",
+          "sedimentation_or_compact_clarification": "remove formed floc and lower turbidity",
+          "dual_media_filtration": "polish suspended solids and improve finished water stability",
+          "granular_activated_carbon": "adsorb 4-Nonylphenol and other hydrophobic trace organics, taste-odor compounds, and residual dissolved organic matter",
+          "disinfection": "provide microbial protection for potable water"
+        },
+        "applicability_rationale": [
+          "4-Nonylphenol is hydrophobic and generally amenable to activated carbon adsorption",
+          "pretreatment is important because the source is surface water with moderate DOC and turbidity that would otherwise shorten carbon life",
+          "this train uses established drinking water unit processes that can be piloted with relatively simple operation compared with membranes or advanced oxidation",
+          "residuals are mainly sludge and spent carbon rather than difficult liquid concentrate, which better fits the remote site",
+          "the process also addresses co-contaminants such as geosmin and contributes to microcystin risk control when paired with effective clarification and filtration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "GAC replacement frequency may increase if DOC rises during runoff periods",
+          "coagulation optimization is still needed to avoid carbon fouling and variable trace organic breakthrough",
+          "sludge handling logistics must be planned even though solids residuals are more manageable than membrane concentrate"
+        ],
+        "evidence_list": [
+          "EPA_surface_water_treatment_guidance_for_conventional_clarification_and_filtration",
+          "public_drinking_water_practice_for_GAC_removal_of_hydrophobic_trace_organics",
+          "WHO_background_on_nonylphenol_as_an_endocrine_disrupting_organic_contaminant",
+          "AWWA_case_knowledge_on_GAC_for_taste_odor_and_micropollutant_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation_or_compact_clarification",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize particles and reduce organic loading",
+          "sedimentation_or_compact_clarification": "remove flocculated solids",
+          "dual_media_filtration": "polish turbidity before final disinfection",
+          "powdered_activated_carbon": "provide flexible adsorptive control of 4-Nonylphenol and odor compounds through dose adjustment",
+          "disinfection": "ensure pathogen inactivation"
+        },
+        "applicability_rationale": [
+          "PAC is technically suitable for hydrophobic organics and can be attractive at pilot scale because it avoids installing full GAC contactors initially",
+          "dose can be adjusted seasonally if contaminant peaks occur",
+          "this route may have lower pilot capital than a full GAC system while still using familiar conventional treatment steps",
+          "it is a plausible alternative where short pilot duration or uncertain contaminant trends make permanent media installation less attractive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "ongoing chemical supply and feed-control requirements may be burdensome in a remote location",
+          "PAC increases solids production and may complicate sludge management",
+          "adsorption performance can be more variable than fixed-bed GAC if dosing and contact time are not well controlled"
+        ],
+        "evidence_list": [
+          "AWWA_guidance_on_powdered_activated_carbon_for_taste_odor_and_trace_organic_control",
+          "EPA_public_guidance_on_conventional_surface_water_treatment_with_adsorptive_aids",
+          "case_knowledge_for_PAC_use_during_seasonal_micropollutant_events"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation_or_compact_clarification",
+          "ozonation",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "reduce particulates and precursor loading",
+          "sedimentation_or_compact_clarification": "remove floc and lower turbidity",
+          "ozonation": "oxidize some organic contaminants and improve downstream biodegradability while aiding taste-odor control",
+          "biologically_active_filtration": "remove biodegradable organic byproducts and polish dissolved organics",
+          "disinfection": "provide final microbial safety barrier"
+        },
+        "applicability_rationale": [
+          "ozone plus biologically active filtration is a recognized route for control of taste-odor compounds and some trace organics in surface water",
+          "the train can provide broader water quality benefits than adsorption alone if the community expects mixed organic contamination",
+          "it can be piloted in modular form and may reduce reliance on imported activated carbon media under some operating strategies"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "4-Nonylphenol removal may be less straightforward and more site-specific than adsorption-centered treatment",
+          "ozone systems require higher operator skill, off-gas safety management, and more reliable power supply",
+          "bromate and oxidation byproduct control may need evaluation depending on source-water bromide and operating conditions"
+        ],
+        "evidence_list": [
+          "EPA_ozonation_and_biological_filtration_guidance_for_surface_water_treatment",
+          "public_case_knowledge_on_ozone_BAF_for_taste_odor_and_trace_organics",
+          "drinking_water_guidance_on_bromate_control_with_ozone"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration": "protect downstream high-pressure membrane by removing suspended solids and microbes",
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of dissolved organic contaminants including 4-Nonylphenol",
+          "stabilization": "adjust permeate chemistry for corrosivity and palatability",
+          "disinfection": "maintain distribution safety"
+        },
+        "applicability_rationale": [
+          "membranes are technically capable and can achieve high rejection of many organic micropollutants",
+          "this route may be attractive if future contaminant uncertainty broadens beyond 4-Nonylphenol and a wider removal barrier is desired",
+          "pilot systems are commercially available and can generate strong performance data"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major mismatch for a remote site",
+          "membrane fouling risk is significant with variable surface water, increasing cleaning and operator demands",
+          "high-pressure operation and post-treatment needs are difficult to justify under pilot-only and capital-constrained conditions"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_surface_water_and_micropollutants",
+          "public_references_on_NF_RO_rejection_of_hydrophobic_organic_contaminants",
+          "case_knowledge_on_remote_site_challenges_with_membrane_concentrate_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "advanced_oxidation_process_UV_H2O2",
+          "filtration",
+          "granular_activated_carbon_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation_process_UV_H2O2": "generate hydroxyl radicals for oxidation of dissolved organics",
+          "filtration": "remove any particulate carryover and provide polishing",
+          "granular_activated_carbon_polishing": "adsorb residual organics and oxidation byproducts",
+          "disinfection": "ensure drinking water safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is included as a technically plausible but less aligned option for a mixed-organic scenario",
+          "it could be considered if pilot testing specifically demonstrates significant 4-Nonylphenol degradation and the community wants a non-membrane high-performance process"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "AOP is more complex than needed for a remote pilot focused on one mainly hydrophobic organic contaminant that is well suited to adsorption",
+          "oxidation byproducts and oxidant handling add operational burden",
+          "UV transmittance and radical scavenging from DOC can reduce treatment efficiency and increase operating cost"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_UV_H2O2_advanced_oxidation_for_drinking_water",
+          "public_discussion_of_AOP_limitations_in_high_DOC_surface_waters",
+          "case_knowledge_that_adsorption_is_often_preferred_over_AOP_for_hydrophobic_endocrine_disrupting_compounds"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_routes_should_rank_near_the_top_for_4_Nonylphenol",
+        "conventional_pretreatment_should_be_favored_because_surface_water_turbidity_and_DOC_affect_trace_organic_control",
+        "membrane_and_AOP_options_should_not_rank_first_under_pilot_only_remote_and_capital_constrained_conditions"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot_only_scale_favors_modular_and_proven_processes_over_highly_complex_full_barrier_systems",
+        "remote_location_penalizes_options_with_high_operator_skill_needs_or_difficult_supply_chains",
+        "capital_constraint_should_downgrade_high_pressure_membranes_and_energy_intensive_oxidation_systems",
+        "residuals_tradeoff_should_distinguish_between_manageable_solids_and_problematic_liquid_concentrate_streams"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_4_Nonylphenol_being_hydrophobic_supports_activated_carbon_selection",
+        "why_surface_water_DOC_and_turbidity_make_pretreatment_important",
+        "why_PAC_and_GAC_are_both_plausible_but_rank_differently_under_remote_operation_constraints",
+        "why_membrane_concentrate_handling_is_a_major_reason_for_lower_ranking"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal_breakthrough_or_media_exhaustion_risk",
+        "competition_from_natural_organic_matter_for_adsorption_capacity",
+        "sludge_or_spent_media_handling",
+        "operator_burden_and_power_reliability_for_remote_systems"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

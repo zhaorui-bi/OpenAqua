@@ -1,0 +1,341 @@
+{
+  "case_id": "WContBench_D_063",
+  "case_name": "Stormwater capture for indirect potable reuse with episodic dichlorvos pulses and chromium uncertainty",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Dichlorvos",
+      "Chromium"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "legacy_contamination",
+      "evolving_standards",
+      "mixed_organic_inorganic"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for stormwater-derived source water intended for potable reuse under uncertain, event-driven dichlorvos and chromium contamination.",
+  "input_data": {
+    "scenario_background": "A utility is evaluating captured urban stormwater from a detention basin and spreading-ground system as a supplemental potable reuse source. Monitoring indicates highly variable runoff quality between first-flush storm events and later-season flows, with occasional detection of dichlorvos likely linked to legacy pest-control use and intermittent chromium associated with mixed roadway, roofing, and small commercial runoff. Important uncertainties remain: chromium speciation is not consistently measured, dichlorvos occurrence may be pulse-like and under-sampled during storms, and additional urban micropollutants are suspected but not fully characterized.",
+    "water_quality": {
+      "source_type": "urban_stormwater_runoff_with_partial_capture",
+      "pH": 7.2,
+      "turbidity_NTU": 46,
+      "TSS_mg_L": 78,
+      "TOC_mg_L": 11.8,
+      "DOC_mg_L": 8.6,
+      "COD_mg_L": 34,
+      "UV254_cm_1": 0.19,
+      "alkalinity_mg_L_as_CaCO3": 82,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 640,
+      "TDS_mg_L": 390,
+      "ammonia_mg_L_as_N": 0.38,
+      "nitrate_mg_L_as_N": 1.9,
+      "phosphate_mg_L_as_P": 0.27,
+      "chloride_mg_L": 71,
+      "sulfate_mg_L": 54,
+      "bromide_mg_L": 0.09,
+      "iron_mg_L": 0.42,
+      "manganese_mg_L": 0.05,
+      "chromium_total_ug_L": 38,
+      "chromium_hexavalent_ug_L": 9,
+      "dichlorvos_ug_L": 1.6,
+      "E_coli_CFU_100mL": 3200,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "dichlorvos_and_other_urban_pesticides_are_suspected_to_occur_as_short_duration_first_flush_pulses_and_are_not_fully_characterized_between_events; chromium_speciation_data_are_incomplete"
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Produce advanced treated water suitable for potable reuse with robust reduction of pathogens, suspended solids, dissolved organic matter, dichlorvos, chromium, and other possible urban trace contaminants under variable storm-driven influent conditions.",
+      "secondary_goals": [
+        "manage first_flush variability and episodic contaminant spikes",
+        "minimize formation of oxidation byproducts during organophosphate treatment",
+        "provide resilience to uncertain chromium speciation and partially characterized micropollutants",
+        "support a multi-barrier potable reuse strategy with clear operational safeguards"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "metal-bearing backwash solids and spent media can be managed, but hazardous residual generation and frequent carbon replacement should be minimized",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_event_driven_quality_swings_and_potable_reuse_risk_tolerance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "offline_storage_and_equalization",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration",
+          "biologically_active_carbon",
+          "advanced_oxidation_with_uv_hydrogen_peroxide",
+          "reverse_osmosis",
+          "stabilization_and_final_disinfection"
+        ],
+        "core_unit_functions": {
+          "offline_storage_and_equalization": "capture first flush variability, damp short contaminant spikes, and enable monitored feed blending",
+          "coagulation_flocculation_and_clarification": "remove turbidity, suspended solids, particle-bound metals, and part of organic precursor load",
+          "dual_media_filtration": "polish remaining solids and protect downstream adsorption and membranes",
+          "biologically_active_carbon": "reduce dissolved organic matter and adsorb/biodegrade part of dichlorvos and co-occurring trace organics",
+          "advanced_oxidation_with_uv_hydrogen_peroxide": "provide robust destruction of residual trace organics including organophosphate pesticide concern compounds",
+          "reverse_osmosis": "reduce dissolved contaminants including chromium species, trace organics, salts, and precursors as an advanced potable reuse barrier",
+          "stabilization_and_final_disinfection": "condition permeate and provide final microbial control before potable reuse integration"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is strongly justified because the intended use is potable reuse and the influent contains both inorganic and organic contaminants with uncertain event-scale peaks",
+          "offline storage and equalization are critical because stormwater runoff quality is highly variable and dichlorvos may occur as short-duration pulses that are otherwise difficult to intercept reliably",
+          "front-end solids removal lowers fouling risk and can remove chromium associated with particulates, while the downstream advanced barriers address dissolved fractions",
+          "BAC before advanced oxidation helps lower oxidant demand and reduce the risk that a purely oxidative step becomes inefficient during high organic loading events",
+          "RO provides a strong fail-safe barrier for chromium and broader urban stormwater micropollutant uncertainty, which is important under evolving potable reuse expectations"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "advanced oxidation effectiveness for dichlorvos depends on actual matrix scavenging demand during storm events, so site-specific validation is required",
+          "uncertain chromium speciation means pretreatment chemistry and membrane rejection assumptions should not rely solely on total chromium data",
+          "RO concentrate and solids residuals may contain concentrated metals and trace organics, creating disposal and permitting complexity",
+          "bromide is present at a low but non-zero level, so oxidation and downstream disinfection should be assessed for byproduct formation risk",
+          "this train is robust but operationally intensive, and failure to manage equalization and monitoring could allow event spikes to challenge downstream barriers"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_potable_water_reuse_multi_barrier_treatment",
+          "surface_water_and_stormwater_treatment_practice_for_coagulation_filtration_pretreatment",
+          "public_guidance_on_granular_or_biological_activated_carbon_for_trace_organics_control",
+          "uv_hydrogen_peroxide_advanced_oxidation_guidance_for_micropollutant_removal",
+          "membrane_treatment_guidance_for_chromium_and_trace_contaminant_reduction"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "offline_storage_and_equalization",
+          "reduction_coagulation_for_chromium_control",
+          "clarification",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "uv_advanced_oxidation",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "offline_storage_and_equalization": "moderate hydraulic and quality variability and allow event screening before treatment",
+          "reduction_coagulation_for_chromium_control": "convert hexavalent chromium to trivalent form where needed and enhance metal removal by precipitation and solids capture",
+          "clarification": "separate formed metal-bearing solids and lower particle loading",
+          "ultrafiltration": "provide reliable particle and pathogen pretreatment barrier ahead of advanced processes",
+          "granular_activated_carbon": "adsorb dichlorvos and reduce dissolved organic matter contributing to oxidation demand",
+          "reverse_osmosis": "provide broad dissolved contaminant rejection and high-quality advanced treated water",
+          "uv_advanced_oxidation": "polish residual low-molecular-weight trace organics that may pass adsorption and membranes",
+          "final_disinfection": "provide terminal microbial safety barrier"
+        },
+        "applicability_rationale": [
+          "this train is particularly attractive if chromium speciation data confirm recurring hexavalent chromium episodes and metal risk is a major regulatory concern",
+          "placing specific chromium control early can reduce loading to membranes and lower dependence on RO as the sole dissolved metals barrier",
+          "UF is a strong operational upgrade over media filtration where stormwater solids spikes are severe",
+          "GAC plus UV-AOP offers two complementary barriers for dichlorvos and other suspected urban trace organics"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "chemical reduction and precipitation performance depend on pH control and accurate chromium speciation, which is currently incomplete",
+          "metal-laden sludge may require more stringent residuals handling than generic stormwater solids",
+          "if dichlorvos pulses are extremely short and high, GAC bed life may be shorter than expected unless equalization is effective",
+          "this sequence may be more complex than necessary if chromium is mostly particulate and episodic rather than persistently dissolved"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_hexavalent_and_total_chromium_control_in_water_treatment",
+          "ultrafiltration_pretreatment_case_knowledge_for_variable_surface_and_stormwater_sources",
+          "gac_application_guidance_for_pesticide_and_micropollutant_removal",
+          "potable_reuse_frameworks_recommending_multiple_independent_barriers"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "managed_aquifer_recharge_with_source_screening",
+          "recovery_well_extraction",
+          "oxidation_and_filtration_for_iron_manganese_and_particles",
+          "granular_activated_carbon_or_biologically_active_carbon",
+          "reverse_osmosis",
+          "uv_advanced_oxidation",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "managed_aquifer_recharge_with_source_screening": "use subsurface storage and attenuation to buffer storm event variability and reduce particles and some biodegradable constituents, while only accepting screened inflows",
+          "recovery_well_extraction": "recover blended water with more stable quality for advanced treatment",
+          "oxidation_and_filtration_for_iron_manganese_and_particles": "remove nuisance metals and particulate matter prior to advanced treatment",
+          "granular_activated_carbon_or_biologically_active_carbon": "reduce dissolved organics and some pesticide burden before membrane treatment",
+          "reverse_osmosis": "provide strong dissolved contaminant barrier including chromium and many trace organics",
+          "uv_advanced_oxidation": "address residual trace organics and provide additional potable reuse barrier credit where applicable",
+          "final_disinfection": "ensure distribution or blending safety"
+        },
+        "applicability_rationale": [
+          "managed aquifer recharge can be a useful buffer for highly variable stormwater, especially when first-flush quality is unreliable and continuous mechanical equalization is difficult",
+          "subsurface residence may improve feed stability before advanced treatment, which can lower operational stress on membranes and oxidation systems",
+          "this option aligns with potable reuse programs that already use environmental buffers and recovery wells"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "natural attenuation of dichlorvos and chromium is uncertain and should not be credited without site-specific hydrogeologic and water-quality evidence",
+          "stormwater recharge can mobilize other subsurface constituents or create geochemical changes affecting chromium behavior",
+          "regulatory acceptance may depend on strong source control, travel time, monitoring, and environmental buffer requirements",
+          "this option is less suitable if land, hydrogeology, or groundwater protection constraints limit recharge operations"
+        ],
+        "evidence_list": [
+          "managed_aquifer_recharge_guidance_for_stormwater_and_potable_reuse",
+          "potable_reuse_guidance_on_environmental_buffers_and_advanced_treatment",
+          "case_knowledge_on_aquifer_storage_for_variable_source_water_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "screening_and_hydrodynamic_separation",
+          "coagulation_flocculation_and_clarification",
+          "ozonation",
+          "biological_filtration",
+          "granular_activated_carbon",
+          "ultrafiltration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_hydrodynamic_separation": "remove gross solids and grit from stormwater influent",
+          "coagulation_flocculation_and_clarification": "reduce turbidity, suspended solids, and particulate-associated chromium",
+          "ozonation": "oxidize some organic contaminants and improve biodegradability",
+          "biological_filtration": "remove biodegradable oxidation products and lower dissolved organic matter",
+          "granular_activated_carbon": "polish residual pesticides and trace organics",
+          "ultrafiltration": "provide particle and pathogen polishing barrier",
+          "final_disinfection": "ensure microbial safety"
+        },
+        "applicability_rationale": [
+          "this is a potentially lower-energy advanced surface-water style train that can substantially improve stormwater quality",
+          "it may be relevant where potable reuse is interpreted as including a strong downstream environmental buffer or blending step not modeled here",
+          "ozone-biofiltration plus GAC can be effective for broad organic control under mixed urban runoff conditions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "without RO or an equivalent high-pressure membrane barrier, dissolved chromium and small uncharacterized micropollutants may not be controlled reliably enough for direct potable reuse expectations",
+          "ozonation of organophosphate pesticides and unknown co-contaminants may form transformation products that require validation rather than assumption",
+          "bromide, though modest, raises byproduct concerns such as bromate if ozone dose and pH are not carefully managed",
+          "this train should be flagged as conditionally applicable and likely insufficient as a standalone approach for stringent potable reuse"
+        ],
+        "evidence_list": [
+          "ozone_biological_filtration_guidance_for_surface_water_organic_control",
+          "gac_polishing_guidance_for_trace_organics_in_drinking_water",
+          "potable_reuse_guidance_emphasizing_high_reliability_barriers_for_uncharacterized_micropollutants"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "detention_basin_settling",
+          "sand_filtration",
+          "activated_carbon",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "detention_basin_settling": "settle coarse particles and attenuate peak flow",
+          "sand_filtration": "remove remaining suspended solids",
+          "activated_carbon": "provide limited adsorption of some organic contaminants",
+          "chlorination": "control microbial contamination"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline to show that conventional stormwater polishing alone is not adequate for potable reuse",
+          "it may have value for non-potable improvement or as upstream pretreatment before more advanced barriers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of dissolved chromium, dichlorvos, pathogens, and unknown urban micropollutants for potable reuse",
+          "chlorination alone may transform organophosphate pesticides without ensuring complete risk reduction",
+          "performance is highly vulnerable to storm-event variability and short contaminant pulses",
+          "this option lacks the multiple independent barriers normally expected for potable reuse applications"
+        ],
+        "evidence_list": [
+          "basic_stormwater_treatment_references_for_sedimentation_filtration_and_disinfection",
+          "potable_reuse_multi_barrier_guidance_showing_limits_of_conventional_treatment_only"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "potable_reuse_appropriate_multi_barrier_trains_with_equalization_or_buffering_should_rank_above_simple_conventional_stormwater_treatment",
+        "higher_ranked_options_should_include_strong dissolved_contaminant_barriers_such_as_RO_and_or_AOP_because_both_dichlorvos_and_chromium_are_relevant",
+        "solutions_that_explicitly_address_event_driven_variability_and_first_flush_uncertainty_should_rank_higher_than_static_trains"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "legacy_contamination_and_evolving_standards_require_conservative_process_selection_for_potable_reuse",
+        "mixed_organic_inorganic_contaminants_require_staged_treatment_not_a_single_unit_process",
+        "stormwater_fluctuation_requires_storage_equalization_screening_or_environmental_buffering",
+        "residuals_and_concentrate_management_tradeoffs_should_be_discussed_for_metal_and_trace_organic_control"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_dichlorvos_control_should_not_rely_on_a_single_adsorption_or_oxidation_step_under_uncertain_pulse_loading",
+        "why_chromium_speciation_uncertainty_affects_process_selection_and_risk_assessment",
+        "why_potable_reuse_expectations_favor_multiple_independent_barriers_over_conventional_stormwater_treatment"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "first_flush_pulse_risk_and_under_sampling_of_storm_event_contaminants",
+        "uncertainty_in_total_vs_hexavalent_chromium_and_implications_for_treatment_design",
+        "transformation_product_and_disinfection_byproduct_risk_when_using_oxidation_for_dichlorvos",
+        "membrane_fouling_and_concentrate_management_if_RO_is_selected",
+        "the_possibility_of_other_uncharacterized_urban_micropollutants_co_occurring_with_the_known_targets"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

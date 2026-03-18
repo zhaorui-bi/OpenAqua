@@ -1,0 +1,295 @@
+{
+  "case_id": "WContBench_E_081",
+  "case_name": "Arsenic removal from surface water for conventional drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "arsenic"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for arsenic-contaminated surface water intended for drinking water supply under moderate cost and conventional operating constraints.",
+  "input_data": {
+    "scenario_background": "A small city draws raw water from a river-influenced reservoir and needs to reduce arsenic to comply with drinking water requirements. The utility already operates conventional clarification and filtration and prefers proven technologies that can be integrated without highly specialized staff. Seasonal turbidity changes occur, but arsenic is the main regulated contaminant driving the upgrade decision.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 18.0,
+      "turbidity_NTU": 12.4,
+      "DOC_mg_L": 4.3,
+      "alkalinity_mg_L_as_CaCO3": 78,
+      "UV254_cm_1": 0.112,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.03,
+      "sulfate_mg_L": 36,
+      "phosphate_mg_L_as_PO4": 0.18,
+      "arsenic_total_ug_L": 27,
+      "arsenic_dominant_species": "As(V)_dominant"
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should comply with drinking water arsenic limits while maintaining reliable treatment performance for a surface water supply.",
+      "secondary_goals": [
+        "use established and field-proven treatment processes",
+        "fit within existing conventional plant operations",
+        "avoid unnecessarily high energy demand",
+        "maintain manageable chemical and residuals handling"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "existing sludge handling is available for conventional solids but complex concentrate or brine disposal is undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable year-round operation with tolerance to seasonal raw water variability is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_with_ferric_salt",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_with_ferric_salt": "adsorb and coprecipitate As(V) onto iron hydroxide flocs while destabilizing particles",
+          "flocculation": "grow settleable flocs that capture arsenic-bearing solids",
+          "sedimentation": "remove bulk arsenic-laden floc from clarified water",
+          "rapid_sand_filtration": "polish remaining suspended solids and residual floc carryover",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "As(V) is already dominant, so ferric coagulation is a well-supported mainstream removal route without mandatory oxidation pretreatment",
+          "the source is surface water with moderate turbidity, making clarification plus filtration a natural fit",
+          "the utility already has conventional treatment capability, so this option aligns strongly with existing staff skills and infrastructure",
+          "iron-based coagulation for arsenic removal in surface waters is established in drinking water practice and guidance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "arsenic removal depends on optimized ferric dose, pH control, and solids separation performance",
+          "seasonal increases in DOC or turbidity can increase coagulant demand and affect process stability",
+          "sludge production will increase and arsenic-bearing residuals require proper management"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_arsenic_removal_using_iron_coagulation_and_filtration",
+          "who_drinking_water_case_knowledge_on_arsenic_control_in_conventional_plants",
+          "surface_water_treatment_practice_showing_ferric_coprecipitation_of_arsenate"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_oxidation",
+          "coagulation_with_ferric_salt",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation": "convert any residual As(III) to more readily removable As(V) and support consistent arsenic removal",
+          "coagulation_with_ferric_salt": "form iron flocs that adsorb and coprecipitate arsenic",
+          "flocculation": "aggregate destabilized particles into larger flocs",
+          "sedimentation": "separate arsenic-containing flocs from water",
+          "rapid_sand_filtration": "remove remaining particulate matter and polish clarified water",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "this train is very similar to the top option but adds a protective step if seasonal source conditions shift arsenic speciation toward As(III)",
+          "pre-oxidation can increase robustness where surface waters experience redox variability",
+          "it remains compatible with conventional plant operations and moderate budgets"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "oxidant selection and dose must be managed to avoid unnecessary chemical use or undesirable byproduct concerns",
+          "if As(V) is already strongly dominant, the oxidation step may add cost with limited incremental benefit",
+          "coagulation control is still critical for reliable arsenic compliance"
+        ],
+        "evidence_list": [
+          "epa_arsenic_treatment_technology_fact_sheets_on_oxidation_and_coagulation",
+          "awwa_case_knowledge_for_preoxidation_when_asiii_presence_is_possible",
+          "public_guidance_on_surface_water_arsenic_removal_with_conventional_treatment"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "granular_ferric_adsorptive_media",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce particulate and organic loading before arsenic polishing",
+          "flocculation": "form settleable flocs for upstream solids removal",
+          "sedimentation": "protect downstream media by removing bulk solids",
+          "granular_ferric_adsorptive_media": "provide targeted adsorption and polishing of dissolved arsenic",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "a polishing adsorptive media stage can improve compliance margin when conventional clarification alone is not consistently sufficient",
+          "upstream clarification is appropriate for surface water to protect media life from turbidity and DOC fouling",
+          "iron-based adsorptive media is a proven arsenic technology, although often more common in smaller groundwater applications"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "media exhaustion requires monitoring, replacement planning, and possible pressure loss management",
+          "higher DOC and competing anions can shorten media run length",
+          "surface water variability can make media performance less predictable without strong pretreatment"
+        ],
+        "evidence_list": [
+          "epa_arsenic_removal_technology_reviews_for_iron_based_adsorptive_media",
+          "engineering_case_examples_of_adsorptive_polishing_after_surface_water_clarification",
+          "public_drinking_water_guidance_on_media_life_dependence_on_competing_constituents"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "enhanced_coagulation",
+          "microfiltration_or_ultrafiltration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "bind arsenic to coagulant flocs and improve particulate removal",
+          "microfiltration_or_ultrafiltration": "retain coagulant flocs and suspended solids as a membrane clarification step",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "membrane clarification paired with coagulation can remove arsenic associated with coagulant flocs",
+          "this can provide stable turbidity control for variable surface water",
+          "however it is less conventionally aligned than standard sedimentation plus filtration for a utility seeking moderate complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "membrane fouling and integrity management add operational burden",
+          "arsenic removal still depends on upstream coagulant performance rather than membrane rejection alone",
+          "cleaning chemicals and maintenance demands may exceed the desired conventional operating profile"
+        ],
+        "evidence_list": [
+          "surface_water_membrane_treatment_guidance_with_coagulation_for_trace_metal_control",
+          "public_case_knowledge_on_coagulation_assisted_membrane_clarification",
+          "drinking_water_membrane_operations_guidance_for_fouling_and_integrity_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis": "reject dissolved arsenic and a broad range of other ions",
+          "stabilization": "adjust finished water chemistry after desalting to improve distribution stability",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically capable of arsenic reduction",
+          "it is generally reserved for cases needing broad dissolved contaminant control rather than a single arsenic-driven surface water upgrade",
+          "for this scenario it is not the most practical or conventional choice"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand and higher operator skill requirements",
+          "concentrate management is difficult and does not fit the residuals constraint well",
+          "pretreatment needs for surface water fouling control add complexity and cost"
+        ],
+        "evidence_list": [
+          "epa_membrane_treatment_guidance_for_small_drinking_water_systems",
+          "public_reference_on_reverse_osmosis_for_arsenic_with_concentrate_management_limitations",
+          "surface_water_ro_case_knowledge_highlighting_fouling_and_pretreatment_needs"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "ferric_coagulation_plus_clarification_plus_filtration should rank first for As(V)-dominant surface water under conventional operation constraints",
+        "oxidation_plus_conventional_treatment may rank slightly below the top option when influent is already As(V)-dominant",
+        "high-pressure membrane options should rank last under moderate cost and conventional operation requirements"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven conventional surface water treatment processes",
+        "moderate budget and energy sensitivity rather than premium advanced treatment",
+        "desire to leverage existing clarification and filtration capabilities",
+        "avoidance of options requiring difficult brine or concentrate disposal"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why iron coagulation and coprecipitation are appropriate for arsenic in surface water",
+        "how dominant As(V) influences the need for oxidation pretreatment",
+        "why clarification and filtration are natural fits for turbid surface water",
+        "why reverse osmosis is technically feasible but not preferred here"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "dependence of arsenic removal on pH and coagulant dose optimization",
+        "impact of DOC and seasonal turbidity variability on treatment performance",
+        "management of arsenic-bearing sludge or spent media",
+        "additional membrane fouling or concentrate burdens for lower-ranked options"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "case_id": "WContBench_M_052",
+  "case_name": "Surface water potable reuse for chlortetracycline and benzene under strict effluent and footprint constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Chlortetracycline",
+      "Benzene"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface water intended for potable reuse containing chlortetracycline and benzene, balancing strict effluent compliance, limited footprint, and moderate cost constraints.",
+  "input_data": {
+    "scenario_background": "A water utility is evaluating an indirect potable reuse polishing train for an urban surface-water source influenced by upstream wastewater discharges and localized industrial runoff. Monitoring shows episodic antibiotic residues led by chlortetracycline together with persistent low-microgram-per-liter benzene, while DOC and seasonal turbidity remain moderate enough to affect adsorptive and oxidative process performance. The site has limited available footprint inside an existing treatment building, and the utility can support moderate but not highly specialized operation. The trade-off is that membrane-based barriers offer strong polishing but increase cost and residual-management burden, while adsorption and oxidation routes can be more footprint-efficient or easier to operate but differ in robustness for the two contaminants and for potable reuse expectations.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 19.0,
+      "turbidity_NTU": 8.4,
+      "TOC_mg_L": 6.1,
+      "DOC_mg_L": 4.7,
+      "UV254_cm_1": 0.118,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 142,
+      "conductivity_uS_cm": 515,
+      "ammonia_mg_L_as_N": 0.34,
+      "nitrate_mg_L_as_N": 3.8,
+      "sulfate_mg_L": 46,
+      "chloride_mg_L": 52,
+      "TSS_mg_L": 11,
+      "target_contaminants": {
+        "chlortetracycline_ug_L": 2.6,
+        "benzene_ug_L": 7.4
+      },
+      "co_contaminants": {
+        "geosmin_ng_L": 18,
+        "MIB_ng_L": 22,
+        "iron_mg_L": 0.21,
+        "manganese_mg_L": 0.04
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should reliably achieve very high removal of chlortetracycline and meet potable-reuse expectations for benzene with stable compliance under variable source-water conditions.",
+      "secondary_goals": [
+        "maintain compact treatment footprint",
+        "avoid overly difficult residuals or concentrate handling",
+        "limit lifecycle cost escalation",
+        "provide a multi-barrier process suitable for public-health confidence"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "medium",
+      "residuals_management": "prefer manageable solids or spent media streams; avoid large high-strength concentrate burdens where possible",
+      "footprint_constraint": "high",
+      "robustness_requirement": "must tolerate seasonal turbidity and DOC variability while maintaining strict effluent performance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_high_rate_clarification",
+          "ozonation",
+          "biological_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_high_rate_clarification": "reduce turbidity and part of the DOC load to improve downstream oxidation and adsorption performance",
+          "ozonation": "oxidize chlortetracycline and enhance biodegradability of oxidizable organics",
+          "biological_activated_carbon": "polish residual ozone transformation products, adsorb benzene, and provide biologically active removal of biodegradable organics",
+          "UV_disinfection": "provide final pathogen barrier consistent with potable reuse practice"
+        },
+        "applicability_rationale": [
+          "This train balances the need to address two chemically different contaminants without relying on a full membrane concentrate stream.",
+          "Ozone is well suited to transforming many pharmaceutical compounds, including tetracycline-class antibiotics, while BAC provides a compact polishing barrier for residual organics and benzene.",
+          "High-rate clarification plus ozone and BAC can be configured more compactly than conventional sedimentation plus large GAC contactors, which helps under footprint limitation.",
+          "Compared with RO-based potable reuse trains, this approach better aligns with the moderate cost constraint while still providing a defensible multi-barrier treatment concept."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Ozone dose demand can rise when DOC and UV254 increase seasonally, affecting operating cost and oxidation consistency.",
+          "Bromate formation must be evaluated and controlled if bromide is present, even if not elevated in routine screening.",
+          "BAC performance for benzene polishing depends on EBCT, media condition, and bioactivity management."
+        ],
+        "evidence_list": [
+          "ozonation_and_BAC_guidance_for_trace_organic_control_in_potable_reuse",
+          "public_case_knowledge_on_ozone_effectiveness_for_antibiotic_micropollutants",
+          "EPA_and_utility_guidance_on_GAC_BAC_for_taste_odor_and_VOC_polishing",
+          "potable_reuse_multi_barrier_practice_references"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_high_rate_clarification",
+          "powdered_activated_carbon_contact",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_high_rate_clarification": "remove suspended solids and lower particulate-associated organic load",
+          "powdered_activated_carbon_contact": "provide rapid adsorption of hydrophobic and some trace organic contaminants during peak episodes",
+          "ultrafiltration": "serve as a robust solids and pathogen barrier and protect downstream GAC",
+          "granular_activated_carbon": "polish benzene and residual trace organics including remaining chlortetracycline fractions",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "PAC plus GAC is a strong all-adsorptive route for mixed organics when utilities want to avoid ozone byproduct concerns.",
+          "UF offers a compact clarification substitute and strong pretreatment for a smaller downstream GAC footprint, which is useful at constrained sites.",
+          "This route is operationally credible for potable reuse polishing, with flexibility to increase PAC during contaminant spikes.",
+          "It ranks below ozone plus BAC because chlortetracycline control can become more carbon-intensive at moderate DOC, raising media and sludge costs."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC handling and carbon-laden residuals increase solids management burden.",
+          "GAC bed life may shorten when DOC rises, requiring more frequent changeout or reactivation.",
+          "Without a strong oxidation step, antibiotic removal margin during high-loading events may rely heavily on carbon dosing and contact time."
+        ],
+        "evidence_list": [
+          "public_guidance_on_PAC_GAC_for_trace_organic_and_VOC_control",
+          "UF_GAC_compact_treatment_case_knowledge_for_reuse_applications",
+          "literature_on_tetracycline_adsorption_to_activated_carbon",
+          "surface_water_treatability_references_for_adsorptive_micropollutant_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_high_rate_clarification",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "advanced_UV_AOP",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_high_rate_clarification": "reduce fouling load ahead of membrane treatment",
+          "ultrafiltration": "protect RO membranes by removing particulates and colloids",
+          "reverse_osmosis": "provide strong broad-spectrum rejection of many dissolved contaminants and salts",
+          "advanced_UV_AOP": "oxidize low-molecular-weight organics that may pass RO and provide additional trace-organic barrier",
+          "stabilization": "adjust corrosivity and finished-water chemistry"
+        },
+        "applicability_rationale": [
+          "This is the most conservative potable-reuse barrier approach and is technically capable of achieving very strong overall contaminant reduction.",
+          "The train is compact relative to some conventional systems and provides a high-confidence public-health narrative for reuse.",
+          "It ranks below the leading options because the case emphasizes moderate cost and avoiding difficult residuals, while RO generates concentrate and increases energy and O&M demands.",
+          "The broad capability can be attractive if future unknown co-contaminants become a larger concern than current cost and residual constraints."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "RO concentrate management is a major implementation challenge for inland or space-limited facilities.",
+          "Membrane scaling and fouling control increase chemical use and operator burden.",
+          "This route may exceed what is economically proportionate for the specific current contaminant profile."
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_for_RO_and_UV_AOP_multi_barrier_trains",
+          "EPA_references_on_RO_for_dissolved_organic_contaminant_control",
+          "public_case_knowledge_on_concentrate_management_constraints",
+          "reuse_engineering_guidance_on_membrane_OandM_complexity"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "air_stripping",
+          "ozonation",
+          "biologically_active_filtration",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "remove volatile benzene from water by mass transfer to air",
+          "ozonation": "oxidize chlortetracycline and other susceptible trace organics",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and provide polishing",
+          "UV_disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "This route separates treatment by contaminant type, with air stripping targeting the VOC efficiently and ozone targeting the antibiotic.",
+          "It can be technically effective, especially where benzene is the dominant compliance driver and off-gas treatment infrastructure already exists.",
+          "It ranks lower because adding air handling plus likely vapor-phase carbon for off-gas creates a more awkward footprint and residuals profile for a space-limited potable reuse retrofit.",
+          "The train is less attractive than carbon-polishing alternatives when benzene is only single-digit micrograms per liter and can be managed by GAC polishing."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Air stripping transfers benzene to the gas phase and may require off-gas treatment to avoid air emissions issues.",
+          "Stripping is not useful for chlortetracycline, so successful treatment depends on the downstream oxidation and biofiltration stages.",
+          "Tower or packed-column integration may be difficult in an enclosed retrofit site with limited height or ventilation capacity."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organics_like_benzene",
+          "ozone_biofiltration_case_knowledge_for_pharmaceutical_removal",
+          "engineering_references_on_off_gas_treatment_for_VOC_strippers"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_clarification",
+          "UV_hydrogen_peroxide_AOP",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_clarification": "remove solids and reduce background organic scavengers",
+          "UV_hydrogen_peroxide_AOP": "generate hydroxyl radicals for oxidation of susceptible trace organics",
+          "granular_activated_carbon": "polish residual organics and adsorb benzene",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "This is technically plausible because AOP can contribute to micropollutant destruction and GAC can remove benzene.",
+          "However, for this water matrix the moderate DOC and UV absorbance create radical scavenging and UV transmittance penalties, making UV-AOP less cost-effective as the primary trace-organic barrier.",
+          "It also provides less direct value for benzene than air stripping or a stronger dedicated adsorptive polishing strategy.",
+          "The route is therefore a lower-ranked option that is capable but misaligned with cost-performance trade-offs in this scenario."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "UV-AOP energy demand can become high at the required fluence and oxidant dose for trace-organic targets in DOC-bearing waters.",
+          "Chlortetracycline oxidation products would need treatability confirmation and downstream polishing verification.",
+          "GAC alone may still become the main benzene barrier, limiting the incremental value of the AOP step."
+        ],
+        "evidence_list": [
+          "UV_AOP_guidance_for_potable_reuse_polishing",
+          "public_references_on_DOC_scavenging_effects_in_advanced_oxidation",
+          "trace_organic_treatability_knowledge_for_antibiotic_oxidation_and_GAC_polishing"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "ozonation_plus_BAC_or_similar hybrid oxidation-adsorption routes should rank near the top",
+        "compact adsorption-based alternatives with UF may appear as strong contenders",
+        "RO_based potable_reuse trains should be recognized as technically strong but not rank first under moderate cost and residual constraints",
+        "at least one technically capable option should rank lower because of space, off-gas, concentrate, or cost misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict potable-reuse style effluent expectations",
+        "high footprint limitation that favors compact trains",
+        "moderate rather than unlimited capex and opex",
+        "trade-offs between robust removal and residuals or concentrate handling"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why chlortetracycline and benzene may favor different treatment mechanisms",
+        "why DOC and turbidity influence adsorption and oxidation performance",
+        "why RO or other high-barrier options are downgraded despite technical capability",
+        "why ozone_BAC or adsorptive polishing can be attractive for mixed trace-organic control"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "oxidation byproduct or bromate considerations",
+        "spent carbon or solids residual management",
+        "membrane concentrate burden",
+        "air emissions or off-gas management if stripping is proposed",
+        "seasonal source-water variability affecting compliance margin"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

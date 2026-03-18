@@ -1,0 +1,327 @@
+{
+  "case_id": "WContBench_M_110",
+  "case_name": "Brackish groundwater with radium, lithium, and microcystin under recharge compliance and limited-operator constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Radium",
+      "Lithium",
+      "Microcystins"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing radium, lithium, and episodic microcystins intended for groundwater recharge, balancing contaminant control against cost, operator skill limits, and residuals handling.",
+  "input_data": {
+    "scenario_background": "A small inland water reuse project wants to blend and treat brackish groundwater before managed aquifer recharge. The source has persistent dissolved salts and naturally occurring radium, while a hydraulically connected infiltration basin periodically contributes low but detectable microcystins during warm months; lithium is also elevated and the regulator has requested a conservative reduction approach for recharge protection. Several treatment routes are technically feasible, but the utility has only modest capital availability, limited staff experience with complex membrane systems, and wants to avoid creating difficult brine or radioactive residual streams unless clearly justified by performance.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "turbidity_NTU": 2.4,
+      "TDS_mg_L": 2280,
+      "conductivity_uS_cm": 3480,
+      "DOC_mg_L": 3.1,
+      "TOC_mg_L": 3.8,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 340,
+      "calcium_mg_L": 92,
+      "magnesium_mg_L": 27,
+      "sodium_mg_L": 410,
+      "chloride_mg_L": 620,
+      "sulfate_mg_L": 280,
+      "silica_mg_L": 18,
+      "barium_mg_L": 0.24,
+      "iron_mg_L": 0.16,
+      "manganese_mg_L": 0.05,
+      "ammonia_mg_L_as_N": 0.12,
+      "nitrate_mg_L_as_N": 1.9,
+      "target_contaminants": {
+        "combined_radium_226_228_pCi_L": 8.4,
+        "lithium_mg_L": 1.9,
+        "microcystins_total_ug_L": 1.3
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for groundwater recharge with reliable reduction of combined radium, meaningful lithium reduction to support conservative recharge protection goals, and microcystins controlled to very low levels with stable operation.",
+      "secondary_goals": [
+        "avoid highly complex operation for a small utility staff",
+        "limit difficult brine or sludge management burdens",
+        "maintain reasonable energy use",
+        "provide resilience to seasonal microcystin spikes"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer to minimize high-volume brine and special handling of radium-bearing residuals, but some managed residual stream is acceptable if clearly lower burden than full desalination concentrate",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate seasonal toxin variability and stable dissolved contaminant loading without intensive operator intervention"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "oxidant_free_pre_screening",
+          "powdered_or_granular_activated_carbon_for_microcystins",
+          "sodium_cation_exchange_softening_for_radium",
+          "selective_lithium_ion_exchange_polishing",
+          "cartridge_filtration"
+        ],
+        "core_unit_functions": {
+          "oxidant_free_pre_screening": "remove coarse particles while avoiding pre-oxidation conditions that could lyse cells before toxin adsorption control",
+          "powdered_or_granular_activated_carbon_for_microcystins": "adsorb dissolved microcystins and buffer seasonal toxin spikes",
+          "sodium_cation_exchange_softening_for_radium": "remove radium along with hardness using a familiar regeneration-based process",
+          "selective_lithium_ion_exchange_polishing": "provide targeted lithium reduction after major divalent-ion control improves selectivity",
+          "cartridge_filtration": "polish fines and protect recharge infrastructure"
+        },
+        "applicability_rationale": [
+          "This train separates the three treatment objectives into relatively understandable unit processes rather than relying on a high-pressure all-in-one membrane system.",
+          "Activated carbon is a well-established barrier for dissolved microcystins when managed to avoid breakthrough and can handle episodic toxin loading better than oxidation-only approaches.",
+          "Conventional cation exchange softening is a recognized approach for radium removal in groundwater and fits operators more familiar with softening systems than with advanced desalination.",
+          "Using selective lithium ion exchange only as a polishing step reduces the ionic competition burden from calcium and magnesium and lowers overall resin demand compared with applying it to raw brackish water.",
+          "The approach still creates residuals, but they are generally more manageable for this staffing profile than continuous RO brine while better addressing lithium than softening alone."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "Regenerant from radium and lithium exchange requires controlled handling and disposal planning, including attention to radioactivity in radium-bearing waste streams.",
+          "Lithium polishing performance depends on resin selection and competing monovalent ions such as sodium.",
+          "Activated carbon requires careful monitoring for toxin breakthrough and may be less effective if DOC rises substantially.",
+          "If microcystins are associated with intact cells, front-end handling must avoid cell rupture before adsorption or removal steps."
+        ],
+        "evidence_list": [
+          "epa_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "who_background_guidance_on_microcystins_and_activated_carbon_control",
+          "surface_water_and_reuse_case_knowledge_for_microcystin_adsorption_barriers",
+          "emerging_contaminant_monitoring_case_knowledge_for_lithium_in_wastewater_and_surface_water",
+          "industry_case_knowledge_on_selective_lithium_ion_exchange_under_high_salinity_conditions"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon",
+          "lime_soda_softening_with_radium_coprecipitation",
+          "recarbonation",
+          "selective_lithium_ion_exchange",
+          "media_filtration"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove suspended matter and protect downstream adsorption and clarification steps",
+          "granular_activated_carbon": "remove dissolved microcystins and provide seasonal adsorption capacity",
+          "lime_soda_softening_with_radium_coprecipitation": "reduce hardness and coprecipitate radium with barium and calcium solids",
+          "recarbonation": "stabilize pH after softening",
+          "selective_lithium_ion_exchange": "polish lithium after divalent ions are substantially reduced",
+          "media_filtration": "capture carryover solids before recharge application"
+        },
+        "applicability_rationale": [
+          "Lime softening is a known radium control option and can reduce scaling potential before downstream lithium polishing.",
+          "This route may lower chemical competition for lithium-selective resin more effectively than raw-water polishing.",
+          "Compared with full RO, energy demand is lower and there is no large continuous desalination brine stream.",
+          "It can be attractive if the utility already has clarification experience or values simultaneous hardness reduction."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Produces larger volumes of radium-bearing sludge than exchange-only radium removal and may require more complicated residuals management.",
+          "Chemical feed, sludge handling, and pH control increase operator burden relative to compact exchange systems.",
+          "Seasonal microcystin spikes still require carbon replacement or EBCT management.",
+          "Footprint can be significant if clarification basins are needed."
+        ],
+        "evidence_list": [
+          "epa_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "who_background_guidance_on_microcystins_and_activated_carbon_control",
+          "public_drinking_water_practice_for_softening_and_coprecipitation_of_radium",
+          "emerging_contaminant_monitoring_case_knowledge_for_lithium_in_wastewater_and_surface_water"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon",
+          "nanofiltration",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "protect adsorption and membrane systems from fouling",
+          "granular_activated_carbon": "reduce microcystins and organic foulants before membrane treatment",
+          "nanofiltration": "provide substantial rejection of radium and partial to moderate reduction of lithium depending on membrane selection and operating conditions",
+          "stabilization": "adjust treated water chemistry for recharge compatibility"
+        },
+        "applicability_rationale": [
+          "Nanofiltration offers a middle ground between adsorption-softening trains and full RO by reducing divalent ions and radium strongly with lower pressure than RO.",
+          "It may achieve useful lithium reduction, especially where the recharge goal is reduction rather than near-complete removal.",
+          "The membrane barrier also improves consistency against variable raw water quality.",
+          "This route is technically credible but ranked below the leading options because the staffing profile and residuals preferences make concentrate management less attractive."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Lithium rejection with nanofiltration can be inconsistent and lower than for divalent ions, creating performance uncertainty for conservative recharge objectives.",
+          "Concentrate disposal remains a significant issue, particularly with radium concentrated into a smaller waste stream.",
+          "Membrane scaling and fouling control require more skilled operation than the top-ranked options.",
+          "Post-treatment stabilization is needed before recharge."
+        ],
+        "evidence_list": [
+          "public_membrane_guidance_for_brackish_groundwater_treatment",
+          "epa_guidance_for_radium_control_in_groundwater_and_residuals_management",
+          "who_background_guidance_on_microcystins_and_activated_carbon_control",
+          "engineering_case_knowledge_on_nanofiltration_selectivity_for_monovalent_vs_divalent_ions"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "limit particulate fouling of carbon and RO membranes",
+          "granular_activated_carbon": "control microcystins and reduce organic fouling potential",
+          "reverse_osmosis": "provide broad-spectrum rejection of dissolved salts, radium, and lithium",
+          "stabilization": "condition permeate chemistry prior to recharge"
+        },
+        "applicability_rationale": [
+          "RO is the most comprehensive dissolved contaminant barrier and is technically strong for simultaneous radium and lithium reduction in brackish groundwater.",
+          "The process also helps with overall salinity reduction if recharge hydrochemistry requires lower TDS water.",
+          "It ranks lower because this case prioritizes balanced feasibility, not maximum removal at any cost.",
+          "For a small utility with limited operator skill, the benefits of broad removal are offset by higher energy use, greater process complexity, and difficult concentrate management."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "RO concentrate will contain elevated radionuclides and lithium, creating a challenging disposal pathway.",
+          "Higher operator skill is needed for scaling control, cleaning, recovery management, and membrane integrity.",
+          "Capital and ongoing replacement costs may exceed the moderate budget constraint.",
+          "Low-mineral permeate generally requires stabilization before recharge."
+        ],
+        "evidence_list": [
+          "public_membrane_guidance_for_brackish_groundwater_treatment",
+          "epa_guidance_for_radium_control_in_groundwater_and_residuals_management",
+          "managed_aquifer_recharge_practice_for_post_treatment_stabilization",
+          "engineering_case_knowledge_on_ro_for_high_rejection_of_monovalent_and_divalent_ions"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pre_oxidation",
+          "media_filtration",
+          "sodium_cation_exchange_softening",
+          "discharge_or_recharge"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation": "oxidize cyanobacterial material and provide general biological control",
+          "media_filtration": "remove oxidized particulates",
+          "sodium_cation_exchange_softening": "reduce radium and hardness",
+          "discharge_or_recharge": "apply treated water to the intended reuse endpoint"
+        },
+        "applicability_rationale": [
+          "This route is included as a technically plausible but misaligned option because it addresses radium effectively and may look simple on paper.",
+          "However, oxidation-plus-filtration is not the preferred primary barrier for dissolved microcystins, and it does not address lithium adequately.",
+          "It demonstrates the trade-off that a lower-complexity train can still rank poorly when it fails to cover all required contaminants for recharge protection."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "Oxidation can lyse cyanobacterial cells and release intracellular microcystins if not paired with an effective adsorption or toxin removal barrier.",
+          "Lithium remains largely untreated, making the train unsuitable where meaningful lithium reduction is expected.",
+          "Radium-bearing regenerant still requires management.",
+          "The apparent simplicity could lead to underperformance against the multi-contaminant objective."
+        ],
+        "evidence_list": [
+          "who_background_guidance_on_microcystins_and_limitations_of_oxidation_only_control",
+          "epa_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "emerging_contaminant_monitoring_case_knowledge_for_lithium_in_wastewater_and_surface_water",
+          "public_case_knowledge_that_single_contaminant_optimized_trains_can_fail_multi_constraint_selection"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "A hybrid train that treats microcystins, radium, and lithium with moderate complexity should rank near the top",
+        "Membrane-based NF or RO options should appear as strong technical alternatives but not rank first under operator-skill and residuals constraints",
+        "At least one lower-ranked option should be technically capable for some contaminants yet downgraded for poor fit to the full contaminant set or constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "trade-off between broad dissolved contaminant removal and concentrate handling burden",
+        "limited staff capacity for complex high-pressure membrane operations",
+        "importance of handling radium-bearing residuals when selecting softening or ion exchange routes",
+        "moderate budget rather than lowest-cost-only or highest-performance-only selection logic"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is relevant for microcystin control and why oxidation-only approaches can be insufficient or risky",
+        "why radium can be addressed by ion exchange or softening in groundwater systems",
+        "why lithium is harder to remove selectively and may favor specialized polishing or membrane approaches",
+        "why RO or NF are downgraded despite technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "microcystin breakthrough or cell-lysis concerns",
+        "radioactive residuals or regenerant handling",
+        "lithium selectivity uncertainty under high salinity",
+        "membrane concentrate disposal and scaling risk"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

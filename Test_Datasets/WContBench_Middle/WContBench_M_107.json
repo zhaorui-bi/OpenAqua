@@ -1,0 +1,309 @@
+{
+  "case_id": "WContBench_M_107",
+  "case_name": "Brackish groundwater polishing for recharge under strict micropollutant limits and low-energy preference",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Cylindrospermopsin",
+      "Aldicarb",
+      "Terbufos"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "low_energy_preference",
+      "chemical_minimization"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing cyanotoxin and pesticide contamination intended for groundwater recharge under strict effluent limits, low-energy preference, and minimized chemical use.",
+  "input_data": {
+    "scenario_background": "A regional water manager plans to recharge a stressed aquifer using extracted brackish groundwater impacted by agricultural pesticides and episodic cyanotoxin intrusion from hydraulically connected surface recharge areas. The regulator has imposed very low target concentrations for the named organic contaminants before recharge, while the utility prefers to avoid high-pressure desalting because the salinity is acceptable for recharge and concentrate disposal options are limited inland. The decision is therefore a trade-off between high-certainty removal, low energy demand, low added chemical use, and manageable residuals.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "temperature_C": 21.0,
+      "turbidity_NTU": 1.8,
+      "DOC_mg_L": 3.9,
+      "TOC_mg_L": 4.6,
+      "UV254_cm_1": 0.082,
+      "alkalinity_mg_L_as_CaCO3": 215,
+      "hardness_mg_L_as_CaCO3": 248,
+      "conductivity_uS_cm": 3180,
+      "TDS_mg_L": 2050,
+      "chloride_mg_L": 690,
+      "sulfate_mg_L": 245,
+      "nitrate_as_N_mg_L": 5.7,
+      "ammonia_as_N_mg_L": 0.12,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.05,
+      "target_contaminants": {
+        "cylindrospermopsin_ug_L": 1.4,
+        "aldicarb_ug_L": 8.6,
+        "terbufos_ug_L": 0.42
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water for recharge should reliably achieve very low concentrations of cylindrospermopsin, aldicarb, and terbufos with stable performance suitable for regulatory approval of aquifer recharge.",
+      "secondary_goals": [
+        "minimize energy demand relative to membrane desalting routes",
+        "avoid heavy routine chemical addition where possible",
+        "limit difficult concentrate or hazardous residual generation",
+        "maintain performance despite moderate seasonal organic matter variation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "avoid inland brine concentrate disposal and minimize frequent handling of difficult spent media or chemical residuals",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment must maintain high removal reliability during seasonal spikes in cyanotoxin and moderate DOC fluctuation"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_screening_and_cartridge_filtration",
+          "biologically_active_granular_activated_carbon",
+          "uv_polishing",
+          "post_stabilization_if_needed"
+        ],
+        "core_unit_functions": {
+          "pre_screening_and_cartridge_filtration": "remove particulates and protect downstream adsorptive media",
+          "biologically_active_granular_activated_carbon": "adsorb pesticide compounds and cyanotoxin while providing biologically assisted reduction of biodegradable organic matter",
+          "uv_polishing": "provide non-chemical polishing and additional barrier against organic micropollutants and microbial concerns",
+          "post_stabilization_if_needed": "maintain recharge-compatible water chemistry with minimal adjustment"
+        },
+        "applicability_rationale": [
+          "GAC is a broadly applicable low-energy barrier for many neutral organic micropollutants including pesticides and cyanotoxins, making it a practical core treatment for this mixed-contaminant case",
+          "brackish salinity does not itself require desalting for the stated recharge use, so an adsorption-led route avoids unnecessary high-pressure membrane energy and concentrate management",
+          "biologically active operation can improve bed utilization and reduce some organic loading pressure compared with strictly adsorptive operation",
+          "UV polishing adds another non-chemical barrier that aligns with the chemical minimization objective better than ozone-dominated trains",
+          "this route offers a balanced compromise between strict effluent goals and manageable O&M for a recharge facility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "breakthrough management for aldricarb or cyanotoxin requires careful monitoring and timely carbon changeout",
+          "higher DOC episodes can shorten GAC run length and raise OPEX",
+          "UV alone should not be assumed to replace adsorption for all target compounds"
+        ],
+        "evidence_list": [
+          "WHO_background_guidance_on_cylindrospermopsin_control_in_drinking_water",
+          "EPA_and_state_case_knowledge_on_GAC_for_pesticide_removal",
+          "AWWA_practice_knowledge_on_BAC_GAC_for_organic_micropollutants",
+          "managed_aquifer_recharge_practice_emphasizing_multiple_barriers_for_trace_organics"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "powdered_activated_carbon_contact",
+          "dual_media_filtration",
+          "granular_activated_carbon_polishing",
+          "uv"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove solids and condition water for adsorption steps",
+          "powdered_activated_carbon_contact": "provide rapid adsorptive capture of episodic cyanotoxin and pesticide spikes",
+          "dual_media_filtration": "separate PAC-laden solids and reduce suspended matter",
+          "granular_activated_carbon_polishing": "provide polishing and improve compliance robustness",
+          "uv": "add final low-chemical polishing barrier"
+        },
+        "applicability_rationale": [
+          "a PAC plus GAC approach can be more responsive to variable cylindrospermopsin episodes than GAC alone",
+          "the train remains lower energy than membrane rejection processes",
+          "this route can achieve strong contaminant control when seasonal spikes are a dominant concern",
+          "it ranks below the top option because it increases chemical use and solids residual handling, partially conflicting with the chemical minimization objective"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing optimization and solids management increase operator burden",
+          "performance variability can occur if contact time or dosing control is inadequate",
+          "spent carbon and backwash solids require defined handling procedures"
+        ],
+        "evidence_list": [
+          "WHO_and_health_agency_guidance_on_activated_carbon_for_cyanotoxin_control",
+          "surface_water_and_groundwater_case_knowledge_for_PAC_plus_GAC_pesticide_barriers",
+          "AWWA_guidance_on_adsorption_process_selection_for_taste_odor_and_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_filtration",
+          "ozonation",
+          "biologically_active_filtration",
+          "granular_activated_carbon_polishing"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "protect oxidation and biofiltration units from particulate fouling",
+          "ozonation": "oxidize susceptible organic micropollutants and inactivate cyanotoxin-related structures",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and polish dissolved organics",
+          "granular_activated_carbon_polishing": "capture remaining trace organics and improve compliance confidence"
+        },
+        "applicability_rationale": [
+          "ozone followed by biologically active filtration is a recognized multi-barrier approach for trace organic control and can be effective for cyanotoxin management",
+          "this route can outperform adsorption alone for some compounds when oxidation is favorable",
+          "it ranks mid-pack because ozone introduces chemical generation, greater process control needs, and higher energy than adsorption-led options",
+          "the added polishing GAC improves reliability under strict recharge limits"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation byproduct formation such as bromate must be assessed because brackish groundwater may contain bromide",
+          "not all pesticide compounds oxidize equally well, so design testing is required",
+          "process control complexity is higher than simple adsorption trains"
+        ],
+        "evidence_list": [
+          "EPA_and_WHO_guidance_on_cyanotoxin_treatment_with_oxidation_and_activated_carbon",
+          "public_literature_on_ozone_BAF_for_trace_organic_micropollutant_control",
+          "bromate_control_guidance_for_ozonation_of_bromide_containing_waters"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "nanofiltration",
+          "uv_or_disinfection_stabilization"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "limit particulate fouling and protect membranes",
+          "nanofiltration": "physically reject a broad range of dissolved organic contaminants including many pesticides and cyanotoxins",
+          "uv_or_disinfection_stabilization": "provide final polishing and ensure suitable recharge water quality"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable and offers strong removal certainty for many organic micropollutants",
+          "it may be attractive if future recharge permits add additional dissolved contaminant constraints beyond the listed compounds",
+          "it ranks lower because salinity reduction is not the primary objective, yet the process imposes a major energy and concentrate-disposal burden",
+          "the inland brine management challenge is poorly aligned with project constraints even though contaminant rejection is strong"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal can become the dominant implementation barrier",
+          "membrane fouling and scaling control may increase chemical demand",
+          "over-treatment of salinity relative to recharge need can make lifecycle cost unattractive"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_pesticides_and_cyanotoxins",
+          "managed_aquifer_recharge_case_knowledge_on_inland_brine_disposal_constraints",
+          "AWWA_and_desalination_practice_references_on_nanofiltration_OandM"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment",
+          "advanced_oxidation_process_uv_hydrogen_peroxide",
+          "biological_filtration"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "remove solids and improve UV transmittance consistency",
+          "advanced_oxidation_process_uv_hydrogen_peroxide": "generate hydroxyl radicals for destruction of organic micropollutants",
+          "biological_filtration": "remove oxidation byproducts and polish biodegradable carbon"
+        },
+        "applicability_rationale": [
+          "AOP is technically plausible for destruction of some organic contaminants and may be considered where direct transformation is prioritized",
+          "it is intentionally ranked lowest because it conflicts most strongly with the stated low-energy and chemical-minimization preferences",
+          "for this water matrix, moderate UV absorbance and brackish constituents can reduce process efficiency and increase reagent demand",
+          "without a downstream adsorption barrier, achieving stable compliance across three different target compounds may be less certain"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "compound-specific destruction kinetics may be insufficient for reliable single-pass compliance",
+          "hydrogen peroxide storage and dosing increase chemical handling complexity",
+          "AOP can convert parent compounds into byproducts that still require downstream control"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_advanced_oxidation_for_organic_micropollutants",
+          "public_case_knowledge_on_AOP_energy_and_chemical_intensity",
+          "cyanotoxin_treatment_references_noting_need_for_process_specific_validation"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "adsorption-led multi-barrier routes should rank near the top because they balance strict organic contaminant removal with lower energy use",
+        "oxidation-plus-biofiltration may appear as a credible alternative but should not outrank simpler low-chemical adsorption trains under these constraints",
+        "nanofiltration should appear as technically capable but downgraded due to concentrate handling and energy mismatch",
+        "a technically feasible but chemical- and energy-intensive AOP route should rank low"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict effluent requirements for recharge create a need for robust multi-barrier treatment rather than minimal single-step treatment",
+        "low-energy preference disfavors pressure membrane options when desalting is not required for the intended reuse",
+        "chemical minimization should penalize ozone-heavy or peroxide-heavy routes relative to adsorption-led options",
+        "residuals discussion should distinguish between spent carbon or solids handling versus inland brine concentrate disposal"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why brackish groundwater salinity alone does not justify membrane desalting for this recharge case",
+        "why GAC or PAC plus GAC are reasonable for mixed cyanotoxin and pesticide control",
+        "why bromide-related byproduct risk matters when ozonation is considered for brackish groundwater",
+        "why strict recharge limits can justify polishing barriers even when lower-energy routes are preferred"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "adsorbent breakthrough under DOC variation",
+        "seasonal contaminant spikes and need for monitoring",
+        "bromate or oxidation byproduct concerns",
+        "concentrate disposal burden for membrane treatment",
+        "uncertainty in compound-specific oxidation performance"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

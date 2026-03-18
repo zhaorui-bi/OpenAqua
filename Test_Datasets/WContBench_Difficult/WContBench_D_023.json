@@ -1,0 +1,356 @@
+{
+  "case_id": "WContBench_D_023",
+  "case_name": "Municipal wastewater recharge planning under suspected biotoxin contamination and enteric pathogen risk",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "municipal_wastewater",
+    "contaminant_type": [
+      "Ricin",
+      "S._typhi",
+      "COD",
+      "TSS",
+      "ammonia",
+      "nutrients",
+      "trace_organics"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process trains for municipal wastewater reclamation intended for groundwater recharge under uncertainty about episodic ricin contamination and confirmed Salmonella Typhi risk.",
+  "input_data": {
+    "scenario_background": "A coastal city is evaluating advanced treatment of secondary municipal effluent for indirect potable reuse via groundwater recharge. A security investigation identified a possible one-time or intermittent upstream biotoxin release, so ricin is suspected but not fully characterized in concentration, persistence, or frequency, while enteric pathogen risk including Salmonella Typhi remains relevant due to sewer cross-connections and wet-weather dilution effects. Influent quality to the reclamation plant varies substantially seasonally and during storm events, and decision-makers need a treatment train that is robust for recharge while acknowledging uncertainty in the contaminant profile. The agency prefers defensible multi-barrier treatment with manageable cost and energy use rather than a single highly specialized barrier.",
+    "water_quality": {
+      "source_type": "secondary_municipal_wastewater_effluent",
+      "pH": 7.2,
+      "temperature_C": 22,
+      "turbidity_NTU": 9.8,
+      "TSS_mg_L": 14,
+      "BOD5_mg_L": 18,
+      "COD_mg_L": 46,
+      "TOC_mg_L": 11.5,
+      "ammonia_mg_L_as_N": 8.4,
+      "nitrate_mg_L_as_N": 2.6,
+      "total_nitrogen_mg_L_as_N": 18.9,
+      "total_phosphorus_mg_L_as_P": 3.7,
+      "TDS_mg_L": 920,
+      "hardness_mg_L_as_CaCO3": 210,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "conductivity_uS_cm": 1480,
+      "UV254_cm_1": 0.19,
+      "DOC_mg_L": 8.4,
+      "chloride_mg_L": 160,
+      "sulfate_mg_L": 72,
+      "ricin_ug_L": 0.8,
+      "ricin_characterization_note": "ricin_detection_is_preliminary_and_event_based_with_large_analytical_uncertainty_possible_true_range_below_detection_to_low_ug_L",
+      "S_typhi_CFU_100mL": 1200,
+      "e_coli_CFU_100mL": 32000,
+      "somatic_coliphage_PFU_100mL": 540,
+      "sucralose_ug_L": 18,
+      "pharmaceuticals_note": "trace_municipal_micropollutants_expected_but_not_fully_characterized",
+      "influent_variability": "high",
+      "variability_note": "wet_weather_dilution_and_illegal_discharges_cause_variable_organics_solids_pathogens_and_possible_sporadic_toxin_loading"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should be suitable for managed aquifer recharge with strong pathogen and toxin risk reduction, low particulate loading, reduced organics and nitrogen, and a defensible multi-barrier approach appropriate for indirect potable reuse pathways.",
+      "secondary_goals": [
+        "maintain robust performance during variable influent conditions",
+        "provide multiple independent barriers for uncertain ricin occurrence",
+        "reduce fouling and protect any membrane processes",
+        "balance recharge water quality with cost and energy demand",
+        "explicitly identify uncertainty and monitoring needs before final design"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "chemical_sludge_and_concentrate_handling_are_available_but_costly_and_should_be_limited",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_groundwater_recharge_application_and_uncertain_biotoxin_events"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biological_nutrient_removal",
+          "ozonation_or_UV_advanced_oxidation",
+          "biologically_active_filtration_or_GAC",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "UV_disinfection_with_chloramine_residual_for_storage",
+          "engineered_recharge_with_environmental_buffer_and_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and quality fluctuations and reduce shock loading from episodic contaminant events",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and toxin-associated particulates while improving downstream process stability",
+          "biological_nutrient_removal": "reduce biodegradable organics and nitrogen before advanced polishing",
+          "ozonation_or_UV_advanced_oxidation": "provide oxidation of many trace organics and add an additional barrier for uncertain protein toxin integrity, though site-specific validation is required",
+          "biologically_active_filtration_or_GAC": "remove biodegradable oxidation byproducts and adsorb residual organics or partially transformed toxin-related material",
+          "ultrafiltration": "provide a strong particulate and microbial barrier and protect RO",
+          "reverse_osmosis": "reduce dissolved organics, salts, many micropollutants, and add a robust barrier for recharge-quality production",
+          "UV_disinfection_with_chloramine_residual_for_storage": "provide final pathogen inactivation and limit microbial regrowth before recharge",
+          "engineered_recharge_with_environmental_buffer_and_monitoring": "add subsurface attenuation and retention time while supporting verification monitoring for uncertain contaminants"
+        },
+        "applicability_rationale": [
+          "a multi-barrier potable reuse style train is the most defensible option for groundwater recharge with both confirmed pathogen risk and uncertain ricin occurrence",
+          "equalization is important because influent variability is high and suspected toxin loading may be episodic rather than constant",
+          "biological nutrient removal lowers ammonia and organic load, reducing oxidant demand and membrane fouling before advanced barriers",
+          "advanced oxidation plus carbon-based polishing addresses the uncertainty that ricin may not be fully removed by only one mechanism and also helps with co-occurring municipal trace organics",
+          "UF and RO provide strong independent barriers commonly used in high-quality reclaimed water production for recharge applications",
+          "the environmental buffer concept aligns with indirect potable reuse risk management rather than relying only on treatment plant unit processes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "ricin destruction and analytical verification are uncertain and require site-specific bench or pilot validation rather than assumption of complete oxidation",
+          "RO concentrate management remains costly and may concentrate unresolved trace contaminants",
+          "ozone or AOP may form byproducts and requires precursor characterization and quenching strategy",
+          "wet-weather surges and solids breakthrough can still increase membrane fouling if pretreatment control is weak",
+          "groundwater recharge permitting may demand additional log-reduction credits, indicator monitoring, and demonstration of aquifer compatibility"
+        ],
+        "evidence_list": [
+          "EPA_water_reuse_guidance_for_indirect_potable_reuse_and_managed_aquifer_recharge",
+          "California_and_other_public_DPR_IPR_multi_barrier_reuse_frameworks",
+          "WHO_guidance_on_safe_use_of_wastewater_and_multi_barrier_health_protection",
+          "EPA_membrane_filtration_guidance_for_pathogen_and_micropollutant_control",
+          "public_case_knowledge_on_ozone_BAC_UF_RO_trains_for_groundwater_recharge"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "membrane_bioreactor",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "UV_advanced_oxidation",
+          "engineered_recharge_with_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate flow and concentration variability including suspected intermittent toxin pulses",
+          "coagulation_flocculation_and_clarification": "reduce colloidal load and some particulate-associated contaminant fractions",
+          "membrane_bioreactor": "combine biological organic and ammonia reduction with fine solids separation",
+          "granular_activated_carbon": "adsorb residual dissolved organics and provide a hedge for uncertain toxin-related organics",
+          "reverse_osmosis": "provide a high-rejection dissolved contaminant barrier for recharge water production",
+          "UV_advanced_oxidation": "offer post-RO oxidation polishing for low-molecular-weight organics and additional risk reduction",
+          "engineered_recharge_with_monitoring": "provide subsurface retention and verification before potable extraction"
+        },
+        "applicability_rationale": [
+          "this train is compact and can produce stable feedwater quality to advanced barriers, which is helpful under municipal wastewater variability",
+          "MBR can offer better solids control than conventional activated sludge, improving downstream GAC and RO reliability",
+          "GAC plus RO plus UV-AOP creates multiple different removal mechanisms, which is useful when ricin behavior is not fully characterized",
+          "the sequence is plausible for high-quality recharge water, though the exact order of AOP relative to RO should be confirmed during design based on project objectives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher operational complexity and membrane management burden may exceed utility staffing comfort",
+          "MBR fouling risk increases under storm-driven solids spikes and filamentous episodes",
+          "GAC capacity for ricin-specific adsorption is uncertain and should not be treated as a sole barrier",
+          "post-RO AOP may be effective for trace organics but does not remove concentrate-related liabilities"
+        ],
+        "evidence_list": [
+          "public_reuse_guidance_for_MBR_RO_AOP_treatment_trains",
+          "EPA_and_state_guidance_on_GAC_for_trace_organic_control",
+          "engineering_case_knowledge_on_compact_advanced_reuse_systems",
+          "WHO_guidance_on_multiple_barriers_for_pathogen_risk_management"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "high_rate_clarification",
+          "biological_nitrification_denitrification",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "UV_disinfection",
+          "engineered_recharge_with_restricted_source_control_and_intensive_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization": "smooth variable influent quality and allow diversion during suspicious contamination events",
+          "high_rate_clarification": "remove solids and lower downstream fouling burden",
+          "biological_nitrification_denitrification": "reduce ammonia and nitrogen for recharge compatibility",
+          "ultrafiltration": "provide pathogen and particulate polishing",
+          "granular_activated_carbon": "reduce dissolved organics and some trace contaminants",
+          "UV_disinfection": "inactivate susceptible microorganisms including enteric pathogens",
+          "engineered_recharge_with_restricted_source_control_and_intensive_monitoring": "add conservative risk management through source control, operational hold points, and aquifer attenuation"
+        },
+        "applicability_rationale": [
+          "this is a lower-energy alternative when full RO is financially difficult, and it addresses nutrients, particulates, and pathogens reasonably well",
+          "it may be acceptable only if hydrogeologic conditions, recharge permit requirements, and risk assessment do not require the highest dissolved-contaminant barrier",
+          "GAC is included because ricin is a protein toxin and adsorption may contribute some removal, but this is uncertain and should be treated as supplemental rather than definitive",
+          "this option becomes more plausible if the ricin concern is later downgraded by improved characterization and if source control is strengthened"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "without RO or equivalent, dissolved salts and many trace organics remain only partially controlled for recharge applications",
+          "ricin removal confidence is materially lower than in the top-ranked options and depends heavily on monitoring, diversion, and source control",
+          "UV alone should not be assumed to fully address all toxin risk",
+          "regulatory acceptance for groundwater recharge may be limited depending on local potable reuse requirements"
+        ],
+        "evidence_list": [
+          "EPA_groundwater_recharge_guidance_emphasizing_fit_for_purpose_treatment",
+          "public_guidance_on_UF_GAC_UV_for_municipal_reuse_polishing",
+          "WHO_water_safety_plan_and_source_control_guidance",
+          "engineering_case_knowledge_on_non_RO_recharge_trains_with_restrictions"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "powdered_activated_carbon_contact",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration",
+          "chlorination",
+          "engineered_recharge_with_long_environmental_buffer"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable influent and enable conditional bypass or storage",
+          "powdered_activated_carbon_contact": "provide rapid adsorption capacity for episodic dissolved organic contaminants",
+          "coagulation_flocculation_and_clarification": "remove solids and PAC-associated contaminant mass",
+          "dual_media_filtration": "polish particulate matter",
+          "chlorination": "provide pathogen inactivation and residual protection",
+          "engineered_recharge_with_long_environmental_buffer": "rely partly on travel time and subsurface attenuation after engineered treatment"
+        },
+        "applicability_rationale": [
+          "this train may be considered as an emergency or interim risk-reduction approach when utilities need a lower-capex response to episodic events",
+          "PAC can be operationally flexible for uncertain contaminant episodes and may help with some toxin-associated organic mass",
+          "the option is easier to retrofit into conventional tertiary systems than RO-based trains"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "it is not a preferred standalone solution for groundwater recharge tied to possible ricin contamination because removal certainty is low",
+          "chlorination is useful for S. typhi control but does not resolve broad dissolved-organic or toxin uncertainty sufficiently",
+          "PAC dosing requirements and performance would be highly dependent on actual ricin concentration, NOM competition, and contact conditions",
+          "chemical sludge generation and spent carbon handling increase residuals burden"
+        ],
+        "evidence_list": [
+          "EPA_conventional_and_tertiary_wastewater_treatment_guidance",
+          "public_guidance_on_PAC_for_taste_odor_and_spill_response_adsorption",
+          "WHO_guidance_for_chlorination_and_enteric_pathogen_control",
+          "case_knowledge_on_interim_physicochemical_barriers_for_contamination_events"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "secondary_effluent_filtration",
+          "UV_disinfection",
+          "groundwater_recharge"
+        ],
+        "core_unit_functions": {
+          "secondary_effluent_filtration": "provide limited solids polishing",
+          "UV_disinfection": "reduce viable microbial pathogens",
+          "groundwater_recharge": "dispose or store reclaimed water in the aquifer"
+        },
+        "applicability_rationale": [
+          "included as a clearly inadequate baseline option for comparison",
+          "it addresses some pathogen reduction but lacks the multiple independent barriers expected for uncertain toxin risk and high-consequence recharge applications"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "insufficient defense against uncertain ricin occurrence and many dissolved wastewater contaminants",
+          "does not provide the robustness or monitoring framework expected for indirect potable reuse style recharge",
+          "high regulatory and public acceptance risk",
+          "finished water quality would remain too variable for the stated objective"
+        ],
+        "evidence_list": [
+          "basic_tertiary_reuse_references_showing_limitations_of_simple_filtration_and_UV",
+          "EPA_reuse_guidance_emphasizing_multi_barrier_treatment_for_high_exposure_end_uses"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier potable-reuse-style trains should rank above simple tertiary disinfection trains",
+        "equalization or event buffering should appear in higher-ranked solutions because influent variability and episodic contamination are central",
+        "solutions combining pathogen control with advanced organic/toxin barriers should rank higher than pathogen-only approaches",
+        "groundwater recharge recommendations should recognize the value of environmental buffer and monitoring rather than only treatment units"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "municipal wastewater requires management of conventional pollutants as well as the named biological and toxin hazards",
+        "high uncertainty around ricin occurrence should drive redundancy, source control, and monitoring caveats",
+        "cost and energy tradeoffs between RO-based and non-RO approaches should be explicit",
+        "residuals and concentrate management should be discussed for advanced membrane options",
+        "groundwater recharge use should trigger stronger quality and risk-control expectations than non-potable surface discharge"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why biological treatment remains useful even when the headline concern is ricin and S. typhi",
+        "why adsorption and oxidation are treated as complementary rather than perfectly certain barriers for ricin",
+        "why UF or equivalent solids/pathogen barriers help protect downstream advanced treatment",
+        "why simpler filtration plus disinfection trains are insufficient for uncertain toxin risk in recharge applications"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "ricin occurrence is suspected and analytically uncertain, so recommendations must include explicit uncertainty flags",
+        "S. typhi and broader enteric pathogen control require validated disinfection and multiple barriers",
+        "storm-driven influent variability can cause oxidant demand changes, solids breakthrough, and membrane fouling",
+        "RO concentrate or chemical residuals may contain unresolved contaminant liabilities",
+        "regulatory acceptance for groundwater recharge depends on conservative demonstration of treatment reliability, source control, and monitoring"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "case_id": "WContBench_E_080",
+  "case_name": "Comma bacillus control in well water for small drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "V. cholerae"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for well water contaminated with V. cholerae intended for drinking water use under low-energy, small-system conditions.",
+  "input_data": {
+    "scenario_background": "A small rural community relies on a shallow well that has shown fecal intrusion after seasonal flooding, and local health staff are concerned about Comma bacillus contamination. The community needs a clear and proven treatment approach for drinking water that can be operated by basic local staff with limited power availability. Raw water is relatively clear groundwater-like well water, so the treatment objective is focused primarily on reliable pathogen inactivation and protection against recontamination.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "turbidity_NTU": 1.8,
+      "temperature_C": 24.0,
+      "DOC_mg_L": 1.0,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "TDS_mg_L": 310,
+      "hardness_mg_L_as_CaCO3": 180,
+      "nitrate_mg_L_as_NO3": 8.5,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "E_coli_CFU_100mL": 18,
+      "V_cholerae_detected": true,
+      "free_chlorine_demand_mg_L": 0.5
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable control of V. cholerae and produce microbiologically safe drinking water with a maintained disinfectant residual where appropriate.",
+      "secondary_goals": [
+        "use low-energy treatment",
+        "favor simple and proven small-system operation",
+        "maintain affordable chemical and maintenance needs",
+        "limit risk of post-treatment recontamination"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "low",
+      "energy_constraint": "high",
+      "operation_complexity": "low",
+      "residuals_management": "minimal residuals handling preferred; no complex sludge or concentrate management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment must remain reliable under intermittent power and variable operator skill"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "prefiltration",
+          "chlorination_with_contact_tank",
+          "safe_storage_or_distribution_residual_control"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "remove incidental particulates and reduce turbidity interference before disinfection",
+          "chlorination_with_contact_tank": "inactivate V. cholerae and provide a disinfectant residual with adequate contact time",
+          "safe_storage_or_distribution_residual_control": "maintain microbial protection and reduce recontamination risk after treatment"
+        },
+        "applicability_rationale": [
+          "V. cholerae is highly susceptible to chlorine under typical drinking water conditions when adequate dose and contact time are provided",
+          "the raw well water has low turbidity and low organic content, making chlorination practical and effective",
+          "chlorination is a standard, proven, and low-energy approach for small drinking water systems",
+          "maintaining a residual is especially valuable where post-treatment contamination risk exists"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "insufficient contact time or underdosing can compromise pathogen inactivation",
+          "operator failure to maintain free chlorine residual can allow recontamination in storage or distribution",
+          "taste and odor complaints may occur if chlorine dosing is poorly controlled"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_drinking_water_disinfection_and_chlorination",
+          "CDC_cholera_prevention_guidance_for_safe_drinking_water",
+          "small_system_case_knowledge_supporting_chlorination_for_bacterial_pathogen_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "slow_sand_filtration",
+          "chlorination",
+          "safe_storage"
+        ],
+        "core_unit_functions": {
+          "slow_sand_filtration": "reduce suspended matter and lower microbial loading with a simple low-energy biological filtration step",
+          "chlorination": "provide final inactivation of V. cholerae and establish a protective residual",
+          "safe_storage": "protect treated water from recontamination before consumption"
+        },
+        "applicability_rationale": [
+          "slow sand filtration is well suited to small systems and low-energy operation",
+          "the relatively low turbidity source water is compatible with slow sand filtration",
+          "combining filtration with chlorination adds robustness where source contamination is episodic",
+          "the approach remains established and practical for community-scale drinking water supply"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "slow sand filters need proper ripening, scraping, and flow control to perform well",
+          "without final chlorination there would be less protection against recontamination",
+          "larger footprint may be needed than for direct chlorination alone"
+        ],
+        "evidence_list": [
+          "WHO_household_and_small_community_water_treatment_guidance",
+          "public_health_case_knowledge_on_slow_sand_plus_chlorination",
+          "small_system_guidance_for_low_turbidity_groundwater_pathogen_barriers"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_or_roughing_prefiltration",
+          "UV_disinfection",
+          "safe_storage"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_roughing_prefiltration": "improve UV transmittance reliability by limiting particulate shielding",
+          "UV_disinfection": "inactivate V. cholerae without chemical addition",
+          "safe_storage": "reduce contamination after treatment"
+        },
+        "applicability_rationale": [
+          "UV is effective for many bacteria including V. cholerae when water clarity is adequate",
+          "the source water is fairly clear, so UV is technically feasible",
+          "this option can avoid chemical handling where operators prefer non-chemical primary disinfection"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "UV provides no residual, so water can be recontaminated after treatment",
+          "power interruptions and lamp maintenance are significant concerns for a small low-energy system",
+          "particle shielding can reduce inactivation if pretreatment is not maintained"
+        ],
+        "evidence_list": [
+          "EPA_UV_disinfection_guidance_for_microbial_pathogen_control",
+          "WHO_guidance_noting_need_for_safe_storage_when_no_disinfectant_residual_is_present",
+          "small_system_experience_with_UV_for_low_turbidity_waters"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "chlorination",
+          "ceramic_or_membrane_point_of_use_filtration",
+          "safe_storage"
+        ],
+        "core_unit_functions": {
+          "chlorination": "provide primary bacterial inactivation and residual control",
+          "ceramic_or_membrane_point_of_use_filtration": "provide additional microbial barrier at point of use",
+          "safe_storage": "limit household recontamination"
+        },
+        "applicability_rationale": [
+          "this can be considered where centralized infrastructure is limited and household treatment is part of the delivery model",
+          "point-of-use barriers can supplement centralized chlorination during outbreak-sensitive periods",
+          "the option remains relatively low energy"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "performance depends heavily on user compliance and proper maintenance at household level",
+          "distributed devices create monitoring challenges for the utility",
+          "filter fouling or breakage can reduce protection"
+        ],
+        "evidence_list": [
+          "WHO_household_water_treatment_and_safe_storage_guidance",
+          "CDC_guidance_on_point_of_use_measures_during_cholera_risk",
+          "field_case_knowledge_on_combined_centralized_and_household_barriers"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ultrafiltration",
+          "post_chlorination",
+          "safe_storage_or_distribution"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration": "physically remove bacteria and suspended particles",
+          "post_chlorination": "provide disinfectant residual and additional microbial safety",
+          "safe_storage_or_distribution": "maintain water quality after treatment"
+        },
+        "applicability_rationale": [
+          "ultrafiltration can achieve strong pathogen removal performance",
+          "post-chlorination would address the lack of residual from membrane separation alone",
+          "the train is technically capable for drinking water pathogen control"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher capital and maintenance burden than needed for a straightforward bacterial contamination problem",
+          "membrane fouling and integrity monitoring increase operator demands",
+          "this is likely overdesigned for clear well water where chlorination alone is usually sufficient"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_microbiological_drinking_water_control",
+          "small_system_public_guidance_favoring_simpler_disinfection_when_source_water_is_clear",
+          "case_knowledge_that_membranes_are_effective_but_often_not_first_choice_under_low_energy_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "simple chlorination-based treatment with adequate contact time should rank first",
+        "low-energy proven small-system options should rank above power-dependent or overdesigned membrane systems",
+        "options lacking residual protection should not outrank chlorination-based approaches for drinking water distribution safety"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high sensitivity to energy use",
+        "small-system preference for simple operation and proven disinfection practice",
+        "avoidance of unnecessarily complex advanced treatment for a single bacterial contaminant"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why chlorination is appropriate for V. cholerae control in relatively clear well water",
+        "the importance of adequate contact time and maintaining disinfectant residual",
+        "why UV or membrane options rank lower under low-energy and small-system constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "post-treatment recontamination risk",
+        "need for residual monitoring",
+        "performance sensitivity to turbidity or particulate shielding for disinfection processes"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

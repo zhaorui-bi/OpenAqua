@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_M_029",
+  "case_name": "Lake water polishing for potable reuse with strontium and ibuprofen under high-recovery and concentrate constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "Strontium",
+      "Ibuprofen"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for lake water intended for potable reuse where both ibuprofen and elevated strontium must be controlled while maintaining high water recovery and avoiding difficult concentrate management.",
+  "input_data": {
+    "scenario_background": "A water utility plans to upgrade an advanced treatment train using impacted lake water as a source for indirect potable reuse. Monitoring shows persistent trace ibuprofen from wastewater influence and moderately elevated dissolved strontium that raises blending and finished-water quality concerns. Several technologies can address one or both contaminants, but the utility has made high finished-water recovery a core requirement because source availability is seasonally stressed. Options generating substantial membrane concentrate are therefore disfavored even if they are technically strong barriers.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "temperature_C": 18.6,
+      "pH": 7.8,
+      "turbidity_NTU": 4.9,
+      "DOC_mg_L": 6.1,
+      "TOC_mg_L": 7.2,
+      "UV254_cm_1": 0.132,
+      "alkalinity_mg_L_as_CaCO3": 112,
+      "hardness_mg_L_as_CaCO3": 154,
+      "conductivity_uS_cm": 465,
+      "TDS_mg_L": 295,
+      "calcium_mg_L": 36,
+      "magnesium_mg_L": 15,
+      "sodium_mg_L": 32,
+      "chloride_mg_L": 41,
+      "sulfate_mg_L": 52,
+      "nitrate_mg_L_as_N": 1.9,
+      "ammonia_mg_L_as_N": 0.08,
+      "bromide_mg_L": 0.09,
+      "strontium_mg_L": 3.4,
+      "ibuprofen_ug_L": 1.8,
+      "target_contaminants": {
+        "strontium_mg_L": 3.4,
+        "ibuprofen_ug_L": 1.8
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should achieve robust trace organic control for potable reuse and substantially reduce dissolved strontium while maintaining a high overall water recovery and stable finished-water quality.",
+      "secondary_goals": [
+        "minimize reject stream volume",
+        "keep operation complexity at a manageable level for a municipal advanced treatment facility",
+        "limit chemical residuals and waste brine handling burden",
+        "maintain resilience to seasonal lake water quality swings"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "avoid_large_brine_or_concentrate_streams_and_prefer_residuals_with_established_municipal_handling_routes",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal DOC and turbidity variation while sustaining high recovery for potable reuse operations"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "weak_acid_cation_exchange_for_strontium",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity and particulate/organic loading ahead of advanced polishing",
+          "dual_media_filtration": "provide clarified low-solids feed and protect downstream oxidant and adsorptive units",
+          "ozonation": "transform ibuprofen and improve biodegradability of trace organics",
+          "biological_activated_carbon": "polish ozonation byproducts, remove remaining biodegradable organics, and provide additional micropollutant control",
+          "weak_acid_cation_exchange_for_strontium": "selectively reduce divalent cations including strontium with high treated-water recovery",
+          "uv_disinfection": "final microbial barrier for potable reuse polishing"
+        },
+        "applicability_rationale": [
+          "the combined ozone-BAC route is well aligned with trace pharmaceutical control in surface waters impacted by wastewater-derived organics",
+          "strontium is dissolved and not effectively removed by conventional clarification alone, so a dedicated cation exchange polishing step addresses the mineral contaminant without creating a large membrane concentrate stream",
+          "this train can operate at very high water recovery because regeneration waste volumes from ion exchange are much smaller than continuous RO reject flows",
+          "placing ozonation before BAC helps reduce ibuprofen while BAC manages biodegradable transformation products and seasonal DOC fluctuations",
+          "the overall configuration balances potable reuse robustness with the stated concentrate handling constraint better than membrane-dominant routes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozone process control is needed to limit bromate formation because bromide is present",
+          "cation exchange regeneration produces a saline waste stream that still requires planned disposal, though much less than membrane concentrate",
+          "high DOC excursions can increase ozone demand and shorten BAC run times if pretreatment performance degrades"
+        ],
+        "evidence_list": [
+          "epa_potable_reuse_and_surface_water_treatment_guidance_for_ozonation_and_biologically_active_filtration",
+          "public_guidance_on_advanced_oxidation_and_bac_for_trace_pharmaceutical_control",
+          "case_knowledge_for_cation_exchange_removal_of_divalent_metals_in_drinking_water",
+          "drinking_water_practice_references_on_surface_water_pretreatment_ahead_of_ozone_and_gac"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_or_gac_adsorption",
+          "lime_softening_recarbonation",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and lower downstream fouling/adsorbent demand",
+          "dual_media_filtration": "polish clarified water before adsorption and softening",
+          "powdered_activated_carbon_or_gac_adsorption": "adsorb ibuprofen and related trace organics",
+          "lime_softening_recarbonation": "remove a portion of hardness-associated divalent species and co-precipitate some strontium while stabilizing finished water",
+          "uv_disinfection": "final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "adsorption is a practical non-concentrating route for ibuprofen control and is well established for taste, odor, and many trace organic applications in lake water treatment",
+          "lime softening can reduce dissolved strontium to a meaningful extent through co-precipitation with carbonate phases while also aiding hardness management",
+          "this route can achieve very high water recovery because residuals are managed as solids rather than as a continuous reject stream",
+          "it may be attractive where the utility is comfortable with solids handling and wants to avoid ozone or high-pressure membranes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "strontium removal by lime softening may be less predictable than dedicated ion exchange, especially if the target requires deep reduction",
+          "adsorbent demand for ibuprofen can rise with seasonal DOC, making performance more variable",
+          "chemical sludge production is substantial and requires dewatering and disposal planning"
+        ],
+        "evidence_list": [
+          "water_treatment_textbook_guidance_on_activated_carbon_for_trace_organic_removal",
+          "public_drinking_water_guidance_on_lime_softening_for_divalent_ion_control",
+          "case_knowledge_on_strontium_co_removal_during_softening_processes",
+          "surface_water_treatment_practice_references_for_clarification_filtration_and_adsorption"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "nanofiltration",
+          "uv_advanced_oxidation",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids loading and protect membrane pretreatment",
+          "dual_media_filtration": "improve feed quality before nanofiltration",
+          "nanofiltration": "reject multivalent ions including strontium and reduce a portion of trace organics",
+          "uv_advanced_oxidation": "provide additional trace organic destruction and potable reuse barrier credit",
+          "stabilization": "adjust corrosivity and finished-water chemistry after low-mineral treatment"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of lowering strontium and also contributes to ibuprofen control, making it a plausible integrated route",
+          "the process can offer a strong barrier for potable reuse when paired with UV-based advanced oxidation",
+          "NF generally operates at higher recovery than RO, so it is more compatible with the high-recovery goal than full RO"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "even at relatively high membrane recovery, nanofiltration still generates a concentrate stream that conflicts with the stated residuals constraint",
+          "membrane scaling and fouling management are significant due to hardness and seasonal lake water variability",
+          "ibuprofen rejection may not be fully sufficient without careful downstream oxidation and monitoring"
+        ],
+        "evidence_list": [
+          "public_guidance_on_nanofiltration_for_multivalent_ion_reduction_in_drinking_water",
+          "potable_reuse_references_for_uv_aop_as_trace_organic_barrier",
+          "membrane_design_guidance_on_recovery_fouling_and_concentrate_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "strong_acid_cation_exchange_softening",
+          "granular_activated_carbon",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulates and lower fouling potential",
+          "dual_media_filtration": "provide stable feed for downstream ion exchange and adsorption",
+          "strong_acid_cation_exchange_softening": "remove divalent cations including strontium through exchange with sodium or hydrogen form resin",
+          "granular_activated_carbon": "adsorb ibuprofen and other residual organics",
+          "uv_disinfection": "final microbial control barrier"
+        },
+        "applicability_rationale": [
+          "the process is technically capable for both contaminants without using pressure membranes and can maintain high treated-water recovery",
+          "cation exchange can achieve stronger and more controllable strontium reduction than softening alone",
+          "GAC is a familiar municipal option for pharmaceutical polishing"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "regenerant brine handling can become a significant operational and residuals issue, especially for strong acid cation systems with frequent regeneration",
+          "sodium addition and finished-water stability impacts may need management",
+          "GAC alone may have variable ibuprofen performance under elevated DOC conditions without upstream oxidation"
+        ],
+        "evidence_list": [
+          "public_references_on_strong_acid_cation_exchange_for_hardness_and_divalent_metal_control",
+          "drinking_water_guidance_for_gac_use_in_trace_organic_polishing",
+          "operational_case_knowledge_on_regenerant_management_for_ion_exchange_systems"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "reverse_osmosis",
+          "uv_advanced_oxidation",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids ahead of high-pressure membranes",
+          "dual_media_filtration": "protect reverse osmosis from particulate fouling",
+          "reverse_osmosis": "provide strong rejection of dissolved strontium and most low-molecular-weight organics",
+          "uv_advanced_oxidation": "additional advanced oxidation barrier for potable reuse assurance",
+          "stabilization": "restore suitable mineral balance and corrosion control"
+        },
+        "applicability_rationale": [
+          "RO plus UV-AOP is a highly protective potable reuse configuration and is technically effective for both dissolved inorganic and trace organic contaminants",
+          "this option may be selected if the utility prioritizes maximum barrier performance over recovery and concentrate considerations"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "continuous RO concentrate generation directly conflicts with the concentrate handling constraint",
+          "overall water recovery is lower than non-membrane or selective ion-exchange routes unless a more complex concentrate recovery system is added",
+          "capital cost, energy demand, scaling control, and operator skill requirements are highest among the listed options"
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_for_ro_uv_aop_advanced_treatment_trains",
+          "public_membrane_references_on_ro_rejection_of_divalent_ions_and_trace_organics",
+          "design_guidance_on_ro_concentrate_management_and_recovery_limitations"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "high-recovery non-RO routes should rank above RO because concentrate handling is constrained",
+        "a combined trace-organic oxidation_or_adsorption route plus a targeted strontium-removal step should rank near the top",
+        "membrane options may appear as technically strong alternatives but should be downgraded when reject management is emphasized"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high water recovery is a primary decision driver, not an afterthought",
+        "concentrate or brine handling burden should materially affect ranking",
+        "potable reuse context justifies stronger concern for trace organic robustness and multiple barriers"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why ibuprofen can be addressed by ozone_BAC_or_activated_carbon_based treatment",
+        "why strontium requires a dissolved-ion control step rather than simple clarification",
+        "why NF_or_RO are technically capable yet not preferred under high-recovery and concentrate constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "bromate or oxidation byproduct control if ozone is used",
+        "variability in DOC affecting adsorbent or oxidation demand",
+        "regenerant brine or sludge residuals handling",
+        "membrane concentrate burden and recovery penalties"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

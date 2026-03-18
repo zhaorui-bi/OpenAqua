@@ -1,0 +1,314 @@
+{
+  "case_id": "WContBench_M_012",
+  "case_name": "Lake-water pesticide micropollutant control for groundwater recharge under strict limits and low-energy operation",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "Diuron",
+      "Methiocarb"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "low_energy_preference",
+      "chemical_minimization"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for removing diuron and methiocarb from lake water intended for groundwater recharge while balancing strict effluent limits with low-energy and chemical-minimization constraints.",
+  "input_data": {
+    "scenario_background": "A regional utility plans to seasonally recharge a stressed aquifer using treated lake water affected by diffuse agricultural runoff and episodic storm-driven pesticide pulses. Recharge permitting is conservative because the receiving aquifer is used downstream for drinking water abstraction, so very low residual micropollutant concentrations are required. The utility prefers treatment with low specific energy demand and limited chemical addition, but must still maintain stable compliance during variable lake-water quality. Several technically feasible options exist, including adsorption, oxidation-biological treatment, and membrane routes, but their ranking depends on balancing polishing reliability against energy use, chemical consumption, and residuals handling.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "pH": 7.8,
+      "temperature_C": 18.6,
+      "turbidity_NTU": 6.4,
+      "DOC_mg_L": 5.7,
+      "UV254_cm_minus_1": 0.148,
+      "TOC_mg_L": 6.3,
+      "alkalinity_mg_L_as_CaCO3": 112,
+      "hardness_mg_L_as_CaCO3": 138,
+      "conductivity_uS_cm": 420,
+      "ammonia_mg_L_as_N": 0.08,
+      "nitrate_mg_L_as_N": 1.9,
+      "orthophosphate_mg_L_as_P": 0.06,
+      "bromide_mg_L": 0.09,
+      "chloride_mg_L": 34,
+      "sulfate_mg_L": 29,
+      "chlorophyll_a_ug_L": 12,
+      "target_contaminants": {
+        "Diuron_ug_L": 1.8,
+        "Methiocarb_ug_L": 0.42
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water for managed aquifer recharge should achieve very low residual concentrations of diuron and methiocarb suitable for conservative recharge permitting and stable protection of downstream potable groundwater resources.",
+      "secondary_goals": [
+        "minimize specific energy use",
+        "avoid high routine chemical consumption where practical",
+        "maintain robustness during seasonal DOC and turbidity variation",
+        "limit difficult residuals or concentrate management"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer manageable solids or spent media; avoid high-volume membrane concentrate and intensive hazardous byproduct management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate storm-driven increases in natural organic matter and intermittent pesticide peaks without frequent process upset"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "recharge_post_control"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity, algae, and part of NOM to improve downstream oxidation and adsorption performance",
+          "dual_media_filtration": "polish suspended solids and protect ozone-BAC train",
+          "ozonation": "transform diuron and methiocarb and improve biodegradability of oxidation products",
+          "biological_activated_carbon": "adsorb residual micropollutants and biologically remove biodegradable oxidation byproducts",
+          "recharge_post_control": "verify compliance and condition water for stable aquifer recharge operation"
+        },
+        "applicability_rationale": [
+          "the lake-water matrix has moderate DOC and algae, so conventional clarification ahead of advanced treatment improves reliability",
+          "an ozone-BAC train is widely used for micropollutant abatement in surface waters and can provide strong overall control without the energy burden of pressure membranes",
+          "BAC provides a polishing barrier after ozonation and helps manage transformation products, which is important for recharge applications",
+          "this route balances strict effluent needs with lower energy demand than RO while using less continuous chemical input than high-dose powdered activated carbon programs"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "bromate formation must be controlled because bromide is present",
+          "ozone dose optimization and BAC monitoring are needed during DOC swings",
+          "if pretreated water quality degrades, micropollutant polishing margins may narrow"
+        ],
+        "evidence_list": [
+          "drinking_water_and_reuse_guidance_on_ozonation_plus_BAC_for_micropollutants",
+          "public_case_knowledge_on_surface_water_advanced_treatment_for_pesticide_control",
+          "guidance_on_bromate_management_during_ozonation"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon_dual_bed",
+          "recharge_post_control"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulate matter and lower NOM loading to protect carbon capacity",
+          "dual_media_filtration": "provide solids polishing before adsorption",
+          "granular_activated_carbon_dual_bed": "adsorb diuron, methiocarb, and other hydrophobic micropollutants with staged breakthrough protection",
+          "recharge_post_control": "confirm effluent quality before aquifer recharge"
+        },
+        "applicability_rationale": [
+          "GAC is a proven route for many pesticides and offers lower energy use than membrane systems",
+          "for compounds such as diuron and methiocarb, adsorption can be effective, particularly with good pretreatment and dual-bed design",
+          "this option aligns well with chemical minimization because no large oxidant program is required in the core removal barrier",
+          "it ranks slightly below ozone-BAC because moderate DOC in lake water can shorten bed life and make very low residual targets less robust during seasonal loading changes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "competition from natural organic matter may accelerate breakthrough",
+          "spent carbon replacement or reactivation logistics must be planned",
+          "performance can drop during storm events if pretreatment is not stable"
+        ],
+        "evidence_list": [
+          "public_guidance_on_GAC_for_pesticide_and_micropollutant_removal",
+          "surface_water_treatment_case_knowledge_for_GAC_polishing",
+          "adsorption_competition_by_NOM_in_activated_carbon_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "membrane_or_cloth_polishing",
+          "recharge_post_control"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and part of organic background before PAC treatment",
+          "dual_media_filtration": "stabilize influent quality to the PAC contact stage",
+          "powdered_activated_carbon_contact": "provide flexible adsorptive removal of pesticide pulses",
+          "membrane_or_cloth_polishing": "separate PAC and fine solids from treated water",
+          "recharge_post_control": "verify residual micropollutant compliance for recharge"
+        },
+        "applicability_rationale": [
+          "PAC can be operationally flexible for episodic pesticide spikes and is technically plausible for diuron and methiocarb control",
+          "the process can avoid high-pressure energy use and can be intensified seasonally when runoff events occur",
+          "it ranks below fixed-bed GAC because the case emphasizes chemical minimization and PAC requires recurring material addition and solids handling",
+          "for conservative recharge limits, maintaining consistently low residual concentrations may demand higher PAC doses when DOC rises"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher ongoing sorbent consumption than GAC",
+          "carbon-sludge separation and disposal increase residuals burden",
+          "dose control becomes more critical during rapidly changing NOM conditions"
+        ],
+        "evidence_list": [
+          "public_references_on_PAC_for_surface_water_micropollutant_control",
+          "case_knowledge_on_PAC_for_pesticide_event_management",
+          "guidance_on_sorbent_dosing_tradeoffs_under_variable_DOC"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "enhanced_coagulation",
+          "ultrafiltration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "stabilization",
+          "recharge_post_control"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "lower fouling load and organic matter ahead of membranes",
+          "ultrafiltration": "remove particulate and colloidal matter to protect tighter membranes",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "provide strong rejection of micropollutants and dissolved constituents",
+          "stabilization": "adjust treated water chemistry for compatibility with recharge objectives",
+          "recharge_post_control": "confirm permeate quality and operating integrity"
+        },
+        "applicability_rationale": [
+          "NF or low-pressure RO is technically very capable and offers a strong compliance barrier for strict effluent limits",
+          "this route may be attractive if the project also needs broader dissolved contaminant control beyond the named pesticides",
+          "it does not rank first because the scenario strongly favors low energy and minimal difficult residuals",
+          "membrane concentrate management is misaligned with the recharge site's residuals preference and operational simplicity goals"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal or return handling can be difficult and costly",
+          "membrane fouling risk rises with lake-water organic matter and algal episodes",
+          "permeate stabilization and tighter operational control add complexity"
+        ],
+        "evidence_list": [
+          "public_guidance_on_NF_RO_for_trace_organic_removal",
+          "surface_water_membrane_fouling_and_concentrate_management_references",
+          "managed_aquifer_recharge_treatment_barrier_case_knowledge"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "biological_filtration",
+          "recharge_post_control"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and reduce background fouling before AOP",
+          "dual_media_filtration": "polish water quality upstream of UV reactors",
+          "uv_hydrogen_peroxide_advanced_oxidation": "oxidize target pesticides and form more biodegradable intermediates",
+          "biological_filtration": "remove biodegradable transformation products after oxidation",
+          "recharge_post_control": "verify treated water suitability for recharge"
+        },
+        "applicability_rationale": [
+          "UV-AOP is technically capable for many trace organics and can be considered when very low residual concentrations are required",
+          "however, it is disadvantaged here because it combines significant energy demand with routine oxidant use, conflicting with both low-energy preference and chemical minimization",
+          "in this matrix, UV transmittance and DOC are not ideal for making UV-AOP the most efficient primary route",
+          "it therefore ranks below ozone-BAC, GAC, and PAC despite technical feasibility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidant handling and quenching requirements increase operational burden",
+          "energy use can be high at the doses needed for robust micropollutant destruction",
+          "transformation product control still requires downstream biological polishing"
+        ],
+        "evidence_list": [
+          "public_guidance_on_UV_AOP_for_trace_organic_contaminants",
+          "references_on_AOP_energy_and_oxidant_tradeoffs_in_reuse_treatment",
+          "case_knowledge_on_need_for_biological_post_treatment_after_oxidation"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "ozonation_plus_BAC or strong adsorption-based polishing should rank near the top for strict micropollutant limits in surface water",
+        "GAC should appear as a strong low-energy alternative",
+        "membrane options should not rank first under low_energy_preference and difficult concentrate handling concerns",
+        "a technically capable oxidation route with higher energy or chemical demand should rank lower due to constraint misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict groundwater recharge effluent expectations for pesticide micropollutants",
+        "preference for low specific energy consumption",
+        "importance of minimizing continuous chemical addition",
+        "tradeoff between polishing robustness and residuals or concentrate handling"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why moderate DOC and algal surface water quality affects adsorption and oxidation performance",
+        "why ozone-BAC can balance destruction and polishing for micropollutants",
+        "why GAC is attractive for low-energy operation but may face NOM competition",
+        "why NF_or_RO is downgraded despite strong removal capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal DOC and turbidity variability",
+        "breakthrough or reduced adsorption capacity under NOM competition",
+        "oxidation byproduct concerns such as bromate or transformation products",
+        "residuals or concentrate management burden"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "case_id": "WContBench_M_044",
+  "case_name": "Remote surface-water plant selecting pesticide treatment under pilot-only and capital limits",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Terbufos",
+      "Acetochlor Degradates",
+      "Carbofuran"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for pesticide-impacted surface water intended for drinking water, balancing removal performance with pilot-only implementation, limited capital, and remote-site operability.",
+  "input_data": {
+    "scenario_background": "A remote drinking-water system draws from a small reservoir receiving seasonal agricultural runoff from mixed row-crop land. Recent screening found episodic pesticide contamination including carbofuran, terbufos, and acetochlor degradates, and the utility must decide which treatment route to pilot before any larger investment. The site has only basic operator staffing, limited access to specialist service visits, and no practical pathway for managing difficult liquid concentrate wastes. The trade-off is that several technologies are technically capable, but the preferred option must balance compliance margin, simple operation, low capital outlay, and manageable residuals under a pilot-scale deployment.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 11.8,
+      "DOC_mg_L": 5.7,
+      "TOC_mg_L": 6.4,
+      "UV254_cm-1": 0.143,
+      "alkalinity_mg_L_as_CaCO3": 88,
+      "hardness_mg_L_as_CaCO3": 124,
+      "conductivity_uS_cm": 412,
+      "TSS_mg_L": 14,
+      "nitrate_mg_L_as_N": 2.9,
+      "ammonia_mg_L_as_N": 0.12,
+      "sulfate_mg_L": 29,
+      "chloride_mg_L": 21,
+      "iron_mg_L": 0.19,
+      "manganese_mg_L": 0.03,
+      "target_contaminants": {
+        "Terbufos_ug_L": 0.18,
+        "Acetochlor_Degradates_total_ug_L": 2.4,
+        "Carbofuran_ug_L": 0.86
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably achieve drinking-water compliance for the detected pesticide contaminants and their seasonal peaks while maintaining stable conventional treatment performance.",
+      "secondary_goals": [
+        "minimize pilot capital cost",
+        "favor treatment that can be run by small remote staff",
+        "avoid difficult brine or concentrate management",
+        "retain flexibility for seasonal contaminant spikes"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer solids or spent media that can be removed periodically; avoid high-volume membrane concentrate or regenerant brine handling at the remote site",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal runoff-driven changes in turbidity, DOC, and pesticide concentration without requiring frequent specialist optimization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "enhanced_coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon_contactors",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation_flocculation_sedimentation": "reduce turbidity and DOC to protect downstream adsorption and stabilize surface-water treatment",
+          "dual_media_filtration": "remove remaining particulates and provide low-solids feed to carbon beds",
+          "granular_activated_carbon_contactors": "adsorb carbofuran, terbufos, and acetochlor degradates and provide seasonal buffering capacity",
+          "disinfection": "meet microbiological drinking-water requirements"
+        },
+        "applicability_rationale": [
+          "surface water with moderate DOC benefits from conventional pretreatment ahead of adsorption because organic matter competition can shorten carbon life",
+          "GAC is a practical pilot technology for broad-spectrum pesticide control and is commonly used for taste, odor, and micropollutant polishing in drinking-water plants",
+          "the process avoids liquid concentrate or regenerant brine, which is important for a remote site",
+          "operation is more manageable than high-pressure membrane systems and can be piloted using modular contactors",
+          "although media replacement is needed, the overall balance of performance, operability, and residuals handling is favorable under the stated constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher DOC periods may accelerate GAC exhaustion and require closer monitoring of bed life",
+          "acetochlor degradates may show more variable adsorption than parent hydrophobic pesticides depending on degradate speciation",
+          "pilot design must include empty-bed contact time and breakthrough monitoring during runoff peaks"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_GAC_and_PAC_for_organic_contaminant_control_in_drinking_water",
+          "AWWA_case_knowledge_for_GAC_polishing_of_pesticides_in_surface_water",
+          "public_guidance_on_surface_water_pretreatment_to_reduce_DOC_before_adsorption"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "enhanced_coagulation_flocculation_sedimentation",
+          "powdered_activated_carbon_dosing",
+          "dual_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation_flocculation_sedimentation": "reduce particulate load and lower natural organic matter before adsorption-assisted clarification",
+          "powdered_activated_carbon_dosing": "provide flexible seasonal adsorption of dissolved pesticides during contamination events",
+          "dual_media_filtration": "capture floc and PAC-associated solids and polish clarified water",
+          "disinfection": "meet microbiological drinking-water requirements"
+        },
+        "applicability_rationale": [
+          "PAC can be attractive when contamination is episodic because dosing can be increased during runoff events without building full fixed-bed adsorber infrastructure",
+          "capital needs are typically lower than installing dedicated GAC contactors, which fits a pilot-first strategy",
+          "the route can be integrated with conventional surface-water treatment already familiar to operators",
+          "for a remote location, avoiding high-pressure systems and concentrate disposal is a significant benefit"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance is sensitive to dose, contact time, and the timing of high-flow contamination events",
+          "sludge production increases and spent PAC is mixed into residual solids, complicating solids management somewhat",
+          "removal reliability may be less robust than GAC for sustained contaminant episodes if contact time is short"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatability_guidance_for_PAC_on_synthetic_organic_chemicals",
+          "AWWA_operational_references_for_PAC_use_during_pesticide_events",
+          "surface_water_plant_case_knowledge_on_adsorption_dose_response_and_DOC_competition"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and improve downstream oxidation consistency",
+          "dual_media_filtration": "provide particulate polishing before ozonation",
+          "ozonation": "oxidize susceptible pesticide compounds and transform some dissolved organic matter",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and provide polishing",
+          "disinfection": "meet microbiological drinking-water requirements"
+        },
+        "applicability_rationale": [
+          "oxidation plus biofiltration is technically plausible for some pesticide classes and can provide multi-benefit treatment for taste, odor, and organic matter management",
+          "this route may appeal where avoidance of spent adsorbent replacement is a priority",
+          "it can be piloted at modular scale, offering a way to assess compound-specific treatability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "compound-specific oxidation kinetics are uncertain, especially for mixed pesticides and degradates, so pilot verification is essential",
+          "more instrumentation and operator attention are needed than for adsorption-based options",
+          "bromate formation or incomplete transformation-product control may become concerns depending on source-water bromide and ozone dose"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_ozonation_and_biological_filtration_for_organic_micropollutants",
+          "public_treatability_knowledge_for_oxidation_of_selected_pesticides_in_drinking_water",
+          "AWWA_guidance_on_biofiltration_after_ozonation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "cartridge_prefiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "lower solids loading to reduce membrane fouling risk",
+          "cartridge_prefiltration": "protect membrane elements from fine particulates",
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of many dissolved organic contaminants and degradates",
+          "stabilization": "adjust treated water chemistry after membrane separation",
+          "disinfection": "meet microbiological drinking-water requirements"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable and offers a high compliance margin for a wide range of micropollutants",
+          "this option may be favored if future source-water deterioration broadens beyond the current pesticide list"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is misaligned with the remote site and pilot-only setting",
+          "membrane fouling control and specialist O&M requirements are substantial for a small surface-water plant",
+          "capital intensity is high relative to the immediate need to pilot a practical interim solution"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_processes_for_drinking_water_organic_contaminant_control",
+          "AWWA_references_on_nanofiltration_and_reverse_osmosis_operational_requirements",
+          "public_guidance_on_concentrate_management_challenges_for_remote_membrane_installations"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "anion_exchange_resin",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "prepare surface water and reduce particulate fouling potential",
+          "dual_media_filtration": "polish clarified water before resin contact",
+          "anion_exchange_resin": "target removal of more polar anionic organic species such as some degradates",
+          "disinfection": "meet microbiological drinking-water requirements"
+        },
+        "applicability_rationale": [
+          "anion exchange is included as a plausible alternative because some pesticide degradates can be more polar and may respond to ion-exchange mechanisms",
+          "compact pilot skid deployment is possible where footprint is limited"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "the contaminant mixture includes neutral hydrophobic pesticides for which ion exchange is not the most broadly reliable primary barrier",
+          "resin regeneration or replacement logistics are less attractive at a remote site, especially if brine handling is needed",
+          "NOM competition and variable degradate chemistry can make performance less predictable than activated carbon"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ion_exchange_for_selected_polar_organic_contaminants",
+          "treatability_case_knowledge_showing_limitations_of_ion_exchange_for_mixed_neutral_and_polar_pesticide_streams",
+          "EPA_guidance_on_resin_management_and_waste_considerations_in_drinking_water_treatment"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_routes_should_rank_at_or_near_the_top",
+        "PAC_should_appear_as_a_strong_low_capital_alternative_for_event_driven_contamination",
+        "membrane_options_should_not_rank_first_under_remote_location_and_residuals_constraints",
+        "at_least_one_technically_capable_option_should_rank_lower_due_to_concentrate_or_operational_misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot_only_scale_favors_modular_or_low_capital_options",
+        "remote_location_requires_simple_operation_and_limited_specialist_dependence",
+        "capital_constraint_penalizes_high_pressure_or_high_instrumentation_systems",
+        "residuals_management_should_explicitly_downgrade_brine_or_concentrate_generating_options"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_surface_water_DOC_and_turbidity_require_pretreatment_before_adsorption_or_membranes",
+        "why_GAC_and_PAC_are_plausible_for_pesticide_control_but_differ_in_capital_and_operational_profile",
+        "why_membrane_or_oxidation_routes_are_downgraded_under_remote_and_pilot_constraints",
+        "why_acetochlor_degradates_can_make_treatment_selection_less_straightforward_than_for_only_hydrophobic_parent_pesticides"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "breakthrough_or_media_exhaustion_risk_under_high_DOC_periods",
+        "uncertainty_in_treatability_of_mixed_parent_pesticides_and_degradates",
+        "sludge_or_spent_media_handling",
+        "concentrate_or_regenerant_management"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

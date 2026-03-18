@@ -1,0 +1,324 @@
+{
+  "case_id": "WContBench_M_043",
+  "case_name": "Compact treatment selection for toxin- and pathogen-impacted lake water under strict drinking-water compliance targets",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "E. coli O157",
+      "Cylindrospermopsin"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for lake water containing microbial pathogen risk and cyanotoxin risk intended for drinking water, balancing strict effluent targets with limited footprint and moderate cost constraints.",
+  "input_data": {
+    "scenario_background": "A lakeside town plans to upgrade a compact drinking-water plant drawing from a eutrophic reservoir that experiences seasonal cyanobacterial blooms and episodic fecal contamination after storm runoff. The utility must reliably control both E. coli O157 risk and dissolved cylindrospermopsin while fitting within an existing building footprint with only limited expansion space. Several treatment approaches are technically capable, but the ranking depends on balancing toxin control robustness, pathogen barriers, residuals production, operator burden, and capital cost.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "temperature_C": 22.4,
+      "pH": 8.1,
+      "turbidity_NTU": 7.6,
+      "TOC_mg_L": 8.7,
+      "DOC_mg_L": 6.1,
+      "UV254_cm_1": 0.168,
+      "chlorophyll_a_ug_L": 34.0,
+      "algae_cells_mL": 78000,
+      "alkalinity_mg_L_as_CaCO3": 112,
+      "hardness_mg_L_as_CaCO3": 138,
+      "ammonia_mg_L_as_N": 0.18,
+      "nitrate_mg_L_as_N": 0.74,
+      "phosphate_mg_L_as_P": 0.09,
+      "manganese_mg_L": 0.03,
+      "iron_mg_L": 0.12,
+      "color_PCU": 24,
+      "geosmin_ng_L": 18,
+      "microcystin_LR_ug_L": 0.4,
+      "target_contaminants": {
+        "E_coli_O157_CFU_100mL": 22,
+        "cylindrospermopsin_ug_L": 2.6
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water must achieve a robust multi-barrier pathogen treatment approach consistent with drinking-water microbial safety and reduce cylindrospermopsin to below health-based finished-water targets with stable compliance during bloom periods.",
+      "secondary_goals": [
+        "maintain treatment reliability during variable bloom intensity",
+        "fit within a constrained plant footprint",
+        "avoid excessive sludge or spent-media handling burden",
+        "control taste and odor complaints where practical"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer manageable sludge volumes and avoid options with frequent difficult media replacement or highly specialized residual handling",
+      "footprint_constraint": "high",
+      "robustness_requirement": "system must tolerate seasonal spikes in algae, moderate turbidity swings, and episodic pathogen loading without losing compliance margin"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation",
+          "dissolved_air_flotation",
+          "ozonation",
+          "biologically_activated_carbon_filtration",
+          "UV_disinfection",
+          "chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize particles and cyanobacterial material for separation",
+          "dissolved_air_flotation": "compact removal of algae-rich solids and turbidity with smaller footprint than large sedimentation basins",
+          "ozonation": "oxidize dissolved cylindrospermopsin and improve downstream biodegradability",
+          "biologically_activated_carbon_filtration": "polish residual toxin precursors, reduce organic matter, and improve taste and odor control",
+          "UV_disinfection": "provide strong inactivation barrier for microbial pathogens",
+          "chlorine_residual": "maintain disinfectant residual in distribution and provide additional microbial protection"
+        },
+        "applicability_rationale": [
+          "this train balances dissolved toxin control and pathogen barriers while remaining relatively compact for a constrained site",
+          "DAF is well suited to algae-laden lake water and avoids the larger basin footprint of conventional clarification",
+          "ozone followed by BAC is a recognized route for handling dissolved cyanotoxins and associated organic matter",
+          "UV plus chlorine residual supports a robust multi-barrier microbial strategy for E. coli O157 risk",
+          "although more complex than basic conventional treatment, it offers stronger compliance margin for cylindrospermopsin under seasonal bloom conditions than simpler routes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozone system adds operator skill and instrumentation needs",
+          "bromate formation potential must be evaluated if bromide is present",
+          "poor upstream solids removal can increase ozone demand and BAC loading",
+          "chlorine should be carefully managed to avoid releasing intracellular toxin if applied before effective solids separation"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_cyanobacterial_toxins_and_drinking_water_management",
+          "EPA_cyanotoxin_treatment_optimization_guidance_for_drinking_water",
+          "case_knowledge_algae_rich_surface_water_often_uses_DAF_for_compact_clarification",
+          "public_guidance_on_ozone_and_BAC_for_dissolved_cyanotoxin_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation",
+          "dissolved_air_flotation",
+          "powdered_activated_carbon",
+          "ultrafiltration",
+          "UV_disinfection",
+          "chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "aggregate particles and cyanobacterial matter",
+          "dissolved_air_flotation": "remove buoyant algae and solids in a compact unit",
+          "powdered_activated_carbon": "adsorb dissolved cylindrospermopsin and taste-and-odor compounds",
+          "ultrafiltration": "provide strong particle and pathogen barrier and produce low-turbidity water",
+          "UV_disinfection": "add microbial inactivation redundancy",
+          "chlorine_residual": "maintain distribution system disinfectant residual"
+        },
+        "applicability_rationale": [
+          "this route is attractive where footprint is very limited because membrane systems are compact and provide high solids and pathogen removal reliability",
+          "PAC can be flexibly dosed during bloom events to improve cylindrospermopsin control without permanent large adsorber vessels",
+          "UF gives a robust physical barrier for microorganism-associated particles and supports low finished turbidity",
+          "it is a strong alternative to ozone-BAC where operators prefer to avoid ozone generation equipment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance depends on dose, contact time, and competition from natural organic matter",
+          "membrane fouling can increase cleaning frequency during bloom peaks",
+          "spent PAC and backwash residuals require solids handling",
+          "dissolved toxin control may be less forgiving than ozone-BAC during sudden spikes if PAC dosing is not optimized rapidly"
+        ],
+        "evidence_list": [
+          "EPA_cyanotoxin_treatment_optimization_guidance_for_drinking_water",
+          "NSF_ANSI_350_case_knowledge_coagulation_filtration_disinfection_for_reuse_pathogen_control",
+          "public_guidance_on_membrane_filtration_as_compact_pathogen_barrier",
+          "case_knowledge_PAC_is_used_for_cyanotoxin_and_taste_odor_event_response"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "enhanced_coagulation",
+          "tube_settler_clarification",
+          "dual_media_filtration",
+          "UV_advanced_oxidation",
+          "chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "remove turbidity and a portion of organic matter and cyanobacterial cells",
+          "tube_settler_clarification": "provide solids separation with some footprint reduction relative to conventional sedimentation",
+          "dual_media_filtration": "polish suspended solids and improve downstream UV-AOP performance",
+          "UV_advanced_oxidation": "oxidize dissolved cylindrospermopsin while also serving as a disinfection-related barrier",
+          "chlorine_residual": "maintain residual disinfectant in distribution"
+        },
+        "applicability_rationale": [
+          "this route can be technically effective for dissolved toxin destruction and pathogen control when upstream clarification is stable",
+          "tube settlers reduce footprint compared with large conventional clarifiers",
+          "for utilities already considering UV, adding an AOP configuration may seem attractive as a combined compliance strategy"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "UV-AOP energy demand and oxidant management raise operating cost",
+          "performance is sensitive to UV transmittance and organic matter, which can vary during bloom events",
+          "clarification still requires more area than DAF or compact membrane systems",
+          "oxidant storage and process control increase operational complexity"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_cyanobacterial_toxins_and_drinking_water_management",
+          "public_guidance_on_advanced_oxidation_for_cyanotoxin_degradation",
+          "case_knowledge_surface_water_pathogen_control_relies_on_filtration_plus_disinfection_barriers"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "enhanced_coagulation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection",
+          "chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "remove suspended solids, algae, and some organic matter",
+          "sedimentation": "settle flocculated solids",
+          "rapid_sand_filtration": "remove remaining particles and support clarified water production",
+          "granular_activated_carbon": "adsorb dissolved cylindrospermopsin and improve taste and odor",
+          "UV_disinfection": "inactivate microbial pathogens",
+          "chlorine_residual": "maintain post-treatment microbial protection in the distribution system"
+        },
+        "applicability_rationale": [
+          "this is a plausible and familiar surface-water treatment route with strong operator familiarity",
+          "GAC can contribute to toxin and aesthetic control, and the overall train can meet drinking-water goals with proper design",
+          "conventional treatment may be favored where utilities want established practice and moderate process complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "sedimentation basins and GAC contactors impose a larger footprint than preferred for this site",
+          "GAC alone may require careful EBCT design and replacement planning for reliable dissolved cylindrospermopsin control",
+          "if prechlorination is misapplied ahead of solids removal, cell lysis could worsen dissolved toxin loading",
+          "sludge production from conventional clarification remains significant"
+        ],
+        "evidence_list": [
+          "EPA_cyanotoxin_treatment_optimization_guidance_for_drinking_water",
+          "WHO_guidance_on_cyanobacterial_toxins_and_drinking_water_management",
+          "public_guidance_on_conventional_surface_water_treatment_with_filtration_and_disinfection"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "cartridge_screening",
+          "nanofiltration",
+          "UV_disinfection",
+          "chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "cartridge_screening": "protect membrane feed from large particles and debris",
+          "nanofiltration": "provide strong rejection of microorganisms and many dissolved contaminants including cyanotoxin fractions",
+          "UV_disinfection": "add disinfection redundancy",
+          "chlorine_residual": "maintain disinfectant residual in distribution"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of providing a strong barrier for both pathogen and dissolved toxin concerns",
+          "its compact skid-based footprint can appear attractive for space-limited plants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "membrane concentrate management is a major drawback for inland drinking-water plants",
+          "high fouling potential from algae-rich lake water drives pretreatment needs beyond the simplified chain shown",
+          "capital and operating cost are difficult to justify under only moderate budget flexibility",
+          "chemical cleaning, scaling control, and concentrate disposal make this option poorly aligned with the stated constraints despite technical capability"
+        ],
+        "evidence_list": [
+          "public_guidance_on_membrane_rejection_of_cyanotoxins_and_microorganisms",
+          "case_knowledge_high_pressure_membranes_are_often_downgraded_when_concentrate_management_is_problematic",
+          "EPA_cyanotoxin_treatment_optimization_guidance_for_drinking_water"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "compact multi-barrier trains combining effective dissolved cyanotoxin control and pathogen control should rank near the top",
+        "DAF-based options should be favored over large-footprint conventional clarification for algae-rich lake water under space constraints",
+        "high-pressure membrane options should not rank first because concentrate handling and cost are misaligned with the scenario"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict finished-water expectations for both microbial safety and cylindrospermopsin control",
+        "high footprint constraint that penalizes large sedimentation-based layouts",
+        "moderate cost limits that prevent selecting the most expensive technically capable route by default"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why dissolved toxin control requires more than simple particle removal when cylindrospermopsin is present",
+        "why algae-rich lake water favors DAF or other compact solids-removal approaches",
+        "why distribution residual disinfection is still needed even when UV is used",
+        "why nanofiltration or similarly strong options are downgraded despite technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "cell lysis and possible toxin release if oxidants are poorly sequenced",
+        "variable toxin loading during bloom events",
+        "membrane fouling or adsorbent exhaustion",
+        "residuals and sludge handling implications"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

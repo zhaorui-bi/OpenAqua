@@ -1,0 +1,263 @@
+{
+    "case_id": "WContBench_M_001",
+    "case_name": "PFAS treatment from groundwater under cost and O&M constraints",
+    "category_level_1": "middle",
+    "category_level_2": {
+      "water_source_type": "groundwater",
+      "contaminant_type": ["PFAS"],
+      "effluent_use": "drinking_water",
+      "constraint_tags": [
+        "cost_constraint",
+        "low_operation_complexity",
+        "residuals_management_constraint"
+      ],
+      "pollution_pattern": "emerging_contaminant"
+    },
+    "task_description": "Recommend a ranked list of feasible treatment process chains for PFAS-contaminated groundwater intended for drinking water supply under cost, operation, and residuals constraints.",
+    "input_data": {
+      "scenario_background": "A small community water supplier plans to use PFAS-contaminated groundwater as a potable source. Staffing is limited and the operator prefers low-complexity and reliable process configurations.",
+      "water_quality": {
+        "source_type": "groundwater",
+        "pH": 7.2,
+        "turbidity_NTU": 0.7,
+        "DOC_mg_L": 1.8,
+        "alkalinity_mg_L_as_CaCO3": 160,
+        "hardness_mg_L_as_CaCO3": 205,
+        "conductivity_uS_cm": 690,
+        "target_contaminants": {
+          "PFOA_ng_L": 52,
+          "PFOS_ng_L": 34,
+          "PFHxS_ng_L": 21,
+          "PFBS_ng_L": 115
+        }
+      },
+      "treatment_goal": {
+        "use_type": "drinking_water",
+        "target_requirement": "Finished water should meet PFAS-related potable water requirements with stable compliance.",
+        "secondary_goals": [
+          "reduce breakthrough risk",
+          "maintain low operator burden",
+          "avoid highly difficult concentrate handling"
+        ]
+      },
+      "engineering_constraints": {
+        "capex_level": "medium_low",
+        "opex_level": "medium_low",
+        "energy_constraint": "medium",
+        "operation_complexity": "low",
+        "residuals_management": "avoid_high_difficulty_concentrate_disposal",
+        "footprint_constraint": "medium",
+        "robustness_requirement": "influent_fluctuation_tolerance_needed"
+      }
+    },
+    "expected_output_format": {
+      "top_k": 5,
+      "require_fields": [
+        "rank",
+        "process_chain",
+        "core_unit_functions",
+        "applicability_rationale",
+        "constraint_fit",
+        "potential_risks",
+        "evidence_list"
+      ]
+    },
+    "reference_answer": {
+      "ranked_recommendations": [
+        {
+          "rank": 1,
+          "process_chain": [
+            "cartridge_or_guard_filtration",
+            "granular_activated_carbon_dual_bed",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "cartridge_or_guard_filtration": "protect downstream adsorption units",
+            "granular_activated_carbon_dual_bed": "remove PFAS and reduce breakthrough risk through staged adsorption",
+            "disinfection": "ensure potable water safety"
+          },
+          "applicability_rationale": [
+            "low DOC groundwater is favorable for adsorption-based PFAS treatment",
+            "GAC is operationally simpler than high-pressure membrane systems",
+            "dual-bed arrangement improves robustness and reduces compliance risk",
+            "this route aligns with low-complexity community operation"
+          ],
+          "constraint_fit": {
+            "cost_fit": "good",
+            "energy_fit": "good",
+            "operation_fit": "good",
+            "residuals_fit": "medium_good"
+          },
+          "potential_risks": [
+            "short-chain PFAS may break through earlier",
+            "media replacement and spent carbon management are still needed"
+          ],
+          "evidence_list": [
+            "public_guidance_for_PFAS_adsorptive_treatment",
+            "case_examples_of_GAC_for_small_systems"
+          ]
+        },
+        {
+          "rank": 2,
+          "process_chain": [
+            "cartridge_or_guard_filtration",
+            "anion_exchange_resin",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "cartridge_or_guard_filtration": "protect resin system",
+            "anion_exchange_resin": "remove PFAS including some short-chain fractions",
+            "disinfection": "ensure potable water safety"
+          },
+          "applicability_rationale": [
+            "anion exchange can be competitive for PFAS control",
+            "compact configuration may suit limited footprint",
+            "can be a strong alternative where resin management is feasible"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium_good",
+            "energy_fit": "good",
+            "operation_fit": "medium_good",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "resin replacement and waste handling require planning",
+            "performance depends on influent matrix and resin selection"
+          ],
+          "evidence_list": [
+            "public_references_on_PFAS_ion_exchange_treatment"
+          ]
+        },
+        {
+          "rank": 3,
+          "process_chain": [
+            "guard_filtration",
+            "granular_activated_carbon",
+            "anion_exchange_polishing",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "guard_filtration": "protect adsorptive units",
+            "granular_activated_carbon": "bulk PFAS adsorption",
+            "anion_exchange_polishing": "provide additional polishing for difficult fractions",
+            "disinfection": "ensure potable water safety"
+          },
+          "applicability_rationale": [
+            "hybrid adsorption train may improve PFAS control robustness",
+            "useful when breakthrough management is a priority"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium",
+            "energy_fit": "good",
+            "operation_fit": "medium",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "higher complexity than single-unit adsorption systems",
+            "requires more careful replacement scheduling"
+          ],
+          "evidence_list": [
+            "combined_adsorption_based_engineering_examples"
+          ]
+        },
+        {
+          "rank": 4,
+          "process_chain": [
+            "pretreatment",
+            "nanofiltration_or_reverse_osmosis",
+            "stabilization",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "pretreatment": "protect membrane system",
+            "nanofiltration_or_reverse_osmosis": "provide strong PFAS rejection",
+            "stabilization": "adjust permeate chemistry",
+            "disinfection": "ensure potable water safety"
+          },
+          "applicability_rationale": [
+            "membrane systems can achieve strong PFAS rejection",
+            "may be justified if broader contaminant control is also required"
+          ],
+          "constraint_fit": {
+            "cost_fit": "poor",
+            "energy_fit": "poor",
+            "operation_fit": "poor",
+            "residuals_fit": "poor"
+          },
+          "potential_risks": [
+            "concentrate disposal burden is high",
+            "operator skill requirements are higher",
+            "may not align with small-system constraints"
+          ],
+          "evidence_list": [
+            "PFAS_membrane_treatment_references"
+          ]
+        },
+        {
+          "rank": 5,
+          "process_chain": [
+            "advanced_oxidation_process",
+            "filtration",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "advanced_oxidation_process": "oxidative treatment step",
+            "filtration": "polishing step",
+            "disinfection": "ensure potable water safety"
+          },
+          "applicability_rationale": [
+            "included as a lower-ranked and generally unfavorable option for PFAS-dominant cases"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium",
+            "energy_fit": "medium_poor",
+            "operation_fit": "medium",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "not typically the primary mainstream removal route for PFAS",
+            "may not provide reliable PFAS control as a standalone core technology"
+          ],
+          "evidence_list": [
+            "public_discussion_of_limitations_for_PFAS_oxidative_routes"
+          ]
+        }
+      ]
+    },
+    "evaluation_targets": {
+      "top_k_quality": {
+        "preferred_rank_pattern": [
+          "GAC-based routes should rank near the top",
+          "anion exchange should appear as a strong alternative",
+          "NF_or_RO should not rank first under low-complexity and residuals constraints"
+        ]
+      },
+      "constraint_consistency": {
+        "must_reflect": [
+          "small-community operational limitations",
+          "preference for lower-complexity treatment",
+          "importance of residuals and concentrate handling"
+        ]
+      },
+      "explanation_grounding": {
+        "must_contain": [
+          "why adsorption-based routes are suitable for low-DOC groundwater",
+          "why short-chain PFAS risk matters",
+          "why membrane options are downgraded"
+        ]
+      },
+      "risk_awareness": {
+        "should_mention": [
+          "breakthrough risk",
+          "short-chain PFAS control uncertainty",
+          "spent media or residuals management"
+        ]
+      }
+    },
+    "metadata": {
+      "difficulty": "middle",
+      "benchmark_split": "dev",
+      "language": "en",
+      "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+    }
+  }

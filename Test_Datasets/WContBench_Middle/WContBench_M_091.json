@@ -1,0 +1,331 @@
+{
+  "case_id": "WContBench_M_091",
+  "case_name": "Reservoir water for potable reuse with arsenic and fenamiphos under high-recovery and concentrate-handling constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "reservoir_water",
+    "contaminant_type": [
+      "Arsenic",
+      "Fenamiphos"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for reservoir water containing arsenic and fenamiphos intended for potable reuse, balancing contaminant control with high water recovery and minimal concentrate handling burden.",
+  "input_data": {
+    "scenario_background": "A reservoir influenced by agricultural runoff and upstream groundwater seepage is being upgraded as a feed source for an indirect potable reuse scheme. The utility must reliably control both dissolved arsenic and the organophosphate pesticide fenamiphos, but project approval is tied to achieving very high overall water recovery because water supply is limited during dry seasons. Concentrate disposal is difficult because there is no practical brine outfall and hazardous liquid residual transport is costly, so technically strong membrane options are not automatically preferred. The treatment ranking therefore depends on how well each route balances reuse-level effluent quality, recovery, residuals management, and operational burden.",
+    "water_quality": {
+      "source_type": "reservoir_water",
+      "pH": 7.8,
+      "temperature_C": 19.0,
+      "turbidity_NTU": 6.4,
+      "DOC_mg_L": 5.7,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 132,
+      "conductivity_uS_cm": 515,
+      "TDS_mg_L": 325,
+      "TOC_mg_L": 6.1,
+      "nitrate_mg_L_as_N": 2.3,
+      "ammonia_mg_L_as_N": 0.14,
+      "sulfate_mg_L": 41,
+      "chloride_mg_L": 36,
+      "silica_mg_L_as_SiO2": 8.9,
+      "iron_ug_L": 140,
+      "manganese_ug_L": 22,
+      "target_contaminants": {
+        "arsenic_ug_L": 18,
+        "fenamiphos_ug_L": 1.7
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should be suitable for potable reuse with stable compliance, including arsenic below drinking-water expectations and fenamiphos reduced to very low trace levels through a robust multibarrier approach.",
+      "secondary_goals": [
+        "maximize overall water recovery",
+        "avoid difficult brine or concentrate disposal",
+        "maintain reliable performance despite seasonal reservoir quality variation",
+        "limit operational complexity to a manageable level for a regional utility"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "prefer solids-based residuals over liquid concentrate; avoid membrane brine generation where possible",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must tolerate seasonal changes in turbidity and natural organic matter while sustaining high recovery"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "ferric_based_adsorptive_arsenic_removal",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids and a portion of natural organic matter while producing recoverable solids residuals rather than brine",
+          "dual_media_filtration": "polish particulates and protect downstream oxidation and adsorption units",
+          "ozonation": "transform fenamiphos and improve biodegradability of organic micropollutants",
+          "biological_activated_carbon": "remove oxidized pesticide byproducts and residual dissolved organics through adsorption and biodegradation",
+          "ferric_based_adsorptive_arsenic_removal": "capture dissolved arsenic to low levels without generating a liquid concentrate stream",
+          "UV_disinfection": "provide final pathogen barrier for potable reuse"
+        },
+        "applicability_rationale": [
+          "This train directly addresses the dual-contaminant problem using separate, compatible barriers for fenamiphos and arsenic.",
+          "Ozone plus BAC is a recognized reuse-oriented approach for trace organic control and is better aligned with high water recovery than pressure membrane routes.",
+          "Ferric-based adsorptive media is well established for arsenic polishing and avoids brine management, which is important under concentrate-handling constraints.",
+          "Solids residuals from clarification and spent media handling are generally more manageable than continuous membrane concentrate in inland settings.",
+          "The process configuration remains robust for reservoir water with moderate turbidity and moderate organic matter when supported by conventional pretreatment."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Arsenic adsorption performance depends on arsenic speciation and may require maintaining oxidized As(V) conditions for best media capacity.",
+          "Ozonation can form bromate if bromide is present and process control is poor.",
+          "BAC requires disciplined monitoring to manage headloss, biomass behavior, and breakthrough of oxidation byproducts.",
+          "Seasonal DOC increases can shorten BAC run times and increase ozone demand."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_arsenic_removal_using_iron_based_adsorptive_media",
+          "water_reuse_practice_references_for_ozone_BAC_micropollutant_control",
+          "public_case_knowledge_on_conventional_pretreatment_plus_adsorption_for_surface_water_reuse",
+          "drinking_water_guidance_on_multibarrier_control_of_pesticides_and_trace_organics"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "ferric_coagulation_for_arsenic_coprecipitation",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove turbidity and create a solids handling pathway compatible with high recovery",
+          "dual_media_filtration": "reduce particulate carryover to downstream adsorption units",
+          "powdered_activated_carbon": "provide front-end adsorption of fenamiphos and reduce organic loading spikes",
+          "ferric_coagulation_for_arsenic_coprecipitation": "convert arsenic control into a solids-based removal pathway through ferric hydroxide association",
+          "granular_activated_carbon": "polish remaining pesticide and dissolved organic matter",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "This route uses only high-recovery unit processes and completely avoids a brine stream.",
+          "Ferric treatment for arsenic can be effective when As(V) is present or when upstream oxidation maintains favorable speciation.",
+          "PAC and GAC together provide resilience against fenamiphos fluctuations from runoff events.",
+          "The train is attractive where the utility already operates clarification and filter solids handling infrastructure.",
+          "Compared with ozone-BAC, this option can reduce oxidation-system complexity, though pesticide destruction is less direct."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Higher solids production from ferric dosing and PAC can increase sludge dewatering and disposal needs.",
+          "Fenamiphos adsorption efficiency can be reduced by elevated DOC competition, especially during algal seasons.",
+          "If arsenic is predominantly As(III), arsenic coprecipitation may underperform without a dedicated oxidation step.",
+          "PAC feed and solids recycle control add operational variability."
+        ],
+        "evidence_list": [
+          "EPA_arsenic_treatment_guidance_for_coagulation_filtration_and_coprecipitation",
+          "public_guidance_on_GAC_and_PAC_for_pesticide_control_in_surface_waters",
+          "surface_water_treatment_case_knowledge_for_ferric_coagulation_with_arsenic",
+          "water_reuse_guidance_emphasizing_multibarrier_nonmembrane_options_where_recovery_is_critical"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "advanced_oxidation_process_uv_h2o2",
+          "granular_activated_carbon",
+          "iron_based_arsenic_adsorption",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and part of NOM before membrane pretreatment",
+          "ultrafiltration": "provide a stable low-turbidity feed for downstream oxidation and adsorption",
+          "advanced_oxidation_process_uv_h2o2": "oxidize fenamiphos and other trace organics",
+          "granular_activated_carbon": "remove oxidation byproducts and provide additional organic polishing",
+          "iron_based_arsenic_adsorption": "remove dissolved arsenic to potable targets",
+          "final_disinfection": "complete final barrier for potable reuse"
+        },
+        "applicability_rationale": [
+          "This hybrid route is technically strong for trace organic control and can give a robust reuse-oriented barrier sequence.",
+          "Ultrafiltration operates at high recovery and does not create the same concentrate challenge as RO, so it remains plausible under the stated constraints.",
+          "AOP offers stronger direct destruction potential for fenamiphos than adsorption-only approaches.",
+          "Arsenic is handled separately by adsorption, avoiding the need for a high-rejection concentrate-producing process."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "UV/H2O2 has higher energy and chemical demand than ozone-BAC or adsorption-led alternatives.",
+          "AOP can create transformation products that still need downstream polishing and monitoring.",
+          "UF membrane fouling management adds operational burden even though water recovery remains high.",
+          "The more complex process train may exceed the preferred operating simplicity for some regional facilities."
+        ],
+        "evidence_list": [
+          "water_reuse_public_guidance_on_UV_H2O2_for_trace_organics",
+          "EPA_guidance_for_arsenic_removal_using_adsorptive_media",
+          "public_case_knowledge_on_UF_as_pretreatment_in_reuse_facilities",
+          "drinking_water_references_on_GAC_polishing_after_advanced_oxidation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_coagulation_and_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "advanced_oxidation_or_GAC_polishing",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_coagulation_and_filtration": "control fouling and protect the membrane system",
+          "nanofiltration_or_reverse_osmosis": "provide strong rejection of arsenic and many dissolved contaminants while contributing to organic micropollutant control",
+          "advanced_oxidation_or_GAC_polishing": "treat residual low-molecular organics and provide additional reuse barrier confidence",
+          "stabilization": "adjust corrosivity and finished water chemistry after membrane treatment",
+          "disinfection": "provide final public health protection"
+        },
+        "applicability_rationale": [
+          "Membrane treatment is technically capable of achieving very strong arsenic reduction and substantial broad-spectrum contaminant control.",
+          "This route can be attractive when the utility prioritizes a conservative potable reuse barrier approach over recovery and residual simplicity.",
+          "It remains a plausible option because both contaminants can be addressed within a high-performance train."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "The major drawback is brine generation, which conflicts directly with the concentrate-handling constraint.",
+          "Overall water recovery is lower than non-brine-generating alternatives unless complex concentrate minimization systems are added.",
+          "Scaling and fouling management increase operational complexity and chemical use.",
+          "Additional post-treatment is needed because membrane permeate can be chemically unstable."
+        ],
+        "evidence_list": [
+          "water_reuse_guidance_on_RO_based_advanced_treatment",
+          "EPA_and_public_references_on_membrane_rejection_of_arsenic",
+          "public_guidance_on_concentrate_management_challenges_for_inland_membrane_systems",
+          "case_knowledge_showing_RO_is_often_downgraded_when_brine_disposal_is_limited"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "anion_exchange_for_arsenic",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and reduce pretreatment load",
+          "dual_media_filtration": "protect the ion exchange and carbon units",
+          "anion_exchange_for_arsenic": "remove anionic arsenic species from clarified water",
+          "granular_activated_carbon": "adsorb fenamiphos and polish dissolved organics",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "This is technically capable when arsenic is predominantly present as As(V) and competing anions are manageable.",
+          "GAC can contribute to fenamiphos removal, making the train feasible on paper without a full membrane system.",
+          "The footprint can be relatively compact compared with large clarifier-adsorption combinations."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Ion exchange for arsenic is sensitive to sulfate, silica, and arsenic speciation and may require pre-oxidation if As(III) is present.",
+          "Regeneration or resin replacement creates a residual brine or concentrated waste stream, which misaligns with the concentrate-handling constraint.",
+          "GAC life for fenamiphos can be shortened by reservoir NOM competition.",
+          "This route can look attractive for compactness but is weakened by waste management and matrix sensitivity."
+        ],
+        "evidence_list": [
+          "EPA_arsenic_treatment_guidance_for_ion_exchange_limitations_and_applicability",
+          "public_guidance_on_GAC_for_pesticide_removal",
+          "drinking_water_case_knowledge_on_competing_anions_affecting_arsenic_ion_exchange",
+          "public_references_on_residuals_management_for_regenerable_ion_exchange_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "nonmembrane high-recovery multibarrier trains should rank near the top",
+        "routes using ozone_BAC_or_GAC_for_fenamiphos plus solids-based_or_adsorptive arsenic removal should outrank RO_or_NF",
+        "membrane concentrate-generating options should appear but not rank first under the stated constraints",
+        "at least one technically capable compact option should rank lower because its residual handling conflicts with concentrate limits"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high overall water recovery is a major decision driver",
+        "liquid concentrate and brine disposal difficulty strongly penalize high-pressure membrane and regenerable-resin choices",
+        "reservoir water variability requires pretreatment and robustness to NOM and turbidity swings"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why fenamiphos is better addressed by oxidation and/or activated carbon barriers rather than relying only on particulate removal",
+        "why arsenic removal depends on speciation and often favors ferric coprecipitation or iron-based adsorption in non-brine systems",
+        "why RO_or_NF is technically strong yet downgraded by recovery and concentrate-handling constraints",
+        "why natural organic matter competition matters for activated carbon performance"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "arsenic speciation uncertainty",
+        "bromate or oxidation byproduct concerns when ozone or AOP is used",
+        "media exhaustion or breakthrough risk for activated carbon and adsorptive arsenic media",
+        "sludge or spent media disposal needs even when liquid concentrate is avoided"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

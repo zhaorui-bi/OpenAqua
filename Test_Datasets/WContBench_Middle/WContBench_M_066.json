@@ -1,0 +1,325 @@
+{
+  "case_id": "WContBench_M_066",
+  "case_name": "Potable reuse polishing for pesticide- and cyanide-impacted lake water under tight effluent and footprint constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "Diazinon",
+      "Cyanide",
+      "Fenamiphos"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for lake water intended for potable reuse where diazinon, cyanide, and fenamiphos must be controlled under strict effluent limits, limited footprint, and moderate cost constraints.",
+  "input_data": {
+    "scenario_background": "A utility is upgrading a compact advanced water reclamation facility that blends highly treated municipal effluent with lake water stored in an off-stream reservoir used as an environmental buffer. Seasonal agricultural runoff has introduced organophosphorus pesticides, while intermittent upstream industrial drainage has contributed low but significant cyanide, creating a mixed-contaminant polishing challenge before potable reuse. The site has very limited available footprint, so highly compact options are attractive, but the owner cannot accept excessive concentrate disposal difficulty or very high operating burden. The trade-off is between compact high-rejection systems and lower-residual oxidation and adsorption routes that may require tighter process control to reliably meet very low finished-water targets.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "pH": 7.8,
+      "temperature_C": 22.0,
+      "turbidity_NTU": 6.4,
+      "TOC_mg_L": 5.6,
+      "DOC_mg_L": 4.2,
+      "UV254_cm_1": 0.112,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 142,
+      "conductivity_uS_cm": 515,
+      "ammonia_mg_L_as_N": 0.32,
+      "nitrate_mg_L_as_N": 2.8,
+      "bromide_mg_L": 0.11,
+      "chloride_mg_L": 48,
+      "sulfate_mg_L": 37,
+      "TSS_mg_L": 9.5,
+      "target_contaminants": {
+        "Diazinon_ug_L": 1.9,
+        "Fenamiphos_ug_L": 0.64,
+        "Cyanide_ug_L": 64
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should achieve very high reliability for potable reuse, with diazinon and fenamiphos reduced to trace or non-detectable levels and cyanide controlled to a stringent finished-water level with stable compliance.",
+      "secondary_goals": [
+        "maintain compact treatment footprint",
+        "avoid difficult brine or concentrate management where possible",
+        "limit life-cycle cost escalation",
+        "provide resilience to seasonal water quality variation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "medium",
+      "residuals_management": "prefer minimization of hazardous or high-volume concentrate streams; manageable spent media or sludge is acceptable",
+      "footprint_constraint": "high",
+      "robustness_requirement": "system should tolerate seasonal turbidity and NOM variation while maintaining trace-organic and cyanide compliance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_high_rate_clarification",
+          "ozonation",
+          "biologically_active_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_high_rate_clarification": "reduce turbidity and natural organic matter to improve downstream oxidation and adsorption performance",
+          "ozonation": "oxidize diazinon and fenamiphos and convert cyanide toward more biodegradable or controllable forms",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and provide polishing of assimilable organics",
+          "granular_activated_carbon": "adsorb residual pesticides and oxidation byproducts for robust trace-organic polishing",
+          "UV_disinfection": "provide final microbial barrier for potable reuse"
+        },
+        "applicability_rationale": [
+          "a multi-barrier oxidation plus adsorption train is well aligned with strict potable reuse goals for trace pesticides and mixed contaminants",
+          "ozonation is effective for many organophosphorus pesticides, while biologically active filtration and GAC improve reliability against partial oxidation products",
+          "the train avoids the high-difficulty brine handling associated with membrane concentrate",
+          "high-rate clarification and compact biofiltration can be configured to fit tighter footprints than large conventional basins",
+          "this option balances strict effluent performance with more manageable residuals and moderate operating complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cyanide oxidation performance depends on oxidant dose, pH, and contact time, so process validation is required",
+          "bromide in source water creates bromate formation risk during ozonation",
+          "GAC replacement frequency may increase if seasonal NOM loading rises",
+          "inadequate pretreatment could reduce downstream oxidation and adsorption efficiency"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_ozonation_and_biological_filtration_for_trace_organic_control",
+          "WHO_guidance_on_cyanide_in_drinking_water_and_oxidative_treatment_considerations",
+          "AWWA_case_knowledge_for_GAC_polishing_of_pesticides",
+          "public_reuse_practice_references_for_multi_barrier_advanced_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_compact_DAF",
+          "powdered_activated_carbon",
+          "ultrafiltration",
+          "advanced_oxidation_O3_H2O2",
+          "biological_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_compact_DAF": "remove algae, suspended solids, and a portion of NOM in a compact pretreatment step",
+          "powdered_activated_carbon": "provide front-end adsorption of hydrophobic pesticides and reduce oxidant demand",
+          "ultrafiltration": "create a low-turbidity barrier and protect advanced oxidation and downstream carbon",
+          "advanced_oxidation_O3_H2O2": "increase destruction of diazinon and fenamiphos and enhance cyanide oxidation potential",
+          "biological_activated_carbon": "polish oxidation byproducts and residual organics",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "this route is technically strong for very low trace-organic targets and improves confidence where pesticide destruction must be maximized",
+          "DAF plus UF is attractive for compact sites and for variable lake water quality",
+          "PAC ahead of oxidation can help dampen influent spikes of hydrophobic pesticides",
+          "it ranks below the top option because chemical use, solids handling, and process tuning are more involved"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher process complexity due to PAC dosing, membrane operation, and oxidant optimization",
+          "PAC and DAF residuals require routine solids handling",
+          "advanced oxidation can increase byproduct management needs if oxidant control is poor",
+          "cyanide destruction must still be site-validated rather than assumed from generic AOP performance"
+        ],
+        "evidence_list": [
+          "EPA_reuse_guidance_for_multiple_barrier_treatment_trains",
+          "public_guidance_on_DAF_UF_for_variable_surface_water_pretreatment",
+          "engineering_case_knowledge_for_PAC_and_BAC_in_pesticide_control",
+          "AOP_design_references_for_trace_organic_micropollutant_removal"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_high_rate_clarification",
+          "granular_activated_carbon_dual_bed",
+          "chlorination_with_controlled_breakpoint_oxidation",
+          "dechlorination",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_high_rate_clarification": "reduce particulate and NOM load before adsorption and oxidation",
+          "granular_activated_carbon_dual_bed": "remove diazinon and fenamiphos and provide staged adsorption robustness",
+          "chlorination_with_controlled_breakpoint_oxidation": "oxidize free cyanide and provide additional chemical barrier",
+          "dechlorination": "quench excess oxidant prior to final UV and distribution stabilization",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "dual-bed GAC is a pragmatic route for hydrophobic organophosphorus pesticides and is simpler than membrane systems",
+          "controlled chlorination can be effective for cyanide management under appropriate pH and contact conditions",
+          "this route can be cost-competitive and more straightforward than AOP-heavy alternatives",
+          "it ranks below oxidation-plus-biofiltration options because oxidation byproduct control and trace-level assurance for potable reuse are less robust"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "chlorination may not provide as strong a barrier for all pesticide transformation products as ozone-based systems",
+          "formation of chlorinated byproducts must be managed, especially with NOM present",
+          "GAC performance can deteriorate more quickly under elevated DOC episodes",
+          "cyanide speciation affects oxidation efficiency and compliance margin"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_guidance_on_GAC_for_synthetic_organic_chemicals",
+          "WHO_guidance_for_cyanide_control_and_oxidation_in_water_treatment",
+          "AWWA_practice_references_on_breakpoint_chlorination_considerations",
+          "public_case_knowledge_for_dual_bed_GAC_polishing"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "compact_pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "advanced_oxidation_of_permeate",
+          "stabilization",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "compact_pretreatment": "protect high-pressure membranes from fouling",
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of many dissolved contaminants including pesticides and some cyanide species",
+          "advanced_oxidation_of_permeate": "polish any low-molecular-weight organics passing the membrane and strengthen potable reuse barrier performance",
+          "stabilization": "adjust corrosivity and finished water chemistry",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "membrane treatment is highly attractive under space constraints because of compact footprint and strong broad-spectrum rejection",
+          "this option is technically capable and can achieve very high finished-water quality for potable reuse",
+          "it ranks lower because concentrate management conflicts with the stated residuals preference and because cost and O&M burden are higher than needed for this contaminant set",
+          "for cyanide, concentrate-side management becomes a significant liability even if permeate quality is excellent"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine or concentrate containing rejected pesticides and cyanide requires difficult handling and disposal planning",
+          "membrane fouling risk is elevated with lake-water NOM and seasonal particulates unless pretreatment is tightly controlled",
+          "high-pressure operation increases energy demand and operator skill requirements",
+          "additional post-treatment and integrity management are required for stable reuse operation"
+        ],
+        "evidence_list": [
+          "EPA_and_reuse_guidance_on_NF_RO_for_advanced_water_treatment",
+          "public_guidance_on_membrane_concentrate_management_challenges",
+          "AWWA_case_knowledge_for_surface_water_RO_pretreatment_and_fouling_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "anion_exchange_or_specialty_resin",
+          "UV_H2O2",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and some NOM before resin and UV systems",
+          "anion_exchange_or_specialty_resin": "target dissolved cyanide species and selected polar organics depending on resin selection",
+          "UV_H2O2": "oxidize residual pesticide contaminants",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "this option is included as a plausible but lower-ranked route where cyanide-specific removal is prioritized",
+          "specialty resin can assist with cyanide control, and UV-based oxidation can address remaining trace organics",
+          "it ranks last because performance against mixed pesticides is less straightforward, resin selection is matrix-sensitive, and the overall train is less proven as a balanced potable reuse solution for this exact mixture",
+          "footprint can be acceptable, but chemical and media management complexity weakens the fit"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "resin exhaustion and selectivity can be strongly affected by competing anions and NOM",
+          "spent regenerant or spent media may create a hazardous residual management issue",
+          "UV_H2O2 alone may be less efficient if upstream organics are not sufficiently reduced",
+          "overall compliance confidence for both cyanide and pesticides may be weaker than with the top-ranked multi-barrier options"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ion_exchange_limitations_in_complex_surface_water_matrices",
+          "AOP_references_for_UV_H2O2_micropollutant_polishing",
+          "WHO_and_public_case_knowledge_on_cyanide_treatment_options"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "oxidation_plus_biological_or_adsorptive_polishing should rank near the top for mixed pesticide and cyanide control",
+        "membrane-based compact options should appear as technically strong alternatives but not rank first because concentrate handling conflicts with constraints",
+        "single-mechanism or matrix-sensitive options should rank lower than robust multi-barrier trains"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict potable reuse effluent requirements push recommendations toward multi-barrier treatment",
+        "space limitation increases attractiveness of compact systems but does not override residuals and cost concerns",
+        "moderate cost constraint should penalize unnecessarily expensive high-pressure membrane routes",
+        "residuals and concentrate handling must influence ranking rather than only contaminant removal capability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why organophosphorus pesticides favor oxidation and activated carbon polishing approaches",
+        "why cyanide control requires careful oxidation or targeted removal validation rather than assuming generic trace-organic treatment is sufficient",
+        "why membrane options are downgraded despite compact footprint and strong contaminant rejection",
+        "why bromide and NOM matter for oxidation-based process selection and byproduct risk"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "bromate or disinfection byproduct formation risk",
+        "cyanide speciation and oxidation reliability",
+        "seasonal NOM and turbidity impacts on adsorption or oxidation demand",
+        "spent carbon, sludge, or concentrate management"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

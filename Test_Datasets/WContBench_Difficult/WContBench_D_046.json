@@ -1,0 +1,333 @@
+{
+  "case_id": "WContBench_D_046",
+  "case_name": "Uncertain reclaimed-water polishing for environmental discharge with chlorinated solvent and pesticide concerns",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "reclaimed_water_source",
+    "contaminant_type": [
+      "Diazinon",
+      "Trichloroethylene",
+      "residual_COD",
+      "ammonia",
+      "nitrate",
+      "TSS",
+      "trace_micropollutants"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "complex_mixed_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for polishing reclaimed water prior to environmental discharge under uncertain and variably characterized mixed contaminant conditions.",
+  "input_data": {
+    "scenario_background": "A water reclamation facility is sending tertiary-treated municipal effluent to a constructed wetland and downstream creek, but periodic monitoring has detected low-level trichloroethylene and diazinon. The source is not fully resolved: TCE may be entering intermittently from groundwater intrusion or legacy industrial sewer connections, while diazinon appears seasonal and may be related to urban runoff or household pesticide inputs. Existing monitoring is sparse and several trace organics are suspected but not fully characterized, so the recommended treatment train must be robust to uncertain influent composition and variable peaks rather than optimized only for average values.",
+    "water_quality": {
+      "source_type": "tertiary_reclaimed_municipal_effluent",
+      "pH": 7.3,
+      "temperature_C": 22,
+      "turbidity_NTU": 3.8,
+      "TSS_mg_L": 6.0,
+      "COD_mg_L": 24,
+      "BOD5_mg_L": 7,
+      "TOC_mg_L": 8.1,
+      "ammonia_mg_L_as_N": 1.4,
+      "nitrate_mg_L_as_N": 8.6,
+      "phosphate_mg_L_as_P": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "TDS_mg_L": 690,
+      "conductivity_uS_cm": 1080,
+      "DOC_mg_L": 6.3,
+      "UV254_cm_1": 0.14,
+      "diazinon_ug_L": 0.42,
+      "trichloroethylene_ug_L": 7.8,
+      "dissolved_oxygen_mg_L": 4.9,
+      "total_coliform_CFU_100mL": 2800,
+      "ecoli_CFU_100mL": 180,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "diazinon_and_TCE_confirmed_but_peak_frequency_and_source_are_uncertain; additional_trace_organics_suspected_but_not_fully_characterized",
+      "sampling_note": "grab_samples_show_intermittent_TCE_spikes_up_to_about_15_ug_L_and_wet_weather_related_pesticide_variation"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Finished water should be suitable for protective environmental discharge with reduced pesticide and chlorinated solvent concentrations, controlled residual organics and suspended solids, and reliable microbial quality while avoiding problematic by-product formation and maintaining stable performance under variable influent conditions.",
+      "secondary_goals": [
+        "provide resilience to intermittent contaminant spikes",
+        "limit energy and chemical demand where possible",
+        "minimize transfer of volatile contaminants to air without controls",
+        "address uncertainty in co-occurring trace organics",
+        "provide explainable risk-aware recommendations for permitting discussions"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "spent_carbon_can_be_managed_offsite_but_large_brine_streams_and_high_hazard_sludge_generation_are_unfavorable; off-gas_treatment_is_possible_but_not_preferred_unless_justified",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_intermittent_contaminant_peaks_and_incomplete_source_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_or_inline_coagulant_with_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "air_stripping_or_packed_tower_with_off_gas_control_as_needed",
+          "final_UV_or_UV_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer intermittent TCE and diazinon peaks and stabilize downstream operation",
+          "coagulation_or_inline_coagulant_with_filtration": "reduce residual suspended solids and lower oxidant demand before advanced treatment",
+          "ozonation": "oxidize diazinon and partially transform other oxidizable trace organics",
+          "biological_activated_carbon": "adsorb residual micropollutants and biologically polish biodegradable oxidation products and residual dissolved organics",
+          "air_stripping_or_packed_tower_with_off_gas_control_as_needed": "remove volatile TCE if confirmed at sustained concentrations of concern while controlling air emissions",
+          "final_UV_or_UV_chlorine_disinfection": "provide reliable microbial polishing for environmental discharge"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is appropriate because the contaminants include both a pesticide that responds to oxidation and adsorption and a volatile chlorinated solvent that may require a different removal mechanism",
+          "equalization is important because monitoring indicates intermittent spikes and uncertain source timing rather than a steady influent",
+          "ozone followed by BAC is a strong polishing approach for reclaimed water when trace organics are incompletely characterized and additional biodegradable byproducts need to be captured",
+          "including conditional air stripping acknowledges that TCE removal may not be fully addressed by ozone and BAC alone at all operating conditions",
+          "this train balances robustness and treatment breadth without relying on desalination, which is not necessary for environmental discharge in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "if bromide is present but unmeasured, ozonation could create by-product concerns such as bromate, so additional characterization is needed",
+          "air stripping can transfer TCE from water to air unless off-gas treatment is properly designed and permitted",
+          "BAC performance for unknown trace mixtures depends on empty bed contact time, carbon age, and bioactivity, so breakthrough monitoring is needed",
+          "diazinon and TCE peak behavior remains uncertain, so design based only on average concentrations may underperform during excursions",
+          "final ranking assumes moderate ozone demand; unusually high DOC or nitrite episodes would increase oxidant consumption and process uncertainty"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_ozonation_and_biological_filtration_in_water_reuse_and_trace_organic_control",
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_water_treatment",
+          "AWWA_case_knowledge_on_BAC_polishing_after_ozonation_for_micropollutant_management",
+          "public_guidance_on_multi_barrier_reclaimed_water_treatment_for_environmental_release"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "cloth_media_or_dual_media_filtration",
+          "granular_activated_carbon_lead_lag",
+          "air_stripping_with_off_gas_control",
+          "final_UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variability and short-term contaminant pulses",
+          "cloth_media_or_dual_media_filtration": "remove fine solids and protect carbon adsorption capacity",
+          "granular_activated_carbon_lead_lag": "adsorb diazinon and some co-occurring organic micropollutants while providing operational redundancy",
+          "air_stripping_with_off_gas_control": "remove TCE through volatilization with controlled capture or treatment of exhaust",
+          "final_UV_disinfection": "reduce microbial indicators prior to discharge"
+        },
+        "applicability_rationale": [
+          "this approach directly matches the mixed contaminant behavior by pairing adsorption for hydrophobic pesticide control with volatilization for TCE",
+          "lead-lag GAC is useful under uncertainty because it provides breakthrough warning and flexible replacement timing",
+          "it can be easier to explain and operate than ozone-based trains where by-product concerns are unresolved",
+          "it avoids high-pressure membranes and associated brine management, which is favorable for an environmental discharge objective"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "spent carbon replacement frequency may become high if the uncharacterized trace-organic load is larger than expected",
+          "GAC alone may be less robust than ozone-BAC for a broad unknown micropollutant mixture",
+          "air emissions permitting and off-gas management remain critical for TCE removal",
+          "if TCE is only sporadic and low-level, dedicated air stripping may be underutilized and less cost-effective",
+          "does not significantly address nutrients, so suitability depends on receiving-water limits already being nearly met upstream"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_GAC_adsorption_of_synthetic_organic_contaminants",
+          "EPA_guidance_for_VOC_removal_by_air_stripping_and_off_gas_management",
+          "water_reuse_case_knowledge_on_GAC_polishing_of_tertiary_effluent",
+          "public_guidance_on_operational_use_of_lead_lag_GAC_for_uncertain_micropollutant_breakthrough"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "media_filtration",
+          "UV_hydrogen_peroxide_advanced_oxidation",
+          "granular_activated_carbon_or_BAC",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent quality and improve AOP control",
+          "media_filtration": "reduce turbidity and improve UV transmittance for the oxidation stage",
+          "UV_hydrogen_peroxide_advanced_oxidation": "oxidize diazinon and potentially transform TCE and other trace organics depending on matrix conditions",
+          "granular_activated_carbon_or_BAC": "capture residual organics and oxidation byproducts",
+          "final_disinfection": "ensure microbial reliability if the AOP stage is not credited as the sole disinfectant barrier"
+        },
+        "applicability_rationale": [
+          "UV-based AOP is attractive when managers prefer to avoid ozone-related bromate concerns and want a strong barrier for a broader trace-organic uncertainty set",
+          "post-AOP carbon is appropriate because transformation rather than complete mineralization is likely for some compounds",
+          "the train is technically defensible for reclaimed water polishing where UV transmittance is acceptable after filtration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "actual TCE destruction by UV-hydrogen_peroxide can be matrix-sensitive and may require higher energy than expected, so pilot confirmation is advisable",
+          "residual peroxide control and UV transmittance fluctuations can complicate operation",
+          "without careful tuning, the process may be more expensive than necessary for the observed concentration range",
+          "unknown radical scavenging by DOC, alkalinity, or nitrate may reduce treatment performance during some periods",
+          "rank is lower because the case has medium cost and energy sensitivity"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_UV_AOP_for_trace_organic_control_in_water_reuse",
+          "AWWA_references_on_post_AOP_carbon_polishing_for_oxidation_byproduct_management",
+          "public_case_knowledge_for_UV_peroxide_application_in_advanced_reclaimed_water_treatment"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "membrane_bioreactor_or_existing_biological_polishing_upgrade",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable loading to biological and adsorption steps",
+          "membrane_bioreactor_or_existing_biological_polishing_upgrade": "improve solids control and reduce residual biodegradable organics and ammonia",
+          "granular_activated_carbon": "adsorb diazinon and some other trace organics after biological pretreatment",
+          "final_disinfection": "provide a final microbial barrier"
+        },
+        "applicability_rationale": [
+          "this option can be reasonable if the current reclaimed-water system still needs stronger bulk-organic and solids polishing in addition to micropollutant control",
+          "biological improvement upstream of GAC can extend carbon life by reducing background fouling and organic loading",
+          "it is simpler than adding oxidation and off-gas systems if TCE is later found to be sporadic and near action thresholds rather than persistently elevated"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this route is weak for reliable TCE removal because biological polishing and GAC may not consistently control a volatile chlorinated solvent at all conditions",
+          "if TCE is confirmed as a persistent compliance driver, this train may be insufficient without an additional VOC-targeted step",
+          "MBR operation may be unnecessarily complex if the current tertiary effluent already has low solids and BOD",
+          "unknown trace contaminants could shorten GAC life or require later addition of oxidation"
+        ],
+        "evidence_list": [
+          "public_guidance_on_biological_polishing_and_GAC_in_water_reuse_systems",
+          "AWWA_case_knowledge_on_combining_biological_treatment_with_GAC_for_effluent_polishing",
+          "EPA_guidance_indicating_targeted_VOC_processes_may_be_needed_for_chlorinated_solvents"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "aggregate residual fine particles",
+          "sedimentation": "remove settleable solids",
+          "sand_filtration": "polish turbidity and suspended solids",
+          "chlorination": "provide conventional disinfection"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional train for comparison",
+          "it may improve physical clarity and routine disinfection performance but does not provide a strong barrier for the identified pesticide and chlorinated solvent concerns",
+          "its low complexity can appear attractive under budget pressure, which is why it should be explicitly recognized and rejected as inadequate for the stated uncertainty profile"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "largely ineffective for dissolved diazinon and TCE control",
+          "may create a false sense of security because standard bulk parameters could look acceptable while trace-organic risks remain",
+          "chlorination can create disinfection byproducts and does not solve the underlying micropollutant issue",
+          "not robust to uncertain trace-organic excursions"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_references_for_limits_of_solids_focused_processes",
+          "public_guidance_showing_need_for_advanced_barriers_for_trace_organics_in_reclaimed_water"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier polishing trains that explicitly separate control strategies for diazinon and TCE should rank above simple conventional treatment",
+        "equalization should appear in higher-ranked solutions because influent variability and intermittent peaks are stated as important",
+        "recommendations should recognize that environmental discharge does not automatically require desalination, but does require targeted micropollutant control",
+        "trains combining oxidation or adsorption with a VOC-focused step should outrank options that only improve bulk water quality"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the source is reclaimed water with relatively low solids and moderate residual organics, so polishing rather than full primary-secondary treatment is appropriate",
+        "mixed contaminant behavior matters: diazinon and TCE are not best handled by exactly the same mechanism",
+        "high uncertainty requires robustness to variable peaks and acknowledgment of incomplete characterization",
+        "cost and energy tradeoffs should be discussed when comparing ozone, UV-AOP, carbon, and air stripping options",
+        "residuals and cross-media transfer issues such as spent carbon and off-gas handling should be explicitly considered"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why oxidation plus carbon polishing can be useful when trace organics are suspected but not fully characterized",
+        "why a VOC-targeted process such as air stripping may be needed for TCE even if other polishing steps are added",
+        "why conventional solids-removal and disinfection alone are insufficient for dissolved pesticide and chlorinated solvent control",
+        "why equalization or buffering is valuable under intermittent contaminant spikes"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in the actual source and peak frequency of TCE and diazinon",
+        "possible cross-media transfer risk from air stripping without off-gas control",
+        "potential oxidation by-product concerns such as bromate if bromide has not been characterized",
+        "carbon breakthrough uncertainty due to uncharacterized co-occurring trace organics",
+        "matrix sensitivity of advanced oxidation because DOC, alkalinity, nitrate, and UV transmittance can vary"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

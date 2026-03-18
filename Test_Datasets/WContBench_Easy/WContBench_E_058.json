@@ -1,0 +1,279 @@
+{
+  "case_id": "WContBench_E_058",
+  "case_name": "1,4-dioxane removal from well water for municipal drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "1,4-dioxane"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "minimal_chemical_use"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for 1,4-dioxane-contaminated well water intended for drinking water production under a preference for minimal chemical use.",
+  "input_data": {
+    "scenario_background": "A municipal well field serving a small community has detected 1,4-dioxane in raw water at levels requiring active treatment before distribution as drinking water. The utility prefers a robust and established approach that minimizes routine chemical addition and avoids unnecessarily complex residuals handling. Raw water is otherwise typical of moderately hard groundwater, with low turbidity and low natural organic matter, but enough background constituents to require attention to polishing and final disinfection.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.3,
+      "turbidity_NTU": 0.4,
+      "temperature_C": 14.0,
+      "DOC_mg_L": 0.8,
+      "TOC_mg_L": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 210,
+      "chloride_mg_L": 22,
+      "sulfate_mg_L": 31,
+      "nitrate_as_N_mg_L": 1.6,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "1,4-dioxane_ug_L": 9.4
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably reduce 1,4-dioxane to a level consistent with drinking water compliance targets while maintaining microbiological safety and stable finished water quality.",
+      "secondary_goals": [
+        "minimize routine chemical consumption",
+        "use well-established treatment technology",
+        "maintain manageable operation for a small municipal utility",
+        "avoid generating difficult residual streams such as spent regenerant or concentrate where practical"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "utility prefers low residuals production and wants to avoid brine or high-strength concentrate disposal",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable year-round treatment performance with straightforward monitoring and routine operator oversight"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "uv_advanced_oxidation",
+          "granular_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "uv_advanced_oxidation": "destroy 1,4-dioxane through hydroxyl radical oxidation, typically with UV-based advanced oxidation configured for low routine chemical use",
+          "granular_media_filtration": "provide polishing for any precipitated solids or incidental particulate matter and support stable finished water clarity",
+          "disinfection": "provide final microbiological protection for drinking water distribution"
+        },
+        "applicability_rationale": [
+          "1,4-dioxane is highly miscible and poorly removed by conventional adsorption, making destructive treatment more appropriate than simple phase transfer",
+          "UV-based advanced oxidation is a well-established approach for 1,4-dioxane control in drinking water applications",
+          "the groundwater has low turbidity and low organic carbon, which supports effective UV transmittance and reduces oxidant demand",
+          "this option aligns with the preference for minimal routine chemical use when compared with peroxide-intensive or ozone-chemical systems",
+          "the process is consistent with public emerging contaminant treatment practice where advanced oxidation is selected for contaminants such as 1,4-dioxane"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "insufficient UV dose or radical generation can lead to incomplete 1,4-dioxane destruction",
+          "lamp fouling or reduced UV transmittance can lower performance if maintenance is neglected",
+          "some UV-AOP configurations still require oxidant addition, so system selection should match the minimal chemical use preference"
+        ],
+        "evidence_list": [
+          "public_guidance_on_1_4_dioxane_treatment_with_uv_advanced_oxidation",
+          "epa_and_state_drinking_water_case_knowledge_for_advanced_oxidation_of_1_4_dioxane",
+          "CASE_006_emerging_contaminants_projects_include_ozone_and_membrane_steps_showing_advanced_treatment_use_for_hard_to_remove_contaminants",
+          "CASE_009_monitoring_focus_on_1_4_dioxane_in_groundwater_and_wastewater_supports_need_for_targeted_emerging_contaminant_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "ozone_advanced_oxidation",
+          "biological_or_granular_media_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ozone_advanced_oxidation": "oxidize and destroy 1,4-dioxane using ozone-based advanced oxidation chemistry",
+          "biological_or_granular_media_polishing": "remove oxidation byproducts or residual particulate matter and stabilize finished water quality",
+          "disinfection": "provide final microbiological safety in the distribution system"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is a mainstream treatment family for 1,4-dioxane when destruction rather than transfer is desired",
+          "ozone-based AOP can be effective for low-level 1,4-dioxane in clean source waters",
+          "the approach remains grounded in established emerging contaminant treatment practice and is referenced by public project examples using ozone for difficult contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher equipment and operational complexity than UV-based systems for a small utility",
+          "routine ozone system safety and off-gas management are required",
+          "bromate formation must be evaluated if bromide is present, even if groundwater bromide is expected to be low"
+        ],
+        "evidence_list": [
+          "public_guidance_for_advanced_oxidation_of_1_4_dioxane_in_drinking_water",
+          "CASE_006_emerging_contaminants_projects_use_ozone_disinfection_as_part_of_advanced_treatment_trains",
+          "engineering_case_knowledge_on_ozone_based_aop_for_refractory_micropollutants"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "air_stripping_or_packed_tower_aeration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping_or_packed_tower_aeration": "attempt volatile contaminant removal and aeration of groundwater",
+          "granular_activated_carbon": "adsorb organics and provide polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "this train uses familiar drinking water unit processes with relatively simple operation",
+          "it may be considered by utilities that strongly prefer conventional adsorption-type equipment",
+          "post-treatment disinfection remains straightforward for municipal drinking water systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "1,4-dioxane is poorly removed by air stripping because of its high solubility and low volatility relative to many VOCs",
+          "granular activated carbon is generally ineffective for strong standalone 1,4-dioxane control at these concentrations",
+          "this option may give operators false confidence while failing to meet target removal reliably"
+        ],
+        "evidence_list": [
+          "public_guidance_noting_limited_effectiveness_of_air_stripping_and_gac_for_1_4_dioxane",
+          "state_drinking_water_fact_sheets_on_1_4_dioxane_treatment_limitations",
+          "engineering_case_knowledge_that_1_4_dioxane_requires_destructive_treatment_more_than_conventional_adsorption"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "physically reject dissolved contaminants including some fraction of 1,4-dioxane depending on membrane selection and operating conditions",
+          "stabilization": "adjust permeate chemistry for corrosion control and finished water stability",
+          "disinfection": "provide microbiological protection before distribution"
+        },
+        "applicability_rationale": [
+          "membranes can provide broad-spectrum removal where multiple dissolved contaminants are concerns",
+          "this route may be considered if future source water concerns expand beyond 1,4-dioxane alone",
+          "public emerging contaminant project references include membrane filtration as part of treatment responses for difficult contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management conflicts with the utility preference to avoid difficult residual streams",
+          "energy demand is higher than needed for this single primary contaminant case",
+          "membrane rejection for 1,4-dioxane may be variable and may still require additional polishing depending on design targets"
+        ],
+        "evidence_list": [
+          "CASE_006_emerging_contaminants_projects_include_membrane_filtration_for_hard_to_remove_contaminants",
+          "public_guidance_on_membrane_use_for_emerging_contaminants_with_concentrate_management_tradeoffs",
+          "engineering_case_knowledge_that_membranes_are_not_the_most_direct_low_residual_solution_for_1_4_dioxane_in_groundwater"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "source_substitution_or_blending",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "source_substitution_or_blending": "reduce influent 1,4-dioxane concentration by mixing with lower-contaminant water or by shifting production to cleaner wells",
+          "disinfection": "maintain required microbiological safety for distributed drinking water"
+        },
+        "applicability_rationale": [
+          "source management can be useful as an interim operational measure when cleaner supply is available",
+          "this option uses very little treatment chemical and may help reduce loading to a downstream treatment system"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "blending alone may not provide a sufficiently reliable compliance margin over time",
+          "availability of a consistently clean alternative source may be limited",
+          "this is usually not a standalone best solution when explicit contaminant treatment is required"
+        ],
+        "evidence_list": [
+          "CASE_010_source_water_protection_and_capital_project_planning_for_pfas_and_1_4_dioxane_support_upstream_management_as_a_complementary_strategy",
+          "public_source_water_management_guidance_for_emerging_contaminants",
+          "engineering_case_knowledge_that_blending_is_interim_or_supplemental_not_primary_for_persistent_contaminant_compliance"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "advanced_oxidation_based_processes_should_rank_at_the_top_for_1_4_dioxane_in_drinking_water",
+        "uv_based_aop_should_be_preferred_over_more_complex_or_higher_residual_options_under_minimal_chemical_use_constraints",
+        "conventional_adsorption_or_aeration_only_options_should_not_rank_first_for_1_4_dioxane"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "minimal_chemical_use should favor UV-centered destructive treatment rather than heavy chemical dosing approaches",
+        "recommendations should avoid unnecessary concentrate or brine disposal burdens",
+        "the selected top option should be workable for a small municipal groundwater utility with low_to_medium operational complexity"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "1_4_dioxane_is_difficult_to_remove_by_conventional_gac_or_air_stripping",
+        "advanced_oxidation_is_supported_as_a_proven_route_for_1_4_dioxane",
+        "membrane_options_rank_lower_due_to_energy_and_concentrate_management_tradeoffs",
+        "low_DOC_and_low_turbidity_groundwater_conditions_support_uv_or_other_aop_performance"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uv_transmittance_or_lamp_fouling_effects_on_aop_performance",
+        "bromate_or_oxidation_byproduct_considerations_for_ozone_based_systems",
+        "limitations_of_phase_transfer_technologies_for_1_4_dioxane",
+        "need_for_reliable_monitoring_to_confirm_low_level_contaminant_control"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

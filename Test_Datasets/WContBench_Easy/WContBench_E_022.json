@@ -1,0 +1,288 @@
+{
+  "case_id": "WContBench_E_022",
+  "case_name": "Permethrin removal from small well-water drinking supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Permethrin"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for permethrin-contaminated well water intended for drinking water use in a small low-energy system.",
+  "input_data": {
+    "scenario_background": "A small community well serving a rural drinking water system has detected permethrin in raw water following repeated pesticide use near the wellhead area. The utility needs a practical treatment approach that is proven, compact, and compatible with low-energy operation. The well water is otherwise relatively clear, but natural organic matter is present at a level that can affect adsorption performance.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.3,
+      "turbidity_NTU": 1.4,
+      "temperature_C": 14.8,
+      "DOC_mg_L": 2.7,
+      "TOC_mg_L": 3.1,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 210,
+      "TDS_mg_L": 420,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrate_mg_L_as_NO3": 5.8,
+      "permethrin_total_ug_L": 1.9,
+      "permethrin_isomer_note": "cis_trans_mixture_detected"
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve strong reduction of permethrin to a level appropriate for drinking water protection while maintaining reliable small-system operation.",
+      "secondary_goals": [
+        "prioritize low-energy treatment",
+        "use established treatment technologies for hydrophobic organic contaminants",
+        "keep operation and maintenance simple for small utility staff",
+        "limit residuals and waste handling burden"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited capacity for hazardous waste streams; routine spent media changeout is acceptable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable unattended operation with straightforward monitoring is preferred"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "remove incidental particulates and protect downstream adsorptive media",
+          "granular_activated_carbon_adsorption": "adsorb hydrophobic organic contaminants such as permethrin from well water",
+          "post_filtration": "retain carbon fines and provide final polishing",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "permethrin is a hydrophobic pesticide and activated carbon is a well-established control technology for many organic micropollutants in drinking water applications",
+          "the water has low turbidity and moderate DOC, making a compact GAC-based system practical while recognizing some adsorption competition from natural organic matter",
+          "GAC is compatible with small-system operation and low-energy constraints because it does not require high-pressure treatment",
+          "this process train is proven and commonly selected when the main objective is removal of trace organic chemicals from otherwise usable groundwater or well water"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "DOC competition can shorten GAC bed life and increase media replacement frequency",
+          "breakthrough can occur if EBCT and monitoring are insufficient",
+          "spent carbon management and replacement planning are required"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatment_guidance_for_organic_chemicals_using_activated_carbon",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_and_SOC_removal",
+          "public_water_treatment_practice_for_hydrophobic_pesticide_control_with_GAC"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "powdered_activated_carbon_contact",
+          "bag_or_multimedia_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "reduce particulate loading variability ahead of PAC addition",
+          "powdered_activated_carbon_contact": "provide adsorption of permethrin during contact time before solids separation",
+          "bag_or_multimedia_filtration": "remove PAC particles and associated adsorbed contaminants",
+          "disinfection": "ensure microbiological protection"
+        },
+        "applicability_rationale": [
+          "PAC is also an established adsorbent for pesticide removal and can be effective where trace organic control is needed",
+          "this route can be implemented without high energy demand",
+          "it offers some operational flexibility when seasonal or intermittent contaminant occurrence is expected"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "more operator attention is needed for chemical dosing and solids separation than for a fixed-bed GAC system",
+          "short contact time or poor PAC capture can reduce removal reliability",
+          "slurry handling and carbon-laden solids disposal add operational burden"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_powdered_activated_carbon_for_synthetic_organic_chemical_control",
+          "drinking_water_treatment_case_examples_for_PAC_on_pesticides",
+          "public_guidance_on_adsorptive_removal_of_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "prefiltration",
+          "organoclay_or_specialty_adsorptive_media",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "protect specialty media from premature fouling by particulates",
+          "organoclay_or_specialty_adsorptive_media": "adsorb hydrophobic organic compounds including pesticide residues",
+          "post_filtration": "polish the treated water and capture any media fines",
+          "disinfection": "provide final microbiological control"
+        },
+        "applicability_rationale": [
+          "specialty adsorptive media can target hydrophobic organics and may be feasible for small packaged systems",
+          "the low-turbidity well water is favorable for fixed-bed media operation",
+          "energy demand remains low and footprint can be compact"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "less mainstream drinking water experience than GAC may reduce confidence for primary recommendation",
+          "media selection is contaminant-specific and requires vendor validation",
+          "performance may decline in the presence of competing natural organic matter"
+        ],
+        "evidence_list": [
+          "case_knowledge_for_specialty_adsorbents_on_hydrophobic_organic_contaminants",
+          "small_system_treatment_examples_using_fixed_bed_adsorptive_media",
+          "public_engineering_practice_for_pesticide_polishing_media"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "prefiltration",
+          "low_pressure_membrane",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "reduce solids load and protect membrane integrity",
+          "low_pressure_membrane": "remove suspended matter and improve downstream GAC protection",
+          "granular_activated_carbon_adsorption": "remove dissolved permethrin through adsorption",
+          "disinfection": "ensure finished water microbiological safety"
+        },
+        "applicability_rationale": [
+          "this hybrid train can improve particle control and help stabilize downstream carbon performance",
+          "it may be considered where source-water variability or particulate spikes are a concern",
+          "GAC remains the actual dissolved permethrin removal barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "membranes do not provide the main dissolved permethrin removal mechanism and may add unnecessary complexity",
+          "membrane fouling, cleaning, and integrity monitoring increase O&M burden for a small system",
+          "added equipment may not be justified for relatively clear well water"
+        ],
+        "evidence_list": [
+          "public_guidance_on_combining_particle_removal_with_GAC_for_drinking_water",
+          "engineering_case_knowledge_on_hybrid_membrane_and_adsorption_systems",
+          "small_system_membrane_operation_guidance"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "high_pressure_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "high_pressure_reverse_osmosis": "provide broad dissolved contaminant rejection including some organic micropollutants",
+          "stabilization": "adjust corrosivity and finished water chemistry after desalting treatment",
+          "disinfection": "ensure microbiological safety in distribution"
+        },
+        "applicability_rationale": [
+          "RO can technically reduce many dissolved contaminants and could address multiple water-quality issues at once",
+          "it may be relevant only if broader salinity or multi-contaminant treatment objectives emerge beyond permethrin control"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy use conflicts with the low-energy requirement",
+          "concentrate management is difficult for a small well-water system",
+          "this option is unnecessarily complex when adsorption-based treatment is the established lower-energy solution for the stated problem"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_processes_for_drinking_water_treatment",
+          "public_case_knowledge_on_reverse_osmosis_for_small_systems",
+          "engineering_reference_showing_high_pressure_membranes_rank_lower_for_single_pesticide_cases_under_energy_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank at the top for permethrin removal in drinking water",
+        "low-energy fixed-bed adsorption should rank above membrane-intensive options",
+        "high-pressure membrane treatment should not rank first for a small well-water pesticide case with moderate background water quality"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small-system preference for simple and robust operation",
+        "high sensitivity to energy demand",
+        "limited residuals and waste-handling capability",
+        "use of proven drinking water treatment approaches for trace organic contaminants"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for hydrophobic pesticide removal",
+        "how natural organic matter or DOC can affect adsorption performance and bed life",
+        "why high-pressure membrane options rank lower under low-energy small-system constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon breakthrough monitoring",
+        "competition from DOC or NOM",
+        "spent media or carbon residuals handling",
+        "unnecessary complexity of membrane systems for this case"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

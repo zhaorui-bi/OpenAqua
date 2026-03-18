@@ -1,0 +1,331 @@
+{
+  "case_id": "WContBench_D_110",
+  "case_name": "Stormwater reclamation for industrial reuse with intermittent herbicide pulses and partially characterised dissolved organics",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Acetochlor",
+      "Natural Organic Matter"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "complex_mixed_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for converting variable urban-agricultural stormwater runoff containing acetochlor and natural organic matter into water suitable for industrial reuse under uncertainty about episodic contaminant spikes and trace co-contaminants.",
+  "input_data": {
+    "scenario_background": "A manufacturing site plans to capture seasonal stormwater from a detention basin receiving mixed runoff from paved industrial yards, landscaped areas, and upstream agricultural drainage. Monitoring shows acetochlor only during some storm events, while dissolved organic matter and turbidity vary sharply with rainfall intensity and antecedent dry period. Additional pesticides and trace hydrocarbons are suspected during first-flush events but have not been fully characterised, so the treatment train must be robust to uncertain contaminant pulses rather than optimized for a single stable influent.",
+    "water_quality": {
+      "source_type": "captured_stormwater_runoff_mixture",
+      "pH": 7.2,
+      "turbidity_NTU": 46,
+      "TSS_mg_L": 72,
+      "COD_mg_L": 58,
+      "BOD5_mg_L": 14,
+      "DOC_mg_L": 10.8,
+      "TOC_mg_L": 13.1,
+      "UV254_cm_1": 0.24,
+      "color_Pt_Co": 52,
+      "alkalinity_mg_L_as_CaCO3": 86,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 540,
+      "TDS_mg_L": 345,
+      "nitrate_mg_L_as_N": 2.6,
+      "ammonia_mg_L_as_N": 0.22,
+      "total_phosphorus_mg_L": 0.38,
+      "chloride_mg_L": 58,
+      "sulfate_mg_L": 34,
+      "iron_total_mg_L": 0.42,
+      "manganese_mg_L": 0.06,
+      "acetochlor_ug_L": 7.8,
+      "E_coli_CFU_100mL": 1600,
+      "oil_and_grease_mg_L": 2.4,
+      "influent_variability": "high",
+      "trace_pollutant_note": "other_pesticides_and_first_flush_urban_runoff_organics_suspected_but_not_fully_characterized",
+      "event_pattern_note": "acetochlor_and_turbidity_show_episodic_spikes_during_early_season_and_first_flush_storm_events"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Finished water should be suitable for non-product-contact industrial reuse such as cooling tower make-up or utility water, with stable low suspended solids, reduced natural organic matter and pesticide risk, and reliable microbial control.",
+      "secondary_goals": [
+        "handle highly variable storm-event influent without major performance collapse",
+        "reduce uncertainty from suspected unmonitored trace organics",
+        "minimize fouling risk if membranes are used",
+        "avoid overdesigning for salinity removal when dissolved salts are only moderate",
+        "provide a defensible risk-aware recommendation despite incomplete characterisation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "sediment_and_spent_media_can_be_handled_periodically_but_high-volume_brine_management_is_unfavorable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_quality_swings_and_uncertain_trace_contaminants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_storm_event_diversion",
+          "sedimentation_or_hydrodynamic_separation",
+          "coagulation_flocculation_and_clarification",
+          "biologically_active_filtration_or_constructed_wetland_buffer",
+          "granular_activated_carbon",
+          "ultrafiltration_or_cartridge_polishing",
+          "UV_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_storm_event_diversion": "buffer short-term hydraulic and quality spikes, isolate first-flush peaks, and stabilize downstream loading",
+          "sedimentation_or_hydrodynamic_separation": "remove grit, settleable solids, and part of particle-bound pollutants common in runoff",
+          "coagulation_flocculation_and_clarification": "reduce turbidity, suspended solids, and a portion of NOM to lower downstream adsorption and membrane fouling demand",
+          "biologically_active_filtration_or_constructed_wetland_buffer": "provide additional removal of biodegradable organics, some nutrients, and dampen variable stormwater quality through natural or biofilm-mediated processes",
+          "granular_activated_carbon": "adsorb acetochlor and other suspected trace hydrophobic organics while polishing dissolved organic matter",
+          "ultrafiltration_or_cartridge_polishing": "provide final particulate control and protect reuse distribution or cooling systems",
+          "UV_or_chlorine_disinfection": "reduce microbial risk for industrial reuse storage and distribution"
+        },
+        "applicability_rationale": [
+          "this multi-barrier train is well matched to stormwater because the source contains both particulate loads and dissolved contaminants with high event-to-event variability",
+          "equalization and first-flush management are especially important because acetochlor and turbidity occur in episodic pulses rather than a steady concentration",
+          "coagulation plus biologically active filtration or a wetland-type buffer can remove a meaningful share of natural organic matter before GAC, extending carbon life and improving robustness",
+          "GAC is a strong fit for acetochlor and uncertain co-occurring trace organics when the contaminant list is incomplete",
+          "full desalination is not prioritized because TDS is only moderate and brine handling is constrained",
+          "the natural-treatment buffer element is grounded in public case knowledge that sedimentation, plant uptake, bacterial degradation, and adsorption can help manage mixed wastewater and runoff-type contaminants before advanced polishing"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "acetochlor breakthrough on GAC may occur earlier than expected if first-flush pesticide peaks are higher than current data indicate",
+          "constructed wetland or biologically active filtration performance can be seasonal and should not be treated as the sole barrier for pesticide control",
+          "if unknown trace pollutants include more mobile polar compounds, GAC alone may provide incomplete removal and supplemental oxidation may be needed",
+          "storm-event equalization volume may be underestimated if design is based on limited monitoring",
+          "disinfection by-product considerations increase if chlorine is applied after incomplete NOM removal"
+        ],
+        "evidence_list": [
+          "CASE_023_small_scale_natural_wastewater_treatment_systems_principles_and_regulatory_framework",
+          "EPA_stormwater_best_management_practices_for_sedimentation_and_filtration",
+          "public_guidance_on_granular_activated_carbon_for_pesticide_and_trace_organic_removal",
+          "water_reuse_guidance_for_industrial_nonpotable_applications"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_screening",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_UV_H2O2",
+          "biological_activated_carbon",
+          "final_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_screening": "manage flow surges and remove gross debris before treatment",
+          "coagulation_flocculation_and_clarification": "lower turbidity and NOM burden to improve advanced oxidation efficiency",
+          "ozonation_or_UV_H2O2": "oxidize acetochlor and some unknown trace organics not fully captured by conventional treatment",
+          "biological_activated_carbon": "adsorb residual organics and biologically polish oxidation by-products and remaining biodegradable fractions",
+          "final_filtration": "remove fines and stabilize water quality before reuse storage",
+          "disinfection": "control pathogen risk in reclaimed water"
+        },
+        "applicability_rationale": [
+          "this option is attractive when the main uncertainty is uncharacterized dissolved trace organics that may not all be captured by adsorption alone",
+          "advanced oxidation adds resilience against episodic herbicide pulses and can address compounds that are only suspected at present",
+          "placing coagulation ahead of oxidation is sensible because NOM scavenges oxidants and raises treatment cost",
+          "BAC provides a polishing step that can reduce oxidation by-products and broaden treatment coverage under uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidant demand may be highly variable because NOM changes sharply between storm events, making dose control difficult",
+          "without bench or pilot testing, oxidation by-product formation and acetochlor transformation completeness remain uncertain",
+          "operator skill requirements are higher than for adsorption-led trains",
+          "if bromide is intermittently present but unmeasured, ozone-related by-product risk should be checked"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_micropollutant_control",
+          "BAC_polishing_case_knowledge_for_oxidized_surface_or_storm_influents",
+          "water_reuse_guidance_for_multi_barrier_nonpotable_reuse"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "sedimentation",
+          "coagulation_flocculation",
+          "ultrafiltration",
+          "nanofiltration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer rapid stormwater quality variation and support steadier membrane operation",
+          "sedimentation": "remove coarse and settleable solids to reduce pretreatment load",
+          "coagulation_flocculation": "reduce colloids and a portion of NOM to lower membrane fouling",
+          "ultrafiltration": "provide reliable suspended solids and microbial reduction before tight membrane treatment",
+          "nanofiltration": "remove a large fraction of dissolved organic matter, acetochlor, and multivalent dissolved constituents",
+          "disinfection": "maintain microbiological quality in storage and reuse distribution"
+        },
+        "applicability_rationale": [
+          "this train can produce consistently high-quality reuse water and offers broader dissolved-contaminant control than adsorption alone",
+          "NF is more targeted than RO for moderate-salinity stormwater and may avoid unnecessary desalination severity",
+          "the approach is suitable when the industrial user values very stable water quality and can tolerate higher operational complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "membrane fouling risk is substantial if storm-event pretreatment is not consistently effective",
+          "concentrate management is a major drawback because residuals handling disfavors brine generation",
+          "tight membranes may be unnecessarily costly for this source if industrial reuse criteria do not require strong dissolved-salt reduction",
+          "actual rejection of all unknown trace organics is compound-specific and cannot be assumed without confirmation"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_water_reuse_and_micropollutant_barriers",
+          "public_case_examples_of_UF_NF_for_variable_surface_or_stormwater_sources",
+          "reuse_design_guidance_emphasizing_pretreatment_to_control_membrane_fouling"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "retention_pond_or_engineered_wetland",
+          "media_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "retention_pond_or_engineered_wetland": "provide settling, plant uptake, bacterial degradation, and adsorption-based attenuation of common runoff pollutants",
+          "media_filtration": "polish residual suspended solids and improve downstream adsorber performance",
+          "granular_activated_carbon": "adsorb acetochlor and residual dissolved organics",
+          "disinfection": "reduce microbial risk before industrial reuse"
+        },
+        "applicability_rationale": [
+          "this lower-energy route leverages natural treatment behavior that is relevant to mixed runoff and can reduce common pollutant loads before adsorption polishing",
+          "it may fit sites with available land and a preference for simpler, lower-energy processes",
+          "the approach is potentially attractive when stormwater capture infrastructure already includes detention and green treatment zones"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "natural systems alone are too variable to guarantee consistent industrial reuse quality during large storm events or cold-season conditions",
+          "acetochlor removal in wetlands or ponds may be incomplete and event-dependent, so GAC remains critical",
+          "footprint needs can be significant and may conflict with site constraints",
+          "unknown trace pollutants may bypass this train if they are poorly sorbing or highly mobile"
+        ],
+        "evidence_list": [
+          "CASE_023_small_scale_natural_wastewater_treatment_systems_principles_and_regulatory_framework",
+          "stormwater_wetland_and_retention_basin_case_knowledge_for_pollutant_attenuation",
+          "public_guidance_on_GAC_polishing_for_pesticide_risk_reduction"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "sedimentation",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "sedimentation": "remove settleable solids from stormwater",
+          "sand_filtration": "reduce residual suspended solids and turbidity",
+          "disinfection": "control microbial indicators"
+        },
+        "applicability_rationale": [
+          "this conventional train is included as a baseline low-complexity option",
+          "it can improve clarity and basic sanitary quality but does not adequately address dissolved herbicide risk or significant NOM reduction for reliable industrial reuse"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of acetochlor and other suspected dissolved trace organics",
+          "limited NOM removal may leave odor, color, and downstream fouling concerns for reuse systems",
+          "event-driven water-quality swings would pass through with only partial attenuation",
+          "not robust enough for a risk-managed industrial reuse program under incomplete source characterization"
+        ],
+        "evidence_list": [
+          "basic_conventional_surface_and_stormwater_treatment_references",
+          "public_reuse_guidance_indicating_need_for_multi_barrier_control_when_micropollutants_are_present"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that combine solids removal, NOM reduction, and dedicated trace-organic control should rank above simple clarification-only options",
+        "equalization or first-flush management should appear in higher-ranked solutions because stormwater influent variability is explicitly high",
+        "adsorption and/or advanced oxidation should rank above conventional-only treatment because acetochlor and unknown trace pollutants are key concerns",
+        "full desalination should not automatically rank first because salinity is moderate and brine handling is unfavorable"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "storm-event variability requires buffering and resilient pretreatment rather than assuming stable influent",
+        "industrial reuse quality requires reliable suspended solids, microbial, and dissolved-organic control",
+        "unknown trace pollutants justify broader-spectrum polishing or oxidation, but uncertainty should be acknowledged explicitly",
+        "residuals and energy tradeoffs should penalize unnecessarily membrane-intensive solutions",
+        "natural treatment components may be useful as buffers or pretreatment, not as sole assurance of reuse quality"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why coagulation or settling is useful ahead of GAC, oxidation, or membranes for variable stormwater",
+        "why GAC and/or advanced oxidation is relevant for acetochlor and suspected co-occurring trace organics",
+        "how natural treatment concepts such as sedimentation, plant uptake, bacterial degradation, and adsorption can play a buffering pretreatment role",
+        "why simple sedimentation-filtration-disinfection alone is insufficient for this reuse objective under uncertainty"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "episodic first-flush pesticide spikes may exceed measured acetochlor values",
+        "unknown trace pollutants are suspected but not fully characterised, so treatment coverage is uncertain",
+        "NOM variability can increase oxidant demand and accelerate GAC exhaustion or membrane fouling",
+        "natural systems and biological steps can be seasonally variable and should not be the only barrier for industrial reuse",
+        "brine or concentrate management is a specific drawback for NF or RO options under this site's residuals constraints"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

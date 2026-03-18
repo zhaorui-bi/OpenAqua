@@ -1,0 +1,285 @@
+{
+  "case_id": "WContBench_E_016",
+  "case_name": "Cyanide removal from contaminated groundwater for municipal drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Cyanide"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for cyanide-contaminated groundwater intended for drinking water production.",
+  "input_data": {
+    "scenario_background": "A small town relies on groundwater wells located downgradient of a former metal-finishing area and has detected cyanide in raw water. The utility needs a clear and proven treatment approach suitable for drinking water production and prefers established oxidation-based treatment rather than novel or highly specialized systems. The utility can manage chemical dosing and filtration but does not want unnecessarily high-energy treatment.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.8,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 1.5,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 210,
+      "chloride_mg_L": 42,
+      "sulfate_mg_L": 58,
+      "nitrate_mg_L_as_NO3": 6.8,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "cyanide_total_mg_L": 0.24,
+      "free_cyanide_mg_L": 0.16
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should comply with drinking water requirements for cyanide and provide stable potable water quality.",
+      "secondary_goals": [
+        "prioritize proven full-scale treatment methods",
+        "maintain moderate chemical and operational complexity",
+        "avoid excessive energy use",
+        "provide reliable treatment for a relatively low-turbidity groundwater source"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited but manageable handling of backwash water and minor solids is available; hazardous concentrate streams are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable and conservative operation is required for continuous municipal supply"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "alkaline_pH_control",
+          "chlorine_or_hypochlorite_oxidation",
+          "contact_tank",
+          "granular_media_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "alkaline_pH_control": "maintain conditions that suppress hydrogen cyanide volatilization and support controlled oxidation",
+          "chlorine_or_hypochlorite_oxidation": "oxidize cyanide to less harmful compounds under established treatment practice",
+          "contact_tank": "provide sufficient reaction time for cyanide destruction",
+          "granular_media_filtration": "remove any formed solids and provide conventional polishing",
+          "final_disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "cyanide is the single explicit target contaminant and oxidation is a conventional treatment approach",
+          "groundwater has low turbidity and low DOC, making chemical oxidation more straightforward",
+          "chlorine-based oxidation is widely known and more consistent with a proven technology preference than advanced specialty systems",
+          "the utility can manage chemical feed and contact time control within moderate operational capability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "pH must be controlled to minimize hydrogen cyanide release during treatment",
+          "insufficient oxidant dose or contact time can leave residual cyanide",
+          "care is needed to manage disinfection by-product formation and avoid overchlorination"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_cyanide",
+          "standard_water_treatment_practice_using_alkaline_chlorination_for_cyanide_destruction",
+          "public_case_knowledge_on_oxidation_based_cyanide_control_in_contaminated_water"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "alkaline_pH_control",
+          "potassium_permanganate_or_ozone_oxidation",
+          "contact_tank",
+          "granular_media_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "alkaline_pH_control": "maintain safe cyanide speciation and suitable oxidation conditions",
+          "potassium_permanganate_or_ozone_oxidation": "chemically oxidize cyanide using an established oxidant alternative",
+          "contact_tank": "allow oxidation reaction completion",
+          "granular_media_filtration": "polish water and capture any particulate byproducts",
+          "final_disinfection": "provide microbiological protection in distribution"
+        },
+        "applicability_rationale": [
+          "oxidation remains the central proven removal mechanism for cyanide",
+          "this option can be feasible where the utility wants an alternative to free chlorine as the primary oxidant",
+          "the groundwater matrix is relatively clean, so oxidant demand should remain moderate"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "ozone systems increase equipment complexity and operator attention",
+          "permanganate may require careful dose control to avoid residual color or excess manganese",
+          "cyanide destruction performance must be validated for the specific oxidant and water chemistry"
+        ],
+        "evidence_list": [
+          "water_treatability_references_for_oxidation_of_cyanide",
+          "public_guidance_on_permanganate_and_ozone_use_in_drinking_water_treatment",
+          "engineering_case_knowledge_for_contact_oxidation_processes"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "air_stripping_with_offgas_control",
+          "oxidation_of_offgas_or_stripped_stream",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping_with_offgas_control": "transfer volatile hydrogen cyanide from water under controlled conditions",
+          "oxidation_of_offgas_or_stripped_stream": "destroy captured cyanide in the gas treatment or secondary treatment stage",
+          "final_disinfection": "ensure microbiological safety of produced water"
+        },
+        "applicability_rationale": [
+          "volatilization can be technically relevant for cyanide species under some conditions",
+          "this option may be considered when oxidation alone is difficult or when specific site configurations already include air handling",
+          "it is not preferred for a simple drinking water case because direct oxidation is usually more straightforward"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "hydrogen cyanide is highly hazardous, so off-gas capture and worker safety are critical",
+          "process is sensitive to pH and can increase safety management burden",
+          "less aligned with conservative municipal drinking water operation than liquid-phase oxidation"
+        ],
+        "evidence_list": [
+          "hazard_control_guidance_for_hydrogen_cyanide_air_emissions",
+          "engineering_reference_on_volatilization_behavior_of_cyanide_species",
+          "public_case_knowledge_showing_air_stripping_is_not_usually_first_choice_for_drinking_water"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "anion_exchange",
+          "post_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "anion_exchange": "remove cyanide-related anionic species under favorable water chemistry conditions",
+          "post_filtration": "polish effluent and retain any resin fines",
+          "final_disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "ion exchange can be a niche option depending on cyanide speciation and competing ions",
+          "the relatively moderate sulfate and chloride concentrations may still allow some feasibility assessment",
+          "however, it is less broadly supported as the primary mainstream solution than oxidation for this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "selectivity may be reduced by competing anions and influent chemistry changes",
+          "spent regenerant or waste brine handling can be problematic for cyanide-bearing residuals",
+          "breakthrough monitoring is essential to prevent finished-water exceedance"
+        ],
+        "evidence_list": [
+          "epa_treatability_sourcebook_information_on_ion_exchange_limitations",
+          "public_guidance_on_resin_process_residuals_management",
+          "engineering_case_knowledge_for_selective_anion_removal_processes"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis": "provide broad dissolved contaminant rejection including cyanide-related species",
+          "stabilization": "adjust permeate chemistry for distribution system compatibility",
+          "final_disinfection": "provide microbiological protection"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically capable of reducing many dissolved contaminants",
+          "it may be considered when multiple dissolved contaminants also require simultaneous removal",
+          "for a single cyanide problem in otherwise moderate-quality groundwater, this is more complex than necessary"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management for cyanide-bearing reject stream is a major disadvantage",
+          "higher energy and membrane maintenance burden conflict with a proven simple treatment preference",
+          "post-treatment stabilization is needed before distribution"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_groundwater_with_dissolved_contaminants",
+          "public_case_knowledge_on_ro_concentrate_management_challenges",
+          "drinking_water_engineering_guidance_favoring_simpler_conventional_processes_when_adequate"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "oxidation_based treatment with alkaline control should rank first for cyanide in groundwater under proven-technology preference",
+        "alternative oxidants may rank below chlorination-based oxidation but above niche separation processes",
+        "high-pressure membrane options should not rank first for a single-contaminant moderate-constraint case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for established and conservative treatment practice",
+        "moderate municipal operational capability with chemical dosing and contact tanks",
+        "avoidance of unnecessarily complex or high-energy treatment trains"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "the role of oxidation in cyanide destruction",
+        "the importance of pH control to limit hydrogen cyanide volatilization and maintain treatment safety",
+        "why conventional oxidation is more appropriate than reverse osmosis for this straightforward case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "hydrogen cyanide volatilization risk",
+        "need for adequate oxidant dose and contact time",
+        "residuals or concentrate management concerns for non-oxidation alternatives"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

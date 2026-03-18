@@ -1,0 +1,290 @@
+{
+  "case_id": "WContBench_E_063",
+  "case_name": "Phenamiphos removal from surface water for drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Fenamiphos"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "minimal_chemical_use"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for Fenamiphos-contaminated surface water intended for drinking water supply under a minimal chemical use preference.",
+  "input_data": {
+    "scenario_background": "A small drinking water plant draws from a river reservoir influenced by seasonal agricultural runoff and has detected the pesticide Phenamiphos in the raw water. The utility wants a robust treatment approach that can reliably reduce the pesticide for potable use while minimizing routine chemical addition. Existing operations are simple, and the plant prefers established technologies that can be integrated without high operator burden.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.2,
+      "turbidity_NTU": 4.8,
+      "DOC_mg_L": 3.9,
+      "TOC_mg_L": 5.1,
+      "alkalinity_mg_L_as_CaCO3": 88,
+      "hardness_mg_L_as_CaCO3": 96,
+      "UV254_cm_1": 0.102,
+      "temperature_C": 18.6,
+      "nitrate_mg_L_as_NO3": 4.6,
+      "ammonia_mg_L_as_N": 0.08,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.03,
+      "fenamiphos_ug_L": 1.8,
+      "e_coli_CFU_100mL": 120
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable Fenamiphos reduction suitable for drinking water production while also meeting normal potable water quality expectations.",
+      "secondary_goals": [
+        "minimize routine chemical use",
+        "use proven drinking water treatment technology",
+        "maintain low to medium operational complexity",
+        "avoid unnecessarily high energy demand"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited tolerance for frequent chemical sludge generation; spent media handling is acceptable at moderate frequency",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable performance during seasonal pesticide episodes is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "intake_screening",
+          "rapid_sand_or_dual_media_filtration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "intake_screening": "remove coarse debris and protect downstream units",
+          "rapid_sand_or_dual_media_filtration": "reduce suspended solids and lower particulate loading to adsorption",
+          "granular_activated_carbon_adsorption": "adsorb dissolved Fenamiphos and provide polishing for trace organic contaminants",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "Fenamiphos is an organic micropollutant for which activated carbon is a widely applied and well-supported control approach in drinking water treatment",
+          "the utility prefers minimal chemical use, and GAC-based treatment can achieve pesticide reduction without routine coagulant-intensive operation",
+          "moderate DOC and turbidity make pretreatment plus GAC a practical and robust conventional configuration",
+          "this train is compatible with low to medium operational complexity and avoids the burden of high-pressure membrane systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "natural organic matter can compete for GAC adsorption capacity and shorten bed life",
+          "breakthrough monitoring is necessary because pesticide removal declines as carbon becomes exhausted",
+          "if particulate pretreatment is weak, headloss and premature carbon fouling may occur"
+        ],
+        "evidence_list": [
+          "epa_guidance_and_treatability_knowledge_for_pesticide_removal_with_granular_activated_carbon",
+          "who_drinking_water_case_knowledge_on_activated_carbon_for_organic_micropollutants",
+          "awwa_practice_knowledge_for_gac_polishing_of_surface_water_with_pesticide_contamination"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "intake_screening",
+          "powdered_activated_carbon_dosing",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "intake_screening": "remove coarse solids and protect downstream equipment",
+          "powdered_activated_carbon_dosing": "adsorb dissolved Fenamiphos during episodic contamination events",
+          "filtration": "remove PAC-associated particles and suspended solids",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "PAC is a recognized option for intermittent pesticide episodes in surface water and can be implemented when contamination is seasonal",
+          "it can target dissolved organic contaminants without requiring high energy operation",
+          "the approach can be effective where the plant already has filtration and wants flexible response to runoff-driven peaks"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "routine chemical addition conflicts somewhat with the minimal chemical use preference",
+          "performance depends on correct PAC dose, contact time, and raw water organic matter competition",
+          "additional solids loading and spent carbon residuals must be managed"
+        ],
+        "evidence_list": [
+          "epa_treatability_guidance_for_powdered_activated_carbon_on_synthetic_organic_chemicals",
+          "surface_water_plant_case_knowledge_for_pac_use_during_pesticide_events",
+          "drinking_water_practice_references_on_pac_for_taste_odor_and_trace_organics_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "intake_screening",
+          "bank_filtration_or_biologically_active_prefiltration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "intake_screening": "protect pretreatment units from debris",
+          "bank_filtration_or_biologically_active_prefiltration": "attenuate particles and some biodegradable organic matter before adsorption",
+          "granular_activated_carbon_adsorption": "remove remaining dissolved Fenamiphos and polish trace organics",
+          "disinfection": "ensure microbiological safety in finished water"
+        },
+        "applicability_rationale": [
+          "biologically active pretreatment can reduce carbon loading and improve downstream adsorption performance in surface water applications",
+          "the main pesticide barrier remains GAC, which is the more established mechanism for trace organic control",
+          "this route still uses limited chemicals and can be attractive where natural or biological pretreatment infrastructure is feasible"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "biological pretreatment alone is not sufficiently reliable as the sole barrier for Fenamiphos",
+          "seasonal temperature shifts can affect biological activity and consistency",
+          "site-specific design and startup time may limit near-term implementation"
+        ],
+        "evidence_list": [
+          "case_knowledge_on_biologically_active_filtration_as_pretreatment_for_organic_micropollutants",
+          "public_drinking_water_guidance_supporting_gac_as_primary_barrier_for_pesticides",
+          "riverbank_filtration_and_biofiltration_reference_examples_for_surface_water_polishing"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "intake_screening",
+          "ozonation",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "intake_screening": "remove large debris before advanced treatment",
+          "ozonation": "oxidize susceptible organic contaminants and transform some dissolved organics",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and provide polishing",
+          "disinfection": "maintain microbiological safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation and ozone-based treatment can contribute to pesticide control in drinking water practice",
+          "the train can reduce a broader set of organic contaminants beyond the target pesticide",
+          "it is technically credible but less aligned with the stated desire to minimize chemical use and operational complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "ozonation requires more sophisticated operation and process control than adsorption-based options",
+          "transformation products may need validation to confirm overall treatment benefit",
+          "bromate formation risk should be checked if bromide is present in the source water"
+        ],
+        "evidence_list": [
+          "ozonation_and_biofiltration_guidance_for_trace_organic_control_in_drinking_water",
+          "public_case_examples_of_ozone_bac_for_pesticide_management_in_surface_water",
+          "drinking_water_ozone_guidance_on_byproduct_and_bromate_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "intake_screening",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "intake_screening": "protect membrane systems from coarse debris",
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of dissolved contaminants including many organic micropollutants",
+          "stabilization": "adjust finished water chemistry after membrane treatment",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "membranes can technically achieve substantial Fenamiphos reduction",
+          "this option may be considered where multiple dissolved contaminants also require removal",
+          "for a single pesticide case with moderate constraints, it is generally more treatment than necessary"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand and concentrate management burden are poorly matched to the scenario",
+          "membrane fouling control often increases chemical cleaning needs, conflicting with the minimal chemical use preference",
+          "post-treatment stabilization and skilled operation add complexity"
+        ],
+        "evidence_list": [
+          "membrane_treatability_references_for_synthetic_organic_contaminants_in_drinking_water",
+          "public_guidance_on_nanofiltration_reverse_osmosis_operational_burden_and_concentrate_management",
+          "case_knowledge_showing_membranes_as_lower_ranked_for_single_pesticide_control_under_moderate_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank at the top for single pesticide removal in drinking water treatment",
+        "options requiring routine intensive chemical dosing should not outrank simpler GAC treatment under a minimal chemical use preference",
+        "high-pressure membrane options should rank low for this straightforward single-contaminant case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "minimal chemical use preference should favor adsorption and physical polishing over coagulation-intensive or chemically intensive trains",
+        "moderate cost and low to medium operational capability should discourage complex advanced treatment as the first choice",
+        "residuals discussion should distinguish between spent carbon handling and chemical sludge generation"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for Fenamiphos as an organic micropollutant",
+        "why simple pretreatment is beneficial ahead of carbon adsorption in surface water",
+        "why PAC is useful for episodic events but ranks below fixed-bed GAC under minimal chemical use",
+        "why membrane options rank lower despite technical effectiveness"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "competition from natural organic matter for adsorption sites",
+        "media breakthrough or exhaustion monitoring",
+        "possible formation of oxidation byproducts if ozone-based treatment is suggested"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

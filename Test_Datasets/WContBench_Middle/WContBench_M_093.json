@@ -1,0 +1,327 @@
+{
+  "case_id": "WContBench_M_093",
+  "case_name": "Strontium reduction from river-derived advanced reuse feed under strict potable reuse limits and low-energy preference",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Strontium"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "low_energy_preference",
+      "chemical_minimization"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for strontium control in river water intended for potable reuse, balancing a strict finished-water limit against low-energy and chemical-minimization constraints.",
+  "input_data": {
+    "scenario_background": "A water utility is planning an indirect potable reuse train using a river source influenced by upstream municipal discharges and mineralized tributary inflows. The main compliance concern is a stringent project-specific strontium limit in the finished water, but the owner also prefers low-energy operation and wants to minimize regenerant and sludge production. Several technically feasible routes exist, including selective softening and membrane-based desalting, but ranking depends on trade-offs among energy demand, chemical addition, concentrate or sludge handling, and reliability during seasonal river-quality swings.",
+    "water_quality": {
+      "source_type": "river_water",
+      "temperature_C": 18.6,
+      "pH": 7.8,
+      "turbidity_NTU": 11.4,
+      "DOC_mg_L": 5.2,
+      "TOC_mg_L": 6.7,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 238,
+      "calcium_mg_L": 68,
+      "magnesium_mg_L": 17,
+      "sodium_mg_L": 54,
+      "potassium_mg_L": 4.8,
+      "chloride_mg_L": 86,
+      "sulfate_mg_L": 92,
+      "nitrate_as_N_mg_L": 4.1,
+      "TDS_mg_L": 482,
+      "conductivity_uS_cm": 775,
+      "UV254_cm_1": 0.145,
+      "total_suspended_solids_mg_L": 14,
+      "target_contaminants": {
+        "strontium_mg_L": 6.1
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water for potable reuse should reliably achieve strontium at or below 1.0 mg/L with stable compliance through seasonal water-quality variation.",
+      "secondary_goals": [
+        "limit specific energy consumption where possible",
+        "minimize chemical consumption and residual sludge generation",
+        "maintain robust operation under variable turbidity and organic matter",
+        "avoid difficult waste brine management where an alternative can still meet the limit"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer low-sludge and avoid high-volume concentrate disposal, but compliance takes priority over minimal residuals",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "process must tolerate seasonal turbidity and mineral variability while maintaining strict effluent compliance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration_or_ultrafiltration",
+          "lime_soda_softening_with_recarbonation",
+          "granular_media_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce variable river turbidity and particulate load before hardness and strontium control",
+          "media_filtration_or_ultrafiltration": "provide reliable solids removal and protect downstream softening performance",
+          "lime_soda_softening_with_recarbonation": "co-precipitate hardness-causing ions and remove a substantial fraction of strontium through carbonate precipitation, followed by pH stabilization",
+          "granular_media_polishing": "capture carryover solids after softening and recarbonation",
+          "disinfection": "provide pathogen control appropriate for potable reuse treatment trains"
+        },
+        "applicability_rationale": [
+          "strontium often tracks hardness chemistry, making high-rate or conventional softening a practical removal route in mineralized surface waters",
+          "the influent hardness and alkalinity are favorable for chemical softening to achieve meaningful strontium reduction without high-pressure desalination",
+          "this approach generally uses lower energy than reverse osmosis and avoids a continuous brine stream",
+          "although chemicals and sludge are required, the trade-off is acceptable because the finished-water limit is strict and the utility wants to avoid membrane concentrate management",
+          "front-end clarification is important because river-water solids swings can destabilize downstream strontium control if not managed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "finished strontium performance depends on achieving and consistently controlling high pH and precipitation conditions",
+          "chemical minimization is only partially satisfied because lime, soda ash, and recarbonation are needed",
+          "softening sludge production and solids handling infrastructure are required",
+          "if the project-specific limit tightens further, softening alone may need polishing support"
+        ],
+        "evidence_list": [
+          "AWWA_guidance_on_lime_soda_softening_for_hardness_and_divalent_cation_reduction",
+          "surface_water_treatment_practice_for_clarification_ahead_of_softening",
+          "case_knowledge_that_strontium_can_be_co_removed_with_calcium_during_softening",
+          "potable_reuse_engineering_guidance_emphasizing_robust_particle_control_before_advanced_processes"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "nanofiltration",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids and fouling load from river water",
+          "ultrafiltration": "provide strong particulate and colloid removal ahead of membrane desalting",
+          "nanofiltration": "reject divalent ions including strontium while operating at lower pressure than reverse osmosis",
+          "stabilization": "adjust finished-water chemistry after mineral removal",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically strong for divalent ion rejection and can reliably achieve a strict strontium target when pretreatment is adequate",
+          "relative to reverse osmosis, nanofiltration can offer lower energy use while still providing substantial strontium removal",
+          "this route reduces dependence on precise precipitation chemistry compared with softening",
+          "it ranks below softening because the owner prefers low energy and minimal concentrate handling, and NF still generates a reject stream requiring management",
+          "for potable reuse projects seeking a stronger barrier against dissolved salts, NF can be an attractive compromise"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "membrane concentrate disposal remains a significant residuals challenge",
+          "river-water organic matter and turbidity variability increase fouling-control demands",
+          "post-treatment stabilization is necessary because divalent mineral removal can produce aggressive water",
+          "selectivity and recovery must be verified to ensure the target is met under seasonal conductivity shifts"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_dissolved_inorganic_constituents",
+          "AWWA_manuals_on_nanofiltration_for_divalent_ion_control",
+          "public_reuse_guidance_for_UF_plus_NF_or_RO_barrier_trains",
+          "case_examples_of_nanofiltration_for_hardness_and_strontium_reduction"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "pellet_softening_or_seeded_crystallization",
+          "cartridge_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended matter and reduce solids variability from the river source",
+          "media_filtration": "polish clarified water before crystallization softening",
+          "pellet_softening_or_seeded_crystallization": "promote precipitation of hardness minerals with lower sludge production than conventional softening and achieve partial strontium co-removal",
+          "cartridge_filtration": "remove carryover fines and protect downstream distribution or additional barriers",
+          "disinfection": "provide pathogen control"
+        },
+        "applicability_rationale": [
+          "seeded crystallization or pellet softening can fit the chemical-minimization objective better than conventional softening because residual solids handling is often easier",
+          "energy demand is low and the process can reduce hardness-associated strontium without high-pressure membranes",
+          "this option is ranked below conventional lime softening because strontium removal may be less proven and less aggressive for a very strict finished-water limit",
+          "it may be attractive if the owner strongly prioritizes lower sludge burden and is willing to accept added pilot testing to confirm compliance margin"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "actual strontium removal may be insufficient to reach 1.0 mg/L without additional polishing",
+          "process performance is sensitive to supersaturation control and seeding conditions",
+          "surface-water variability can challenge stable crystal growth and solids separation",
+          "regulatory acceptance may require stronger demonstration data than for more established alternatives"
+        ],
+        "evidence_list": [
+          "AWWA_references_on_pellet_softening_and_seeded_crystallization",
+          "case_knowledge_on_lower_sludge_softening_alternatives_for_hardness_control",
+          "public_guidance_that_divalent_trace_ions_can_partly_follow_calcium_precipitation_behavior",
+          "drinking_water_treatment_design_practice_for_surface_water_pretreatment_before_softening"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and organics loading from the river source",
+          "ultrafiltration": "protect the reverse osmosis system from particulate fouling",
+          "reverse_osmosis": "provide high rejection of strontium and other dissolved salts",
+          "stabilization": "restore suitable finished-water chemistry after desalting",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is a technically robust route for achieving very low dissolved strontium concentrations",
+          "this option offers a strong compliance margin if additional dissolved contaminants also become binding concerns",
+          "it ranks lower because the scenario emphasizes low energy preference and chemical minimization, while RO typically has the highest energy demand and creates a concentrated reject stream",
+          "for this case, RO is capable but over-aligned with a broader desalting objective rather than the stated cost-energy-chemical trade-off"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management can become the dominant implementation barrier",
+          "higher operator skill and membrane maintenance burden are required",
+          "pretreatment must be carefully managed because seasonal river fouling pressure can be significant",
+          "post-treatment remineralization and corrosion control are necessary"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_reverse_osmosis_for_inorganic_constituent_control",
+          "AWWA_references_on_RO_energy_and_concentrate_management_tradeoffs",
+          "potable_reuse_guidance_describing_RO_as_high-barrier_but_high-complexity_treatment",
+          "public_case_knowledge_for_RO_rejection_of_divalent_cations_including_strontium"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "selective_ion_exchange_for_divalent_cations",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids to support downstream resin performance",
+          "media_filtration": "provide polishing and protect ion exchange vessels from solids intrusion",
+          "selective_ion_exchange_for_divalent_cations": "exchange strontium and related divalent ions onto resin media",
+          "disinfection": "provide pathogen control"
+        },
+        "applicability_rationale": [
+          "ion exchange is technically capable of removing strontium and can have a compact footprint",
+          "it is included as a plausible route because selective media may achieve strong dissolved-ion control without high hydraulic pressure",
+          "it ranks lowest because the case explicitly favors chemical minimization, and regenerable ion exchange introduces regenerant chemical handling and brine residuals that conflict with this constraint",
+          "surface-water organic matter and particulate variability also make long-cycle reliable operation less straightforward than in cleaner groundwater applications"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "regenerant brine management can be difficult and may offset the low-energy advantage",
+          "resin fouling from organics or iron-bearing particulates can shorten run length",
+          "selectivity may be affected by competing calcium and magnesium at the observed hardness level",
+          "single-stage ion exchange may require frequent regeneration to maintain a strict finished-water limit"
+        ],
+        "evidence_list": [
+          "EPA_ion_exchange_guidance_for_dissolved_inorganics_in_drinking_water",
+          "AWWA_case_knowledge_on_resin_competition_from_calcium_and_magnesium",
+          "public_guidance_on_surface_water_pretreatment_needs_before_ion_exchange",
+          "references_on_brine_management_constraints_for_regenerable_ion_exchange_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "softening-based routes should rank near the top because they balance strontium removal with lower energy than RO",
+        "nanofiltration should appear as a strong alternative when strict effluent reliability is weighted more heavily",
+        "reverse_osmosis should not rank first under low-energy and chemical-minimization constraints despite strong technical performance",
+        "ion_exchange should appear as technically feasible but downgraded by regenerant and residuals misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict finished-water strontium target for potable reuse",
+        "preference for lower-energy solutions over high-pressure desalting where feasible",
+        "desire to minimize treatment chemicals and difficult residuals such as sludge or brine",
+        "need for pretreatment appropriate to variable river-water solids and organic matter"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why strontium can be co-removed with hardness reduction processes",
+        "why membrane routes provide stronger dissolved-ion rejection but are penalized on energy and concentrate handling",
+        "why river-water variability makes pretreatment important before softening, ion exchange, or membranes",
+        "why technically capable options may still rank lower when chemicals or residuals conflict with project priorities"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in achieving a very low strontium target with partial-removal softening approaches",
+        "sludge handling from chemical softening",
+        "membrane concentrate management",
+        "resin fouling or competition effects in ion exchange",
+        "seasonal raw-water variability affecting compliance margin"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

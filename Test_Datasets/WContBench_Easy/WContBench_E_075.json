@@ -1,0 +1,283 @@
+{
+  "case_id": "WContBench_E_075",
+  "case_name": "Removal of Vorlan from well water for drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Vinclozolin"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for Vinclozolin-contaminated well water intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A rural drinking water utility draws from a shallow production well influenced by nearby agricultural land and has detected the fungicide Vorlan in the raw water. The utility needs a clear, reliable treatment approach that can be implemented with established drinking water technologies rather than highly specialized systems. The water is otherwise a typical low-turbidity groundwater, and the utility prefers robust operation with moderate cost and manageable maintenance.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "turbidity_NTU": 0.5,
+      "temperature_C": 13.8,
+      "DOC_mg_L": 1.7,
+      "TOC_mg_L": 2.1,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 214,
+      "conductivity_uS_cm": 620,
+      "nitrate_mg_L_as_NO3": 9.8,
+      "sulfate_mg_L": 38,
+      "chloride_mg_L": 29,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.01,
+      "vinclozolin_ug_L": 1.9,
+      "total_coliform_CFU_100mL": 0
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve strong reduction of Vinclozolin to a level suitable for drinking water protection using established treatment practice and maintain stable potable water quality.",
+      "secondary_goals": [
+        "use proven drinking water treatment technology",
+        "keep operating complexity moderate",
+        "avoid unnecessary high-energy treatment",
+        "maintain reliable performance under routine utility operation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_changeout_and_backwash_waste_are_manageable_but_large_hazardous_residual_streams_are_not_preferred",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "proven_and_stable_operation_for_small_municipal_drinking_water_supply"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "granular_activated_carbon_adsorption": "adsorb hydrophobic synthetic organic micropollutants such as Vinclozolin from groundwater",
+          "post_filtration": "retain carbon fines and provide effluent polishing",
+          "disinfection": "maintain microbiological safety in the finished drinking water"
+        },
+        "applicability_rationale": [
+          "Vinclozolin is an organic pesticide-type contaminant for which activated carbon is a conventional and well-supported control technology in drinking water practice",
+          "the source is low-turbidity well water, which is favorable for direct adsorption treatment without extensive pretreatment",
+          "the utility prefers proven technology, and GAC has broad public guidance and field experience for pesticide and taste-and-odor precursor removal",
+          "energy demand is low and operation is manageable for a small municipal system"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "media exhaustion and breakthrough require routine monitoring and timely carbon replacement or reactivation",
+          "natural organic matter can reduce adsorption bed life",
+          "if disinfection is chlorination, carbon performance and biological growth control in the bed need operational attention"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_gac",
+          "awwa_case_knowledge_on_pesticide_removal_with_granular_activated_carbon",
+          "public_guidance_on_activated_carbon_for_micropollutant_control_in_groundwater"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "powdered_activated_carbon_dosing",
+          "coagulation",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "powdered_activated_carbon_dosing": "adsorb dissolved Vinclozolin before solids separation",
+          "coagulation": "capture PAC and associated contaminants in formed flocs",
+          "filtration": "remove flocculated solids and PAC particles",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "activated carbon is again the key proven mechanism for pesticide control",
+          "PAC can be a flexible option when contamination is intermittent or seasonal due to agricultural influence",
+          "the train uses established drinking water unit processes rather than specialized advanced systems",
+          "it can be implemented where the utility already has or can support chemical feed and filtration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance is dose-dependent and requires jar testing or site optimization",
+          "continuous solids handling and sludge production are higher than for fixed-bed GAC",
+          "less attractive than GAC for a stable groundwater application with a single dissolved organic contaminant"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_powdered_activated_carbon_for_organic_contaminant_removal",
+          "conventional_drinking_water_practice_for_pesticide_control_with_pac_and_filtration",
+          "water_treatment_textbook_case_knowledge_for_pac_application_to_socs"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide physical rejection of dissolved organic micropollutants including pesticide residues",
+          "stabilization": "adjust mineral balance and corrosivity after membrane treatment",
+          "disinfection": "ensure microbiological safety in distributed water"
+        },
+        "applicability_rationale": [
+          "pressure membranes are technically capable of reducing many low-level organic contaminants including pesticide compounds",
+          "this route can be effective if future broader contaminant control is needed in addition to Vinclozolin",
+          "the low-turbidity well water is favorable for membrane pretreatment requirements"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "higher capital and energy use than needed for a single-contaminant easy case",
+          "concentrate management creates an additional residuals burden",
+          "post-treatment stabilization is necessary to produce finished drinking water of acceptable chemistry"
+        ],
+        "evidence_list": [
+          "epa_treatability_information_for_synthetic_organic_contaminants_with_membranes",
+          "public_drinking_water_guidance_on_nf_ro_for_micropollutant_rejection",
+          "engineering_case_knowledge_on_membrane_use_for_pesticide_control"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "advanced_oxidation",
+          "biologically_active_or_gac_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation": "transform Vinclozolin through hydroxyl_radical_based oxidation",
+          "biologically_active_or_gac_filtration": "remove oxidation byproducts and provide polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can degrade certain organic micropollutants when adsorption alone is insufficient or when multiple trace organics are present",
+          "a downstream filtration or carbon step is commonly needed to polish transformation products",
+          "the approach is technically feasible but less conventional for a small groundwater system focused on one pesticide"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "process control is more demanding than adsorption-based treatment",
+          "incomplete oxidation can form transformation products that still require polishing and verification",
+          "chemical and energy demands are higher than for GAC"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants",
+          "drinking_water_case_knowledge_for_uv_hydrogen_peroxide_and_ozone_based_micropollutant_treatment",
+          "guidance_on_need_for_post_treatment_after_aop_of_pesticides"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "attempt transfer of volatile compounds from water to air",
+          "filtration": "provide general polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included as a low-ranking comparator because it is a recognized treatment unit for some organic compounds",
+          "however it is not a preferred mainstream approach for a fungicide like Vinclozolin in groundwater"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Vinclozolin is not sufficiently suited to air stripping, so removal would likely be unreliable",
+          "off-gas handling could be needed if volatilization were relevant",
+          "selection of this option would not align well with proven treatment practice for pesticide removal"
+        ],
+        "evidence_list": [
+          "epa_treatability_reference_showing_air_stripping_is_contaminant_specific",
+          "public_case_knowledge_indicating_adsorption_is_preferred_over_stripping_for_pesticides",
+          "drinking_water_treatment_guidance_on_matching_unit_process_to_contaminant_properties"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_options_should_rank_at_or_near_the_top_for_single_pesticide_removal_in_well_water",
+        "high_energy_membrane_or_aop_options_should_not_rank_first_when_proven_lower_complexity_adsorption_is_feasible",
+        "air_stripping_should_rank_low_due_to_poor_match_with_vinclozolin_properties"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "proven_technology_preference_should_favor_gac_or_other_established_adsorption_processes",
+        "moderate_small_utility_operation_should_disfavor_overly_complex_or_high_energy_systems",
+        "residuals_and_maintenance_should_be_considered_but_should_not_override_clear_treatment_fit"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated_carbon_is_a_conventional_choice_for_hydrophobic_organic_micropollutants_and_pesticides",
+        "why low_turbidity_groundwater_supports_simple_adsorption_based_trains",
+        "why membrane_and_advanced_oxidation_options_rank_lower_under_this_easy_single_contaminant_case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "adsorbent_breakthrough_and_need_for_monitoring",
+        "competition_from_background_organic_matter",
+        "possible_transformation_products_if_oxidation_is_used",
+        "concentrate_or_spent_media_management"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

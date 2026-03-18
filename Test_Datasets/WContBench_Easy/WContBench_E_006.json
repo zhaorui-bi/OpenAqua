@@ -1,0 +1,280 @@
+{
+  "case_id": "WContBench_E_006",
+  "case_name": "Dicrotophos removal from small groundwater supply for drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Dicrotophos"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for dicrotophos-contaminated groundwater intended for drinking water supply in a small low-energy system.",
+  "input_data": {
+    "scenario_background": "A small rural groundwater utility has detected the organophosphate pesticide dicrotophos in a production well influenced by nearby agricultural activity. The source water is otherwise relatively clean and the utility needs a proven treatment approach that can reliably reduce the pesticide for drinking water with low energy demand and simple operation. The system has limited staff and prefers compact treatment with manageable residuals.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.1,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 1.8,
+      "alkalinity_mg_L_as_CaCO3": 132,
+      "hardness_mg_L_as_CaCO3": 168,
+      "nitrate_mg_L_as_NO3": 7.4,
+      "sulfate_mg_L": 28,
+      "chloride_mg_L": 24,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.03,
+      "dicrotophos_ug_L": 18.5
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve strong reduction of dicrotophos and be suitable for compliant drinking water production using a reliable small-system treatment train.",
+      "secondary_goals": [
+        "minimize energy use",
+        "favor established small-system treatment technologies",
+        "maintain low operator burden",
+        "avoid unnecessarily complex concentrate handling"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited residuals handling capacity; spent media changeout or modest backwash waste is acceptable but hazardous or high-volume liquid residuals are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable treatment with simple routine monitoring is required for a small system"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "prefiltration",
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "remove incidental particles and protect downstream adsorption media",
+          "granular_activated_carbon_adsorption": "adsorb dicrotophos and other trace organic contaminants from groundwater",
+          "post_filtration": "retain carbon fines and polish treated water",
+          "disinfection": "provide final microbiological protection for distributed drinking water"
+        },
+        "applicability_rationale": [
+          "dicrotophos is an organic micropollutant for which activated carbon is a conventional and widely applied control strategy for pesticide removal in drinking water treatment",
+          "the groundwater has low turbidity and modest DOC, which supports effective carbon adsorption and reduces pretreatment needs",
+          "the treatment train is well suited to a small system because it is compact, low energy, and operationally simpler than pressure membrane systems or advanced oxidation",
+          "the case has a single contaminant objective, so a focused adsorption barrier is a natural best-fit option"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "carbon breakthrough can occur if media replacement is not scheduled using monitoring or bed life estimates",
+          "higher-than-expected natural organic matter or intermittent contaminant spikes can shorten carbon run time",
+          "improper post-filtration or startup rinsing may allow carbon fines to pass"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_GAC",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_and_taste_odor_control",
+          "small_system_drinking_water_practice_supporting_adsorptive_treatment_for_trace_organics"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "prefiltration",
+          "powdered_activated_carbon_contact",
+          "cartridge_or_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "reduce particle loading and improve downstream solids capture",
+          "powdered_activated_carbon_contact": "adsorb dissolved dicrotophos during contact and mixing",
+          "cartridge_or_media_filtration": "remove PAC solids and polish the treated water",
+          "disinfection": "ensure microbiological safety of finished water"
+        },
+        "applicability_rationale": [
+          "PAC is also a recognized adsorption option for pesticide removal and can be applied where contaminant episodes are variable or seasonal",
+          "this approach can work for small systems when a simple contact-and-filtration arrangement is feasible",
+          "energy demand remains low compared with high-pressure membrane systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing control and contact time strongly affect removal performance",
+          "continuous solids handling is less convenient than fixed-bed GAC for very small utilities",
+          "carbon slurry management and spent solids disposal increase operator involvement"
+        ],
+        "evidence_list": [
+          "drinking_water_treatability_references_for_PAC_removal_of_organic_micropollutants",
+          "public_utility_practice_notes_on_PAC_for_pesticide_events"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "air_stripping_not_primary",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping_not_primary": "provide minimal ancillary conditioning if volatile nuisance compounds are present, but not relied upon for dicrotophos removal",
+          "granular_activated_carbon_adsorption": "serve as the main barrier for pesticide adsorption",
+          "disinfection": "protect drinking water quality in distribution"
+        },
+        "applicability_rationale": [
+          "this option keeps GAC as the core proven removal barrier while allowing limited upstream conditioning if site-specific operational needs exist",
+          "it remains low energy and relatively compact for a small groundwater system",
+          "the ranking is lower because the first pretreatment step is not necessary for the stated contaminant and adds avoidable complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "the added pretreatment step may provide little benefit for dicrotophos and can complicate operation",
+          "operators may misattribute removal performance to the wrong unit instead of tracking GAC exhaustion",
+          "unnecessary pretreatment can raise capital cost without improving core treatment"
+        ],
+        "evidence_list": [
+          "engineering_case_knowledge_showing_GAC_as_primary_barrier_for_pesticides_in_groundwater",
+          "small_system_design_guidance_emphasizing_simple_process_trains"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "advanced_oxidation_process",
+          "biological_or_adsorptive_polishing",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation_process": "oxidize dicrotophos and related organic molecules using strong radical chemistry",
+          "biological_or_adsorptive_polishing": "remove oxidation byproducts and provide additional contaminant polishing",
+          "filtration": "remove any associated solids and polish treated water",
+          "disinfection": "maintain microbiological protection"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can technically degrade many pesticide contaminants",
+          "it may be considered if site testing shows adsorption alone is insufficient or if multiple hard-to-remove organics become a future concern",
+          "the process is not preferred here because the case calls for a clear low-energy small-system solution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher power demand conflicts with the stated low-energy requirement",
+          "formation of transformation byproducts requires validation and post-treatment control",
+          "chemical feed, UV, ozone, or peroxide systems increase operator burden"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants",
+          "drinking_water_process_references_noting_need_for_byproduct_evaluation_after_AOP"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis": "reject a broad range of dissolved contaminants including some organic micropollutants",
+          "stabilization": "adjust permeate chemistry for distributed drinking water use",
+          "disinfection": "ensure final microbiological safety"
+        },
+        "applicability_rationale": [
+          "reverse osmosis can provide a strong physical barrier and broad-spectrum removal capability",
+          "it is usually considered when multiple dissolved contaminants must be controlled simultaneously rather than for a single pesticide in otherwise good-quality groundwater",
+          "for this scenario it is clearly over-complex and mismatched to the small-system low-energy constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand and membrane maintenance burden",
+          "concentrate disposal is problematic for a small utility with limited residuals management capacity",
+          "finished water may require remineralization or stabilization"
+        ],
+        "evidence_list": [
+          "EPA_and_industry_guidance_on_membrane_use_for_drinking_water_treatment",
+          "small_system_case_knowledge_showing_RO_limitations_due_to_concentrate_management"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based treatment should rank first for single-pesticide groundwater treatment under low-energy small-system constraints",
+        "advanced oxidation and reverse osmosis should rank below adsorption-based options because they add energy and operational burden",
+        "fixed-bed GAC should rank above PAC where stable continuous treatment and simple small-system operation are preferred"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "low energy demand should favor passive or low-pressure adsorption processes",
+        "small system operation should favor simple monitoring and manageable media replacement over complex chemical or membrane systems",
+        "limited residuals handling should discourage high-volume concentrate or complex hazardous residual streams"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "that dicrotophos is treated as an organic micropollutant/pesticide for which activated carbon is a conventional drinking water control option",
+        "why low DOC and low turbidity groundwater supports adsorption-based treatment",
+        "why advanced oxidation and reverse osmosis rank lower under the stated constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "activated carbon breakthrough and the need for monitoring or media replacement",
+        "possible competition from natural organic matter for adsorption sites",
+        "the need to consider oxidation byproducts if oxidative processes are proposed",
+        "concentrate or residuals handling issues for membrane alternatives"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

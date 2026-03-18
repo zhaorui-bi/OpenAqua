@@ -1,0 +1,342 @@
+{
+  "case_id": "WContBench_D_008",
+  "case_name": "Stormwater reclamation for irrigation under uncertain radionuclide, pathogen, pesticide, and trace endocrine contaminant loading",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Radium",
+      "V. cholerae",
+      "17a-ethynyl estradiol",
+      "Mevinphos"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "industrial_shock_load",
+      "brine_management_constraint",
+      "membrane_fouling_risk"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for treating variable stormwater runoff for agricultural reuse when radionuclide, pathogen, pesticide, and trace endocrine-disrupting contaminants co-occur under significant uncertainty and operational constraints.",
+  "input_data": {
+    "scenario_background": "A peri-urban water authority wants to capture and treat stormwater from a drainage basin receiving highway runoff, legacy fill materials, irrigated landscaping return flows, and occasional overflow from a light industrial storage area. Monitoring shows intermittent detection of radium, cholera-associated Vibrio, mevinphos, and 17a-ethynyl estradiol, but storm-event sampling is incomplete and concentrations appear to spike during first-flush conditions. It is unknown whether the radionuclide fraction is mainly dissolved or particulate-bound in all events, and other pesticides or PFAS are suspected but not fully characterized. The treated water is intended for restricted-to-expanded agricultural reuse, so pathogen control, salinity stability, and avoidance of phytotoxic or food-chain relevant residuals are all important.",
+    "water_quality": {
+      "source_type": "stormwater_runoff_with_mixed_urban_and_light_industrial_inputs",
+      "pH": 7.4,
+      "turbidity_NTU": 62,
+      "TSS_mg_L": 118,
+      "COD_mg_L": 74,
+      "BOD5_mg_L": 18,
+      "TOC_mg_L": 16.5,
+      "DOC_mg_L": 9.8,
+      "conductivity_uS_cm": 1260,
+      "TDS_mg_L": 790,
+      "hardness_mg_L_as_CaCO3": 210,
+      "alkalinity_mg_L_as_CaCO3": 145,
+      "nitrate_mg_L_as_N": 3.8,
+      "ammonia_mg_L_as_N": 0.9,
+      "total_phosphorus_mg_L": 0.82,
+      "chloride_mg_L": 96,
+      "sulfate_mg_L": 88,
+      "iron_mg_L": 0.74,
+      "manganese_mg_L": 0.09,
+      "oil_and_grease_mg_L": 3.1,
+      "radium_total_Bq_L": 0.64,
+      "radium_226_Bq_L": 0.38,
+      "radium_228_Bq_L": 0.26,
+      "Vibrio_cholerae_CFU_100mL": 240,
+      "mevinphos_ug_L": 1.9,
+      "ethinyl_estradiol_17a_ng_L": 28,
+      "E_coli_CFU_100mL": 18000,
+      "enterococci_CFU_100mL": 4200,
+      "particle_size_note": "suspended_solids_and_colloids_are_high_during_first_flush_and_likely_drive_variable_removal_performance",
+      "trace_contaminant_note": "additional_pesticides_and_other_emerging_contaminants_suspected_but_not_fully_characterized",
+      "radionuclide_speciation_note": "dissolved_vs_particulate_radium_fraction_is_uncertain_across_storm_events",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Finished water should be suitable for agricultural irrigation with strong pathogen reduction, meaningful control of radium and trace organic contaminants, reduced suspended solids and organic matter, and stable quality across storm-event variability without creating unmanaged concentrate or excessive phytotoxic residuals.",
+      "secondary_goals": [
+        "maintain robustness under first_flush shock loads and intermittent industrial runoff",
+        "minimize membrane fouling risk from solids and organics",
+        "avoid overreliance on high-brine processes because concentrate disposal options are limited",
+        "provide a multi-barrier approach for partially characterized micropollutants",
+        "support explainable treatment choices under uncertain contaminant speciation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "radioactive_backwash_residuals_and_any_brine_or_spent_media_require_special_handling_and_offsite_disposal_capacity_is_limited",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_flow_and_quality_swings_including_possible_industrial_shock_loads"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "offline_equalization_and_first_flush_diversion",
+          "coagulation_flocculation_and_lamella_clarification",
+          "dual_media_filtration",
+          "biologically_active_carbon_or_GAC",
+          "radium_selective_ion_exchange_or_softening_step",
+          "UV_plus_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "offline_equalization_and_first_flush_diversion": "buffer event-driven spikes, dampen industrial shock loads, and isolate the dirtiest first-flush fraction for more controlled downstream treatment",
+          "coagulation_flocculation_and_lamella_clarification": "remove suspended solids, colloids, particulate-associated radium, and part of hydrophobic trace organics while lowering membrane-fouling precursors",
+          "dual_media_filtration": "polish remaining solids and reduce turbidity to support adsorptive and disinfection performance",
+          "biologically_active_carbon_or_GAC": "remove dissolved organic matter, mevinphos, and part of the trace endocrine contaminant burden while improving taste/odor and reducing DBP precursors",
+          "radium_selective_ion_exchange_or_softening_step": "target dissolved radium fraction that is unlikely to be fully captured by solids removal alone",
+          "UV_plus_chlorine_disinfection": "provide primary pathogen inactivation with disinfectant residual for storage and irrigation distribution"
+        },
+        "applicability_rationale": [
+          "a staged multi-barrier train is appropriate because the stormwater contains both particulate and dissolved contaminants and the radium speciation is uncertain",
+          "equalization and first-flush management are especially valuable because influent variability is high and occasional industrial shock loads are reported",
+          "using clarification and filtration before adsorption and radium removal lowers fouling and preserves downstream media performance without immediately creating a brine stream",
+          "GAC or BAC is justified because mevinphos and 17a-ethynyl estradiol are present at trace levels and additional micropollutants are suspected but not fully characterized",
+          "a selective radium step is included because pathogen-only or organics-only trains would not adequately address the legacy radionuclide risk",
+          "this route better aligns with the brine-management constraint than RO-centered systems, although it still creates media regeneration or sludge residual issues"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "if dissolved radium fraction is higher than expected, clarification alone will underperform and the ion exchange or softening stage will become critical",
+          "spent brine from ion exchange regeneration or solids from softening may contain concentrated radionuclides and require controlled disposal",
+          "GAC breakthrough for mevinphos or ethinyl estradiol is uncertain without site-specific adsorption testing",
+          "chlorination alone is not the preferred sole barrier for Vibrio risk under variable turbidity, so UV transmittance must be maintained by good solids pretreatment",
+          "first-flush bypass strategy requires clear operational rules so contaminated bypasses do not create offsite environmental risks"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radionuclides_in_drinking_water_and_treatment_selection",
+          "WHO_guidelines_on_safe_use_of_wastewater_and_excreta_in_agriculture_for_pathogen_control_principles",
+          "stormwater_harvesting_and_reuse_guidance_emphasizing_event_variability_and_equalization",
+          "case_knowledge_on_GAC_and_BAC_for_pesticides_and_endocrine_disrupting_compounds",
+          "public_guidance_on_multi_barrier_treatment_for_nonpotable_reuse"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "offline_equalization",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "GAC",
+          "radium_selective_ion_exchange",
+          "final_chlorination"
+        ],
+        "core_unit_functions": {
+          "offline_equalization": "buffer hydraulic and contaminant swings before membrane and media systems",
+          "coagulation_flocculation_and_clarification": "reduce solids, colloids, and particulate-bound contaminants",
+          "ultrafiltration": "provide strong particulate and microbial barrier and protect downstream adsorptive units",
+          "GAC": "adsorb mevinphos, 17a-ethynyl estradiol, and portions of unknown trace organics",
+          "radium_selective_ion_exchange": "remove dissolved radium species to support reuse safety",
+          "final_chlorination": "maintain distribution residual in irrigation storage and conveyance"
+        },
+        "applicability_rationale": [
+          "this is a strong candidate when a tighter microbial and turbidity barrier is desired before reuse distribution",
+          "UF can stabilize downstream performance under storm-driven solids variability better than media filtration alone",
+          "GAC plus ion exchange addresses the co-occurrence of emerging trace organics and legacy radionuclides without full desalination",
+          "the train remains more compatible with limited brine management than RO, although the ion exchange step still creates concentrated residual streams"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "membrane fouling risk remains significant during first-flush events if clarification is not well controlled",
+          "UF does not remove dissolved radium or dissolved pesticides by itself, so downstream adsorptive stages are essential",
+          "backwash waste and ion exchange regenerant may contain concentrated contaminants including radionuclides",
+          "if unknown dissolved organics are more polar than expected, GAC performance may be weaker than assumed"
+        ],
+        "evidence_list": [
+          "EPA_membrane_filtration_guidance_for_surface_and_reuse_applications",
+          "public_case_knowledge_for_UF_plus_GAC_in_stormwater_reclamation",
+          "EPA_and_state_guidance_for_ion_exchange_removal_of_radium",
+          "reuse_guidance_for_disinfection_residual_in_distribution_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "roughing_or_disc_filtration",
+          "nanofiltration",
+          "GAC_or_AOP_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate event-driven quality swings before high-pressure treatment",
+          "roughing_or_disc_filtration": "remove coarse suspended material and lower immediate fouling load",
+          "nanofiltration": "reduce divalent ions including radium-associated species, some organic micropollutants, and pathogens while lowering salinity moderately",
+          "GAC_or_AOP_polishing": "address residual mevinphos, endocrine-active compounds, and unknown trace organics after membrane treatment",
+          "final_disinfection": "ensure microbial safety and residual protection for agricultural distribution"
+        },
+        "applicability_rationale": [
+          "NF offers broad-spectrum contaminant reduction and can provide stronger dissolved contaminant control than adsorption-plus-conventional filtration alone",
+          "it may be attractive if irrigation salinity management is also important in dry seasons",
+          "polishing is included because not all endocrine disruptors or pesticides are predictably controlled by NF alone and the unknown trace mixture adds uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine or concentrate management is a major limitation and directly conflicts with the stated residuals constraint",
+          "stormwater solids and NOM can drive rapid fouling unless pretreatment is stronger than indicated",
+          "actual radium rejection depends on speciation and membrane selection, so pilot testing would be necessary",
+          "this train may be unnecessarily complex for nonpotable agricultural reuse unless dissolved contaminant spikes prove severe"
+        ],
+        "evidence_list": [
+          "membrane_desalination_guidance_for_hardness_and_radionuclide_control",
+          "public_references_on_nanofiltration_for_micropollutant_reduction",
+          "stormwater_reuse_case_knowledge_on_membrane_fouling_under_variable_influent"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "retention_and_settling_basin",
+          "constructed_wetland",
+          "sand_filtration",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "retention_and_settling_basin": "attenuate peak flows and remove settleable solids associated with first-flush loads",
+          "constructed_wetland": "provide natural attenuation of suspended solids, some pathogens, nutrients, and a fraction of trace organics",
+          "sand_filtration": "polish solids and improve UV effectiveness",
+          "UV_disinfection": "provide final microbial inactivation"
+        },
+        "applicability_rationale": [
+          "this lower-energy nature-based route may be attractive where land is available and budgets are constrained",
+          "it can smooth stormwater variability and provide some broad contaminant attenuation without high-pressure membranes or brine generation",
+          "however it is ranked lower because the required control of radium and trace organics is uncertain and event-based performance can be inconsistent"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "radium removal is unreliable and strongly dependent on particulate association and geochemical conditions",
+          "Vibrio and other pathogens may not be sufficiently controlled without a stronger disinfection and storage management strategy",
+          "mevinphos and ethinyl estradiol attenuation in wetlands is variable and seasonally dependent",
+          "performance may degrade during short-circuiting, cold weather, or very high storm pulses"
+        ],
+        "evidence_list": [
+          "stormwater_BMP_guidance_for_retention_and_constructed_wetlands",
+          "public_case_knowledge_on_nature_based_systems_for_urban_runoff_treatment",
+          "WHO_reuse_guidance_emphasizing_multiple_barriers_and_validation_of_pathogen_reduction"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "screening",
+          "coagulation_flocculation",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "screening": "remove gross debris and protect downstream units",
+          "coagulation_flocculation": "aggregate colloids and a portion of particulate-bound contaminants",
+          "sand_filtration": "reduce residual turbidity and suspended solids",
+          "chlorination": "provide microbial disinfection residual"
+        },
+        "applicability_rationale": [
+          "included as a baseline conventional train with low complexity",
+          "it may improve appearance and reduce basic microbial indicators in moderate events",
+          "it is clearly lower ranked because it does not robustly address dissolved radium, persistent trace organics, or uncertainty in the contaminant mixture"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of dissolved radium and likely inadequate removal of 17a-ethynyl estradiol and mevinphos",
+          "chlorination performance may be compromised by high turbidity and organic matter during storm peaks",
+          "disinfection by-product formation risk may rise when organics vary widely",
+          "this train is not robust against industrial shock loads or partially characterized emerging contaminants"
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_guidance_limitations_for_dissolved_contaminants",
+          "public_guidance_on_pesticide_and_endocrine_compound_limitations_of_basic_treatment",
+          "reuse_guidance_showing_need_for_multi_barrier_control_under_uncertain_source_water"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with equalization or first-flush management should rank above simple conventional treatment because influent variability is high",
+        "recommendations that separate solids removal, trace-organic control, radionuclide control, and disinfection should rank higher than single-mechanism approaches",
+        "RO or NF-based options may appear but should not automatically rank first because brine management is constrained and agricultural reuse does not always require full desalination",
+        "simple conventional coagulation-filtration-disinfection should rank low because it does not reliably address dissolved radium and emerging micropollutants"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "industrial shock load potential and first-flush stormwater variability require buffering or operational flexibility",
+        "membrane fouling risk should be explicitly linked to high turbidity, TSS, and organic matter",
+        "brine or regenerant disposal constraints should materially penalize high-pressure membrane or ion-exchange options unless caveated",
+        "agricultural reuse goals require pathogen control and attention to phytotoxic salinity or disinfectant residual impacts",
+        "uncertain radium speciation should influence selection of combined particulate and dissolved-phase removal barriers"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization or first-flush diversion is useful for stormwater with intermittent industrial inputs",
+        "why adsorption or advanced polishing is relevant for mevinphos and 17a-ethynyl estradiol under partial characterization",
+        "why a dedicated radium-control step may still be needed after solids removal when dissolved fraction is uncertain",
+        "why conventional chlorination alone is not sufficient as the only barrier under high turbidity and mixed contaminant conditions",
+        "why membrane-centered solutions involve a tradeoff between broad contaminant removal and concentrate management"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in dissolved versus particulate radium across storm events",
+        "possible under-characterized co-contaminants such as other pesticides or PFAS",
+        "membrane fouling and recovery decline during first_flush solids and NOM spikes",
+        "radioactive residuals or regenerant handling requirements from radium removal processes",
+        "pathogen breakthrough risk if disinfection is applied without reliable turbidity control and adequate contact conditions",
+        "uncertain adsorption breakthrough for endocrine-active compounds and organophosphate pesticides under variable DOC"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

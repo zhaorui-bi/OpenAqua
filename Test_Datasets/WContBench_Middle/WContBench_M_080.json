@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_M_080",
+  "case_name": "Compact treatment selection for molinate and carbofuran contaminated groundwater for potable reuse",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Molinate",
+      "Carbofuran"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for groundwater containing molinate and carbofuran intended for potable reuse, balancing strict finished-water limits with compact footprint and moderate cost constraints.",
+  "input_data": {
+    "scenario_background": "A water utility is evaluating a contaminated groundwater source near former agricultural land and a pesticide handling area as part of an indirect potable reuse expansion program. The reuse permit requires very low finished-water concentrations for regulated and priority organic micropollutants, so simple contaminant removal is not enough; the selected process must also provide high reliability and monitoring defensibility. The treatment site is inside an existing plant boundary with little room for large basins or multiple parallel contactors, and the utility can support moderate but not premium capital and operating cost. Several routes are technically feasible, but ranking depends on how well they balance compactness, operational burden, residuals handling, and confidence in meeting stringent effluent goals.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.4,
+      "temperature_C": 18.6,
+      "turbidity_NTU": 1.3,
+      "DOC_mg_L": 2.7,
+      "TOC_mg_L": 3.1,
+      "UV254_cm-1": 0.072,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 228,
+      "conductivity_uS_cm": 810,
+      "TDS_mg_L": 515,
+      "nitrate_mg_L_as_NO3": 9.8,
+      "sulfate_mg_L": 54,
+      "chloride_mg_L": 76,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "ammonia_mg_L_as_N": 0.12,
+      "target_contaminants": {
+        "Molinate_ug_L": 18.0,
+        "Carbofuran_ug_L": 6.4
+      },
+      "co_contaminants": {
+        "Atrazine_ug_L": 0.9,
+        "Simazine_ug_L": 0.6,
+        "1_2_3_Trichloropropane_ug_L": 0.018
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should reliably achieve very low pesticide concentrations suitable for potable reuse compliance, with strong barrier performance and stable treated-water quality.",
+      "secondary_goals": [
+        "maintain a compact treatment footprint within an existing site",
+        "avoid treatment trains with disproportionate concentrate or residual handling burden",
+        "keep lifecycle cost within a moderate utility budget",
+        "provide treatment robustness for co-occurring trace organic contaminants"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer manageable spent media or backwash residuals and avoid difficult high-strength concentrate disposal where possible",
+      "footprint_constraint": "high",
+      "robustness_requirement": "high confidence and redundancy are needed because potable reuse permitting emphasizes conservative multiple-barrier performance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "ozonation",
+          "biologically_active_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "remove fine particulates and protect ozone contactor and BAC media",
+          "ozonation": "oxidize carbofuran and partially transform susceptible organic micropollutants",
+          "biologically_active_carbon": "adsorb residual pesticides and biodegrade biodegradable oxidation byproducts for polishing",
+          "final_disinfection": "provide pathogen control and final potable reuse barrier assurance"
+        },
+        "applicability_rationale": [
+          "a combined oxidation and carbon polishing train provides two complementary barriers for pesticide-type organics under strict potable reuse expectations",
+          "carbofuran is generally amenable to oxidation, while BAC can capture residual parent compounds and oxidation byproducts",
+          "the integrated ozone plus BAC configuration is more compact than large standalone GAC contactors designed for full adsorption duty",
+          "this route better addresses co-contaminant uncertainty than single-mechanism treatment while staying within moderate cost more effectively than membrane-heavy options",
+          "BAC polishing improves finished-water stability and can reduce DOC-related impacts after ozonation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozone dose and contact time must be validated because molinate may not be fully controlled by oxidation alone",
+          "bromate formation potential must be assessed if source bromide is present",
+          "BAC performance depends on media age, EBCT, and biological stability",
+          "potable reuse permitting may require demonstration of transformation product control rather than parent compound removal alone"
+        ],
+        "evidence_list": [
+          "EPA_pesticide_and_synthetic_organic_chemical_treatment_guidance_for_drinking_water",
+          "AWWA_case_knowledge_on_ozone_BAC_for_trace_organic_micropollutant_control",
+          "public_guidance_on_biological_activated_carbon_as_polishing_after_ozonation",
+          "potable_reuse_multiple_barrier_practice_references_for_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "granular_activated_carbon_dual_stage",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect carbon beds from particulate fouling",
+          "granular_activated_carbon_dual_stage": "adsorb molinate, carbofuran, and co-occurring hydrophobic trace organics with lead-lag redundancy",
+          "UV_disinfection": "provide final disinfection compatible with reuse treatment train"
+        },
+        "applicability_rationale": [
+          "GAC is a well-established treatment approach for many synthetic organic chemicals including agricultural pesticides in groundwater",
+          "the relatively low turbidity and moderate DOC are favorable for carbon adsorption compared with more challenging surface waters",
+          "lead-lag staging provides compliance robustness under strict finished-water targets and allows practical breakthrough management",
+          "this route avoids concentrate generation and is simpler to operate than high-pressure membrane systems",
+          "it ranks slightly below ozone plus BAC because meeting very low potable reuse targets may require larger carbon volume and longer contact time, which is less favorable under severe footprint pressure"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "bed life can shorten if DOC or co-contaminant loading increases",
+          "footprint may become challenging if conservative EBCT is required for very low effluent limits",
+          "spent carbon changeout or regeneration logistics must be planned",
+          "adsorption alone provides less treatment diversity than oxidation plus polishing for uncertain trace-organic mixtures"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_GAC_removal_of_synthetic_organic_chemicals",
+          "AWWA_design_practice_for_lead_lag_GAC_adsorbers",
+          "public_case_knowledge_on_pesticide_removal_from_groundwater_by_activated_carbon"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "powdered_activated_carbon_contact",
+          "microfiltration",
+          "UV_advanced_oxidation",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "screen solids and protect downstream units",
+          "powdered_activated_carbon_contact": "provide rapid adsorption of pesticides and reduce organic load before oxidation",
+          "microfiltration": "separate PAC solids and produce clarified water for UV-AOP",
+          "UV_advanced_oxidation": "oxidize residual carbofuran and other trace organics as a polishing barrier",
+          "final_disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "this hybrid route is technically capable and relatively compact compared with very large fixed-bed adsorption systems",
+          "PAC offers operational flexibility when contaminant levels vary and can be adjusted by dose",
+          "UV-AOP adds a strong polishing barrier that may support strict potable reuse narratives for trace organic control",
+          "the process ranks below the top options because combining PAC handling, solids separation, and AOP increases operational complexity and chemical management burden"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC slurry handling and solids residuals add labor and housekeeping demands",
+          "UV transmittance and oxidant dose must be managed to sustain oxidation performance",
+          "removal credit for molinate and transformation products may require pilot validation",
+          "more unit processes create additional instrumentation and control requirements"
+        ],
+        "evidence_list": [
+          "EPA_and_state_reuse_guidance_on_UV_AOP_for_trace_organic_polishing",
+          "public_engineering_references_on_PAC_for_pesticide_control",
+          "potable_reuse_case_knowledge_on_multi_barrier_compact_trains"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "reverse_osmosis",
+          "advanced_oxidation_post_treatment",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect membranes by controlling fouling and scaling",
+          "reverse_osmosis": "provide broad rejection of dissolved contaminants and strong overall barrier performance",
+          "advanced_oxidation_post_treatment": "polish low molecular weight organics that may pass or appear downstream",
+          "stabilization": "adjust permeate chemistry for distribution compatibility",
+          "final_disinfection": "provide final microbial safety barrier"
+        },
+        "applicability_rationale": [
+          "RO plus polishing is technically very strong and aligns with conservative potable reuse multiple-barrier philosophy",
+          "the train also provides collateral benefit for nitrate, TDS, and other dissolved constituents beyond the target pesticides",
+          "its modular skids can fit constrained sites better than some large basin processes",
+          "despite strong technical capability, it ranks lower because concentrate management, higher energy use, and more demanding O&M are misaligned with the stated moderate cost and residuals preferences"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine disposal may be expensive or infeasible depending on local options",
+          "membrane fouling and scaling control require sustained operator attention",
+          "post-treatment remineralization and corrosion control are necessary for finished water stability",
+          "high-recovery design may trade off against concentrate strength and scaling risk"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_reverse_osmosis_in_potable_reuse",
+          "public_references_on_membrane_rejection_of_pesticides_and_trace_organics",
+          "AWWA_case_knowledge_on_RO_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "granular_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "transfer volatile contaminants from water to air",
+          "granular_media_filtration": "remove particulates generated upstream and provide basic polishing",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "included as a technically weak comparator because some operators may consider compact stripping systems for organic contaminants",
+          "however, molinate and carbofuran are not well matched to air stripping as primary control technologies in this groundwater matrix",
+          "the train does not provide sufficient confidence for strict potable reuse micropollutant goals"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "poor intrinsic suitability for these pesticides could lead to noncompliance",
+          "air emissions treatment may still be needed if stripping were attempted",
+          "does not offer a robust multiple-barrier approach for trace organics",
+          "could create false economy by appearing simple while being ineffective"
+        ],
+        "evidence_list": [
+          "EPA_treatment_selection_guidance_noting_air_stripping_limits_for_less_volatile_synthetic_organics",
+          "public_drinking_water_treatment_references_on_process_applicability_by_contaminant_properties"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier compact trains such as ozone_plus_BAC should rank near the top for strict potable reuse goals",
+        "GAC-based treatment should appear as a strong practical alternative for pesticide-contaminated groundwater",
+        "RO-based treatment should not rank first because concentrate handling and cost offset its technical strength under these constraints",
+        "at least one technically capable but lower-ranked option should be downgraded due to cost, residuals, or O&M mismatch"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict effluent limits favor redundant or multi-barrier treatment rather than a single minimal process",
+        "space limitation favors compact contactors and modular systems over large-footprint adsorption basins where possible",
+        "moderate cost constraint prevents premium membrane solutions from dominating the ranking",
+        "residuals and concentrate handling should materially influence ranking"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why pesticide-type organics in relatively low-turbidity groundwater are amenable to activated carbon treatment",
+        "why potable reuse requirements increase the value of treatment redundancy and byproduct awareness",
+        "why oxidation can complement adsorption for carbofuran and mixed trace-organic control",
+        "why RO is downgraded despite strong contaminant removal capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "breakthrough risk or media exhaustion for carbon systems",
+        "oxidation byproduct or transformation product concerns",
+        "concentrate disposal burden for membrane systems",
+        "need for pilot validation or site-specific treatability confirmation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "case_id": "WContBench_M_007",
+  "case_name": "River water polishing for groundwater recharge under high-recovery and concentrate-disposal constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Thiodicarb",
+      "Per- and Polyfluoroalkyl Substances",
+      "Microcystins"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river water containing thiodicarb, PFAS, and microcystins intended for groundwater recharge, balancing contaminant control against high recovery and difficult concentrate handling constraints.",
+  "input_data": {
+    "scenario_background": "A water reuse agency plans to divert seasonally impaired river water to recharge basins to supplement a stressed aquifer. The river is affected by upstream agricultural runoff, episodic cyanobacterial blooms, and low but recurring PFAS detections from mixed watershed sources. Several treatment routes are technically plausible, but the project strongly prioritizes very high water recovery and wants to avoid a brine or concentrate stream because regional disposal options are costly and uncertain.",
+    "water_quality": {
+      "source_type": "river_water",
+      "pH": 7.8,
+      "temperature_C": 22.4,
+      "turbidity_NTU": 11.6,
+      "DOC_mg_L": 6.9,
+      "TOC_mg_L": 8.1,
+      "UV254_cm_1": 0.168,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 146,
+      "conductivity_uS_cm": 512,
+      "TDS_mg_L": 322,
+      "sulfate_mg_L": 48,
+      "chloride_mg_L": 39,
+      "nitrate_mg_L_as_N": 2.4,
+      "ammonia_mg_L_as_N": 0.18,
+      "total_phosphorus_mg_L": 0.21,
+      "calcium_mg_L": 39,
+      "magnesium_mg_L": 12,
+      "target_contaminants": {
+        "thiodicarb_ug_L": 2.3,
+        "microcystins_total_ug_L": 2.1,
+        "PFOA_ng_L": 17,
+        "PFOS_ng_L": 11,
+        "PFHxS_ng_L": 8,
+        "PFBS_ng_L": 29,
+        "PFNA_ng_L": 6
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for managed aquifer recharge with reliable control of pesticides, cyanotoxins, and PFAS while maintaining stable compliance-oriented performance.",
+      "secondary_goals": [
+        "achieve very high water recovery",
+        "avoid generating difficult liquid concentrate streams",
+        "provide resilience to seasonal algal and organic matter spikes",
+        "limit operator burden to a practical medium level"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "avoid_membrane_brine_or_other_high-strength_concentrate_streams_due_to_limited_disposal_pathways",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "process must tolerate seasonal bloom events and moderate raw-water variability without sharp compliance risk"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "granular_activated_carbon_biologically_active_polishing",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove algae, suspended solids, and a portion of organic matter to stabilize downstream adsorptive treatment",
+          "dual_media_filtration": "polish particulate matter and reduce cyanobacterial cell carryover",
+          "powdered_activated_carbon_contact": "provide flexible adsorption for dissolved microcystins and pesticide peaks during episodic events",
+          "granular_activated_carbon_biologically_active_polishing": "adsorb thiodicarb and PFAS while also polishing dissolved organics",
+          "uv_disinfection": "provide final microbial risk reduction before recharge"
+        },
+        "applicability_rationale": [
+          "This train balances broad-spectrum contaminant control with very high water recovery because it avoids pressure-membrane concentrate generation.",
+          "Conventional clarification and filtration are important for bloom-affected river water because intact cyanobacterial cells and elevated DOC can otherwise impair adsorptive performance.",
+          "PAC provides event-response flexibility for dissolved microcystin and pesticide excursions, while downstream GAC offers longer-term adsorption for PFAS and residual organics.",
+          "Although PFAS removal by GAC is not as absolute as RO, the moderate PFAS concentrations and strong anti-concentrate constraint make an adsorption-led route the best overall fit.",
+          "The process is operationally more manageable than high-pressure membrane systems and better aligned with recharge projects seeking high usable water yield."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "PFAS breakthrough, especially for shorter-chain compounds such as PFBS, may occur earlier than for longer-chain PFAS and requires proactive media monitoring.",
+          "High seasonal DOC or bloom intensity can shorten PAC and GAC life if upstream solids and organic matter control is not maintained.",
+          "Spent carbon or spent PAC residuals still require appropriate off-site management even though no liquid concentrate is produced."
+        ],
+        "evidence_list": [
+          "epa_guidance_on_microcystin_control_using_conventional_treatment_and_activated_carbon",
+          "public_drinking_water_practice_for_GAC_removal_of_pesticides_and_organic_micropollutants",
+          "state_and_utility_guidance_on_PFAS_control_with_GAC_for_low_to_moderate_concentrations",
+          "managed_aquifer_recharge_practice_favoring_high_recovery_non_brine_processes_where_concentrate_disposal_is_limited"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "anion_exchange_resin",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce algae and suspended solids before adsorption or ion exchange",
+          "dual_media_filtration": "protect downstream resin and lower particulate loading",
+          "powdered_activated_carbon_contact": "control dissolved microcystins and some pesticide mass during peaks",
+          "anion_exchange_resin": "remove PFAS efficiently and provide some polishing of anionic organic contaminants",
+          "uv_disinfection": "provide final disinfection barrier prior to recharge"
+        },
+        "applicability_rationale": [
+          "Ion exchange is a plausible strong alternative because it can outperform GAC for some PFAS profiles, including shorter-chain fractions.",
+          "The route maintains high water recovery and avoids a membrane brine stream, which is a major advantage under the stated residuals constraint.",
+          "PAC ahead of resin helps address microcystins and thiodicarb because ion exchange is not the primary tool for cyanotoxin control.",
+          "This option ranks below the GAC-led train because resin systems can be more sensitive to natural organic matter competition and may require more careful replacement or regeneration management."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "DOC competition and fouling can reduce PFAS resin run length in river water unless upstream removal is well controlled.",
+          "Residuals planning remains necessary for spent or regenerated resin, and regenerant waste can become a disposal challenge if a regenerable system is selected.",
+          "Microcystin control depends heavily on maintaining PAC performance and not relying on resin alone."
+        ],
+        "evidence_list": [
+          "public_references_on_PFAS_removal_with_anion_exchange_resins",
+          "epa_and_state_guidance_for_cyanotoxin_treatment_emphasizing_cell_removal_and_activated_carbon",
+          "engineering_practice_notes_on_NOM_impacts_to_ion_exchange_media_in_surface_waters"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ozonation",
+          "biological_activated_filtration",
+          "granular_activated_carbon",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulate matter and reduce algal solids loading",
+          "ozonation": "oxidize microcystins and improve biodegradability of some dissolved organic matter",
+          "biological_activated_filtration": "remove biodegradable byproducts and polish organics after ozonation",
+          "granular_activated_carbon": "adsorb thiodicarb and PFAS while providing final organic polishing",
+          "uv_disinfection": "final microbial barrier before recharge"
+        },
+        "applicability_rationale": [
+          "This train is technically attractive for cyanotoxin-prone waters because ozonation can be effective for dissolved microcystin when properly controlled.",
+          "Biological filtration after ozone can improve downstream GAC performance by reducing biodegradable organic load.",
+          "The route still avoids low-recovery membrane concentrate streams and can deliver robust multi-barrier treatment.",
+          "It ranks below simpler adsorption-based options because ozone systems add energy use, process control complexity, and byproduct management considerations without solving the PFAS constraint as directly as adsorption or ion exchange."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Ozone dose control is critical; underdosing may leave dissolved microcystin, while overdosing can increase bromate risk if bromide is present.",
+          "PFAS are not effectively destroyed by conventional ozone, so GAC remains essential and must be monitored for breakthrough.",
+          "Biological filters require stable operation and can be less attractive where staffing and process control resources are constrained."
+        ],
+        "evidence_list": [
+          "epa_guidance_on_cyanotoxin_treatment_with_ozone_and_activated_carbon",
+          "drinking_water_practice_references_for_biological_filtration_following_ozonation",
+          "public_guidance_noting_limited_effect_of_conventional_oxidation_on_PFAS"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids and foulants before membranes",
+          "media_filtration": "protect high-pressure membranes by lowering particulate loading",
+          "nanofiltration_or_reverse_osmosis": "provide strong rejection of PFAS, microcystins, and many dissolved organics including thiodicarb",
+          "uv_disinfection": "final microbial barrier"
+        },
+        "applicability_rationale": [
+          "High-pressure membranes are technically capable and would provide the strongest broad-spectrum barrier for the contaminant mix.",
+          "This option is included because it is a credible treatment route when effluent quality is prioritized above recovery and waste constraints.",
+          "It ranks lower because the project explicitly requires high water recovery and seeks to avoid difficult concentrate disposal, both of which strongly disfavor NF or RO for this case.",
+          "For groundwater recharge, the incremental quality benefit is offset by brine management burden, lower net yield, and higher energy and O&M complexity."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "Concentrate management is the dominant drawback and may be infeasible or very costly in inland settings.",
+          "Recovery limitations reduce the volume available for recharge unless a secondary concentrate treatment system is added.",
+          "Membrane scaling, fouling, and integrity management increase operator burden compared with adsorption-led trains."
+        ],
+        "evidence_list": [
+          "public_guidance_for_PFAS_rejection_by_reverse_osmosis_and_nanofiltration",
+          "water_reuse_and_recharge_practice_documents_on_membrane_concentrate_management_challenges",
+          "engineering_case_knowledge_on_high_pressure_membrane_recovery_tradeoffs_in_inland_facilities"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_process_uv_h2o2",
+          "granular_activated_carbon",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulate matter and algal solids",
+          "dual_media_filtration": "polish solids and protect advanced oxidation equipment",
+          "advanced_oxidation_process_uv_h2o2": "oxidize susceptible organic contaminants and help address dissolved microcystin",
+          "granular_activated_carbon": "polish remaining organics and provide PFAS adsorption",
+          "uv_disinfection": "final microbial barrier"
+        },
+        "applicability_rationale": [
+          "This route can address thiodicarb and dissolved microcystins through oxidation while GAC provides downstream polishing.",
+          "It remains a non-brine process with high water recovery, which is favorable on the recovery axis.",
+          "However, it ranks last because AOP does not directly solve PFAS and adds energy demand and operational complexity that are not well aligned with the case priorities.",
+          "In this contaminant mix, the added oxidation step does not provide enough overall benefit relative to simpler PAC or ozone-based alternatives."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "PFAS remain dependent on downstream GAC, so AOP does not remove the key uncertainty around PFAS breakthrough.",
+          "AOP performance can be reduced by elevated scavenging demand from DOC, increasing chemical and energy use.",
+          "More instrumentation and process control are needed than for the top-ranked adsorption-led options."
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_organic_micropollutants_in_reuse_treatment",
+          "epa_cyanotoxin_treatment_references_for_oxidation_and_adsorption_barriers",
+          "public_discussion_of_limited_mainstream_applicability_of_uv_h2o2_for_PFAS_removal"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "non-membrane high-recovery adsorption-led trains should rank near the top",
+        "ion_exchange_should_appear_as_a_strong_alternative_but_not_clearly_first_due_to_surface_water_NOM_and_residuals_tradeoffs",
+        "NF_or_RO_should_not_rank_first_because_concentrate_handling_and_recovery_constraints_dominate",
+        "at_least_one_oxidation_based_route_should_be_included_but_rank_lower_due_to_incomplete_alignment_with_PFAS_and_complexity_constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "very high water recovery is a major driver for ranking",
+        "avoidance of liquid concentrate or brine disposal should materially penalize membrane options",
+        "surface-water variability and cyanobacterial events require robust pretreatment and multi-barrier reasoning"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why conventional clarification and filtration matter for bloom-affected river water before adsorption or oxidation",
+        "why PFAS can make membrane treatment technically attractive but operationally misaligned under concentrate constraints",
+        "why DOC and natural organic matter influence GAC and ion exchange performance in river water",
+        "why microcystin control should distinguish between intact cell removal and dissolved toxin treatment"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "PFAS breakthrough risk especially for shorter-chain compounds",
+        "seasonal DOC or algal bloom impacts on adsorbent life and process stability",
+        "residuals management for spent carbon, PAC sludge, or resin",
+        "bromate_or_other_oxidation_byproduct_risk_if_ozone_or_AOP_is_selected"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

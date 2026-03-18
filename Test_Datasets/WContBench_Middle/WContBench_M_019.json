@@ -1,0 +1,295 @@
+{
+  "case_id": "WContBench_M_019",
+  "case_name": "Fenamiphos removal from groundwater for potable use under cost, simplicity, and residuals constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Fenamiphos"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for fenamiphos-contaminated groundwater intended for drinking water supply while balancing compliance, cost, operational simplicity, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A small rural water supplier is considering development of an agricultural-area groundwater well for drinking water production, but monitoring has detected fenamiphos at levels requiring treatment before distribution. The utility has only part-time certified operators and prefers stable, simple treatment with limited chemical handling. Several technically plausible options exist, including adsorption and pressure-membrane routes, but the best choice depends on balancing pesticide removal reliability against cost and waste-management burden. The utility also wants a process that can tolerate moderate seasonal variation in raw-water pesticide concentration without frequent retuning.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.4,
+      "turbidity_NTU": 0.9,
+      "DOC_mg_L": 2.3,
+      "TOC_mg_L": 2.8,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 228,
+      "conductivity_uS_cm": 760,
+      "nitrate_mg_L_as_NO3": 14.6,
+      "sulfate_mg_L": 48,
+      "chloride_mg_L": 62,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.01,
+      "dissolved_oxygen_mg_L": 3.9,
+      "temperature_C": 16,
+      "target_contaminants": {
+        "fenamiphos_ug_L": 1.9
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable removal of fenamiphos to a very low finished-water concentration suitable for potable supply with stable compliance margin.",
+      "secondary_goals": [
+        "maintain low operator burden",
+        "minimize hazardous or difficult residuals handling",
+        "avoid overly energy-intensive treatment where feasible",
+        "provide reasonable robustness to moderate influent concentration variability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low",
+      "residuals_management": "avoid_high_difficulty_concentrate_or_regenerant_waste_handling_and_prefer_simple_spent_media_management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment_should_remain_effective_under_moderate_seasonal_variation_in_pesticide_levels_with_minimal_operator_adjustment"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "granular_activated_carbon_dual_bed",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "remove fine particulates and protect adsorption vessels from fouling",
+          "granular_activated_carbon_dual_bed": "adsorb fenamiphos and provide staged breakthrough protection for more reliable compliance",
+          "disinfection": "provide final microbial safety for potable distribution"
+        },
+        "applicability_rationale": [
+          "fenamiphos is an organic pesticide for which activated carbon is a practical and widely used control approach in drinking-water treatment",
+          "low-turbidity, relatively low-DOC groundwater is favorable for GAC performance because competitive adsorption demand is moderate",
+          "a dual-bed arrangement improves robustness and reduces breakthrough risk compared with a single adsorber",
+          "this route avoids high-pressure concentrate generation and aligns well with low-complexity small-system operation",
+          "spent carbon replacement or off-site reactivation is usually easier to manage than membrane concentrate or liquid regenerant waste"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "media exhaustion and breakthrough monitoring are still required",
+          "natural organic matter fluctuations can shorten carbon run length",
+          "spent carbon handling and replacement logistics must be planned"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_GAC",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_removal_in_groundwater",
+          "public_drinking_water_practice_references_for_GAC_adsorption_of_organic_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "powdered_activated_carbon_contact_and_separation",
+          "granular_media_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "remove coarse solids and stabilize downstream operation",
+          "powdered_activated_carbon_contact_and_separation": "provide adsorptive removal of fenamiphos in a dose-adjustable configuration",
+          "granular_media_polishing": "remove carbon fines and suspended solids before finished water storage",
+          "disinfection": "ensure microbial safety in potable supply"
+        },
+        "applicability_rationale": [
+          "PAC is technically capable for many pesticide and taste-and-odor type organics and offers dosage flexibility if influent fenamiphos varies seasonally",
+          "this option may require lower fixed capital than large GAC contactors in some installations",
+          "it can be attractive where the utility wants the ability to increase adsorbent dose during short contamination spikes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "routine chemical feeding and solids separation add operator burden compared with fixed-bed GAC",
+          "carbon sludge or spent slurry residuals are less convenient to manage than replaceable GAC media",
+          "inconsistent contact time or separation performance can reduce removal reliability"
+        ],
+        "evidence_list": [
+          "EPA_treatability_documents_on_activated_carbon_for_organic_chemicals",
+          "public_water_treatment_guidance_on_PAC_for_pesticide_control",
+          "conventional_drinking_water_case_knowledge_for_PAC_use_on_micropollutants"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "guard_filtration",
+          "synthetic_adsorptive_media",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "guard_filtration": "protect adsorption media from particulate loading",
+          "synthetic_adsorptive_media": "remove fenamiphos through adsorption onto engineered sorbent media",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "engineered adsorptive media can be technically suitable for hydrophobic organic micropollutants and may offer compact footprint",
+          "a packaged adsorber system can be simpler than membrane treatment if media replacement is straightforward",
+          "this route can be a plausible alternative where vendor-supported skid systems are available"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "site-specific performance data for fenamiphos may be less established than for GAC",
+          "media replacement frequency and spent-media disposal costs can be uncertain",
+          "procurement may depend on proprietary vendor support"
+        ],
+        "evidence_list": [
+          "public_case_knowledge_on_engineered_adsorbents_for_organic_micropollutants",
+          "drinking_water_adsorptive_media_guidance_for_trace_organic_removal",
+          "EPA_treatability_reference_for_adsorption_of_synthetic_organic_contaminants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect membranes from fouling and maintain stable operation",
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of fenamiphos and other dissolved contaminants",
+          "stabilization": "adjust permeate chemistry for corrosivity and finished-water stability",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "pressure membranes are technically capable and can provide a broad contaminant barrier beyond fenamiphos alone",
+          "this route may be favored if future source-water concerns expand to multiple dissolved contaminants requiring simultaneous control",
+          "rejection-based treatment can provide strong compliance margin when properly operated"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major mismatch with the residuals-management constraint",
+          "high-pressure systems increase energy use and operator skill requirements",
+          "scaling, fouling, and post-treatment stabilization add complexity beyond what the small utility prefers"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_synthetic_organic_contaminants",
+          "AWWA_membrane_practice_references_for_groundwater_drinking_water_treatment",
+          "public_guidance_on_brine_and_concentrate_management_challenges_for_small_systems"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "oxidant_dosing",
+          "advanced_oxidation_process",
+          "biologically_active_or_GAC_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidant_dosing": "condition water for radical generation",
+          "advanced_oxidation_process": "oxidatively transform fenamiphos and related organic molecules",
+          "biologically_active_or_GAC_polishing": "remove transformation products and provide polishing of residual organics",
+          "disinfection": "ensure finished-water microbial safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is technically conceivable for pesticide degradation and may be considered when destructive treatment is specifically desired",
+          "a polishing step would be needed because oxidation alone may not be sufficient for finished-water assurance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "process control is more complex than adsorption-based treatment",
+          "incomplete oxidation can create byproducts or require downstream polishing",
+          "the route is less aligned with low-complexity operation for a small groundwater system",
+          "performance certainty for fenamiphos at full scale may be less straightforward than conventional adsorption"
+        ],
+        "evidence_list": [
+          "EPA_and_water_research_guidance_on_AOP_for_organic_micropollutants",
+          "public_case_knowledge_on_need_for_polishing_after_oxidative_treatment_of_pesticides",
+          "drinking_water_practice_references_on_operational_complexity_of_AOP_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "GAC-based routes should rank at or near the top for fenamiphos in relatively clean groundwater",
+        "a flexible adsorptive alternative such as PAC or other adsorptive media should appear as plausible but not clearly superior to fixed-bed GAC under low-complexity constraints",
+        "NF_or_RO should rank below adsorption options because concentrate handling and operator burden are poor fits",
+        "AOP-based treatment may appear as technically capable but should rank low due to complexity and polishing needs"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small-system preference for simple and reliable operation",
+        "importance of minimizing residuals-management difficulty",
+        "need to balance compliance margin against both capital and operating costs",
+        "value of treatment trains that can tolerate moderate seasonal influent variation without intensive retuning"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why adsorption is suitable for pesticide-type organic contaminants in low-turbidity groundwater",
+        "why dual-bed or staged adsorption improves breakthrough protection",
+        "why membrane concentrate or regenerant waste is a disadvantage under the stated constraints",
+        "why technically capable oxidative or membrane options are downgraded despite removal potential"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "breakthrough risk and media replacement timing",
+        "competitive adsorption from background organic matter",
+        "spent media or sludge management",
+        "uncertainty around oxidation byproducts or membrane residuals handling"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

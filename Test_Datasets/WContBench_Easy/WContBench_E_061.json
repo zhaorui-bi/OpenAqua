@@ -1,0 +1,292 @@
+{
+  "case_id": "WContBench_E_061",
+  "case_name": "Proven treatment selection for As(3)-affected groundwater for municipal drinking water",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "arsenic"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for groundwater containing arsenic intended for drinking water under a clear preference for proven technologies.",
+  "input_data": {
+    "scenario_background": "A small town relies on groundwater wells and has identified As(3) as the main drinking water concern in the raw water. The utility wants a treatment train based on established municipal practice rather than novel or high-energy options. The groundwater also contains moderate iron, some silica, and alkalinity that may influence arsenic removal performance, so the selected process should be robust to matrix effects.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.6,
+      "temperature_C": 14.5,
+      "turbidity_NTU": 1.4,
+      "DOC_mg_L": 1.8,
+      "alkalinity_mg_L_as_CaCO3": 182,
+      "hardness_mg_L_as_CaCO3": 210,
+      "iron_mg_L": 0.85,
+      "manganese_mg_L": 0.04,
+      "sulfate_mg_L": 38,
+      "chloride_mg_L": 22,
+      "silica_mg_L_as_SiO2": 24,
+      "phosphate_mg_L_as_PO4": 0.12,
+      "arsenic_total_ug_L": 27,
+      "arsenic_dominant_species": "As(III)_dominant_with_minor_As(V)"
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably comply with drinking water arsenic limits and provide stable potable water quality.",
+      "secondary_goals": [
+        "favor well-established treatment practice",
+        "maintain straightforward operator control",
+        "avoid unnecessarily high energy demand",
+        "use a process tolerant of moderate groundwater matrix interference"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "utility can manage routine backwash solids and periodic spent media or sludge handling but prefers to avoid difficult concentrate disposal",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "consistent year-round operation with proven municipal equipment is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "oxidation",
+          "iron_based_adsorptive_media",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidation": "convert predominantly As(III) to the more readily removable As(V)",
+          "iron_based_adsorptive_media": "adsorb arsenic onto iron oxide surfaces using a proven fixed-bed approach",
+          "post_filtration": "retain fines and provide final particulate polishing",
+          "disinfection": "ensure microbiological safety in finished drinking water"
+        },
+        "applicability_rationale": [
+          "arsenic is the primary compliance contaminant and the case explicitly favors proven technology",
+          "As(III)-dominant groundwater benefits from oxidation ahead of arsenic removal",
+          "iron-based adsorptive media is a well-established municipal option for small to medium groundwater systems",
+          "moderate iron, low turbidity, and low DOC are generally compatible with adsorption-based arsenic control when pretreatment is managed",
+          "this train avoids the energy and residual complexity of high-pressure membranes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "incomplete oxidation of As(III) can sharply reduce media performance",
+          "silica and other competing species can shorten media run length",
+          "media exhaustion requires monitoring and timely replacement"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_arsenic_removal_with_adsorptive_media_in_groundwater",
+          "awwa_case_knowledge_on_preoxidation_for_AsIII_control",
+          "public_drinking_water_practice_for_iron_based_arsenic_adsorption"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "oxidation",
+          "coagulation_with_ferric",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidation": "oxidize As(III) to As(V) to improve removal by ferric solids",
+          "coagulation_with_ferric": "form iron hydroxide flocs that adsorb and coprecipitate arsenic",
+          "filtration": "remove ferric floc solids carrying adsorbed arsenic",
+          "disinfection": "provide microbiological protection for potable use"
+        },
+        "applicability_rationale": [
+          "ferric coagulation and filtration is one of the most established arsenic treatment approaches",
+          "the raw water already contains some iron and the chemistry is suitable for iron-based arsenic removal mechanisms",
+          "this route is robust and familiar to conventional water operators",
+          "it is strongly supported where a utility wants mainstream, well-documented practice"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "chemical dose and pH control are important for reliable arsenic capture",
+          "sludge production is higher than with fixed-bed adsorption",
+          "silica and alkalinity may require optimization to maintain removal margins"
+        ],
+        "evidence_list": [
+          "epa_treatment_technology_guidance_for_arsenic_using_iron_coagulation",
+          "conventional_groundwater_arsenic_removal_case_examples_with_ferric_filtration",
+          "who_drinking_water_background_on_arsenic_removal_by_coprecipitation"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "oxidation",
+          "aeration_or_contact_tank",
+          "iron_removal_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidation": "convert As(III) and ferrous iron to oxidized forms favorable for removal",
+          "aeration_or_contact_tank": "provide reaction time for iron oxidation and arsenic association with iron precipitates",
+          "iron_removal_filtration": "filter oxidized iron solids that can carry associated arsenic",
+          "disinfection": "ensure biological safety of distributed water"
+        },
+        "applicability_rationale": [
+          "the groundwater contains moderate natural iron that can assist arsenic removal after oxidation",
+          "this is a proven groundwater treatment concept when arsenic removal can be enhanced by iron precipitation",
+          "the train can be practical where the utility prefers simple pressure filtration over more chemical-intensive systems",
+          "it may offer good performance if pilot testing confirms sufficient arsenic capture with the available iron"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "natural iron may be insufficient to reliably meet low arsenic targets without supplemental ferric addition",
+          "performance depends on oxidation completeness and contact time",
+          "seasonal or well-to-well variability can reduce consistency"
+        ],
+        "evidence_list": [
+          "groundwater_arsenic_removal_guidance_using_oxidation_and_iron_filtration",
+          "public_case_knowledge_on_arsenic_coprecipitation_with_natural_iron",
+          "small_system_practice_for_pressure_filtration_after_preoxidation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "oxidation",
+          "anion_exchange",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidation": "convert arsenic to anionic As(V) species that are more amenable to exchange",
+          "anion_exchange": "remove arsenate through selective exchange on resin",
+          "post_filtration": "polish water and retain any resin fines or particulates",
+          "disinfection": "maintain microbiological quality for drinking water"
+        },
+        "applicability_rationale": [
+          "anion exchange can remove arsenate effectively under favorable groundwater chemistry",
+          "it remains a recognized established option, though less preferred here than iron-based approaches",
+          "the moderate sulfate level is not prohibitive but still creates competition",
+          "this is a viable alternative where operators are comfortable with resin management"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "As(III) must be oxidized effectively before exchange",
+          "competing sulfate and other anions can reduce resin capacity",
+          "brine or regenerant waste handling may be undesirable for the utility"
+        ],
+        "evidence_list": [
+          "epa_arsenic_treatment_options_including_anion_exchange",
+          "drinking_water_case_examples_for_arsenate_removal_by_ion_exchange",
+          "operator_guidance_on_resin_competition_and_regenerant_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis": "reject arsenic and a broad range of dissolved constituents through membrane separation",
+          "stabilization": "adjust permeate chemistry to produce non-corrosive finished water",
+          "disinfection": "provide microbiological protection before distribution"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically capable of reducing arsenic to low levels",
+          "it is generally considered when multiple dissolved contaminants require simultaneous removal",
+          "for this case it is not the natural first choice because arsenic is the primary issue and proven lower-energy options exist"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major disadvantage for a groundwater utility",
+          "higher energy and membrane maintenance burden conflict with the preference for straightforward proven treatment",
+          "post-treatment stabilization is necessary to avoid corrosive finished water"
+        ],
+        "evidence_list": [
+          "membrane_guidance_for_small_drinking_water_systems",
+          "epa_desalination_and_ro_case_knowledge_for_trace_contaminant_control",
+          "public_references_on_ro_concentrate_management_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "oxidation plus iron-based adsorptive media should rank first",
+        "oxidation plus ferric coagulation and filtration should rank near the top as a conventional proven alternative",
+        "high-pressure membrane treatment should rank last under this straightforward arsenic case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "proven technology preference should favor established adsorption or iron-based conventional treatment",
+        "moderate energy sensitivity should disfavor reverse osmosis as a leading option",
+        "residual management preference should avoid options with difficult concentrate disposal"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "the importance of oxidizing As(III) before removal",
+        "the role of iron-based adsorption or coprecipitation for arsenic control in groundwater",
+        "the influence of matrix effects such as silica, alkalinity, and competing ions on process selection",
+        "why membrane options are technically feasible but not preferred here"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "incomplete As(III) oxidation",
+        "competing ion or silica impacts on media or resin performance",
+        "sludge, spent media, brine, or concentrate management obligations"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

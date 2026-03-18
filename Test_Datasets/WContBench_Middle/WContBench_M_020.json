@@ -1,0 +1,310 @@
+{
+  "case_id": "WContBench_M_020",
+  "case_name": "Methomyl-contaminated groundwater for drinking water under high-recovery and concentrate-disposal constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Methomyl",
+      "Nitrate"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for methomyl- and nitrate-impacted groundwater intended for drinking water, balancing contaminant control against high recovery and limited concentrate handling capacity.",
+  "input_data": {
+    "scenario_background": "A drought-stressed agricultural town plans to expand use of a wellfield affected by pesticide leaching and fertilizer-derived nitrate. Methomyl removal is essential for potable use, but the utility also wants to reduce nitrate to comfortably below drinking-water limits. The town has a strong preference for high finished-water recovery because raw water availability is constrained, and it has no practical local option for managing large volumes of membrane concentrate or regenerant brine.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.4,
+      "turbidity_NTU": 0.5,
+      "DOC_mg_L": 1.6,
+      "TOC_mg_L": 2.1,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 230,
+      "conductivity_uS_cm": 760,
+      "temperature_C": 17.5,
+      "sulfate_mg_L": 68,
+      "chloride_mg_L": 54,
+      "nitrate_as_NO3_mg_L": 58,
+      "ammonia_as_N_mg_L": 0.08,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.03,
+      "target_contaminants": {
+        "Methomyl_ug_L": 18.0,
+        "Nitrate_as_NO3_mg_L": 58
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable methomyl removal and reduce nitrate to compliant drinking-water levels with stable operation.",
+      "secondary_goals": [
+        "maximize water recovery",
+        "avoid difficult concentrate or brine disposal",
+        "maintain manageable operator burden",
+        "provide robust performance under seasonal pesticide concentration changes"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "avoid_large_membrane_concentrate_streams_and_avoid_frequent_high-strength_brine_or_regenerant_waste",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system_should_tolerate_modest_variation_in_methomyl_loading_and_maintain_high_recovery"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "granular_activated_carbon",
+          "blending_with_low_nitrate_source",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect adsorption units from particulates and preserve headloss control",
+          "granular_activated_carbon": "adsorb methomyl and other trace synthetic organics from low-DOC groundwater",
+          "blending_with_low_nitrate_source": "reduce nitrate concentration to compliant finished-water levels without producing a reject stream",
+          "disinfection": "provide final microbial protection for potable supply"
+        },
+        "applicability_rationale": [
+          "Low-DOC groundwater is favorable for GAC treatment of trace organic contaminants such as carbamate pesticides because competition for adsorption sites is limited compared with higher-organic waters.",
+          "Blending is highly attractive here because nitrate is moderately elevated rather than extreme, and a high-recovery utility can avoid the water losses and residual streams associated with membrane or brine-regenerated nitrate removal.",
+          "This route directly addresses the central trade-off: strong methomyl control with essentially no concentrate production while preserving near-complete water recovery.",
+          "Operational complexity is comparatively low for a small utility, especially relative to biological denitrification or high-pressure membrane systems."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Success depends on sustained access to a low-nitrate blending source with compatible water chemistry and sufficient quantity.",
+          "Methomyl breakthrough on GAC will require monitoring and timely media replacement.",
+          "If nitrate in the contaminated well increases further, blending alone may become insufficient."
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_guidance_for_nitrate_compliance_and_blending_practice",
+          "public_case_knowledge_on_GAC_for_pesticide_removal_in_groundwater",
+          "AWWA_guidance_on_GAC_application_for_synthetic_organic_chemicals",
+          "small_system_practice_of_blending_to_manage_inorganic_contaminants_when_source_options_exist"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "granular_activated_carbon",
+          "fixed_bed_biological_denitrification",
+          "post_aeration_or_remineralization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect downstream media and biofilm-based units",
+          "granular_activated_carbon": "remove methomyl before biological nitrate treatment and reduce trace organic load",
+          "fixed_bed_biological_denitrification": "convert nitrate to nitrogen gas with minimal liquid reject generation",
+          "post_aeration_or_remineralization": "stabilize water quality and restore desired dissolved oxygen and finished-water characteristics",
+          "disinfection": "provide final microbial barrier"
+        },
+        "applicability_rationale": [
+          "This route can achieve both target contaminant objectives without the large concentrate stream associated with RO or nitrate ion exchange regeneration.",
+          "Biological denitrification aligns well with the high-recovery requirement because nitrate is removed destructively rather than concentrated into a waste brine.",
+          "Using GAC ahead of denitrification is a practical way to address methomyl while also providing some protection against biologically unstable trace-organic carryover.",
+          "It ranks below blending because the system is more operationally demanding, requires process control for electron donor and biological stability, and is less attractive for utilities seeking low-to-medium complexity."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Requires careful control of biological activity, nutrient balance, and possible carbon addition.",
+          "Potential for nitrite formation or incomplete denitrification if process control is poor.",
+          "Post-treatment and robust monitoring are needed to ensure biological stability and disinfectant compatibility."
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_biological_denitrification_for_drinking_water",
+          "public_engineering_references_on_fixed_bed_denitrification_for_groundwater",
+          "AWWA_case_knowledge_on_GAC_for_pesticides_and_BAC_related_processes",
+          "drinking_water_practice_references_for_post_treatment_after_biological_nitrate_removal"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "powdered_activated_carbon_or_GAC_contactor",
+          "anion_exchange_for_nitrate",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect adsorption and ion exchange equipment",
+          "powdered_activated_carbon_or_GAC_contactor": "remove methomyl through adsorption",
+          "anion_exchange_for_nitrate": "selectively remove nitrate to achieve drinking-water compliance",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "This is a technically strong and common treatment logic for the contaminant pair: adsorption for the pesticide and ion exchange for nitrate.",
+          "Nitrate-selective ion exchange can provide reliable compliance and a compact footprint, making it plausible where blending is not available.",
+          "It ranks below the top options because the concentrate-handling constraint is material: nitrate ion exchange creates regenerant brine that must be managed safely and repeatedly.",
+          "The process can still be reasonable if off-site brine management is feasible and the utility values compactness over residuals simplicity."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Regenerant brine disposal may be costly or logistically difficult for a small inland utility.",
+          "Competing anions such as sulfate can affect resin run length and operating economics.",
+          "Methomyl adsorption performance depends on media selection and EBCT, requiring pilot or design verification."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_nitrate_removal_using_ion_exchange",
+          "public_references_on_nitrate_selective_resin_performance_in_groundwater",
+          "AWWA_guidance_on_adsorptive_removal_of_pesticides_from_drinking_water",
+          "small_system_case_knowledge_on_brine_management_challenges_for_ion_exchange"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "control fouling and scaling to protect the membrane system",
+          "reverse_osmosis": "reject both methomyl and nitrate to produce high-quality permeate",
+          "stabilization": "adjust permeate chemistry for corrosion control and finished-water stability",
+          "disinfection": "provide final potable-water protection"
+        },
+        "applicability_rationale": [
+          "RO is technically capable of addressing both methomyl and nitrate in a single barrier process and would produce very high finished-water quality.",
+          "It is a plausible route when broad-spectrum contaminant removal is prioritized or when blending water is unavailable.",
+          "However, it ranks low because the case explicitly favors high water recovery and limited concentrate handling capacity, which are major weaknesses for RO.",
+          "Additional stabilization and higher operator attention further reduce fit relative to adsorption-plus-nonconcentrating nitrate strategies."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "Concentrate disposal is the dominant implementation challenge and may be prohibitive inland.",
+          "Recovery is constrained by scaling and concentrate management considerations.",
+          "Membrane fouling, cleaning requirements, and post-treatment needs increase O&M burden."
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_nitrate_and_other_dissolved_contaminants",
+          "AWWA_references_on_RO_for_groundwater_treatment",
+          "public_case_knowledge_on_RO_concentrate_management_constraints_for_inland_utilities",
+          "drinking_water_guidance_on_post_treatment_after_RO"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "advanced_oxidation_process",
+          "biological_active_filtration",
+          "nitrate_ion_exchange_or_membrane_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation_process": "oxidize methomyl and transform parent pesticide compounds",
+          "biological_active_filtration": "remove oxidation byproducts and provide polishing",
+          "nitrate_ion_exchange_or_membrane_polishing": "reduce nitrate to compliant levels",
+          "disinfection": "provide final microbial safety"
+        },
+        "applicability_rationale": [
+          "This route is technically conceivable for methomyl because carbamate pesticides can be susceptible to oxidation under suitable conditions.",
+          "It is ranked last because it combines relatively high process complexity with a separate downstream nitrate-removal step that still conflicts with the residuals constraints if ion exchange or membranes are used.",
+          "For this groundwater matrix, direct adsorption for methomyl is simpler and better aligned with the utility's recovery and residuals priorities.",
+          "AOP is more justifiable when oxidation is needed for a broader suite of organic micropollutants or taste-and-odor issues, which is not the main driver here."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Oxidation may create transformation products that require verification and polishing.",
+          "Nitrate is not destroyed by AOP, so a second dedicated nitrate-removal process remains necessary.",
+          "The combined train can become unnecessarily complex for a small groundwater system."
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_advanced_oxidation_for_organic_micropollutants_in_drinking_water",
+          "public_references_on_pesticide_oxidation_and_byproduct_considerations",
+          "AWWA_case_knowledge_on_need_for_post_biological_or_adsorptive_polishing_after_AOP",
+          "nitrate_treatment_guidance_showing_AOP_is_not_a_primary_nitrate_removal_technology"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "GAC-based methomyl control should rank near the top because groundwater DOC is low and adsorption is operationally simpler than oxidation or membranes",
+        "approaches that avoid large reject streams should outrank membrane-heavy options under the high-water-recovery and concentrate-handling constraints",
+        "RO may appear as a technically capable option but should not rank first because concentrate disposal and recovery penalties are central constraints",
+        "nitrate ion exchange should appear as a plausible alternative but be downgraded by brine residuals considerations"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the utility places strong value on high finished-water recovery",
+        "limited practical capacity exists for membrane concentrate or regenerant brine management",
+        "the ranking must balance methomyl removal and nitrate compliance rather than focusing on methomyl alone",
+        "moderate operator burden is preferred over biologically or chemically intensive treatment where possible"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why low-DOC groundwater supports adsorptive removal of methomyl",
+        "why blending can be attractive for nitrate when a low-nitrate source exists and recovery is critical",
+        "why biological denitrification is favored over concentrate-producing processes under residual constraints despite greater complexity",
+        "why RO is downgraded even though it can remove both contaminants effectively"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "methomyl breakthrough or media replacement needs",
+        "dependence on blending source reliability and compatibility",
+        "brine or concentrate disposal burden",
+        "biological denitrification control risks such as nitrite formation or biological instability"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

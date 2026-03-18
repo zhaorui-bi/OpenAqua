@@ -1,0 +1,311 @@
+{
+  "case_id": "WContBench_M_036",
+  "case_name": "Balancing high-recovery potable reuse treatment for brackish groundwater contaminated with Furadan, Diuron, and RDX",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Carbofuran",
+      "Diuron",
+      "Cyclonite (RDX)"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing Carbofuran, Diuron, and RDX intended for potable reuse, while balancing contaminant removal, high water recovery, and limited concentrate handling options.",
+  "input_data": {
+    "scenario_background": "A drought-stressed inland utility is considering a brackish groundwater source affected by legacy agricultural chemicals and munitions-related compounds, including Furadan, Diuron, and RDX, for augmentation of a potable reuse supply. The source salinity is high enough that some desalting or salinity management may be needed, but the utility has very limited options for managing membrane concentrate because deep-well injection is restricted and hauling costs are high. The central trade-off is that high-rejection membrane systems are technically capable for both salinity and micropollutant control, yet they conflict with the requirement for high water recovery and minimal concentrate generation. The utility can accept moderate process complexity, but wants the best overall balance between reliable potable reuse performance, recovery, and residuals practicality.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "turbidity_NTU": 1.1,
+      "DOC_mg_L": 2.9,
+      "TOC_mg_L": 3.4,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 310,
+      "conductivity_uS_cm": 3450,
+      "TDS_mg_L": 2180,
+      "chloride_mg_L": 720,
+      "sulfate_mg_L": 285,
+      "nitrate_as_N_mg_L": 4.2,
+      "silica_mg_L": 18,
+      "bromide_mg_L": 0.42,
+      "ammonia_as_N_mg_L": 0.12,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "target_contaminants": {
+        "Carbofuran_ug_L": 8.7,
+        "Diuron_ug_L": 3.9,
+        "Cyclonite_RDX_ug_L": 6.4
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should be suitable for potable reuse applications with robust control of Carbofuran, Diuron, and RDX and with salinity managed to a level compatible with finished water blending and distribution.",
+      "secondary_goals": [
+        "maximize water recovery",
+        "minimize difficult concentrate generation",
+        "maintain stable micropollutant removal despite moderate source variability",
+        "avoid excessive operator burden"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "strong preference to avoid large membrane concentrate volumes because inland concentrate disposal is difficult and expensive",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must tolerate moderate seasonal variation in salinity and trace organics while maintaining potable reuse reliability"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "oxidant_quench_and_guard_filtration",
+          "biological_activated_carbon",
+          "granular_activated_carbon_polishing",
+          "uv_advanced_oxidation",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidant_quench_and_guard_filtration": "protect downstream adsorptive and UV units by removing particulates and controlling oxidant carryover",
+          "biological_activated_carbon": "reduce biodegradable organics and provide partial adsorption and biologically assisted removal of trace organics",
+          "granular_activated_carbon_polishing": "adsorb Carbofuran and Diuron and provide polishing for RDX and other trace organics",
+          "uv_advanced_oxidation": "provide additional destruction barrier for micropollutants that are less reliably controlled by adsorption alone",
+          "final_stabilization_and_disinfection": "adjust finished water chemistry and provide final pathogen control for potable reuse"
+        },
+        "applicability_rationale": [
+          "This route avoids creation of a large saline concentrate stream, which is a major advantage for an inland brackish groundwater project with disposal constraints.",
+          "Activated carbon is a plausible primary barrier for hydrophobic or moderately adsorbable pesticides such as Carbofuran and Diuron, while UV-AOP adds a non-concentrating polishing barrier for trace organics including RDX.",
+          "The train supports very high water recovery because nearly all feed water remains in the product stream except minor backwash and waste losses.",
+          "Although this approach does not desalinate as strongly as RO, the stated goal allows salinity management to be achieved through compatibility with blending and distribution rather than full desalting, making a non-membrane train more aligned with the constraints.",
+          "A multi-barrier adsorptive plus oxidative approach is well matched to potable reuse style reliability expectations without incurring the concentrate penalty of membrane desalting."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Finished salinity reduction will be limited compared with RO, so downstream blending or distribution compatibility must be verified.",
+          "GAC performance for RDX may be less robust than for more strongly adsorbing pesticides, so EBCT and changeout planning are important.",
+          "UV-AOP performance depends on UV transmittance and oxidant dose control, and bromate formation risk should be checked if ozone-based alternatives are considered."
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_GAC_and_AOP_as_multi_barrier_control_for_trace_organic_contaminants",
+          "public_reuse_practice_for_using_adsorption_plus_UV_AOP_for_micropollutant_barriers",
+          "case_knowledge_on_RDX_and_pesticide_polishing_with_activated_carbon_and_advanced_oxidation"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "media_filtration",
+          "nanofiltration_high_recovery",
+          "granular_activated_carbon_polishing",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "remove suspended solids and protect membranes",
+          "nanofiltration_high_recovery": "partially reduce salinity and reject a substantial fraction of organic micropollutants at lower pressure than RO",
+          "granular_activated_carbon_polishing": "capture residual Carbofuran, Diuron, and RDX that pass the membrane and provide compliance buffering",
+          "uv_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "Nanofiltration offers a compromise between desalting and concentrate burden, making it a plausible middle-ground option for brackish groundwater when some salinity reduction is needed but RO concentrate is problematic.",
+          "Compared with RO, NF can often operate at somewhat lower pressure and potentially somewhat higher practical recovery depending on scaling control, improving energy and recovery fit.",
+          "GAC polishing addresses uncertainty in rejection of small neutral organics and provides a more robust potable reuse barrier strategy.",
+          "This route is attractive if the utility determines that salinity must be reduced more than a non-membrane train can provide."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "A concentrate stream is still generated and may remain difficult to manage inland.",
+          "Rejection of specific neutral micropollutants can vary by membrane selection and water chemistry, so pilot testing is needed.",
+          "Recovery may be constrained by scaling from hardness and sulfate unless antiscalant or pH adjustment is carefully managed."
+        ],
+        "evidence_list": [
+          "public_guidance_on_nanofiltration_for_brackish_water_and_trace_organic_control",
+          "reuse_engineering_practice_for_membrane_plus_GAC_multi_barrier_design",
+          "desalination_case_knowledge_on_recovery_scaling_tradeoffs_in_brackish_groundwater_NF"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "guard_filtration",
+          "granular_activated_carbon_dual_stage",
+          "anion_exchange_or_specialty_resin_polishing",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "guard_filtration": "protect downstream adsorptive media from particulate fouling",
+          "granular_activated_carbon_dual_stage": "provide staged adsorption for Carbofuran and Diuron and delay breakthrough",
+          "anion_exchange_or_specialty_resin_polishing": "polish residual trace organics that are less consistently removed by carbon alone",
+          "uv_disinfection": "provide final pathogen inactivation"
+        },
+        "applicability_rationale": [
+          "This is a high-recovery, no-concentrate approach that aligns strongly with the residuals constraint.",
+          "A staged adsorptive system can be effective for many pesticides and some nitramine compounds, and the polishing stage improves robustness versus GAC alone.",
+          "The configuration is simpler than full desalting membrane trains and avoids saline brine management.",
+          "It ranks below the GAC plus UV-AOP option because the source is brackish and because resin selectivity for this mixed contaminant set is less broadly established than membrane or oxidation barriers."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "Salinity remains largely unchanged, which may limit applicability if blending capacity is insufficient.",
+          "Specialty resin effectiveness for the full Furadan, Diuron, and RDX mixture can be site-specific and may require pilot testing.",
+          "Spent media and resin replacement logistics still require management even though saline concentrate is avoided."
+        ],
+        "evidence_list": [
+          "public_guidance_on_GAC_for_pesticide_removal_in_groundwater",
+          "engineering_case_knowledge_on_adsorptive_polishing_for_trace_organics",
+          "potable_reuse_practice_emphasizing_multi_barrier_nonconcentrating_treatment_where_brine_disposal_is_limited"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_and_antiscalant",
+          "reverse_osmosis_high_recovery_design",
+          "uv_advanced_oxidation_on_permeate",
+          "stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_and_antiscalant": "control fouling and scaling before membrane desalting",
+          "reverse_osmosis_high_recovery_design": "provide strong salinity reduction and high rejection of many dissolved contaminants",
+          "uv_advanced_oxidation_on_permeate": "polish any residual low-level organics and add a potable reuse compatible advanced barrier",
+          "stabilization_and_disinfection": "condition permeate chemistry and provide final disinfection"
+        },
+        "applicability_rationale": [
+          "RO is technically the strongest single step for reducing brackish groundwater salinity and can provide strong rejection for many micropollutants, so it is a credible option from a pure water quality perspective.",
+          "The addition of UV-AOP on permeate is consistent with potable reuse style redundancy and addresses concern about any residual trace organics.",
+          "However, this route is ranked lower because the case places strong emphasis on high water recovery and constrained concentrate handling, which are direct weaknesses of RO in inland applications.",
+          "Even with high-recovery design, the remaining concentrate is more saline and more difficult to dispose of than the residuals from adsorptive or oxidative systems."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "Concentrate disposal may become the project-limiting issue.",
+          "Recovery is bounded by scaling and concentrate osmotic pressure, so very high recovery targets may not be achievable without added complexity.",
+          "Pretreatment, membrane cleaning, and skilled operations increase lifecycle burden."
+        ],
+        "evidence_list": [
+          "EPA_and_reuse_guidance_on_reverse_osmosis_for_brackish_and_reuse_applications",
+          "public_desalination_references_on_inland_brine_management_constraints",
+          "case_knowledge_showing_RO_is_technically_effective_but_penalized_by_concentrate_handling"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ozonation_or_uv_hydrogen_peroxide",
+          "biological_filtration",
+          "cartridge_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ozonation_or_uv_hydrogen_peroxide": "oxidize trace organic contaminants",
+          "biological_filtration": "remove oxidation byproducts and biodegradable organic matter",
+          "cartridge_filtration": "provide final particulate polishing",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "An oxidation-centered route is included because it can avoid saline concentrate generation and can transform several organic micropollutants.",
+          "It may be considered where the utility prioritizes destruction over phase transfer and wants compact equipment.",
+          "Despite those advantages, it ranks lowest because treatment reliability for this mixed contaminant set can be highly compound-specific and because oxidation alone does not address brackish salinity.",
+          "For potable reuse, this train would generally need more site-specific validation than the higher-ranked multi-barrier adsorptive or membrane-containing alternatives."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Removal of all target compounds may be incomplete or kinetics-limited under practical doses.",
+          "Transformation products must be evaluated, especially for potable reuse acceptance.",
+          "No meaningful desalting is provided, so the route may fail broader finished water compatibility needs."
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants",
+          "reuse_practice_noting_need_to_assess_transformation_products_after_oxidation",
+          "case_knowledge_on_limitations_of_oxidation_only_trains_for_brackish_groundwater_reuse"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "high-recovery non-membrane or hybrid low-concentrate routes should rank near the top",
+        "nanofiltration may appear as a compromise option when some desalting is needed",
+        "reverse_osmosis should not rank first because concentrate handling is strongly constrained despite strong technical capability",
+        "at least one technically capable option should rank lower due to poor fit with recovery and residuals constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the tension between micropollutant control and salinity management for brackish groundwater",
+        "the importance of maximizing water recovery for a drought-stressed utility",
+        "the penalty associated with inland concentrate disposal difficulty",
+        "the need for potable reuse style multi-barrier reliability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why adsorption and UV-AOP can be attractive because they avoid large saline concentrate streams",
+        "why some membrane desalting remains plausible because the source is brackish",
+        "why RO is downgraded even though it is technically strong",
+        "why salinity compatibility or blending considerations matter for non-membrane routes"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "concentrate disposal burden",
+        "breakthrough or media replacement planning for adsorptive systems",
+        "compound-specific uncertainty for RDX and mixed pesticide removal",
+        "scaling and recovery limitations in brackish membrane treatment",
+        "possible oxidation byproducts or transformation products"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

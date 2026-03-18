@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_M_073",
+  "case_name": "Remote surface-water supply with pesticide removal under pilot-only and capital limits",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Propoxur",
+      "Tebufenozide"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible drinking-water treatment process chains for pesticide-impacted surface water that best balances removal performance, pilotability, capital limits, remote operation, and residuals management.",
+  "input_data": {
+    "scenario_background": "A remote mountain town relies on a small river intake that receives seasonal agricultural runoff from upstream orchards and mixed-use land. Recent pilot monitoring found propoxur and tebufenozide in the raw water together with moderate natural organic matter and periodic turbidity spikes during storms. The utility has funding only for a modest pilot-to-deployment pathway, limited access to specialist technicians, and high hauling costs for difficult residuals, so the preferred solution must balance pesticide control with simple operation and realistic long-term support.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 16.4,
+      "turbidity_NTU": 8.7,
+      "DOC_mg_L": 5.9,
+      "TOC_mg_L": 6.8,
+      "UV254_cm_1": 0.142,
+      "alkalinity_mg_L_as_CaCO3": 88,
+      "hardness_mg_L_as_CaCO3": 104,
+      "conductivity_uS_cm": 312,
+      "ammonia_mg_L_as_N": 0.09,
+      "nitrate_mg_L_as_N": 1.8,
+      "sulfate_mg_L": 24,
+      "chloride_mg_L": 18,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.03,
+      "color_PCU": 18,
+      "algae_cells_mL": 2400,
+      "geosmin_ng_L": 9,
+      "target_contaminants": {
+        "Propoxur_ug_L": 1.9,
+        "Tebufenozide_ug_L": 0.74
+      },
+      "co_contaminants": {
+        "atrazine_ug_L": 0.21,
+        "2_4_D_ug_L": 0.16,
+        "microcystin_LR_ug_L": 0.38
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably achieve potable-water quality with strong reduction of detected pesticides and co-contaminants while maintaining stable compliance during seasonal source-water variability.",
+      "secondary_goals": [
+        "limit specialized operator attention in a remote location",
+        "avoid residual streams that are difficult to transport or dispose",
+        "use treatment steps that can be piloted at small scale before full commitment",
+        "retain robustness during episodic turbidity and organic matter increases"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer residuals compatible with standard backwash sludge handling or periodic media changeout; avoid continuous hazardous concentrate generation",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment must tolerate seasonal runoff events, moderate NOM competition, and be practical for phased pilot-to-full-scale implementation in a remote community"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_seasonal_dosing",
+          "granular_activated_carbon_biologically_active_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity, algae, and a portion of natural organic matter to protect downstream adsorption",
+          "dual_media_filtration": "remove remaining particulates and stabilize filtered water quality",
+          "powdered_activated_carbon_seasonal_dosing": "provide flexible adsorption of episodic pesticides, taste and odor compounds, and cyanotoxin co-contaminants during peaks",
+          "granular_activated_carbon_biologically_active_polishing": "polish residual pesticides and dissolved organics while buffering breakthrough risk",
+          "disinfection": "provide final microbial protection for potable supply"
+        },
+        "applicability_rationale": [
+          "surface water with moderate DOC and storm-driven turbidity benefits from conventional clarification ahead of adsorption so carbon capacity is not wasted on particulates and excess organic matter",
+          "a PAC plus GAC approach balances seasonal flexibility and more stable polishing for propoxur and tebufenozide, both of which are generally amenable to activated carbon adsorption",
+          "this train can be piloted stepwise using portable PAC feed and lead-lag GAC vessels before larger capital commitment",
+          "the route fits remote operation better than high-pressure membrane systems because it avoids concentrate handling and very high energy dependence",
+          "co-contaminants such as geosmin and low-level microcystin increase the value of activated carbon beyond just the two primary pesticides"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "moderate NOM can shorten activated carbon life and requires monitoring of bed breakthrough",
+          "PAC handling and dust control still require operator training",
+          "performance during extreme runoff events depends on maintaining effective coagulation and filter operation"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_conventional_treatment_and_activated_carbon_for_synthetic_organic_chemicals",
+          "WHO_drinking_water_guidance_on_pesticides_and_activated_carbon_applications",
+          "AWWA_case_knowledge_for_PAC_and_GAC_use_in_surface_water_taste_odor_and_micropollutant_control",
+          "public_case_knowledge_on_GAC_polishing_after_clarification_for_pesticide_affected_surface_water"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon_lead_lag",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and reduce organic loading",
+          "dual_media_filtration": "produce low-turbidity water for adsorption treatment",
+          "granular_activated_carbon_lead_lag": "adsorb pesticides and provide operational redundancy by using a staged carbon arrangement",
+          "disinfection": "ensure microbiological safety in finished water"
+        },
+        "applicability_rationale": [
+          "lead-lag GAC is a strong and relatively simple route for hydrophobic to moderately adsorbable pesticides in clarified surface water",
+          "it is easier to operate remotely than membrane or ozone-based advanced processes",
+          "the staged bed arrangement improves compliance confidence and allows practical media change scheduling",
+          "compared with adding PAC, this route reduces daily chemical handling and may suit a remote utility with fewer operators"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "without PAC, short-term contaminant spikes may push more load onto GAC and reduce run length",
+          "higher DOC periods can accelerate breakthrough and require frequent monitoring",
+          "less flexible than PAC-assisted operation when seasonal runoff is highly episodic"
+        ],
+        "evidence_list": [
+          "EPA_small_system_guidance_for_GAC_on_synthetic_organic_chemicals",
+          "public_engineering_guidance_for_lead_lag_GAC_operation_in_drinking_water",
+          "case_knowledge_on_GAC_for_agricultural_pesticide_control_in_surface_waters"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulates and reduce ozone demand from raw surface water",
+          "dual_media_filtration": "provide low-turbidity water to improve downstream oxidation performance",
+          "ozonation": "oxidize susceptible organic micropollutants and help with taste and odor control",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and polish residual organics",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "ozone followed by biofiltration is technically plausible for broad micropollutant management and can also assist with geosmin control",
+          "this route may be attractive where the utility wants multi-benefit treatment for organics and aesthetic episodes beyond only pesticide adsorption",
+          "pre-clarification is appropriate because raw surface water turbidity and DOC would otherwise raise oxidant demand and reduce process stability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation effectiveness for specific pesticides can be compound-dependent and may be less straightforward to validate than adsorption",
+          "remote operation is challenged by ozone generation equipment, process control, and maintenance demands",
+          "bromate formation risk must be assessed if bromide is present even at low levels"
+        ],
+        "evidence_list": [
+          "EPA_ozonation_and_biofiltration_guidance_for_drinking_water_micropollutants",
+          "WHO_guidance_on_ozone_use_and_byproduct_control_in_drinking_water",
+          "public_case_knowledge_on_ozone_BAF_for_taste_odor_and_selected_organic_contaminants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "enhanced_coagulation",
+          "ultrafiltration",
+          "nanofiltration",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "lower fouling load and organic matter prior to membranes",
+          "ultrafiltration": "remove fine particles and provide reliable pretreatment protection",
+          "nanofiltration": "reject a broad range of organic micropollutants including pesticides",
+          "stabilization": "adjust treated water chemistry after membrane treatment",
+          "disinfection": "ensure final potable water safety"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of strong pesticide reduction and can provide a robust barrier for multiple co-contaminants",
+          "this option may be favored where very stringent future contaminant uncertainty drives preference for physical separation",
+          "it offers compact process units that can be skid-mounted for pilot work"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is difficult and expensive in a remote location",
+          "capital and power demand are misaligned with the town's budget and energy sensitivity",
+          "membrane fouling control and specialist maintenance needs exceed the preferred operating complexity"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_processes_for_synthetic_organic_chemical_removal",
+          "AWWA_public_references_on_NF_for_micropollutant_control_and_concentrate_management",
+          "case_knowledge_showing_membrane_routes_are_often_downgraded_for_remote_small_systems_due_to_brine_handling"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove turbidity and reduce UV-absorbing load ahead of oxidation",
+          "dual_media_filtration": "protect UV system by producing low-turbidity water",
+          "advanced_oxidation_uv_hydrogen_peroxide": "generate hydroxyl radicals for oxidation of susceptible organic contaminants",
+          "disinfection": "provide final pathogen protection"
+        },
+        "applicability_rationale": [
+          "UV-based advanced oxidation is included as a technically possible but generally less aligned option for this pesticide-dominated remote surface-water case",
+          "it can be considered if pilot tests show strong transformation of the target compounds and if the utility also values a high-intensity oxidation barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "moderate UV254 and DOC increase oxidant demand and reduce treatment economy",
+          "compound-specific performance may be uncertain compared with adsorption and requires careful pilot validation",
+          "chemical supply logistics for hydrogen peroxide and UV equipment maintenance are unfavorable in a remote setting",
+          "oxidation byproducts or incomplete transformation products may require additional evaluation"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_advanced_oxidation_processes_for_drinking_water",
+          "public_references_on_UV_H2O2_limitations_in_higher_NOM_waters",
+          "case_knowledge_that_AOP_is_not_usually_first_choice_when_activated_carbon_can_meet_pesticide_control_with_lower_complexity"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_routes_should_rank near_the_top_for_propoxur_and_tebufenozide_control",
+        "conventional_pretreatment_should_be_recognized_as_important_for_surface_water_with_turbidity_and_NOM",
+        "membrane_rejection_should_appear_as_technically_capable_but_not_rank_first_under_remote_and_capital_constraints",
+        "at_least_one_oxidation_based_option_should_rank_below_adsorption_due_to_operational_and_compound_specific_uncertainty"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot_only_scale_requires_processes_that_can_be_tested_incrementally",
+        "capital_constraint_pushes_against_high_pressure_or_high_instrumentation_systems",
+        "remote_location_favors_lower_operator_burden_and_avoids_difficult_concentrate_or_complex_chemical_supply_chains"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_moderate_DOC_and_turbidity_in_surface_water_support_using_clarification_before_adsorption_or_oxidation",
+        "why_activated_carbon_is_a_practical_choice_for_pesticide_and_co_contaminant_control",
+        "why_membrane_and_high_intensity_oxidation_options_are_downgraded_despite_technical_capability",
+        "why_seasonal_runoff_variability_matters_for_flexible_or_buffered_process_design"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon_breakthrough_and_NOM_competition",
+        "storm_event_variability_and_treatment_upsets",
+        "concentrate_or_spent_media_management",
+        "oxidation_byproduct_or_transformation_product_uncertainty"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "case_id": "WContBench_D_082",
+  "case_name": "Stormwater polishing for uncertain mixed legacy and emerging contaminants before sensitive receiving-water discharge",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Tetrachloroethylene",
+      "Methyl tert-butyl ether",
+      "Cylindrospermopsin",
+      "Propoxur",
+      "Lithium"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for variable stormwater runoff containing mixed VOCs, pesticide, cyanotoxin, and poorly characterized emerging contaminants prior to environmental discharge.",
+  "input_data": {
+    "scenario_background": "A municipality is evaluating treatment for urban stormwater captured from a drainage basin receiving highway runoff, light industrial area wash-off, landscaped commercial zones, and episodic inflow from a lake-edge pump station during bloom season. Monitoring has confirmed tetrachloroethylene, MTBE, propoxur, cylindrospermopsin, and lithium, but event-based sampling is sparse and first-flush peaks are poorly defined; additional fuel-related organics and algal metabolites are suspected but not fully characterised. Flow and quality vary sharply between dry-weather base flow, small rain events, and intense storms, creating uncertainty about the sizing and resilience of advanced treatment. The discharge point is a sensitive urban stream with seasonal low dilution, so the city wants a robust but not excessively energy-intensive treatment train.",
+    "water_quality": {
+      "source_type": "stormwater_runoff",
+      "pH": 7.4,
+      "turbidity_NTU": 76,
+      "TSS_mg_L": 112,
+      "COD_mg_L": 68,
+      "BOD5_mg_L": 16,
+      "TOC_mg_L": 14.8,
+      "conductivity_uS_cm": 920,
+      "TDS_mg_L": 560,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 146,
+      "oil_and_grease_mg_L": 4.2,
+      "nitrate_mg_L_as_N": 2.6,
+      "ammonia_mg_L_as_N": 0.48,
+      "total_phosphorus_mg_L": 0.31,
+      "DOC_mg_L": 9.6,
+      "tetrachloroethylene_ug_L": 18.0,
+      "methyl_tert_butyl_ether_ug_L": 63.0,
+      "cylindrospermopsin_ug_L": 1.1,
+      "propoxur_ug_L": 0.72,
+      "lithium_ug_L": 148.0,
+      "microbial_indicator_E_coli_CFU_100mL": 2800,
+      "trace_contaminant_note": "fuel_related_VOCs_and_algal_metabolites_suspected_but_not_fully_characterized; event_mean_concentrations_uncertain_due_to_sparse_sampling",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Treated discharge should reliably reduce suspended solids, pathogen indicators, cyanotoxin risk, pesticides, and volatile/semi-volatile organics to support protective discharge to a sensitive receiving stream, while recognizing that lithium removal may be limited without high-energy desalination.",
+      "secondary_goals": [
+        "maintain performance under first_flush contaminant spikes and wet_weather flow swings",
+        "avoid overcommitting to energy-intensive desalination unless clearly justified",
+        "provide a barrier for partially characterised emerging contaminants",
+        "minimize residuals and spent media handling burdens",
+        "explicitly flag uncertainty where contaminant treatability depends on speciation or event timing"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "sediment_and_spent_carbon_handling_available_but_brine_management_is_highly_constrained_and_not_preferred",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_storm_driven_hydraulic_and_quality_variability"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "flow_equalization_and_offline_storage",
+          "hydrodynamic_separation_and_sedimentation",
+          "coagulation_flocculation",
+          "dual_media_filtration",
+          "ozonation_or_UV_advanced_oxidation",
+          "biologically_active_carbon",
+          "final_UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization_and_offline_storage": "buffer first_flush peaks and dampen hydraulic variability so downstream units can operate more consistently",
+          "hydrodynamic_separation_and_sedimentation": "remove grit, settleable solids, and particle-associated contaminant load typical of stormwater",
+          "coagulation_flocculation": "reduce turbidity, colloids, cyanotoxin-bearing cells or organic matter, and improve filtration and oxidation performance",
+          "dual_media_filtration": "polish suspended solids and lower particle breakthrough before advanced polishing",
+          "ozonation_or_UV_advanced_oxidation": "degrade cylindrospermopsin and help oxidize propoxur and some dissolved organic micropollutants",
+          "biologically_active_carbon": "adsorb and biologically polish residual organics including MTBE and some oxidation byproducts while adding resilience for partially characterised contaminants",
+          "final_UV_disinfection": "reduce microbial indicator risk prior to discharge"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the contaminant set spans particulates, VOC-like compounds, pesticide, cyanotoxin, and uncertain emerging constituents",
+          "equalization is especially important for stormwater because first-flush spikes and storm hydrographs can otherwise overwhelm oxidation and adsorption stages",
+          "advanced oxidation is well aligned with cyanotoxin control and can provide a hedge against incompletely characterised dissolved organics",
+          "BAC after oxidation provides both adsorption and biodegradation capacity, which is useful for MTBE and for polishing oxidation transformation products",
+          "this option avoids full desalination, making it more realistic than RO for environmental discharge while still addressing most higher-priority risks"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "lithium will likely remain only minimally affected; if a numeric lithium discharge limit is later imposed, this train may become insufficient",
+          "PCE and MTBE removal through oxidation and BAC is sensitive to dose, contact time, and actual event concentrations, so pilot verification is advisable",
+          "ozonation can form bromate or aldehydes if source chemistry is unfavorable, requiring monitoring and optimization",
+          "uncertainty remains because some suspected fuel-related compounds and algal metabolites are not fully characterised",
+          "performance may deteriorate during very high turbidity storm events if pretreatment and storage are undersized"
+        ],
+        "evidence_list": [
+          "EPA_stormwater_best_management_and_treatment_guidance_for_variable_runoff",
+          "WHO_and_state_guidance_on_cyanotoxin_control_with_oxidation_and_adsorption",
+          "AWWA_case_knowledge_for_BAC_polishing_of_taste_odor_and_trace_organics",
+          "EPA_guidance_for_UV_and_advanced_oxidation_use_in_trace_organic_control",
+          "Montana_DPHHS_emerging_contaminants_monitoring_case_highlighting_need_to_track_PFAS_lithium_and_1_4_dioxane_like_uncharacterized_co_contaminants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "flow_equalization_and_offline_storage",
+          "screening_and_sedimentation",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "air_stripping_or_packed_tower_aeration",
+          "final_UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization_and_offline_storage": "buffer event flow and concentration swings",
+          "screening_and_sedimentation": "remove debris and coarse solids prior to membranes and adsorption",
+          "ultrafiltration": "provide strong solids and microbial barrier and protect downstream carbon",
+          "granular_activated_carbon": "adsorb propoxur, some cylindrospermopsin, and a broad range of hydrophobic or partially known organics",
+          "air_stripping_or_packed_tower_aeration": "remove volatile compounds such as tetrachloroethylene and can also reduce MTBE to a degree depending on design",
+          "final_UV_disinfection": "polish microbial risk before discharge"
+        },
+        "applicability_rationale": [
+          "this train separates particulate control from dissolved contaminant control and is practical when oxidation byproduct concerns or ozone complexity are undesirable",
+          "air stripping is a recognized option for volatile chlorinated solvents and can complement GAC where VOCs are a concern",
+          "UF provides a reliable barrier for variable turbidity stormwater and protects GAC from rapid fouling",
+          "GAC offers a broad-spectrum hedge for uncertain organic micropollutants in partially characterised runoff"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MTBE is less amenable to air stripping and GAC than many chlorinated solvents, so removal may be inconsistent unless EBCT and air-water ratio are carefully designed",
+          "dissolved cylindrospermopsin destruction is less certain than in the oxidation-based option, especially after toxin release from lysed cells",
+          "UF fouling risk increases during high-solids storm events unless sedimentation is effective",
+          "lithium removal is negligible",
+          "off-gas treatment may be needed if stripped VOC emissions become a permitting issue"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_water",
+          "AWWA_guidance_for_GAC_application_to_pesticides_and_trace_organics",
+          "EPA_membrane_filtration_guidance_for_turbid_source_waters",
+          "public_health_guidance_for_cyanotoxin_management_noting_importance_of_dissolved_toxin_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "flow_equalization_and_offline_storage",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "GAC_or_BAC_post_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization_and_offline_storage": "stabilize highly variable storm inflow",
+          "coagulation_flocculation_and_clarification": "remove colloids and lower membrane fouling load",
+          "ultrafiltration": "provide solids barrier and membrane pretreatment",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "remove a broad spectrum of dissolved contaminants and provide the only credible pathway among listed options for meaningful lithium reduction",
+          "GAC_or_BAC_post_polishing": "polish residual organics and improve discharge quality",
+          "final_disinfection": "manage microbial risk"
+        },
+        "applicability_rationale": [
+          "this option is attractive only if regulators or local receiving-water conditions require aggressive control of dissolved micropollutants including lithium",
+          "pressure membranes offer broader dissolved contaminant removal than adsorption or oxidation alone",
+          "the train is technically robust for uncertainty in unknown dissolved contaminants because it adds a physical separation barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine or concentrate management is a major obstacle and conflicts with stated site constraints",
+          "stormwater salinity is only moderate, so desalination may be disproportionate for environmental discharge unless lithium becomes a decisive driver",
+          "membrane fouling and variable recovery under storm-driven solids and NOM loads can complicate operations",
+          "capital and operator skill requirements are high relative to municipal stormwater programs",
+          "recommendation carries a strong uncertainty flag because actual lithium removal need is not yet clearly established by permit language"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_dissolved_contaminant_control",
+          "public_case_knowledge_on_RO_NF_use_for_trace_inorganics_and_difficult_micropollutants",
+          "Montana_DPHHS_emerging_contaminants_monitoring_case_showing_lithium_as_an_emerging_monitoring_target_requiring_better_characterization"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "constructed_wetland_or_biofiltration_basin",
+          "sand_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "constructed_wetland_or_biofiltration_basin": "provide flow attenuation, particulate settling, and partial biological treatment in a nature-based stormwater system",
+          "sand_filtration": "polish solids and reduce turbidity",
+          "granular_activated_carbon": "adsorb residual organics and some pesticides or cyanotoxin",
+          "UV_disinfection": "reduce microbial indicator organisms"
+        },
+        "applicability_rationale": [
+          "nature-based pretreatment can be attractive for municipal stormwater where energy use and visible green infrastructure co-benefits matter",
+          "the chain can reduce solids and some organic load before discharge with relatively low energy demand",
+          "included as a moderate but not top-ranked option because it aligns with stormwater practice yet may not reliably control all target dissolved contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "removal of PCE, MTBE, and dissolved cylindrospermopsin is uncertain and event-dependent",
+          "seasonal temperature and biological variability can reduce treatment consistency",
+          "footprint demand may be difficult at urban sites",
+          "sediment contamination and maintenance burden can accumulate over time",
+          "lithium control is effectively absent"
+        ],
+        "evidence_list": [
+          "EPA_green_infrastructure_and_stormwater_biofiltration_guidance",
+          "stormwater_manuals_for_media_filtration_and_wetland_treatment",
+          "AWWA_and_public_health_guidance_indicating_GAC_as_polishing_rather_than_full_solution_for_complex_micropollutants"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "sedimentation_basin",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "sedimentation_basin": "remove settleable solids",
+          "sand_filtration": "polish particulates",
+          "chlorination": "provide disinfection"
+        },
+        "applicability_rationale": [
+          "this is a low-complexity baseline for comparison and may improve conventional stormwater quality metrics",
+          "it is intentionally ranked low because it does not match the mixed dissolved contaminant challenge in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of PCE, MTBE, propoxur, cylindrospermopsin, and lithium",
+          "chlorination alone is not a reliable barrier for cyanotoxins and may create byproducts in NOM-containing runoff",
+          "does not address uncertainty in unknown co-occurring emerging contaminants",
+          "likely inadequate for sensitive-stream discharge under low-dilution conditions"
+        ],
+        "evidence_list": [
+          "basic_conventional_stormwater_treatment_references",
+          "public_health_guidance_showing_limits_of_simple_disinfection_for_cyanotoxin_management",
+          "EPA_guidance_on_need_for_advanced_treatment_when_dissolved_organic_micropollutants_are_present"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi_barrier_trains_with_equalization_and_advanced_polishing_should_rank_above_simple_conventional_stormwater_controls",
+        "options that explicitly address both cyanotoxin risk and dissolved organic micropollutants should rank higher",
+        "desalination_based_options may appear but should not be ranked first unless lithium control is strongly justified despite brine constraints",
+        "nature_based_or_conventional_only_trains should rank lower because they are less reliable for VOCs_and_uncertain_emerging_contaminants"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "stormwater variability requires buffering_or_offline_storage rather than assuming steady influent",
+        "environmental_discharge does not automatically justify high_energy_desalination unless lithium or permit sensitivity clearly drives it",
+        "cost_energy_tradeoffs should be discussed when comparing oxidation_adsorption versus membrane_intensive trains",
+        "residuals and concentrate handling limitations should materially penalize RO_or_NF_based options",
+        "the partially characterised contaminant mixture should favor robust broad_spectrum barriers rather than single_mechanism solutions"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization is important for first_flush and event driven contamination",
+        "why oxidation is relevant for cylindrospermopsin and some micropollutants",
+        "why adsorption_or_BAC helps with uncertain residual organics and oxidation byproducts",
+        "why lithium is difficult to remove without membrane desalination and why that creates a strategic tradeoff",
+        "why simple sedimentation_filtration_disinfection is insufficient for this mixed dissolved contaminant case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "sparse event_based monitoring creates uncertainty in true peak concentrations and design basis",
+        "suspected but not fully characterised co_contaminants may alter treatment selection and monitoring needs",
+        "PCE_and_MTBE control may be variable depending on volatility, contact time, and storm event concentration spikes",
+        "cyanotoxin risk includes uncertainty over intracellular versus dissolved fractions during bloom season",
+        "lithium may remain largely untreated in non_membrane trains and could become a future compliance issue",
+        "membrane_options carry fouling and concentrate management risks that may outweigh benefits for environmental discharge",
+        "oxidation processes require control of byproducts and demand fluctuations under variable NOM conditions"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

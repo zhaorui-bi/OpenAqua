@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_M_067",
+  "case_name": "Surface water treatment for cyanotoxin and trace estrogen control under cost and operational simplicity constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "17a-ethynyl estradiol",
+      "Cylindrospermopsin"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface water containing cylindrospermopsin and trace 17a-ethynyl estradiol intended for drinking water production while balancing cost, operational simplicity, residuals handling, and compliance reliability.",
+  "input_data": {
+    "scenario_background": "A small regional drinking water plant draws from a eutrophic reservoir that experiences seasonal cyanobacterial events and receives treated wastewater influence upstream. Recent monitoring found dissolved cylindrospermopsin during bloom season and trace 17a-ethynyl estradiol at ng/L levels. The utility has limited staff and prefers conventional treatment upgrades rather than highly instrumented advanced systems, but it still needs robust compliance during variable bloom conditions. The main trade-off is between stronger multi-contaminant removal by advanced oxidation or membrane options and the utility's desire to limit energy use, chemical intensity, and difficult residuals or concentrate management.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "temperature_C": 22.4,
+      "pH": 8.1,
+      "turbidity_NTU": 14.6,
+      "TOC_mg_L": 7.8,
+      "DOC_mg_L": 6.1,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 356,
+      "chlorophyll_a_ug_L": 24.0,
+      "ammonia_mg_L_as_N": 0.16,
+      "bromide_mg_L": 0.09,
+      "manganese_mg_L": 0.04,
+      "iron_mg_L": 0.12,
+      "target_contaminants": {
+        "17a_ethynyl_estradiol_ng_L": 4.6,
+        "Cylindrospermopsin_ug_L": 1.3
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable control of cylindrospermopsin and reduce 17a-ethynyl estradiol to very low levels consistent with protective drinking water treatment practice while maintaining stable potable water production.",
+      "secondary_goals": [
+        "minimize cyanotoxin breakthrough risk during bloom fluctuations",
+        "maintain low operator burden",
+        "avoid difficult residuals or concentrate disposal",
+        "limit disinfection by-product formation potential"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids handling and avoid high-difficulty membrane concentrate or frequent hazardous residual management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment must tolerate seasonal spikes in cyanobacterial biomass and dissolved toxin without relying on highly specialized full-time operators"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "optimized_coagulation_flocculation_sedimentation",
+          "rapid_sand_or_dual_media_filtration",
+          "powdered_activated_carbon_with_contact_time",
+          "post_chlorination_or_chloramination",
+          "granular_activated_carbon_polishing"
+        ],
+        "core_unit_functions": {
+          "optimized_coagulation_flocculation_sedimentation": "remove cyanobacterial cells and particulate organic matter to reduce release of intracellular toxin and lower downstream organic loading",
+          "rapid_sand_or_dual_media_filtration": "polish suspended solids and remaining cells",
+          "powdered_activated_carbon_with_contact_time": "adsorb dissolved cylindrospermopsin and trace 17a-ethynyl estradiol as a flexible seasonal barrier",
+          "post_chlorination_or_chloramination": "provide disinfection and contribute to oxidation control of dissolved cylindrospermopsin after clarification",
+          "granular_activated_carbon_polishing": "provide additional adsorption of trace organics including 17a-ethynyl estradiol and buffer short-term toxin variability"
+        },
+        "applicability_rationale": [
+          "this route builds on conventional surface water treatment and therefore fits utilities seeking lower operational complexity than advanced membrane or ozone systems",
+          "cell removal ahead of stronger oxidant exposure is important during cyanobacterial events to avoid toxin release from intact cells",
+          "PAC offers a practical seasonal dose-adjustable response for dissolved cyanotoxins and trace endocrine-active compounds",
+          "GAC polishing improves resilience for low-ng/L organic micropollutant control where conventional clarification alone is insufficient",
+          "the combined adsorption plus conventional treatment approach balances compliance reliability with manageable cost and conventional residuals handling"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "PAC performance depends on dose, contact time, and competition from natural organic matter",
+          "spent GAC replacement or reactivation planning is still required",
+          "chlorination must be controlled to limit disinfection by-product formation in moderate-TOC water",
+          "if bloom management is poor, intracellular toxin release upstream of solids removal can complicate treatment"
+        ],
+        "evidence_list": [
+          "WHO_cyanobacterial_toxin_guidance_for_drinking_water",
+          "EPA_cyanotoxin_treatment_optimization_guidance",
+          "AWWA_case_knowledge_on_PAC_and_GAC_for_cyanotoxin_control",
+          "public_literature_on_GAC_adsorption_of_trace_endocrine_disrupting_compounds"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "optimized_coagulation_flocculation_sedimentation",
+          "rapid_sand_or_dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "secondary_disinfection"
+        ],
+        "core_unit_functions": {
+          "optimized_coagulation_flocculation_sedimentation": "remove cyanobacterial cells and reduce particulate organic burden before oxidation",
+          "rapid_sand_or_dual_media_filtration": "protect downstream oxidation and BAC units",
+          "ozonation": "oxidize dissolved cylindrospermopsin and transform trace organic micropollutants including 17a-ethynyl estradiol",
+          "biological_activated_carbon": "remove biodegradable oxidation byproducts and provide additional adsorption and biologically mediated polishing",
+          "secondary_disinfection": "maintain distribution system microbial protection"
+        },
+        "applicability_rationale": [
+          "ozone is technically strong for dissolved cylindrospermopsin control and can also be effective for estrogenic micropollutant degradation",
+          "BAC complements ozonation by polishing oxidation products and improving finished water stability",
+          "this route may outperform adsorption-only trains where dissolved toxin episodes are pronounced and micropollutant reduction goals are stringent",
+          "however it ranks below the top option because operator skill, process control, and byproduct management are more demanding for a small utility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "bromate formation risk must be managed because source water contains measurable bromide",
+          "higher instrumentation and operational oversight are needed than for conventional adsorption upgrades",
+          "ozone contacting and off-gas safety add complexity",
+          "oxidation product control and BAC biological stability require attentive monitoring"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_cyanotoxin_treatment_with_oxidation_and_adsorption",
+          "WHO_guidance_on_management_of_cyanotoxins_in_drinking_water",
+          "public_guidance_on_ozone_BAC_for_micropollutant_control",
+          "drinking_water_ozonation_bromate_control_references"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "optimized_coagulation_flocculation_sedimentation",
+          "rapid_sand_or_dual_media_filtration",
+          "granular_activated_carbon_deep_bed",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "optimized_coagulation_flocculation_sedimentation": "remove cyanobacterial cells and suspended matter",
+          "rapid_sand_or_dual_media_filtration": "polish solids and protect GAC",
+          "granular_activated_carbon_deep_bed": "adsorb dissolved cylindrospermopsin and 17a-ethynyl estradiol",
+          "UV_disinfection": "provide microbial disinfection"
+        },
+        "applicability_rationale": [
+          "this is a simpler adsorption-focused train with lower chemical handling complexity than ozone-based systems",
+          "GAC is generally suitable for trace organic control and can contribute to dissolved cyanotoxin removal",
+          "the process has familiar operation for many drinking water plants and avoids membrane concentrate production",
+          "it ranks below the top option because high DOC surface water can shorten GAC bed life and performance can be less flexible during sudden toxin spikes without PAC dose adjustment or oxidation support"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "natural organic matter competition may accelerate GAC exhaustion",
+          "without an oxidation barrier, dissolved toxin spikes could challenge performance if EBCT and replacement intervals are not conservative",
+          "UV provides disinfection but does not serve as a primary control step for these contaminants at standard doses",
+          "media replacement frequency can raise lifecycle cost"
+        ],
+        "evidence_list": [
+          "AWWA_and_utility_practice_for_GAC_in_surface_water_treatment",
+          "EPA_cyanotoxin_treatment_fact_sheets_on_adsorption",
+          "public_references_on_activated_carbon_removal_of_endocrine_active_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "optimized_coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "nanofiltration",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "optimized_coagulation_flocculation_sedimentation": "remove cells and lower particulate fouling load",
+          "rapid_sand_filtration": "protect membrane system",
+          "nanofiltration": "provide strong physical barrier for dissolved organic contaminants including cylindrospermopsin and 17a-ethynyl estradiol",
+          "stabilization": "adjust permeate chemistry for corrosivity and finished water quality",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of broad-spectrum micropollutant and toxin reduction",
+          "the route may be attractive where multiple dissolved contaminants beyond the listed targets require simultaneous control",
+          "it ranks lower because concentrate management is difficult, energy demand is higher, and membrane operation is less aligned with the plant's low-complexity preference"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major residuals burden",
+          "membrane fouling risk is elevated in algae-impacted surface water without careful pretreatment",
+          "operator training and instrumentation needs are higher",
+          "post-treatment stabilization is necessary"
+        ],
+        "evidence_list": [
+          "public_guidance_on_nanofiltration_for_micropollutant_control",
+          "surface_water_membrane_fouling_case_knowledge",
+          "EPA_and_industry_references_on_membrane_concentrate_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "optimized_coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "UV_hydrogen_peroxide_advanced_oxidation",
+          "biological_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "optimized_coagulation_flocculation_sedimentation": "remove cyanobacterial cells and reduce particle-associated loading",
+          "rapid_sand_filtration": "polish solids before AOP",
+          "UV_hydrogen_peroxide_advanced_oxidation": "generate hydroxyl radicals for degradation of trace organic contaminants including 17a-ethynyl estradiol",
+          "biological_filtration": "remove biodegradable byproducts and improve finished water stability",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "AOP can be technically effective for some micropollutants and may provide broad oxidation capability",
+          "it is included as a plausible but lower-ranked route because its advantages are less well aligned with the need for simple, low-cost seasonal operation in a moderate-TOC surface water plant",
+          "for cylindrospermopsin specifically, oxidation can work, but UV peroxide imposes higher energy and chemical control demands than simpler adsorption-based approaches"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "high UV transmittance sensitivity and TOC scavenging can reduce oxidation efficiency",
+          "chemical dosing and lamp maintenance increase operator burden",
+          "byproduct formation and downstream biological regrowth management require monitoring",
+          "process may be oversized relative to a small utility's staffing and budget profile"
+        ],
+        "evidence_list": [
+          "public_references_on_UV_AOP_for_trace_organic_contaminants",
+          "EPA_guidance_on_cyanotoxin_treatment_process_selection",
+          "utility_case_knowledge_on_operational_complexity_of_AOP_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional_treatment_plus_adsorption_should_rank_near_the_top",
+        "ozonation_or_ozone_BAC_should_appear_as_a_strong_but_more_complex_alternative",
+        "membrane_or_AOP_options_should_not_rank_first_under_low_operation_and_residuals_constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small_or_mid_size_utility_preference_for_familiar_processes",
+        "importance_of_balancing_cyanotoxin_control_with_trace_micropollutant_removal",
+        "penalty_for_routes_with_high_energy_demand_or_difficult_concentrate_management",
+        "need_for_robustness_during_seasonal_bloom_variability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_cell_removal_before_strong_oxidation_matters_for_cyanobacterial_events",
+        "why_natural_organic_matter_competition_affects_activated_carbon_performance",
+        "why_ozone_is_technically_strong_but_downgraded_for_operational_complexity_and_bromate_risk",
+        "why_membrane_options_are_downgraded_due_to_concentrate_and_O_and_M_constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "intracellular_versus_dissolved_toxin_management",
+        "bromate_or_disinfection_byproduct_risk",
+        "activated_carbon_exhaustion_or_breakthrough_risk",
+        "residuals_or_concentrate_handling_burden"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

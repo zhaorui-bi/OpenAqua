@@ -1,0 +1,329 @@
+{
+  "case_id": "WContBench_D_100",
+  "case_name": "Agricultural drainage reuse under uncertain pesticide-fuel contamination including methyl tertiary-butyl ether",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "agricultural_drainage",
+    "contaminant_type": [
+      "Methyl tert-butyl ether",
+      "Methiocarb"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "regulatory_ambiguity",
+      "co_occurring_pollutants",
+      "limited_site_data"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for agricultural drainage intended for agricultural reuse when methyl tert-butyl ether, methiocarb, salinity, and partially characterized co-occurring contaminants may be present under uncertain influent conditions.",
+  "input_data": {
+    "scenario_background": "A water district is considering reuse of blended agricultural drainage captured from canals and tailwater ponds for irrigation supply buffering during dry periods. Recent screening found methyl tertiary-butyl ether and methiocarb, but sampling is sparse, storm-event concentrations are uncertain, and operators suspect additional pesticide degradates and occasional petroleum-related organics from nearby equipment yards and roads. The drainage quality varies seasonally with irrigation return flow, first-flush runoff, and possible legacy inputs, so both contaminant peaks and the dissolved-organic fraction are not fully characterized.",
+    "water_quality": {
+      "source_type": "agricultural_drainage_blend",
+      "pH": 7.7,
+      "turbidity_NTU": 19,
+      "TSS_mg_L": 42,
+      "TDS_mg_L": 1380,
+      "conductivity_uS_cm": 2130,
+      "hardness_mg_L_as_CaCO3": 280,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "TOC_mg_L": 9.8,
+      "DOC_mg_L": 7.1,
+      "COD_mg_L": 34,
+      "BOD5_mg_L": 6,
+      "nitrate_mg_L_as_N": 14.2,
+      "ammonia_mg_L_as_N": 0.6,
+      "phosphate_mg_L_as_P": 0.9,
+      "chloride_mg_L": 260,
+      "sulfate_mg_L": 190,
+      "boron_mg_L": 0.74,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.05,
+      "Methyl_tert-butyl_ether_ug_L": 38,
+      "Methiocarb_ug_L": 1.6,
+      "pesticide_screen_note": "additional_pesticide_degradates_and_non_target_organics_suspected_but_not_fully_characterized",
+      "petroleum_related_trace_note": "occasional_hydrocarbon_sheen_reported_after_storms_but_no_complete_VOC_profile_available",
+      "microbial_indicator_E_coli_CFU_100mL": 320,
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Produce irrigation-suitable reclaimed water with reduced suspended solids, trace organic contaminants, and pathogen indicators while managing salinity and boron concerns sufficiently for mixed crop use and avoiding acute phytotoxicity or residue concerns.",
+      "secondary_goals": [
+        "maintain performance under seasonal and storm-driven variability",
+        "address uncertain co-occurring organics with a risk-aware multi-barrier approach",
+        "avoid overly complex treatment if simpler pretreatment and polishing can achieve acceptable reuse reliability",
+        "limit concentrate and spent-media burdens because disposal options are restricted",
+        "provide a recommendation that explicitly acknowledges limited site data and regulatory ambiguity for trace contaminants in agricultural reuse"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "sludge hauling is available but costly; concentrate disposal is limited and deep-well injection is not available; spent carbon replacement is feasible at moderate frequency",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_seasonal_quality_swings_and_partially_characterized_trace_organics"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending",
+          "coagulation_flocculation_and_clarification",
+          "media_filtration",
+          "granular_activated_carbon",
+          "selective_reverse_osmosis_or_partial_desalination_sidestream",
+          "uv_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer seasonal and event-driven variability and reduce peak contaminant shocks",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and part of particle-associated organic matter",
+          "media_filtration": "polish residual solids and protect adsorption and membrane units",
+          "granular_activated_carbon": "adsorb methiocarb, reduce methyl tert-butyl ether to the extent feasible, and provide broad-spectrum polishing for uncertain organics",
+          "selective_reverse_osmosis_or_partial_desalination_sidestream": "reduce TDS and boron for crop protection while avoiding full-flow concentrate burdens where possible",
+          "uv_or_chlorine_disinfection": "reduce microbial risk for irrigation reuse"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the contaminant mixture includes known pesticides, a fuel oxygenate, salts, nutrients, and a suspected unknown fraction",
+          "equalization is especially important because influent variability is high and first-flush events may create concentration spikes that sparse sampling has not captured",
+          "GAC is a practical hedge against uncertain low-level organics and is generally more flexible than a single highly specific oxidation approach under incomplete characterization",
+          "some desalination is likely needed because TDS and boron are elevated for sensitive crops, but a partial or sidestream approach better fits the concentrate-disposal constraint than aggressive full-flow RO",
+          "this option balances robustness and reuse protection better than conventional-only treatment while avoiding the highest energy commitment of full advanced treatment on all flow"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "methyl tert-butyl ether is relatively weakly adsorbed compared with many pesticides, so GAC bed life and breakthrough risk are uncertain without pilot data",
+          "RO or any desalination sidestream still creates concentrate management challenges under limited disposal options",
+          "if non-target volatile organics are higher than currently known, pretreatment and off-gas or worker-exposure controls may need revision",
+          "regulatory expectations for trace organic monitoring in agricultural reuse may change, requiring broader verification than current site data support"
+        ],
+        "evidence_list": [
+          "epa_guidance_and_case_knowledge_for_gac_and_air_stripping_of_fuel_oxygenates_in_water",
+          "public_guidance_on_irrigation_reuse_salinity_and_boron_management",
+          "multi_barrier_reuse_practice_for_variable_source_waters",
+          "adsorptive_polishing_case_knowledge_for_pesticides_in_agricultural_and_surface_waters"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_blending",
+          "coagulation_flocculation_and_clarification",
+          "media_filtration",
+          "air_stripping_with_off_gas_control",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "stabilize influent fluctuations and smooth episodic contaminant peaks",
+          "coagulation_flocculation_and_clarification": "remove suspended matter and reduce particulate fouling load",
+          "media_filtration": "provide solids polishing prior to volatile and adsorptive treatment steps",
+          "air_stripping_with_off_gas_control": "target volatile methyl tert-butyl ether removal",
+          "granular_activated_carbon": "polish methiocarb and residual dissolved organics after stripping",
+          "disinfection": "control microbial quality for irrigation reuse"
+        },
+        "applicability_rationale": [
+          "this train directly addresses the different physicochemical behavior of the two named contaminants by separating volatile-organic control from pesticide adsorption",
+          "it may be attractive where concentrate disposal is a major constraint and only moderate salinity reduction is acceptable or blending with better-quality water is available",
+          "air stripping can be effective for methyl tert-butyl ether relative to adsorption alone, while GAC provides a broader safety net for methiocarb and unknown organics",
+          "the approach is less energy-intensive than full-flow desalination but still retains a multi-barrier structure suited to uncertain co-occurring pollutants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this option does not materially reduce TDS or boron, so suitability may be limited to salt-tolerant crops or situations with blending",
+          "off-gas treatment and air-emission permitting may complicate implementation if volatile contaminant loading is underestimated",
+          "actual methyl tert-butyl ether removal depends on temperature, tower design, and air-water ratio, which are uncertain without pilot testing",
+          "if the unknown contaminant fraction includes poorly adsorbing polar pesticides, GAC polishing alone may be insufficient"
+        ],
+        "evidence_list": [
+          "epa_mtbe_treatment_fact_sheets_referencing_air_stripping_and_gac",
+          "reuse_guidance_for_irrigation_water_quality_and_crop_sensitivity",
+          "engineering_case_knowledge_for_combined_stripping_and_gac_polishing",
+          "public_water_treatment_guidance_for_variable_surface_and_drainage_sources"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_blending",
+          "constructed_wetland_or_biologically_active_pre_treatment",
+          "coagulation_flocculation",
+          "ultrafiltration",
+          "granular_activated_carbon_or_biological_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer hydraulic and quality variability",
+          "constructed_wetland_or_biologically_active_pre_treatment": "attenuate solids, some biodegradable organics, and nutrients while damping short-term variability",
+          "coagulation_flocculation": "reduce colloidal and particulate load before membranes",
+          "ultrafiltration": "provide strong solids and pathogen-associated particle removal and protect downstream carbon",
+          "granular_activated_carbon_or_biological_activated_carbon": "polish trace organics including methiocarb and some unknown fractions",
+          "disinfection": "final microbial risk control"
+        },
+        "applicability_rationale": [
+          "this option may fit sites wanting lower-pressure treatment and improved resilience through natural or biologically active buffering steps",
+          "it is potentially useful when nutrient reduction and suspended solids control are valued alongside trace-organic polishing",
+          "UF plus carbon can produce a stable polished effluent for agricultural reuse under moderate operational complexity",
+          "it is ranked below options 1 and 2 because methyl tert-butyl ether removal may remain uncertain without a specific volatile-organic treatment step and salinity is largely unaddressed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "constructed wetland performance can vary seasonally and may not reliably control trace organics during cold or high-flow periods",
+          "ultrafiltration does not remove dissolved salts or boron",
+          "biological steps are not a dependable primary barrier for methyl tert-butyl ether under all conditions",
+          "larger footprint and variable kinetics may conflict with urgent implementation timelines despite nominally moderate energy use"
+        ],
+        "evidence_list": [
+          "constructed_wetland_and_nature_based_treatment_guidance_for_agricultural_return_flows",
+          "uf_gac_polishing_case_knowledge_for_reuse_applications",
+          "public_guidance_on_trace_organic_uncertainty_and_multi_barrier_design"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization_and_blending",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_uv_hydrogen_peroxide",
+          "biological_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "moderate influent swings and support more stable advanced oxidation operation",
+          "coagulation_flocculation_and_clarification": "remove solids and reduce oxidant demand from particulates",
+          "ozonation_or_uv_hydrogen_peroxide": "oxidize selected trace organics and provide partial transformation of difficult compounds",
+          "biological_activated_carbon": "capture and biologically polish oxidation byproducts and residual organics",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "advanced oxidation may be considered when the unknown fraction is a significant concern and the owner wants a more aggressive barrier for trace organics",
+          "BAC after oxidation offers broader polishing than oxidation alone and can improve resilience to partially characterized contaminants",
+          "this can be a useful contingency strategy if pilots show poor adsorption-only performance for the actual contaminant mix"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "treatment effectiveness for methyl tert-butyl ether can be variable and energy-intensive depending on oxidant dose and water matrix",
+          "oxidation can form byproducts and increase biodegradable transformation products, making BAC performance important but uncertain",
+          "this route still does not resolve salinity and boron concerns",
+          "advanced oxidation is difficult to justify confidently with limited site data because process design depends heavily on scavenger demand and the actual unknown contaminant profile"
+        ],
+        "evidence_list": [
+          "aop_guidance_for_trace_organic_control_in_reuse_waters",
+          "biological_activated_carbon_case_knowledge_for_post_oxidation_polishing",
+          "public_reuse_engineering_practice_for_unknown_micropollutant_fraction"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "settling_basin",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "settling_basin": "remove settleable solids and damp some short-term solids peaks",
+          "sand_filtration": "polish suspended solids",
+          "chlorination": "reduce microbial indicators"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline because it is simple and familiar for agricultural water management",
+          "it may improve appearance and basic solids control but does not provide credible control of the named dissolved contaminants or salinity-related reuse constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "unlikely to remove methyl tert-butyl ether or methiocarb to a reliably protective level",
+          "does not address TDS, boron, or other dissolved co-occurring pollutants",
+          "can create a false sense of treatment adequacy under regulatory ambiguity if only conventional indicators are monitored",
+          "insufficiently robust for high influent variability and unknown trace-organic fractions"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_references_for_surface_and_drainage_waters",
+          "public_reuse_guidance_emphasizing_limits_of_conventional_treatment_for_trace_organics"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that explicitly address variability and unknown co-contaminants should rank above simple conventional treatment",
+        "recommendations that pair targeted control for methyl tert-butyl ether with broader polishing for methiocarb and unknown organics should rank highly",
+        "options that acknowledge agricultural reuse salinity and boron issues should rank above trains that ignore dissolved constituents entirely",
+        "equalization or blending should appear in higher-ranked solutions because site data are limited and influent variability is high"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited site data means recommendations should avoid overconfidence and include pilot-testing or verification caveats",
+        "regulatory ambiguity for trace organics in agricultural reuse should be discussed explicitly rather than assuming a single definitive target",
+        "co-occurring pollutants include salts, nutrients, microbes, and possible non-target organics, so staged treatment logic should be reflected",
+        "concentrate disposal limitations should reduce the attractiveness of aggressive full-flow desalination-only strategies"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why methyl tert-butyl ether may need a different control strategy than methiocarb because of differing volatility and adsorbability",
+        "why GAC, BAC, or other polishing is useful when non-target organics are suspected but not fully characterized",
+        "why desalination may be partial or conditional for agricultural reuse rather than universally required for all crops",
+        "why conventional solids-removal-only trains are insufficient for this scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "breakthrough uncertainty for methyl tert-butyl ether on activated carbon under incomplete site characterization",
+        "uncertain storm-event spikes and first-flush loading because sampling is sparse",
+        "crop-specific risk from residual salinity and boron if desalination is omitted or only partial",
+        "off-gas management or air-permitting considerations if stripping is recommended",
+        "concentrate-disposal constraints and the possibility that unknown pesticide degradates may not follow the same removal behavior as the named contaminants"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

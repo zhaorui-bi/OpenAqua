@@ -1,0 +1,288 @@
+{
+  "case_id": "WContBench_E_034",
+  "case_name": "Disinfection-focused treatment selection for Salmonella Typhi-contaminated well water used as drinking water",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "S. typhi"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for well water contaminated with Salmonella Typhi intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A small community well system has confirmed fecal contamination associated with Salmonella Typhi after nearby sanitation failures and requests a treatment upgrade for potable use. The raw water is otherwise typical of groundwater, with low turbidity and low organic matter, and the operator prefers conventional, proven, and easy-to-run treatment. The community can manage normal chemical dosing and routine maintenance but wants to avoid unnecessarily complex or energy-intensive systems.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "turbidity_NTU": 1.4,
+      "DOC_mg_L": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrate_mg_L_as_NO3": 8.7,
+      "ammonia_mg_L_as_N": 0.09,
+      "chloride_mg_L": 24,
+      "sulfate_mg_L": 31,
+      "temperature_C": 18.5,
+      "total_coliform_CFU_100mL": 120,
+      "e_coli_CFU_100mL": 18,
+      "salmonella_typhi_detected": true,
+      "salmonella_typhi_estimated_CFU_100mL": 6
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable pathogen inactivation/removal suitable for drinking water production, with no detectable fecal indicator organisms and maintained disinfectant protection in distribution.",
+      "secondary_goals": [
+        "use established disinfection practice",
+        "maintain moderate operating complexity",
+        "limit energy consumption",
+        "provide robust barrier performance for enteric pathogens"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited sludge handling is preferred; routine backwash and cartridge replacement are manageable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "consistent pathogen control and disinfectant residual are required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "prefiltration",
+          "chlorination_with_contact_tank",
+          "clearwell_or_distribution_residual_control"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "remove incidental particulates and improve disinfection reliability in low-turbidity well water",
+          "chlorination_with_contact_tank": "provide primary inactivation of Salmonella Typhi and other enteric bacteria through adequate CT",
+          "clearwell_or_distribution_residual_control": "maintain disinfectant residual to protect stored and distributed drinking water from recontamination"
+        },
+        "applicability_rationale": [
+          "Salmonella Typhi is a bacterial pathogen for which free chlorine disinfection is a proven conventional control measure when adequate contact time is provided",
+          "the well water has low turbidity and low DOC, which supports effective chlorination without requiring complex pretreatment",
+          "the utility prefers conventional operation and can manage chemical dosing and residual monitoring",
+          "distribution residual is important for ongoing public health protection in drinking water systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "insufficient contact time or poor chlorine residual control may allow incomplete pathogen inactivation",
+          "chlorine demand and disinfection by-product formation still require monitoring even though DOC is low",
+          "taste and odor concerns may arise if overdosed"
+        ],
+        "evidence_list": [
+          "who_guidelines_for_drinking_water_quality_on_pathogen_control_and_chlorination",
+          "epa_surface_and_groundwater_disinfection_guidance_for_microbiological_safety",
+          "public_health_case_knowledge_for_enteric_bacteria_control_by_free_chlorine"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "prefiltration",
+          "uv_disinfection",
+          "post_chlorination_for_residual"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "reduce suspended matter and support reliable UV transmittance in groundwater treatment",
+          "uv_disinfection": "provide primary inactivation of bacterial pathogens including Salmonella Typhi without chemical addition for the primary barrier",
+          "post_chlorination_for_residual": "maintain downstream disinfectant residual in storage and distribution"
+        },
+        "applicability_rationale": [
+          "UV is highly effective for many vegetative bacteria and is suitable when the source water has low turbidity",
+          "adding post-chlorination addresses the lack of residual associated with UV-only treatment",
+          "this train remains established and practical for small to medium systems",
+          "it is a good alternative when the operator wants to reduce reliance on chlorine as the sole primary barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "UV performance depends on lamp maintenance, sensor calibration, and adequate UV transmittance",
+          "without reliable post-chlorination, there is no persistent residual in the network",
+          "power interruptions can compromise the primary disinfection barrier"
+        ],
+        "evidence_list": [
+          "uv_disinfection_guidance_for_drinking_water_pathogen_inactivation",
+          "who_guidance_on_multi_barrier_drinking_water_disinfection",
+          "small_system_case_knowledge_for_uv_plus_chlorine_residual"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_or_pressure_filtration",
+          "chlorination_with_contact_tank",
+          "activated_carbon_optional_polishing",
+          "distribution_residual_control"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_pressure_filtration": "provide physical polishing and particulate reduction ahead of disinfection",
+          "chlorination_with_contact_tank": "deliver primary bacterial inactivation with adequate disinfectant contact time",
+          "activated_carbon_optional_polishing": "improve taste and odor if chlorination impacts consumer acceptability",
+          "distribution_residual_control": "ensure persistent microbial protection after treatment"
+        },
+        "applicability_rationale": [
+          "pressure filtration combined with chlorination is a familiar small-system configuration",
+          "the water quality does not indicate a need for extensive solids removal, but a polishing step can improve operational robustness",
+          "optional carbon polishing may be considered if customer acceptance of chlorinated water is a concern",
+          "the process remains relatively conventional and manageable"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "activated carbon can support microbial growth if not maintained properly",
+          "the added filtration and polishing steps increase maintenance compared with straightforward chlorination",
+          "filter bypass or poor cartridge replacement practices can reduce barrier reliability"
+        ],
+        "evidence_list": [
+          "small_drinking_water_system_guidance_for_filtration_followed_by_disinfection",
+          "public_guidance_on_chlorine_contact_time_and_distribution_residual",
+          "operational_case_knowledge_for_pressure_filtration_in_groundwater_systems"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "slow_sand_filtration",
+          "chlorination",
+          "storage_with_residual_monitoring"
+        ],
+        "core_unit_functions": {
+          "slow_sand_filtration": "provide biological and physical reduction of microorganisms and turbidity",
+          "chlorination": "provide final inactivation of remaining bacterial pathogens and establish a disinfectant residual",
+          "storage_with_residual_monitoring": "verify residual persistence and protect water before delivery"
+        },
+        "applicability_rationale": [
+          "slow sand filtration is an established low-energy barrier for microbiological water quality improvement",
+          "final chlorination makes the train more appropriate for drinking water safety and distribution system protection",
+          "this route can work where simple operation and low energy are valued",
+          "it offers a multi-barrier approach using well-known technology"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "requires larger footprint and careful filter ripening and scraping management",
+          "performance can decline if hydraulic loading is not well controlled",
+          "slow sand alone is not sufficient without dependable final disinfection for a distribution system"
+        ],
+        "evidence_list": [
+          "who_household_and_small_community_water_treatment_guidance_on_slow_sand_filtration",
+          "multi_barrier_drinking_water_practice_for_filtration_plus_chlorination",
+          "public_health_case_knowledge_for_bacterial_risk_reduction_with_slow_sand"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ultrafiltration_or_membrane_filtration",
+          "post_chlorination",
+          "distribution_residual_control"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration_or_membrane_filtration": "provide strong physical removal of bacteria and suspended matter",
+          "post_chlorination": "establish disinfectant residual and add a secondary microbiological barrier",
+          "distribution_residual_control": "maintain microbial protection after treatment"
+        },
+        "applicability_rationale": [
+          "membrane filtration is technically capable of achieving strong bacterial removal",
+          "it may be attractive if future source deterioration or broader particle control is anticipated",
+          "post-chlorination still remains necessary for residual protection in drinking water distribution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher capital and maintenance burden than needed for a straightforward bacterial contamination case",
+          "membrane fouling and integrity testing add operational complexity",
+          "overdesign is possible given the low-turbidity well water and single explicit contaminant"
+        ],
+        "evidence_list": [
+          "membrane_filtration_guidance_for_drinking_water_microbiological_barriers",
+          "case_knowledge_showing_membranes_are_effective_but_not_first_choice_for_simple_groundwater_disinfection",
+          "public_guidance_on_need_for_post_disinfection_residual_after_membrane_treatment"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "chlorination_with_adequate_contact_time_and_residual_control should rank first for Salmonella Typhi in low-turbidity well water",
+        "uv_plus_post_chlorination should rank as a strong alternative but below straightforward chlorination under conventional moderate-constraint conditions",
+        "membrane-based options should not rank first for this single-contaminant pathogen case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for conventional disinfection-based treatment",
+        "moderate cost and energy sensitivity",
+        "avoidance of unnecessarily complex high-capex solutions for a pathogen-focused groundwater case"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "that Salmonella Typhi is primarily controlled by reliable disinfection and sanitary barrier management",
+        "why low turbidity and low DOC support conventional chlorination or UV-based treatment",
+        "why maintaining a disinfectant residual matters for drinking water distribution"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "insufficient CT or residual control",
+        "lack of residual after UV-only treatment",
+        "disinfection by-product and taste-odor monitoring",
+        "operational reliability during power or dosing interruptions"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

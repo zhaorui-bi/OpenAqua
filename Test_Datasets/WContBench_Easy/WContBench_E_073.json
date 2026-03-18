@@ -1,0 +1,317 @@
+{
+  "case_id": "WContBench_E_073",
+  "case_name": "Removal of 17a-ethynyl estradiol from surface water for municipal drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "17a-ethynyl estradiol"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for removing 17a-ethynyl estradiol from surface water intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A municipal utility draws raw water from a river downstream of urban wastewater discharges and needs to strengthen treatment for trace endocrine-active compounds. The utility wants a process train based on established drinking water treatment practice rather than novel or highly specialized systems. Existing staff can operate conventional clarification and filtration, and the utility can accommodate moderate chemical use and routine media replacement.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "turbidity_NTU": 8.4,
+      "DOC_mg_L": 4.8,
+      "UV254_cm_1": 0.118,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 128,
+      "temperature_C": 16.5,
+      "ammonia_mg_L_as_N": 0.12,
+      "nitrate_mg_L_as_N": 1.8,
+      "TOC_mg_L": 5.6,
+      "17a_ethynyl_estradiol_ng_L": 9.4,
+      "E_coli_CFU_100mL": 120
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should be suitable for drinking water production with strong control of 17a-ethynyl estradiol and compliance with normal microbiological and aesthetic treatment expectations.",
+      "secondary_goals": [
+        "favor proven full-scale treatment technologies",
+        "maintain moderate operating complexity",
+        "avoid unnecessarily high energy consumption",
+        "retain reliable performance under variable surface water quality"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "conventional sludge handling is available but concentrated hazardous residual streams are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "consistent year-round performance with seasonal source-water variability is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize particles and remove a portion of natural organic matter before advanced treatment",
+          "flocculation": "form settleable flocs for solids and organic matter reduction",
+          "sedimentation": "remove flocculated solids and lower particle load",
+          "filtration": "polish clarified water and provide stable pretreatment to downstream oxidation and adsorption",
+          "ozonation": "oxidize trace organic contaminants including steroidal micropollutants and improve downstream biodegradability",
+          "biological_activated_carbon": "adsorb residual 17a-ethynyl estradiol and biologically remove biodegradable ozonation byproducts",
+          "disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "17a-ethynyl estradiol is a trace hydrophobic micropollutant for which ozone plus activated carbon is well supported in advanced drinking water treatment practice",
+          "surface water quality variability makes upstream clarification and filtration useful for protecting advanced treatment performance",
+          "biological activated carbon complements ozonation by polishing residual organics and managing oxidation byproducts",
+          "the process train is robust and based on established municipal treatment technology rather than emerging niche methods"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "ozone demand can increase with DOC and reduce micropollutant oxidation margin if not controlled",
+          "bromate formation risk must be assessed if bromide is present in the source water",
+          "BAC requires ongoing monitoring for bed activity, headloss, and media replacement frequency"
+        ],
+        "evidence_list": [
+          "WHO_guidance_and_water_safety_practice_for_advanced_treatment_of_trace_organics",
+          "AWWA_case_knowledge_on_ozonation_followed_by_BAC_for_surface_drinking_water",
+          "European_drinking_water_reuse_and_surface_water_upgrade_experience_with_ozone_GAC_for_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "powdered_activated_carbon",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce turbidity and part of the natural organic matter load",
+          "flocculation": "form flocs for effective solids separation",
+          "sedimentation": "remove settled solids and PAC-associated floc where applied in contact basins or clarifiers",
+          "filtration": "provide particle polishing and help retain fines",
+          "powdered_activated_carbon": "adsorb 17a-ethynyl estradiol and other trace hydrophobic organics",
+          "post_filtration": "capture carryover solids or carbon fines and stabilize finished water quality",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "PAC is a proven and widely used option for episodic or moderate trace organic control in surface water treatment",
+          "this approach fits utilities already operating conventional clarification and filtration",
+          "17a-ethynyl estradiol is generally adsorbable on activated carbon, making PAC a practical established barrier",
+          "the train avoids the added oxidation complexity of ozone while remaining grounded in full-scale practice"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance is sensitive to DOC competition and contact time",
+          "higher chemical solids production increases sludge handling demand",
+          "dosing optimization is needed during seasonal organic matter changes"
+        ],
+        "evidence_list": [
+          "AWWA_guidance_on_powdered_activated_carbon_for_taste_odor_and_trace_organic_control",
+          "public_drinking_water_case_examples_of_PAC_for_micropollutant_reduction",
+          "EPA_treatment_manual_knowledge_on_activated_carbon_adsorption_of_synthetic_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "lower particulate and organic loading to downstream adsorbers",
+          "flocculation": "support solid-liquid separation",
+          "sedimentation": "remove flocculated solids",
+          "filtration": "protect GAC from excessive particulate fouling",
+          "granular_activated_carbon": "adsorb 17a-ethynyl estradiol and polish dissolved organic contaminants",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "GAC is a conventional and well-established technology for adsorption of trace hydrophobic organics in drinking water treatment",
+          "for a single contaminant case with proven technology preference, GAC is straightforward and easier to explain operationally than more specialized processes",
+          "pre-clarification and filtration improve carbon bed life and reduce fouling risk",
+          "this route can be implemented as a clear polishing barrier after conventional treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "empty bed contact time and media exhaustion must be managed carefully for low-ng/L micropollutant targets",
+          "DOC competition can shorten bed life and increase replacement or regeneration frequency",
+          "without upstream oxidation, some dissolved organic load remains on the adsorber"
+        ],
+        "evidence_list": [
+          "EPA_and_AWWA_reference_knowledge_on_GAC_for_synthetic_organic_chemical_control",
+          "public_case_knowledge_for_GAC_polishing_in_surface_water_plants",
+          "drinking_water_treatment_literature_on_activated_carbon_removal_of_endocrine_disrupting_compounds"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "nanofiltration_or_low_pressure_RO",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce solids and organic fouling load before membranes",
+          "flocculation": "improve clarification performance",
+          "sedimentation": "remove formed flocs",
+          "filtration": "protect downstream membrane operation",
+          "nanofiltration_or_low_pressure_RO": "provide a strong physical barrier to dissolved organic micropollutants",
+          "stabilization": "adjust finished water chemistry after membrane treatment if needed",
+          "disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable of removing trace organic contaminants including steroidal compounds",
+          "it may be considered where broader dissolved contaminant control is also desired",
+          "however, for this straightforward single-contaminant drinking water case it is more intensive than the preferred established carbon or ozone-carbon routes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a significant disadvantage for a municipal surface water plant",
+          "membrane fouling control adds operational burden",
+          "the process is likely more complex and costly than needed for this explicit treatment goal"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_drinking_water_applications",
+          "public_case_knowledge_on_nanofiltration_and_RO_for_trace_organic_removal",
+          "drinking_water_engineering_references_on_membrane_concentrate_management_limits"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "UV_advanced_oxidation",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce turbidity and some natural organic matter before advanced oxidation",
+          "flocculation": "form settleable flocs",
+          "sedimentation": "remove flocs and lower solids load",
+          "filtration": "provide polished water with better UV transmittance",
+          "UV_advanced_oxidation": "generate reactive radicals for destruction of trace organic contaminants",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "UV-based advanced oxidation can degrade persistent trace organics under suitable water quality conditions",
+          "it is technically feasible but is generally not the first conventional choice for a single drinking water micropollutant like 17a-ethynyl estradiol when ozone-carbon or activated carbon alone are available",
+          "the need for oxidant addition and radical scavenging sensitivity makes it less naturally aligned with the stated proven-technology preference"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "high energy use relative to adsorption-based alternatives",
+          "performance can be reduced by DOC and radical scavengers in surface water",
+          "careful control of oxidant dosing and byproduct management is required"
+        ],
+        "evidence_list": [
+          "EPA_UV_and_advanced_oxidation_guidance_for_drinking_water",
+          "public_reference_literature_on_AOP_for_trace_organic_contaminant_control",
+          "engineering_case_knowledge_comparing_AOP_with_ozone_GAC_for_micropollutants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "ozonation_plus_activated_carbon_with_conventional_pretreatment should rank first",
+        "activated_carbon_based_options should rank above membrane_or_UV_AOP_options under proven technology preference",
+        "high-energy membrane or AOP options should not rank first for this single-contaminant case"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for established municipal drinking water treatment technology",
+        "moderate cost and energy sensitivity rather than aggressive high-tech treatment",
+        "need for robust performance under variable surface water conditions"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for 17a-ethynyl estradiol removal",
+        "why ozonation can act as an effective advanced barrier for trace organics in drinking water treatment",
+        "why conventional clarification and filtration are useful pretreatment steps for surface water",
+        "why membrane and UV-AOP options rank lower despite technical feasibility"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "DOC competition for adsorption sites",
+        "possible ozonation byproduct concerns such as bromate if bromide is present",
+        "media exhaustion or replacement needs for activated carbon",
+        "concentrate management burden for membrane alternatives"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

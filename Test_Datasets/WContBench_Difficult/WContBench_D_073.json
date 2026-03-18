@@ -1,0 +1,357 @@
+{
+  "case_id": "WContBench_D_073",
+  "case_name": "Agricultural reuse from mixed industrial-municipal water with cyanide, chromium, TCE, and incompletely characterized Dacthal-related contamination",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Dacthal and Dacthal Degradates",
+      "Cyanide",
+      "Chromium",
+      "Trichloroethylene"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "incomplete_characterization",
+      "multi_barrier_required",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for producing agricultural reuse water from a mixed industrial-municipal source containing cyanide, chromium, TCE, and partially characterized Dacthal-related contaminants under uncertainty and cost-energy tradeoffs.",
+  "input_data": {
+    "scenario_background": "A peri-urban water utility is evaluating reuse of a mixed wastewater stream that combines municipal secondary effluent with intermittent discharges from metal finishing, equipment cleaning, and legacy pesticide-handling areas. Monitoring confirms cyanide, chromium, and trichloroethylene, while Dacthal and several Dacthal degradates are suspected from historic site activities but have only been partially characterized because analytical coverage has been inconsistent. Influent quality varies substantially during storm events and industrial batch releases, and the oxidation state of chromium and the speciation of cyanide are not consistently known. The reuse objective is irrigation of non-food and restricted-food crops, so dissolved organics, metals, and phytotoxicity concerns must be reduced with a robust but not excessively energy-intensive treatment train.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_blend",
+      "pH": 7.4,
+      "temperature_C": 22,
+      "turbidity_NTU": 14,
+      "TSS_mg_L": 26,
+      "COD_mg_L": 88,
+      "BOD5_mg_L": 24,
+      "TOC_mg_L": 17,
+      "ammonia_mg_L_as_N": 8.6,
+      "nitrate_mg_L_as_N": 5.2,
+      "total_phosphorus_mg_L": 2.4,
+      "TDS_mg_L": 980,
+      "hardness_mg_L_as_CaCO3": 210,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "conductivity_uS_cm": 1560,
+      "chloride_mg_L": 145,
+      "sulfate_mg_L": 118,
+      "sodium_mg_L": 132,
+      "SAR": 5.8,
+      "cyanide_total_mg_L": 0.18,
+      "cyanide_amenable_mg_L": 0.09,
+      "chromium_total_mg_L": 0.23,
+      "chromium_hexavalent_mg_L": 0.06,
+      "trichloroethylene_ug_L": 38,
+      "dacthal_total_ug_L": 1.7,
+      "dacthal_degradates_total_ug_L": 4.8,
+      "zinc_mg_L": 0.21,
+      "nickel_mg_L": 0.07,
+      "oil_and_grease_mg_L": 2.3,
+      "fecal_coliform_CFU_100mL": 18000,
+      "influent_variability": "high",
+      "characterization_note": "Dacthal degradate profile is suspected but not fully characterized, cyanide speciation may shift with industrial releases, and chromium oxidation state data are incomplete outside periodic grab samples"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Finished water should be suitable for agricultural irrigation reuse with strong reduction of cyanide, chromium, volatile chlorinated solvent contamination, and pesticide-related organics, while also controlling salinity, pathogens, and solids to avoid crop, soil, and irrigation-system impacts.",
+      "secondary_goals": [
+        "maintain resilience to fluctuating industrial contributions",
+        "avoid creating conditions that volatilize or mobilize cyanide and TCE without capture",
+        "balance contaminant removal with moderate energy use and manageable operating complexity",
+        "include treatment barriers appropriate for partially characterized legacy and emerging organics",
+        "provide risk-aware recommendations with explicit uncertainty caveats"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "hazardous metal-bearing sludge can be managed off-site in limited quantities, but large brine volumes or frequent carbon replacement are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_mixed_source_and_incomplete_contaminant_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_covered_buffer_tank",
+          "pH_control_and_reduction_precipitation_for_chromium",
+          "cyanide_oxidation_with_controlled_reaction_conditions",
+          "clarification",
+          "biological_filtration_or_MBBR",
+          "air_stripping_or_packed_tower_aeration_with_off_gas_GAC",
+          "granular_activated_carbon",
+          "ultrafiltration_or_media_filtration",
+          "UV_or_chlorination_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_covered_buffer_tank": "dampen flow and concentration spikes while limiting uncontrolled volatilization of TCE and allowing safer downstream control",
+          "pH_control_and_reduction_precipitation_for_chromium": "convert hexavalent chromium to trivalent form when present and precipitate chromium hydroxides for removal",
+          "cyanide_oxidation_with_controlled_reaction_conditions": "destroy amenable cyanide under carefully controlled pH and oxidant dosing while minimizing hazardous gas formation",
+          "clarification": "remove precipitated metals and associated solids",
+          "biological_filtration_or_MBBR": "reduce residual biodegradable organics, ammonia, and part of the general wastewater load before polishing",
+          "air_stripping_or_packed_tower_aeration_with_off_gas_GAC": "remove volatile TCE while capturing stripped vapors to avoid air transfer of contamination",
+          "granular_activated_carbon": "polish residual TCE, Dacthal-related organics, and partially characterized hydrophobic trace contaminants",
+          "ultrafiltration_or_media_filtration": "final solids polishing and protection of disinfection stage and irrigation equipment",
+          "UV_or_chlorination_disinfection": "reduce pathogen risk for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "this train addresses the confirmed contaminants with targeted barriers rather than relying on a single broad process",
+          "equalization is particularly important because influent variability is high and contaminant speciation is uncertain",
+          "chemical pretreatment is justified because chromium and cyanide require specific control before downstream biological and polishing stages",
+          "air stripping with off-gas treatment is well suited to TCE because it is volatile, but off-gas capture is essential",
+          "GAC provides a flexible polishing barrier for incompletely characterized Dacthal degradates and other legacy organics that may not be fully removed elsewhere",
+          "the overall energy demand is lower than a full desalination train, which fits agricultural reuse better when salinity is elevated but not extreme"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "cyanide treatment must be tightly controlled because poor pH control can create acute safety risks and incomplete destruction",
+          "chromium reduction and precipitation performance depends on oxidation-state variability and jar testing under actual influent conditions",
+          "air stripping transfers risk to the gas phase unless off-gas GAC or equivalent control is maintained",
+          "Dacthal degradates are not fully characterized, so GAC bed life and residual risk remain uncertain without pilot data",
+          "salinity and sodium adsorption ratio may still require crop-specific irrigation management even if toxic contaminants are reduced",
+          "sludge from chromium treatment may require hazardous handling and disposal"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_cyanide_control_and_oxidation_in_wastewater",
+          "EPA_guidance_for_chromium_VI_reduction_and_precipitation",
+          "EPA_air_stripping_and_GAC_case_knowledge_for_VOC_removal_in_water",
+          "reuse_guidance_for_municipal_industrial_blends_for_agricultural_irrigation",
+          "adsorptive_polishing_case_knowledge_for_hydrophobic_pesticides_and_trace_organics"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_covered_buffer_tank",
+          "pH_control_and_reduction_precipitation_for_chromium",
+          "cyanide_oxidation",
+          "clarification",
+          "biological_treatment",
+          "ozonation_or_UV_H2O2",
+          "biologically_active_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_covered_buffer_tank": "buffer variable mixed-source influent and reduce operational shocks",
+          "pH_control_and_reduction_precipitation_for_chromium": "remove chromium by valence adjustment and precipitation",
+          "cyanide_oxidation": "chemically destroy cyanide before downstream polishing",
+          "clarification": "separate metal precipitates and reaction solids",
+          "biological_treatment": "remove biodegradable organics and ammonia from the municipal fraction",
+          "ozonation_or_UV_H2O2": "oxidize trace organics and some chlorinated solvent residuals while improving biodegradability of remaining organics",
+          "biologically_active_carbon": "adsorb and biologically polish oxidized organics and residual micropollutants",
+          "final_disinfection": "control microbial risk for irrigation reuse"
+        },
+        "applicability_rationale": [
+          "this is a strong multi-barrier option when concern about incompletely characterized Dacthal degradates is high and a broader oxidative polishing step is desired",
+          "advanced oxidation can complement GAC where organics are mixed and partially unknown",
+          "biologically active carbon can reduce oxidized byproducts and improve polishing robustness",
+          "the train is suitable when TCE concentrations are moderate and site testing confirms oxidation performance or when stripping is undesirable for siting reasons"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "advanced oxidation energy and oxidant demand may be significant relative to agricultural reuse economics",
+          "TCE oxidation may be incomplete or less cost-effective than stripping for this concentration range, so pilot verification is important",
+          "oxidation can create byproducts and may increase bromate risk if bromide is present but unmeasured",
+          "uncertain Dacthal degradate chemistry means oxidation efficacy cannot be assumed without treatability testing",
+          "cyanide and oxidation steps must be sequenced carefully to avoid adverse reactions and safety issues"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_advanced_oxidation_processes_in_water_reuse",
+          "public_case_knowledge_for_BAC_following_ozonation_in_reuse_systems",
+          "EPA_guidance_for_chromium_and_cyanide_pretreatment_before_biological_processes",
+          "water_reuse_frameworks_emphasizing_multi_barrier_control_of_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "pH_control_and_reduction_precipitation",
+          "cyanide_oxidation",
+          "clarification_and_dual_media_filtration",
+          "granular_activated_carbon",
+          "low_pressure_reverse_osmosis",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent quality and flow",
+          "pH_control_and_reduction_precipitation": "remove chromium through chemical conversion and precipitation",
+          "cyanide_oxidation": "destroy cyanide prior to membranes",
+          "clarification_and_dual_media_filtration": "remove suspended solids and protect downstream adsorption and membrane units",
+          "granular_activated_carbon": "reduce TCE and pesticide-related organics and lower membrane fouling potential",
+          "low_pressure_reverse_osmosis": "reduce dissolved salts, sodium hazard, and residual dissolved contaminants for more sensitive irrigation uses",
+          "disinfection": "provide pathogen control"
+        },
+        "applicability_rationale": [
+          "this option is attractive when salinity and sodium management become more important for long-term irrigation soil protection than initially assumed",
+          "RO adds a strong dissolved-contaminant barrier beyond what adsorption and conventional polishing can provide",
+          "pretreatment and GAC ahead of RO can improve reliability compared with direct membrane application"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine management is a major drawback and may not fit the stated residuals constraint",
+          "membrane fouling risk is elevated if upstream cyanide, chromium, organics, or colloids are not consistently controlled",
+          "RO may be more treatment than necessary for restricted agricultural reuse if crop salt tolerance is acceptable",
+          "incomplete characterization of trace organics complicates membrane concentrate risk assessment",
+          "chemical and membrane operations increase complexity beyond the preferred medium level"
+        ],
+        "evidence_list": [
+          "agricultural_reuse_guidance_considering_salinity_and_SAR_control",
+          "EPA_guidance_on_membrane_treatment_for_water_reuse",
+          "pretreatment_case_knowledge_for_metal_and_cyanide_control_ahead_of_RO",
+          "public_guidance_on_brine_management_constraints_in_inland_reuse_projects"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "chemical_precipitation_and_clarification",
+          "air_stripping_with_off_gas_control",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable influent and reduce short-term peaks",
+          "chemical_precipitation_and_clarification": "remove a fraction of metals and suspended matter",
+          "air_stripping_with_off_gas_control": "remove volatile TCE from water while controlling air emissions",
+          "sand_filtration": "polish suspended solids",
+          "disinfection": "reduce pathogen risk"
+        },
+        "applicability_rationale": [
+          "this lower-cost train may be considered only as an interim risk-reduction option where budgets are tight and immediate hazard reduction is prioritized",
+          "it can address part of the VOC and metal problem with comparatively modest energy use"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "cyanide removal may be inadequate unless specifically designed oxidation is included, so this train is not robust for the confirmed cyanide level",
+          "Dacthal and degradates are unlikely to be reliably controlled",
+          "no meaningful barrier is provided for dissolved salts or sodium hazard",
+          "agricultural reuse reliability would remain uncertain under variable industrial loads",
+          "this option is vulnerable to underperformance because contaminant characterization is incomplete"
+        ],
+        "evidence_list": [
+          "basic_industrial_pretreatment_guidance_for_metals_and_VOCs",
+          "EPA_case_knowledge_for_air_stripping_of_volatile_organics",
+          "reuse_guidance_showing_limits_of_conventional_treatment_for_trace_organics"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "media_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and reduce some particulate-associated contaminants",
+          "sedimentation": "remove settleable solids",
+          "media_filtration": "polish suspended particles",
+          "chlorination": "provide microbial disinfection"
+        },
+        "applicability_rationale": [
+          "included as a clearly inadequate baseline comparator",
+          "it may improve appearance and pathogen control but does not align with the dissolved toxicant profile in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "will not adequately remove cyanide, dissolved chromium species, TCE, or Dacthal-related organics",
+          "provides no meaningful protection against uncertainty in partially characterized contaminants",
+          "could create false confidence for irrigation reuse while leaving phytotoxic or human-health relevant contaminants in the effluent",
+          "not appropriate as a standalone recommendation for the stated reuse objective"
+        ],
+        "evidence_list": [
+          "conventional_water_treatment_references_showing_limited_removal_of_dissolved_trace_contaminants",
+          "water_reuse_guidance_emphasizing_need_for_fit_for_purpose_multi_barrier_design"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with explicit equalization and targeted control of chromium, cyanide, VOCs, and pesticide-related organics should rank above simple conventional treatment",
+        "solutions that address TCE volatility with off-gas control or otherwise justify VOC management should outrank trains that ignore air-transfer risk",
+        "agricultural reuse recommendations should consider salinity and SAR but should not automatically force RO to rank first when toxic-organic and metals control can be achieved with lower energy alternatives"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "incomplete characterization of Dacthal degradates and variable cyanide/chromium speciation requires robustness and explicit uncertainty handling",
+        "mixed industrial-municipal water needs staged treatment rather than a single process",
+        "cost and energy tradeoffs should be discussed, especially if advanced oxidation or RO is proposed",
+        "residuals and air emissions management should be considered for metal sludge, spent carbon, off-gas treatment, or brine"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why chromium and cyanide need specific pretreatment before broader polishing steps",
+        "why TCE often warrants stripping or another VOC-focused barrier rather than relying only on basic solids treatment",
+        "why GAC or advanced oxidation is reasonable for Dacthal-related and incompletely characterized organic contaminants",
+        "why simple clarification-filtration-disinfection alone is insufficient for this reuse case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in Dacthal degradate composition and treatability",
+        "cyanide speciation and pH-control safety risks during treatment",
+        "chromium oxidation-state uncertainty and implications for removal design",
+        "TCE air-transfer risk and need for off-gas capture if stripping is used",
+        "irrigation salinity and sodium hazard may remain relevant even after toxic-contaminant control",
+        "performance sensitivity to industrial batch discharges and storm-driven dilution or spikes"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "case_id": "WContBench_D_107",
+  "case_name": "Industrial reuse planning for wastewater influenced by Blue-green algae toxins and legacy dissolved contamination under uncertain source contributions",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "Anatoxin-a",
+      "Microcystins"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "legacy_contamination",
+      "evolving_standards",
+      "mixed_organic_inorganic"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for industrial wastewater reuse where cyanotoxins and legacy dissolved contaminants may co-occur under incomplete characterization and changing risk expectations.",
+  "input_data": {
+    "scenario_background": "A manufacturing site captures a mixed wastewater stream that includes process washwater, storm-influenced equalization basin returns, and periodic intake replacement water from a nearby reservoir experiencing seasonal Blue-green algae activity. Anatoxin-a and microcystins have been intermittently detected, but toxin speciation, dissolved versus cell-associated fractions, and peak-event concentrations are not fully characterized. The site also has legacy dissolved contamination from past metal-finishing operations, and the owner wants industrial reuse water for cooling and utility service without overbuilding a train that may be difficult to operate. Influent quality is known to swing after rainfall, reservoir turnover, and production cleanouts, so treatment recommendations must explicitly address uncertainty and robustness.",
+    "water_quality": {
+      "source_type": "industrial_wastewater_with_storm_and_makeup_water_influence",
+      "pH": 7.6,
+      "temperature_C": 24,
+      "turbidity_NTU": 42,
+      "TSS_mg_L": 58,
+      "COD_mg_L": 165,
+      "BOD5_mg_L": 52,
+      "TOC_mg_L": 29,
+      "ammonia_mg_L_as_N": 7.8,
+      "nitrate_mg_L_as_N": 3.4,
+      "phosphate_mg_L_as_P": 1.9,
+      "TDS_mg_L": 1320,
+      "hardness_mg_L_as_CaCO3": 265,
+      "alkalinity_mg_L_as_CaCO3": 178,
+      "conductivity_uS_cm": 2010,
+      "chloride_mg_L": 235,
+      "sulfate_mg_L": 148,
+      "oil_and_grease_mg_L": 5.6,
+      "cyanide_mg_L": 0.02,
+      "heavy_metals_mg_L": {
+        "zinc": 0.31,
+        "copper": 0.08,
+        "nickel": 0.06,
+        "lead": 0.012
+      },
+      "microcystins_ug_L": 3.1,
+      "anatoxin_a_ug_L": 1.4,
+      "chlorophyll_a_ug_L": 38,
+      "cyanotoxin_note": "Blue-green_algae_related_toxins_detected_intermittently_and_cell_bound_fraction_is_not_fully_characterized",
+      "legacy_contamination_note": "historical_metal_finishing_and_surface_runoff_inputs_may_contribute_variable_dissolved_metals_and_organic_additives",
+      "suspected_contaminants_note": "possible_other_cyanotoxin_variants_and_low_level_process_additives_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Finished water should be suitable for cooling tower makeup and general utility reuse with strong reduction of suspended solids, dissolved organics, cyanotoxins, legacy metal contaminants, and salinity-related scaling or corrosion risk, while maintaining dependable quality during variable influent events.",
+      "secondary_goals": [
+        "provide a multi-barrier approach for uncertain cyanotoxin occurrence",
+        "avoid toxin release caused by poorly controlled pre-oxidation of intact cells",
+        "reduce membrane fouling potential under storm-driven variability",
+        "retain flexibility if future internal standards for cyanotoxins become more stringent",
+        "balance robustness with medium capital and operating budgets"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "chemical sludge can be handled in limited quantities; spent carbon replacement is acceptable; concentrate disposal options exist but are costly and should be minimized",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_seasonal_toxin_events_variable_storm_influence_and_partially_characterized_contaminants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_event_diversion",
+          "coagulation_flocculation_and_dissolved_air_flotation",
+          "biological_treatment",
+          "ozonation_followed_by_biologically_activated_carbon",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_event_diversion": "buffer variable hydraulic and quality loads and isolate high-risk cyanotoxin or storm events for controlled treatment",
+          "coagulation_flocculation_and_dissolved_air_flotation": "remove algae cells, colloids, suspended solids, and part of particulate-associated organics and metals while reducing downstream fouling load",
+          "biological_treatment": "reduce biodegradable COD and ammonia before advanced polishing and desalination",
+          "ozonation_followed_by_biologically_activated_carbon": "oxidize and transform dissolved cyanotoxins and organic micropollutants, then biologically and adsorptively polish oxidation byproducts and residual toxins",
+          "ultrafiltration": "provide solids and biomass polishing to protect RO",
+          "reverse_osmosis": "reduce TDS, hardness, dissolved metals, and remaining dissolved contaminants for stable industrial reuse quality",
+          "final_disinfection": "ensure microbiological control in reclaimed water storage and distribution"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the case includes both emerging cyanotoxin risk and legacy dissolved contamination",
+          "equalization and event diversion are important because influent variability is high and toxin peaks are intermittent rather than steady-state",
+          "physical removal of cyanobacterial cells before strong oxidation helps reduce the risk of releasing additional intracellular toxins under poorly controlled conditions",
+          "biological treatment is still useful because the wastewater has meaningful biodegradable organics and ammonia that should be removed before high-pressure membranes",
+          "ozonation plus biologically activated carbon is a strong polishing approach when dissolved cyanotoxins and partially characterized organic contaminants are concerns",
+          "RO is appropriate for cooling and utility reuse because the wastewater has elevated TDS, hardness, and mixed dissolved constituents"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "actual ozone demand and byproduct control depend on the real organic matrix, bromide presence, and toxin fractionation, which are incompletely characterized",
+          "if coagulation or flotation is poorly tuned during Blue-green algae events, intact-cell removal may be inconsistent",
+          "RO concentrate management remains costly and may contain concentrated salts and trace contaminants",
+          "seasonal toxin spikes may exceed current screening data, so pilot testing and event-based monitoring are advisable",
+          "this train is robust but relatively energy intensive, which may be a concern under tighter operating budgets"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_cyanobacterial_toxins_in_drinking_water_and_treatment_barriers",
+          "EPA_drinking_water_treatability_information_for_cyanotoxins",
+          "AWWA_case_knowledge_on_ozone_BAC_for_taste_odor_and_cyanotoxin_control",
+          "industrial_reuse_guidance_supporting_multi_barrier_treatment_and_desalination_for_high_TDS_reuse"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "powdered_activated_carbon_contact",
+          "biological_treatment",
+          "granular_activated_carbon",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variable influent concentration swings and improve chemical dose stability",
+          "coagulation_flocculation_and_clarification": "remove turbidity, algae-related solids, and a portion of particulate-associated metals and organics",
+          "powdered_activated_carbon_contact": "adsorb dissolved cyanotoxins and variable organic contaminants during episodic contamination periods",
+          "biological_treatment": "remove biodegradable organics and ammonia to reduce downstream carbon and membrane loading",
+          "granular_activated_carbon": "provide further adsorption and polishing of residual cyanotoxins and oxidation-sensitive organics without relying on advanced oxidation",
+          "ultrafiltration": "protect RO by removing fine solids and biological carryover",
+          "reverse_osmosis": "deliver low-salinity reuse water and reduce dissolved contaminants",
+          "final_disinfection": "maintain microbial safety for industrial storage and distribution"
+        },
+        "applicability_rationale": [
+          "this train is attractive when operators prefer to avoid ozone complexity while still providing multiple cyanotoxin barriers",
+          "activated carbon is commonly considered for microcystins and can offer useful risk reduction for dissolved organic toxins when the contaminant profile is uncertain",
+          "having both PAC and GAC adds flexibility for seasonal toxin episodes and changing internal quality standards",
+          "biological treatment ahead of UF/RO improves overall economics by lowering biodegradable load and ammonia before desalination"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Anatoxin-a adsorption performance can be more variable than microcystin control, so carbon-only toxin management may need confirmatory testing",
+          "PAC dose requirements may rise sharply during high TOC or storm events, increasing chemical handling and sludge production",
+          "without advanced oxidation, some dissolved trace organics may break through if carbon usage is not aggressively managed",
+          "ranking is slightly lower than rank 1 because toxin speciation and competitive adsorption effects are uncertain"
+        ],
+        "evidence_list": [
+          "EPA_cyanotoxin_treatment_fact_sheets_for_PAC_GAC_and_conventional_treatment",
+          "AWWA_guidance_on_activated_carbon_for_cyanotoxin_and_organic_control",
+          "reuse_case_knowledge_for_UF_RO_following_biological_and_adsorptive_pretreatment"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_DAF",
+          "MBR",
+          "advanced_oxidation_UV_H2O2",
+          "granular_activated_carbon",
+          "nanofiltration_or_reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize hydraulic and quality fluctuations",
+          "coagulation_flocculation_and_DAF": "remove algae cells and suspended matter before membrane bioreactor loading",
+          "MBR": "combine biological removal of biodegradable organics and ammonia with high-quality solids separation",
+          "advanced_oxidation_UV_H2O2": "oxidatively degrade dissolved cyanotoxins and some recalcitrant organics",
+          "granular_activated_carbon": "polish oxidation byproducts and residual dissolved organics",
+          "nanofiltration_or_reverse_osmosis": "reduce dissolved salts and remaining dissolved contaminants for reuse",
+          "final_disinfection": "provide residual microbial control"
+        },
+        "applicability_rationale": [
+          "this is a compact advanced train that can achieve strong effluent consistency when operated well",
+          "MBR can provide stable low-turbidity effluent useful for downstream UV-based oxidation and membrane desalting",
+          "UV/H2O2 offers a direct advanced oxidation route when dissolved toxin control is prioritized and ozone is operationally undesirable",
+          "the train may suit facilities willing to accept somewhat higher complexity for a smaller footprint"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this option is sensitive to membrane fouling and requires higher operator capability than the stated preferred complexity",
+          "UV transmittance may be reduced by variable industrial organics, increasing energy demand for AOP",
+          "cyanotoxin destruction efficacy depends on actual matrix scavenging demand and may require pilot confirmation",
+          "NF may be inadequate if final reuse salinity targets prove tighter, in which case RO would be required"
+        ],
+        "evidence_list": [
+          "public_treatability_knowledge_for_MBR_based_water_reclamation",
+          "EPA_and_peer_reviewed_guidance_on_UV_H2O2_for_micropollutant_control",
+          "engineering_case_knowledge_for_compact_advanced_reuse_trains"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "chemical_precipitation_and_clarification",
+          "media_filtration",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable flow and contaminant spikes",
+          "chemical_precipitation_and_clarification": "remove metals, some suspended solids, and part of colloidal load",
+          "media_filtration": "polish solids and reduce RO fouling potential",
+          "granular_activated_carbon": "adsorb some dissolved cyanotoxins and organics before desalination",
+          "reverse_osmosis": "remove dissolved salts and many dissolved contaminants for reuse quality",
+          "final_disinfection": "control microbial regrowth"
+        },
+        "applicability_rationale": [
+          "this route may be considered if biological treatment is undesirable because of unstable influent or limited bioprocess expertise",
+          "it directly addresses legacy dissolved metals and salinity using chemical pretreatment and RO",
+          "the process train is conceptually simpler than biological plus advanced oxidation alternatives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "without biological treatment, biodegradable organics and ammonia may remain too high, increasing carbon consumption and RO fouling risk",
+          "GAC alone may not provide sufficiently reliable control for uncertain Anatoxin-a events",
+          "chemical sludge generation may be significant due to metals precipitation and variable solids loading",
+          "ranked lower because it is less resilient to mixed organic and nutrient loads than multi-barrier biological trains"
+        ],
+        "evidence_list": [
+          "industrial_wastewater_guidance_for_metal_precipitation_and_membrane_pretreatment",
+          "EPA_treatability_information_indicating_limitations_of_single_barrier_control_for_cyanotoxins",
+          "reuse_practice_references_on_RO_pretreatment_requirements"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_filtration",
+          "activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and assist solids aggregation",
+          "sedimentation": "remove settleable floc and suspended matter",
+          "sand_filtration": "polish remaining particulate solids",
+          "activated_carbon": "provide limited adsorption of dissolved organics and some toxins",
+          "disinfection": "control microbial contamination"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional option",
+          "it may reduce turbidity and some algae-related solids but does not comprehensively address the combined dissolved contaminant and reuse requirements",
+          "it can be relevant only as a pretreatment subset or emergency interim barrier rather than a full reuse solution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient control of TDS and hardness for the stated industrial reuse objectives",
+          "cyanotoxin removal would be unreliable under uncertain dissolved versus cell-bound fractions",
+          "legacy dissolved metals and variable organic loads may pass through at problematic levels",
+          "this option under-responds to evolving standards and incomplete source characterization"
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_references_showing_limits_for_dissolved_toxin_and_salt_control",
+          "public_guidance_on_need_for_multiple_barriers_when_cyanotoxins_are_present",
+          "industrial_reuse_quality_guidance_indicating_conventional_only_trains_are_often_insufficient"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with explicit cyanotoxin management and salinity control should rank above conventional-only trains",
+        "equalization or event buffering should appear near the front of higher-ranked solutions because influent variability is high",
+        "cell-removal and dissolved-toxin polishing should both be recognized in top-ranked options",
+        "desalination should appear in higher-ranked solutions because industrial reuse requires better dissolved-solids control than conventional treatment can provide"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the case combines emerging cyanotoxin concerns with legacy metals and elevated TDS rather than a single contaminant problem",
+        "recommendations should acknowledge incomplete characterization of toxin speciation and event peaks",
+        "cost, energy, carbon replacement, sludge generation, and concentrate disposal tradeoffs should be explicitly discussed",
+        "operation complexity should not be ignored because the facility prefers medium rather than very high complexity"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why cyanobacterial cell removal ahead of strong oxidation can matter under Blue-green algae events",
+        "why biological treatment remains useful before advanced polishing and desalination in mixed industrial wastewater",
+        "why activated carbon or advanced oxidation is considered for dissolved cyanotoxins and partially characterized organics",
+        "why simpler conventional trains are insufficient for industrial reuse with elevated TDS and uncertain toxin fractions"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in dissolved versus intracellular toxin fractions and potential release during poorly chosen pretreatment",
+        "seasonal or storm-driven influent variability and event-based peak concentrations",
+        "uncertain treatability differences between microcystins and Anatoxin-a under the actual water matrix",
+        "membrane fouling, concentrate disposal, and residuals management burdens",
+        "evolving internal or external expectations for cyanotoxin control that may tighten after system design"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}
