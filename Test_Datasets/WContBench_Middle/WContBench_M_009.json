@@ -1,0 +1,321 @@
+{
+  "case_id": "WContBench_M_009",
+  "case_name": "Malathion and trace organics control for surface water potable reuse under moderate cost and limited operator skill",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Malathion"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for malathion-impacted surface water intended for potable reuse while balancing multiple contaminant targets, moderate cost limits, and limited operator skill.",
+  "input_data": {
+    "scenario_background": "A regional utility is upgrading a surface-water-based advanced treatment train to support indirect potable reuse during dry-season shortages. Monitoring shows episodic malathion inputs from upstream agricultural runoff, along with modest natural organic matter and trace wastewater-derived micropollutants, so the utility needs a treatment approach that can reliably reduce pesticide risk without relying on a highly specialized operating staff. Several technically feasible routes exist, but the best choice depends on balancing oxidation effectiveness, biological or adsorptive polishing needs, residuals handling, and overall operational simplicity.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 22.4,
+      "turbidity_NTU": 8.7,
+      "TOC_mg_L": 6.4,
+      "DOC_mg_L": 5.1,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 142,
+      "conductivity_uS_cm": 486,
+      "ammonia_mg_L_as_N": 0.34,
+      "nitrate_mg_L_as_N": 3.2,
+      "bromide_mg_L": 0.09,
+      "chloride_mg_L": 41,
+      "sulfate_mg_L": 36,
+      "TSS_mg_L": 11,
+      "E_coli_CFU_100mL": 3200,
+      "target_contaminants": {
+        "malathion_ug_L": 2.7,
+        "atrazine_ug_L": 0.9,
+        "carbamazepine_ug_L": 0.42,
+        "geosmin_ng_L": 18
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should achieve robust multi-barrier treatment appropriate for potable reuse, including reliable malathion reduction and control of co-occurring trace organics and pathogens.",
+      "secondary_goals": [
+        "limit formation of problematic oxidation byproducts",
+        "keep operation manageable for a moderately staffed utility",
+        "avoid excessively difficult concentrate or residuals handling",
+        "maintain resilience to seasonal raw water variability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids and spent media handling over high-strength membrane concentrate management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment must tolerate variable surface water quality and episodic contaminant spikes with stable compliance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity, suspended solids, and a portion of natural organic matter before advanced treatment",
+          "dual_media_filtration": "provide particle polishing and protect downstream oxidation and BAC units",
+          "ozonation": "oxidize malathion and improve control of additional trace organics and taste-and-odor compounds",
+          "biological_activated_carbon": "polish biodegradable oxidation products, reduce residual dissolved organics, and provide adsorption/biological buffering",
+          "final_disinfection": "provide pathogen inactivation and finished-water protection"
+        },
+        "applicability_rationale": [
+          "malathion is generally amenable to oxidative degradation, making ozone a practical core barrier in a potable reuse context",
+          "the source water has moderate DOC and measurable bromide, so pairing ozonation with BAC helps manage oxidation byproducts and biodegradable intermediates",
+          "this route addresses multiple targets at once, including pesticide reduction, trace organic polishing, geosmin control, and pathogen barrier integration",
+          "compared with membrane-concentrate-heavy options, this train better fits moderate cost and simpler residuals management",
+          "operation is more manageable than high-pressure membrane systems while still offering a strong multi-barrier configuration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "bromate formation must be monitored and controlled because bromide is present",
+          "ozone dose control and BAC performance require routine process attention",
+          "very large contaminant spikes may require conservative ozone dosing or additional polishing margin"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_ozonation_and_biological_filtration_for_surface_water_and_reuse",
+          "WHO_guidance_on_pesticides_in_drinking_water_and_multi_barrier_control",
+          "AWWA_case_knowledge_for_ozone_BAC_micropollutant_reduction",
+          "public_references_on_malathion_oxidation_and_biological_polishing"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulate matter and reduce organic loading",
+          "dual_media_filtration": "polish solids and support stable downstream adsorptive treatment",
+          "powdered_activated_carbon": "provide flexible response to episodic malathion and taste-and-odor events",
+          "granular_activated_carbon": "adsorb malathion and other trace organics and provide polishing of dissolved organics",
+          "final_disinfection": "ensure microbial safety for potable reuse application"
+        },
+        "applicability_rationale": [
+          "activated carbon is a credible route for hydrophobic pesticide control and can also help with geosmin and some wastewater-derived trace organics",
+          "this configuration avoids bromate concerns associated with ozonation",
+          "PAC offers operational flexibility during seasonal spikes while GAC provides more stable baseline polishing",
+          "the system can be easier for limited-skill staff than advanced membrane trains, though media management is still required",
+          "ranking is slightly below ozone-BAC because oxidation plus BAC is usually stronger for broad trace-organic transformation in potable reuse service"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "competitive adsorption from moderate DOC can shorten carbon life",
+          "PAC handling increases solids production and feed-system attention",
+          "adsorptive systems do not destroy contaminants and require spent carbon management planning"
+        ],
+        "evidence_list": [
+          "EPA_and_AWWA_guidance_on_activated_carbon_for_organic_micropollutants",
+          "public_case_knowledge_for_PAC_GAC_control_of_pesticides_and_taste_odor",
+          "drinking_water_practice_references_for_GAC_polishing_of_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ultraviolet_hydrogen_peroxide_advanced_oxidation",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particulate and organic loading prior to advanced oxidation",
+          "dual_media_filtration": "protect UV reactors and downstream adsorptive polishing",
+          "ultraviolet_hydrogen_peroxide_advanced_oxidation": "oxidize malathion and some co-occurring trace organics through hydroxyl radical formation",
+          "granular_activated_carbon": "polish oxidation byproducts and residual organic compounds",
+          "final_disinfection": "provide final pathogen control and compliance barrier"
+        },
+        "applicability_rationale": [
+          "UV-AOP is technically capable and familiar in some potable reuse applications for trace-organic control",
+          "it avoids bromate formation risk associated with ozonation",
+          "downstream GAC helps address partial oxidation products and residual organics",
+          "however, the source water DOC and UV absorbance increase oxidant demand and reduce process efficiency, making this option less attractive under moderate cost constraints",
+          "the process generally requires tighter control of UV transmittance, peroxide dose, and reactor performance than the preferred alternatives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher energy use and chemical demand than adsorption-focused options",
+          "performance sensitivity to UV transmittance and fouling can complicate operation for limited staff",
+          "oxidation byproducts still require downstream polishing and validation"
+        ],
+        "evidence_list": [
+          "reuse_guidance_for_UV_AOP_as_trace_organic_barrier",
+          "EPA_and_state_reuse_references_on_advanced_oxidation_process_control",
+          "public_knowledge_on_UV_peroxide_performance_dependence_on_water_matrix"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "advanced_oxidation_or_GAC_post_treatment",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and fouling load before membrane treatment",
+          "media_filtration": "provide additional pretreatment protection for high-pressure membranes",
+          "nanofiltration_or_reverse_osmosis": "reject dissolved organics and many trace contaminants including malathion",
+          "advanced_oxidation_or_GAC_post_treatment": "polish any residual low-molecular-weight compounds and condition permeate for potable reuse",
+          "final_disinfection": "provide final microbial barrier"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically strong and can provide broad-spectrum contaminant reduction",
+          "this route may be attractive where the utility prioritizes maximum dissolved contaminant rejection across many classes",
+          "despite technical capability, it ranks lower because the case constraints do not favor high-pressure membranes with concentrate management burdens",
+          "operator skill, cleaning, integrity monitoring, and concentrate disposal complexity are misaligned with the stated utility profile"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "membrane concentrate handling is a significant challenge for inland reuse settings",
+          "higher operator skill is needed for fouling control, cleaning, and integrity management",
+          "pretreatment upsets can affect recovery and reliability"
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_for_RO_based_advanced_treatment",
+          "EPA_and_state_references_on_membrane_concentrate_management_constraints",
+          "public_case_knowledge_on_high_pressure_membrane_O_and_M_burden"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "chlorination_contact_tank",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and lower upstream treatment load",
+          "dual_media_filtration": "polish particulates before chemical treatment and adsorption",
+          "chlorination_contact_tank": "provide oxidant contact and partial transformation of susceptible compounds",
+          "granular_activated_carbon": "remove residual organics and provide limited polishing of trace contaminants",
+          "final_disinfection": "maintain microbial safety in finished water"
+        },
+        "applicability_rationale": [
+          "this route uses familiar conventional operations and may appear attractive for staff simplicity",
+          "GAC can contribute meaningful polishing of hydrophobic organics",
+          "however, free chlorine is not the preferred primary barrier for reliable malathion and broad trace-organic control in potable reuse applications",
+          "the train is included as a lower-ranked feasible option because it is operationally simple but less robust than ozone-BAC, carbon-focused hybrid systems, or UV-AOP for the stated goals"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidative transformation with chlorine may be incomplete for some target micropollutants",
+          "disinfection byproduct formation can increase in moderate-DOC surface water",
+          "finished-water robustness for potable reuse trace-organic expectations may be insufficient without stronger advanced treatment"
+        ],
+        "evidence_list": [
+          "EPA_surface_water_treatment_and_disinfection_byproduct_guidance",
+          "public_guidance_on_limitations_of_chlorination_for_trace_organic_control",
+          "drinking_water_case_knowledge_for_GAC_as_polishing_not_primary_barrier"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "ozone_BAC_or_similar oxidation_plus_biological_polishing should rank near the top for multi-target potable reuse control",
+        "activated_carbon_based routes should appear as strong alternatives for malathion and geosmin control",
+        "RO_or_NF should not rank first under moderate cost and limited operator skill constraints",
+        "a technically capable but constraint-misaligned option should be ranked below better-balanced alternatives"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "tradeoff between broad contaminant removal and operator manageability",
+        "importance of handling multiple targets rather than only malathion removal",
+        "preference to avoid difficult membrane concentrate management",
+        "moderate rather than unlimited capital and operating budgets"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why oxidation is attractive for organophosphate pesticide treatment",
+        "why moderate DOC and bromide influence ozone-related design and ranking",
+        "why adsorption performance can be affected by natural organic matter competition",
+        "why membrane options are downgraded despite strong technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "bromate or other oxidation byproduct concerns",
+        "spent carbon replacement or residuals handling",
+        "influent variability and episodic pesticide spikes",
+        "need for downstream polishing of oxidation byproducts"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "case_id": "WContBench_D_097",
+  "case_name": "Industrial wastewater reuse planning with partially characterised pesticide-endocrine disruptor mixture, cyanide, and pathogen concern",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "17a-ethynyl_estradiol",
+      "S._typhi",
+      "cyanide",
+      "acetochlor"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "regulatory_ambiguity",
+      "co_occurring_pollutants",
+      "limited_site_data"
+    ],
+    "pollution_pattern": "complex_mixed_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for industrial wastewater intended for agricultural reuse under incomplete source characterization, mixed toxic-organic-pathogen contamination, and uncertain compliance expectations.",
+  "input_data": {
+    "scenario_background": "A peri-urban agro-industrial estate is evaluating reuse of treated mixed industrial wastewater for restricted and possibly future unrestricted irrigation. The wastewater appears to combine streams from pesticide formulation and packaging operations, utility washdown, and intermittent sanitary cross-connections, but the exact source apportionment is not fully verified. Monitoring has shown detectable cyanide, acetochlor, and very low-level 17a-ethynyl estradiol, while Salmonella Typhi is suspected from sanitary intrusion indicators but organism occurrence is based on limited episodic testing rather than a long historical dataset. Influent strength and contaminant pulses are reported to vary substantially during campaign production and cleanup events, so treatment must be robust to uncertain peaks and regulatory interpretation for agricultural reuse.",
+    "water_quality": {
+      "source_type": "mixed_industrial_wastewater_with_possible_sanitary_intrusion",
+      "pH": 8.4,
+      "temperature_C": 28,
+      "turbidity_NTU": 42,
+      "TSS_mg_L": 96,
+      "COD_mg_L": 320,
+      "BOD5_mg_L": 88,
+      "TOC_mg_L": 54,
+      "ammonia_mg_L_as_N": 9.6,
+      "nitrate_mg_L_as_N": 2.1,
+      "total_phosphorus_mg_L_as_P": 3.8,
+      "TDS_mg_L": 1180,
+      "conductivity_uS_cm": 1820,
+      "alkalinity_mg_L_as_CaCO3": 210,
+      "hardness_mg_L_as_CaCO3": 185,
+      "chloride_mg_L": 230,
+      "sulfate_mg_L": 145,
+      "cyanide_free_mg_L": 0.28,
+      "cyanide_total_mg_L": 0.74,
+      "acetochlor_ug_L": 37,
+      "17a_ethynyl_estradiol_ng_L": 18,
+      "S_typhi_note": "suspected_based_on_limited_pathogen_monitoring_and_possible_sanitary_cross_connection_not_fully_characterised",
+      "fecal_coliform_CFU_100mL": 3800,
+      "e_coli_CFU_100mL": 1400,
+      "oil_and_grease_mg_L": 6,
+      "trace_organics_note": "other_pesticide_intermediates_and_formulation_additives_suspected_but_not_fully_characterised",
+      "influent_variability": "high",
+      "sampling_uncertainty_note": "available_data_are_from_grab_samples_and_short_campaigns_so_peak_cyanide_and_micropollutant_levels_may_be_underrepresented"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Produce treated water suitable for agricultural reuse with strong control of acute toxicity, pathogen risk, suspended solids, and persistent organics, while managing salinity and addressing uncertain future requirements for crop sensitivity and potential unrestricted irrigation standards.",
+      "secondary_goals": [
+        "maintain resilience to variable influent and shock loads",
+        "reduce cyanide before downstream biological stages where needed",
+        "provide a defensible barrier against endocrine-active trace organics and herbicides",
+        "achieve pathogen reduction despite incomplete pathogen characterisation",
+        "avoid overcommitting to an energy-intensive train if lower-salinity irrigation reuse remains acceptable"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "hazardous_or_special_handling_for_cyanide_bearing_sludge_or_spent_media_is_available_but_costly_and_should_be_minimized; concentrate_disposal_is_difficult",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_influent_incomplete_characterisation_and_agricultural_reuse_public_health_concerns"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_segregation_control",
+          "alkaline_chlorination_or_catalytic_cyanide_oxidation",
+          "coagulation_flocculation_and_clarification",
+          "biological_treatment_with_nitrification",
+          "dual_media_filtration_or_UF",
+          "granular_activated_carbon",
+          "UV_plus_chlorine_or_peracetic_acid_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_segregation_control": "buffer hydraulic and quality variability and isolate suspected high-cyanide or high-pesticide batches where possible",
+          "alkaline_chlorination_or_catalytic_cyanide_oxidation": "convert cyanide to less toxic species before biological treatment and reduce acute toxicity risk",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and particulate-associated organics to protect downstream units",
+          "biological_treatment_with_nitrification": "reduce biodegradable organics and ammonia and improve overall effluent stability",
+          "dual_media_filtration_or_UF": "polish solids and lower pathogen/particle breakthrough risk prior to adsorption and final disinfection",
+          "granular_activated_carbon": "adsorb acetochlor and help reduce trace endocrine-active organics such as 17a-ethynyl estradiol",
+          "UV_plus_chlorine_or_peracetic_acid_disinfection": "provide multi-barrier pathogen control for agricultural reuse with residual or secondary disinfection support"
+        },
+        "applicability_rationale": [
+          "this train directly addresses the most critical uncertainty, namely variable cyanide pulses that could inhibit biology if untreated",
+          "a staged multi-barrier approach is appropriate because the pollutant mix includes toxic inorganics, pesticides, trace endocrine disruptors, and possible enteric pathogens",
+          "biological treatment is useful for reducing bulk organics and ammonia before polishing, improving downstream GAC life and disinfection reliability",
+          "GAC is a pragmatic polishing step under limited site data because it can address a range of incompletely characterised hydrophobic organics beyond acetochlor",
+          "full desalination is not clearly required for the reported salinity and agricultural reuse objective, so this option better fits energy sensitivity than RO-centric trains while still being protective",
+          "the recommendation remains conditional on confirming irrigation crop salt tolerance and any site-specific reuse rules for pathogens and micropollutants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "alkaline chlorination must be tightly controlled to avoid incomplete cyanide destruction or formation of chlorinated byproducts; cyanate and residual oxidant management should be verified",
+          "17a-ethynyl estradiol removal by GAC can vary with EBCT, NOM competition, and breakthrough, so pilot testing is advisable under uncertainty",
+          "S. typhi is not routinely monitored everywhere, so disinfection design may need to rely on conservative pathogen surrogates and reuse guidance rather than organism-specific validation",
+          "if uncharacterised pesticide intermediates are more polar or persistent than expected, GAC alone may be insufficient and AOP or membranes may be needed",
+          "regulatory ambiguity around agricultural reuse and trace organics could shift the required treatment endpoint upward"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_case_knowledge_for_cyanide_oxidation_in_industrial_wastewater",
+          "WHO_guidelines_for_safe_use_of_wastewater_in_agriculture",
+          "water_reuse_guidance_supporting_multi_barrier_pathogen_control_for_irrigation",
+          "GAC_and_advanced_treatment_case_knowledge_for_pesticide_and_endocrine_disruptor_removal"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "catalytic_or_chemical_cyanide_destruction",
+          "biological_treatment",
+          "ultrafiltration",
+          "ozonation_or_UV_H2O2",
+          "biologically_active_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variable loading and improve downstream process control",
+          "catalytic_or_chemical_cyanide_destruction": "reduce cyanide toxicity and protect biomass",
+          "biological_treatment": "remove biodegradable COD and ammonia",
+          "ultrafiltration": "provide low-turbidity polishing and physical barrier to particulates and many microorganisms",
+          "ozonation_or_UV_H2O2": "oxidize acetochlor, trace endocrine disruptors, and some uncharacterised micropollutants",
+          "biologically_active_carbon": "capture oxidation byproducts and provide additional adsorption/biological polishing",
+          "final_disinfection": "establish robust final pathogen barrier for reuse"
+        },
+        "applicability_rationale": [
+          "this option is attractive when concern over 17a-ethynyl estradiol and incompletely characterised trace organics is elevated and a stronger micropollutant barrier is desired",
+          "UF plus AOP plus BAC gives a more explicit advanced treatment sequence for difficult dissolved organics than GAC alone",
+          "the train still retains cyanide-specific pretreatment and biological bulk removal, which are important for mixed industrial wastewater",
+          "it is ranked below the top option because energy, chemical demand, and operator burden are higher under medium complexity constraints",
+          "AOP selection should be confirmed by treatability tests because matrix scavenging and transformation products are uncertain"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "AOP performance may be reduced by TOC, alkalinity, and radical scavengers, making actual EE2 and pesticide removal uncertain without pilot data",
+          "oxidation byproducts may require BAC maturation and careful monitoring",
+          "higher process complexity may challenge sites with limited analytical control and intermittent staffing",
+          "pathogen control still depends on validated final disinfection and integrity management, not UF alone"
+        ],
+        "evidence_list": [
+          "advanced_oxidation_guidance_for_trace_organic_micropollutant_control",
+          "BAC_polishing_case_knowledge_after_ozonation_in_water_reuse_systems",
+          "public_health_guidance_for_multi_barrier_recycled_water_disinfection"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_source_control",
+          "cyanide_destruction",
+          "coagulation_flocculation",
+          "MBR",
+          "nanofiltration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_source_control": "moderate influent swings and improve isolation of problematic batches",
+          "cyanide_destruction": "prevent biological inhibition and reduce toxicity",
+          "coagulation_flocculation": "lower colloidal and organic fouling load",
+          "MBR": "combine biological removal with high-quality solids separation and partial pathogen reduction",
+          "nanofiltration": "reduce dissolved organics, some salts, and certain micropollutants to improve irrigation water quality",
+          "final_disinfection": "provide additional pathogen barrier for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "this compact advanced train can produce a very stable effluent where irrigation reliability and future tightening of reuse targets are concerns",
+          "MBR offers strong solids control and can reduce uncertainty in downstream NF fouling relative to conventional secondary clarifiers",
+          "NF can lower acetochlor and some dissolved constituents while partially controlling salinity, which may help for more sensitive crops than the current plan",
+          "the option is not top-ranked because concentrate management is difficult on this site and NF rejection of low-molecular-weight neutral compounds such as some endocrine disruptors can be variable",
+          "this route is more suitable if future regulations or crop sensitivity justify higher finished-water quality and added complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "membrane concentrate containing cyanide reaction products and concentrated organics poses a disposal challenge",
+          "MBR biology may still be upset by unrecognised toxic spikes if source control and cyanide destruction are inconsistent",
+          "NF may not reliably guarantee trace EE2 control without confirmation of membrane selection and operating conditions",
+          "higher fouling control demands and skilled operation may exceed the preferred operating envelope"
+        ],
+        "evidence_list": [
+          "MBR_NF_reuse_case_knowledge_for_high_quality_irrigation_water",
+          "membrane_guidance_on_concentrate_management_constraints",
+          "industrial_wastewater_treatability_guidance_for_toxic_shock_load_protection"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "alkaline_chlorination",
+          "coagulation_flocculation_and_clarification",
+          "sand_or_multimedia_filtration",
+          "granular_activated_carbon",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer flow and concentration variability",
+          "alkaline_chlorination": "oxidize cyanide and assist with disinfection",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and reduce downstream fouling/adsorption load",
+          "sand_or_multimedia_filtration": "provide solids polishing",
+          "granular_activated_carbon": "adsorb pesticide-related organics and some trace hydrophobic contaminants",
+          "chlorination": "maintain final microbial control and residual"
+        },
+        "applicability_rationale": [
+          "this is a simpler physicochemical route that may be considered if biological treatment is viewed as too vulnerable to toxic shock or operationally difficult",
+          "it can reduce cyanide, suspended solids, and a fraction of target organics with moderate footprint",
+          "the route is ranked lower because it does not address biodegradable organics and ammonia as effectively as trains with biological treatment, which can compromise long-term reuse stability and disinfection demand",
+          "it may be acceptable only if influent biodegradable load proves lower than currently indicated and irrigation restrictions remain conservative"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "ammonia and residual COD may remain too high for reliable reuse-water quality and may increase disinfectant demand",
+          "chlorination alone is a weaker barrier for some protozoa and may be less robust under high solids excursions",
+          "spent carbon replacement frequency is uncertain because the full organic mixture is not characterised",
+          "sludge and spent media may require special handling if cyanide-related residual contamination persists"
+        ],
+        "evidence_list": [
+          "physicochemical_treatment_case_knowledge_for_industrial_wastewater_with_toxic_inorganics",
+          "GAC_guidance_for_pesticide_removal_in_water_treatment",
+          "reuse_guidance_indicating_limits_of_single_barrier_disinfection"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "equalization",
+          "conventional_activated_sludge",
+          "secondary_clarification",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "provide limited buffering of variable influent",
+          "conventional_activated_sludge": "remove biodegradable organics",
+          "secondary_clarification": "separate biomass",
+          "sand_filtration": "polish suspended solids",
+          "disinfection": "reduce microbial risk"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline because it addresses common wastewater parameters at relatively moderate cost",
+          "it may improve COD, BOD, and solids but is not a robust standalone solution for cyanide, acetochlor, trace endocrine disruptors, or uncertain pathogen burdens in this case",
+          "the absence of dedicated cyanide pretreatment and micropollutant barriers makes it unsuitable unless source characterization later shows much lower risk than currently suspected"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cyanide could inhibit biomass during peak events if equalization is insufficient",
+          "acetochlor and 17a-ethynyl estradiol removal would be unreliable",
+          "pathogen control would depend heavily on final disinfection despite variable solids and possible sanitary intrusion",
+          "recommendation quality is highly uncertain because the train does not explicitly address co-occurring toxic and trace contaminants"
+        ],
+        "evidence_list": [
+          "conventional_wastewater_treatment_references_and_known_limitations_for_micropollutants",
+          "public_guidance_on_need_for_fit_for_purpose_reuse_barriers"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains with explicit cyanide pretreatment should rank above simple biological-only or conventional trains",
+        "options that include adsorption and/or advanced oxidation for acetochlor and 17a-ethynyl estradiol control should rank above trains lacking dissolved-organic barriers",
+        "solutions should not assume full desalination is mandatory unless justified by irrigation salinity needs and site constraints",
+        "equalization or source control should appear near the front of higher-ranked trains because influent variability is high and site data are limited"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited site data and grab-sample uncertainty mean recommendations should be robust to possible unobserved contaminant peaks",
+        "co-occurring toxic inorganic, pathogen, and trace organic contamination requires staged treatment rather than a single unit process",
+        "residuals and concentrate management constraints should penalize membrane-heavy options unless clearly justified",
+        "regulatory ambiguity for agricultural reuse should be acknowledged, especially for pathogens and trace endocrine disruptors"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why cyanide destruction ahead of biological treatment is important under possible toxic shock loads",
+        "why adsorption or advanced oxidation is useful for acetochlor and 17a-ethynyl estradiol under partial characterisation of trace organics",
+        "why pathogen control should rely on a multi-barrier approach rather than only one disinfectant step when S. typhi is suspected",
+        "why simpler conventional trains are insufficient for this mixed industrial reuse scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in actual peak cyanide concentration due to short monitoring record",
+        "possible biological inhibition from uncharacterised toxic side-streams or batch discharges",
+        "uncertain removal and breakthrough behaviour for 17a-ethynyl estradiol and other suspected trace organics",
+        "public health risk from intermittent sanitary cross-connections and incomplete S. typhi characterisation",
+        "tradeoff between stronger membrane polishing and difficult concentrate disposal at this site",
+        "potential formation of oxidation byproducts during cyanide destruction or advanced oxidation and the need for validation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

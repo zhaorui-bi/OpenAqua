@@ -1,0 +1,288 @@
+{
+  "case_id": "WContBench_E_046",
+  "case_name": "Methiocarb removal from groundwater for a small drinking water system",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Methiocarb"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for methiocarb-contaminated groundwater intended for drinking water supply under low-energy and small-system constraints.",
+  "input_data": {
+    "scenario_background": "A small rural water utility relies on a groundwater well located near agricultural land and has detected methiocarb in the raw water. The system needs a simple and reliable treatment approach to produce drinking water, with preference for low-energy technologies and limited operator attention. The groundwater has relatively low turbidity but contains modest dissolved organic carbon that may affect adsorption performance.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.3,
+      "turbidity_NTU": 0.7,
+      "DOC_mg_L": 2.4,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 210,
+      "nitrate_mg_L_as_NO3": 11.0,
+      "sulfate_mg_L": 34,
+      "chloride_mg_L": 22,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "methiocarb_ug_L": 4.8,
+      "temperature_C": 13.5
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable reduction of methiocarb to a level suitable for drinking water supply while maintaining stable finished water quality.",
+      "secondary_goals": [
+        "favor proven low-energy treatment",
+        "keep operation simple for a small utility",
+        "minimize chemical handling and high-strength residual streams",
+        "maintain robust performance despite moderate DOC"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited on-site residuals handling; routine spent media changeout is acceptable but concentrated liquid waste is undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable unattended operation with straightforward monitoring is preferred"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove incidental particulates and protect downstream adsorptive media",
+          "granular_activated_carbon_adsorption": "adsorb methiocarb and other trace hydrophobic organic compounds from groundwater",
+          "post_filtration": "retain carbon fines and polish finished water",
+          "disinfection": "provide final microbiological protection for drinking water supply"
+        },
+        "applicability_rationale": [
+          "methiocarb is an organic micropollutant for which activated carbon is a well-established treatment approach",
+          "the groundwater has low turbidity, making fixed-bed adsorption practical without extensive pretreatment",
+          "GAC is compatible with small-system operation and low-energy goals because the main treatment mechanism is adsorption rather than pressure-driven separation",
+          "moderate DOC may reduce carbon bed life, but this is a manageable matrix effect rather than a reason to avoid the technology",
+          "this process chain is conventional, scalable, and widely used for pesticide taste, odor, and organic contaminant control in drinking water applications"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "DOC competition can shorten GAC run length and increase replacement frequency",
+          "breakthrough monitoring is necessary because methiocarb removal declines as adsorption sites are exhausted",
+          "improperly managed carbon changeout can cause variable effluent quality"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_granular_activated_carbon",
+          "public_guidance_on_activated_carbon_for_pesticide_removal_in_drinking_water",
+          "small_system_case_knowledge_for_gac_adsorption_of_trace_organic_contaminants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "powdered_activated_carbon_contact",
+          "cartridge_or_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "stabilize influent solids loading before PAC application",
+          "powdered_activated_carbon_contact": "provide batch or contact adsorption of methiocarb",
+          "cartridge_or_media_filtration": "separate PAC and captured solids from treated water",
+          "disinfection": "provide final microbiological safety"
+        },
+        "applicability_rationale": [
+          "activated carbon remains the main removal mechanism, which is supported for pesticide control",
+          "PAC can be useful where a compact contact-and-filtration arrangement is preferred or where contamination levels may vary seasonally",
+          "the approach remains relatively low energy compared with membrane systems",
+          "it is feasible for small systems when chemical feeding and solids capture can be managed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing optimization is needed to respond to DOC competition and changing methiocarb levels",
+          "solid residuals generation is higher than for fixed-bed GAC",
+          "operator attention is greater because chemical preparation and dose control are required"
+        ],
+        "evidence_list": [
+          "epa_treatability_case_knowledge_for_powdered_activated_carbon_on_organic_micropollutants",
+          "public_water_treatment_guidance_for_pesticide_control_with_pac",
+          "drinking_water_practice_references_for_carbon_based_removal_of_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_filtration",
+          "advanced_oxidation",
+          "biologically_active_carbon_or_gac",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "protect oxidation and downstream adsorption units from particulate interference",
+          "advanced_oxidation": "oxidize methiocarb into more biodegradable or adsorbable transformation products",
+          "biologically_active_carbon_or_gac": "remove oxidation byproducts and polish residual organic contaminants",
+          "disinfection": "ensure microbiological safety in finished water"
+        },
+        "applicability_rationale": [
+          "oxidation followed by carbon polishing can be effective for certain pesticide contaminants when adsorption alone is insufficient",
+          "the carbon stage provides a safety barrier for partial oxidation products",
+          "this train offers a more aggressive treatment barrier than adsorption alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "advanced oxidation increases energy demand and control complexity for a small utility",
+          "partial oxidation may form transformation products that still require downstream removal",
+          "oxidant dose and contact conditions must be validated for methiocarb rather than assumed"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants_in_drinking_water",
+          "engineering_case_knowledge_for_oxidation_plus_carbon_polishing_of_pesticides",
+          "drinking_water_treatment_references_on_byproduct_control_after_aop"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide broad rejection of dissolved organic micropollutants including methiocarb",
+          "stabilization": "adjust permeate chemistry for distribution system compatibility",
+          "disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable of reducing a wide range of dissolved contaminants",
+          "this option may be considered if future source degradation introduces multiple dissolved contaminants beyond methiocarb alone",
+          "it offers a strong physical barrier but is not the most natural fit for the stated constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand conflicts with the low-energy requirement",
+          "concentrate management is problematic for a small system with limited residuals options",
+          "membrane fouling and scaling add operational burden disproportionate to a single primary organic contaminant case"
+        ],
+        "evidence_list": [
+          "epa_and_public_membrane_guidance_for_synthetic_organic_contaminant_control",
+          "drinking_water_case_examples_of_nf_ro_for_micropollutant_reduction",
+          "small_system_membrane_limitations_due_to_energy_and_concentrate_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "transfer volatile compounds from water to air",
+          "filtration": "provide particulate polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included only as a lower-ranked comparator because it is a known treatment process for some organic compounds",
+          "it is not a preferred route for a carbamate pesticide like methiocarb, which is not primarily addressed by volatility-based removal"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "poor intrinsic applicability for methiocarb may result in inadequate removal",
+          "selection based on generic organic contaminant logic rather than compound-specific treatability would be a design error",
+          "off-gas management may still be needed if any stripped contaminants are present"
+        ],
+        "evidence_list": [
+          "compound_specific_treatability_guidance_distinguishing_volatile_and_nonvolatile_organic_removal",
+          "public_drinking_water_engineering_knowledge_that_air_stripping_is_not_standard_for_carbamate_pesticides",
+          "technology_screening_references_for_pesticide_treatment_selection"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank at the top for methiocarb in groundwater",
+        "low_energy_small_system_compatible adsorption systems should rank above high_pressure_membranes",
+        "air_stripping_or_other_poorly_matched_processes should rank near the bottom"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small system preference for simple and proven treatment",
+        "high sensitivity to energy use",
+        "avoidance of complex concentrate or residual management where possible",
+        "recognition that moderate DOC can affect adsorption performance but does not automatically eliminate GAC"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for pesticide-like organic micropollutants",
+        "how dissolved organic carbon can compete for adsorption sites and influence carbon life",
+        "why membrane options rank lower under low-energy and small-system constraints",
+        "why non-matched processes such as air stripping are not preferred for methiocarb"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon breakthrough and replacement frequency",
+        "matrix effects from DOC on adsorption capacity",
+        "uncertainty in oxidation byproducts if advanced oxidation is considered",
+        "concentrate disposal burden for membrane systems"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

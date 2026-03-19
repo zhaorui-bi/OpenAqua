@@ -1,0 +1,329 @@
+{
+  "case_id": "WContBench_M_046",
+  "case_name": "Brackish groundwater with TCE and alachlor degradates for potable reuse under cost, O&M, and residuals constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Alachlor Degradates",
+      "Trichloroethylene"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing trichloroethylene and alachlor degradates intended for potable reuse while balancing contaminant removal, salinity control, cost, operational simplicity, and residuals handling.",
+  "input_data": {
+    "scenario_background": "A small inland utility is evaluating a brackish groundwater wellfield as a drought-resilient source for indirect potable reuse blending. The source contains both volatile chlorinated solvent contamination and herbicide degradates, while salinity is high enough that some desalting or blending-compatible mineral control is needed for finished water acceptance. Several treatment routes are technically feasible, but the utility has limited operator staffing, wants to avoid difficult concentrate disposal where possible, and cannot support the highest-capex advanced treatment train unless the performance benefit is compelling.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.4,
+      "temperature_C": 18.5,
+      "turbidity_NTU": 1.1,
+      "DOC_mg_L": 2.6,
+      "TOC_mg_L": 3.0,
+      "alkalinity_mg_L_as_CaCO3": 175,
+      "hardness_mg_L_as_CaCO3": 240,
+      "conductivity_uS_cm": 3450,
+      "TDS_mg_L": 2210,
+      "chloride_mg_L": 860,
+      "sulfate_mg_L": 210,
+      "nitrate_as_N_mg_L": 4.2,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "bromide_mg_L": 0.42,
+      "target_contaminants": {
+        "trichloroethylene_ug_L": 18.0,
+        "alachlor_ESA_ug_L": 7.8,
+        "alachlor_OXA_ug_L": 3.4
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should reliably meet potable reuse program requirements, including compliant control of trichloroethylene and alachlor degradates, while producing a stable water quality suitable for downstream blending and disinfection.",
+      "secondary_goals": [
+        "reduce dissolved salts enough to support finished water acceptance",
+        "maintain low operator burden for a small utility",
+        "avoid highly difficult concentrate or spent residuals management",
+        "provide robust performance under moderate source-water variability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer to minimize high-volume brine concentrate generation and avoid hazardous off-gas handling where possible",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal salinity variation and maintain consistent VOC and pesticide-degradate control"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "packed_tower_aeration_with_offgas_GAC",
+          "granular_activated_carbon",
+          "partial_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "remove particulates and protect downstream adsorption and membrane units",
+          "packed_tower_aeration_with_offgas_GAC": "strip volatile trichloroethylene from water and capture VOCs from off-gas",
+          "granular_activated_carbon": "adsorb alachlor degradates and provide polishing for residual organics",
+          "partial_reverse_osmosis": "reduce TDS and chloride to support potable reuse blending while limiting concentrate volume compared with full desalting",
+          "stabilization": "adjust corrosivity and mineral balance after desalting",
+          "disinfection": "provide final pathogen control barrier for finished water"
+        },
+        "applicability_rationale": [
+          "This train separates the treatment burden by contaminant type, using air stripping for the volatile solvent and GAC for the more adsorption-amenable herbicide degradates.",
+          "TCE at this concentration is well suited to packed tower aeration, which can be more energy-efficient than relying on GAC alone for the VOC load.",
+          "A partial RO step addresses the brackish character without requiring the highest-recovery, highest-complexity desalting design, improving the overall balance between salinity control and concentrate management.",
+          "Compared with a full RO-centered train, this route reduces membrane loading and can lower overall cost and operator burden while still meeting potable reuse needs.",
+          "The process is more complex than adsorption alone, but it better matches the mixed requirement of VOC removal plus moderate salt reduction."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "Air stripping requires reliable off-gas control and monitoring to prevent uncontrolled VOC emissions.",
+          "Partial RO still generates concentrate that requires inland disposal planning.",
+          "Alachlor degradate adsorption capacity on GAC can be affected by DOC competition and bed life uncertainty.",
+          "Post-RO stabilization and corrosion control must be actively managed."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organics_in_groundwater",
+          "EPA_guidance_for_GAC_use_for_synthetic_organic_chemicals",
+          "AWWA_case_knowledge_on_combined_VOC_removal_and_brackish_water_treatment",
+          "public_guidance_on_brackish_groundwater_RO_and_post_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "granular_activated_carbon_lead_lag",
+          "partial_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect GAC and membrane equipment from particulate fouling",
+          "granular_activated_carbon_lead_lag": "remove trichloroethylene and alachlor degradates through staged adsorption and provide breakthrough buffering",
+          "partial_reverse_osmosis": "reduce salinity and dissolved ions for potable reuse compatibility",
+          "stabilization": "restore suitable finished-water chemistry after desalting",
+          "disinfection": "provide final pathogen control barrier"
+        },
+        "applicability_rationale": [
+          "This route avoids air handling equipment and can be operationally simpler for a small utility than combining stripping towers with off-gas treatment.",
+          "Lead-lag GAC is a practical, well-understood option for mixed organic contaminants, and the low turbidity source water favors adsorptive operation.",
+          "Partial RO addresses the brackish groundwater constraint better than adsorption-only trains.",
+          "The ranking is slightly lower than the top option because GAC is generally less efficient than air stripping for the full TCE load and may require more frequent carbon changeout.",
+          "It remains a strong alternative when the utility prioritizes simpler mechanical systems over maximum VOC treatment efficiency."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "TCE breakthrough may occur sooner than expected if carbon usage is driven by the VOC load.",
+          "Spent carbon replacement or regeneration logistics must be managed.",
+          "RO concentrate disposal remains an unresolved residuals issue for inland locations.",
+          "Adsorption performance for polar alachlor degradates may be less robust than for parent hydrophobic pesticides."
+        ],
+        "evidence_list": [
+          "EPA_GAC_guidance_for_VOCs_and_synthetic_organic_contaminants",
+          "AWWA_small_system_practice_for_lead_lag_GAC_operation",
+          "public_references_on_brackish_groundwater_partial_RO_design",
+          "case_knowledge_on_GAC_polishing_for_pesticide_degradates"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "packed_tower_aeration_with_offgas_GAC",
+          "anion_exchange_or_specialty_resin",
+          "electrodialysis_reversal",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect downstream units from particulate fouling",
+          "packed_tower_aeration_with_offgas_GAC": "remove volatile TCE and control off-gas emissions",
+          "anion_exchange_or_specialty_resin": "target polar alachlor degradates that may be less strongly adsorbed on conventional GAC",
+          "electrodialysis_reversal": "reduce dissolved salts in brackish groundwater with potentially lower concentrate volume than RO under some conditions",
+          "disinfection": "provide final pathogen control barrier"
+        },
+        "applicability_rationale": [
+          "This train is technically attractive because alachlor degradates are relatively polar transformation products and may be amenable to selected resin-based treatment.",
+          "EDR can be a plausible alternative to RO for brackish groundwater when the desalting target is moderate rather than extreme.",
+          "The route is ranked below the top two because specialty resin management plus EDR introduces more process complexity and more nuanced operations for a small utility.",
+          "It may become favorable where concentrate minimization is weighted more heavily than straightforward design simplicity."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Resin selection for alachlor degradates requires pilot verification because performance can vary with water matrix and compound speciation.",
+          "EDR is less common than RO for many small systems and may increase operator training needs.",
+          "Off-gas handling remains necessary due to TCE stripping.",
+          "Membrane scaling and polarity reversal management require reliable controls."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_TCE_and_related_VOCs",
+          "public_knowledge_on_resin_treatment_for_polar_organic_micropollutants",
+          "AWWA_references_on_electrodialysis_reversal_for_brackish_groundwater",
+          "case_knowledge_on_small_system_tradeoffs_between_EDR_and_RO"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "reverse_osmosis",
+          "advanced_oxidation_process",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "control fouling and protect RO membranes",
+          "reverse_osmosis": "remove dissolved salts and reject many dissolved organic contaminants",
+          "advanced_oxidation_process": "provide oxidation polishing for residual low-molecular-weight organics after RO",
+          "stabilization": "adjust post-treatment mineral balance and corrosion potential",
+          "disinfection": "provide final pathogen control barrier"
+        },
+        "applicability_rationale": [
+          "This is a high-performance potable reuse style train and is technically capable of strong salt reduction and broad contaminant control.",
+          "RO provides a substantial barrier for many dissolved contaminants and directly addresses the brackish groundwater issue.",
+          "However, the route ranks lower because it is misaligned with the stated low-complexity and residuals constraints: full RO with AOP has higher capex, higher energy demand, and more intensive operator requirements.",
+          "For TCE specifically, relying mainly on RO is less elegant than removing a volatile solvent up front by air stripping.",
+          "This option is more appropriate if the project later prioritizes maximum treatment redundancy over lifecycle simplicity."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "High-volume concentrate disposal is a major challenge for inland brackish groundwater applications.",
+          "AOP adds chemical and control complexity and may create byproduct management concerns depending on bromide and oxidant selection.",
+          "Membrane fouling and scaling control increase O&M burden.",
+          "This train may exceed the financial and staffing capacity of the utility."
+        ],
+        "evidence_list": [
+          "public_guidance_on_RO_for_brackish_groundwater_desalination",
+          "EPA_and_state_reuse_guidance_on_advanced_treatment_trains",
+          "public_references_on_AOP_operational_complexity_and_bromate_considerations",
+          "case_knowledge_on_inland_brine_management_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "cartridge_prefiltration",
+          "air_stripping_with_offgas_treatment",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_prefiltration": "protect downstream treatment units",
+          "air_stripping_with_offgas_treatment": "remove volatile TCE and control emitted vapors",
+          "granular_activated_carbon": "polish residual organics including alachlor degradates",
+          "disinfection": "provide final pathogen control barrier"
+        },
+        "applicability_rationale": [
+          "For the organic contaminants alone, this is a credible and comparatively straightforward treatment train.",
+          "It likely offers lower cost and simpler operation than membrane-intensive potable reuse trains.",
+          "It ranks last because it does not adequately address the brackish groundwater salinity issue described in the scenario, which is a material requirement for finished water acceptance in potable reuse blending.",
+          "This is therefore a technically capable contaminant-removal option that is downgraded due to poor alignment with the full set of project constraints and objectives."
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Finished water TDS and chloride would remain too high for the intended potable reuse application unless substantial blending capacity exists elsewhere.",
+          "Off-gas treatment is still required for TCE stripping.",
+          "GAC changeout frequency for degradates remains uncertain.",
+          "The train may fail non-organic acceptance criteria even if organic compliance is achieved."
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_packed_tower_aeration_of_groundwater_VOCs",
+          "EPA_guidance_for_GAC_removal_of_synthetic_organic_contaminants",
+          "public_knowledge_on_finished_water_salinity_constraints_for_potable_reuse_and_blending",
+          "case_examples_where_organic_removal_only_trains_were_insufficient_for_brackish_sources"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "Top-ranked options should recognize that both contaminant removal and moderate salinity reduction are needed for this brackish source.",
+        "Air-stripping-based routes should be competitive because TCE is volatile and can often be removed efficiently before other polishing steps.",
+        "A technically powerful full RO plus advanced oxidation route should not rank first under cost, low-complexity, and residuals-management constraints.",
+        "An organics-only treatment route should rank lower because it fails the broader brackish potable reuse objective despite contaminant capability."
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small-utility preference for lower operation complexity",
+        "importance of inland concentrate and residuals handling burden",
+        "tradeoff between higher-performance desalting and lifecycle cost",
+        "need to control both VOCs and pesticide degradates rather than a single contaminant class"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why air stripping is favorable for trichloroethylene in groundwater",
+        "why adsorption or resin polishing is considered for alachlor degradates",
+        "why some level of desalting is needed for brackish groundwater in potable reuse service",
+        "why full RO-centered treatment is downgraded by concentrate disposal and O&M concerns"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "VOC off-gas handling requirements",
+        "GAC or resin replacement uncertainty",
+        "inland concentrate disposal challenge",
+        "potential mismatch between organic contaminant control and salinity acceptance"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

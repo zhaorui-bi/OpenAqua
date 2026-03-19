@@ -1,0 +1,83 @@
+[
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1438",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Hustert, K. and Moza, P.",
+    "Year": "1997",
+    "Title": "Photochemical degradation of dicarboximide fungicides in the presence of soil constituents",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "620",
+    "Treatment Process": "N/A",
+    "Author": "USEPA Office of Ground Water and Drinking Water",
+    "Year": "2008",
+    "Title": "Contaminant Candidate List 3 (CCL3)",
+    "Source": "USEPA Office of Ground Water and Drinking Water"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "492",
+    "Treatment Process": "N/A",
+    "Author": "Syracuse Research Corporation",
+    "Year": "2007",
+    "Title": "SRC PhysProp Database",
+    "Source": "http://www.syrres.com/esc/physdemo.htm"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1462",
+    "Treatment Process": "N/A",
+    "Author": "Szeto, Y.",
+    "Year": "1987",
+    "Title": "The Fungicide Vinclozolin: Hydrolysis and Chemical Persistence on Pea Leaves",
+    "Source": "Simon Fraser University"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1458",
+    "Treatment Process": "Ozone",
+    "Author": "Meijers, R., Oderwald-Muller, E., Nuhn, P. and Kruithof, J.",
+    "Year": "1995",
+    "Title": "Degradation of pesticides by ozonation and advanced oxidation",
+    "Source": "Ozone Sci. Eng."
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1464",
+    "Treatment Process": "N/A",
+    "Author": "Agriculture and Environment Research Unit, University of Hertfordshire",
+    "Year": "2009",
+    "Title": "Pesticide Properties Database - Vinclozolin",
+    "Source": "http://sitem.herts.ac.uk/aeru/footprint/en/index.htm"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1443",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2000",
+    "Title": "R.E.D. Facts - Vinclozolin",
+    "Source": "R.E.D. Facts - Vinclozolin"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1440",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Lee, J-B., Sohn, H-Y., Shin, K-S., Kim, J-S., Jo, M-S., Jeon, C-P., Jang, J-O., Kim, J-E. and Kwon, G-S.",
+    "Year": "2008",
+    "Title": "Microbial biodegradation and toxicity of vinclozolin and its toxic metabolite 3,5-Dichloroaniline",
+    "Source": "Journal of Microbiology and Biotechnology"
+  },
+  {
+    "Contaminant Name": "Vinclozolin",
+    "Ref#": "1459",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Taylor, J., Lovins, W. and Chen, S.",
+    "Year": "2002",
+    "Title": "Emerging contaminants and membrane technology",
+    "Source": "Florida Water Resources Journal"
+  }
+]

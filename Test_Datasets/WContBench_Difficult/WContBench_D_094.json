@@ -1,0 +1,337 @@
+{
+  "case_id": "WContBench_D_094",
+  "case_name": "Industrial reuse from reclaimed water with partially characterised pesticide and chlorinated solvent carryover",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "reclaimed_water_source",
+    "contaminant_type": [
+      "Glyphosate",
+      "Mevinphos",
+      "Nitrofen",
+      "Cis-1,2-dichloroethylene",
+      "Acetochlor"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for upgrading reclaimed water containing a mixed and incompletely characterised pesticide and VOC burden to industrial reuse quality under uncertainty, cost, and energy constraints.",
+  "input_data": {
+    "scenario_background": "A manufacturing campus currently receives tertiary municipal reclaimed water for cooling make-up and washdown, but intermittent upstream catchment events are suspected to introduce trace agricultural chemicals and occasional chlorinated solvent carryover from legacy urban-industrial sources. Routine screening has confirmed several target compounds, but event-driven spikes and the full dissolved organic micropollutant mixture are not fully characterised. Conductivity and bulk organics are moderate rather than extreme, so the design question is whether advanced polishing alone is sufficient or whether a more robust multi-barrier train is needed to manage uncertain peaks and protect reuse reliability.",
+    "water_quality": {
+      "source_type": "tertiary_municipal_reclaimed_water_with_event_driven_micropollutant_carryover",
+      "pH": 7.4,
+      "turbidity_NTU": 3.6,
+      "TSS_mg_L": 6,
+      "COD_mg_L": 32,
+      "BOD5_mg_L": 8,
+      "TOC_mg_L": 9.1,
+      "ammonia_mg_L_as_N": 1.6,
+      "nitrate_mg_L_as_N": 7.8,
+      "phosphate_mg_L_as_P": 1.9,
+      "TDS_mg_L": 780,
+      "hardness_mg_L_as_CaCO3": 255,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "conductivity_uS_cm": 1230,
+      "chloride_mg_L": 145,
+      "sulfate_mg_L": 82,
+      "DOC_mg_L": 6.4,
+      "UV254_cm_1": 0.16,
+      "bromide_mg_L": 0.11,
+      "glyphosate_ug_L": 18,
+      "mevinphos_ug_L": 1.7,
+      "nitrofen_ug_L": 0.42,
+      "cis_1_2_dichloroethylene_ug_L": 7.8,
+      "acetochlor_ug_L": 2.9,
+      "microbial_indicator_note": "tertiary_reclaimed_water_disinfected_upstream_but_final_barrier_still_needed_for_industrial_distribution_stability",
+      "trace_contaminant_note": "additional_polar_pesticide_metabolites_and_non_target_organics_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Finished water should be suitable for non-potable industrial reuse such as cooling make-up and equipment washing, with robust reduction of targeted pesticides, chlorinated solvent carryover, suspended solids, and residual organics while improving consistency and limiting fouling/scaling risk.",
+      "secondary_goals": [
+        "maintain performance during episodic contaminant spikes and uncertain non-target micropollutants",
+        "avoid excessive energy use where lower-salinity reclaimed water may not require full desalination in every option",
+        "provide a defensible multi-barrier approach for mixed polar and nonpolar organic contaminants",
+        "minimize operational upsets and explain residual uncertainty where characterization is incomplete"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "spent_carbon_handling_and_backwash_waste_are_feasible_but_onsite_management_of_large_brine_volumes_is_unfavorable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_contaminant_spikes_and_incomplete_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending",
+          "coagulation_flocculation_and_dual_media_filtration",
+          "granular_activated_carbon",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "biologically_active_carbon_or_post_GAC_guard_bed",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer short-term reclaimed water quality swings and dampen episodic contaminant peaks",
+          "coagulation_flocculation_and_dual_media_filtration": "remove residual turbidity, colloids, and particulate organic matter to protect downstream adsorption and oxidation",
+          "granular_activated_carbon": "adsorb hydrophobic pesticides and reduce organic background that competes for oxidation",
+          "advanced_oxidation_uv_hydrogen_peroxide": "oxidize residual pesticides and chlorinated solvent carryover that may break through carbon",
+          "biologically_active_carbon_or_post_GAC_guard_bed": "capture oxidation byproducts and provide additional polishing of biodegradable organics",
+          "final_disinfection": "stabilize microbial quality in the industrial distribution system"
+        },
+        "applicability_rationale": [
+          "the contaminant set spans polar and nonpolar pesticides plus a volatile chlorinated solvent, so a staged adsorption and oxidation barrier is more robust than relying on one polishing process alone",
+          "equalization is important because the case explicitly includes high influent variability and event-driven spikes",
+          "bulk salinity is moderate for many industrial reuse applications, so the highest-ranked option avoids mandatory desalination and better fits the stated energy sensitivity",
+          "GAC is a practical front-line barrier for hydrophobic compounds such as nitrofen and acetochlor while also reducing oxidant demand",
+          "advanced oxidation provides a second barrier for compounds that are less reliably controlled by adsorption alone and helps address the unknown contaminant fraction",
+          "post-oxidation biologically active carbon or a guard bed improves robustness by reducing transformation products and residual assimilable organics"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "glyphosate removal by GAC alone can be variable, so oxidation and site-specific validation are important uncertainty controls",
+          "advanced oxidation effectiveness depends on actual UV transmittance, scavenging by dissolved organic matter, and contaminant speciation during peak events",
+          "partial oxidation may create byproducts, requiring confirmation that downstream BAC or guard GAC is adequately sized",
+          "cis-1,2-dichloroethylene can be more efficiently managed with air stripping in some conditions, so this train may not be optimal if VOC concentrations rise well above current observations",
+          "recommendation assumes industrial reuse quality does not require major TDS reduction; if cooling system cycles are stringent, added desalination may still be needed"
+        ],
+        "evidence_list": [
+          "water_reuse_guidance_supporting_multi_barrier_advanced_treatment_for_reclaimed_water",
+          "epa_guidance_and_case_knowledge_for_gac_and_aop_control_of_trace_organics",
+          "engineering_practice_for_equalization_when_influent_variability_is_high",
+          "public_case_knowledge_on_biologically_active_carbon_after_oxidation_for_reuse_polishing"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_blending",
+          "cartridge_or_media_prefiltration",
+          "air_stripping_with_off_gas_control",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "reduce peak-to-average concentration swings and improve process control",
+          "cartridge_or_media_prefiltration": "remove fine particulates to protect stripper internals and carbon adsorption capacity",
+          "air_stripping_with_off_gas_control": "remove volatile cis-1,2-dichloroethylene from reclaimed water",
+          "granular_activated_carbon": "polish pesticides and residual dissolved organics not removed by stripping",
+          "final_disinfection": "maintain stable reuse-water microbial quality"
+        },
+        "applicability_rationale": [
+          "this train directly addresses the confirmed VOC with a targeted unit process while using GAC for the pesticide fraction",
+          "it can be more energy-efficient than membrane desalination and simpler than full AOP when VOC control is a dominant concern",
+          "the approach is plausible because reclaimed water turbidity is already low, reducing pretreatment burden",
+          "it is ranked below the top option because the unknown non-target fraction may include compounds not well controlled by air stripping plus single-stage carbon alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "glyphosate and other highly polar species may have limited adsorption on GAC and are not addressed by stripping",
+          "off-gas treatment is required to avoid transferring VOC risk from water to air",
+          "if contaminant peaks include non-volatile and oxidation-resistant micropollutants, this train may underperform without an added oxidation barrier",
+          "performance depends on timely carbon changeout under uncertain episodic loading",
+          "this option does not reduce TDS or hardness, so suitability depends on the actual industrial reuse specification"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_air_stripping_of_volatile_organic_compounds_in_water",
+          "public_guidance_on_gac_use_for_pesticide_and_micropollutant_polishing",
+          "reuse_engineering_practice_for_targeted_voc_control_in_nonpotable_reuse_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_blending",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "uv_advanced_oxidation_or_gac_post_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "stabilize feed quality and reduce membrane shock loading",
+          "ultrafiltration": "provide low-turbidity feed and reduce particulate fouling potential for RO",
+          "reverse_osmosis": "reduce dissolved salts and reject many dissolved organic contaminants to produce high-quality industrial reuse water",
+          "uv_advanced_oxidation_or_gac_post_polishing": "manage residual low-molecular organics in permeate and provide an additional barrier for uncertain trace contaminants",
+          "final_disinfection": "ensure distribution-system stability"
+        },
+        "applicability_rationale": [
+          "this is a strong candidate if the actual industrial reuse target proves more stringent for conductivity, hardness, or dissolved contaminant reliability than initially stated",
+          "RO provides broad-spectrum control and can hedge against the unknown fraction better than adsorption alone for many dissolved species",
+          "UF pretreatment is appropriate given the need to protect RO from reclaimed-water particulates and colloids",
+          "it is not ranked first because source water salinity is only moderate and the site is sensitive to energy and brine management"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "RO concentrate management is a major disadvantage under the stated residuals constraint",
+          "rejection for small polar compounds can vary by membrane type and operating conditions, so trace-organics validation is still needed",
+          "membrane fouling and scaling risk remain significant due to reclaimed-water organics and hardness",
+          "post-polishing choice is uncertain because permeate may still need control of very low-level organics or byproducts depending on reuse specification",
+          "this train may over-treat the water relative to the baseline industrial need, increasing cost without proportional benefit"
+        ],
+        "evidence_list": [
+          "water_reuse_guidance_for_uf_ro_advanced_reclamation_trains",
+          "public_membrane_desalination_guidance_for_industrial_reuse_quality_control",
+          "engineering_case_knowledge_on_post_ro_polishing_for_trace_organic_risk_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization_and_blending",
+          "ozonation",
+          "biologically_active_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer variable influent quality before oxidation",
+          "ozonation": "oxidize selected pesticides and transform some dissolved organic matter",
+          "biologically_active_filtration": "remove biodegradable ozonation byproducts and lower residual organic load",
+          "granular_activated_carbon": "provide final adsorption polishing for remaining micropollutants",
+          "final_disinfection": "maintain microbial control in reuse storage and distribution"
+        },
+        "applicability_rationale": [
+          "ozone plus biofiltration is a recognized advanced polishing sequence for reclaimed water with trace organic concerns",
+          "the combination can be effective where dissolved organic matter needs conversion and biological removal before final adsorption polishing",
+          "it offers a non-membrane route that can be less energy-intensive than RO while still providing a multi-barrier framework",
+          "this option ranks below the top two because bromide is present and ozone byproduct formation risk must be actively managed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "bromate formation is a site-specific concern due to measurable bromide in the reclaimed water",
+          "ozonation performance can be uneven across the specific target compounds, especially under uncertain event-driven mixtures",
+          "biofiltration requires stable operation and sufficient biodegradable product formation; under low biodegradable carbon it may be less predictable",
+          "VOC removal for cis-1,2-dichloroethylene may be less direct than with stripping and should not be assumed without validation",
+          "if the unknown fraction includes oxidation-resistant compounds, GAC polishing demand may still be substantial"
+        ],
+        "evidence_list": [
+          "reuse_guidance_for_ozone_biofiltration_in_advanced_water_treatment",
+          "public_guidance_on_bromate_control_during_ozonation",
+          "case_knowledge_for_gac_as_final_barrier_after_oxidative_polishing"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "dual_media_filtration": "remove residual suspended solids and protect downstream adsorption media",
+          "granular_activated_carbon": "adsorb a portion of dissolved pesticides and organic matter",
+          "final_disinfection": "maintain reuse-water microbiological stability"
+        },
+        "applicability_rationale": [
+          "this lower-ranked baseline is included because it is relatively simple and may be considered attractive under budget pressure",
+          "it could improve water appearance and reduce some hydrophobic pesticide burden",
+          "however, it lacks a dedicated barrier for uncertain polar compounds and the confirmed chlorinated solvent, making it insufficiently robust for this difficult case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "single-stage GAC may not reliably remove glyphosate or other poorly adsorbing polar contaminants",
+          "cis-1,2-dichloroethylene control is uncertain without a VOC-focused process or oxidation barrier",
+          "performance under high variability and unknown contaminant fractions is weak compared with multi-barrier alternatives",
+          "frequent carbon replacement may be needed if event-driven contaminant peaks occur",
+          "this option offers no TDS or hardness reduction if those become limiting for the industrial reuse application"
+        ],
+        "evidence_list": [
+          "basic_reclaimed_water_filtration_and_gac_polishing_references",
+          "public_case_knowledge_showing_limits_of_single_barrier_adsorption_for_mixed_micropollutants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier non-membrane advanced polishing trains should rank highly because the water is reclaimed and salinity is only moderate",
+        "equalization or blending should be recognized as important due to high influent variability and episodic spikes",
+        "options that explicitly address both pesticide-like micropollutants and the chlorinated VOC should rank above simple adsorption-only trains",
+        "RO-based desalination can appear but should not automatically be ranked first because brine and energy penalties are material in this scenario"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the contaminant mixture is incompletely characterized and includes an unknown fraction",
+        "cost-energy tradeoffs should be discussed because the site is sensitive to unnecessary over-treatment",
+        "residuals management should acknowledge that large brine production is unfavorable whereas spent carbon and backwash waste are more manageable",
+        "industrial reuse quality is important but may not require full desalination unless site-specific cooling or process limits are stricter than stated"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why adsorption alone may be insufficient for a mixed polar and nonpolar organic contaminant set",
+        "why equalization helps under event-driven reclaimed-water variability",
+        "why advanced oxidation or targeted VOC removal may be needed in addition to carbon",
+        "why RO is a robust but potentially over-conservative option under moderate TDS and brine constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in non-target micropollutants and event-driven concentration spikes",
+        "variable removal of glyphosate and other polar compounds by GAC",
+        "off-gas management if air stripping is selected for cis-1,2-dichloroethylene",
+        "bromate or oxidation-byproduct risks if ozonation or UV-based advanced oxidation is used",
+        "membrane fouling, scaling, and concentrate disposal risk if RO is recommended",
+        "the possibility that actual industrial reuse requirements may tighten around conductivity or scaling control beyond the currently available information"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

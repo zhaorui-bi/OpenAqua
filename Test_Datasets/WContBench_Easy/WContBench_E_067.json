@@ -1,0 +1,294 @@
+{
+  "case_id": "WContBench_E_067",
+  "case_name": "Ibuprofen reduction from surface water for small drinking water system",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Ibuprofen"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for ibuprofen-contaminated surface water intended for drinking water production in a small, low-energy system.",
+  "input_data": {
+    "scenario_background": "A small town draws raw water from a river-influenced reservoir and has identified ibuprofen as the primary trace organic contaminant of concern. The utility needs a practical drinking water treatment upgrade that is proven, compact enough for a small site, and compatible with low-energy operation. The system prefers technologies with straightforward operation and does not want to rely on high-pressure membranes.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 4.8,
+      "DOC_mg_L": 4.6,
+      "UV254_cm_1": 0.118,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 118,
+      "TOC_mg_L": 5.2,
+      "ammonia_mg_L_as_N": 0.09,
+      "nitrate_mg_L_as_N": 1.8,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "ibuprofen_ug_L": 1.9,
+      "e_coli_CFU_100mL": 120
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should be suitable for drinking water production with strong reduction of ibuprofen and compliance with conventional microbial and physical water quality requirements.",
+      "secondary_goals": [
+        "favor low-energy treatment",
+        "use established technology suitable for a small utility",
+        "maintain simple and robust operation",
+        "avoid unnecessary concentrate or brine management"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited on-site residuals handling capacity; periodic spent media replacement is acceptable but large sludge or brine streams are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable performance under seasonal source-water variability is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation",
+          "media_filtration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "reduce suspended solids and part of natural organic matter to protect downstream adsorption",
+          "media_filtration": "remove clarified particles and provide conventional surface water polishing",
+          "granular_activated_carbon_adsorption": "adsorb ibuprofen and other trace organic compounds from finished water precursor stream",
+          "disinfection": "provide final microbial control for drinking water safety"
+        },
+        "applicability_rationale": [
+          "ibuprofen is a trace organic contaminant for which activated carbon is a well-established control approach in drinking water treatment",
+          "pretreatment with coagulation and filtration is appropriate for surface water with moderate turbidity and DOC",
+          "GAC is compatible with small-system operation and avoids the energy demand of high-pressure membranes",
+          "the overall train is conventional, proven, and aligns well with low-energy drinking water production"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "high DOC can shorten GAC bed life and increase replacement or reactivation frequency",
+          "if upstream solids removal is inconsistent, carbon fouling and premature breakthrough may occur",
+          "ibuprofen breakthrough requires monitoring because trace organic removal is not directly visible from routine plant indicators"
+        ],
+        "evidence_list": [
+          "WHO_and_drinking_water_case_knowledge_on_activated_carbon_for_trace_organics",
+          "EPA_guidance_and_practice_examples_for_GAC_use_in_organic_micropollutant_control",
+          "AWWA_case_knowledge_on_surface_water_pretreatment_to_protect_GAC_performance"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "filtration",
+          "powdered_activated_carbon_dosing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize particles and reduce background organic matter",
+          "sedimentation": "remove formed flocs before filtration",
+          "filtration": "polish remaining solids for conventional treatment compliance",
+          "powdered_activated_carbon_dosing": "provide adsorptive removal of ibuprofen with dose adjustment during contamination events",
+          "disinfection": "ensure microbiological safety of treated water"
+        },
+        "applicability_rationale": [
+          "PAC is a recognized option for episodic or moderate trace organic contaminant control in surface water treatment",
+          "dose flexibility can be useful if ibuprofen concentrations vary seasonally or after wastewater influence events",
+          "the train remains lower energy than membrane alternatives and uses familiar conventional units"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance depends strongly on dose, contact time, and competition from natural organic matter",
+          "increased solids and carbon handling can be challenging for a small utility",
+          "performance may be less stable than fixed-bed GAC for continuous long-term removal targets"
+        ],
+        "evidence_list": [
+          "public_drinking_water_guidance_on_PAC_for_taste_odor_and_trace_organic_control",
+          "surface_water_treatment_case_examples_using_PAC_for_pharmaceutical_micropollutants",
+          "AWWA_operator_knowledge_on_PAC_dose_response_under_variable_DOC"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation",
+          "media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "remove particles and reduce background organic load",
+          "media_filtration": "protect oxidation and adsorption-biological polishing stages",
+          "ozonation": "oxidize ibuprofen and transform micropollutants into more biodegradable products",
+          "biological_activated_carbon": "adsorb residual organics and biologically polish ozonation byproducts",
+          "disinfection": "provide final pathogen inactivation barrier"
+        },
+        "applicability_rationale": [
+          "ozone followed by BAC is an established advanced treatment concept for many pharmaceuticals and other trace organics",
+          "the combination can provide broader micropollutant control than adsorption alone",
+          "it is technically strong for surface water applications with moderate organic matter when advanced treatment is justified"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozonation increases electrical demand and operational complexity compared with adsorption-only options",
+          "bromate formation risk must be assessed if bromide is present in source water",
+          "small systems may find ozone generation and process control burdensome"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ozonation_and_BAC_for_micropollutant_control_in_drinking_water",
+          "European_and_north_american_case_knowledge_on_pharmaceutical_removal_by_ozone_BAC",
+          "drinking_water_oxidation_guidance_on_bromate_and_oxidation_byproduct_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "bank_filtration_or_riverbank_infiltration",
+          "aeration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "bank_filtration_or_riverbank_infiltration": "provide natural attenuation, particulate removal, and some biodegradable organic reduction before treatment",
+          "aeration": "restore dissolved oxygen and improve water quality prior to adsorption",
+          "granular_activated_carbon_adsorption": "polish remaining ibuprofen and trace organics",
+          "disinfection": "ensure microbial safety before distribution"
+        },
+        "applicability_rationale": [
+          "where feasible, bank filtration is a low-energy pretreatment approach often used with surface-water-influenced supplies",
+          "combining natural pretreatment with GAC can lower engineered treatment burden",
+          "this option aligns with low-energy goals if suitable hydrogeology and land access are available"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "site-specific hydrogeology may make implementation infeasible or slow to permit",
+          "ibuprofen removal by bank filtration alone is not reliable enough, so GAC polishing remains important",
+          "seasonal source-water variability and travel-time uncertainty require careful validation"
+        ],
+        "evidence_list": [
+          "case_knowledge_on_bank_filtration_for_surface_water_pretreatment",
+          "public_guidance_on_combining_natural_treatment_with_GAC_for_drinking_water",
+          "water_research_case_examples_on_pharmaceutical_attenuation_during_bank_filtration"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ultrafiltration_or_reverse_osmosis",
+          "activated_carbon_polishing",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration_or_reverse_osmosis": "provide physical separation, with reverse osmosis offering strong dissolved contaminant rejection",
+          "activated_carbon_polishing": "remove residual organics and improve taste and odor",
+          "stabilization": "adjust finished water chemistry after intensive treatment",
+          "disinfection": "provide microbiological security in distribution"
+        },
+        "applicability_rationale": [
+          "high-pressure membrane treatment can reduce many dissolved contaminants including pharmaceuticals",
+          "it may be considered if the utility later faces a broader suite of difficult contaminants beyond ibuprofen"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "reverse osmosis creates concentrate that is difficult for a small inland system to manage",
+          "energy use and operator attention are inconsistent with the stated low-energy small-system constraints",
+          "ultrafiltration alone is not a reliable primary barrier for dissolved ibuprofen without additional advanced treatment"
+        ],
+        "evidence_list": [
+          "EPA_and_industry_guidance_on_membrane_use_and_concentrate_management_in_drinking_water",
+          "public_case_knowledge_showing_membranes_as_higher_complexity_options_for_trace_organics",
+          "engineering_reference_on_RO_rejection_of_pharmaceuticals_and_small_system_limitations"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based treatment with conventional surface water pretreatment should rank first",
+        "PAC should rank as a practical alternative but generally below GAC for stable continuous removal in a small drinking water plant",
+        "high-energy membrane options should not rank first under low-energy small-system constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "low-energy preference should favor adsorption and conventional pretreatment over ozone or reverse osmosis",
+        "small-system practicality should favor robust and comparatively simple unit processes",
+        "options with large sludge, brine, or highly specialized control burdens should rank lower"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for ibuprofen as a trace organic pharmaceutical",
+        "why pretreatment is needed for surface water with moderate turbidity and DOC",
+        "why ozone-based and membrane-based options rank lower under the stated constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "competition from natural organic matter reducing activated carbon capacity",
+        "breakthrough monitoring needs for trace organic removal",
+        "bromate or oxidation byproduct concerns for ozonation",
+        "concentrate management and energy burden for reverse osmosis"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

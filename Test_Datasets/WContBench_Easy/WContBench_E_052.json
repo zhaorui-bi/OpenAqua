@@ -1,0 +1,292 @@
+{
+  "case_id": "WContBench_E_052",
+  "case_name": "Natural organic matter control in well water for drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Natural Organic Matter"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for reducing natural organic matter in well water intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A small town uses a shallow well field influenced by surrounding organic-rich soils, causing elevated natural organic matter in the raw water. The utility's main concern is reducing color and dissolved organics to improve finished water quality and lower disinfection by-product formation potential. The utility prefers established drinking water treatment approaches with dependable performance and moderate operator attention.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 6.9,
+      "turbidity_NTU": 2.4,
+      "color_PCU": 32,
+      "UV254_cm-1": 0.128,
+      "DOC_mg_L": 5.8,
+      "TOC_mg_L": 6.3,
+      "SUVA_L_mg-1_m-1": 2.2,
+      "alkalinity_mg_L_as_CaCO3": 78,
+      "hardness_mg_L_as_CaCO3": 112,
+      "iron_mg_L": 0.46,
+      "manganese_mg_L": 0.04,
+      "ammonia_mg_L_as_N": 0.09,
+      "nitrate_mg_L_as_N": 1.8,
+      "chloride_mg_L": 24,
+      "sulfate_mg_L": 31,
+      "temperature_C": 13.5,
+      "total_coliform_presence": "not_detected_in_raw_spot_sample"
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable reduction of natural organic matter and color, support compliance with drinking water requirements, and reduce disinfection by-product precursor levels before final disinfection.",
+      "secondary_goals": [
+        "use proven treatment technology",
+        "maintain stable operation for a small municipal utility",
+        "avoid unnecessarily high energy demand",
+        "produce aesthetically acceptable drinking water"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "sludge_and_backwash_handling_are_available_but_should_remain_moderate",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "consistent_year_round_operation_with_conventional_operator_skills"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_or_dual_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize and aggregate natural organic matter and associated colloids",
+          "flocculation": "grow flocs to improve separation of organic matter and color-causing particles",
+          "sedimentation": "remove bulk floc and reduce solids loading to filters",
+          "rapid_sand_or_dual_media_filtration": "polish remaining particles and residual floc",
+          "disinfection": "provide final microbial protection after precursor reduction"
+        },
+        "applicability_rationale": [
+          "enhanced conventional treatment is a well-established approach for NOM and color reduction in drinking water treatment",
+          "raw water has moderate DOC and color with manageable turbidity, which fits coagulation-based removal",
+          "the utility prefers proven technology and has moderate capability for chemical dosing and solids handling",
+          "reducing NOM before chlorination supports lower disinfection by-product formation potential"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "coagulant dose and pH control are important for reliable dissolved organic matter removal",
+          "sludge production is higher than simple filtration-only approaches",
+          "seasonal variation in NOM character can change removal efficiency"
+        ],
+        "evidence_list": [
+          "epa_enhanced_coagulation_guidance_for_natural_organic_matter_and_dbp_precursor_control",
+          "who_drinking_water_guidelines_on_organic_matter_and_disinfection_by_product_precursors",
+          "conventional_surface_and_groundwater_treatment_case_knowledge_for_color_and_nom_removal"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation",
+          "inline_or_contact_clarification",
+          "granular_activated_carbon_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "condition raw water and remove a portion of particulate and colloidal organic matter",
+          "inline_or_contact_clarification": "provide compact solids separation before adsorption polishing",
+          "granular_activated_carbon_filtration": "adsorb dissolved organic matter fractions and improve taste, odor, and color",
+          "disinfection": "ensure microbiological safety in finished water"
+        },
+        "applicability_rationale": [
+          "GAC is a proven option for polishing dissolved organics when NOM remains after primary removal",
+          "this train fits a case where both color reduction and additional DBP precursor control are desired",
+          "it remains grounded in conventional drinking water practice while improving dissolved organic removal beyond simple filtration"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "carbon exhaustion or breakthrough requires monitoring and periodic replacement or reactivation",
+          "if coagulation is underperforming, GAC loading and operating cost can rise",
+          "biological growth in GAC filters requires good operational control"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_gac_for_organic_contaminant_and_precursor_removal",
+          "public_drinking_water_practice_for_combining_clarification_with_gac_polishing",
+          "dbp_precursor_reduction_case_examples_using_gac_after_coagulation"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "aeration_or_preoxidation_for_iron_control",
+          "coagulation",
+          "direct_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "aeration_or_preoxidation_for_iron_control": "oxidize dissolved iron and improve subsequent particulate removal",
+          "coagulation": "enhance removal of NOM fractions and fine particles",
+          "direct_filtration": "remove formed floc and oxidized iron solids without a separate sedimentation basin",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "moderate iron and low-to-moderate turbidity make direct filtration technically plausible in some well water applications",
+          "this is a compact conventional approach using proven unit processes",
+          "it can be attractive where footprint is moderate and the organic loading is not extreme"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "direct filtration is less forgiving than full clarification when coagulation performance is unstable",
+          "dissolved NOM removal may be lower than optimized coagulation-flocculation-sedimentation",
+          "filter run times may shorten if iron oxidation and solids loading increase"
+        ],
+        "evidence_list": [
+          "drinking_water_direct_filtration_guidance_for_low_to_moderate_turbidity_sources",
+          "conventional_engineering_knowledge_on_coagulation_plus_direct_filtration_for_nom_control",
+          "public_case_knowledge_on_well_water_iron_oxidation_and_filtration"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "anion_exchange",
+          "cartridge_or_polishing_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "anion_exchange": "remove selected dissolved organic fractions and some associated anionic species",
+          "cartridge_or_polishing_filtration": "retain fines and provide final particulate polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "anion exchange can reduce some NOM fractions and DBP precursors under suitable water chemistry",
+          "it is used in drinking water treatment but is less universally preferred than coagulation-based NOM control",
+          "it may be considered when a more compact dissolved-organics-focused process is desired"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "performance depends strongly on NOM character and competing ions such as sulfate",
+          "brine or regenerant waste handling can complicate operations",
+          "fouling or resin exhaustion can reduce reliability if pretreatment is inadequate"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ion_exchange_for_dbp_precursor_and_natural_organic_matter_control",
+          "drinking_water_case_examples_for_resin_based_organic_removal",
+          "engineering_reference_on_resin_process_limitations_with_competing_anions"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ultrafiltration_or_nanofiltration",
+          "stabilization_if_needed",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration_or_nanofiltration": "provide physical separation of particles and partial to strong removal of larger organic fractions depending on membrane type",
+          "stabilization_if_needed": "adjust finished water chemistry after membrane treatment if required",
+          "disinfection": "ensure microbiological safety and residual protection"
+        },
+        "applicability_rationale": [
+          "membrane treatment can technically reduce organics and produce high-quality water",
+          "it may be considered when multiple treatment objectives justify higher process intensity",
+          "for this case, it is less aligned with the preference for straightforward proven municipal conventional treatment under moderate constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "membrane fouling from organic matter and iron can increase cleaning frequency",
+          "higher capital and operational complexity may be unnecessary for a moderate NOM well water case",
+          "concentrate or waste stream management may be needed depending on membrane selection"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_natural_organic_matter_control_in_drinking_water",
+          "public_case_knowledge_on_membrane_fouling_by_nom_and_iron",
+          "engineering_comparison_showing_conventional_nom_control_often_preferred_before_high_pressure_membranes"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "enhanced_conventional_treatment_with_coagulation_based_nom_removal_should_rank_first",
+        "gac_polishing_after_primary_removal_should_rank_above_less_common_resin_or_membrane_options",
+        "higher_complexity_membrane_options_should_not_rank_first_under_proven_technology_preference"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for established municipal drinking water treatment technology",
+        "moderate operator capability rather than advanced specialist membrane operation",
+        "importance of balancing NOM removal with manageable sludge and energy demands"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why coagulation based treatment is standard for NOM and color reduction",
+        "why lowering NOM before disinfection helps control disinfection by-product precursors",
+        "how matrix effects such as iron, pH, alkalinity, and NOM character influence process choice",
+        "why membrane or resin options rank lower despite technical feasibility"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "coagulant dose and pH sensitivity",
+        "sludge or backwash residuals generation",
+        "media exhaustion or breakthrough for activated carbon",
+        "fouling or regenerant waste issues for alternative advanced processes"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

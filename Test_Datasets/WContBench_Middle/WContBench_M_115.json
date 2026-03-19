@@ -1,0 +1,324 @@
+{
+  "case_id": "WContBench_M_115",
+  "case_name": "Terbufos-contaminated brackish groundwater for recharge under high-recovery and concentrate constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Terbufos"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for terbufos-impacted brackish groundwater intended for groundwater recharge while balancing removal performance, high water recovery, and difficult concentrate management constraints.",
+  "input_data": {
+    "scenario_background": "A water reuse project plans to intercept shallow brackish groundwater downgradient of an agricultural area and treat it for managed aquifer recharge. The primary concern is terbufos and its oxidation byproducts, but the water is also moderately saline and contains nitrate, so multiple technically plausible treatment trains exist. The project owner strongly prefers high overall water recovery because extracted water is limited, and there is no practical deep-well or sewer option for large volumes of concentrate. The decision therefore hinges on trading off organic contaminant reliability against salinity control, residuals burden, and operational simplicity.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.4,
+      "temperature_C": 21.0,
+      "turbidity_NTU": 1.6,
+      "TDS_mg_L": 3250,
+      "conductivity_uS_cm": 4850,
+      "DOC_mg_L": 3.7,
+      "TOC_mg_L": 4.3,
+      "alkalinity_mg_L_as_CaCO3": 210,
+      "hardness_mg_L_as_CaCO3": 430,
+      "calcium_mg_L": 105,
+      "magnesium_mg_L": 41,
+      "sodium_mg_L": 690,
+      "chloride_mg_L": 980,
+      "sulfate_mg_L": 420,
+      "silica_mg_L_as_SiO2": 24,
+      "nitrate_mg_L_as_NO3": 28,
+      "ammonia_mg_L_as_N": 0.18,
+      "iron_mg_L": 0.22,
+      "manganese_mg_L": 0.05,
+      "bromide_mg_L": 0.62,
+      "target_contaminants": {
+        "terbufos_ug_L": 3.2,
+        "terbufos_sulfoxide_ug_L": 1.4,
+        "terbufos_sulfone_ug_L": 0.9
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for groundwater recharge with reliable reduction of terbufos and related organophosphorus pesticide residues, controlled nitrate and salinity impacts, and a treatment configuration compatible with high recovery operation.",
+      "secondary_goals": [
+        "maximize net water recovery",
+        "avoid large liquid concentrate streams",
+        "maintain stable performance under moderate source-water variability",
+        "limit formation of problematic oxidation byproducts",
+        "keep operator burden at a manageable level"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "large brine or regenerant waste streams are strongly disfavored because off-site disposal options are limited and expensive",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate seasonal pesticide pulses and variable salinity without frequent process upsets"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "media_filtration",
+          "biological_denitrification",
+          "granular_activated_carbon_dual_bed",
+          "uv_or_hydrogen_peroxide_polishing",
+          "managed_aquifer_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "remove suspended solids and protect downstream biological and adsorptive units",
+          "biological_denitrification": "reduce nitrate without generating a concentrated reject stream",
+          "granular_activated_carbon_dual_bed": "adsorb terbufos and related hydrophobic pesticide residues with staged breakthrough control",
+          "uv_or_hydrogen_peroxide_polishing": "provide polishing for trace biodegradable-resistant organics and add treatment redundancy",
+          "managed_aquifer_recharge_post_stabilization": "adjust final water quality as needed for recharge compatibility and aquifer protection"
+        },
+        "applicability_rationale": [
+          "for a hydrophobic organophosphorus pesticide such as terbufos, activated carbon is a practical mainstream barrier and avoids large concentrate production",
+          "dual-bed GAC improves reliability against breakthrough and seasonal pesticide pulses compared with a single adsorber",
+          "biological denitrification addresses the co-contaminant nitrate while preserving high overall water recovery",
+          "this route best fits the stated inability to manage large brine volumes from desalting membranes",
+          "although TDS remains brackish, the recharge objective can favor source control of organics and nitrate when salinity loading is acceptable under site-specific aquifer management"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "GAC bed life may shorten if DOC rises or pesticide pulses are higher than expected",
+          "salinity is not substantially reduced, so aquifer salt-balance acceptance must be confirmed",
+          "advanced oxidation polishing must be controlled to avoid unnecessary energy use and partial oxidation byproducts"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_granular_activated_carbon_for_synthetic_organic_chemical_removal",
+          "AWWA_case_knowledge_for_pesticide_adsorption_on_GAC",
+          "public_guidance_on_biological_denitrification_for_groundwater_nitrate_control",
+          "managed_aquifer_recharge_practice_considerations_for_source_water_quality"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "media_filtration",
+          "biological_denitrification",
+          "powdered_activated_carbon_contact_or_biologically_active_carbon",
+          "granular_activated_carbon_polishing",
+          "managed_aquifer_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "remove particulates and improve downstream reliability",
+          "biological_denitrification": "reduce nitrate with minimal water loss",
+          "powdered_activated_carbon_contact_or_biologically_active_carbon": "provide bulk adsorption and partial biologically mediated DOC control",
+          "granular_activated_carbon_polishing": "final barrier for terbufos and oxidation products",
+          "managed_aquifer_recharge_post_stabilization": "condition treated water for recharge compatibility"
+        },
+        "applicability_rationale": [
+          "this adsorption-focused route preserves very high recovery and keeps residuals easier to manage than membrane concentrate",
+          "a biologically active carbon stage can help lower background organics that compete for adsorption sites",
+          "the train offers more resilience to organic contaminant variability than a single adsorber alone",
+          "it is attractive where nitrate control is needed but full desalination is not mandatory"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "spent carbon handling and solids from PAC use add operational tasks",
+          "performance depends on contact time and carbon management discipline",
+          "like other non-membrane routes, dissolved salts remain largely unchanged"
+        ],
+        "evidence_list": [
+          "EPA_treatment_technology_overviews_for_synthetic_organic_contaminants",
+          "public_case_examples_of_BAC_and_GAC_for_micropollutant_control",
+          "groundwater_nitrate_biological_treatment_practice_references"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pretreatment_and_antiscalant_control",
+          "high_recovery_reverse_osmosis_with_brine_minimization",
+          "gac_polishing",
+          "stabilization",
+          "managed_aquifer_recharge"
+        ],
+        "core_unit_functions": {
+          "pretreatment_and_antiscalant_control": "limit fouling and scaling before membrane desalting",
+          "high_recovery_reverse_osmosis_with_brine_minimization": "reduce TDS, nitrate, and reject terbufos while targeting elevated recovery",
+          "gac_polishing": "provide insurance against any dissolved organic passage and improve final trace-organic robustness",
+          "stabilization": "adjust permeate chemistry for compatibility with recharge",
+          "managed_aquifer_recharge": "deliver treated water to recharge system"
+        },
+        "applicability_rationale": [
+          "RO is technically strong because it simultaneously addresses salinity and nitrate in addition to the target pesticide",
+          "if recharge regulations or aquifer salinity limits are stringent, desalting may be highly attractive despite added complexity",
+          "high-recovery operation and brine minimization can reduce but not eliminate the concentrate burden",
+          "the route ranks below adsorption-based options because the site's concentrate management constraint is severe"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "even with high recovery, a residual brine stream remains and may be the controlling project issue",
+          "scaling risk is significant at the stated hardness and sulfate levels",
+          "membrane operation requires tighter monitoring, cleaning, and pretreatment control than the owner prefers"
+        ],
+        "evidence_list": [
+          "EPA_desalination_and_brackish_groundwater_RO_guidance",
+          "AWWA_brackish_groundwater_RO_design_case_knowledge",
+          "public_guidance_on_membrane_rejection_of_pesticides_and_nitrate",
+          "high_recovery_RO_scaling_and_brine_management_references"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "media_filtration",
+          "ozonation_or_uv_hydrogen_peroxide_advanced_oxidation",
+          "biologically_active_filtration",
+          "ion_exchange_for_nitrate",
+          "managed_aquifer_recharge_post_stabilization"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "remove particulate matter ahead of oxidation and biofiltration",
+          "ozonation_or_uv_hydrogen_peroxide_advanced_oxidation": "oxidize terbufos and related pesticide species",
+          "biologically_active_filtration": "remove oxidation byproducts and biodegradable organics",
+          "ion_exchange_for_nitrate": "control nitrate to meet recharge objectives",
+          "managed_aquifer_recharge_post_stabilization": "prepare water for recharge application"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can be considered where rapid destruction of organophosphorus pesticides is desired",
+          "biofiltration downstream helps manage oxidation byproducts and improves biologically stable water quality",
+          "this route avoids membrane brine but still introduces nitrate regenerant residual concerns if ion exchange is used",
+          "it ranks lower because it combines moderate-to-high process complexity with uncertain economics relative to adsorption for this contaminant level"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "oxidation may transform terbufos into byproducts that require downstream control rather than achieving complete mineralization",
+          "bromide in the source water creates concern for bromate formation under ozonation if selected",
+          "nitrate ion exchange creates brine regenerant waste that conflicts with the residuals constraint"
+        ],
+        "evidence_list": [
+          "EPA_advanced_oxidation_guidance_for_organic_micropollutants",
+          "public_knowledge_on_organophosphate_pesticide_oxidation_behavior",
+          "ozone_bromate_control_guidance_for_bromide_containing_waters",
+          "nitrate_ion_exchange_residuals_management_references"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment",
+          "nanofiltration",
+          "advanced_oxidation_polishing",
+          "stabilization",
+          "managed_aquifer_recharge"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect nanofiltration membranes from fouling",
+          "nanofiltration": "partially reduce dissolved salts and reject some pesticide mass",
+          "advanced_oxidation_polishing": "provide additional destruction of residual dissolved organics",
+          "stabilization": "adjust treated water chemistry after membrane treatment",
+          "managed_aquifer_recharge": "final recharge application"
+        },
+        "applicability_rationale": [
+          "NF is technically capable of reducing hardness and some salinity while contributing to trace-organic control",
+          "it may appear attractive when some desalting is desired but full RO is considered excessive",
+          "however, for low-level hydrophobic pesticide control under strong recovery and concentrate constraints, NF does not align well with the site's decision drivers",
+          "it is therefore included as a lower-ranked plausible option rather than a preferred recommendation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "NF still produces a concentrate stream that is difficult to dispose of at this site",
+          "pesticide rejection can be less predictable than adsorption-plus-polishing approaches depending on compound properties and membrane selection",
+          "added oxidation after NF increases complexity without eliminating the residuals problem"
+        ],
+        "evidence_list": [
+          "public_guidance_on_nanofiltration_for_brackish_groundwater_treatment",
+          "membrane_treatment_references_for_micropollutant_control",
+          "brine_management_constraints_in_inland_desalination_case_knowledge"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "high-recovery non-membrane routes should rank near the top because concentrate handling is a major constraint",
+        "RO-based desalting should appear as a credible but not top-ranked option due to brine disposal burden",
+        "at least one technically capable oxidation or membrane route should rank lower because of mismatch with residuals or O&M constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the importance of maximizing water recovery for a limited extracted groundwater supply",
+        "the strong penalty associated with large concentrate or regenerant waste streams",
+        "the trade-off between treating terbufos effectively and deciding whether salinity reduction is truly necessary for recharge",
+        "the owner's preference for low-to-medium operational complexity"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why adsorption-based treatment is suitable for hydrophobic pesticide control without creating liquid concentrate",
+        "why nitrate co-contaminant treatment affects ranking",
+        "why desalting membranes are technically attractive yet downgraded under inland concentrate constraints",
+        "why oxidation routes require discussion of transformation byproducts and bromide-related concerns"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon breakthrough risk under DOC or pesticide spikes",
+        "salt-loading implications for groundwater recharge if non-desalting treatment is selected",
+        "brine or regenerant disposal difficulty",
+        "scaling and fouling risk for high-recovery membranes",
+        "partial oxidation byproducts or bromate formation risk"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

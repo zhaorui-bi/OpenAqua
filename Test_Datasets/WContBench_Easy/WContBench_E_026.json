@@ -1,0 +1,286 @@
+{
+  "case_id": "WContBench_E_026",
+  "case_name": "Chlortetracycline removal from groundwater for small drinking water system",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Chlortetracycline"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "low_energy_constraint",
+      "small_system"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for chlortetracycline-contaminated groundwater intended for drinking water supply under low-energy small-system constraints.",
+  "input_data": {
+    "scenario_background": "A small rural groundwater utility has detected chlortetracycline in a production well influenced by nearby agricultural activity. The system needs a practical treatment approach that can reliably reduce the antibiotic to a very low level for drinking water use. Operators are limited in staffing and prefer compact, low-energy, proven treatment processes over advanced high-energy systems.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.1,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 1.8,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "hardness_mg_L_as_CaCO3": 210,
+      "nitrate_mg_L_as_NO3": 8.4,
+      "sulfate_mg_L": 34,
+      "chloride_mg_L": 22,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "chlortetracycline_ug_L": 1.9,
+      "temperature_C": 14.5
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve strong removal of chlortetracycline for drinking water production while maintaining stable general water quality and low operational burden.",
+      "secondary_goals": [
+        "minimize energy use",
+        "favor small-system compatible operation",
+        "use established treatment approaches with practical replacement or regeneration needs",
+        "avoid unnecessarily complex concentrate management"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited residuals handling capacity; periodic spent media replacement is acceptable but large sludge or brine streams are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "reliable operation with simple monitoring and stable performance is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove incidental particulates and protect downstream adsorptive media",
+          "granular_activated_carbon_adsorption": "adsorb chlortetracycline and other trace organic micropollutants from groundwater",
+          "post_filtration": "retain carbon fines and provide final polishing",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "chlortetracycline is an organic micropollutant for which activated carbon is a well-established control approach",
+          "the raw groundwater has low turbidity and relatively low DOC, which supports effective adsorption capacity",
+          "GAC is compatible with small drinking water systems and has low direct energy demand",
+          "the process train is more practical than high-energy membrane or oxidation systems under the stated constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "media exhaustion or breakthrough can occur if bed life is not tracked",
+          "natural organic matter competes for adsorption sites and can reduce run length",
+          "spent carbon replacement or reactivation logistics must be planned"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_database_entries_for_activated_carbon_on_organic_contaminants",
+          "awwa_guidance_on_gac_for_taste_odor_and_trace_organic_removal",
+          "public_case_knowledge_that_activated_carbon_is_common_for_antibiotics_and_other_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "powdered_activated_carbon_contact",
+          "cartridge_or_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "stabilize influent solids loading before adsorption contact",
+          "powdered_activated_carbon_contact": "provide adsorptive removal of chlortetracycline in a contact basin or tank",
+          "cartridge_or_media_filtration": "separate PAC particles and polish the water",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "PAC is also a recognized adsorptive option for trace organic compounds including pharmaceutical-like contaminants",
+          "it can be attractive where a small system prefers flexible chemical dosing rather than fixed-bed replacement intervals",
+          "energy demand remains low compared with pressure-driven membranes or advanced oxidation",
+          "the simple groundwater matrix makes adsorption-based treatment feasible"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing and solids separation require more active operator attention than fixed-bed GAC",
+          "carbon carryover or poor solids capture can affect finished water quality",
+          "ongoing carbon consumption may raise operating cost if contaminant episodes are prolonged"
+        ],
+        "evidence_list": [
+          "epa_guidance_and_treatability_knowledge_for_pac_on_synthetic_organic_chemicals",
+          "water_research_case_knowledge_on_pac_adsorption_of_antibiotics",
+          "conventional_drinking_water_practice_for_pac_as_low_energy_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_filtration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "protect membrane elements from fouling by fine solids",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "physically reject chlortetracycline and other dissolved constituents",
+          "stabilization": "adjust finished water chemistry after mineral removal",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "membranes can provide strong removal of many antibiotics and trace organic contaminants",
+          "the groundwater quality is relatively clean and therefore technically suitable for membrane operation",
+          "this option may be considered when simultaneous reduction of multiple dissolved constituents is desired"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is difficult for a small system",
+          "energy demand is misaligned with the low-energy requirement",
+          "membrane scaling, fouling, and post-treatment needs increase complexity"
+        ],
+        "evidence_list": [
+          "public_guidance_on_nanofiltration_and_reverse_osmosis_for_trace_organic_removal",
+          "drinking_water_membrane_case_knowledge_for_pharmaceutical_and_antibiotic_rejection"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "oxidant_dosing",
+          "uv_based_advanced_oxidation",
+          "biologically_active_carbon_or_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidant_dosing": "provide precursor oxidant for radical generation",
+          "uv_based_advanced_oxidation": "degrade chlortetracycline through hydroxyl radical oxidation",
+          "biologically_active_carbon_or_filtration": "remove transformation byproducts and polish treated water",
+          "disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can degrade antibiotics that are otherwise persistent",
+          "this route can be effective when direct contaminant destruction is desired rather than phase transfer",
+          "post-polishing is useful because oxidation may form intermediate products"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher power and chemical demand conflict with the small-system low-energy setting",
+          "process control is more complex than adsorption systems",
+          "incomplete oxidation can create transformation products requiring further control"
+        ],
+        "evidence_list": [
+          "uv_hydrogen_peroxide_guidance_for_trace_organic_contaminant_control",
+          "published_case_knowledge_on_advanced_oxidation_of_tetracycline_class_antibiotics",
+          "drinking_water_practice_that_aop_is_generally_secondary_to_carbon_under_simple_small_system_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "ion_exchange_or_standard_softening",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ion_exchange_or_standard_softening": "attempt removal of dissolved constituents through exchange or precipitation mechanisms",
+          "filtration": "remove any generated particles and polish effluent",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "this route is not a mainstream first-choice technology for chlortetracycline removal in drinking water",
+          "it may be explored only in niche cases with site-specific sorptive resin selection",
+          "standard softening is not strongly aligned with the stated single organic micropollutant problem"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "uncertain and less proven performance for chlortetracycline compared with activated carbon",
+          "resin fouling or regeneration waste may create operational burdens",
+          "technology selection may be unnecessarily indirect for this contaminant profile"
+        ],
+        "evidence_list": [
+          "general_treatability_knowledge_showing_activated_carbon_is_preferred_over_ion_exchange_for_many_neutral_organic_micropollutants",
+          "public_drinking_water_engineering_guidance_on_limited_applicability_of_standard_softening_for_trace_antibiotics"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank above membrane and advanced oxidation options",
+        "fixed_bed_gac should be favored as the top recommendation for a small low-energy groundwater system with a single antibiotic contaminant",
+        "high-energy or high-complexity options should not rank first"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "low_energy_constraint should push adsorption ahead of membrane and uv_aop options",
+        "small_system preference should favor simple robust operation and manageable residuals",
+        "single_contaminant groundwater case does not justify unnecessarily complex multi-barrier high-energy treatment"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for trace organic micropollutants such as chlortetracycline",
+        "why low turbidity and modest DOC groundwater supports adsorption performance",
+        "why membranes and advanced oxidation rank lower under low-energy and small-system constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "adsorbent breakthrough and replacement frequency",
+        "competition from natural organic matter",
+        "concentrate disposal for membrane systems",
+        "transformation byproducts from oxidation processes"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

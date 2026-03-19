@@ -1,0 +1,353 @@
+{
+  "case_id": "WContBench_D_007",
+  "case_name": "Municipal wastewater polishing for uncertain co-occurring PFAS, pesticides, energetic compounds, and chromium before sensitive environmental discharge",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "municipal_wastewater",
+    "contaminant_type": [
+      "Per- and Polyfluoroalkyl Substances",
+      "Simazine and Simazine Degradates",
+      "Tebufenozide",
+      "Chromium",
+      "Cyclonite (RDX)"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible advanced treatment process trains for municipal wastewater effluent containing partially characterized legacy and emerging contaminants prior to environmentally protective discharge under uncertain influent conditions.",
+  "input_data": {
+    "scenario_background": "A coastal municipal wastewater treatment plant with upstream mixed urban runoff, landfill-affected sewers, and intermittent industrial/commercial inputs has detected several trace contaminants in its secondary effluent during episodic monitoring. The known contaminants include PFAS, simazine and simazine degradates, tebufenozide, low-level total chromium, and RDX, but grab sampling suggests additional unknown trace organics may be present and concentrations vary during wet weather and seasonal flow shifts. The receiving water is a small tidally influenced creek with ecological sensitivity, so the utility wants a robust polishing train; however, the exact PFAS speciation and the fraction of chromium present as Cr(VI) versus Cr(III) are not fully characterized. Discharge is the immediate objective, but the owner also prefers a solution compatible with future higher-quality water recovery if regulations tighten.",
+    "water_quality": {
+      "source_type": "secondary_municipal_wastewater_effluent",
+      "pH": 7.3,
+      "temperature_C": 22,
+      "turbidity_NTU": 7.8,
+      "TSS_mg_L": 11,
+      "COD_mg_L": 38,
+      "BOD5_mg_L": 9,
+      "TOC_mg_L": 11.5,
+      "DOC_mg_L": 8.9,
+      "ammonia_mg_L_as_N": 1.8,
+      "nitrate_mg_L_as_N": 6.7,
+      "total_phosphorus_mg_L": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 124,
+      "hardness_mg_L_as_CaCO3": 162,
+      "conductivity_uS_cm": 1030,
+      "chloride_mg_L": 118,
+      "sulfate_mg_L": 74,
+      "UV254_cm_1": 0.19,
+      "total_chromium_ug_L": 18,
+      "hexavalent_chromium_ug_L": 6,
+      "PFAS_total_ug_L": 0.42,
+      "PFAS_ug_L": {
+        "PFOS": 0.07,
+        "PFOA": 0.06,
+        "PFHxS": 0.05,
+        "PFBS": 0.09,
+        "6_2_FTS": 0.08
+      },
+      "simazine_ug_L": 0.62,
+      "simazine_degradates_total_ug_L": 0.41,
+      "tebufenozide_ug_L": 0.21,
+      "RDX_ug_L": 1.7,
+      "microbial_indicator_E_coli_CFU_100mL": 2400,
+      "influent_variability": "high",
+      "trace_pollutant_note": "additional_polar_organics_and_PFAS_precursors_suspected_but_not_fully_characterized; chromium_speciation_incomplete; episodic_stormwater_dilution_and_first_flush_spikes_observed"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Finished effluent should achieve environmentally protective reduction of known trace contaminants, microbial indicators, and residual particulate/organic matter, with particular attention to PFAS, pesticide-related compounds, RDX, and chromium under variable influent conditions and with flexibility for future tighter standards.",
+      "secondary_goals": [
+        "provide multi-barrier control despite incomplete contaminant characterization",
+        "reduce risk of passing unknown trace organics to a sensitive receiving water",
+        "maintain stable performance during wet-weather variability",
+        "preserve an upgrade pathway toward future nonpotable reuse quality if required",
+        "limit residuals generation and avoid creating difficult secondary waste streams without management planning"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "spent_adsorbent_or_resin_can_be_managed_offsite_but_destructive_handling_capacity_is_limited; concentrate_streams_are_unfavorable_and_should_be_minimized",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_flow_composition_and_regulatory_uncertainty"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "flow_equalization",
+          "coagulation_flocculation_and_high_rate_clarification",
+          "ozonation",
+          "biological_activated_carbon",
+          "targeted_ion_exchange_or_GAC_for_PFAS_polishing",
+          "chromium_reduction_and_precipitation_if_hexavalent_fraction_confirmed_material",
+          "final_UV_or_chlorination_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "buffer hydraulic and water-quality variability and reduce short-term breakthrough risk in downstream polishing units",
+          "coagulation_flocculation_and_high_rate_clarification": "remove residual suspended solids and colloid-associated organics to protect advanced polishing",
+          "ozonation": "transform many trace organic contaminants and improve biodegradability, with potential benefit for simazine-related compounds and some pesticide residues",
+          "biological_activated_carbon": "provide adsorption plus biologically assisted removal of ozone transformation products and remaining dissolved organics",
+          "targeted_ion_exchange_or_GAC_for_PFAS_polishing": "provide dedicated capture of PFAS and some co-occurring micropollutants, with ion exchange favored if short-chain PFAS are material",
+          "chromium_reduction_and_precipitation_if_hexavalent_fraction_confirmed_material": "convert and remove chromium where a meaningful Cr(VI) fraction is present, using a side-step or integrated chemical polishing stage",
+          "final_UV_or_chlorination_disinfection": "control microbial discharge risk"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is appropriate because the contaminant mixture includes both oxidizable organic micropollutants and PFAS, which require different mechanisms",
+          "equalization is important because monitoring indicates episodic spikes during storms and variable upstream inputs",
+          "ozone followed by BAC is a common advanced wastewater polishing strategy for broad trace-organic control and can reduce uncertainty from partially characterized organics",
+          "PFAS requires a dedicated capture barrier because oxidation alone is not a reliable destruction method for regulated PFAS in conventional municipal polishing practice",
+          "including a conditional chromium polishing step reflects uncertainty in chromium speciation and avoids overcommitting chemistry if most chromium is particulate or trivalent",
+          "this train provides a practical upgrade path toward future higher-quality water recovery without immediately relying on concentrate-generating desalination"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PFAS removal performance depends on chain-length distribution and precursor content, which are not fully characterized",
+          "ozonation may form byproducts such as bromate if bromide is present and must be checked during pilot testing",
+          "RDX removal by ozone/BAC can be uncertain relative to dedicated adsorptive barriers and should be validated with treatability testing",
+          "spent GAC or ion exchange media creates a concentrated residual requiring secure regeneration or destruction pathways",
+          "if hexavalent chromium is underestimated, the chromium polishing step may need to be strengthened"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_research_on_PFAS_treatment_with_GAC_and_ion_exchange",
+          "wastewater_reuse_case_knowledge_for_ozonation_followed_by_BAC_micropollutant_control",
+          "public_guidance_on_chromium_reduction_and_precipitation_for_hexavalent_chromium",
+          "state_and_international_case_knowledge_on_advanced_wastewater_polishing_for_sensitive_receiving_waters"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "flow_equalization",
+          "cloth_media_or_dual_media_filtration",
+          "powdered_activated_carbon_contact_or_high_dose_GAC",
+          "anion_exchange_resin_for_PFAS",
+          "advanced_oxidation_ozone_or_UV_peroxide_for_selected_trace_organics",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "dampen influent peaks and improve adsorbent loading stability",
+          "cloth_media_or_dual_media_filtration": "reduce residual solids and protect adsorption and oxidation stages",
+          "powdered_activated_carbon_contact_or_high_dose_GAC": "adsorb hydrophobic and moderately adsorbable organics including tebufenozide and some pesticide compounds",
+          "anion_exchange_resin_for_PFAS": "target ionic PFAS capture, including improved performance for some shorter-chain species relative to GAC",
+          "advanced_oxidation_ozone_or_UV_peroxide_for_selected_trace_organics": "provide additional polishing for oxidizable unknown trace organics and some pesticide-related compounds",
+          "final_disinfection": "reduce microbial risk before discharge"
+        },
+        "applicability_rationale": [
+          "this route prioritizes dedicated adsorptive barriers for PFAS and broad organic polishing while retaining flexibility under uncertain trace-organic mixtures",
+          "it may outperform BAC-centric trains for short-chain PFAS if appropriate resin selection and pretreatment are used",
+          "a solids-removal pretreatment step is appropriate because municipal secondary effluent still contains enough particulate matter to impair adsorbent life",
+          "advanced oxidation is placed after adsorption in this conceptual train to manage residual dissolved organics, but exact sequencing should be site-tested",
+          "the train is robust for environmental discharge and partly aligns with future quality tightening, though less integrated biologically than rank 1"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC systems transfer contaminants to sludge and may complicate residuals handling",
+          "resin fouling by dissolved organic matter can reduce PFAS capacity unless pretreatment is effective",
+          "advanced oxidation is not a primary PFAS control barrier and could increase precursor transformation uncertainty rather than remove total organofluorine",
+          "RDX removal remains uncertain without dedicated pilot data because adsorption behavior can vary with matrix competition",
+          "sequencing of adsorption and oxidation may need optimization to avoid unnecessary adsorbent consumption"
+        ],
+        "evidence_list": [
+          "EPA_PFAS_treatment_technology_fact_sheets_for_GAC_and_ion_exchange",
+          "water_reuse_and_micropollutant_control_references_for_PAC_GAC_and_AOP",
+          "case_knowledge_on_municipal_effluent_polishing_with_filtration_plus_adsorption"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "flow_equalization",
+          "coagulation_flocculation_and_filtration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "GAC_post_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "stabilize feed conditions and reduce membrane upset from transient peaks",
+          "coagulation_flocculation_and_filtration": "lower fouling potential by removing residual solids and some organic matter",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "provide broad barrier removal for many dissolved contaminants including PFAS, pesticide residues, RDX, and ionic species",
+          "GAC_post_polishing": "polish residual trace organics and improve taste-odor or oxidation byproduct control if relevant",
+          "final_disinfection": "provide microbial control before discharge"
+        },
+        "applicability_rationale": [
+          "membrane separation offers the broadest physical barrier for a mixed and partly unknown contaminant set",
+          "this train is attractive if future regulations become very stringent or if the discharge target effectively approaches reuse-grade quality",
+          "the approach can control PFAS and several dissolved contaminants in a single barrier more predictably than oxidation-only options",
+          "post-GAC can address residual organics and provide an extra safeguard against uncertain trace contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major challenge for municipal plants and conflicts with the stated desire to minimize difficult secondary streams",
+          "membrane fouling risk remains significant under variable municipal effluent quality and would require strong pretreatment and operator attention",
+          "nanofiltration may not reject all short-chain PFAS as strongly as reverse osmosis, while reverse osmosis worsens energy and residuals burdens",
+          "chromium fate depends on speciation and membrane selection, and concentrate may accumulate hazardous constituents",
+          "this train may be technically strong but not the best fit for current residuals and energy constraints"
+        ],
+        "evidence_list": [
+          "public_references_on_NF_RO_for_PFAS_and_trace_organic_removal",
+          "reuse_engineering_guidance_on_membrane_polishing_of_municipal_effluent",
+          "case_knowledge_on_concentrate_management_constraints_for_advanced_membranes"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "flow_equalization",
+          "ozonation",
+          "biological_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "reduce short-term concentration swings",
+          "ozonation": "oxidize a portion of trace organic contaminants and transform some refractory compounds",
+          "biological_filtration": "remove biodegradable transformation products and reduce residual organic carbon",
+          "granular_activated_carbon": "adsorb remaining micropollutants and provide partial PFAS capture",
+          "final_disinfection": "reduce pathogen indicators before discharge"
+        },
+        "applicability_rationale": [
+          "this is a simpler advanced polishing train commonly considered for municipal trace-organic control",
+          "it is plausible where the main concern is broad micropollutant attenuation rather than maximum PFAS control",
+          "the train has a more manageable operational profile than membrane-based options and lower chemical sludge generation than heavy precipitation approaches"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "PFAS removal is uncertain and may be inadequate, especially for shorter-chain compounds and precursor-rich mixtures",
+          "RDX removal may not be sufficiently reliable without site-specific validation",
+          "ozone byproduct formation and biological filter acclimation require control",
+          "chromium removal is weak unless chromium is already largely particulate and removed upstream"
+        ],
+        "evidence_list": [
+          "municipal_wastewater_ozone_biofiltration_guidance_for_micropollutant_reduction",
+          "GAC_case_knowledge_for_trace_organic_polishing_in_secondary_effluent",
+          "EPA_and_utility_case_materials_noting_limitations_of_conventional_oxidation_for_PFAS"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_or_disc_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and remove part of particulate-associated contaminants",
+          "sedimentation": "separate formed solids",
+          "sand_or_disc_filtration": "polish residual suspended solids",
+          "final_disinfection": "reduce microbial indicators"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline conventional polishing option",
+          "it can improve solids and pathogen-related discharge parameters but does not provide a robust barrier for the dissolved contaminant suite in this case",
+          "it may only serve as pretreatment to more advanced processes rather than a standalone solution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient removal of PFAS, simazine degradates, tebufenozide, RDX, and dissolved chromium species",
+          "does not address unknown trace organics under regulatory uncertainty",
+          "fails to provide the multi-barrier robustness needed for a sensitive receiving water",
+          "could create false confidence because conventional metrics like TSS and turbidity improve while priority micropollutants persist"
+        ],
+        "evidence_list": [
+          "basic_municipal_tertiary_treatment_references",
+          "public_guidance_indicating_conventional_sedimentation_filtration_are_not_sufficient_for_PFAS_control",
+          "case_knowledge_on_limits_of_conventional_polishing_for_trace_organic_contaminants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains combining broad micropollutant polishing with a dedicated PFAS barrier should rank above conventional-only trains",
+        "equalization should appear in higher-ranked options because the influent is variable and partially characterized",
+        "options that avoid or carefully justify concentrate generation should rank above membrane-heavy trains when residuals constraints are important",
+        "recommendations should distinguish between technologies effective for oxidizable organics and those needed for PFAS capture"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the source is municipal wastewater secondary effluent rather than raw industrial wastewater",
+        "environmental discharge to a sensitive receiving water requires robust micropollutant and microbial control even though potable standards are not explicitly requested",
+        "unknown trace pollutants and incomplete PFAS/chromium characterization require flexible and conservative treatment logic",
+        "residuals management limitations should penalize approaches that create difficult concentrates or highly loaded spent media unless clearly justified",
+        "future upgradeability toward higher-quality water recovery should be mentioned without making desalination mandatory in every top option"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why PFAS needs a dedicated adsorptive or separation barrier rather than relying on oxidation alone",
+        "why ozone_BAC_or_related advanced polishing is useful for partially characterized municipal trace organics",
+        "why chromium treatment depends on speciation and may need conditional reduction_precipitation",
+        "why a simpler filtration_disinfection train is inadequate for dissolved emerging contaminants",
+        "why equalization or buffering matters under storm-driven and seasonal variability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in PFAS speciation including short-chain compounds and precursors",
+        "possible mismatch between contaminant screening results and actual episodic peak concentrations",
+        "RDX and simazine-degradate treatability uncertainty in the selected matrix",
+        "ozonation byproduct concerns such as bromate and transformation product formation",
+        "spent media or resin disposal and regeneration uncertainty",
+        "membrane concentrate liability if NF_or_RO is proposed",
+        "uncertain fraction of chromium present as hexavalent chromium and implications for treatment selection"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "case_id": "WContBench_E_013",
+  "case_name": "Cobalt removal from well water for small drinking water supply with minimal chemical use",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Cobalt"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "minimal_chemical_use"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for cobalt-contaminated well water intended for drinking water supply under a minimal-chemical-use operating preference.",
+  "input_data": {
+    "scenario_background": "A small community well has elevated dissolved cobalt in otherwise relatively clean groundwater and needs a practical treatment upgrade for drinking water production. The operator prefers established technologies that avoid heavy routine chemical dosing and can be run with low to moderate operational attention. The utility can manage periodic media replacement or backwashing but wants to avoid complex sludge-generating treatment trains unless clearly justified.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "turbidity_NTU": 0.4,
+      "DOC_mg_L": 0.9,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "calcium_mg_L": 58,
+      "magnesium_mg_L": 16,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.03,
+      "sulfate_mg_L": 42,
+      "chloride_mg_L": 18,
+      "nitrate_mg_L_as_NO3": 4.6,
+      "cobalt_ug_L": 145
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable cobalt reduction for drinking water supply while maintaining stable finished water quality.",
+      "secondary_goals": [
+        "minimize routine chemical addition",
+        "use proven and practical small-system treatment",
+        "keep energy demand moderate or low",
+        "avoid unnecessarily complex sludge handling"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_replacement_and_filter_backwash_are_feasible_but_large_chemical_sludge_generation_is_unwanted",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "consistent_simple_operation_for_small_municipal_supply"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "adsorptive_media",
+          "cartridge_or_pressure_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "adsorptive_media": "remove dissolved cobalt by sorption onto selective metal-oxide or mineral-based media",
+          "cartridge_or_pressure_filtration": "retain media fines and provide final particulate polishing",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "the raw well water has low turbidity and low DOC, which is favorable for fixed-bed adsorption performance",
+          "cobalt is the clear primary contaminant, so a targeted polishing process is appropriate",
+          "adsorptive media can achieve removal with little or no continuous chemical dosing",
+          "this approach aligns well with small-system preference for simple, robust operation and limited residuals"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "media exhaustion requires monitoring and timely replacement",
+          "actual cobalt capacity can be reduced by competing ions or site-specific water chemistry",
+          "pilot or bench verification may be needed to confirm breakthrough behavior"
+        ],
+        "evidence_list": [
+          "epa_small_system_guidance_on_adsorptive_media_for_inorganic_contaminants",
+          "public_case_knowledge_for_fixed_bed_adsorption_of_trace_metals_in_groundwater",
+          "drinking_water_practice_references_supporting_low_chemical_use_media_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cation_exchange",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cation_exchange": "remove dissolved cobalt ions through exchange on resin sites",
+          "post_filtration": "polish effluent and capture any resin carryover or particulates",
+          "disinfection": "provide microbiological protection in finished water"
+        },
+        "applicability_rationale": [
+          "cobalt is present as a dissolved divalent metal and can be treated by cation exchange under suitable chemistry",
+          "the source water is relatively clean and low in suspended solids, which supports resin operation",
+          "chemical use during routine service is limited compared with precipitation-based treatment",
+          "the process is compact and technically established for dissolved metal removal applications"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "hardness ions such as calcium and magnesium can compete strongly and shorten run length",
+          "regeneration brine handling can be a management issue",
+          "resin fouling or selectivity limitations may reduce practical performance"
+        ],
+        "evidence_list": [
+          "ion_exchange_design_guidance_for_dissolved_metals_removal",
+          "small_water_system_references_on_cation_exchange_operation_and_brine_management",
+          "engineering_case_knowledge_for_groundwater_metal_removal_by_resin"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "oxidation",
+          "catalytic_media_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "oxidation": "promote conversion of dissolved cobalt to forms more amenable to capture or surface precipitation",
+          "catalytic_media_filtration": "retain oxidized or surface-bound metal species on filter media",
+          "disinfection": "ensure finished water microbiological safety"
+        },
+        "applicability_rationale": [
+          "a light oxidation step followed by filtration can be feasible for some dissolved metals in groundwater",
+          "the process can remain simpler than full coagulation-clarification trains",
+          "backwashable media filtration is familiar to many small utilities"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cobalt oxidation may be incomplete at near-neutral pH without optimized oxidant choice and contact time",
+          "removal may be less predictable than adsorption for trace dissolved cobalt",
+          "process performance can depend strongly on influent speciation and filter surface chemistry"
+        ],
+        "evidence_list": [
+          "groundwater_metal_removal_guidance_for_oxidation_and_media_filtration",
+          "public_drinking_water_filter_design_references_for_metal_capture_after_oxidation",
+          "case_knowledge_on_limitations_of_trace_metal_oxidation_at_neutral_pH"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "chemical_precipitation",
+          "coagulation_flocculation",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "chemical_precipitation": "convert dissolved cobalt into insoluble hydroxide or related solids",
+          "coagulation_flocculation": "aggregate fine precipitates into removable flocs",
+          "filtration": "remove cobalt-bearing solids before distribution",
+          "disinfection": "provide microbiological safety"
+        },
+        "applicability_rationale": [
+          "precipitation-based metal removal is a conventional and well-understood treatment concept",
+          "it can achieve substantial cobalt removal when pH and solids separation are controlled",
+          "it offers a fallback option if adsorption or ion exchange are unsuitable at full scale"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "requires more routine chemical dosing than preferred in this case",
+          "produces sludge requiring handling and disposal",
+          "careful pH control is needed and post-stabilization may be necessary"
+        ],
+        "evidence_list": [
+          "conventional_metals_precipitation_guidance_for_water_treatment",
+          "public_references_on_hydroxide_precipitation_of_divalent_metals",
+          "small_system_operational_guidance_on_coagulation_and_solids_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis": "reject dissolved cobalt and other ions through high-pressure membrane separation",
+          "stabilization": "adjust permeate chemistry for corrosion control and distribution stability",
+          "disinfection": "ensure microbiological protection"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically capable of reducing dissolved cobalt",
+          "it may be considered if future multi-contaminant control becomes necessary"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand compared with targeted adsorption or exchange",
+          "concentrate management burden is significant for a small well system",
+          "this is more complex than needed for a single-contaminant case with minimal chemical use preference"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_inorganic_contaminant_rejection",
+          "public_drinking_water_references_on_reverse_osmosis_operational_complexity",
+          "case_knowledge_on_concentrate_management_constraints_for_small_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "targeted low-chemical-use adsorption should rank first for relatively clean well water with single dissolved cobalt contamination",
+        "ion_exchange may rank near the top but below adsorption when hardness and brine management are relevant",
+        "high-chemical or high-energy options should not rank first under the stated constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "minimal routine chemical addition is a central selection factor",
+        "small-system practical operation favors simple fixed-bed or compact treatment",
+        "sludge-intensive treatment should be penalized relative to media-based options",
+        "membrane treatment should rank lower because the case does not justify high complexity"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why adsorptive media is attractive for low-turbidity well water and single-metal treatment",
+        "why ion exchange is feasible but affected by competing cations and regeneration needs",
+        "why precipitation-based treatment conflicts with minimal chemical use",
+        "why reverse osmosis is technically effective but not preferred here"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "media exhaustion or breakthrough monitoring",
+        "competition from hardness ions or other dissolved species",
+        "brine or spent media disposal requirements",
+        "uncertainty in cobalt speciation and treatability without site testing"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

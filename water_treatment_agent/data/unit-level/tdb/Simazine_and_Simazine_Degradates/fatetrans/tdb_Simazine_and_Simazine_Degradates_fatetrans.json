@@ -1,0 +1,34 @@
+[
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "46-174",
+    "Units": "days",
+    "Condition": "simazine",
+    "Ref#": "1435"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "28",
+    "Units": "days",
+    "Condition": "simazine",
+    "Ref#": "2013"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Parameter": "Photolysis Half Life",
+    "Value": "21",
+    "Units": "days",
+    "Condition": "simazine, in sandy loam",
+    "Ref#": "2010"
+  },
+  {
+    "Contaminant Name": "Simazine and Simazine Degradates",
+    "Parameter": "Photolysis Half Life",
+    "Value": "4.5",
+    "Units": "days",
+    "Condition": "simazine",
+    "Ref#": "2010"
+  }
+]

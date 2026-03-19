@@ -1,0 +1,307 @@
+{
+  "case_id": "WContBench_M_013",
+  "case_name": "Remote surface-water drinking supply with cis-1,2-dichloroethylene under pilot-only and capital constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Cis-1,2-dichloroethylene"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for treating cis-1,2-dichloroethylene-impacted surface water for drinking use while balancing pilot-only deployment limits, low capital availability, and remote-site operability.",
+  "input_data": {
+    "scenario_background": "A remote utility serving a small island community draws from a reservoir that has episodic solvent contamination traced to runoff from an old industrial storage area near a tributary inlet. The utility must install a treatment upgrade quickly, but funding currently supports only pilot-scale modular systems that can later be expanded if performance is proven. The existing plant already uses basic clarification and disinfection, and the decision hinges on which add-on technology best balances reliable cis-1,2-dichloroethylene control against low upfront cost, simple operation, and manageable residuals in a location with infrequent specialist support.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.4,
+      "temperature_C": 16.8,
+      "turbidity_NTU": 8.6,
+      "TOC_mg_L": 4.9,
+      "DOC_mg_L": 3.8,
+      "UV254_cm_1": 0.112,
+      "alkalinity_mg_L_as_CaCO3": 74,
+      "hardness_mg_L_as_CaCO3": 96,
+      "conductivity_uS_cm": 318,
+      "dissolved_oxygen_mg_L": 8.1,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "chloride_mg_L": 21,
+      "sulfate_mg_L": 29,
+      "bromide_mg_L": 0.05,
+      "target_contaminants": {
+        "cis_1_2_dichloroethylene_ug_L": 96,
+        "trichloroethylene_ug_L": 7.2,
+        "vinyl_chloride_ug_L": 0.9
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve stable compliance with drinking-water requirements for cis-1,2-dichloroethylene and associated volatile chlorinated solvents under variable surface-water conditions.",
+      "secondary_goals": [
+        "use modular equipment suitable for pilot-first deployment",
+        "limit upfront capital spending",
+        "keep operation practical for remote operators",
+        "avoid difficult residuals or off-site waste burdens where possible"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer minimal hazardous residual generation and avoid options requiring frequent specialized waste handling shipments",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system must tolerate seasonal turbidity and organic matter swings and remain practical with limited on-site technical support"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "existing_clarification_and_filtration",
+          "packed_tower_aeration_or_low_profile_air_stripping",
+          "off_gas_vapor_phase_granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "existing_clarification_and_filtration": "control particulates and reduce fouling or scaling impacts on downstream stripping equipment",
+          "packed_tower_aeration_or_low_profile_air_stripping": "transfer volatile cis-1,2-dichloroethylene and co-occurring chlorinated solvents from water to air",
+          "off_gas_vapor_phase_granular_activated_carbon": "capture stripped volatile organics from air emissions for environmental compliance",
+          "final_disinfection": "maintain potable microbial safety"
+        },
+        "applicability_rationale": [
+          "cis-1,2-dichloroethylene is a volatile organic compound, making air stripping a well-established and effective removal route",
+          "for a remote site with only pilot-scale deployment available, modular aeration systems can be demonstrated and later expanded more readily than many liquid-phase treatment systems",
+          "this route avoids creating a contaminated liquid concentrate stream, which is advantageous where waste handling logistics are difficult",
+          "although off-gas treatment is required, overall process chemistry and operator tasks are still manageable compared with more advanced destructive or membrane systems",
+          "the existing surface-water clarification train can remain in service, reducing incremental capital needs"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "air stripping performance depends on maintaining proper air-to-water ratio and tower operation",
+          "off-gas carbon replacement must be planned to prevent atmospheric release of VOCs",
+          "cold weather or seasonal hydraulic variation can affect stripping efficiency and pilot results",
+          "surface-water solids carryover can impair equipment if pretreatment performance deteriorates"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_drinking_water",
+          "EPA_drinking_water_treatment_technology_notes_for_volatile_organics",
+          "public_case_knowledge_on_packed_tower_aeration_with_off_gas_control_for_chlorinated_solvents"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "existing_clarification_and_filtration",
+          "liquid_phase_granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "existing_clarification_and_filtration": "reduce suspended solids loading and protect adsorber hydraulics",
+          "liquid_phase_granular_activated_carbon": "adsorb cis-1,2-dichloroethylene and other trace organic contaminants from water",
+          "final_disinfection": "maintain potable microbial safety"
+        },
+        "applicability_rationale": [
+          "GAC is a widely used drinking-water technology and can address volatile organics without creating air emissions",
+          "containerized or skid-mounted GAC units are practical for pilot-scale demonstration in remote locations",
+          "operator familiarity is often higher for adsorption systems than for more complex oxidation or membrane systems",
+          "this route can also provide some co-benefit for background natural organic matter and taste-and-odor compounds",
+          "it ranks below air stripping because cis-1,2-dichloroethylene is often more economically handled by volatilization, while surface-water DOC can shorten carbon life and increase replacement frequency"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "natural organic matter competition can reduce adsorption capacity and increase media changeout frequency",
+          "spent carbon management and transport from a remote site require logistics planning",
+          "breakthrough monitoring must be conservative because influent concentrations may spike episodically",
+          "co-occurring VOCs may consume adsorption capacity faster than expected during pilot testing"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_granular_activated_carbon_for_synthetic_organic_chemical_control",
+          "AWWA_case_knowledge_on_GAC_for_VOC_removal_in_small_drinking_water_systems",
+          "public_guidance_on_DOC_effects_on_GAC_adsorption_performance"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "existing_clarification_and_filtration",
+          "spray_aeration_or_diffused_aeration",
+          "liquid_phase_granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "existing_clarification_and_filtration": "stabilize solids loading before pilot treatment",
+          "spray_aeration_or_diffused_aeration": "provide partial volatilization of cis-1,2-dichloroethylene with simpler equipment than a packed tower",
+          "liquid_phase_granular_activated_carbon_polishing": "capture residual dissolved VOCs after partial stripping",
+          "final_disinfection": "maintain potable microbial safety"
+        },
+        "applicability_rationale": [
+          "this hybrid route can be attractive when capital is very limited because it uses simpler aeration hardware combined with a smaller polishing adsorber",
+          "it offers a practical pilot-first strategy where the utility wants to test whether partial volatilization can reduce carbon consumption",
+          "the configuration spreads removal duty across two relatively understandable unit processes",
+          "it ranks below the top two options because spray or diffused aeration is generally less efficient and less predictable than dedicated packed-tower stripping for chlorinated VOCs"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "simple aeration may not consistently achieve sufficient removal during high influent events",
+          "without well-controlled off-gas management, air emissions concerns may remain",
+          "operational tuning between aeration and GAC polishing can be more involved than a single-process solution",
+          "surface-water temperature and flow variation may cause unstable performance"
+        ],
+        "evidence_list": [
+          "public_engineering_guidance_on_aeration_for_VOC_reduction",
+          "EPA_case_knowledge_for_combined_aeration_and_GAC_polishing",
+          "small_system_modular_treatment_examples_for_remote_drinking_water_facilities"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "existing_clarification_and_filtration",
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "granular_activated_carbon_biological_or_polishing_filter",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "existing_clarification_and_filtration": "lower particulate and UV-interfering load before oxidation",
+          "uv_hydrogen_peroxide_advanced_oxidation": "oxidize cis-1,2-dichloroethylene and related chlorinated organics",
+          "granular_activated_carbon_biological_or_polishing_filter": "remove oxidation byproducts and provide polishing",
+          "final_disinfection": "maintain potable microbial safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is technically capable of degrading chlorinated solvents rather than transferring them to another phase",
+          "the route can be appealing when future source-water contamination may broaden and destructive treatment is valued",
+          "however, it is downgraded because surface-water TOC and UV absorbance increase oxidant and energy demand, which is unfavorable for a capital-limited remote pilot site",
+          "chemical supply, process monitoring, and lamp system maintenance create a higher technical burden than adsorption or stripping"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "background organic matter can scavenge radicals and reduce treatment efficiency",
+          "incomplete oxidation may form intermediate products requiring careful verification",
+          "chemical handling and UV system maintenance may exceed local operator comfort",
+          "pilot optimization can be time-intensive under variable surface-water quality"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_advanced_oxidation_processes_for_organic_contaminants",
+          "public_references_on_radical_scavenging_by_natural_organic_matter",
+          "drinking_water_case_knowledge_for_AOP_application_limits_in_small_remote_systems"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "enhanced_pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "enhanced_pretreatment": "protect membranes from fouling by turbidity and organic matter",
+          "nanofiltration_or_reverse_osmosis": "physically separate dissolved contaminants including cis-1,2-dichloroethylene and co-occurring compounds",
+          "stabilization": "adjust permeate chemistry for distribution compatibility",
+          "final_disinfection": "maintain potable microbial safety"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable and can provide broad-spectrum contaminant control",
+          "it may be considered if the utility expects future salinity or multi-contaminant challenges beyond VOCs alone",
+          "despite technical capability, it ranks last because it has the weakest fit to pilot-only, low-capital, and remote-operation constraints",
+          "the need for robust pretreatment, membrane maintenance, and concentrate management makes it poorly aligned with this case compared with simpler alternatives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is difficult and expensive in a remote location",
+          "surface-water fouling potential drives pretreatment complexity and operational risk",
+          "membrane systems require more specialized oversight and spare parts support",
+          "pilot results may not translate economically to full implementation under current funding limits"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_drinking_water",
+          "public_case_knowledge_on_concentrate_management_constraints_for_remote_systems",
+          "AWWA_references_on_surface_water_pretreatment_needs_for_NF_and_RO"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "air_stripping_with_off_gas_control should rank near the top for volatile chlorinated solvent removal",
+        "GAC should appear as a credible alternative because of modularity and operational familiarity",
+        "advanced_oxidation and membrane options should rank lower due to pilot-scale, capital, and remote-site misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot_only deployment favors modular and rapidly deployable treatment trains",
+        "remote_location penalizes options requiring high specialist support or difficult waste logistics",
+        "capital_constraint should reduce ranking of membrane-heavy or high-instrumentation systems"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why volatilization-based treatment is relevant for cis-1,2-dichloroethylene",
+        "why surface-water organic matter affects GAC and advanced oxidation performance",
+        "why technically capable options can rank lower when residuals, complexity, or capital fit are poor"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "off-gas management for air stripping",
+        "carbon breakthrough or media replacement logistics",
+        "surface-water variability effects on pilot performance",
+        "concentrate or residual handling burdens"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

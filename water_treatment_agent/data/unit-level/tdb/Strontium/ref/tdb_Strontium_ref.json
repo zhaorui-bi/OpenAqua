@@ -1,0 +1,191 @@
+[
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2181",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Torab-Mostaedi, M., Ghaemi, A., Ghassabzadeh, H. and Ghannadi-Maragheh, M.",
+    "Year": "2011",
+    "Title": "Removal of strontium and barium from aqueous solutions by adsorption onto expanded perlite",
+    "Source": "The Canadian Journal of Chemical Engineering"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2178",
+    "Treatment Process": "Ion Exchange",
+    "Author": "El-Kamash, A",
+    "Year": "2008",
+    "Title": "Evaluation of zeolite A for the sorptive removal of Cs+ and Sr2+ ions from aqueous solutions using batch and fixed bed column operations",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1766",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Khan, S., Rehman, R., and Khan, M.",
+    "Year": "1995",
+    "Title": "Sorption of strontium on bentonite",
+    "Source": "Waste Management"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1760",
+    "Treatment Process": "N/A",
+    "Author": "Agency for Toxic Substances and Disease Registry U.S. Public Health Services and U.S. Environmental Protection Agency",
+    "Year": "2004",
+    "Title": "Toxicological Profile for Strontium",
+    "Source": "Toxicological Profile for Strontium"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1765",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Marinin, D. and Brown, G.",
+    "Year": "2000",
+    "Title": "Studies of sorbent/ion-exchange materials for the removal of radioactive strontium from liquid radioactive waste and high hardness groundwaters",
+    "Source": "Waste Management"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2179",
+    "Treatment Process": "Membrane Filtration",
+    "Author": "Cao, J., Gu, P., Zhao, J., Zhang, D. and Deng, Y.",
+    "Year": "2010",
+    "Title": "Removal of strontium from an aqueous solution using co-precipitation followed by microfiltration (CPMF)",
+    "Source": "J. Radioanal. Nucl. Chem."
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2176",
+    "Treatment Process": "Precipitative Softening",
+    "Author": "Alexander, G., Nusbaum, R. and MacDonald, N.",
+    "Year": "1954",
+    "Title": "Strontium and calcium in municipal water supplies",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2177",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Sato, I., Kudo, H. and Tsuda, S.",
+    "Year": "2011",
+    "Title": "Removal efficiency of water purifier and adsorbent for iodine, cesium, strontium, barium and zirconium in drinking water",
+    "Source": "J. Toxicol. Sci."
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1767",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Singh, O. and Tandon, S.",
+    "Year": "1977",
+    "Title": "Studies on the adsorption of cesium and strontium radionuclides on hydrated manganese oxide",
+    "Source": "International Journal of Applied Radiation and Isotopes"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "2185",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Gaubert, E., Barnier, H., Maurel, A., Foos, J., Guy, A., Bardot, C. and Lemaire, M.",
+    "Year": "1997",
+    "Title": "Selective strontium removal from a sodium nitrate aqueous medium by nanofiltration - complexation",
+    "Source": "Separation Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1761",
+    "Treatment Process": "N/A",
+    "Author": "J.K. Barbalace, Inc.",
+    "Year": "2010",
+    "Title": "Periodic Table of Elements",
+    "Source": "http://environmentalchemistry.com/yogi/periodic/Sr.html"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "16",
+    "Treatment Process": "Membrane Separation",
+    "Author": "NSF International",
+    "Year": "2005",
+    "Title": "Removal of Chemical Contaminants in Drinking Water, EcoWater Systems Incorporated ERO-R450E Drinking Water Treatment System",
+    "Source": "Environmental Technology Verification Report"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "617",
+    "Treatment Process": "Membrane Separation",
+    "Author": "NSF International",
+    "Year": "2006",
+    "Title": "Removal of chemical and microbial contaminants in drinking water, Watts Premier, Inc., M-2400 Point of Entry Reverse Osmosis Drinking Water Treatment System",
+    "Source": "Environmental Technology Verification Report"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1768",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Parks, J., and Edwards, M.",
+    "Year": "2006",
+    "Title": "Precipitative removal of As, Ba, B, Cr, Sr, and V using sodium carbonate",
+    "Source": "J. Environmental Engineering"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "15",
+    "Treatment Process": "Membrane Separation",
+    "Author": "NSF International",
+    "Year": "2005",
+    "Title": "Removal of Chemical Contaminants in Drinking Water, Watts Premier Incorporated WP-4V Drinking Water Treatment System",
+    "Source": "Environmental Technology Verification Report"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1015",
+    "Treatment Process": "Membrane Separation",
+    "Author": "NSF International",
+    "Year": "2005",
+    "Title": "Removal of Chemical Contaminants from Drinking Water",
+    "Source": "Environmental Technology Verification Report"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "566",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2002",
+    "Title": "Implementation Guidance for Radionuclides",
+    "Source": "Implementation Guidance for Radionuclides"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "586",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2000",
+    "Title": "Radionuclides Notice of Data Availability: Technical Support Document",
+    "Source": "Radionuclides Notice of Data Availability: Technical Support Document"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "1764",
+    "Treatment Process": "N/A",
+    "Author": "Chegrouche, S., Mellah, A., and Barkat, M.",
+    "Year": "2009",
+    "Title": "Removal of strontium from aqueous solutions by adsorption onto activated carbon: kinetic and thermodynamic studies",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "373",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "Gafvert, T., Ellmark, C. and Holm, E.",
+    "Year": "2002",
+    "Title": "Removal of radionuclides at a waterworks",
+    "Source": "Jour. Env. Radioactivity"
+  },
+  {
+    "Contaminant Name": "Strontium",
+    "Ref#": "584",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Basic information about radionuclides in drinking water",
+    "Source": "http://www.epa.gov/safewater/radionuclides/basicinformation.html"
+  }
+]

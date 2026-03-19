@@ -1,0 +1,306 @@
+{
+  "case_id": "WContBench_M_047",
+  "case_name": "Baygon, cis-1,2-dichloroethylene, and nonylphenol control from lake water for groundwater recharge under moderate cost and limited-operator constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "Propoxur",
+      "Cis-1,2-dichloroethylene",
+      "4-Nonylphenol"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for lake water containing Baygon, cis-1,2-dichloroethylene, and 4-nonylphenol intended for groundwater recharge, balancing contaminant removal performance with moderate cost, simple operation, and manageable residuals.",
+  "input_data": {
+    "scenario_background": "A regional water reuse authority plans to seasonally divert impacted lake water to an infiltration basin system for groundwater recharge. Monitoring shows a mixed contamination profile: Baygon from urban runoff and vector-control inputs, cis-1,2-dichloroethylene from a shoreline industrial plume influence, and 4-nonylphenol from wastewater-affected tributary inflow. Several treatment routes are technically plausible, but the authority has only moderately funded upgrades and limited operator expertise, so the preferred option must balance broad-spectrum removal, stable performance under lake-water variability, and avoidance of highly demanding membrane or residuals-management systems.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "temperature_C": 19.4,
+      "pH": 7.8,
+      "turbidity_NTU": 8.6,
+      "TOC_mg_L": 6.9,
+      "DOC_mg_L": 5.3,
+      "UV254_cm_1": 0.158,
+      "alkalinity_mg_L_as_CaCO3": 104,
+      "hardness_mg_L_as_CaCO3": 132,
+      "conductivity_uS_cm": 418,
+      "TSS_mg_L": 11.0,
+      "ammonia_mg_L_as_N": 0.14,
+      "nitrate_mg_L_as_N": 1.7,
+      "chloride_mg_L": 38,
+      "sulfate_mg_L": 29,
+      "dissolved_oxygen_mg_L": 7.1,
+      "target_contaminants": {
+        "Propoxur_ug_L": 5.6,
+        "Cis_1_2_dichloroethylene_ug_L": 84,
+        "4_Nonylphenol_ug_L": 2.4
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for groundwater recharge with reliable reduction of the listed organic contaminants and with effluent quality compatible with infiltration operation.",
+      "secondary_goals": [
+        "control turbidity and particulate fouling potential before recharge",
+        "provide robust removal across seasonal lake-water quality fluctuations",
+        "avoid treatment trains that require highly specialized operators",
+        "limit difficult concentrate or hazardous residual handling"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids handling and avoid high-volume membrane concentrate or frequent hazardous liquid regenerant management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate variable turbidity and organic matter during storm-driven lake-water changes"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "aeration_or_air_stripping_polishing"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and a portion of natural organic matter to stabilize downstream performance",
+          "dual_media_filtration": "polish particulates and reduce loading to adsorption units",
+          "granular_activated_carbon": "adsorb Baygon and 4-nonylphenol and provide partial control of dissolved organics affecting recharge quality",
+          "aeration_or_air_stripping_polishing": "remove volatile cis-1,2-dichloroethylene after solids and sorbing-organic reduction"
+        },
+        "applicability_rationale": [
+          "the contaminant mix includes semi-hydrophobic organics that are well suited to activated carbon plus a volatile chlorinated solvent that can be addressed by stripping",
+          "front-end clarification and filtration are important because lake water turbidity and DOC would otherwise shorten GAC life and destabilize operation",
+          "this train separates the treatment duty across conventional units that are widely understood by municipal operators",
+          "it avoids high-pressure membranes and difficult concentrate management while still addressing all three targets",
+          "for groundwater recharge, improved solids and organic matter control also helps basin performance and reduces clogging risk"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cis-1,2-dichloroethylene removal by aeration depends on transfer efficiency and off-gas management design",
+          "higher seasonal DOC can accelerate GAC exhaustion and require closer media change planning",
+          "clarifier sludge and spent carbon handling still need established contracts and compliance procedures"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_conventional_treatment_and_GAC_for_synthetic_organic_chemicals",
+          "EPA_air_stripping_design_guidance_for_volatile_organic_compounds_in_water",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_and_alkylphenol_control",
+          "managed_aquifer_recharge_practice_guidance_on_low_turbidity_and_low_fouling_feedwater"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "air_stripping"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended matter and some organic background before targeted treatment",
+          "dual_media_filtration": "remove carryover solids and support stable downstream operation",
+          "powdered_activated_carbon_contact": "adsorb Baygon and 4-nonylphenol in a flexible dose-responsive mode",
+          "air_stripping": "remove volatile cis-1,2-dichloroethylene"
+        },
+        "applicability_rationale": [
+          "PAC is a plausible alternative when contaminant occurrence is seasonal or variable because dose can be adjusted without a full GAC contactor replacement cycle",
+          "the route remains compatible with conventional surface-water operations and can be simpler to retrofit at existing clarification facilities",
+          "it can achieve meaningful control of Baygon and 4-nonylphenol while air stripping handles the VOC fraction",
+          "this option ranks below GAC because ongoing PAC feed optimization and solids capture can be more operator-sensitive and may create higher routine solids residual production"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance depends strongly on contact time, dose control, and competition from lake-water DOC",
+          "carbon-laden sludge production increases residuals handling burden",
+          "less robust than fixed-bed GAC for maintaining long-term adsorption safety margin if contaminant spikes occur"
+        ],
+        "evidence_list": [
+          "EPA_surface_water_treatment_guidance_for_PAC_application_on_organic_micropollutants",
+          "AWWA_operational_guidance_on_PAC_dosing_and_solids_capture",
+          "EPA_air_stripping_case_knowledge_for_chlorinated_ethene_removal"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_process",
+          "granular_activated_carbon_polishing"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and lower oxidant demand from particulate and colloidal matter",
+          "dual_media_filtration": "protect oxidation and polishing stages",
+          "advanced_oxidation_process": "oxidize susceptible organic contaminants and reduce parent compound concentrations",
+          "granular_activated_carbon_polishing": "capture remaining Baygon, 4-nonylphenol, and oxidation byproducts or partially transformed organics"
+        },
+        "applicability_rationale": [
+          "AOP plus GAC is technically capable for mixed organic contaminants and can provide an additional barrier where direct adsorption alone is considered insufficient",
+          "the polishing GAC helps address concerns about partial oxidation products before groundwater recharge",
+          "this route is not ranked first because cis-1,2-dichloroethylene is not the most favorable target for oxidation relative to simpler volatilization-based removal, and the combined system is more energy- and control-intensive",
+          "operator skill limitations reduce the attractiveness of maintaining oxidant dose, UV or peroxide systems, and byproduct surveillance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "incomplete oxidation can generate intermediates requiring careful polishing verification",
+          "process control demands are higher than for conventional clarification plus adsorption or stripping",
+          "higher DOC in lake water can raise oxidant demand and operating cost"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_advanced_oxidation_for_refractory_organic_contaminants",
+          "water_reuse_practice_guidance_on_AOP_followed_by_adsorptive_polishing",
+          "public_case_knowledge_on_AOP_limitations_for_some_chlorinated_ethenes"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "packed_tower_air_stripping",
+          "granular_activated_carbon_offgas_or_liquid_polishing"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "prepare variable lake water and reduce solids load",
+          "dual_media_filtration": "protect downstream mass-transfer equipment and polishing units",
+          "packed_tower_air_stripping": "remove cis-1,2-dichloroethylene as the primary target",
+          "granular_activated_carbon_offgas_or_liquid_polishing": "polish residual Baygon and 4-nonylphenol in water and optionally treat VOC-containing off-gas where required"
+        },
+        "applicability_rationale": [
+          "this route is especially strong for the volatile cis-1,2-dichloroethylene component and remains technically feasible for the full contaminant set when paired with carbon polishing",
+          "it ranks below the top option because leading with stripping does not directly address the less volatile Baygon and 4-nonylphenol challenge as effectively as a more adsorption-centered design",
+          "additional off-gas management considerations may complicate operation for a utility with limited skilled staff",
+          "the route can still be attractive where cis-1,2-dichloroethylene compliance is the dominant concern"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "off-gas treatment or permitting may be needed depending on local air requirements",
+          "stripping efficiency is sensitive to tower condition and airflow-to-water ratio",
+          "if GAC polishing is undersized, Baygon and 4-nonylphenol breakthrough may occur despite strong VOC control"
+        ],
+        "evidence_list": [
+          "EPA_design_manual_for_packed_tower_aeration_of_volatile_organic_compounds",
+          "public_guidance_on_GAC_polishing_for_pesticides_and_endocrine_active_organics",
+          "surface_water_pretreatment_case_knowledge_for_air_stripper_protection"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "enhanced_pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "post_treatment_stabilization"
+        ],
+        "core_unit_functions": {
+          "enhanced_pretreatment": "control fouling potential before membrane separation",
+          "nanofiltration_or_reverse_osmosis": "physically reject a broad range of dissolved organic contaminants including Baygon and 4-nonylphenol and potentially reduce cis-1,2-dichloroethylene to varying degrees depending on membrane selection",
+          "post_treatment_stabilization": "adjust finished water quality for compatibility with recharge application"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable as a broad barrier for many dissolved contaminants and may be selected if future water-quality goals expand",
+          "however, for this case it is downgraded because the lake-water feed requires careful fouling control, operator skill is limited, and concentrate management conflicts with the stated residuals preference",
+          "the cost and energy burden are higher than needed for the observed contaminant levels, making it a poor balance under moderate budget constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal can be difficult and expensive for inland facilities",
+          "membrane fouling risk is significant with variable lake-water turbidity and DOC",
+          "specialized monitoring and maintenance requirements are misaligned with limited operator capacity"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_surface_waters_and_organic_contaminants",
+          "water_reuse_guidance_on_RO_concentrate_management_challenges",
+          "public_case_knowledge_on_surface_water_RO_fouling_and_operator_demands"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "a conventional pretreatment plus adsorption-centered route should rank near the top",
+        "a route emphasizing air stripping should appear as a plausible alternative because cis-1,2-dichloroethylene is volatile",
+        "membrane options should not rank first under moderate cost and limited-operator constraints",
+        "at least one technically capable but more complex oxidation-based route should rank below simpler multi-barrier options"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "trade-off between broad-spectrum organic removal and simplicity of operation",
+        "importance of pretreatment for variable lake-water turbidity and DOC",
+        "moderate budget limits that favor conventional unit processes over advanced membrane systems",
+        "operator skill limitations that penalize highly control-intensive trains"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is attractive for Baygon and 4-nonylphenol control",
+        "why cis-1,2-dichloroethylene creates a plausible case for aeration or air stripping",
+        "why upstream clarification and filtration matter for lake water before adsorption or oxidation",
+        "why membrane and more complex AOP options are downgraded despite technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "DOC competition and carbon exhaustion risk",
+        "off-gas management considerations for volatile contaminant removal",
+        "residuals production from clarification or PAC use",
+        "seasonal water-quality variability affecting process stability"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

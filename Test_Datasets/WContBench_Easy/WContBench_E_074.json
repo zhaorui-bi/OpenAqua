@@ -1,0 +1,307 @@
+{
+  "case_id": "WContBench_E_074",
+  "case_name": "Methiocarb removal from surface water for conventional drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Methiocarb"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for methiocarb-contaminated surface water intended for drinking water supply under moderate cost and conventional operating constraints.",
+  "input_data": {
+    "scenario_background": "A municipal water treatment plant drawing from a river-fed reservoir detected elevated methiocarb following seasonal agricultural runoff in its catchment. The utility already operates conventional clarification and filtration and wants a proven treatment approach that can reliably control the pesticide without moving to highly complex or energy-intensive systems. Natural organic matter and moderate turbidity are present, so matrix competition and solids loading need to be considered in the treatment selection.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 18.5,
+      "turbidity_NTU": 14.2,
+      "color_Pt_Co": 38,
+      "DOC_mg_L": 5.9,
+      "UV254_cm_1": 0.146,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 118,
+      "TOC_mg_L": 6.7,
+      "sulfate_mg_L": 34,
+      "nitrate_mg_L_as_NO3": 6.2,
+      "ammonia_mg_L_as_N": 0.08,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.03,
+      "bromide_mg_L": 0.05,
+      "chlorophyll_a_ug_L": 8.0,
+      "methiocarb_ug_L": 2.4,
+      "e_coli_CFU_100mL": 120
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable pesticide control for drinking water production, including strong reduction of methiocarb to a low and stable level consistent with drinking water expectations, while also meeting normal turbidity and microbiological treatment objectives.",
+      "secondary_goals": [
+        "use established municipal treatment technology",
+        "maintain moderate operating complexity",
+        "limit energy demand",
+        "manage the impact of natural organic matter on treatment performance"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "conventional sludge handling is available and periodic carbon replacement or regeneration is manageable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable performance is required during seasonal runoff and variable raw water turbidity"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize particles and reduce natural organic matter that can compete for adsorption sites",
+          "flocculation": "form settleable flocs from coagulated particles and associated organics",
+          "sedimentation": "remove bulk suspended solids and clarified-water load before polishing",
+          "rapid_sand_filtration": "remove remaining particulate matter and protect downstream adsorptive media",
+          "granular_activated_carbon": "adsorb methiocarb and polish residual dissolved organic contaminants",
+          "disinfection": "provide microbiological safety for finished drinking water"
+        },
+        "applicability_rationale": [
+          "methiocarb is an organic pesticide for which activated carbon is a well-established control option in drinking water treatment",
+          "the source is surface water with moderate turbidity and DOC, so conventional clarification ahead of GAC improves carbon performance and run length",
+          "the utility already has conventional treatment capability, making this a strong fit with existing operations",
+          "this process chain balances proven contaminant removal with moderate cost and manageable O&M"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "high DOC episodes can shorten GAC bed life and require more frequent monitoring and replacement",
+          "if clarification performance drops during storm events, particulate loading can foul filters and reduce downstream adsorption efficiency",
+          "breakthrough can occur if empty bed contact time or carbon changeout is not properly managed"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_pesticides_in_drinking_water_and_use_of_activated_carbon",
+          "EPA_drinking_water_treatability_guidance_for_synthetic_organic_chemicals",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_control_in_surface_water"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "powdered_activated_carbon",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce suspended solids and part of the organic matrix before adsorption polishing",
+          "flocculation": "aggregate destabilized solids into removable flocs",
+          "sedimentation": "separate flocculated solids from clarified water",
+          "rapid_sand_filtration": "provide particulate removal and support stable downstream performance",
+          "powdered_activated_carbon": "adsorb dissolved methiocarb through dose-based treatment during contamination events",
+          "post_filtration": "capture PAC carryover or additional solids before final disinfection",
+          "disinfection": "ensure pathogen control in finished water"
+        },
+        "applicability_rationale": [
+          "PAC is a recognized conventional option for episodic taste, odor, and pesticide events in surface water plants",
+          "the contamination appears linked to seasonal runoff, so flexible PAC dosing can be attractive when the event is intermittent rather than constant",
+          "this option fits utilities familiar with chemical feed systems and conventional solids separation",
+          "it can be implemented with lower fixed media capital than large dedicated GAC contactors"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance depends strongly on dose, contact time, and competition from NOM",
+          "solids production increases and sludge handling demand rises during PAC use",
+          "less robust than fixed-bed GAC for sustained or highly variable pesticide loading"
+        ],
+        "evidence_list": [
+          "AWWA_operator_guidance_for_PAC_application_in_surface_water_treatment",
+          "EPA_treatability_information_on_activated_carbon_for_organic_contaminants",
+          "public_case_knowledge_for_PAC_use_during_agricultural_runoff_events"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "ozonation",
+          "biological_activated_carbon",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "ozonation": "oxidize susceptible organic micropollutants and improve biodegradability of some organics",
+          "biological_activated_carbon": "adsorb residual methiocarb and biologically remove biodegradable byproducts and NOM fractions",
+          "filtration": "retain biomass and fines while polishing water quality",
+          "disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "combined oxidation and BAC is a proven advanced drinking water approach for surface water impacted by trace organic contaminants",
+          "this train can provide broader micropollutant control than carbon alone when multiple oxidizable compounds are present",
+          "it can be effective where NOM management and biologically active polishing are desired"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "methiocarb oxidation may be incomplete, so process verification is required and ozone should not be assumed to provide full standalone removal",
+          "ozone systems add operational complexity, safety requirements, and energy demand",
+          "bromide in the source water creates some potential for bromate formation and requires careful ozone control"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_ozonation_and_GAC_in_drinking_water_treatment",
+          "EPA_guidance_on_ozone_BAC_for_trace_organic_contaminant_control",
+          "drinking_water_case_knowledge_on_advanced_oxidation_and_BAC_for_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "condition particles and reduce matrix interference prior to membrane treatment",
+          "flocculation": "form larger aggregates for more stable solids removal",
+          "sedimentation": "remove bulk solids and reduce membrane fouling load",
+          "ultrafiltration": "provide strong particle and pathogen barrier treatment",
+          "granular_activated_carbon": "adsorb dissolved methiocarb that is not removed by size-exclusion membranes",
+          "disinfection": "provide final pathogen inactivation and distribution system protection"
+        },
+        "applicability_rationale": [
+          "UF offers robust particulate and microbial control for variable surface water quality",
+          "GAC remains necessary because methiocarb is a dissolved organic contaminant and is not reliably removed by UF alone",
+          "this can be a technically strong train where a utility wants a tighter solids barrier ahead of adsorption"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "membrane addition increases capital cost, cleaning requirements, and operator burden relative to conventional filtration",
+          "UF alone does not address dissolved pesticide removal, so carbon performance is still critical",
+          "fouling risk rises during algae and turbidity spikes if upstream solids control is insufficient"
+        ],
+        "evidence_list": [
+          "EPA_surface_water_treatment_guidance_for_membrane_barrier_use",
+          "AWWA_guidance_that_UF_requires_complementary_adsorption_for_dissolved_organics",
+          "public_case_examples_of_UF_plus_GAC_for_surface_water_micropollutant_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide high rejection of many dissolved contaminants including small organic molecules",
+          "stabilization": "restore finished water chemistry and corrosion stability after desalting treatment",
+          "disinfection": "ensure microbiological safety in distributed water"
+        },
+        "applicability_rationale": [
+          "high-pressure membranes are technically capable of reducing many pesticides",
+          "they may be considered if simultaneous removal of multiple dissolved contaminants is required beyond the stated primary need"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "unnecessarily high energy and O&M burden for a case that can usually be managed with conventional treatment plus activated carbon",
+          "concentrate handling creates a significant residuals challenge",
+          "pretreatment needs and membrane fouling control add complexity beyond the utility's stated preference"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_drinking_water_applications",
+          "WHO_reference_on_membrane_processes_and_concentrate_management",
+          "public_engineering_knowledge_that_high_pressure_membranes_rank_lower_under_moderate_constraints"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional clarification and filtration followed by activated carbon should rank first for methiocarb in surface water",
+        "PAC-based conventional treatment may rank near the top for seasonal pesticide episodes but below a more robust GAC train",
+        "high-pressure membrane options should not rank first under moderate cost and conventional operation constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven municipal treatment technology",
+        "moderate operational capability with existing conventional treatment assets",
+        "avoidance of unnecessarily complex or high-energy solutions when activated carbon-based treatment is adequate"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for an organic pesticide such as methiocarb",
+        "why surface-water turbidity and NOM justify clarification ahead of adsorptive polishing",
+        "why membrane-only or ozone-heavy solutions rank lower under the stated constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "NOM competition for carbon adsorption sites",
+        "breakthrough and media replacement or PAC dose control",
+        "storm-event turbidity impacts on upstream clarification and downstream polishing",
+        "possible oxidation byproduct or bromate concerns if ozone is proposed"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

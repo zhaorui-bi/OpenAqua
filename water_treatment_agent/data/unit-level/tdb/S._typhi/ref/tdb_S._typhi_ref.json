@@ -1,0 +1,182 @@
+[
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "960",
+    "Treatment Process": "Chlorine",
+    "Author": "Butterfield, C.T., Megregian, S. and Chambers, C.W.",
+    "Year": "1943",
+    "Title": "Influence of pH and temperature on the survival of coliforms and enteric pathogens when exposed to free chlorine",
+    "Source": "Public Health Reports"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "956",
+    "Treatment Process": "Chlorine",
+    "Author": "Souter, P.F., Cruickshank, G.D., Tankerville, M.Z., Keswick, B.H., Ellis, B.D., Langworthy, D.E., Metz, K.A., Appleby, M.R., Hamilton, N., Jones A.L. and Perry, J.D.",
+    "Year": "2003",
+    "Title": "Evaluation of a new water treatment for point-of-use household applications to remove microorganisms and arsenic from drinking water",
+    "Source": "Journal of Water and Health"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "954",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Yoshpe-Purer, Y. and Eylan, E.",
+    "Year": "1968",
+    "Title": "Disinfection of water by hydrogen peroxide",
+    "Source": "Health Lab Sci."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "952",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Chang, J.C.H., Ossoff, S.F., Lobe, D.C., Dorfman, M.K., Dumais, C.M., Qualls, R.G. and Johnson, J.D.",
+    "Year": "1985",
+    "Title": "UV inactivation of pathogenic and indicator microorganisms",
+    "Source": "Appl. & Env. Microbiol."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "958",
+    "Treatment Process": "Chlorine",
+    "Author": "Uyanik, M.H., Yazgi, H. and Ayyildiz, A.",
+    "Year": "2008",
+    "Title": "Survival of Salmonella typhi and Shigella flexneri in different water samples and at different temperatures",
+    "Source": "Turk. J. Med. Sci."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "951",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Wilson, B.R., Roessler, P.F., Van Dellen, E., Abbaszadegan, M. and Gerba, C.P.",
+    "Year": "1992",
+    "Title": "Coliphage MS-2 as a UV water disinfection efficacy test surrogate for bacterial and viral pathogens",
+    "Source": "AWWA WQTC"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "965",
+    "Treatment Process": "N/A",
+    "Author": "Kim, A.Y., Goldberg, M.B., Rubin, R.H., Gorbach, S.L. (Ed.), Bartlett, J.G. (Ed.) and Blackflow, N.R. (Ed.)",
+    "Year": "2004",
+    "Title": "Salmonella Infections",
+    "Source": "Infectious Diseases"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "967",
+    "Treatment Process": "N/A",
+    "Author": "Cho, J.C. and Kim, S.J.",
+    "Year": "1999",
+    "Title": "Viable, but non-culturable, state of a green fluorescence protein-tagged environmental isolate of Salmonella typhi in groundwater and pond water",
+    "Source": "FEMS Microbiology Letters"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "961",
+    "Treatment Process": "Chloramine",
+    "Author": "Butterfield, C.T. and Wattie, E.",
+    "Year": "1946",
+    "Title": "Influence of pH and temperature on the survival of coliforms and enteric pathogens when exposed to chloramine",
+    "Source": "Public Health Reports"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "959",
+    "Treatment Process": "Chloramine",
+    "Author": "Butterfield, C.T.",
+    "Year": "1948",
+    "Title": "Bactericidal properties of chloramines and free chlorine in water",
+    "Source": "Public Health Reports"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "964",
+    "Treatment Process": "N/A",
+    "Author": "Huckstep, R.L.",
+    "Year": "1962",
+    "Title": "Bacteriology - The Salmonellae",
+    "Source": "Typhoid Fever and Other Salmonella Infections"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "955",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Abbaszadegan, M., Hasan, M.N., Gerba, C.P., Roessler, P.F., Wilson, B.R., Kuennen, R. and Van Dellen, E.",
+    "Year": "1997",
+    "Title": "The disinfection efficacy of a point-of-use water treatment system against bacterial, viral and protozoan waterborne pathogens",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "968",
+    "Treatment Process": "N/A",
+    "Author": "Wait, D.A. and Sobsey, M.D.",
+    "Year": "2001",
+    "Title": "Comparative survival of enteric viruses and bacteria in Atlantic ocean seawater",
+    "Source": "Wat. Sci. Tech."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "953",
+    "Treatment Process": "N/A",
+    "Author": "Virginia Bioinfomatics Institute",
+    "Year": "2009",
+    "Title": "Pathogen information (pathinfo)",
+    "Source": "http://pathport.vbi.vt.edu/pathinfo/pathogens/enterica_Info.shtml"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "963",
+    "Treatment Process": "N/A",
+    "Author": "Huckstep, R.L.",
+    "Year": "1962",
+    "Title": "Epidemiology",
+    "Source": "Typhoid Fever and Other Salmonella Infections"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "966",
+    "Treatment Process": "N/A",
+    "Author": "Groseclose, S.L., Hall, P.A., Knowles, C.M., Adams, D.A., Park, S., Perry, F., Sharp, P., Anderson, W.J., Snavely, K., Fagan, R.F., Aponte, J.J., Jones, G.F., Nitschke, D.A., Worsham, C.A., Glynn, M.K., Chang, M.H., Doyle, T. and Jajosky, R.A.",
+    "Year": "2001",
+    "Title": "Summary of Notifiable Diseases, United States, 1999",
+    "Source": "Morbidity and Mortality Weekly Report"
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "970",
+    "Treatment Process": "N/A",
+    "Author": "Ryan, C.A., Hargrett-Bean, N.T. and Blake, P.A.",
+    "Year": "1989",
+    "Title": "Salmonella typhi infections in the United States, 1975-1984: increasing role of foreign travel",
+    "Source": "Re. Infect. Dis."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "969",
+    "Treatment Process": "N/A",
+    "Author": "Gorden J. and Small P.L.",
+    "Year": "1993",
+    "Title": "Acid resistance in enteric bacteria",
+    "Source": "Infect Immun."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "957",
+    "Treatment Process": "Chlorine",
+    "Author": "Rodda, N., Bateman, B. and Kfir, R.",
+    "Year": "1993",
+    "Title": "Removal of Salmonella typhi, Shigella dysenteriae, Vibrio cholerae and Rotavirus from water using a water treatment tablet",
+    "Source": "Wat. Sci. Tech."
+  },
+  {
+    "Contaminant Name": "S. typhi",
+    "Ref#": "971",
+    "Treatment Process": "N/A",
+    "Author": "Lynch, M.F., Blanton, E.M., Bluens, S., Polyak, C., Vojdani, J., Stevenson, J., Medalla, F., Barzilay, E. Joyce, K., Barrett, T., Mintz, E.D.",
+    "Year": "2009",
+    "Title": "Typhoid fever in the United States, 1999-2006",
+    "Source": "JAMA"
+  }
+]

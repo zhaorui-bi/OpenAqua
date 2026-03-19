@@ -1,0 +1,345 @@
+{
+  "case_id": "WContBench_D_128",
+  "case_name": "Emergency potable reuse from urban stormwater runoff with cyanotoxin, pesticide, solvent, and metal uncertainty",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Anatoxin-a",
+      "Chromium",
+      "Vinclozolin",
+      "Dichlorvos",
+      "1,4-dioxane"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for emergency conversion of contaminated stormwater runoff into potable-reuse feed water under mixed-contaminant uncertainty, rapid deployment pressure, and variable influent conditions.",
+  "input_data": {
+    "scenario_background": "Following extreme rainfall after a wildfire and urban flood event, a utility is considering temporary capture and advanced treatment of stormwater runoff to augment a stressed potable reuse system. Monitoring confirms Anatoxin-a, chromium, vinclozolin, dichlorvos, and 1,4-dioxane, but spatial sampling is sparse and contaminant spikes are likely because runoff quality changes rapidly between first-flush urban drainage, ponded water near industrial lots, and algae-affected detention basins. PFAS and petroleum-related organics are suspected in some subcatchments but are not yet fully characterized, and the utility needs a train that can be mobilized quickly while avoiding overconfidence in removal claims for poorly characterized episodic contaminants.",
+    "water_quality": {
+      "source_type": "stormwater_runoff",
+      "pH": 7.4,
+      "temperature_C": 19.2,
+      "turbidity_NTU": 142,
+      "TSS_mg_L": 168,
+      "color_PCU": 85,
+      "UV254_cm_1": 0.21,
+      "DOC_mg_L": 12.8,
+      "TOC_mg_L": 15.6,
+      "COD_mg_L": 48,
+      "BOD5_mg_L": 16,
+      "ammonia_mg_L_as_N": 1.2,
+      "nitrate_mg_L_as_N": 2.8,
+      "phosphate_mg_L_as_P": 0.42,
+      "alkalinity_mg_L_as_CaCO3": 96,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 690,
+      "TDS_mg_L": 438,
+      "chloride_mg_L": 82,
+      "sulfate_mg_L": 54,
+      "anatoxin_a_ug_L": 7.8,
+      "chromium_total_mg_L": 0.092,
+      "chromium_VI_mg_L": 0.028,
+      "vinclozolin_ug_L": 1.9,
+      "dichlorvos_ug_L": 3.6,
+      "dioxane_ug_L": 14.5,
+      "E_coli_CFU_100mL": 18000,
+      "microcystin_LR_ug_L": 0.6,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "legacy_and_emerging_contaminants_confirmed_but_peak_concentrations_and_additional_trace_organics_are_not_fully_characterized; PFAS_and_petroleum_hydrocarbons_suspected_in_some_subcatchments"
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Produce a highly treated potable-reuse feed stream with strong multi-barrier control of pathogens, cyanotoxins, dissolved trace organics including 1,4-dioxane, pesticides, and chromium, while maintaining defensible performance under rapidly changing stormwater quality.",
+      "secondary_goals": [
+        "enable rapid deployment and modular scale-up within an emergency response context",
+        "prioritize treatment trains with robust performance despite incomplete influent characterization",
+        "minimize breakthrough risk for mobile dissolved organics that are not reliably removed by conventional adsorption alone",
+        "provide explicit caveats where treatment credit depends on oxidation conditions, chromium speciation, or site-specific pilot confirmation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "backwash water and clarification solids can be handled on site, but concentrate, spent carbon, and any metal-bearing residuals require off-site management and should be limited where possible during emergency operation",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_flashy_runoff_quality_and_partial_contaminant_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "screening_and_flow_equalization",
+          "coagulation_flocculation_and_ballasted_clarification",
+          "dual_media_filtration_or_ultrafiltration",
+          "ozonation_or_UV_peroxide_advanced_oxidation",
+          "biological_activated_carbon",
+          "reverse_osmosis",
+          "UV_advanced_disinfection_and_chloramine_residual"
+        ],
+        "core_unit_functions": {
+          "screening_and_flow_equalization": "buffer first-flush spikes, remove gross solids, and stabilize hydraulic and contaminant loading before advanced treatment",
+          "coagulation_flocculation_and_ballasted_clarification": "rapidly remove turbidity, algae-associated solids, NOM, and particle-bound metals to protect downstream barriers",
+          "dual_media_filtration_or_ultrafiltration": "provide solids and microbial polishing and reduce fouling risk for oxidation and membranes",
+          "ozonation_or_UV_peroxide_advanced_oxidation": "destroy cyanotoxins and improve removal of oxidation-susceptible pesticides while creating a primary barrier for 1,4-dioxane when properly dosed",
+          "biological_activated_carbon": "quench biodegradable oxidation byproducts, provide adsorption and biopolishing for trace organics, and improve downstream RO stability",
+          "reverse_osmosis": "provide broad polishing of dissolved contaminants, metals, pathogens, and salinity although not full reliance for 1,4-dioxane destruction",
+          "UV_advanced_disinfection_and_chloramine_residual": "final pathogen inactivation and distribution-compatible residual management for potable reuse integration"
+        },
+        "applicability_rationale": [
+          "this is the strongest multi-barrier train for a partially characterized stormwater source because it combines particulate removal, oxidation, adsorption-biological polishing, membrane separation, and final disinfection",
+          "advanced oxidation is important because 1,4-dioxane is poorly removed by GAC alone and should not rely solely on RO under emergency uncertainty",
+          "coagulation and filtration ahead of oxidation are necessary because high turbidity and organic matter from runoff can otherwise suppress oxidation efficiency and increase membrane fouling",
+          "BAC after oxidation adds resilience for variable pesticide and toxin mixtures and can remove oxidation byproducts before RO",
+          "the sequence is consistent with public emerging-contaminant projects that pair membrane treatment with ozone-based or advanced oxidation barriers for uncertain contaminant mixtures"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance for 1,4-dioxane depends strongly on AOP design conditions and scavenger demand; emergency deployment without bench testing increases uncertainty",
+          "anatoxin-a destruction by oxidation can be effective but may vary with water matrix and contact conditions, so toxin-specific verification is required",
+          "chromium control depends on speciation; if particulate and dissolved fractions shift during runoff events, pretreatment and membrane performance may change",
+          "RO concentrate will contain rejected metals and trace organics and may be difficult to manage during emergency operations",
+          "suspected but uncharacterized contaminants such as PFAS may not be adequately controlled by ozone and require confirmation of BAC and RO performance"
+        ],
+        "evidence_list": [
+          "CWSRF_emerging_contaminants_case_showing_membrane_filtration_plus_ozone_for_mixed_emerging_contaminants",
+          "EPA_guidance_on_cyanotoxin_treatment_and_multi_barrier_control_in_surface_influenced_waters",
+          "public_guidance_on_1_4_dioxane_control_using_UV_peroxide_or_other_advanced_oxidation_processes",
+          "potable_reuse_engineering_practice_favoring_multiple_independent_barriers_under_source_uncertainty"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "screening_and_equalization",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "UV_peroxide_advanced_oxidation",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "moderate short-term storm pulses and improve treatability consistency",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, algae, NOM, and some metal-associated fractions",
+          "ultrafiltration": "provide a stable low-turbidity feed to high-pressure membranes",
+          "nanofiltration_or_reverse_osmosis": "remove dissolved salts, chromium species to varying degrees, and many micropollutants while reducing pathogen load",
+          "UV_peroxide_advanced_oxidation": "target residual 1,4-dioxane and oxidation-resistant trace organics not fully controlled by membranes",
+          "granular_activated_carbon": "adsorb remaining pesticides and oxidation byproducts and improve taste-and-odor acceptability",
+          "final_disinfection": "provide final pathogen barrier before potable reuse blending or storage"
+        },
+        "applicability_rationale": [
+          "this train is also defensible for potable reuse and may be easier to package in modular skid systems if membrane units are rapidly available",
+          "placing AOP after pressure membranes can reduce radical scavenging and make dioxane treatment more efficient in some designs",
+          "UF is valuable because stormwater turbidity is high and variable, and membrane pretreatment is essential for rapid deployment reliability",
+          "the train keeps multiple dissolved-organic barriers rather than assuming adsorption alone can handle 1,4-dioxane"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "if oxidation is placed after NF or RO, membrane concentrate still carries untreated dioxane and pesticide mass into the residuals stream",
+          "NF may be insufficient relative to RO for some dissolved contaminant and salinity objectives under potable reuse expectations",
+          "GAC polishing effectiveness for polar compounds is variable and should not be credited without pilot or vendor data",
+          "high fouling potential remains if clarification and UF are not well tuned during runoff spikes"
+        ],
+        "evidence_list": [
+          "public_guidance_for_advanced_potable_reuse_using_UF_RO_AOP_style_multi_barrier_trains",
+          "EPA_and_state_practice_references_noting_1_4_dioxane_as_an_AOP_priority_contaminant",
+          "emergency_modular_membrane_treatment_case_knowledge_for_variable_surface_or_storm_impacted_waters"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "screening_and_equalization",
+          "powdered_activated_carbon_plus_coagulation_flocculation",
+          "dissolved_air_flotation_or_clarification",
+          "ultrafiltration",
+          "ozonation",
+          "biological_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening_and_equalization": "buffer variable stormwater quality and remove debris",
+          "powdered_activated_carbon_plus_coagulation_flocculation": "provide rapid adsorption support for hydrophobic pesticides and assist NOM and solids removal",
+          "dissolved_air_flotation_or_clarification": "separate floc and algae-rich material efficiently under storm-driven solids loading",
+          "ultrafiltration": "deliver low-turbidity polished water for downstream oxidation and disinfection",
+          "ozonation": "inactivate or degrade cyanotoxins and some organic micropollutants",
+          "biological_activated_carbon": "remove biodegradable ozonation products and provide additional micropollutant polishing",
+          "final_disinfection": "control remaining microbial risk"
+        },
+        "applicability_rationale": [
+          "this route may be deployable faster than full RO if concentrate handling or high-pressure membranes are unavailable in the emergency window",
+          "PAC plus ozone/BAC provides layered control for anatoxin-a and some pesticides in a stormwater context with algae influence",
+          "it can be useful as an interim front-end system feeding an existing potable reuse plant rather than a standalone finished-water train"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "not preferred as a standalone potable-reuse solution because dissolved contaminants such as 1,4-dioxane and some chromium fractions may not be reliably reduced enough without RO or a stronger dissolved barrier",
+          "PAC adsorption for dichlorvos and vinclozolin is matrix dependent and will compete with stormwater organic matter",
+          "ozone alone should not be assumed sufficient for dioxane control",
+          "this option requires a clear caveat that potable reuse acceptance may depend on coupling to downstream existing advanced reuse barriers"
+        ],
+        "evidence_list": [
+          "EPA_cyanotoxin_treatment_guidance_highlighting_oxidation_and_carbon_based_controls",
+          "surface_water_treatment_case_knowledge_using_PAC_DAF_UF_ozone_BAC_for_algae_and_trace_organics",
+          "public_guidance_identifying_1_4_dioxane_as_difficult_for_conventional_and_adsorptive_only_treatment"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "screening",
+          "chemical_reduction_and_precipitation_for_chromium",
+          "clarification",
+          "media_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening": "remove large debris and protect downstream units",
+          "chemical_reduction_and_precipitation_for_chromium": "convert hexavalent chromium where present and remove precipitated metal species",
+          "clarification": "separate metal-bearing solids and reduce suspended matter",
+          "media_filtration": "polish remaining solids",
+          "granular_activated_carbon": "adsorb some pesticides and organic taste-and-odor compounds",
+          "UV_disinfection": "provide microbial inactivation"
+        },
+        "applicability_rationale": [
+          "included because chromium is one confirmed concern and metal-specific pretreatment may be attractive where industrial lot runoff dominates part of the source area",
+          "this train could serve as a targeted pretreatment segment if chromium excursions become the dominant operational driver"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "this is not sufficient as a standalone potable-reuse train for 1,4-dioxane and anatoxin-a uncertainty",
+          "chemical reduction and precipitation create metal-bearing sludge requiring careful emergency residuals handling",
+          "GAC alone is an unreliable barrier for highly miscible compounds like 1,4-dioxane",
+          "if chromium speciation is mischaracterized, chemical dosing may be suboptimal and leave dissolved residual metal"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_chromium_removal_in_drinking_water_and_groundwater_treatment",
+          "public_case_knowledge_that_adsorptive_and_conventional_trains_are_limited_for_1_4_dioxane_control",
+          "stormwater_and_industrial_runoff_treatment_references_for_metal_precipitation_and_solids_removal"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "screening",
+          "settling",
+          "sand_filtration",
+          "activated_carbon",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "screening": "remove gross debris",
+          "settling": "reduce settleable solids",
+          "sand_filtration": "remove part of the suspended solids load",
+          "activated_carbon": "provide limited adsorption for some organics",
+          "chlorination": "provide disinfectant residual and some oxidation"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked emergency baseline because it is simple and rapidly deployable",
+          "it may improve appearance and microbial control enough for nonpotable contingency uses or as roughing pretreatment only"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "inadequate for potable reuse because it does not provide robust dissolved contaminant control for 1,4-dioxane, chromium, or mixed pesticides",
+          "chlorination may not reliably address anatoxin-a and can create disinfection byproducts in NOM-rich stormwater",
+          "performance is highly vulnerable to first-flush turbidity spikes and incomplete contaminant characterization",
+          "using this as a standalone recommendation would understate risk from co-occurring legacy and emerging contaminants"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_references_showing_limitations_for_trace_organic_and_emerging_contaminant_removal",
+          "public_guidance_for_potable_reuse_emphasizing_need_for_multiple_independent_barriers",
+          "EPA_guidance_noting_specialized_treatment_need_for_1_4_dioxane_and_cyanotoxin_scenarios"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier potable-reuse trains with equalization, strong solids pretreatment, advanced oxidation, and membrane or equivalent dissolved-contaminant barriers should rank highest",
+        "options explicitly addressing 1,4-dioxane should outrank adsorption-only or conventional-only trains",
+        "recommendations should recognize that stormwater variability and incomplete characterization require robust front-end buffering and monitoring rather than narrow contaminant-specific treatment alone"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency deployment and rapid scale-up favor modular or skid-mountable unit operations where possible",
+        "potable reuse requires more than conventional clarification and disinfection because dissolved emerging contaminants are present",
+        "high turbidity and NOM in stormwater mean pretreatment is essential before oxidation or membranes",
+        "residuals management for RO concentrate, spent carbon, and chromium-bearing sludge must be discussed as an operational constraint"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why 1,4-dioxane drives inclusion of advanced oxidation rather than reliance on GAC alone",
+        "why cyanotoxin and algae-associated stormwater risk support oxidation plus carbon or biological polishing",
+        "why chromium speciation uncertainty matters for selecting precipitation, adsorption, and membrane barriers",
+        "why simple emergency conventional treatment is insufficient for potable reuse despite attractive deployability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "contaminant spikes during first flush and shifting runoff source areas can invalidate average-water assumptions",
+        "suspected but uncharacterized PFAS or petroleum organics could alter the preferred train or require additional barriers",
+        "AOP performance uncertainty under high radical scavenger demand and changing DOC should be flagged",
+        "RO or NF concentrate handling may be a practical bottleneck during emergency response",
+        "anatoxin-a, pesticides, and 1,4-dioxane removal credits should be treated cautiously without site-specific pilot or confirmation monitoring"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "case_id": "WContBench_E_027",
+  "case_name": "Nitrofen removal from well water for small drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Nitrofen"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "stable_operation_required"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for Nitrofen-contaminated well water intended for drinking water production under moderate cost and stable-operation constraints.",
+  "input_data": {
+    "scenario_background": "A rural drinking water utility operates a groundwater well influenced by historical agricultural chemical use and has detected Nitrofen in the raw water. The utility needs a proven treatment approach that can reliably reduce the pesticide to drinking water-compliant levels without adopting highly energy-intensive or operationally complex systems. The water is otherwise a typical low-turbidity well water, but moderate dissolved organic carbon may affect adsorption performance and should be considered in process selection.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "turbidity_NTU": 0.7,
+      "temperature_C": 13.5,
+      "DOC_mg_L": 2.8,
+      "TOC_mg_L": 3.1,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 210,
+      "nitrate_mg_L_as_NO3": 14.0,
+      "sulfate_mg_L": 32,
+      "chloride_mg_L": 24,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrofen_ug_L": 1.6,
+      "other_pesticides_total_ug_L": 0.08
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable pesticide control for drinking water use, with Nitrofen reduced to a very low level consistent with drinking water compliance expectations and stable finished-water quality.",
+      "secondary_goals": [
+        "use established and robust treatment technology",
+        "maintain moderate capital and operating cost",
+        "avoid unnecessarily high energy demand",
+        "limit operator burden for a small utility"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent media changeout and off-site disposal are manageable, but large volumes of hazardous liquid residuals are undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove incidental particulates and protect downstream adsorber performance",
+          "granular_activated_carbon_adsorption": "adsorb Nitrofen and other trace hydrophobic organic micropollutants",
+          "post_filtration": "retain carbon fines and polish finished water",
+          "disinfection": "provide final microbiological protection for drinking water"
+        },
+        "applicability_rationale": [
+          "Nitrofen is a hydrophobic organic pesticide for which activated carbon is a conventional and well-supported treatment option",
+          "well water has low turbidity, making a simple adsorption-based train practical and stable",
+          "moderate DOC indicates some competition for adsorption sites, but GAC remains a mainstream and robust approach when bed life is properly managed",
+          "the utility prefers proven treatment with moderate energy use and manageable operation, which aligns well with fixed-bed GAC"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "DOC competition can shorten carbon run length and increase replacement frequency",
+          "breakthrough monitoring is needed because pesticide removal declines as media exhausts",
+          "spent carbon handling or regeneration logistics must be planned"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_granular_activated_carbon_for_synthetic_organic_chemical_removal",
+          "drinking_water_treatment_practice_for_pesticide_control_using_gac",
+          "case_knowledge_on_hydrophobic_pesticide_removal_by_activated_carbon"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "powdered_activated_carbon_dosing",
+          "contact_tank",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "stabilize solids loading ahead of adsorption-contact treatment",
+          "powdered_activated_carbon_dosing": "provide adsorption capacity for Nitrofen in slurry form",
+          "contact_tank": "allow adsorption contact time before solids separation",
+          "filtration": "remove PAC and associated solids from treated water",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "PAC is an established option for taste, odor, and organic micropollutant control including pesticide episodes",
+          "it can be attractive where a utility wants dosing flexibility rather than fixed-bed media replacement",
+          "this route is technically suitable for Nitrofen and can be integrated with conventional filtration if available",
+          "it ranks below GAC because continuous chemical handling and solids separation add operational burden for a small stable-operation utility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance depends on PAC dose, contact time, and accurate operator control",
+          "higher sludge production than fixed-bed GAC",
+          "DOC competition can raise PAC demand"
+        ],
+        "evidence_list": [
+          "epa_treatment_technology_reference_for_organic_chemical_control_with_pac",
+          "public_drinking_water_guidance_on_powdered_activated_carbon_for_pesticides",
+          "operational_case_knowledge_for_pac_contact_and_filtration_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_filtration",
+          "advanced_oxidation",
+          "biologically_active_carbon_or_gac",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "protect downstream oxidation and adsorption units from incidental solids",
+          "advanced_oxidation": "transform Nitrofen and other trace organics through radical-based oxidation",
+          "biologically_active_carbon_or_gac": "adsorb remaining organics and polish oxidation byproducts",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can degrade certain organic micropollutants when direct adsorption alone is insufficient or when additional polishing is desired",
+          "the follow-on carbon step helps capture oxidation intermediates and improve finished water reliability",
+          "this train can work for pesticide-contaminated groundwater but is generally more complex than needed for a straightforward Nitrofen case with moderate constraints",
+          "it is ranked below simple activated carbon options because the scenario emphasizes stable, conventional operation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "advanced oxidation performance depends on oxidant dose, UV or chemical system control, and background scavengers",
+          "partial oxidation may form transformation products requiring downstream polishing",
+          "higher operator attention and maintenance needs than stand-alone carbon adsorption"
+        ],
+        "evidence_list": [
+          "guidance_on_advanced_oxidation_for_trace_organic_contaminants_in_drinking_water",
+          "public_case_knowledge_for_aop_plus_activated_carbon_polishing",
+          "drinking_water_practice_reference_on_micropollutant_oxidation_and_byproduct_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide broad rejection of dissolved contaminants including many organic micropollutants",
+          "stabilization": "adjust permeate chemistry for corrosion control and finished-water stability",
+          "disinfection": "ensure microbiological safety in distributed water"
+        },
+        "applicability_rationale": [
+          "pressure-driven membranes are technically capable of reducing many pesticides and can provide multi-contaminant protection",
+          "the train may be considered if future raw-water quality uncertainty suggests a need for broad-spectrum removal",
+          "for this case, Nitrofen is the clear primary contaminant and the water is otherwise relatively simple, so membrane treatment is more intensive than necessary",
+          "moderate cost and stable-operation goals make this a lower-ranked option"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management creates a significant residuals burden",
+          "higher energy and membrane maintenance requirements than adsorption systems",
+          "post-treatment stabilization is needed for low-mineral permeate"
+        ],
+        "evidence_list": [
+          "epa_membrane_treatment_guidance_for_synthetic_organic_contaminants",
+          "drinking_water_case_examples_for_nf_ro_pesticide_removal",
+          "public_reference_on_concentrate_management_constraints_for_small_utilities"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "attempt transfer of volatile contaminants from water to air",
+          "filtration": "provide polishing and remove any incidental solids",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included as a low-priority comparator because it is a recognized treatment category for some organic contaminants",
+          "Nitrofen is not typically a strong candidate for air stripping because it is not sufficiently volatile for this to be a preferred drinking water treatment route",
+          "the process does not align well with the contaminant properties or the desire for a clearly supported conventional solution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "poor removal efficiency for a low-volatility pesticide",
+          "possible need for off-gas management if any stripping occurs",
+          "false sense of treatment security if selected without property-based screening"
+        ],
+        "evidence_list": [
+          "property_based_treatment_selection_guidance_for_volatile_vs_nonvolatile_organics",
+          "drinking_water_engineering_knowledge_that_air_stripping_is_unsuitable_for_many_hydrophobic_pesticides",
+          "public_reference_on_process_screening_for_synthetic_organic_chemical_removal"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank at the top for Nitrofen in drinking water",
+        "simple robust adsorption should rank above high-energy membrane systems under moderate constraints",
+        "air_stripping_or_other_mismatched_property_based_options should rank last"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "moderate_cost_constraint favors established adsorption over intensive membrane treatment",
+        "stable_operation_required favors simple fixed-bed or conventional dosing systems with manageable operator burden",
+        "recommendations should avoid unnecessarily complex or energy-intensive trains for a single primary organic contaminant"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why Nitrofen as a hydrophobic organic pesticide is well suited to activated carbon treatment",
+        "how DOC or natural organic matter can reduce adsorption capacity and affect media life",
+        "why membrane options rank lower despite technical capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "activated carbon breakthrough and replacement frequency",
+        "competition from DOC or other background organics",
+        "transformation byproducts or polishing needs if oxidation is proposed",
+        "concentrate disposal issues for membrane alternatives"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

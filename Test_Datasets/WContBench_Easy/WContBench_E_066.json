@@ -1,0 +1,297 @@
+{
+  "case_id": "WContBench_E_066",
+  "case_name": "Fluoride reduction from surface water for municipal drinking water with minimal chemical use",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Fluoride"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "minimal_chemical_use"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains to reduce elevated fluoride in surface water intended for drinking water while minimizing chemical use.",
+  "input_data": {
+    "scenario_background": "A small town draws water from a reservoir-fed surface water source with naturally elevated fluoride from volcanic and mineralized catchment geology. The utility needs a proven treatment approach to meet drinking water requirements, but it wants to minimize routine chemical addition and keep operation straightforward. The source water has moderate turbidity and natural organic matter, so pretreatment needs to account for matrix effects on fluoride treatment performance.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.8,
+      "turbidity_NTU": 6.4,
+      "DOC_mg_L": 3.8,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 96,
+      "calcium_mg_L": 28,
+      "magnesium_mg_L": 7.5,
+      "sulfate_mg_L": 42,
+      "chloride_mg_L": 18,
+      "nitrate_mg_L_as_NO3": 3.6,
+      "silica_mg_L": 14,
+      "fluoride_mg_L": 3.1,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "temperature_C": 19
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably comply with drinking water fluoride limits while maintaining acceptable physical and microbiological quality for distribution.",
+      "secondary_goals": [
+        "minimize routine chemical consumption",
+        "use established and robust treatment technology",
+        "maintain low to medium operational complexity",
+        "avoid unnecessarily high energy demand"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "limited tolerance for complex brine or high-volume chemical sludge handling",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable year-round operation with variable surface water turbidity is required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pretreatment_filtration",
+          "activated_alumina_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "reduce turbidity and suspended matter to protect downstream fluoride-selective adsorption media",
+          "activated_alumina_adsorption": "adsorb fluoride to achieve drinking water compliance",
+          "post_filtration": "capture fines and polish treated water",
+          "disinfection": "provide microbiological safety for distribution"
+        },
+        "applicability_rationale": [
+          "fluoride is the clear primary contaminant and activated alumina is a well-established defluoridation technology",
+          "the source is surface water, so solids reduction ahead of adsorption helps protect media performance",
+          "this option can achieve fluoride control with relatively low routine chemical consumption compared with precipitation-based methods",
+          "the operational complexity is compatible with a small municipal plant using proven packaged or fixed-bed systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "adsorption capacity can be reduced by pH, alkalinity, silica, and natural organic matter effects",
+          "media regeneration or replacement is required and must be monitored carefully",
+          "surface water turbidity excursions can shorten run length if pretreatment is inadequate"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_fluoride_removal",
+          "activated_alumina_case_knowledge_for_defluoridation_in_small_systems",
+          "surface_water_pretreatment_guidance_for_protecting_adsorptive_media"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "filtration",
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulates and reduce fouling load from surface water",
+          "filtration": "polish clarified water before membranes",
+          "reverse_osmosis": "reject fluoride effectively through pressure-driven membrane separation",
+          "stabilization": "adjust finished water chemistry after desalting",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is highly effective for fluoride removal and can provide strong compliance reliability",
+          "pretreatment is appropriate for a moderate-turbidity surface water source",
+          "chemical use in the defluoridation step itself is limited relative to precipitation processes",
+          "this is a technically strong option but less aligned with the desire to avoid higher-energy treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "membrane fouling risk from organics and particulates if pretreatment control is weak",
+          "concentrate management is more difficult than spent-media handling",
+          "stabilization is often needed after high-rejection membrane treatment"
+        ],
+        "evidence_list": [
+          "who_guidance_and_case_knowledge_on_membrane_defluoridation",
+          "epa_membrane_treatability_references_for_inorganic_contaminants",
+          "surface_water_ro_pretreatment_practice_guidance"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pretreatment_filtration",
+          "bone_char_or_specialized_fluoride_adsorptive_media",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "reduce solids and protect adsorption capacity",
+          "bone_char_or_specialized_fluoride_adsorptive_media": "remove fluoride by adsorption or ion exchange on selective media",
+          "post_filtration": "polish effluent and retain fines",
+          "disinfection": "ensure finished water safety"
+        },
+        "applicability_rationale": [
+          "selective media can support low-chemical fluoride treatment under moderate plant constraints",
+          "this route remains more compatible with the minimal-chemical-use preference than precipitation methods",
+          "it is suitable as an alternative where activated alumina is not preferred or where site-specific media trials are favorable"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "performance is media-specific and may vary with pH, alkalinity, silica, and organic matter",
+          "media availability, certification status, and replacement frequency must be confirmed",
+          "some media options have less mainstream municipal operating history than activated alumina"
+        ],
+        "evidence_list": [
+          "defluoridation_case_reports_for_bone_char_and_selective_adsorbents",
+          "public_guidance_on_media_based_fluoride_removal",
+          "small_systems_treatment_practice_for_adsorptive_columns"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "lime_or_alum_based_precipitation",
+          "flocculation",
+          "sedimentation",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "lime_or_alum_based_precipitation": "promote fluoride removal through chemical precipitation and co-precipitation mechanisms",
+          "flocculation": "form settleable solids",
+          "sedimentation": "remove bulk precipitated solids",
+          "filtration": "remove remaining particles",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "chemical precipitation methods are established defluoridation approaches and can be effective with correct dosing and pH control",
+          "the treatment train is understandable and based on conventional unit processes",
+          "however, it conflicts with the stated preference for minimal chemical use and generates more solids handling demand"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "high chemical demand and sensitive pH control requirements",
+          "larger sludge production than adsorption-based options",
+          "performance may be inconsistent if raw water quality changes or dosing is not tightly controlled"
+        ],
+        "evidence_list": [
+          "nalgonda_and_related_defluoridation_guidance_case_knowledge",
+          "conventional_chemical_defluoridation_references_for_drinking_water",
+          "water_treatment_textbook_guidance_on_precipitative_fluoride_removal"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment_filtration",
+          "anion_exchange",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "reduce particulate loading and protect exchange resin operation",
+          "anion_exchange": "remove fluoride through ion exchange on suitable resin",
+          "post_filtration": "polish water before distribution",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "anion exchange can remove fluoride under favorable water chemistry and is technically feasible",
+          "it may be considered where compact systems are desired",
+          "it ranks lower because resin selectivity and regeneration management are less attractive under the stated operational and residuals constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "competing anions such as sulfate and alkalinity can reduce effective fluoride removal or shorten run length",
+          "regeneration creates brine waste that is difficult under limited residuals-management tolerance",
+          "resin fouling risk is higher in surface water if pretreatment is not consistent"
+        ],
+        "evidence_list": [
+          "epa_treatability_guidance_for_ion_exchange_on_inorganic_anions",
+          "drinking_water_case_knowledge_on_fluoride_ion_exchange_limitations",
+          "resin_regeneration_and_brine_management_guidance_for_small_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "adsorption-based fluoride removal with surface-water pretreatment should rank first under minimal chemical use constraints",
+        "high-energy membrane options may rank as strong alternatives but should not outrank simpler proven adsorption when only fluoride is the main target",
+        "chemical precipitation routes should rank below low-chemical-use options"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for minimal routine chemical addition",
+        "need for robust operation on variable surface water",
+        "avoidance of unnecessarily complex or concentrate-intensive solutions unless justified by performance"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why pretreatment is needed for surface water before fluoride-selective treatment",
+        "why adsorption-based methods fit a minimal-chemical-use goal",
+        "why membrane and precipitation options rank lower under the stated constraints",
+        "how matrix factors such as pH, alkalinity, silica, and natural organic matter can affect fluoride treatment performance"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "media exhaustion or regeneration needs",
+        "surface water fouling and turbidity impacts",
+        "concentrate or brine disposal challenges",
+        "sludge production from chemical precipitation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

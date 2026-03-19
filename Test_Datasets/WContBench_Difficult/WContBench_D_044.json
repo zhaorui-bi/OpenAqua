@@ -1,0 +1,351 @@
+{
+  "case_id": "WContBench_D_044",
+  "case_name": "Variable industrial wastewater reuse case with suspected protozoan breakthrough, organophosphate pesticide residue, and elevated strontium",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "Cryptosporidium",
+      "Terbufos",
+      "Strontium"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "regulatory_ambiguity",
+      "co_occurring_pollutants",
+      "limited_site_data"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process trains for industrial wastewater reclamation for industrial reuse under incomplete source characterization, uncertain pathogen significance, and co-occurring pesticide and dissolved strontium concerns.",
+  "input_data": {
+    "scenario_background": "A specialty materials facility wants to reclaim a mixed wastewater stream generated from equipment washdown, utility blowdown, and intermittent contact water for cooling tower make-up and non-product industrial reuse. Limited site investigation found elevated strontium likely linked to raw materials or geologic contribution, a low-level terbufos signal in some composite samples, and Cryptosporidium detected by one screening event after storm-related inflow, but the true source and persistence of the oocyst signal are uncertain. Influent quality is known to fluctuate substantially by shift and season, and several trace organics are suspected but not fully characterized. Regulatory expectations are ambiguous because the reuse application is non-potable industrial, yet the owner wants a defensible multi-barrier approach given occasional worker exposure and uncertain source contamination pathways.",
+    "water_quality": {
+      "source_type": "mixed_industrial_wastewater_with_storm_inflow_influence",
+      "pH": 7.4,
+      "turbidity_NTU": 21,
+      "TSS_mg_L": 42,
+      "COD_mg_L": 165,
+      "BOD5_mg_L": 48,
+      "TOC_mg_L": 22,
+      "ammonia_mg_L_as_N": 7.1,
+      "nitrate_mg_L_as_N": 2.4,
+      "TDS_mg_L": 1320,
+      "conductivity_uS_cm": 2080,
+      "alkalinity_mg_L_as_CaCO3": 180,
+      "hardness_mg_L_as_CaCO3": 390,
+      "calcium_mg_L": 88,
+      "magnesium_mg_L": 34,
+      "sulfate_mg_L": 210,
+      "chloride_mg_L": 165,
+      "oil_and_grease_mg_L": 5.6,
+      "strontium_mg_L": 6.8,
+      "terbufos_ug_L": 0.19,
+      "Cryptosporidium_oocysts_per_10L": 1.3,
+      "E_coli_CFU_100mL": 1200,
+      "total_coliform_MPN_100mL": 24000,
+      "trace_pollutant_note": "terbufos_detected_in_only_two_of_five_samples_and_additional_hydrophobic_pesticides_or_process_organics_are_suspected_but_not_fully_characterized",
+      "pathogen_note": "Cryptosporidium_detection_from_single_screening_event_may_reflect_stormwater_or_sanitary_cross_connection_but_significance_is_uncertain",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Finished water should be reliable for cooling tower make-up and general industrial reuse, with strong reduction of suspended solids, microbial indicators, protozoan risk, trace pesticide residues, hardness-related scaling drivers, and dissolved strontium to a level that reduces operational and material compatibility concerns.",
+      "secondary_goals": [
+        "maintain performance despite variable and incompletely characterized influent",
+        "provide defensible pathogen control even though direct reuse regulations are not fully explicit for this case",
+        "limit membrane fouling and scaling risk from hardness and strontium-bearing water",
+        "avoid overdesign where uncertainty can instead be managed by monitoring and modular polishing",
+        "explicitly communicate uncertainty flags and data gaps"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "chemical_sludge_and_spent_media_can_be_managed_onsite_but_concentrate_or_high-volume_brine_disposal_is_costly_and_logistically_constrained",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_shiftwise_variability_storm_inflow_and_incomplete_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biological_treatment",
+          "dual_media_filtration_or_ultrafiltration",
+          "granular_activated_carbon",
+          "nanofiltration_or_high_recovery_reverse_osmosis",
+          "UV_disinfection_with_chlorine_residual_management"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and quality fluctuations and reduce shock loading to downstream units",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, lower turbidity, and improve protozoan particulate removal precursor conditions",
+          "biological_treatment": "reduce biodegradable organics and ammonia before advanced polishing",
+          "dual_media_filtration_or_ultrafiltration": "provide robust solids and pathogen barrier polishing and protect adsorption and membrane units",
+          "granular_activated_carbon": "adsorb terbufos and other uncertain hydrophobic trace organics",
+          "nanofiltration_or_high_recovery_reverse_osmosis": "reduce dissolved salts, hardness, and strontium while improving reuse consistency",
+          "UV_disinfection_with_chlorine_residual_management": "add a final microbial barrier and control downstream regrowth in reuse distribution"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because contaminants include a protozoan concern, a trace pesticide, and a dissolved divalent ion not controlled by conventional treatment alone",
+          "equalization is important because influent variability is high and site data are limited",
+          "coagulation followed by filtration or UF supports particulate and Cryptosporidium risk reduction better than disinfection alone because oocysts are chlorine resistant",
+          "GAC is well suited as a flexible hedge against terbufos and other incompletely characterized hydrophobic organics",
+          "nanofiltration or RO is the most reliable practical step among common reuse technologies for lowering strontium and scaling-related dissolved species"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "selection between nanofiltration and RO depends on confirmed strontium target and scaling behavior, which are not fully defined",
+          "membrane concentrate management is a major uncertainty because brine disposal is constrained",
+          "if Cryptosporidium detections are episodic and tied only to storm events, this train may be conservative but still defensible",
+          "GAC replacement frequency is uncertain because the full trace organics mixture is not characterized",
+          "pretreatment optimization is needed to avoid membrane fouling under variable solids and organic loading"
+        ],
+        "evidence_list": [
+          "EPA_and_WHO_guidance_on_multi_barrier_control_of_protozoan_pathogens",
+          "public_guidance_on_Cryptosporidium_resistance_to_chlorine_and_need_for_removal_or_UV_barriers",
+          "engineering_practice_for_GAC_removal_of_hydrophobic_pesticides_in_reuse_systems",
+          "desalination_case_knowledge_for_divalent_ion_and_strontium_reduction_by_NF_RO",
+          "water_reuse_guidance_supporting_multiple_barriers_under_uncertain_nonpotable_exposure_conditions"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_dissolved_air_flotation",
+          "membrane_bioreactor",
+          "granular_activated_carbon",
+          "nanofiltration",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "smooth variable influent quality and flow",
+          "coagulation_flocculation_and_dissolved_air_flotation": "remove colloids, floatables, and part of particulate-associated contaminants",
+          "membrane_bioreactor": "provide biological organics removal with strong solids separation and stable clarified effluent",
+          "granular_activated_carbon": "polish terbufos and other residual trace organics",
+          "nanofiltration": "reduce hardness and strontium and improve reuse water consistency with lower energy than full RO in some cases",
+          "UV_disinfection": "provide final pathogen inactivation barrier"
+        },
+        "applicability_rationale": [
+          "this is a compact high-performance reuse-oriented train that can produce consistently low solids effluent despite influent fluctuations",
+          "MBR offers better solids control than conventional secondary clarification and can improve downstream NF reliability",
+          "nanofiltration may be a reasonable compromise when strontium reduction is needed but full desalination is not clearly required",
+          "the train explicitly addresses uncertain organics through GAC and uncertain protozoan significance through physical separation plus UV"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "higher operator skill and fouling control demands may conflict with the stated medium complexity preference",
+          "nanofiltration performance for strontium may be adequate but is less certain than RO if stringent dissolved-ion control is ultimately needed",
+          "MBR may be sensitive to intermittent toxic or poorly characterized industrial organics",
+          "DAF may not be necessary unless fats, light solids, or storm-related particulate spikes are confirmed"
+        ],
+        "evidence_list": [
+          "advanced_water_reuse_case_knowledge_for_MBR_GAC_membrane_trains",
+          "public_references_on_UF_MBR_as_physical_barriers_for_protozoan_removal",
+          "engineering_guidance_for_NF_application_to_hardness_and_divalent_ion_control",
+          "reuse_practice_supporting_adsorptive_polishing_when_trace_organics_are_incompletely_characterized"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_UV_H2O2",
+          "biological_activated_carbon",
+          "cartridge_filtration",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "manage influent variability",
+          "coagulation_flocculation_and_clarification": "reduce turbidity and particulate load",
+          "ozonation_or_UV_H2O2": "oxidize terbufos and other trace organic contaminants that may not be fully captured biologically",
+          "biological_activated_carbon": "remove oxidation byproducts and provide additional organics polishing",
+          "cartridge_filtration": "protect RO from remaining particulate carryover",
+          "reverse_osmosis": "remove dissolved salts and strontium to a high degree",
+          "final_disinfection": "provide post-treatment microbial control"
+        },
+        "applicability_rationale": [
+          "this train is attractive if terbufos and other trace organics become the dominant risk driver after further characterization",
+          "advanced oxidation plus BAC provides stronger trace-organic control than GAC alone when adsorption uncertainty is high",
+          "RO remains the reliable step for dissolved strontium reduction and consistent industrial reuse quality",
+          "the sequence is defensible under regulatory ambiguity because it layers oxidation, adsorption-biological polishing, and membrane separation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "advanced oxidation may be unnecessarily intensive if terbufos occurrence remains sporadic and low",
+          "oxidation byproduct control requires validation and BAC management",
+          "this train is less directly focused on protozoan removal than UF-based approaches unless clarification performance is tightly controlled",
+          "RO concentrate and overall energy demand may be difficult for the site"
+        ],
+        "evidence_list": [
+          "AOP_and_BAC_guidance_for_micropollutant_control_in_water_reuse",
+          "public_case_knowledge_on_combining_oxidation_with_biological_carbon_polishing",
+          "RO_guidance_for_high_reliability_dissolved_ion_reduction_in_reclamation_systems",
+          "risk_based_reuse_frameworks_supporting_enhanced_trace_organic_barriers_when_characterization_is_incomplete"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "rapid_sand_filtration",
+          "granular_activated_carbon",
+          "lime_soda_softening_or_selective_ion_exchange",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and lower turbidity",
+          "rapid_sand_filtration": "provide solids polishing and improve downstream adsorption performance",
+          "granular_activated_carbon": "remove terbufos and related hydrophobic trace organics",
+          "lime_soda_softening_or_selective_ion_exchange": "reduce hardness and potentially some strontium depending on chemistry and resin or softening strategy",
+          "UV_disinfection": "add a final non-chlorine microbial barrier"
+        },
+        "applicability_rationale": [
+          "this lower-energy train may fit sites trying to avoid membrane concentrate generation",
+          "it addresses terbufos and microbial risk with conventional barriers plus GAC and UV",
+          "if the actual industrial reuse tolerance for TDS is moderate, a non-membrane route could be operationally attractive",
+          "softening or selective ion exchange may reduce scaling tendency and provide partial strontium control without full desalination"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "strontium removal by softening or ion exchange is chemistry-specific and less robustly predictable than NF or RO under limited data",
+          "this train does not substantially reduce overall TDS, which may limit cooling reuse reliability",
+          "Cryptosporidium management depends heavily on particulate removal performance because UV dose delivery can be impaired by poor pretreatment",
+          "chemical sludge or regenerant waste could still be significant"
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_guidance_for_turbidity_and_protozoan_barrier_support",
+          "GAC_case_knowledge_for_pesticide_control",
+          "softening_and_ion_exchange_references_for_divalent_cation_management",
+          "reuse_engineering_guidance_noting_limits_of_non_desalting_trains_for_high_TDS_industrial_applications"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "screening",
+          "equalization",
+          "activated_sludge",
+          "secondary_clarification",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "screening": "remove coarse debris",
+          "equalization": "dampen flow and concentration peaks",
+          "activated_sludge": "remove biodegradable organics",
+          "secondary_clarification": "separate biomass",
+          "sand_filtration": "polish residual suspended solids",
+          "chlorination": "provide basic disinfection and distribution residual"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline because it is familiar and lower cost than advanced reuse trains",
+          "it can improve conventional wastewater quality but does not adequately address the full mixed risk profile in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "medium_good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "chlorination alone is not reliable for Cryptosporidium control",
+          "terbufos removal would be uncertain and likely incomplete without targeted adsorption or oxidation",
+          "strontium and TDS would remain largely untreated",
+          "finished water consistency may be inadequate for industrial reuse under variable influent conditions",
+          "this option is weak under regulatory ambiguity because it lacks a defensible advanced multi-barrier approach"
+        ],
+        "evidence_list": [
+          "public_guidance_on_limitations_of_chlorine_for_Cryptosporidium",
+          "basic_wastewater_treatment_references_showing_limited_control_of_dissolved_ions",
+          "reuse_guidance_indicating_conventional_secondary_treatment_is_often_insufficient_for_reliable_industrial_reclamation"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains combining particulate removal, targeted organic polishing, dissolved-ion control, and final disinfection should rank above conventional-only trains",
+        "equalization should appear in higher-ranked options because influent variability and limited data are central to the case",
+        "solutions with a credible barrier for Cryptosporidium beyond chlorination alone should rank higher",
+        "options that explicitly address strontium with NF or RO, or clearly caveat weaker alternatives, should be preferred"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "regulatory ambiguity should favor defensible multiple barriers rather than single-process recommendations",
+        "limited site data should be reflected through uncertainty flags, monitoring needs, and flexible polishing choices",
+        "co-occurring pollutant control should include a pesticide-focused step and a dissolved-ion-control step",
+        "residuals and brine constraints should be discussed when NF or RO is recommended",
+        "operation complexity and energy sensitivity should influence ranking of highly advanced trains"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why Cryptosporidium concern pushes the design toward physical removal and or UV rather than chlorine alone",
+        "why GAC or advanced oxidation is relevant for terbufos and incompletely characterized hydrophobic organics",
+        "why strontium is difficult to control with simple conventional treatment and why membrane desalting is more reliable",
+        "why equalization and pretreatment are important under high influent variability",
+        "why simpler biological plus filtration trains remain insufficient for the full reuse target"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty over whether Cryptosporidium detection represents persistent contamination, transient storm inflow, or sampling artifact",
+        "uncertainty in terbufos occurrence and the possibility of additional uncharacterized trace organics",
+        "membrane fouling, scaling, and concentrate management risk if NF or RO is used in a high-hardness, strontium-bearing wastewater",
+        "regulatory ambiguity for non-potable industrial reuse with intermittent worker exposure",
+        "the need for confirmatory monitoring such as repeated pathogen screening, trace-organic profiling, and piloting of strontium removal performance"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

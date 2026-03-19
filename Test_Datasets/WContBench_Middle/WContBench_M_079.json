@@ -1,0 +1,324 @@
+{
+  "case_id": "WContBench_M_079",
+  "case_name": "Pilot-scale drinking water treatment selection for brackish groundwater impacted by ricin D under remote and capital-limited conditions",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Ricin"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible pilot-scale treatment process chains for brackish groundwater containing ricin D and co-occurring salinity and metals, balancing potable-water compliance, remote-site operability, capital limits, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A remote desert work camp is evaluating a pilot drinking-water system using local brackish groundwater after a security incident raised concern about ricin D contamination in a storage and blending area. The water also has elevated TDS, chloride, sulfate, arsenic, and boron, so the best option is not simply the process that can remove ricin D, but the one that can simultaneously provide a credible pathogen/toxin barrier and meet mineral-related drinking-water targets within a small pilot budget. Because the site is remote, chemical supply, membrane cleaning support, and off-site waste handling are difficult, yet finished water quality must be conservative enough for potable use. Multiple technically plausible routes exist, but they differ strongly in capex, O&M burden, and concentrate or residuals management.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "turbidity_NTU": 1.9,
+      "DOC_mg_L": 2.7,
+      "TOC_mg_L": 3.4,
+      "alkalinity_mg_L_as_CaCO3": 175,
+      "hardness_mg_L_as_CaCO3": 310,
+      "conductivity_uS_cm": 4320,
+      "TDS_mg_L": 2860,
+      "chloride_mg_L": 980,
+      "sulfate_mg_L": 520,
+      "sodium_mg_L": 640,
+      "calcium_mg_L": 92,
+      "magnesium_mg_L": 28,
+      "silica_mg_L_as_SiO2": 21,
+      "nitrate_mg_L_as_N": 3.8,
+      "arsenic_ug_L": 18,
+      "boron_mg_L": 1.6,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "ricin_ug_L": 12
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve a conservative multi-barrier potable treatment approach for ricin D while also reducing salinity and co-occurring regulated constituents to support drinking water compliance.",
+      "secondary_goals": [
+        "minimize pilot capital cost",
+        "limit operator intervention at a remote site",
+        "avoid difficult concentrate or hazardous residual logistics where possible",
+        "maintain reliable performance under variable brackish groundwater quality"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "remote site should minimize hazardous sludge generation and avoid very difficult concentrate hauling where possible, but some manageable reject stream is acceptable if justified by compliance benefit",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "pilot system should tolerate source-water variability and intermittent skilled-operator availability"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "prefiltration",
+          "ultrafiltration",
+          "low_pressure_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "reduce suspended solids loading and protect downstream barriers",
+          "ultrafiltration": "provide robust physical removal of high-molecular-weight protein toxin and particulates",
+          "low_pressure_reverse_osmosis": "reduce TDS, boron partly, arsenic species, and other dissolved salts to potable levels",
+          "stabilization": "adjust permeate corrosivity and finished-water mineral balance",
+          "disinfection": "provide final microbial protection for drinking water distribution"
+        },
+        "applicability_rationale": [
+          "This route best addresses the full contaminant mix rather than ricin D alone, combining a strong size-exclusion barrier for a protein toxin with desalting needed for brackish groundwater use.",
+          "UF ahead of RO improves confidence in physical removal of ricin D and reduces colloidal fouling risk at pilot scale.",
+          "Although RO creates concentrate and needs more operator attention than simple adsorption, the salinity, sulfate, and boron levels make a desalting step hard to avoid for potable use.",
+          "A low-pressure brackish RO train is more realistic than thermal processes for a remote pilot and can be containerized for demonstration deployment."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Concentrate management remains a major remote-site challenge.",
+          "Scaling control and membrane cleaning require trained oversight and chemical supply.",
+          "RO alone should not be treated as the only risk-control element for ricin D; integrity monitoring and upstream barrier assurance are needed.",
+          "Boron rejection may be incomplete at neutral pH depending on membrane selection and recovery."
+        ],
+        "evidence_list": [
+          "EPA_brackish_groundwater_desalination_guidance_for_small_systems",
+          "WHO_guidance_on_membrane_barriers_and_multibarrier_drinking_water",
+          "engineering_case_knowledge_that_ultrafiltration_removes_large_biomolecules_and_colloids",
+          "public_guidance_on_reverse_osmosis_for_TDS_arsenic_and_boron_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "prefiltration",
+          "coagulation_flocculation",
+          "media_filtration",
+          "granular_activated_carbon",
+          "nanofiltration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "screen solids and smooth pilot influent variability",
+          "coagulation_flocculation": "aggregate colloids and protein-associated matter to aid toxin removal",
+          "media_filtration": "remove formed floc and protect downstream units",
+          "granular_activated_carbon": "adsorb natural organic matter and provide additional polishing for organic/toxin-related risk reduction",
+          "nanofiltration": "reduce divalent salts, some dissolved contaminants, and lower finished-water salinity",
+          "disinfection": "provide final microbial safeguard"
+        },
+        "applicability_rationale": [
+          "This is a plausible multi-barrier alternative when the project team wants less pressure and energy than full RO but still needs meaningful salt reduction.",
+          "Coagulation plus filtration is a recognized barrier for proteinaceous and particulate contaminants, and GAC adds conservative polishing for organic risk management.",
+          "NF can lower hardness and sulfate effectively and may reduce arsenic depending on speciation, but it is less reliable than RO for high TDS and boron control.",
+          "The route can be attractive if concentrate volumes must be somewhat lower and energy use must be moderated, but finished-water compliance margin is narrower."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "Chemical dosing and sludge handling are significant burdens at a remote pilot site.",
+          "NF may not consistently meet boron and overall TDS objectives for potable use from this source.",
+          "Performance depends on ricin D association with particles or adsorbable organic matter; verification testing is required.",
+          "More unit operations increase startup complexity and operator dependency."
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_guidance_for_high_molecular_weight_toxin_and_particle_removal",
+          "AWWA_case_knowledge_on_GAC_as_polishing_barrier",
+          "public_guidance_on_nanofiltration_for_hardness_and_sulfate_reduction",
+          "EPA_guidance_on_pilot_testing_when_multiple_barriers_are_used"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "prefiltration",
+          "ultrafiltration",
+          "anion_exchange_for_arsenic",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "protect downstream units from solids upset",
+          "ultrafiltration": "provide physical barrier to large protein toxin and suspended matter",
+          "anion_exchange_for_arsenic": "target dissolved arsenic reduction",
+          "granular_activated_carbon": "polish organic matter and provide additional adsorption capacity for trace organics",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "This route is attractive on capital and energy grounds because it avoids high-pressure desalting and keeps the pilot relatively simple.",
+          "UF offers a strong direct barrier for ricin D, and selective arsenic treatment can address one regulated dissolved contaminant without the complexity of full RO.",
+          "It suits situations where the pilot objective is mainly to demonstrate toxin protection and arsenic control rather than full desalination.",
+          "However, the source water remains too saline for this to be the strongest all-around potable recommendation, so it ranks below membrane desalting routes."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "TDS, chloride, sulfate, and boron remain insufficiently controlled for a strong potable compliance margin.",
+          "Anion exchange selectivity can be reduced by competing sulfate in brackish groundwater.",
+          "Spent media or regenerant handling still needs planning.",
+          "This route may be acceptable for limited pilot learning but not as a final full-compliance process."
+        ],
+        "evidence_list": [
+          "engineering_case_knowledge_that_ultrafiltration_is_effective_for_large_protein_exclusion",
+          "EPA_guidance_for_arsenic_removal_with_adsorptive_and_ion_exchange_processes",
+          "public_references_on_GAC_polishing_in_drinking_water",
+          "brackish_groundwater_case_knowledge_showing_non_desalting_processes_do_not_resolve_high_TDS"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation",
+          "dissolved_air_flotation_or_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize and capture colloidal and protein-associated material",
+          "dissolved_air_flotation_or_sedimentation": "separate flocculated solids from water",
+          "dual_media_filtration": "polish remaining particles and improve clarity",
+          "powdered_activated_carbon": "provide supplemental adsorption of organic contaminants",
+          "disinfection": "final microbiological protection"
+        },
+        "applicability_rationale": [
+          "This is a technically plausible low-pressure route for ricin D risk reduction and may appear attractive under capital pressure because it uses familiar conventional equipment.",
+          "It avoids high-pressure membranes and can be piloted with relatively accessible components.",
+          "However, it does not address the brackish dissolved-solids problem and creates continuous chemical and sludge-management needs, which are misaligned with the remote setting.",
+          "It is therefore lower ranked despite being able to contribute to toxin control."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "Fails to reduce TDS, chloride, sulfate, and boron to likely potable targets.",
+          "Produces coagulation sludge that may require special handling due to toxin concern.",
+          "Chemical supply and process control are vulnerable at remote locations.",
+          "Performance for dissolved or unassociated ricin D fractions is less direct than a membrane barrier."
+        ],
+        "evidence_list": [
+          "conventional_drinking_water_treatment_guidance_for_coagulation_and_filtration",
+          "public_case_knowledge_on_PAC_for_organic_contaminant_polishing",
+          "WHO_multibarrier_guidance_indicating_conventional_treatment_limits_for_dissolved_salts",
+          "operator_guidance_on_remote_site_challenges_with_chemical_sludge_processes"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "cartridge_filtration",
+          "advanced_oxidation_process",
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_filtration": "protect oxidation and membrane units from particulate fouling",
+          "advanced_oxidation_process": "apply strong oxidant-based treatment intended to degrade susceptible organics",
+          "reverse_osmosis": "desalt brackish water and reduce dissolved contaminants",
+          "stabilization": "condition low-mineral permeate for drinking water distribution",
+          "disinfection": "final microbial safeguard"
+        },
+        "applicability_rationale": [
+          "This route is technically ambitious and can be argued as a high-security option because it combines oxidation with desalting.",
+          "It is included because some project teams may favor destructive treatment of ricin D before desalting.",
+          "Nevertheless, it ranks last because oxidation chemistry for reliable ricin D destruction in practical drinking-water pilot operation is less straightforward than physical removal, and the extra process step increases complexity, chemical demand, and failure modes.",
+          "For a remote, capital-limited pilot, the added sophistication is poorly aligned with the stated constraints."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Oxidant dosing control and byproduct management increase operational burden.",
+          "Evidence for field-robust ricin D destruction under variable water matrices is less direct than for membrane exclusion of large proteins.",
+          "RO concentrate disposal still remains unresolved.",
+          "Combining AOP with RO may exceed what a remote pilot team can reliably support."
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_operational_complexity_in_drinking_water",
+          "WHO_drinking_water_principles_for_process_validation_and_multibarrier_control",
+          "EPA_reverse_osmosis_guidance_for_brackish_source_waters",
+          "case_knowledge_that_high-complexity_trains_are_disfavored_for_remote_pilot_installations"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "At least one UF_plus_RO or comparable desalting multi-barrier route should rank first because brackish groundwater quality requires more than ricin D control alone.",
+        "A lower-energy conventional or NF-based alternative should appear as a plausible but not clearly superior option.",
+        "A technically capable but high-complexity oxidation-enhanced option should rank low due to remote pilot constraints."
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot-only deployment limits tolerance for complex custom systems",
+        "capital constraint should penalize elaborate high-pressure or multi-chemical trains unless they solve the full compliance problem",
+        "remote location should increase concern about chemical supply, membrane cleaning support, and residuals hauling"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why ricin D as a large protein favors physical removal barriers such as coagulation-filtration or ultrafiltration",
+        "why brackish groundwater salinity and boron or arsenic can push RO or NF into consideration even when simpler toxin-control options exist",
+        "why residuals and concentrate handling change the ranking among otherwise technically feasible options"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "concentrate disposal burden",
+        "sludge or spent media handling under toxin concern",
+        "need for pilot validation of ricin D control under site-specific water chemistry",
+        "operator skill limitations in a remote installation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Fluoride",
+  "Function": "Ion Exchange",
+  "Details": "Removal of fluoride from water can generally be effective (typically >85% removal) with ion exchange resins.  Upper-range removals of 75 to 100% represented the studies reported.  While most studies represented bench scale, one pilot-scale study reported 99% removal with an anion exchange resin.\nFluoride removal can occur with either cation and anion exchange resins.  In anion exchange resins, fluoride removal occurs when fluoride ions replace chloride ions of the resin. This process continues until all sites on the resin are occupied. The removal efficiency of ion exchange resins is dependent upon the resin type, regeneration frequency, initial fluoride concentration, and competing ions in the water. Strong base anion exchange resins in the chloride form are most consistent in the removal of fluoride. Regeneration of this type of resin is accomplished with a sodium chloride salt."
+}

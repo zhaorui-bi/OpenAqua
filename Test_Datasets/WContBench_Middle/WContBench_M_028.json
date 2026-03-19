@@ -1,0 +1,325 @@
+{
+  "case_id": "WContBench_M_028",
+  "case_name": "Potable reuse polishing for pesticide-contaminated surface water under high-recovery and concentrate-handling constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Tebuconazole",
+      "Disulfoton",
+      "Dicrotophos"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for pesticide-contaminated surface water intended for potable reuse, balancing removal reliability against high water recovery and limited ability to manage membrane concentrate.",
+  "input_data": {
+    "scenario_background": "A regional utility plans to upgrade a river-derived reuse source that receives seasonal agricultural runoff and treated municipal return flows. The finished water must support potable reuse goals with robust removal of a mixed pesticide load, but the utility has a strong preference for high product-water recovery because of drought conditions. Brine or concentrate disposal options are very limited, making high-pressure membrane systems less attractive even though they are technically capable. The treatment decision therefore hinges on trading off organics removal robustness, operational complexity, recovery, and residuals management.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 22.4,
+      "turbidity_NTU": 8.7,
+      "TOC_mg_L": 7.4,
+      "DOC_mg_L": 5.9,
+      "UV254_cm-1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 146,
+      "conductivity_uS_cm": 612,
+      "TDS_mg_L": 386,
+      "nitrate_mg_L_as_N": 4.2,
+      "ammonia_mg_L_as_N": 0.18,
+      "sulfate_mg_L": 52,
+      "chloride_mg_L": 61,
+      "TSS_mg_L": 14,
+      "target_contaminants": {
+        "Tebuconazole_ug_L": 1.8,
+        "Disulfoton_ug_L": 0.42,
+        "Dicrotophos_ug_L": 0.73
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should achieve stable, potable-reuse-suitable control of the listed pesticides with multiple-barrier reliability and minimized risk of compliance excursions.",
+      "secondary_goals": [
+        "maximize finished-water recovery",
+        "avoid difficult liquid concentrate disposal",
+        "maintain reasonable operator burden for a medium-sized utility",
+        "provide resilience to seasonal increases in organic matter and pesticide pulses"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "avoid_processes_that_generate_large_brine_or_pesticide_concentrate_streams_requiring_specialized_disposal",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must_handle_variable_surface_water_quality_and_seasonal_runoff_spikes_with_consistent_barrier_performance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biological_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and reduce organic matter load before advanced organics treatment",
+          "dual_media_filtration": "polish particulates and protect downstream ozone and BAC units",
+          "ozonation": "oxidize susceptible organic micropollutants and convert part of the DOC to more biodegradable fractions",
+          "biological_activated_carbon": "adsorb residual pesticides and biodegrade biodegradable organics and oxidation byproducts",
+          "UV_disinfection": "provide final pathogen control barrier for potable reuse"
+        },
+        "applicability_rationale": [
+          "the combined ozone-BAC barrier is well aligned with potable reuse applications that need robust trace-organic reduction without generating a large liquid concentrate stream",
+          "conventional solids removal up front improves downstream oxidant efficiency and carbon run time for this moderately turbid surface water",
+          "high water recovery is achievable because the train does not rely on reject-producing pressure membranes as the primary pesticide barrier",
+          "tebuconazole and disulfoton are generally amenable to adsorption and/or oxidation-based control, while BAC provides polishing and dampens seasonal influent variability",
+          "this route balances removal robustness with the stated concentrate-handling constraint better than NF or RO"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "dicrotophos and some oxidation byproducts may require careful ozone dose control and BAC contact time verification",
+          "bromate formation risk must be evaluated if bromide is present in the source water",
+          "BAC performance depends on bioactivity maintenance, backwashing practice, and media replacement strategy"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_ozonation_and_biological_filtration_for_trace_organics_control",
+          "WHO_drinking_water_guidance_on_pesticide_management_and_multiple_barriers",
+          "potable_reuse_case_knowledge_for_ozone_BAC_as_nonconcentrating_micropollutant_barrier",
+          "AWWA_case_knowledge_on_BAC_polishing_after_oxidation_for_surface_water"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulates and part of the natural organic matter load",
+          "dual_media_filtration": "provide clarified filtered water to downstream adsorption units",
+          "powdered_activated_carbon": "provide flexible seasonal control of pesticide spikes ahead of fixed-bed adsorption",
+          "granular_activated_carbon": "adsorb residual pesticides and provide polishing barrier",
+          "UV_disinfection": "provide final disinfection for potable reuse"
+        },
+        "applicability_rationale": [
+          "an all-adsorptive route avoids concentrate generation and can support very high water recovery",
+          "PAC addition offers operational flexibility for short seasonal pesticide pulses often seen in agricultural runoff",
+          "GAC provides a second barrier and is a familiar technology for utilities treating trace organic contaminants in surface waters",
+          "this option is attractive where concentrate handling dominates decision making and membrane residuals are unacceptable",
+          "it ranks below ozone-BAC because DOC is moderately elevated, so adsorption competition may increase media consumption and operating cost"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "moderate DOC and UV254 can shorten carbon life and increase PAC/GAC demand",
+          "spent carbon management and PAC solids handling require planning",
+          "removal of more polar compounds such as dicrotophos may be less robust than with combined oxidation plus adsorption unless carbon doses are sufficient"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_activated_carbon_for_synthetic_organic_chemicals",
+          "AWWA_practice_knowledge_for_PAC_plus_GAC_during_agricultural_runoff_events",
+          "public_case_knowledge_on_GAC_competition_effects_from_natural_organic_matter"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "nanofiltration",
+          "advanced_UV_AOP",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particulate and colloidal fouling load before membranes",
+          "dual_media_filtration": "protect nanofiltration membranes and improve flux stability",
+          "nanofiltration": "provide strong rejection of many dissolved organic contaminants and additional salinity reduction",
+          "advanced_UV_AOP": "oxidize low-molecular-weight residual organics in permeate and add an advanced oxidation barrier for potable reuse",
+          "stabilization": "adjust finished water chemistry after membrane treatment",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "nanofiltration with downstream AOP is technically capable and offers strong multi-contaminant control for potable reuse applications",
+          "this route can provide a very high-quality finished water and may be preferred if future contaminant broadening is expected",
+          "it ranks below the top options because even high-recovery NF still creates a pesticide-containing concentrate stream that is difficult to manage under the stated constraints",
+          "energy demand, fouling management, and membrane operations are materially higher than adsorption- or ozone-BAC-based routes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major project risk given limited off-site options",
+          "membrane fouling and scaling can reduce achievable recovery and increase cleaning frequency",
+          "if very high recovery is pushed aggressively, concentrate strength and operational instability may worsen"
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_for_membrane_plus_AOP_trains",
+          "EPA_water_reuse_case_knowledge_on_NF_for_trace_organics",
+          "public_guidance_on_membrane_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "advanced_UV_AOP",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and lower upstream organic load",
+          "dual_media_filtration": "provide stable low-turbidity feed to advanced treatment",
+          "ozonation": "provide first-stage oxidation of trace organic contaminants",
+          "advanced_UV_AOP": "supply additional oxidation barrier for persistent or residual micropollutants",
+          "granular_activated_carbon": "polish remaining organic contaminants and byproducts",
+          "disinfection": "final microbial protection"
+        },
+        "applicability_rationale": [
+          "this hybrid advanced oxidation train is technically strong for difficult trace organic control and creates little to no liquid concentrate",
+          "the multiple barriers may appeal where very conservative potable reuse design philosophy is used",
+          "it ranks lower because the combination of ozone, UV-AOP, and GAC adds substantial capital, energy use, and operational tuning beyond what is necessary for the stated water quality",
+          "the additional complexity is not the best fit when the key constraints emphasize practical high-recovery treatment without concentrate burden"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "oxidation byproduct management becomes more complex, including possible bromate and biodegradable byproduct formation",
+          "higher instrumentation and process control needs increase operator burden",
+          "incremental benefit over ozone-BAC alone may not justify cost for this contaminant set"
+        ],
+        "evidence_list": [
+          "reuse_guidance_on_multiple_oxidation_barriers_for_trace_organics",
+          "EPA_guidance_on_UV_AOP_design_and_oxidation_byproduct_considerations",
+          "public_case_knowledge_on_GAC_polishing_after_AOP"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "reverse_osmosis",
+          "UV_advanced_oxidation",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and membrane fouling potential",
+          "dual_media_filtration": "provide pretreatment polishing before RO",
+          "reverse_osmosis": "reject a broad spectrum of dissolved contaminants including many pesticides",
+          "UV_advanced_oxidation": "provide advanced oxidation barrier for RO permeate in potable reuse service",
+          "stabilization": "adjust corrosivity and mineral balance after RO",
+          "disinfection": "final microbial protection"
+        },
+        "applicability_rationale": [
+          "RO plus UV-AOP is a proven high-end potable reuse configuration and is technically capable of controlling the listed pesticides",
+          "it ranks last not because of lack of treatment capability, but because it directly conflicts with the need for high recovery and minimal concentrate handling burden",
+          "for this moderately mineralized surface water, RO would impose unnecessary reject management, higher energy use, and greater operational complexity compared with non-concentrating alternatives",
+          "this option would become more defensible only if broader dissolved contaminant drivers emerged that clearly outweighed the residuals constraint"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "significant concentrate stream containing concentrated pesticides creates disposal and permitting challenges",
+          "recovery is limited relative to the project's drought-driven goals",
+          "fouling, scaling, and chemical cleaning requirements increase lifecycle burden"
+        ],
+        "evidence_list": [
+          "potable_reuse_indirect_and_direct_reuse_guidance_for_RO_UV_AOP",
+          "EPA_and_state_guidance_on_reverse_osmosis_concentrate_management",
+          "public_case_knowledge_on_tradeoffs_of_RO_for_trace_organics_when_concentrate_disposal_is_limited"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "nonconcentrating advanced treatment such as ozone_BAC should rank near the top",
+        "activated_carbon_based routes should appear as strong alternatives under high_recovery constraints",
+        "NF_or_RO should not rank first because concentrate handling is explicitly constrained",
+        "at least one technically capable membrane option should be ranked lower due to mismatch with recovery and residuals priorities"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high finished-water recovery is a major decision driver",
+        "limited ability to manage pesticide-containing concentrate should penalize membrane-heavy routes",
+        "surface water variability requires robust pretreatment and seasonal resilience",
+        "potable reuse context justifies multiple-barrier treatment logic"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why ozone_BAC is attractive for trace organic control without creating concentrate",
+        "why activated carbon performance can be affected by DOC competition in surface water",
+        "why technically strong NF_or_RO options are downgraded under high_recovery and concentrate constraints",
+        "why seasonal agricultural runoff variability matters for process robustness"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "oxidation byproduct formation such as bromate risk",
+        "carbon exhaustion or increased media demand due to natural organic matter",
+        "membrane concentrate disposal burden",
+        "seasonal pesticide spikes and variable influent quality"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

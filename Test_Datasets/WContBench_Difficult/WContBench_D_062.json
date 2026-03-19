@@ -1,0 +1,340 @@
+{
+  "case_id": "WContBench_D_062",
+  "case_name": "Stormwater recharge planning under uncertain explosive and carbamate pesticide pulses near a legacy industrial area",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "stormwater_runoff",
+    "contaminant_type": [
+      "Aldicarb",
+      "Nitrobenzene",
+      "Cyclonite_(RDX)",
+      "Oxamyl"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "industrial_shock_load",
+      "brine_management_constraint",
+      "membrane_fouling_risk"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for treating contaminated stormwater runoff for groundwater recharge when contaminant occurrence is episodic, partially characterized, and operational constraints limit residuals and membrane dependence.",
+  "input_data": {
+    "scenario_background": "A municipality captures stormwater from a drainage basin downgradient of a closed munitions handling yard, active light industrial parcels, and landscaped rights-of-way. Monitoring after several storm events detected RDX, nitrobenzene, aldicarb, and oxamyl, but concentrations vary sharply between first-flush and later runoff, and the presence of other nitroaromatics, degradation products, and dissolved solvents is suspected but not fully characterized. The recharge project must protect groundwater quality, yet the operator has limited tolerance for high-salinity residuals and is concerned that high suspended solids and colloidal runoff during storms could foul membranes.",
+    "water_quality": {
+      "source_type": "urban_industrial_influenced_stormwater_runoff",
+      "pH": 7.3,
+      "turbidity_NTU": 62,
+      "TSS_mg_L": 118,
+      "COD_mg_L": 74,
+      "BOD5_mg_L": 16,
+      "TOC_mg_L": 14.2,
+      "DOC_mg_L": 8.9,
+      "UV254_cm_1": 0.19,
+      "conductivity_uS_cm": 860,
+      "TDS_mg_L": 540,
+      "hardness_mg_L_as_CaCO3": 146,
+      "alkalinity_mg_L_as_CaCO3": 121,
+      "nitrate_mg_L_as_N": 2.8,
+      "ammonia_mg_L_as_N": 0.42,
+      "chloride_mg_L": 96,
+      "sulfate_mg_L": 58,
+      "iron_total_mg_L": 0.74,
+      "manganese_total_mg_L": 0.09,
+      "Aldicarb_ug_L": 18.0,
+      "Oxamyl_ug_L": 27.0,
+      "Nitrobenzene_ug_L": 8.5,
+      "Cyclonite_RDX_ug_L": 3.6,
+      "PFAS_screening_note": "trace_fluorinated_compounds_suspected_from_upgradient_fire_training_area_but_not_confirmed_in_current_dataset",
+      "co_contaminant_note": "possible_nitroaromatic_byproducts_and_other_polar_pesticide_metabolites_not_fully_characterized",
+      "particle_bound_fraction_note": "first_flush_samples_show_elevated_colloids_and_organic_particulate_loading",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Produce water suitable for groundwater recharge with strong reduction of suspended solids, dissolved organic matter, and detected trace organics including carbamate pesticides and energetic compounds, while limiting breakthrough risk from unknown co-contaminants.",
+      "secondary_goals": [
+        "provide resilience to episodic first-flush shock loads",
+        "minimize membrane fouling exposure from variable stormwater solids",
+        "avoid treatment trains that create difficult brine management obligations unless clearly justified",
+        "include a robust polishing barrier for partially characterized micropollutants",
+        "support conservative operation under uncertain contaminant speciation and concentration peaks"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "concentrate_and_spent_media_disposal_are_possible_but_brine_generation_should_be_strongly_limited_due_to_offsite_handling_cost_and_regulatory_scrutiny",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_flow_spikes_unknown_fraction_present_and_need_for_protective_multi_barrier_performance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "offline_equalization_and_first_flush_diversion",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration_or_ultrafiltration",
+          "ozonation_or_uv_hydrogen_peroxide",
+          "biologically_active_carbon",
+          "final_uv_or_chloramination_before_recharge"
+        ],
+        "core_unit_functions": {
+          "offline_equalization_and_first_flush_diversion": "capture and buffer episodic storm pulses while isolating the dirtiest initial runoff for more controlled treatment",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and part of particle-associated organic matter to lower downstream fouling and oxidant demand",
+          "dual_media_filtration_or_ultrafiltration": "polish residual solids and provide stable pretreatment to advanced barriers",
+          "ozonation_or_uv_hydrogen_peroxide": "oxidize nitrobenzene and other susceptible trace organics and transform a portion of unknown dissolved contaminants",
+          "biologically_active_carbon": "adsorb remaining micropollutants including poorly characterized organics and biologically polish oxidation byproducts",
+          "final_uv_or_chloramination_before_recharge": "provide final microbial control suited to recharge system operation"
+        },
+        "applicability_rationale": [
+          "a non-brine multi-barrier train fits the recharge objective while respecting the explicit brine management constraint better than RO-centered trains",
+          "equalization and first-flush control are important because contaminant pulses are storm-driven and likely highest at event onset",
+          "pretreatment for solids is necessary because stormwater turbidity and colloids are high enough to create major membrane fouling and oxidant inefficiency risks",
+          "advanced oxidation plus biologically active carbon is a strong risk-aware pairing when some contaminants are known but the dissolved organic fraction is only partially characterized",
+          "BAC provides a polishing buffer against uncertain polar pesticide metabolites and residual nitroaromatics that may not be fully removed by oxidation alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "AOP effectiveness depends on water matrix and may be reduced during high TOC first-flush periods if equalization is inadequate",
+          "RDX can be relatively persistent and may require pilot confirmation of oxidation dose and BAC empty-bed contact time",
+          "unknown byproduct formation and bromate risk should be checked if ozonation is selected and bromide is later found to be significant",
+          "spent carbon or biofilter media management is still required, even though brine generation is avoided",
+          "uncertainty remains because suspected co-contaminants are not fully characterized and event peaks may exceed current grab-sample data"
+        ],
+        "evidence_list": [
+          "EPA_stormwater_reuse_and_groundwater_recharge_multi_barrier_guidance",
+          "EPA_guidance_on_granular_and_biologically_active_carbon_for_organic_micropollutant_control",
+          "public_case_knowledge_on_advanced_oxidation_followed_by_BAC_for_trace_organic_removal",
+          "DoD_and_USACE_guidance_for_RDX_and_explosives_in_groundwater_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "offline_equalization_and_screening",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "granular_activated_carbon_lead_lag",
+          "uv_hydrogen_peroxide_polishing",
+          "final_disinfection_before_recharge"
+        ],
+        "core_unit_functions": {
+          "offline_equalization_and_screening": "attenuate hydraulic and contaminant shocks and remove coarse debris from runoff capture systems",
+          "coagulation_flocculation_and_clarification": "remove particulate matter and reduce foulant loading to membranes and adsorbers",
+          "ultrafiltration": "provide reliable low-turbidity water for downstream carbon and oxidation units",
+          "granular_activated_carbon_lead_lag": "adsorb nitrobenzene and a broad spectrum of hydrophobic to moderately adsorbable trace organics while giving operational redundancy",
+          "uv_hydrogen_peroxide_polishing": "treat more persistent or polar residuals that may pass carbon, including some pesticide-related contaminants",
+          "final_disinfection_before_recharge": "control microbiological risk in the finished recharge water"
+        },
+        "applicability_rationale": [
+          "this sequence emphasizes broad adsorption first, then oxidation polishing, which can be advantageous when the unknown fraction is significant and carbon replacement is operationally manageable",
+          "lead-lag GAC offers a conservative monitoring framework for breakthrough under uncertain contaminant mixtures",
+          "UF helps stabilize downstream performance but stays short of desalination, reducing residuals burden compared with NF or RO",
+          "the train remains suitable for recharge where salinity is moderate and the main challenge is trace organics rather than mineral removal"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "UF introduces membrane fouling and cleaning requirements under stormwater solids excursions, so pretreatment discipline is critical",
+          "GAC adsorption capacity for highly polar compounds such as oxamyl and aldicarb can be limited and highly matrix-dependent",
+          "placing carbon before AOP may increase media usage if DOC spikes are frequent",
+          "RDX removal on GAC may be incomplete, making polishing oxidation or alternative confirmation testing necessary",
+          "recommendation carries uncertainty because contaminant degradation products and co-occurring solvents have not been fully screened"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatability_guidance_for_GAC_and_AOP_for_synthetic_organics",
+          "AWWA_case_knowledge_on_lead_lag_GAC_for_micropollutant_breakthrough_management",
+          "public_treatability_reports_for_nitrobenzene_and_carbamate_pesticide_control",
+          "DoD_environmental_restoration_references_on_RDX_treatment_performance"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_settling",
+          "biological_filtration_or_engineered_wetland_pretreatment",
+          "ozonation",
+          "biologically_active_carbon",
+          "managed_aquifer_recharge_with_unsaturated_zone_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_settling": "moderate storm peaks and remove settleable solids before more sensitive treatment stages",
+          "biological_filtration_or_engineered_wetland_pretreatment": "reduce biodegradable organics and some suspended matter with relatively low energy input",
+          "ozonation": "oxidize susceptible dissolved organics and transform part of the unknown trace organic fraction",
+          "biologically_active_carbon": "remove residual dissolved organics and oxidation byproducts while stabilizing water prior to recharge",
+          "managed_aquifer_recharge_with_unsaturated_zone_monitoring": "use subsurface attenuation as an additional barrier while verifying groundwater protection through monitoring"
+        },
+        "applicability_rationale": [
+          "this lower-energy concept can fit recharge projects that can exploit natural treatment and where event water can be buffered rather than treated instantaneously",
+          "it recognizes that recharge schemes sometimes rely on combined engineered and subsurface barriers rather than complete polishing above ground",
+          "BAC after ozonation remains useful for uncertainty management, especially when exact contaminant composition is not fully known"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "this option is more uncertain for direct control of RDX and highly mobile carbamate pesticides than the higher-ranked trains",
+          "natural treatment contributions can vary seasonally and may be unacceptable if source spikes are sharp or regulatory requirements are stringent",
+          "wetland or biofiltration systems may struggle with industrial shock loads and could release dissolved organics during upset conditions",
+          "performance credit for vadose-zone attenuation should not be assumed without site-specific hydrogeologic evidence and monitoring wells",
+          "not appropriate if recharge permit requires stronger demonstrated removal before infiltration"
+        ],
+        "evidence_list": [
+          "managed_aquifer_recharge_guidance_emphasizing_multi_barrier_and_monitoring",
+          "public_case_knowledge_on_ozone_BAC_for_water_reuse_and_recharge",
+          "stormwater_treatment_guidance_for_settling_biofiltration_and_natural_systems",
+          "risk_based_guidance_for_crediting_subsurface_attenuation_only_with_site_specific_data"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "cartridge_or_ultrafiltration",
+          "nanofiltration_or_low_pressure_reverse_osmosis",
+          "advanced_oxidation_post_treatment",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer highly variable event runoff and reduce instantaneous fouling loads",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and colloidal matter before membranes",
+          "cartridge_or_ultrafiltration": "provide membrane protection and low-turbidity feed",
+          "nanofiltration_or_low_pressure_reverse_osmosis": "create a strong dissolved contaminant barrier for many micropollutants and dissolved salts",
+          "advanced_oxidation_post_treatment": "address compounds or permeate residuals not fully controlled by pressure-driven membranes and provide additional confidence for recharge",
+          "final_disinfection": "provide microbial barrier prior to recharge distribution"
+        },
+        "applicability_rationale": [
+          "this is a technically strong containment-oriented option when regulators or stakeholders demand a high-confidence dissolved contaminant barrier despite uncertain chemistry",
+          "membrane separation can provide broad rejection across mixed pesticide and explosive-related contaminants, especially when the unknown fraction is a concern",
+          "it may be selected if pilot data show that non-brine trains cannot consistently meet recharge criteria during first-flush spikes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "this train conflicts with the stated brine management constraint because concentrate handling becomes a central issue",
+          "stormwater solids and colloidal organic matter create a substantial membrane fouling risk even with pretreatment",
+          "rejection of small neutral compounds is compound-specific, so pilot testing is still needed rather than assuming universal removal",
+          "AOP after NF or RO may be unnecessary in some cases but is included here because the unknown contaminant fraction remains unresolved",
+          "overall complexity may exceed operator preference for a runoff-driven municipal system"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_reuse_and_recharge_applications",
+          "public_references_on_NF_RO_as_high_confidence_barriers_for_micropollutants",
+          "AWWA_membrane_fouling_guidance_for_surface_and_storm_influenced_waters",
+          "concentrate_management_guidance_for_inland_membrane_facilities"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "sedimentation_basin",
+          "sand_filtration",
+          "granular_activated_carbon",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "sedimentation_basin": "remove settleable solids from captured runoff",
+          "sand_filtration": "polish suspended solids and reduce turbidity",
+          "granular_activated_carbon": "adsorb part of the dissolved organic contaminant load",
+          "uv_disinfection": "provide microbial control"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline because it is simpler and avoids brine generation",
+          "it may improve general runoff quality and reduce some nitrobenzene-like organics, but it is not sufficiently robust for the stated uncertainty and recharge protection objective"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "likely inadequate for reliable control of polar carbamate pesticides and RDX under variable storm conditions",
+          "offers limited resilience to unknown dissolved co-contaminants and event-based shock loads",
+          "without oxidation or equivalent advanced polishing, breakthrough risk to groundwater is too high for this scenario",
+          "GAC exhaustion could occur rapidly during first-flush DOC spikes and may be hard to detect without intensive monitoring"
+        ],
+        "evidence_list": [
+          "basic_stormwater_treatment_guidance_for_sedimentation_and_filtration",
+          "public_guidance_indicating_conventional_treatment_alone_is_insufficient_for_trace_organic_recharge_protection",
+          "EPA_reuse_and_recharge_multi_barrier_principles"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier non-brine trains with equalization and advanced organics polishing should rank above desalination-heavy options because brine management is constrained",
+        "recommendations should recognize that stormwater first-flush and industrial shock loads make buffering and pretreatment critical",
+        "simple solids-removal-only or carbon-only trains should rank low because the contaminant suite includes persistent and partially characterized dissolved organics"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "groundwater recharge requires conservative control of trace organics and uncertainty, not just turbidity reduction",
+        "high influent variability and unknown_fraction_present justify equalization, first-flush management, or other shock attenuation steps",
+        "membrane fouling risk from stormwater solids should be explicitly discussed if UF, NF, or RO appears",
+        "brine management constraints should penalize RO-centered options unless clearly justified by risk reduction needs"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why advanced oxidation and/or activated carbon is relevant for nitrobenzene, carbamate pesticides, RDX, and unknown co-contaminants",
+        "why solids pretreatment is important before any membrane or advanced polishing step in stormwater service",
+        "why groundwater recharge usually favors robust multi-barrier treatment and monitoring under uncertain source chemistry",
+        "why lower-complexity conventional treatment alone is insufficient for this partially characterized trace-organic scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in the unknown dissolved fraction and possible degradation products",
+        "first-flush concentration spikes and industrial shock loading that may exceed grab-sample observations",
+        "compound-specific variability in removability for RDX, aldicarb, and oxamyl",
+        "membrane fouling and cleaning frequency risk under high turbidity stormwater",
+        "concentrate or spent media disposal tradeoffs when selecting membrane or carbon-based barriers",
+        "need for pilot testing and event-based monitoring rather than relying only on average water-quality values"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

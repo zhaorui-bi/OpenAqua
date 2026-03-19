@@ -1,0 +1,305 @@
+ {
+    "case_id": "WContBench_D_001",
+    "case_name": "Industrial wastewater reclamation with mixed contaminants and multiple reuse constraints",
+    "category_level_1": "difficult",
+    "category_level_2": {
+      "water_source_type": "industrial_wastewater",
+      "contaminant_type": [
+        "COD",
+        "ammonia",
+        "TDS",
+        "heavy_metals",
+        "refractory_organics",
+        "micropollutants"
+      ],
+      "effluent_use": "industrial_reuse",
+      "constraint_tags": [
+        "multi_objective",
+        "mixed_pollution",
+        "high_uncertainty",
+        "cost_energy_tradeoff",
+        "residuals_management_constraint"
+      ],
+      "pollution_pattern": "complex_mixed_contaminants"
+    },
+    "task_description": "Recommend a ranked list of feasible treatment process chains for reclamation of mixed industrial wastewater for industrial reuse under multiple quality, cost, energy, and operational constraints.",
+    "input_data": {
+      "scenario_background": "An industrial park wants to reclaim mixed wastewater from multiple factories for cooling and process reuse. The influent composition fluctuates because of varying industrial discharges. The owner needs a robust treatment train that supports reuse while controlling cost and operational risk.",
+      "water_quality": {
+        "source_type": "industrial_wastewater_mixture",
+        "pH": 6.5,
+        "turbidity_NTU": 28,
+        "COD_mg_L": 210,
+        "BOD5_mg_L": 65,
+        "ammonia_mg_L_as_N": 24,
+        "TDS_mg_L": 1850,
+        "hardness_mg_L_as_CaCO3": 340,
+        "conductivity_uS_cm": 2850,
+        "TOC_mg_L": 48,
+        "oil_and_grease_mg_L": 8,
+        "heavy_metals_mg_L": {
+          "Cr_total": 0.18,
+          "Ni": 0.12,
+          "Cu": 0.09
+        },
+        "trace_pollutant_note": "possible_refractory_organics_and_trace_micropollutants_present_but_not_fully_characterized",
+        "influent_variability": "high"
+      },
+      "treatment_goal": {
+        "use_type": "industrial_reuse",
+        "target_requirement": "Finished water should be suitable for cooling and selected process reuse, with reduced salinity, ammonia, organics, and suspended solids, while maintaining stable reclaimed-water quality.",
+        "secondary_goals": [
+          "support fluctuating influent conditions",
+          "avoid severe membrane fouling risk",
+          "balance reuse quality with cost and energy demand",
+          "provide explainable risk-aware recommendations"
+        ]
+      },
+      "engineering_constraints": {
+        "capex_level": "medium",
+        "opex_level": "medium",
+        "energy_constraint": "medium_to_high_sensitivity",
+        "operation_complexity": "medium",
+        "residuals_management": "brine_and_sludge_handling_available_but_should_be_minimized",
+        "footprint_constraint": "medium",
+        "robustness_requirement": "high_due_to_variable_influent"
+      }
+    },
+    "expected_output_format": {
+      "top_k": 5,
+      "require_fields": [
+        "rank",
+        "process_chain",
+        "core_unit_functions",
+        "applicability_rationale",
+        "constraint_fit",
+        "potential_risks",
+        "evidence_list"
+      ]
+    },
+    "reference_answer": {
+      "ranked_recommendations": [
+        {
+          "rank": 1,
+          "process_chain": [
+            "equalization",
+            "coagulation_flocculation_and_clarification",
+            "biological_treatment",
+            "media_filtration_or_MBR_polishing",
+            "activated_carbon_or_advanced_oxidation_polishing",
+            "reverse_osmosis_for_reuse",
+            "final_disinfection"
+          ],
+          "core_unit_functions": {
+            "equalization": "buffer hydraulic and quality fluctuations",
+            "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and part of metal-associated contaminants",
+            "biological_treatment": "reduce biodegradable organics and ammonia",
+            "media_filtration_or_MBR_polishing": "provide solids polishing and protect downstream advanced units",
+            "activated_carbon_or_advanced_oxidation_polishing": "address refractory organics and micropollutant concerns",
+            "reverse_osmosis_for_reuse": "reduce salinity and provide high-quality reclaimed water",
+            "final_disinfection": "ensure reuse-water safety"
+          },
+          "applicability_rationale": [
+            "the case involves mixed contaminants requiring staged treatment rather than a single unit process",
+            "equalization is important because influent variability is high",
+            "biological treatment addresses COD and ammonia efficiently before desalination",
+            "advanced polishing is justified because trace refractory organics are suspected",
+            "RO is needed to control TDS for reliable industrial reuse"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium_good",
+            "energy_fit": "medium",
+            "operation_fit": "medium",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "RO brine management remains a key challenge",
+            "uncertain trace pollutants may still require site-specific confirmation",
+            "bio-process stability may be affected by industrial shock loads",
+            "advanced oxidation or carbon stage design depends on actual refractory organics profile"
+          ],
+          "evidence_list": [
+            "public_reuse_guidance_for_industrial_wastewater_reclamation",
+            "engineering_cases_for_multi_barrier_reuse_trains"
+          ]
+        },
+        {
+          "rank": 2,
+          "process_chain": [
+            "equalization",
+            "chemical_precipitation_and_clarification",
+            "biological_treatment",
+            "ultrafiltration",
+            "reverse_osmosis",
+            "final_disinfection"
+          ],
+          "core_unit_functions": {
+            "equalization": "buffer influent variation",
+            "chemical_precipitation_and_clarification": "remove metals and suspended matter",
+            "biological_treatment": "remove biodegradable organics and ammonia",
+            "ultrafiltration": "protect RO by polishing solids and biomass",
+            "reverse_osmosis": "achieve desalination and reuse quality",
+            "final_disinfection": "ensure reuse-water safety"
+          },
+          "applicability_rationale": [
+            "strong candidate when metal removal and membrane protection are priorities",
+            "more structured pretreatment can improve downstream desalination reliability"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium",
+            "energy_fit": "medium",
+            "operation_fit": "medium",
+            "residuals_fit": "medium_poor"
+          },
+          "potential_risks": [
+            "chemical sludge generation may be substantial",
+            "still dependent on effective RO fouling control",
+            "less explicit polishing for refractory organics than rank 1"
+          ],
+          "evidence_list": [
+            "industrial_reuse_case_examples_with_UF_RO"
+          ]
+        },
+        {
+          "rank": 3,
+          "process_chain": [
+            "equalization",
+            "coagulation_flocculation",
+            "MBR",
+            "nanofiltration_or_reverse_osmosis",
+            "final_disinfection"
+          ],
+          "core_unit_functions": {
+            "equalization": "stabilize influent variability",
+            "coagulation_flocculation": "remove colloids and reduce fouling load",
+            "MBR": "simultaneous biological treatment and membrane-based solids separation",
+            "nanofiltration_or_reverse_osmosis": "improve reuse water quality and reduce dissolved contaminants",
+            "final_disinfection": "ensure reuse-water safety"
+          },
+          "applicability_rationale": [
+            "compact advanced train suitable for reuse-oriented systems",
+            "MBR can provide stable biological effluent quality"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium_poor",
+            "energy_fit": "medium_poor",
+            "operation_fit": "medium_poor",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "fouling management is more demanding",
+            "higher operator skill requirement",
+            "may be less aligned with medium complexity preference"
+          ],
+          "evidence_list": [
+            "advanced_reclamation_train_references_for_industrial_reuse"
+          ]
+        },
+        {
+          "rank": 4,
+          "process_chain": [
+            "equalization",
+            "coagulation_flocculation_and_clarification",
+            "activated_carbon",
+            "reverse_osmosis",
+            "final_disinfection"
+          ],
+          "core_unit_functions": {
+            "equalization": "buffer influent variation",
+            "coagulation_flocculation_and_clarification": "remove suspended solids and some associated contaminants",
+            "activated_carbon": "adsorb some organics and micropollutants",
+            "reverse_osmosis": "provide desalination and polishing",
+            "final_disinfection": "ensure reuse-water safety"
+          },
+          "applicability_rationale": [
+            "can be considered if biological treatment is constrained or shock-sensitive",
+            "offers a more physico-chemical route for selected conditions"
+          ],
+          "constraint_fit": {
+            "cost_fit": "medium_poor",
+            "energy_fit": "medium_poor",
+            "operation_fit": "medium",
+            "residuals_fit": "medium_poor"
+          },
+          "potential_risks": [
+            "organic and ammonia removal may be insufficient without biology",
+            "higher consumables demand",
+            "less robust for mixed biodegradable loads"
+          ],
+          "evidence_list": [
+            "physicochemical_reuse_treatment_case_examples"
+          ]
+        },
+        {
+          "rank": 5,
+          "process_chain": [
+            "coagulation_flocculation",
+            "sedimentation",
+            "sand_filtration",
+            "disinfection"
+          ],
+          "core_unit_functions": {
+            "coagulation_flocculation": "remove colloids and some particulate-associated pollutants",
+            "sedimentation": "separate solids",
+            "sand_filtration": "polish suspended solids",
+            "disinfection": "control microbial risk"
+          },
+          "applicability_rationale": [
+            "included as a clearly lower-ranked baseline option",
+            "may improve appearance and solids control but is insufficient for this reuse target"
+          ],
+          "constraint_fit": {
+            "cost_fit": "good",
+            "energy_fit": "good",
+            "operation_fit": "good",
+            "residuals_fit": "medium"
+          },
+          "potential_risks": [
+            "cannot adequately address TDS, ammonia, and mixed dissolved contaminants",
+            "unsuitable as a standalone route for the stated reuse goals"
+          ],
+          "evidence_list": [
+            "basic_conventional_treatment_references"
+          ]
+        }
+      ]
+    },
+    "evaluation_targets": {
+      "top_k_quality": {
+        "preferred_rank_pattern": [
+          "multi-barrier treatment trains should rank higher than simple conventional trains",
+          "equalization should be recognized as important due to variable influent",
+          "desalination should appear in higher-ranked solutions because industrial reuse requires TDS control"
+        ]
+      },
+      "constraint_consistency": {
+        "must_reflect": [
+          "mixed contaminants require staged treatment",
+          "reuse quality demands salinity reduction",
+          "high influent variability requires buffering and robustness",
+          "cost-energy-residuals tradeoffs should be explicitly discussed"
+        ]
+      },
+      "explanation_grounding": {
+        "must_contain": [
+          "why biology is useful before desalination",
+          "why advanced polishing may be needed for refractory organics or micropollutants",
+          "why simpler conventional-only trains are insufficient"
+        ]
+      },
+      "risk_awareness": {
+        "should_mention": [
+          "influent variability risk",
+          "membrane fouling and brine management",
+          "uncertainty in trace refractory organics",
+          "potential instability under industrial shock loads"
+        ]
+      }
+    },
+    "metadata": {
+      "difficulty": "difficult",
+      "benchmark_split": "dev",
+      "language": "en",
+      "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+    }
+  }

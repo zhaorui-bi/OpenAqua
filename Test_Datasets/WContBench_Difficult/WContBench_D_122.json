@@ -1,0 +1,357 @@
+{
+  "case_id": "WContBench_D_122",
+  "case_name": "Emergency landfill leachate reclamation for industrial reuse with fluorinated surfactants, carbofuran, and dichlorvos under incomplete contaminant characterization",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "landfill_leachate",
+    "contaminant_type": [
+      "Per- and Polyfluoroalkyl Substances",
+      "Carbofuran",
+      "Dichlorvos",
+      "ammonia",
+      "COD",
+      "TDS",
+      "color",
+      "heavy_metals"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "complex_mixed_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for rapidly deployable treatment of mixed landfill leachate for industrial reuse under uncertain contaminant profiles and emergency implementation constraints.",
+  "input_data": {
+    "scenario_background": "Following storm-driven leachate overflow and diversion of a partially aged landfill collection system, an operator needs an emergency treatment train to produce water for limited industrial reuse at a nearby utility and maintenance yard. The leachate contains fluorinated surfactants, carbofuran, and dichlorvos, but short-term sampling suggests the organic microcontaminant profile may be broader than currently characterized because several historical disposal cells lack complete records. Flow and strength vary substantially after rainfall events, and the plant must be deployable quickly with modular or containerized elements while avoiding recommendations that assume fully known PFAS speciation or stable influent chemistry.",
+    "water_quality": {
+      "source_type": "landfill_leachate",
+      "pH": 8.1,
+      "turbidity_NTU": 46,
+      "color_Pt_Co": 1180,
+      "COD_mg_L": 2650,
+      "BOD5_mg_L": 280,
+      "TOC_mg_L": 690,
+      "ammonia_mg_L_as_N": 610,
+      "TKN_mg_L": 690,
+      "chloride_mg_L": 1750,
+      "sulfate_mg_L": 220,
+      "alkalinity_mg_L_as_CaCO3": 4650,
+      "TDS_mg_L": 6120,
+      "conductivity_uS_cm": 9450,
+      "hardness_mg_L_as_CaCO3": 520,
+      "iron_mg_L": 4.8,
+      "manganese_mg_L": 0.72,
+      "zinc_mg_L": 0.21,
+      "lead_mg_L": 0.012,
+      "arsenic_mg_L": 0.006,
+      "Per_and_Polyfluoroalkyl_Substances_total_ug_L": 2.9,
+      "PFOS_ug_L": 0.68,
+      "PFOA_ug_L": 0.74,
+      "short_chain_PFAS_note": "suspected_present_but_not_fully_characterized",
+      "carbofuran_ug_L": 38,
+      "dichlorvos_ug_L": 12,
+      "AOX_mg_L": 1.9,
+      "foaming_index_note": "intermittent_surface_foam_observed_suggesting_variable_surfactant_loading",
+      "influent_variability": "high",
+      "characterization_note": "additional_polar_organics_and_precursor_compounds_suspected_but_not_fully_characterized_due_to_emergency_sampling_window"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Finished water should be suitable for non-potable industrial reuse such as equipment washing, dust suppression with controlled overspray, and selected utility uses, with substantial reduction of ammonia, organics, salinity, color, suspended matter, PFAS-related risk, and pesticide residues.",
+      "secondary_goals": [
+        "favor modular units that can be deployed and scaled rapidly",
+        "maintain robustness under storm-driven influent fluctuation",
+        "reduce dependence on a single barrier for uncertain micropollutants",
+        "minimize irreversible membrane fouling during emergency operation",
+        "clearly communicate residual uncertainty where PFAS precursors or unknown co-contaminants may remain"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "concentrate_and_spent_adsorbent_can_be_containerized_for_offsite_disposal_but onsite sludge handling capacity is limited and frequent media changeout is operationally undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_emergency_use_rapid_scale_up_and_storm_driven_leachate_variability"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending",
+          "pH_adjustment_and_coagulation_flocculation_clarification",
+          "air_stripping_or_membrane_contacting_for_ammonia_with_offgas_control",
+          "biological_polishing_for_residual_biodegradable_organics_if_startup_time_allows",
+          "granular_activated_carbon_or_ion_exchange_lead_lag_for_PFAS_and_pesticides",
+          "nanofiltration_or_reverse_osmosis",
+          "final_UV_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer highly variable leachate strength and flow before downstream treatment",
+          "pH_adjustment_and_coagulation_flocculation_clarification": "remove suspended solids, color, colloids, and a portion of metal-associated and hydrophobic organic load",
+          "air_stripping_or_membrane_contacting_for_ammonia_with_offgas_control": "rapidly reduce very high ammonia where biological nitrification alone would be too slow or unstable for emergency deployment",
+          "biological_polishing_for_residual_biodegradable_organics_if_startup_time_allows": "reduce residual biodegradable COD and improve downstream adsorption and membrane performance",
+          "granular_activated_carbon_or_ion_exchange_lead_lag_for_PFAS_and_pesticides": "provide targeted removal of PFAS and organophosphate/carbamate pesticide residues while giving a replaceable polishing barrier under uncertain trace organics",
+          "nanofiltration_or_reverse_osmosis": "reduce TDS, remaining dissolved organics, and provide a high-quality reuse barrier",
+          "final_UV_or_chlorine_disinfection": "control microbial risk for industrial reuse distribution"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the leachate contains extreme ammonia, high TDS, strong color and COD, plus fluorinated surfactants and pesticides with incomplete characterization",
+          "equalization is especially important because storm events and cell mixing create high influent variability that can destabilize adsorption and membrane units",
+          "rapid ammonia reduction ahead of desalination is valuable because ammonia at this level can challenge reuse objectives and complicate downstream operation if only biological treatment is used",
+          "lead-lag GAC or ion exchange is included as a practical targeted barrier for PFAS-related risk and hydrophobic/semi-polar pesticides during emergency deployment",
+          "NF or RO is still needed because industrial reuse requires substantial salinity reduction beyond what adsorption can deliver",
+          "the recommendation keeps a biological step conditional because startup time under emergency deployment may be limited, yet residual biodegradable load should still be addressed where feasible"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PFAS removal performance will depend on actual chain-length distribution and precursor content, which are not fully characterized in this case",
+          "short-chain PFAS may break through GAC earlier than expected, and ion exchange resin selection is sensitive to sulfate, DOC, and competing anions",
+          "AOP is intentionally not primary here because it may transform precursors or pesticides without reliably mineralizing PFAS and can increase downstream treatment uncertainty",
+          "RO or NF concentrate will contain concentrated PFAS and pesticide residues and requires secure residuals management",
+          "ammonia stripping requires off-gas scrubbing and careful pH handling; emergency deployment errors could shift risk rather than remove it",
+          "if biological polishing is omitted or under-seeded, residual biodegradable COD may accelerate membrane fouling and shorten adsorbent life"
+        ],
+        "evidence_list": [
+          "EPA_PFAS_drinking_water_treatment_guidance_for_GAC_IX_and_membranes",
+          "ITRC_PFAS_treatment_technologies_overview_for_concentrate_and_media_management",
+          "landfill_leachate_case_knowledge_supporting_equalization_physicochemical_pretreatment_and_desalination",
+          "engineering_guidance_for_high_ammonia_leachate_using_stripping_before_polishing",
+          "public_guidance_on_multibarrier_reuse_trains_for_variable_nonpotable_source_waters"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "moving_bed_biofilm_reactor_or_MBR_for_COD_and_ammonia",
+          "granular_activated_carbon_lead_lag",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen shock loads and provide more stable feed to biological and membrane systems",
+          "coagulation_flocculation_and_clarification": "remove suspended matter, colloids, color, and part of the foulant load",
+          "moving_bed_biofilm_reactor_or_MBR_for_COD_and_ammonia": "biologically reduce biodegradable COD and ammonia with relatively compact footprint",
+          "granular_activated_carbon_lead_lag": "adsorb residual pesticides and some PFAS fractions while polishing organics before RO",
+          "reverse_osmosis": "desalt and polish dissolved contaminants for reuse quality",
+          "final_disinfection": "provide microbial control in reclaimed water storage and use"
+        },
+        "applicability_rationale": [
+          "this train fits cases where modular biological units are available quickly and the operator can manage higher process complexity",
+          "biology before RO lowers biodegradable organics and ammonia, usually improving membrane protection and lowering chemical demand compared with all-physical-chemical routes",
+          "GAC after biology can be more effective because reduced background organics improve adsorption capacity for micropollutants",
+          "the approach remains robust for mixed contaminants but is somewhat less aligned with emergency startup than rank 1 because nitrification development may be slow under cold or variable conditions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "very high ammonia may overwhelm emergency biological startup and require sidestream ammonia control anyway",
+          "toxic shock or salinity stress from variable leachate can inhibit nitrifiers and reduce reliability",
+          "GAC may have uncertain effectiveness for short-chain PFAS and cannot replace careful PFAS monitoring",
+          "RO fouling risk remains significant if biopolymer release or incomplete solids capture occurs",
+          "the train may miss rapidly changing pesticide pulses unless adsorption replacement frequency is increased"
+        ],
+        "evidence_list": [
+          "leachate_treatment_case_examples_with_biological_treatment_followed_by_membranes",
+          "EPA_and_state_reuse_guidance_supporting_biology_before_desalination_for_nonpotable_reuse",
+          "PFAS_case_knowledge_on_GAC_as_polishing_after_DOC_reduction",
+          "MBBR_and_MBR_engineering_guidance_for_high_strength_wastewaters"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_clarification",
+          "cartridge_or_ultrafiltration",
+          "reverse_osmosis",
+          "polishing_ion_exchange_for_PFAS",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable hydraulic and quality loading",
+          "coagulation_flocculation_clarification": "lower solids, color, and colloidal foulants before membranes",
+          "cartridge_or_ultrafiltration": "provide membrane protection and solids polishing",
+          "reverse_osmosis": "remove salts and much of the dissolved organic load",
+          "polishing_ion_exchange_for_PFAS": "capture residual PFAS not fully rejected or passing through because of speciation uncertainty",
+          "final_disinfection": "maintain microbiological control for reuse storage and distribution"
+        },
+        "applicability_rationale": [
+          "this route can be deployed relatively quickly with modular membrane skids and is attractive when immediate hydraulic capacity is needed",
+          "placing ion exchange after RO reduces background organic competition and may improve resin efficiency for residual PFAS",
+          "the train is feasible for emergency scale-up but ranks lower because it does not directly address the extremely high ammonia burden before desalination",
+          "it may be useful as a temporary stopgap if industrial reuse demand is limited and a concentrated reject stream can be managed offsite"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "without dedicated ammonia removal, permeate quality and reuse suitability may be inconsistent depending on membrane selection and operating conditions",
+          "high osmotic pressure and organics in raw leachate increase RO recovery limitations and fouling/scaling risk",
+          "PFAS partitioning between permeate and concentrate is compound-specific and uncertain when precursor chemistry is incomplete",
+          "concentrate management is especially burdensome because both salinity and targeted contaminants are being accumulated",
+          "this option may appear simple for rapid deployment but can become fragile under storm-related spikes"
+        ],
+        "evidence_list": [
+          "membrane_leachate_treatment_references_for_UF_RO_configurations",
+          "ITRC_PFAS_guidance_on_membrane_rejection_and_concentrate_management",
+          "engineering_guidance_for_rapid_deployment_modular_membrane_systems"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_UV_H2O2",
+          "biologically_activated_carbon",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable influent before oxidation and downstream polishing",
+          "coagulation_flocculation_and_clarification": "reduce solids and color that would consume oxidant and foul later units",
+          "ozonation_or_UV_H2O2": "oxidize selected pesticide compounds and improve biodegradability of some organic fractions",
+          "biologically_activated_carbon": "polish oxidation byproducts and residual biodegradable organics",
+          "reverse_osmosis": "desalt and provide final dissolved contaminant barrier",
+          "final_disinfection": "provide microbial risk control"
+        },
+        "applicability_rationale": [
+          "this train can be considered when pesticide reduction is a dominant short-term concern and an oxidation skid is available rapidly",
+          "advanced oxidation may help with carbofuran and dichlorvos degradation in some matrices, and BAC can capture oxidation byproducts",
+          "it ranks lower because oxidation is not a reliable primary strategy for PFAS and may complicate precursor interpretation under incomplete characterization",
+          "the route is more sensitive to matrix scavenging because landfill leachate has very high TOC, alkalinity, and color"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PFAS are not effectively destroyed by conventional ozonation and many AOP conditions used in water treatment",
+          "high organic and alkalinity load can make oxidation inefficient and expensive in leachate",
+          "transformation products from pesticides may remain toxic or insufficiently characterized without follow-up analytics",
+          "BAC breakthrough behavior under emergency flow surges may be difficult to predict",
+          "if oxidation is overemphasized, operators may underestimate the need for dedicated PFAS adsorption or membrane barriers"
+        ],
+        "evidence_list": [
+          "AOP_guidance_for_pesticide_oxidation_in_complex_waters",
+          "PFAS_public_guidance_noting_limited_effectiveness_of_conventional_AOP_for_PFAS_removal",
+          "BAC_polishing_case_knowledge_for_oxidized_organic_mixtures"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation",
+          "granular_activated_carbon",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate rapid changes in leachate quality",
+          "coagulation_flocculation": "remove suspended and colloidal matter",
+          "granular_activated_carbon": "adsorb a portion of dissolved organics and some pesticides and PFAS fractions",
+          "sand_filtration": "polish solids carryover",
+          "disinfection": "reduce microbial risk for limited use"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked emergency baseline because it is relatively fast to deploy and may improve appearance, odor, and part of the micropollutant load",
+          "however, it is not sufficient as a standalone route for this industrial reuse objective because it does not address extreme ammonia and high TDS",
+          "its inclusion helps distinguish quickly deployable but incomplete options from true multi-barrier reuse trains"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "finished water would likely fail reuse expectations for salinity and ammonia",
+          "GAC alone provides uncertain and often inadequate control for short-chain PFAS and variable precursor mixtures",
+          "competitive adsorption from very high DOC would rapidly exhaust carbon capacity",
+          "the train could create false confidence because visible water quality improves while dissolved contaminants remain problematic"
+        ],
+        "evidence_list": [
+          "basic_physicochemical_treatment_references_for_leachate_pretreatment",
+          "PFAS_guidance_showing_limits_of_single_barrier_GAC_under_high_DOC_conditions",
+          "public_reuse_guidance_indicating_need_for_desalination_or_advanced_barriers_for_high_TDS_sources"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that combine equalization, ammonia control, targeted PFAS or pesticide polishing, and desalination should rank above simpler emergency-only options",
+        "recommendations should recognize that adsorption alone is insufficient for a high-TDS high-ammonia leachate intended for industrial reuse",
+        "rapidly deployable modular trains may rank highly, but only if they still address salinity and uncertainty in fluorinated surfactant chemistry"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency deployment and rapid scale-up favor modular equalization, physicochemical pretreatment, skid-mounted adsorption, and membrane systems",
+        "industrial reuse requires discussion of TDS reduction rather than only micropollutant removal",
+        "mixed contaminants include both legacy bulk pollutants and emerging contaminants with incomplete characterization",
+        "residuals management must explicitly mention concentrate, spent carbon or resin, or sludge implications during emergency operation"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization is crucial for storm-driven landfill leachate variability",
+        "why very high ammonia likely needs a rapid dedicated control step or highly robust biology before reuse polishing",
+        "why PFAS treatment should rely on adsorption and or membrane barriers rather than assuming conventional oxidation solves the problem",
+        "why simpler conventional treatment may improve appearance but remains inadequate for industrial reuse from this source"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in PFAS speciation including possible short-chain compounds and precursors",
+        "competitive adsorption and early breakthrough caused by high DOC or sulfate in leachate",
+        "membrane fouling, scaling, and low recovery risk under high TDS and high organic loading",
+        "concentrate and spent media disposal challenges because contaminants are being transferred rather than destroyed",
+        "biological instability or startup delay under emergency conditions and variable salinity or toxicity",
+        "possible transformation-product uncertainty if advanced oxidation is proposed for pesticide control"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

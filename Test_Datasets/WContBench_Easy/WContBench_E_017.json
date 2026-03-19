@@ -1,0 +1,277 @@
+{
+  "case_id": "WContBench_E_017",
+  "case_name": "Diazinon removal from groundwater for municipal drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Diazinon"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "conventional_operation"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for diazinon-contaminated groundwater intended for drinking water supply under moderate cost and conventional operation constraints.",
+  "input_data": {
+    "scenario_background": "A small town operates groundwater wells influenced by nearby agricultural land and has detected diazinon in the raw water. The utility needs a reliable treatment approach to produce drinking water using established, practical technologies that can be run by operators with conventional treatment experience. The source water is otherwise relatively clean groundwater with low turbidity and low natural organic matter, so the main design focus is removal of the pesticide while maintaining stable finished water quality.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.2,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "nitrate_mg_L_as_NO3": 8.4,
+      "sulfate_mg_L": 36,
+      "chloride_mg_L": 24,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.02,
+      "diazinon_ug_L": 2.8
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve robust reduction of diazinon to a level suitable for drinking water supply and maintain consistent potable water quality.",
+      "secondary_goals": [
+        "use proven treatment technology",
+        "keep operation straightforward for a small municipal utility",
+        "avoid unnecessarily high energy demand",
+        "maintain reasonable media or residuals handling requirements"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_changeout_or_backwash_waste_can_be_managed_but_complex_hazardous_residuals_are_not_preferred",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_with_predictable_performance_is_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "prefiltration",
+          "granular_activated_carbon_adsorption",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "remove incidental particles and protect downstream adsorber performance",
+          "granular_activated_carbon_adsorption": "adsorb diazinon and provide the primary barrier for dissolved pesticide removal",
+          "post_disinfection": "ensure microbiological safety in finished drinking water"
+        },
+        "applicability_rationale": [
+          "granular activated carbon is a well-established drinking water treatment option for hydrophobic trace organic compounds including many pesticides",
+          "the groundwater has low turbidity and low DOC, which supports effective GAC adsorption and longer bed life",
+          "the treatment train is compatible with conventional municipal operation and does not require unusually high energy input",
+          "for a single dissolved organic contaminant in otherwise clean groundwater, GAC is a practical and strongly supported mainstream choice"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "GAC breakthrough can occur if empty bed contact time and media replacement frequency are not properly managed",
+          "higher than expected DOC or co-contaminant loading could shorten carbon life",
+          "spent carbon handling and reactivation logistics must be planned"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_gac",
+          "awwa_case_knowledge_for_pesticide_removal_with_activated_carbon",
+          "public_guidance_on_gac_application_for_taste_odor_and_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "prefiltration",
+          "powdered_activated_carbon_contact",
+          "filtration",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "prefiltration": "provide basic particle control and stabilize downstream treatment",
+          "powdered_activated_carbon_contact": "adsorb diazinon during chemical contact period",
+          "filtration": "remove PAC-associated solids and polish water quality",
+          "post_disinfection": "ensure finished water microbiological protection"
+        },
+        "applicability_rationale": [
+          "PAC is a conventional adsorptive option for organic micropollutant control where a flexible chemical dosing approach is desired",
+          "the approach can be implemented using familiar chemical feed and filtration practices at utilities with conventional treatment capability",
+          "it can serve as a feasible alternative where fixed-bed GAC installation is less attractive or where seasonal adjustment is useful"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC performance depends on contact time, dose control, and effective solids separation",
+          "continuous solids generation increases sludge handling requirements compared with fixed-bed GAC",
+          "removal may be less stable than GAC if dosing is not well optimized"
+        ],
+        "evidence_list": [
+          "epa_treatability_guidance_for_activated_carbon_on_organic_contaminants",
+          "conventional_water_treatment_case_examples_using_pac_for_pesticides"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "advanced_oxidation",
+          "biologically_active_or_gac_filtration",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation": "oxidize diazinon and transform it into more biodegradable or more readily polishable compounds",
+          "biologically_active_or_gac_filtration": "remove oxidation byproducts and provide adsorption or biological polishing",
+          "post_disinfection": "maintain drinking water microbial safety"
+        },
+        "applicability_rationale": [
+          "advanced oxidation processes are technically capable of degrading many pesticides and can be effective when adsorption alone is insufficient or when additional safety margin is desired",
+          "pairing oxidation with downstream carbon or biologically active filtration is important to capture transformation products",
+          "this is a credible but somewhat more complex option than direct activated carbon treatment for a straightforward groundwater case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "incomplete oxidation may generate intermediate byproducts that require downstream polishing",
+          "process control for oxidant dose, UV intensity, or peroxide feed is more demanding than basic adsorption systems",
+          "additional monitoring may be needed to verify byproduct management"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_contaminants_in_drinking_water",
+          "water_research_case_knowledge_for_pesticide_degradation_by_uv_h2o2_or_ozone_based_aop"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide physical rejection of dissolved contaminants including many organic micropollutants",
+          "stabilization": "adjust treated water chemistry after membrane treatment",
+          "post_disinfection": "ensure microbiological safety and distribution system protection"
+        },
+        "applicability_rationale": [
+          "pressure membranes can reduce dissolved pesticides and provide a strong multi-contaminant barrier",
+          "the train is technically feasible for diazinon removal but is not the most natural fit when the source water is otherwise relatively clean and only one organic contaminant is the primary issue",
+          "membranes are usually considered when broader salinity or multiple dissolved contaminant control is also needed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management can be difficult for small groundwater systems",
+          "membrane fouling control and integrity monitoring add operational burden",
+          "the process may be unnecessarily intensive relative to the treatment objective"
+        ],
+        "evidence_list": [
+          "drinking_water_membrane_guidance_for_synthetic_organic_contaminant_control",
+          "public_case_examples_of_nf_ro_for_micropollutant_removal"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "filtration",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "attempt removal of volatile compounds by phase transfer to air",
+          "filtration": "provide downstream polishing",
+          "post_disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked comparator because it is a familiar groundwater treatment concept in some contaminant settings",
+          "however diazinon is not a strong candidate for volatilization-based removal, so the mechanism is poorly matched to the contaminant"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "ineffective removal is the main risk because diazinon is not sufficiently volatile for air stripping to be a preferred treatment mechanism",
+          "ranking this option too highly would ignore contaminant-specific treatability",
+          "could create false confidence if selected without bench validation"
+        ],
+        "evidence_list": [
+          "contaminant_property_guidance_indicating_limited_suitability_of_air_stripping_for_nonvolatile_pesticides",
+          "general_groundwater_treatment_knowledge_on_matching_process_selection_to_contaminant_properties"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes should rank at or near the top for diazinon in relatively clean groundwater",
+        "advanced_oxidation may appear as a technically feasible but lower-ranked alternative to direct carbon adsorption",
+        "high_pressure_membranes should not rank first under moderate cost and conventional operation constraints",
+        "air_stripping_or_other_mismatched_processes should rank last"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven drinking water technologies for pesticide removal",
+        "moderate operational capability of a small municipal groundwater utility",
+        "avoidance of unnecessarily complex or high-energy systems when adsorption can address the contaminant"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for hydrophobic organic pesticide removal",
+        "why low turbidity and low DOC groundwater supports adsorption-based treatment",
+        "why advanced oxidation needs downstream polishing and greater process control",
+        "why membrane options rank lower under the stated constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon breakthrough and media replacement planning",
+        "competition from natural organic matter or other organics for adsorption sites",
+        "possible oxidation byproducts when advanced oxidation is used",
+        "concentrate disposal burden for membrane treatment"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

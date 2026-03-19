@@ -1,0 +1,304 @@
+{
+  "case_id": "WContBench_M_070",
+  "case_name": "Brackish groundwater polishing for recharge with mixed VOC and trace pharmaceutical constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Ibuprofen",
+      "Methyl tert-butyl ether",
+      "Cis-1,2-dichloroethylene"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "strict_effluent_limit",
+      "space_limitation",
+      "moderate_cost_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of treatment process chains for brackish groundwater containing ibuprofen, MTBE, and cis-1,2-dichloroethylene intended for groundwater recharge under strict effluent, footprint, and moderate cost constraints.",
+  "input_data": {
+    "scenario_background": "A coastal inland-basin utility plans to recover impacted brackish groundwater and use the treated water for managed aquifer recharge near drinking-water supply wells. The source contains a mixed contaminant profile: a highly volatile oxygenate (MTBE), a chlorinated solvent daughter product (cis-1,2-dichloroethylene), and a trace pharmaceutical (ibuprofen), while salinity is elevated but not the primary compliance driver. The regulator has imposed very low recharge limits for the organic contaminants and requires a robust process with limited site footprint. Several treatment routes are technically feasible, but the preferred option must balance removal certainty, compactness, operating burden, and residuals handling rather than simply maximizing contaminant rejection.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.5,
+      "temperature_C": 19.0,
+      "turbidity_NTU": 1.3,
+      "DOC_mg_L": 2.9,
+      "TOC_mg_L": 3.4,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 280,
+      "TDS_mg_L": 2380,
+      "conductivity_uS_cm": 3720,
+      "chloride_mg_L": 740,
+      "sulfate_mg_L": 310,
+      "nitrate_mg_L_as_N": 2.1,
+      "ammonia_mg_L_as_N": 0.08,
+      "iron_mg_L": 0.22,
+      "manganese_mg_L": 0.04,
+      "target_contaminants": {
+        "ibuprofen_ug_L": 6.8,
+        "methyl_tert_butyl_ether_ug_L": 82.0,
+        "cis_1_2_dichloroethylene_ug_L": 18.0
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should reliably achieve very low organic contaminant concentrations suitable for protective groundwater recharge permitting, with strong compliance confidence for MTBE, cis-1,2-dichloroethylene, and ibuprofen.",
+      "secondary_goals": [
+        "minimize treatment footprint on a constrained wellfield site",
+        "avoid unnecessary desalination if not needed for permit compliance",
+        "maintain manageable O&M for municipal field staff",
+        "limit difficult residual or concentrate disposal obligations"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "medium",
+      "residuals_management": "prefer minimal hazardous residual generation and avoid large brine concentrate streams",
+      "footprint_constraint": "high",
+      "robustness_requirement": "must maintain compliance despite moderate influent variability and seasonal pumping changes"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pretreatment_filtration",
+          "packed_tower_aeration",
+          "vapor_phase_gac_offgas_control",
+          "liquid_phase_gac_polishing"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "remove particulates and protect downstream stripping and adsorption equipment",
+          "packed_tower_aeration": "strip volatile contaminants such as MTBE and cis-1,2-dichloroethylene from brackish groundwater",
+          "vapor_phase_gac_offgas_control": "capture stripped volatile organics from air emissions",
+          "liquid_phase_gac_polishing": "polish residual MTBE and cis-1,2-dichloroethylene and adsorb ibuprofen for low final effluent concentrations"
+        },
+        "applicability_rationale": [
+          "the contaminant mix contains two compounds with meaningful volatility, making air stripping an efficient bulk-removal step for MTBE and cis-1,2-dichloroethylene",
+          "adding liquid-phase GAC addresses the less volatile trace pharmaceutical and provides polishing needed for strict recharge limits",
+          "this train is more compact than a full advanced oxidation plus biological polishing system and avoids desalination concentrate management",
+          "for brackish groundwater, elevated TDS does not strongly penalize stripping or adsorption performance compared with membrane-based options",
+          "the combined train balances strong compliance confidence with moderate cost and manageable municipal O&M"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "MTBE stripping efficiency can be lower than for more volatile chlorinated solvents, so tower design and polishing capacity must be conservative",
+          "spent GAC replacement or reactivation planning is required",
+          "air permitting and off-gas control are necessary to avoid transferring contamination to the atmosphere",
+          "ibuprofen adsorption performance can decline if DOC increases materially"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_air_stripping_for_VOC_removal_in_groundwater",
+          "EPA_drinking_water_treatability_resources_for_MTBE_and_chlorinated_solvents",
+          "public_case_knowledge_on_GAC_polishing_for_trace_organics_and_pharmaceuticals",
+          "state_recharge_permitting_practice_emphasizing_multibarrier_control_of_volatile_and_semivolatile_organics"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pretreatment_filtration",
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "biologically_active_gac"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "remove solids and improve UV transmittance reliability",
+          "uv_hydrogen_peroxide_advanced_oxidation": "oxidize MTBE, cis-1,2-dichloroethylene, and ibuprofen and reduce trace organics to lower levels",
+          "biologically_active_gac": "remove oxidation byproducts, provide residual adsorption capacity, and stabilize effluent quality"
+        },
+        "applicability_rationale": [
+          "AOP is one of the more technically comprehensive options for this mixed contaminant set, especially when very low recharge limits drive need for aggressive polishing",
+          "the process has a compact footprint relative to large biological reactor systems and can address contaminants that are not all equally amenable to a single physical separation step",
+          "post-BAC helps manage partially oxidized intermediates and improves compliance robustness",
+          "this route becomes attractive where site footprint is critical and the utility can support moderate-to-higher process control requirements"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher energy and chemical demand than stripping plus GAC",
+          "oxidation byproduct control and UV transmittance monitoring require more operator attention",
+          "halide-containing brackish water can complicate AOP performance and byproduct considerations",
+          "insufficient downstream biological or carbon polishing could leave residual transformation products"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_uv_hydrogen_peroxide_AOP_for_groundwater_contaminants",
+          "public_water_reuse_guidance_on_AOP_plus_BAC_for_trace_organic_control",
+          "engineering_case_knowledge_for_MTBE_treatment_using_AOP",
+          "pharmaceutical_removal_references_for_AOP_and_biologically_active_carbon"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pretreatment_filtration",
+          "liquid_phase_gac_lead_lag"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "protect carbon beds from solids loading",
+          "liquid_phase_gac_lead_lag": "adsorb ibuprofen and provide polishing for MTBE and cis-1,2-dichloroethylene with staged breakthrough control"
+        },
+        "applicability_rationale": [
+          "lead-lag GAC is operationally straightforward and avoids air emissions and high-pressure concentrate management",
+          "the process footprint can be moderate if vessel design is compact and vertical",
+          "GAC is particularly reasonable for the trace pharmaceutical and can contribute to VOC polishing",
+          "this route may appeal when the utility prioritizes simpler operation over maximum process intensity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MTBE has relatively poor adsorption compared with many other organics, which can cause rapid breakthrough and large carbon usage",
+          "cis-1,2-dichloroethylene removal by GAC alone may be less robust for strict low-level recharge targets",
+          "high compliance certainty may require frequent monitoring and conservative bed replacement",
+          "spent carbon handling remains necessary"
+        ],
+        "evidence_list": [
+          "EPA_treatability_guidance_for_GAC_on_organic_contaminants_in_groundwater",
+          "public_case_knowledge_showing_limitations_of_GAC_for_MTBE_relative_to_other_VOCs",
+          "pharmaceutical_adsorption_references_for_ibuprofen_on_activated_carbon"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "air_stripping",
+          "vapor_phase_gac_offgas_control",
+          "membrane_bioreactor"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "remove solids and protect downstream units",
+          "air_stripping": "remove the volatile fraction, especially cis-1,2-dichloroethylene and part of MTBE",
+          "vapor_phase_gac_offgas_control": "control stripped emissions",
+          "membrane_bioreactor": "biodegrade ibuprofen and remaining biodegradable organic fractions while producing a compact clarified effluent"
+        },
+        "applicability_rationale": [
+          "this hybrid route can technically address the mixed contaminant profile while maintaining a relatively small hydraulic footprint through membrane separation",
+          "biological treatment can be effective for ibuprofen and some residual organics after stripping lowers VOC loading",
+          "the configuration may be selected when a utility favors biological polishing over larger carbon consumption"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "process control is materially more complex than adsorption-only or stripping-plus-polishing systems",
+          "biological systems may be less predictable for sustained MTBE polishing unless specifically acclimated and carefully managed",
+          "membrane fouling, sludge wasting, and nutrient balance add O&M burden",
+          "cold-water or variable loading can reduce biodegradation robustness"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_biological_treatment_and_membrane_bioreactors_for_groundwater_or_reuse_polishing",
+          "public_case_knowledge_on_ibuprofen_biodegradation_in_biological_systems",
+          "MTBE_biodegradation_case_references_showing_need_for_process_control_and_acclimation"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment",
+          "reverse_osmosis",
+          "uv_advanced_oxidation_post_polish"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect membranes from fouling and scaling",
+          "reverse_osmosis": "remove dissolved salts and reject a broad range of dissolved organic contaminants",
+          "uv_advanced_oxidation_post_polish": "polish low-molecular-weight organics and provide additional barrier against residual contaminants"
+        },
+        "applicability_rationale": [
+          "this route is technically capable and offers broad-spectrum treatment, especially if future salinity limits become more stringent",
+          "a compact skid-based layout can fit space-constrained sites",
+          "it provides a high-barrier approach when regulators or stakeholders demand highly engineered treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine concentrate management is strongly misaligned with the stated residuals constraint",
+          "RO is not the most economical first-choice for this case because salinity is elevated but not the main recharge compliance driver",
+          "high-pressure membrane operation, antiscalant management, and cleaning increase operator burden",
+          "post-RO AOP may still be required for very low trace-organic targets, increasing complexity further"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_reverse_osmosis_for_brackish_groundwater_treatment",
+          "water_reuse_guidance_noting_concentrate_management_as_a_key_constraint_for_RO",
+          "public_references_on_multibarrier_membrane_plus_AOP_systems_for_high_quality_reuse_water"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid VOC-focused plus polishing trains should rank near the top",
+        "AOP-based treatment should appear as a strong but not necessarily first-ranked compact alternative",
+        "GAC-only treatment should not rank first because MTBE and strict limits challenge adsorption-only performance",
+        "RO-based treatment should appear as technically capable but downgraded by concentrate and cost misalignment"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "strict low effluent targets for groundwater recharge require multibarrier reliability rather than single-step optimistic removal claims",
+        "high footprint pressure should favor compact trains over large conventional biological systems",
+        "moderate cost and residual constraints should penalize full desalination approaches when salinity is not the primary compliance driver"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why air stripping is relevant for MTBE and cis-1,2-dichloroethylene but insufficient alone for ibuprofen",
+        "why AOP can be attractive for mixed trace-organic control under strict limits but carries higher energy and operational burden",
+        "why brine concentrate handling causes RO to rank lower despite strong technical capability",
+        "why GAC-only treatment is weaker for MTBE-dominant compliance assurance"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "off-gas management for stripping systems",
+        "transformation products or byproducts from advanced oxidation",
+        "breakthrough or media replacement risk for carbon systems",
+        "concentrate disposal burden for membrane systems"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "case_id": "WContBench_M_076",
+  "case_name": "Potable reuse from contaminated surface water with ricin barrier needs and lithium control under high-recovery limits",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Ricin",
+      "Lithium"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface-water-derived potable reuse challenged by ricin and lithium, balancing pathogen/toxin barrier performance with lithium reduction, high recovery, and constrained concentrate handling.",
+  "input_data": {
+    "scenario_background": "A utility is upgrading an advanced water purification facility that blends highly treated municipal effluent with an impaired surface water source during drought periods for indirect potable reuse. Monitoring has identified a low-level ricin-related contamination concern requiring robust toxin and bioburden barriers, while lithium is persistently elevated enough to trigger a local finished-water target. Several routes are technically capable, but the utility must maintain very high water recovery and has limited options for managing large membrane concentrate volumes, creating a trade-off between broad contaminant rejection and residuals burden.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "turbidity_NTU": 8.4,
+      "DOC_mg_L": 6.8,
+      "TOC_mg_L": 8.1,
+      "UV254_cm_1": 0.165,
+      "alkalinity_mg_L_as_CaCO3": 112,
+      "hardness_mg_L_as_CaCO3": 146,
+      "conductivity_uS_cm": 980,
+      "TDS_mg_L": 620,
+      "ammonia_mg_L_as_N": 0.38,
+      "nitrate_mg_L_as_N": 4.7,
+      "sulfate_mg_L": 74,
+      "chloride_mg_L": 96,
+      "silica_mg_L_as_SiO2": 12.5,
+      "temperature_C": 19.3,
+      "target_contaminants": {
+        "ricin_ug_L": 0.35,
+        "lithium_mg_L": 1.4
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should provide a robust multi-barrier potable reuse train with effectively non-detect ricin risk and lithium reduced to a locally imposed operational target below 0.2 mg/L while sustaining stable compliance.",
+      "secondary_goals": [
+        "maximize overall water recovery",
+        "minimize difficult concentrate disposal volume",
+        "maintain defensible multiple barriers for acute toxin incidents",
+        "control DBP precursor carryover and fouling risk"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "concentrate handling capacity is limited; avoid large brine volumes and options requiring difficult off-site hazardous liquid residual management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "train must tolerate seasonal surface water quality swings and provide resilient barriers during short-term contamination spikes"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ozonation_or_biologically_active_oxidation",
+          "ultrafiltration",
+          "high_recovery_reverse_osmosis",
+          "uv_advanced_oxidation",
+          "permeate_stabilization",
+          "small_volume_brine_crystallization_or_zld_management"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulates and reduce organic loading to protect downstream advanced treatment",
+          "ozonation_or_biologically_active_oxidation": "decrease fouling precursors and improve overall treatment robustness",
+          "ultrafiltration": "provide a strong particulate and macromolecule barrier including ricin-associated solids or aggregates",
+          "high_recovery_reverse_osmosis": "achieve primary lithium rejection and broad dissolved contaminant reduction at optimized recovery",
+          "uv_advanced_oxidation": "add an additional advanced potable reuse barrier for trace organics and overall process redundancy",
+          "permeate_stabilization": "adjust finished water chemistry for distribution or recharge compatibility",
+          "small_volume_brine_crystallization_or_zld_management": "manage the reduced but still present concentrate stream under constrained disposal conditions"
+        },
+        "applicability_rationale": [
+          "lithium is a small monovalent ion that is not effectively removed by conventional clarification or adsorption, making reverse osmosis the most defensible core step for meeting the sub-0.2 mg/L target",
+          "ricin is a protein toxin for which a multi-barrier train with solids removal, membrane separation, and downstream advanced treatment is appropriate for potable reuse risk management",
+          "a high-recovery RO design with strong pretreatment best balances lithium compliance against the stated need to limit concentrate volume rather than simply maximizing rejection with conventional lower-recovery RO",
+          "this route is expensive and operationally significant, but it offers the strongest compliance margin for both contaminants in one integrated train"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "even optimized high-recovery RO still generates a brine stream that requires careful management",
+          "lithium rejection can vary with membrane selection, recovery, and temperature, so pilot confirmation is needed",
+          "surface water organic matter and scaling species can constrain recovery if pretreatment is unstable",
+          "capital and operator competency requirements are substantial"
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_supporting_multi_barrier_trains_with_membranes_and_uv_aop",
+          "desalination_case_knowledge_for_lithium_as_a_small_monovalent_ion_best_controlled_by_ro",
+          "public_water_reuse_practice_for_high_recovery_ro_with_advanced_pretreatment",
+          "surface_water_to_reuse_guidance_on_uf_ro_uv_aop_barrier_design"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "powdered_activated_carbon",
+          "ultrafiltration",
+          "electrodialysis_reversal",
+          "uv_disinfection",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce suspended solids and part of the organic load",
+          "powdered_activated_carbon": "provide an added adsorptive safety factor for organic toxin-related material and taste-odor precursors",
+          "ultrafiltration": "serve as a robust barrier for particles and protein-associated contaminants",
+          "electrodialysis_reversal": "remove dissolved ions including lithium with potentially higher water recovery than RO for some feed waters",
+          "uv_disinfection": "provide disinfection and additional reuse barrier support",
+          "stabilization": "adjust chemistry after desalting"
+        },
+        "applicability_rationale": [
+          "electrodialysis-based desalting can be attractive where high water recovery and reduced hydraulic concentrate volume are more important than maximizing rejection of every dissolved constituent",
+          "the concentrate stream from EDR is often smaller and operationally different from RO brine, which can better align with the concentrate handling constraint",
+          "UF plus PAC provides a credible front-end barrier approach for ricin-related concerns while lowering fouling risk to ion-selective desalting equipment",
+          "this route ranks below RO because lithium removal to a stringent finished-water target is less universally demonstrated and more water-matrix dependent than with RO"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "lithium removal may be insufficient to reliably achieve below 0.2 mg/L without careful staging or polishing",
+          "EDR performance is sensitive to scaling control and membrane stack management",
+          "PAC solids handling adds residual management duties",
+          "ricin destruction is not the primary role of this train, so reliance is on barrier removal and upstream control"
+        ],
+        "evidence_list": [
+          "electrodialysis_reversal_guidance_for_high_recovery_brackish_water_desalting",
+          "potable_reuse_guidance_for_membrane_barriers_and_uv_disinfection",
+          "public_case_knowledge_on_pac_and_uf_as_robust_surface_water_pretreatment",
+          "emerging_contaminants_monitoring_case_knowledge_highlighting_lithium_as_a_relevant_dissolved_constituent"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "enhanced_coagulation",
+          "ultrafiltration",
+          "nanofiltration",
+          "uv_advanced_oxidation",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "enhanced_coagulation": "reduce natural organic matter and particulate load",
+          "ultrafiltration": "protect downstream membranes and provide particulate/protein barrier removal",
+          "nanofiltration": "partially remove dissolved ions and organic contaminants with lower pressure than RO",
+          "uv_advanced_oxidation": "provide an advanced oxidation barrier and potable reuse polishing step",
+          "stabilization": "adjust product water quality"
+        },
+        "applicability_rationale": [
+          "nanofiltration offers a plausible compromise route when the utility wants some dissolved contaminant reduction with lower pressure and potentially better energy performance than RO",
+          "UF plus NF plus UV-AOP forms a defensible reuse-oriented barrier train for ricin-related concerns",
+          "this option ranks lower because lithium, as a small monovalent ion, is often only modestly rejected by NF relative to RO, making attainment of a stringent lithium target uncertain",
+          "it is technically capable for overall water quality improvement but misaligned with the lithium-specific effluent requirement"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "lithium breakthrough is the central compliance risk",
+          "NF still produces concentrate, though often somewhat less severe than full RO systems",
+          "high DOC surface water can drive fouling if coagulation control is inconsistent",
+          "utility may need a polishing step or blending restrictions if lithium target is strict"
+        ],
+        "evidence_list": [
+          "nanofiltration_guidance_noting_limited_rejection_of_small_monovalent_ions_relative_to_ro",
+          "surface_water_pretreatment_guidance_for_enhanced_coagulation_and_uf_before_membranes",
+          "potable_reuse_uv_aop_guidance_for_polishing_and_redundant_barriers"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "granular_activated_carbon_biological_filtration",
+          "ultrafiltration",
+          "uv_advanced_oxidation",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and a portion of organic matter",
+          "granular_activated_carbon_biological_filtration": "adsorb and biologically polish dissolved organic matter and improve overall water quality",
+          "ultrafiltration": "provide a physical barrier for particles and macromolecules including proteinaceous contaminants",
+          "uv_advanced_oxidation": "add advanced oxidation and reuse polishing",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "this non-concentrate route aligns very well with the high-recovery and concentrate-management constraints because it avoids brine generation",
+          "for ricin-related concerns, clarification, GAC biofiltration, UF, and UV-AOP create multiple barriers and are operationally familiar in many reuse settings",
+          "it ranks below membrane-desalting options because lithium removal is expected to be poor; conventional adsorption and oxidation are not reliable primary controls for dissolved lithium",
+          "this option is attractive only if the lithium target were relaxed or managed by source control rather than treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "finished water lithium is likely to remain near influent levels",
+          "GAC replacement or reactivation logistics still require planning",
+          "ricin oxidation efficacy in full-scale practice is less straightforward than established microbial inactivation metrics, so barrier credit must be conservatively assigned",
+          "seasonal DOC spikes may shorten carbon life"
+        ],
+        "evidence_list": [
+          "conventional_surface_water_treatment_guidance_for_coagulation_filtration_and_gac_biofiltration",
+          "potable_reuse_guidance_for_uf_and_uv_aop_as_advanced_barriers",
+          "public_water_chemistry_knowledge_that_lithium_is_not_effectively_removed_by_standard_adsorptive_or_clarification_steps"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "dual_pass_reverse_osmosis",
+          "uv_advanced_oxidation",
+          "stabilization",
+          "evaporation_pond_or_offsite_brine_disposal"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and membrane foulants",
+          "ultrafiltration": "provide robust pretreatment and macromolecule removal",
+          "dual_pass_reverse_osmosis": "maximize dissolved contaminant rejection including lithium",
+          "uv_advanced_oxidation": "provide advanced reuse polishing and redundancy",
+          "stabilization": "restore suitable finished water chemistry",
+          "evaporation_pond_or_offsite_brine_disposal": "manage the larger concentrate stream from conservative membrane operation"
+        },
+        "applicability_rationale": [
+          "this route is technically the most aggressive dissolved contaminant control option and could provide the greatest lithium reduction margin",
+          "it is intentionally ranked low because it conflicts with the case constraints: dual-pass RO generally lowers net recovery, increases energy demand, and worsens concentrate handling burden",
+          "while highly capable on treatment performance, it is a poor strategic fit where water recovery is a priority and brine management options are limited",
+          "it serves as a technically capable but constraint-misaligned alternative"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "large brine volume and disposal cost may be prohibitive",
+          "recovery losses conflict with drought-resilience objectives",
+          "high scaling and fouling control demands increase operator burden",
+          "project may be difficult to permit or sustain economically"
+        ],
+        "evidence_list": [
+          "advanced_potable_reuse_case_knowledge_on_dual_pass_ro_for_high_purity_water",
+          "desalination_guidance_on_tradeoffs_between_high_rejection_and_brine_management",
+          "public_guidance_that_concentrate_handling_is_a_major_constraint_for_high_pressure_membrane_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "RO-based trains should appear near the top because lithium control is the decisive dissolved-contaminant challenge",
+        "A high-recovery or reduced-brine desalting route should outrank more brute-force low-recovery membrane options",
+        "Non-concentrate conventional trains may appear as plausible alternatives for ricin barriers but should rank lower because they do not reliably remove lithium",
+        "At least one technically strong membrane option should rank lower due to poor fit with water-recovery and concentrate constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high water recovery is a major decision driver rather than only contaminant removal efficiency",
+        "concentrate handling limitations should downgrade otherwise strong membrane options",
+        "potable reuse requires multiple barriers and not only a single contaminant-specific unit process"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why lithium is difficult to remove without desalting-type processes",
+        "why ricin as a protein toxin supports strong physical barrier and advanced treatment logic in potable reuse",
+        "why high-recovery RO or alternative high-recovery desalting can be favored over conventional lower-recovery high-rejection systems",
+        "why adsorption and conventional clarification routes are not sufficient primary lithium controls"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "concentrate or brine disposal burden",
+        "lithium rejection uncertainty by technology",
+        "fouling and scaling risk under surface water variability",
+        "need for conservative barrier credit for acute toxin incidents"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

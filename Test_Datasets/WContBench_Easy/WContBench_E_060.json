@@ -1,0 +1,290 @@
+{
+  "case_id": "WContBench_E_060",
+  "case_name": "Conventional treatment selection for Vibrio cholerae risk in turbid surface water for municipal drinking supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "V. cholerae"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "stable_operation_required"
+    ],
+    "pollution_pattern": "primary_contaminant_with_matrix_effects"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface water containing Vibrio cholerae risk and moderate turbidity, intended for drinking water production.",
+  "input_data": {
+    "scenario_background": "A municipal utility draws raw water from a river that experiences periodic fecal contamination and elevated microbial risk during warm seasons and after rainfall. Recent source-water surveillance indicates the presence of Vibrio cholerae, while the utility needs a robust and proven treatment approach suitable for routine drinking water production. The plant can support conventional clarification and filtration, but prefers moderate cost and stable operation rather than advanced high-energy systems.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "temperature_C": 27.0,
+      "pH": 7.6,
+      "turbidity_NTU": 18.5,
+      "DOC_mg_L": 4.8,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "TOC_mg_L": 5.6,
+      "UV254_cm_1": 0.126,
+      "TSS_mg_L": 24,
+      "ammonia_mg_L_as_N": 0.18,
+      "chloride_mg_L": 28,
+      "sulfate_mg_L": 34,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 410,
+      "fecal_coliform_CFU_100mL": 2400,
+      "e_coli_CFU_100mL": 620,
+      "vibrio_cholerae_detected": true,
+      "vibrio_cholerae_estimated_CFU_100mL": 75
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable pathogen control for drinking water production, including effective removal and inactivation of Vibrio cholerae, while meeting turbidity and disinfection performance expectations for conventional potable water treatment.",
+      "secondary_goals": [
+        "use proven municipal treatment technology",
+        "maintain stable operation under variable raw-water turbidity",
+        "limit energy demand to moderate levels",
+        "provide a disinfectant residual in distribution"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "clarifier_and_filter_backwash_sludge_handling_available_but_not_for_complex_concentrate_streams",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_required_under_seasonal_source_water_variation"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "chlorine_disinfection_with_contact_time"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize colloids and particle-associated microorganisms to improve clarification",
+          "flocculation": "form settleable flocs that capture suspended solids and bacteria",
+          "sedimentation": "remove bulk flocculated solids and reduce pathogen load before filtration",
+          "rapid_sand_filtration": "polish turbidity and provide additional physical removal of microorganisms",
+          "chlorine_disinfection_with_contact_time": "inactivate Vibrio cholerae and maintain a protective disinfectant residual in distribution"
+        },
+        "applicability_rationale": [
+          "Vibrio cholerae is readily controlled by established drinking water disinfection when preceded by effective turbidity removal",
+          "surface water with moderate turbidity and organic matter is well suited to conventional clarification plus filtration",
+          "this train is the standard, proven municipal approach for pathogen-risk surface waters",
+          "chlorination provides both primary disinfection and a distribution residual, which is important for cholera prevention"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "poor coagulation control can leave elevated turbidity and shield microorganisms from disinfection",
+          "high chlorine demand from organics can reduce effective CT unless dosing is adjusted",
+          "disinfection by-product formation must be monitored when chlorinating organic-bearing surface water"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_drinking_water_treatment_and_cholera_prevention",
+          "EPA_surface_water_treatment_rule_pathogen_barrier_framework",
+          "conventional_surface_water_treatment_case_knowledge_for_bacterial_pathogen_control"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "UV_disinfection",
+          "chlorine_residual_post_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "reduce suspended matter and particle-associated microbial loading",
+          "flocculation": "aggregate destabilized particles into removable flocs",
+          "sedimentation": "separate settled floc and lower downstream solids burden",
+          "rapid_sand_filtration": "achieve low finished turbidity needed for effective UV and final disinfection reliability",
+          "UV_disinfection": "provide strong primary inactivation of bacteria including Vibrio cholerae",
+          "chlorine_residual_post_disinfection": "maintain residual protection in storage and distribution"
+        },
+        "applicability_rationale": [
+          "UV is highly effective for bacterial inactivation when pretreatment achieves low turbidity",
+          "adding post-chlorination preserves residual protection that UV alone cannot provide",
+          "this train remains robust and proven, though slightly more complex than chlorination alone",
+          "it is attractive where stronger primary disinfection is desired while still using a conventional front end"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "UV performance declines if filtered water turbidity or UV transmittance is poor",
+          "loss of UV lamp intensity or fouling requires routine maintenance and monitoring",
+          "post-chlorine dosing is still needed to maintain distribution residual"
+        ],
+        "evidence_list": [
+          "WHO_guidance_for_combined_filtration_and_disinfection_in_drinking_water",
+          "EPA_UV_disinfection_guidance_manual_for_pathogen_inactivation",
+          "public_health_case_knowledge_on_residual_chlorination_for_distribution_system_protection"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "roughing_or_presolve_screening",
+          "slow_sand_filtration",
+          "chlorine_disinfection_with_contact_time"
+        ],
+        "core_unit_functions": {
+          "roughing_or_presolve_screening": "reduce larger suspended solids load before low-rate filtration",
+          "slow_sand_filtration": "provide biological and physical removal of turbidity and microorganisms",
+          "chlorine_disinfection_with_contact_time": "deliver final bacterial inactivation and a residual barrier in distribution"
+        },
+        "applicability_rationale": [
+          "slow sand filtration is a well-established low-energy pathogen control option for surface water",
+          "it can perform well for bacterial reduction when raw-water solids are not extreme or are moderated upstream",
+          "chlorination after filtration adds a final barrier and residual protection against cholera transmission",
+          "this option is proven but more footprint-intensive and less flexible for variable higher turbidity events than conventional clarification"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "surface water turbidity spikes can overwhelm slow sand operation without adequate pretreatment or ripening control",
+          "large land area may be needed",
+          "filter scraping and biological layer management require disciplined operation"
+        ],
+        "evidence_list": [
+          "WHO_household_and_community_safe_water_guidance_on_slow_sand_filtration",
+          "engineering_case_knowledge_for_slow_sand_plus_chlorination_in_bacterial_risk_surface_waters"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "microfiltration_or_ultrafiltration",
+          "chlorine_disinfection_with_contact_time"
+        ],
+        "core_unit_functions": {
+          "microfiltration_or_ultrafiltration": "provide strong particulate and bacteria removal as a physical barrier",
+          "chlorine_disinfection_with_contact_time": "supply final inactivation backup and maintain a disinfectant residual"
+        },
+        "applicability_rationale": [
+          "membrane filtration can effectively remove bacteria and reduce turbidity to very low levels",
+          "post-chlorination still supports residual protection in the distribution system",
+          "the process can be technically strong for microbial control but is less preferred here because the case emphasizes moderate cost and stable conventional operation",
+          "it is more likely to be chosen where a compact footprint or multiple treatment objectives justify the added complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "membrane fouling can increase cleaning frequency and operational burden",
+          "higher capital and maintenance requirements than conventional clarification and filtration",
+          "pretreatment may still be needed during high solids events to protect membranes"
+        ],
+        "evidence_list": [
+          "EPA_membrane_filtration_guidance_for_surface_water_treatment",
+          "public_case_knowledge_on_membrane_barriers_for_microbial_drinking_water_protection"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "direct_chlorination_only"
+        ],
+        "core_unit_functions": {
+          "direct_chlorination_only": "attempt inactivation of Vibrio cholerae without prior physical solids removal"
+        },
+        "applicability_rationale": [
+          "chlorine is effective against Vibrio cholerae under favorable water quality conditions",
+          "however, for this surface water matrix with moderate turbidity and organics, disinfection alone is not the best-supported primary municipal treatment strategy",
+          "lack of clarification and filtration reduces robustness and creates vulnerability to microbial shielding and variable chlorine demand"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "suspended solids can protect bacteria from disinfectant contact",
+          "chlorine demand may be unstable due to organics and particulate matter",
+          "finished water turbidity goals and multi-barrier expectations for surface water are not adequately addressed"
+        ],
+        "evidence_list": [
+          "WHO_guidance_emphasizing_multi_barrier_drinking_water_treatment",
+          "EPA_surface_water_treatment_rule_requirements_for_filtration_or_equivalent_pathogen_control"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional clarification_filtration_plus_chlorine_disinfection should rank first",
+        "options that retain a distribution disinfectant residual should rank above disinfection-only nonresidual approaches",
+        "higher-energy membrane options should not rank above proven conventional treatment under moderate constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven municipal surface-water treatment processes",
+        "moderate capital and operating cost limitations",
+        "stable operation under seasonal turbidity variation",
+        "avoidance of unnecessarily complex high-energy solutions as the top recommendation"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "the importance of turbidity and particle removal before final disinfection",
+        "why chlorination is relevant for Vibrio cholerae control and distribution residual maintenance",
+        "why a multi-barrier conventional process is more appropriate than chlorination alone for surface water",
+        "why membrane approaches rank lower despite technical effectiveness"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "microbial shielding by suspended solids",
+        "chlorine demand and disinfectant residual management",
+        "disinfection by-product considerations in organic-bearing surface water",
+        "operational vulnerability during raw-water quality spikes"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

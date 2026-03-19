@@ -1,0 +1,310 @@
+{
+  "case_id": "WContBench_M_057",
+  "case_name": "Reservoir water pesticide-aromatic contaminant treatment for groundwater recharge under cost and low-complexity constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "reservoir_water",
+    "contaminant_type": [
+      "Permethrin",
+      "Tebufenozide",
+      "Nitrobenzene"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for reservoir water containing hydrophobic pesticides and nitrobenzene intended for groundwater recharge while balancing cost, operational simplicity, residuals handling, and reliable effluent quality.",
+  "input_data": {
+    "scenario_background": "A regional water utility plans to divert seasonally impacted reservoir water to an aquifer recharge basin during dry months. Monitoring shows low-to-moderate natural organic matter, episodic algae, and a mixed contaminant profile consisting of pyrethroid and insect growth regulator pesticides plus nitrobenzene from mixed agricultural and industrial runoff. Several treatment routes are technically capable, but the utility has limited staff, wants to avoid difficult concentrate or hazardous residuals management, and must still achieve stable recharge water quality with reasonable lifecycle cost.",
+    "water_quality": {
+      "source_type": "reservoir_water",
+      "pH": 7.6,
+      "temperature_C": 19.4,
+      "turbidity_NTU": 7.8,
+      "color_PCU": 18,
+      "DOC_mg_L": 4.3,
+      "TOC_mg_L": 5.1,
+      "UV254_cm_1": 0.112,
+      "alkalinity_mg_L_as_CaCO3": 96,
+      "hardness_mg_L_as_CaCO3": 118,
+      "conductivity_uS_cm": 412,
+      "TSS_mg_L": 11,
+      "ammonia_mg_L_as_N": 0.14,
+      "nitrate_mg_L_as_N": 1.8,
+      "orthophosphate_mg_L_as_P": 0.06,
+      "permethrin_ug_L": 0.42,
+      "tebufenozide_ug_L": 1.6,
+      "nitrobenzene_ug_L": 14.5,
+      "chlorophyll_a_ug_L": 17
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for managed aquifer recharge with reliable reduction of the target organic contaminants and stable low-turbidity effluent appropriate for recharge basin operation and permit compliance.",
+      "secondary_goals": [
+        "minimize operator attention and process complexity",
+        "avoid difficult concentrate or hazardous residual streams where possible",
+        "maintain reasonable lifecycle cost for seasonal operation",
+        "reduce fouling and clogging risk at recharge facilities"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low",
+      "residuals_management": "avoid_high_difficulty_concentrate_disposal_and_minimize_hazardous_spent_media_generation",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system_should_tolerate_seasonal_turbidity_and_algal_variation_without_highly_specialized_oversight"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "managed_recharge_disinfection_as_needed"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids, algae, and a portion of organic matter to stabilize downstream performance",
+          "dual_media_filtration": "polish particulates and lower clogging risk for GAC and recharge basins",
+          "granular_activated_carbon": "adsorb hydrophobic pesticides and nitrobenzene while also buffering moderate DOC effects",
+          "managed_recharge_disinfection_as_needed": "provide biological risk control where permit conditions require before recharge"
+        },
+        "applicability_rationale": [
+          "the contaminant mixture is well suited to adsorption, especially for hydrophobic compounds such as permethrin and tebufenozide, while GAC can also control nitrobenzene with adequate bed contact time",
+          "front-end solids and algae removal is important for reservoir water to protect the adsorber and maintain reliable run times",
+          "this train balances treatment reliability with relatively familiar unit processes and lower operator burden than membrane or advanced oxidation intensive systems",
+          "spent carbon management is generally more manageable than membrane concentrate disposal under the stated residuals constraint",
+          "the process also supports recharge basin operability by reducing turbidity and particulate loading"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "DOC competition can shorten GAC bed life if coagulation performance is inconsistent",
+          "seasonal algal episodes may increase headloss and require closer backwash management",
+          "spent carbon replacement or reactivation logistics still need planning"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_granular_activated_carbon_for_synthetic_organic_chemical_control",
+          "AWWA_case_knowledge_for_conventional_treatment_followed_by_GAC_on_surface_water",
+          "managed_aquifer_recharge_operational_guidance_emphasizing_low_turbidity_and_low_clogging_feedwater"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "biologically_active_filtration",
+          "managed_recharge_disinfection_as_needed"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended matter and reduce organic loading",
+          "dual_media_filtration": "provide particulate polishing and stabilize downstream contact processes",
+          "powdered_activated_carbon_contact": "adsorb pesticides and nitrobenzene with flexible seasonal dose adjustment",
+          "biologically_active_filtration": "capture PAC carryover, polish biodegradable organics, and improve recharge feed quality",
+          "managed_recharge_disinfection_as_needed": "meet microbiological control expectations for recharge operation if required"
+        },
+        "applicability_rationale": [
+          "PAC offers operational flexibility for seasonal contaminant spikes without constructing large fixed adsorber vessels",
+          "the route can be attractive where contamination is intermittent and the utility wants to dose treatment only during impacted periods",
+          "biological filtration downstream can help maintain low particulate and assimilable organic content for recharge applications",
+          "this option is plausible and can be cost-competitive in some seasonal-use settings, but solids handling and dose optimization increase routine operational demands compared with fixed-bed GAC"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC sludge production increases residuals handling burden",
+          "performance depends strongly on contact time, mixing, and dose control",
+          "capture of fine carbon particles must be reliable to avoid recharge basin fouling"
+        ],
+        "evidence_list": [
+          "EPA_and_AWWA_guidance_on_PAC_for_taste_odor_and_trace_organic_control",
+          "surface_water_case_knowledge_for_PAC_plus_filtration_for_micropollutant_events",
+          "MAR_pre-treatment_practice_references_on_particle_control_before_recharge"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biologically_active_carbon_filtration"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove particulate and algal load to improve downstream oxidation and filtration stability",
+          "dual_media_filtration": "protect ozone contactor and BAC by reducing solids carryover",
+          "ozonation": "oxidize nitrobenzene and transform some organic micropollutants to more biodegradable forms",
+          "biologically_active_carbon_filtration": "polish oxidation byproducts, adsorb residual organics, and biologically remove biodegradable carbon"
+        },
+        "applicability_rationale": [
+          "this hybrid route is technically attractive because nitrobenzene is more amenable to oxidation than many strongly hydrophobic pesticides, while BAC provides adsorption and biological polishing",
+          "the train can offer robust multi-contaminant control and produce biologically stable water for recharge",
+          "however, ozone systems require more instrumentation, off-gas safety attention, and tighter process control than the utility prefers",
+          "the option ranks below simpler adsorption-focused trains because the stated constraints prioritize low complexity and moderate cost over maximum treatment sophistication"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozone dose must be optimized to avoid unnecessary power use and undesired oxidation byproducts",
+          "pesticide oxidation may be incomplete without sufficient contact time and polishing",
+          "operator skill requirements and maintenance burden are higher than for conventional treatment plus GAC"
+        ],
+        "evidence_list": [
+          "ozonation_and_BAC_public_guidance_for_trace_organic_control_in_surface_waters",
+          "drinking_water_oxidation_case_knowledge_for_nitroaromatic_compound_reduction",
+          "biofiltration_guidance_for_post_ozone_polishing_and_biodegradable_organic_removal"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and organic fouling load before membranes",
+          "ultrafiltration": "provide robust particle and algae removal to protect high-pressure membranes",
+          "nanofiltration_or_reverse_osmosis": "reject dissolved organic contaminants and produce high-quality recharge feed",
+          "stabilization": "adjust permeate chemistry before recharge to avoid aggressive low-mineral water impacts"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable of strong multi-contaminant removal and can address both pesticides and nitrobenzene effectively",
+          "it may be justified where very stringent recharge permit conditions or broader salinity and dissolved contaminant reduction are also required",
+          "despite strong performance, the route ranks lower because concentrate management conflicts with the residuals constraint and high-pressure operation raises both cost and complexity",
+          "for this source water and contaminant profile, the added treatment intensity is not the best fit for a utility prioritizing simple operation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major residuals challenge",
+          "membrane fouling risk rises during seasonal algae and turbidity events",
+          "permeate remineralization or stabilization may be necessary before recharge"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_synthetic_organic_contaminants",
+          "surface_water_NF_RO_case_knowledge_highlighting_concentrate_management_tradeoffs",
+          "managed_recharge_practice_references_on_permeate_stabilization_and_concentrate_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "granular_activated_carbon_polishing"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and improve UV transmittance stability",
+          "dual_media_filtration": "polish turbidity and protect UV reactors",
+          "advanced_oxidation_uv_hydrogen_peroxide": "generate hydroxyl radicals for oxidation of susceptible dissolved organics",
+          "granular_activated_carbon_polishing": "remove residual oxidant byproducts and provide additional adsorption"
+        },
+        "applicability_rationale": [
+          "this route is included because it can be engineered to address nitrobenzene and provide broad polishing, particularly when oxidation is desired as part of a more advanced recharge barrier strategy",
+          "however, it is not well aligned with the current constraints because UV-AOP adds energy demand, instrumentation needs, chemical handling, and process tuning complexity",
+          "permethrin and tebufenozide are more straightforwardly handled by adsorption, so using AOP as a central control step is generally less economical here",
+          "the option is technically capable but not preferred for a medium-low budget and low-complexity operating context"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation efficiency can be reduced by background organic matter and variable UV transmittance",
+          "hydrogen peroxide storage and quenching management add operational tasks",
+          "AOP alone may not be the most cost-effective primary barrier for the hydrophobic pesticide fraction"
+        ],
+        "evidence_list": [
+          "UV_AOP_public_guidance_for_trace_organic_control_and_water_reuse_applications",
+          "engineering_case_knowledge_on_AOP_energy_and_operational_tradeoffs",
+          "adsorption_vs_oxidation_guidance_for_hydrophobic_pesticide_management"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional_pretreatment_plus_GAC_should_rank_at_or_near_the_top",
+        "a_flexible_PAC_based_route_should_appear_as_a_plausible_alternative_but_not_clearly_first_due_to_residuals_and_operational_handling",
+        "membrane_and_AOP_routes_should_not_rank_first_under_low_complexity_and_residuals_constraints",
+        "at_least_one_oxidation_including_option_should_be_present_but_ranked_below_simpler_adsorptive_routes"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited_staffing_and_preference_for_familiar_unit_processes",
+        "importance_of_avoiding_concentrate_disposal_difficulty",
+        "need_to_manage_seasonal_turbidity_and_algal_variability_from_reservoir_water",
+        "tradeoff_between_stronger_technical_barriers_and_lifecycle_cost_or_operational_burden"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_adsorption_is_suitable_for_permethrin_tebufenozide_and_nitrobenzene_in_this_matrix",
+        "why_surface_water_pretreatment_is_needed_before_carbon_or_membranes",
+        "why_PAC_can_be_flexible_but_generates_more_solid_residual_management_than_fixed_bed_GAC",
+        "why_NF_or_RO_is_downgraded_due_to_concentrate_and_operational_complexity",
+        "why_oxidation_based_routes_are_more_justified_for_nitrobenzene_than_for_the_entire_contaminant_mix"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "DOC_competition_and_adsorbent_breakthrough",
+        "algal_or_turbidity_driven_fouling_and_headloss",
+        "sludge_or_spent_carbon_management",
+        "concentrate_disposal_if_membranes_are_used",
+        "oxidation_byproduct_and_process_control_risks_for_ozone_or_UV_AOP"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

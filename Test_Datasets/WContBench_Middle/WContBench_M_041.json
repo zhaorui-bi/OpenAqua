@@ -1,0 +1,311 @@
+{
+  "case_id": "WContBench_M_041",
+  "case_name": "River water treatment for TCP and MTBE prior to groundwater recharge under moderate cost and limited-operator constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "1,2,3-Trichloropropane",
+      "Methyl tert-butyl ether"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river water containing both 1,2,3-trichloropropane and MTBE intended for groundwater recharge while balancing removal performance, operator simplicity, and moderate cost.",
+  "input_data": {
+    "scenario_background": "A water district plans to divert impacted river water to an infiltration basin for managed aquifer recharge. The source contains low-ug/L 1,2,3-trichloropropane and higher-level MTBE associated with mixed industrial and fuel-related upstream impacts. Several treatment routes are technically plausible, but the district has only moderate capital and operating budget, prefers straightforward operation, and wants to avoid highly specialized systems that are hard to run reliably with limited staff. The trade-off is that more aggressive air-stripping or membrane-based options can address MTBE or both contaminants, but their complexity, energy use, or inability to control TCP well enough make ranking dependent on overall constraint fit rather than contaminant removal alone.",
+    "water_quality": {
+      "source_type": "river_water",
+      "temperature_C": 18.6,
+      "pH": 7.6,
+      "turbidity_NTU": 9.4,
+      "TSS_mg_L": 14.0,
+      "TOC_mg_L": 4.8,
+      "DOC_mg_L": 3.9,
+      "UV254_cm_1": 0.115,
+      "alkalinity_mg_L_as_CaCO3": 124,
+      "hardness_mg_L_as_CaCO3": 176,
+      "conductivity_uS_cm": 522,
+      "dissolved_oxygen_mg_L": 8.1,
+      "nitrate_mg_L_as_N": 2.3,
+      "sulfate_mg_L": 48,
+      "chloride_mg_L": 36,
+      "iron_mg_L": 0.19,
+      "manganese_mg_L": 0.03,
+      "target_contaminants": {
+        "1_2_3_trichloropropane_ug_L": 0.07,
+        "methyl_tert_butyl_ether_ug_L": 24.0
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for groundwater recharge with reliable reduction of 1,2,3-trichloropropane and MTBE to support regulatory compliance and protect aquifer quality.",
+      "secondary_goals": [
+        "provide stable performance despite variable river-water turbidity and organics",
+        "keep operation manageable for a utility with limited specialist staff",
+        "avoid treatment trains with disproportionately difficult residuals or concentrate management",
+        "limit total lifecycle cost to a moderate budget range"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer manageable spent media or conventional solids residuals; avoid difficult concentrate disposal and highly specialized hazardous residual handling where possible",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal river-water quality variation and provide reliable contaminant control without constant operator retuning"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "granular_activated_carbon_dual_bed",
+          "uv_hydrogen_peroxide_advanced_oxidation"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and part of natural organic matter to stabilize downstream treatment",
+          "media_filtration": "polish clarified water and protect adsorption and UV reactors",
+          "granular_activated_carbon_dual_bed": "provide strong adsorption of MTBE and reduce oxidant demand by lowering residual organics",
+          "uv_hydrogen_peroxide_advanced_oxidation": "destroy low-level 1,2,3-trichloropropane and polish remaining dissolved organics"
+        },
+        "applicability_rationale": [
+          "the combined route directly addresses the different treatability of the two target contaminants, with GAC favored for MTBE control and UV-based advanced oxidation used to address TCP where adsorption alone may be less reliable",
+          "pretreatment is well aligned with river water because solids and organic matter can interfere with both GAC run length and UV/AOP efficiency",
+          "placing GAC ahead of AOP can lower UV transmittance penalties and reduce overall oxidant demand compared with AOP on raw river water",
+          "this train balances treatment certainty with moderate operational complexity better than membrane or highly specialized destructive options",
+          "dual-bed GAC improves resilience to contaminant fluctuations and gives a more forgiving operating envelope for limited staff"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "AOP performance can decline if upstream TOC or UV254 rises significantly during storm events",
+          "hydrogen peroxide dosing and UV system maintenance require more operator attention than adsorption alone",
+          "spent carbon replacement or reactivation still needs planning",
+          "if MTBE loading increases materially, GAC bed life may shorten and OPEX can rise"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_MTBE_treatment_with_granular_activated_carbon_and_air_stripping",
+          "California_DDWs_case_knowledge_for_1_2_3_TCP_control_with_UV_hydrogen_peroxide_or_other_destructive_processes",
+          "AWWA_case_knowledge_on_surface_water_pretreatment_protecting_GAC_and_AOP_performance",
+          "public_guidance_on_advanced_oxidation_design_sensitivity_to_natural_organic_matter_and_uv_transmittance"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "biologically_active_granular_activated_carbon"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity and bulk organic loading",
+          "media_filtration": "protect downstream UV and carbon units",
+          "uv_hydrogen_peroxide_advanced_oxidation": "oxidize 1,2,3-trichloropropane and partially transform other oxidizable dissolved organics",
+          "biologically_active_granular_activated_carbon": "polish MTBE and biodegradable oxidation byproducts while providing final adsorption capacity"
+        },
+        "applicability_rationale": [
+          "this is a technically strong integrated route because AOP is positioned to address TCP directly while downstream carbon provides finishing control for MTBE and byproducts",
+          "post-AOP GAC or biologically active carbon can improve finished-water stability and reduce concern about residual oxidation products",
+          "the sequence is attractive when regulatory confidence on TCP destruction is weighted heavily",
+          "it ranks slightly below the top option because running UV/AOP against higher dissolved organic background than after GAC can increase energy and peroxide demand"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher UV dose demand may occur when seasonal organic matter increases",
+          "bioactive carbon operation is manageable but still needs attention to headloss, biomass behavior, and media replacement",
+          "oxidation byproduct monitoring may be needed depending on water matrix"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_uv_peroxide_advanced_oxidation_for_trace_organic_contaminants",
+          "public_case_knowledge_on_GAC_or_BAC_as_AOP_post_treatment_polishing_step",
+          "surface_water_treatment_guidance_for_turbidity_and_organic_pretreatment_ahead_of_uv_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "packed_tower_aeration_or_diffused_air_stripping",
+          "uv_hydrogen_peroxide_advanced_oxidation"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and improve downstream reliability",
+          "media_filtration": "polish clarified water before air and UV systems",
+          "packed_tower_aeration_or_diffused_air_stripping": "remove volatile MTBE from water to air stream",
+          "uv_hydrogen_peroxide_advanced_oxidation": "destroy remaining TCP that is not effectively addressed by stripping"
+        },
+        "applicability_rationale": [
+          "air stripping is a recognized option for volatile gasoline-related compounds such as MTBE and can be effective when designed appropriately",
+          "the route separates the treatment duties clearly, with stripping for MTBE and AOP for TCP",
+          "it is a plausible alternative where GAC replacement cost is a concern and off-gas management is feasible",
+          "it ranks below adsorption-plus-AOP configurations because aeration systems and off-gas controls increase mechanical complexity and operator burden for a utility with limited staff"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MTBE is more difficult to strip than some other volatile organics, so tower design and air-to-water ratio must be carefully selected",
+          "off-gas treatment may be required, adding cost and maintenance",
+          "air-stripping alone does not solve TCP control, so failure or underperformance of AOP leaves a compliance gap",
+          "scaling, fouling, and blower reliability can create more hands-on O&M than preferred"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_air_stripping_for_volatile_organic_compounds_in_water",
+          "public_MTBE_treatment_references_noting_air_stripping_feasibility_and_design_sensitivity",
+          "California_case_knowledge_that_TCP_generally_requires_destructive_or_specialized_treatment_beyond_stripping"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids loading to protect membranes",
+          "media_filtration": "provide membrane pretreatment polishing",
+          "nanofiltration_or_reverse_osmosis": "provide broad dissolved contaminant reduction barrier including organics",
+          "stabilization": "adjust treated water chemistry before recharge use"
+        },
+        "applicability_rationale": [
+          "membrane treatment offers a broad barrier and can be attractive when multiple dissolved contaminants are present",
+          "it is technically capable of reducing many trace organics and provides a conservative compliance-oriented approach",
+          "however, for this case it is downgraded because the source is river water requiring solid pretreatment, the operator base is limited, and concentrate management is misaligned with the project constraints",
+          "the broad treatment capability is not enough to outweigh the higher lifecycle complexity compared with integrated GAC and AOP options"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal or management can be difficult and expensive",
+          "membrane fouling risk rises with seasonal river-water changes, increasing operator attention and chemical cleaning needs",
+          "stabilization and corrosion-related water chemistry management may be needed after treatment",
+          "this may be overbuilt relative to the contaminant problem and utility capability"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_trace_organic_contaminants",
+          "public_surface_water_membrane_case_knowledge_on_fouling_and_pretreatment_requirements",
+          "water_reuse_and_recharge_guidance_discussing_brine_or_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "granular_activated_carbon_single_stage"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove bulk suspended solids and reduce some organic loading",
+          "media_filtration": "protect downstream carbon adsorber",
+          "granular_activated_carbon_single_stage": "adsorb MTBE and some hydrophobic organic contaminants"
+        },
+        "applicability_rationale": [
+          "this is operationally simple and often attractive for utilities with limited staff",
+          "GAC is a familiar, relatively robust treatment tool and can be effective for MTBE control under favorable loading conditions",
+          "it ranks last because it is not a reliable standalone solution for the dual-contaminant objective, especially for achieving robust TCP control in a recharge application",
+          "the option is included because it is superficially plausible and low in complexity, but the contaminant mix makes it poorly aligned with treatment certainty requirements"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "TCP breakthrough or incomplete removal is the main compliance risk",
+          "river-water organic matter can shorten GAC bed life and increase media change frequency",
+          "single-stage carbon provides less operational buffer against influent spikes than dual-stage systems",
+          "reliance on adsorption alone may not provide enough confidence for long-term recharge protection"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_GAC_for_organic_contaminant_control",
+          "public_case_knowledge_that_TCP_is_not_reliably_managed_by_simple_single_stage_adsorption_only",
+          "surface_water_GAC_design_references_on_NOM_competition_and_run_length_impacts"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid trains that explicitly address both MTBE and TCP should rank above single-technology options",
+        "pretreatment plus GAC plus AOP should rank near the top for balancing river-water matrix effects and operator limitations",
+        "membrane treatment should not rank first under moderate cost and limited-operator constraints",
+        "a technically plausible but incomplete low-complexity option should appear lower due to poor dual-contaminant fit"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the need to treat two contaminants with different treatment behavior",
+        "moderate budget rather than unconstrained best-available treatment selection",
+        "limited operator specialization and preference for robust process trains",
+        "river-water solids and organic matter requiring practical pretreatment before polishing or destructive treatment"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why MTBE and TCP push toward different treatment mechanisms",
+        "why river-water turbidity and natural organic matter affect GAC and UV/AOP performance",
+        "why air stripping can be plausible for MTBE but insufficient alone for TCP",
+        "why membrane options are downgraded despite broad treatment capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal river-water quality variability",
+        "AOP energy or peroxide demand sensitivity to organic matter",
+        "GAC bed life and breakthrough risk",
+        "off-gas handling or concentrate management burdens",
+        "the risk of choosing a simple train that does not adequately control TCP"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

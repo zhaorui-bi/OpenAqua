@@ -1,0 +1,26 @@
+[
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "18 to 37",
+    "Units": "days",
+    "Condition": "DCPA - under aerobic conditions",
+    "Ref#": "1475"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "2.8",
+    "Units": "days",
+    "Condition": "MTP",
+    "Ref#": "1475"
+  },
+  {
+    "Contaminant Name": "Dacthal and Dacthal Degradates",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "37 to 59",
+    "Units": "Days",
+    "Condition": "DCPA - under anaerobic conditions",
+    "Ref#": "1475"
+  }
+]

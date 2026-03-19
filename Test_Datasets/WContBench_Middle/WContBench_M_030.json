@@ -1,0 +1,316 @@
+{
+  "case_id": "WContBench_M_030",
+  "case_name": "River-water herbicide degradate control for drinking water under cost, simplicity, and residuals constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Acetochlor Degradates",
+      "Glyphosate"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river water containing acetochlor degradates and glyphosate intended for drinking water production under cost, low-complexity, and residuals-management constraints.",
+  "input_data": {
+    "scenario_background": "A mid-sized surface-water utility draws from an agricultural river that experiences spring and early-summer herbicide pulses. The utility already expects to use conventional clarification and filtration for turbidity control, but needs a practical barrier for dissolved pesticides and degradates. Multiple treatment routes are technically plausible, yet the best choice depends on balancing reliable compliance during seasonal spikes against operator simplicity, media or waste handling burden, and keeping both capital and operating costs moderate.",
+    "water_quality": {
+      "source_type": "river_water",
+      "pH": 7.7,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 14.8,
+      "DOC_mg_L": 5.6,
+      "TOC_mg_L": 6.3,
+      "UV254_cm_1": 0.148,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 172,
+      "conductivity_uS_cm": 512,
+      "sulfate_mg_L": 46,
+      "chloride_mg_L": 28,
+      "nitrate_mg_L_as_N": 4.9,
+      "orthophosphate_mg_L_as_P": 0.19,
+      "calcium_mg_L": 44,
+      "magnesium_mg_L": 15,
+      "iron_ug_L": 210,
+      "manganese_ug_L": 38,
+      "target_contaminants": {
+        "acetochlor_ESA_ug_L": 1.9,
+        "acetochlor_OXA_ug_L": 1.2,
+        "glyphosate_ug_L": 5.8,
+        "AMPA_ug_L": 2.4
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve stable potable-water compliance for the herbicide-related contaminants and their relevant degradates through seasonal source-water variability.",
+      "secondary_goals": [
+        "maintain manageable operator burden for an existing conventional surface-water plant",
+        "avoid high-volume difficult residuals or concentrate disposal",
+        "provide resilience to short-term agricultural runoff spikes"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer solids residuals that can be integrated with existing plant sludge handling and avoid difficult membrane concentrate or hazardous regenerant streams",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal contaminant pulses and variable river organic matter without frequent specialist intervention"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "powdered_activated_carbon_contact",
+          "granular_activated_carbon_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and part of natural organic matter to stabilize downstream adsorptive performance",
+          "rapid_sand_filtration": "polish clarified water and protect carbon units from solids carryover",
+          "powdered_activated_carbon_contact": "provide flexible seasonal adsorption capacity for episodic pesticide spikes",
+          "granular_activated_carbon_polishing": "provide continuous dissolved organic contaminant adsorption and additional barrier for degradates",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "a combined PAC plus GAC strategy matches the dual challenge of variable river-water herbicide pulses and the need for stable finished-water quality",
+          "PAC can be dosed seasonally when runoff events elevate glyphosate or acetochlor degradates, helping limit full-time media replacement costs",
+          "GAC polishing is compatible with conventional surface-water treatment and is operationally familiar to many drinking-water plants",
+          "this route avoids membrane concentrate and can leverage existing solids handling for PAC-containing sludge",
+          "although glyphosate is highly polar and not always ideal for plain adsorption alone, the staged treatment train with NOM reduction and carbon polishing improves practical robustness relative to a single barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "glyphosate and AMPA adsorption can be less favorable than for more hydrophobic pesticides, so carbon dose and EBCT need careful design",
+          "higher DOC periods can accelerate carbon exhaustion and increase PAC demand",
+          "spent carbon replacement and PAC-laden sludge management still require planning"
+        ],
+        "evidence_list": [
+          "AWWA_and_surface_water_practice_guidance_for_PAC_and_GAC_for_taste_odor_and_micropollutant_control",
+          "EPA_drinking_water_treatability_information_on_activated_carbon_for_organic_micropollutants",
+          "public_case_knowledge_on_seasonal_PAC_application_for_agricultural_runoff_impacts",
+          "guidance_that_NOM_reduction_improves_adsorptive_treatment_performance"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "anion_exchange_or_specialized_adsorptive_resin",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particulate load and some organic matter before selective dissolved contaminant control",
+          "rapid_sand_filtration": "protect downstream resin or adsorptive media from solids fouling",
+          "anion_exchange_or_specialized_adsorptive_resin": "target anionic and polar pesticide species including glyphosate-related compounds under suitable resin selection",
+          "disinfection": "ensure potable water safety"
+        },
+        "applicability_rationale": [
+          "glyphosate and AMPA are highly polar and anionic under typical water-treatment pH, making selective ion-exchange or tailored adsorptive resins a credible route",
+          "this option can be more compact than large GAC beds and may perform better for compounds that are not strongly hydrophobic",
+          "it remains a realistic alternative if the utility is willing to manage media replacement or vendor-supported changeout service",
+          "the route ranks below the hybrid carbon approach because resin selection, fouling control, and waste handling are more specialized for a plant seeking lower complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "competition from sulfate, nitrate, and dissolved organic matter can reduce effective resin capacity depending on media type",
+          "waste resin or regenerant management may be more difficult than standard carbon handling",
+          "performance for mixed acetochlor degradates and glyphosate depends strongly on pilot validation and resin chemistry"
+        ],
+        "evidence_list": [
+          "EPA_treatability_guidance_for_ion_exchange_in_drinking_water_applications",
+          "public_knowledge_on_anion_exchange_use_for_polar_and_anionic_contaminants",
+          "drinking_water_case_experience_showing_resin_sensitivity_to_competing_anions_and_organic_fouling"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "advanced_oxidation_process",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove turbidity and reduce precursor fouling load",
+          "rapid_sand_filtration": "provide clarified feed to oxidation and biological polishing steps",
+          "advanced_oxidation_process": "oxidize glyphosate and some organic micropollutants or transform them into more biodegradable intermediates",
+          "biologically_active_filtration": "remove biodegradable transformation products and provide polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "oxidation-based treatment can be attractive where adsorption alone is uncertain for highly polar compounds such as glyphosate",
+          "biological polishing can help manage oxidation byproducts and improve overall finished-water stability",
+          "this route is technically plausible for a mixed micropollutant surface-water case, especially if the plant already uses ozone or is considering biologically active filtration upgrades",
+          "it ranks below adsorption-focused routes because oxidation control, off-gas or chemical handling, and byproduct monitoring increase operational complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "transformation does not always guarantee complete mineralization and may require downstream biofiltration to avoid byproduct concerns",
+          "process performance is water-matrix dependent and can be affected by DOC and alkalinity",
+          "operator skill and monitoring demands are higher than for conventional adsorption retrofits"
+        ],
+        "evidence_list": [
+          "EPA_and_AWWA_guidance_on_ozonation_and_advanced_oxidation_in_drinking_water",
+          "public_knowledge_on_biologically_active_filtration_following_oxidation",
+          "treatability_references_noting_that_polar_pesticides_may_require_more_than_simple_GAC_alone"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "lower particulate and organic loading ahead of membrane pretreatment",
+          "ultrafiltration": "provide membrane pretreatment and solids removal",
+          "nanofiltration_or_reverse_osmosis": "physically reject dissolved herbicides, degradates, and a broad range of other dissolved contaminants",
+          "stabilization": "adjust permeate chemistry for corrosion control and distribution compatibility",
+          "disinfection": "ensure finished water microbiological safety"
+        },
+        "applicability_rationale": [
+          "NF or RO is technically capable of providing a strong dissolved contaminant barrier for both acetochlor degradates and glyphosate",
+          "this option may be favored if the utility also needs desalting or control of multiple additional dissolved contaminants beyond the current case",
+          "it is intentionally ranked lower because the scenario emphasizes moderate cost, lower operational burden, and avoidance of problematic residual streams",
+          "for this source and constraint set, concentrate management and membrane O&M are misaligned with project priorities"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal can be difficult and expensive for inland river-water plants",
+          "fouling and scaling control increase pretreatment and operator demands",
+          "post-treatment remineralization and corrosion-control adjustments are required"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_drinking_water",
+          "public_guidance_on_NF_RO_concentrate_management_challenges",
+          "case_knowledge_that_membrane_systems_are_often_downgraded_where_low_complexity_and_residuals_constraints_dominate"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "rapid_sand_filtration",
+          "granular_activated_carbon_single_stage",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and part of DOC before adsorption",
+          "rapid_sand_filtration": "protect downstream GAC from solids fouling",
+          "granular_activated_carbon_single_stage": "provide a single adsorptive barrier for dissolved pesticides and organic matter",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "single-stage GAC is simple, familiar, and often considered first for organic micropollutants in conventional plants",
+          "it has lower complexity than oxidation or membranes and avoids liquid concentrate residuals",
+          "however, it ranks last because the combination of moderate DOC river water, seasonal spikes, and the presence of highly polar glyphosate and AMPA makes a lone GAC stage less robust than the higher-ranked alternatives",
+          "it remains technically feasible but more likely to experience early breakthrough or require frequent media changeout under this source-water matrix"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "adsorption performance for glyphosate and AMPA may be insufficient without supplemental treatment or very conservative design",
+          "natural organic matter competition can shorten carbon run length significantly",
+          "a single barrier provides less resilience during runoff-driven concentration spikes"
+        ],
+        "evidence_list": [
+          "EPA_treatability_resources_on_GAC_for_organic_contaminants",
+          "public_case_knowledge_that_GAC_performance_declines_with_higher_DOC_and_polar_compounds",
+          "drinking_water_design_guidance_favoring_multiple_barriers_for_variable_surface_water_micropollutants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid carbon-based routes integrated with conventional surface-water treatment should rank near the top",
+        "ion_exchange_or_specialized_resin should appear as a credible competing alternative rather than being dismissed",
+        "NF_or_RO should not rank first under cost, simplicity, and residuals-management constraints",
+        "a technically capable but constraint-misaligned option should be ranked lower because of concentrate or O&M burden"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "existing conventional surface-water treatment context",
+        "need for low_to_medium operational complexity rather than highly specialized systems",
+        "importance of avoiding difficult residuals such as membrane concentrate or complex regenerant handling",
+        "trade-off between stronger dissolved contaminant removal and practical affordability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why variable river DOC and seasonal herbicide pulses affect adsorptive treatment selection",
+        "why glyphosate polarity makes treatment choice less straightforward than for hydrophobic pesticides alone",
+        "why combined barriers can outperform a single adsorption step for robustness",
+        "why membrane options are downgraded despite strong technical removal capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "competition from natural organic matter",
+        "seasonal breakthrough or capacity exhaustion risk",
+        "uncertainty in treating highly polar anionic contaminants",
+        "spent media, sludge, regenerant, or concentrate management"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

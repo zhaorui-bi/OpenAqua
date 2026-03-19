@@ -1,0 +1,326 @@
+{
+  "case_id": "WContBench_M_071",
+  "case_name": "Pilot-scale potable reuse treatment for pesticide and uranium control at a remote surface-water site",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Mevinphos",
+      "Tebuconazole",
+      "Uranium"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for pilot-scale polishing of contaminated surface water intended for potable reuse, balancing pesticide and uranium removal against capital limits, remote operation, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A remote utilities district is piloting potable reuse using a small surface-water reservoir that receives episodic agricultural runoff and some geogenic uranium contribution from the catchment. The district must show reliable reduction of two pesticides and uranium, but only pilot-scale deployment is currently funded and there is no full-time specialist operator on site. The trade-off is between treatment trains that can address all contaminants with strong compliance confidence and simpler, lower-capital options that are easier to run in a remote location. Residuals hauling from the site is possible but expensive, so options that create difficult brine or hazardous sludge streams are less attractive unless they offer clear performance advantages.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.8,
+      "temperature_C": 18.6,
+      "turbidity_NTU": 6.4,
+      "TOC_mg_L": 5.2,
+      "DOC_mg_L": 4.3,
+      "UV254_cm_1": 0.112,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 132,
+      "conductivity_uS_cm": 445,
+      "TDS_mg_L": 286,
+      "calcium_mg_L": 34,
+      "magnesium_mg_L": 11,
+      "sulfate_mg_L": 41,
+      "chloride_mg_L": 29,
+      "nitrate_mg_L_as_N": 2.7,
+      "phosphate_mg_L_as_P": 0.18,
+      "iron_mg_L": 0.09,
+      "manganese_mg_L": 0.02,
+      "target_contaminants": {
+        "Mevinphos_ug_L": 1.8,
+        "Tebuconazole_ug_L": 3.4,
+        "Uranium_ug_L": 41
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should be suitable for potable reuse demonstration with robust reduction of mevinphos and tebuconazole to very low levels and uranium below drinking-water-relevant limits.",
+      "secondary_goals": [
+        "keep pilot system simple enough for remote operator oversight",
+        "minimize high-strength concentrate or difficult sludge generation",
+        "demonstrate treatment robustness during runoff-driven water quality swings",
+        "control taste, odor, and organic fouling risk where practical"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer residual streams that can be changed out or hauled periodically; avoid continuous brine production or chemically unstable sludge where possible",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate seasonal turbidity and organic matter variation with limited onsite troubleshooting"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "anion_exchange_for_uranium",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity and natural organic matter to stabilize downstream adsorption and ion exchange performance",
+          "dual_media_filtration": "remove carryover solids and protect polishing units",
+          "granular_activated_carbon": "adsorb hydrophobic pesticides including tebuconazole and provide some mevinphos reduction plus organic polishing",
+          "anion_exchange_for_uranium": "selectively remove dissolved uranium to below potable limits",
+          "UV_disinfection": "provide final microbial barrier for potable reuse demonstration"
+        },
+        "applicability_rationale": [
+          "this train separates the main treatment challenge into a practical organics path and a practical uranium path, avoiding a single high-complexity unit for everything",
+          "conventional clarification and filtration are well suited to surface water with moderate turbidity and DOC and improve reliability of downstream media processes",
+          "GAC is a strong fit for tebuconazole and other hydrophobic pesticides and adds beneficial polishing for reuse applications",
+          "anion exchange is an established route for uranium in oxidized waters and can be deployed at pilot scale with skid-mounted vessels",
+          "compared with membrane-heavy alternatives, this route has lower energy demand and avoids continuous concentrate management, which is valuable at a remote site",
+          "although two polishing media types are needed, the overall operating approach remains manageable for a pilot with periodic media oversight rather than intensive daily control"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "mevinphos is more polar and may show less stable adsorption on GAC than tebuconazole, so EBCT and monitoring need attention",
+          "anion exchange performance for uranium can be affected by competing anions such as sulfate and alkalinity",
+          "spent carbon and exhausted resin still require planned offsite handling or replacement",
+          "if turbidity spikes are not well controlled upstream, media life can shorten"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_uranium_removal_using_anion_exchange_and_adsorptive_processes",
+          "AWWA_case_knowledge_on_GAC_for_pesticide_control_in_surface_waters",
+          "surface_water_conventional_pretreatment_guidance_for_protecting_downstream_adsorption",
+          "potable_reuse_practice_emphasizing_multiple_barriers_and_operational_robustness"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "anion_exchange_for_uranium",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and part of the NOM load",
+          "dual_media_filtration": "polish solids and protect downstream units",
+          "powdered_activated_carbon_contact": "provide flexible adsorption of pesticides during runoff episodes",
+          "anion_exchange_for_uranium": "remove dissolved uranium",
+          "UV_disinfection": "final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "PAC is attractive in a pilot context because dose can be adjusted during episodic pesticide spikes without committing to large fixed GAC vessels",
+          "the route remains lower energy than RO and still avoids continuous concentrate generation",
+          "anion exchange addresses uranium with a compact skid that fits pilot-only implementation",
+          "this option can be cheaper in upfront capital than a full GAC installation, which matters under funding constraints",
+          "the ranking is slightly below the GAC-based train because PAC handling, slurry preparation, and solids capture introduce more routine operational tasks at a remote site"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC dosing and contact effectiveness can be variable for mixed pesticides and may require bench confirmation",
+          "carbon-laden solids increase sludge management burden relative to fixed-bed GAC",
+          "mevinphos removal may be less reliable without optimized contact time and dose",
+          "uranium removal still depends on resin management and competing ion conditions"
+        ],
+        "evidence_list": [
+          "AWWA_and_conventional_treatment_references_for_PAC_use_during_pesticide_events",
+          "EPA_guidance_for_uranium_removal_using_anion_exchange_and_adsorptive_processes",
+          "surface_water_treatment_case_knowledge_on_adjustable_adsorbent_dosing_for_agricultural_runoff"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "nanofiltration",
+          "UV_disinfection",
+          "stabilization"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce fouling load before membrane treatment",
+          "dual_media_filtration": "protect membranes from solids carryover",
+          "nanofiltration": "provide broad rejection of uranium and partial to strong rejection of many pesticide molecules",
+          "UV_disinfection": "final microbial barrier",
+          "stabilization": "adjust finished water chemistry after membrane treatment"
+        },
+        "applicability_rationale": [
+          "nanofiltration offers a compact pilot platform and can address both uranium and pesticides in one principal barrier",
+          "this route is technically attractive when demonstration emphasis is on broad-spectrum removal rather than the lowest operator burden",
+          "membrane treatment can provide more direct compliance confidence for uranium than GAC-based trains",
+          "the option ranks below media-based systems because concentrate handling, fouling control, and operator attention are substantial disadvantages at a remote site with limited staffing"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine management is a major challenge for remote pilot operation",
+          "membrane fouling risk rises with seasonal surface-water turbidity and organics",
+          "finished water remineralization and corrosion stability may need active control",
+          "pilot success may depend heavily on pretreatment quality and chemical supply reliability"
+        ],
+        "evidence_list": [
+          "EPA_and_reuse_guidance_on_nanofiltration_for_inorganics_and_trace_organics_control",
+          "membrane_treatment_case_knowledge_for_uranium_rejection",
+          "public_guidance_on_surface_water_membrane_fouling_and_concentrate_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_process_UV_H2O2",
+          "adsorptive_uranium_media",
+          "biological_or_GAC_polishing"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "lower solids and NOM load before oxidation",
+          "dual_media_filtration": "protect advanced oxidation equipment and downstream media",
+          "advanced_oxidation_process_UV_H2O2": "oxidatively degrade susceptible pesticide compounds, especially more oxidation-responsive organophosphate contaminants",
+          "adsorptive_uranium_media": "remove dissolved uranium using selective sorptive media",
+          "biological_or_GAC_polishing": "remove oxidation byproducts and provide final organics polishing"
+        },
+        "applicability_rationale": [
+          "this route is technically capable and may be attractive if the project specifically wants to demonstrate destructive treatment for mevinphos rather than only phase transfer",
+          "advanced oxidation can be relevant for certain pesticides, especially when trace-organic transformation is a program objective",
+          "uranium still requires a separate removal step because oxidation does not solve the metal-contaminant problem",
+          "the configuration ranks lower because it is more complex, energy intensive, and less naturally aligned with remote pilot constraints than adsorption plus ion exchange",
+          "tebuconazole may not be as straightforward to oxidize as more oxidation-responsive compounds, increasing uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "pesticide transformation products may require evaluation rather than assuming complete risk removal",
+          "UV and peroxide systems need reliable chemical supply, instrumentation, and operator attention",
+          "adsorptive uranium media performance can be sensitive to pH and carbonate chemistry",
+          "overall train complexity may be too high for a remote site unless strong technical support is available"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_trace_organic_micropollutants_in_reuse",
+          "EPA_guidance_for_uranium_removal_using_adsorptive_media",
+          "case_knowledge_on_need_for_post_AOP_polishing_to_manage_byproducts"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and some NOM",
+          "dual_media_filtration": "protect GAC and improve effluent clarity",
+          "granular_activated_carbon": "adsorb pesticides and polish dissolved organics",
+          "UV_disinfection": "provide final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "this is an operationally simple and familiar surface-water polishing train for pesticide control",
+          "it may perform well for tebuconazole and provide some broader taste and odor benefits",
+          "it ranks last because it does not provide a reliable dedicated barrier for uranium, which is a required contaminant in this case",
+          "the option is included as a plausible but misaligned route: it fits capital and remote-operation constraints better, yet fails the multi-contaminant treatment objective"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "uranium removal is likely inadequate for potable reuse compliance needs",
+          "mevinphos adsorption may be inconsistent compared with more hydrophobic pesticides",
+          "frequent runoff events could accelerate carbon exhaustion",
+          "reliance on a train that misses one regulated contaminant creates compliance risk despite operational simplicity"
+        ],
+        "evidence_list": [
+          "AWWA_case_knowledge_on_GAC_for_pesticide_control_in_surface_waters",
+          "EPA_drinking_water_guidance_indicating_need_for_specific_uranium_removal_technologies",
+          "public_guidance_on_limits_of_GAC_for_dissolved_inorganic_radionuclide_control"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid trains combining pesticide-focused adsorption with uranium-specific ion exchange or adsorptive removal should rank near the top",
+        "membrane treatment may appear as a strong technical alternative but should not rank first under remote-location and capital constraints",
+        "a technically simple pesticide-focused option without a reliable uranium barrier should appear lower despite operational advantages"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot-only implementation favors modular skid-mounted or conventional-plus-media systems over highly integrated full-scale-style treatment",
+        "remote location penalizes options needing intensive monitoring, chemical handling, or difficult troubleshooting",
+        "capital and residuals constraints should downgrade RO or NF when brine management becomes a dominant burden"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why surface-water pretreatment for turbidity and NOM is important before adsorption, ion exchange, or membranes",
+        "why uranium generally needs a dedicated removal barrier distinct from pesticide-oriented treatment",
+        "why GAC is more favorable for hydrophobic pesticides such as tebuconazole than for more polar compounds such as mevinphos",
+        "why membrane and AOP options can be technically capable yet rank lower due to pilot-scale and remote-operation misfit"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "competition from background ions for uranium-selective treatment",
+        "DOC and turbidity impacts on media life or membrane fouling",
+        "spent media, sludge, or brine management burdens",
+        "possible transformation-product concerns for oxidative treatment"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

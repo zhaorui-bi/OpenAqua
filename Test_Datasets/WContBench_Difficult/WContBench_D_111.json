@@ -1,0 +1,366 @@
+{
+  "case_id": "WContBench_D_111",
+  "case_name": "Variable mixed industrial-municipal reuse water with partially characterised pesticide and emerging organic contamination",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Nitrofen",
+      "1,4-dioxane",
+      "Permethrin",
+      "Microcystins",
+      "Natural Organic Matter"
+    ],
+    "effluent_use": "industrial_reuse",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for industrial reuse of a mixed industrial-municipal water stream containing known and suspected dissolved organic contaminants under uncertain influent conditions and cost-energy tradeoffs.",
+  "input_data": {
+    "scenario_background": "A utility serving an industrial estate is considering reclaiming a blended influent made up of municipal wastewater effluent, intermittent industrial discharge, and storm-driven equalization basin returns. Monitoring has confirmed 1,4-dioxane, permethrin, nitrofen traces, periodic microcystins, and elevated natural organic matter, but the industrial contribution is not fully characterised and additional low-level organics are suspected. Influent composition varies by production schedule and wet-weather dilution, so both concentration swings and treatment interference are expected. The owner wants a treatment train robust enough for industrial reuse, but does not want to commit to the highest-energy option unless clearly justified by the uncertainty profile.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_blend",
+      "pH": 7.4,
+      "turbidity_NTU": 16.8,
+      "COD_mg_L": 96,
+      "BOD5_mg_L": 31,
+      "TOC_mg_L": 18.6,
+      "DOC_mg_L": 13.9,
+      "UV254_cm-1": 0.31,
+      "TSS_mg_L": 24,
+      "ammonia_mg_L_as_N": 6.8,
+      "nitrate_mg_L_as_N": 4.1,
+      "phosphate_mg_L_as_P": 2.3,
+      "alkalinity_mg_L_as_CaCO3": 162,
+      "hardness_mg_L_as_CaCO3": 228,
+      "conductivity_uS_cm": 1420,
+      "TDS_mg_L": 910,
+      "chloride_mg_L": 175,
+      "sulfate_mg_L": 88,
+      "NOM_mg_L_as_DOC": 13.9,
+      "microcystins_ug_L": 1.9,
+      "1_4_dioxane_ug_L": 37,
+      "permethrin_ug_L": 0.42,
+      "nitrofen_ug_L": 0.11,
+      "oil_and_grease_mg_L": 2.4,
+      "total_coliform_CFU_100mL": 18000,
+      "trace_pollutant_note": "industrial_side_stream_contains_suspected_additional_solvents_and_hydrophobic_organics_not_fully_characterized; pesticide_profile_is_based_on_limited_sampling",
+      "influent_variability": "high",
+      "variability_note": "microcystins_and_NOM_increase_during_warm_weather_and_storm_events; industrial_organic_spikes_occur_during_batch_cleanout_periods"
+    },
+    "treatment_goal": {
+      "use_type": "industrial_reuse",
+      "target_requirement": "Produce stable reclaimed water suitable for general industrial reuse such as cooling makeup and utility water, with strong reduction of suspended solids, NOM, cyanotoxins, trace pesticides, pathogens, and dissolved organic contaminants including 1,4-dioxane, while avoiding excessive fouling and maintaining operational reliability.",
+      "secondary_goals": [
+        "handle uncertain and fluctuating influent composition",
+        "reduce precursor load to limit downstream oxidation byproducts and membrane fouling",
+        "provide a defensible barrier against both hydrophobic and poorly adsorbable organics",
+        "balance treatment robustness against capex and energy demand",
+        "preserve flexibility for future monitoring-driven upgrades"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "sludge hauling is available but should be minimized; concentrated brine disposal is possible only in limited volumes and is a planning concern",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_blended_influent_and_partially_unknown_trace_organics"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ozonation",
+          "biological_activated_carbon",
+          "ultrafiltration",
+          "advanced_oxidation_UV_H2O2",
+          "granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and concentration swings from municipal, industrial, and storm-driven returns",
+          "coagulation_flocculation_and_clarification": "remove turbidity, algae-related solids, and a portion of NOM and particle-associated contaminants",
+          "ozonation": "inactivate cyanotoxins precursors, improve biodegradability of some organics, and provide strong oxidation for a broad contaminant spectrum",
+          "biological_activated_carbon": "biologically and adsorptively polish ozone-transformed organics, reduce NOM, and improve downstream UV transmittance",
+          "ultrafiltration": "provide solids and biomass polishing to protect advanced oxidation and final water quality stability",
+          "advanced_oxidation_UV_H2O2": "target poorly adsorbable and oxidation-resistant dissolved organics such as 1,4-dioxane via hydroxyl radical formation",
+          "granular_activated_carbon_polishing": "provide residual polishing for pesticides, oxidation byproducts, taste-odor compounds, and uncertainty margin for unknown organics",
+          "final_disinfection": "provide final microbial control for industrial reuse distribution"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the contaminant set mixes hydrophilic compounds like 1,4-dioxane with hydrophobic pesticides and episodic cyanotoxins",
+          "coagulation and clarification are valuable upstream because NOM and algal matter can otherwise suppress ozone and UV-based oxidation efficiency",
+          "UV_H2O2 is one of the more defensible options for 1,4-dioxane when conventional adsorption and membranes alone are uncertain",
+          "BAC plus GAC creates resilience for partially characterised industrial organics and can buffer residual peaks after oxidation",
+          "this sequence is robust under uncertainty and avoids depending on a single mechanism for all contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "energy demand and oxidant consumption may rise substantially during high-NOM or poor UVT periods",
+          "ozone and advanced oxidation can form transformation products, so post-treatment monitoring is necessary",
+          "treatment efficacy for the unknown industrial fraction is directionally strong but not guaranteed without expanded monitoring",
+          "microcystin release from intact cells can worsen if oxidation is applied without sufficient particle and algal management",
+          "uncertainty flag: if 1,4-dioxane concentrations spike above current observations, UV_H2O2 dose and reactor sizing may need revision"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_case_knowledge_for_1_4_dioxane_treatment_with_UV_H2O2_and_AOP",
+          "EPA_drinking_water_treatment_guidance_for_cyanotoxins_and_microcystins_control",
+          "AWWA_case_knowledge_on_ozone_BAC_for_NOM_and_micropollutant_polishing",
+          "CASE_006_CWSRF_emerging_contaminants_membrane_ozone_and_advanced_destruction_pathways"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "powdered_activated_carbon_contact",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "UV_H2O2_post_AOP",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variability and reduce shock loading to downstream membranes and oxidation systems",
+          "powdered_activated_carbon_contact": "capture hydrophobic pesticides, microcystins, and part of the unknown organic fraction before clarification",
+          "coagulation_flocculation_and_clarification": "remove PAC, solids, algae, and NOM-associated particulates",
+          "ultrafiltration": "create a low-solids feed for membrane desalting and improve pathogen barrier performance",
+          "reverse_osmosis": "reduce TDS and provide broad rejection of many dissolved constituents for industrial reuse quality stabilization",
+          "UV_H2O2_post_AOP": "address residual 1,4-dioxane that is not reliably controlled by RO alone",
+          "final_disinfection": "provide distribution system microbial control"
+        },
+        "applicability_rationale": [
+          "this train suits reuse goals when conductivity and dissolved salts also matter, not just trace organics",
+          "PAC helps with permethrin, nitrofen, and cyanotoxin episodes before membrane treatment",
+          "RO adds strong product-water consistency for industrial reuse, which may be important if cooling system scaling or corrosion sensitivity exists",
+          "post-RO AOP is included because 1,4-dioxane can be problematic for adsorption-only or membrane-only strategies",
+          "the combination is robust but more expensive and should rank slightly below the lead option due to energy and brine concerns under the stated constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "RO brine management is a significant planning risk given only limited disposal capacity",
+          "PAC demand may become high if NOM and algal organic matter surge seasonally",
+          "1,4-dioxane rejection through RO is uncertain enough that post-AOP remains necessary",
+          "membrane fouling risk increases if upstream clarification performance deteriorates during bloom or storm events",
+          "uncertainty flag: the process may be overdesigned for salts if industrial reuse does not actually require strong desalination"
+        ],
+        "evidence_list": [
+          "EPA_and_state_reuse_case_knowledge_for_UF_RO_industrial_reclamation",
+          "EPA_guidance_for_cyanotoxin_control_with_powdered_activated_carbon_and_conventional_treatment",
+          "EPA_guidance_and_case_knowledge_for_1_4_dioxane_treatment_with_AOP",
+          "CASE_006_CWSRF_emerging_contaminants_projects_using_membrane_filtration_and_ozone"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_dissolved_air_flotation",
+          "ozonation",
+          "biologically_active_filtration",
+          "GAC",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "smooth variable blended influent and improve downstream operability",
+          "coagulation_flocculation_and_dissolved_air_flotation": "remove algae, light solids, and NOM-rich particulate matter effectively during bloom-prone conditions",
+          "ozonation": "degrade microcystins and partially oxidize a broad range of organics",
+          "biologically_active_filtration": "reduce biodegradable oxidation byproducts and provide NOM polishing",
+          "GAC": "adsorb hydrophobic pesticides and provide polishing for residual unknown organics",
+          "final_disinfection": "ensure microbial control after filtration"
+        },
+        "applicability_rationale": [
+          "this is a practical lower-energy multi-barrier option when cyanotoxin and hydrophobic pesticide control are immediate drivers",
+          "DAF can be preferable to sedimentation under algae-rich conditions and variable light solids loading",
+          "the train is relatively strong for microcystins, NOM, taste-odor, and pesticide polishing",
+          "it ranks below options 1 and 2 because 1,4-dioxane removal is uncertain without a dedicated high-radical AOP step",
+          "it may serve as an interim or phased solution if funding for full AOP deployment is delayed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "1,4-dioxane breakthrough is a major residual risk and should be treated as an uncertainty-driven limitation",
+          "ozone dose control is sensitive to NOM fluctuations and may be less predictable during storm-driven episodes",
+          "GAC exhaustion may accelerate if unknown industrial organics are more abundant than current sampling suggests",
+          "DAF sludge production and handling can increase during algal peaks",
+          "uncertainty flag: suitable only if industrial reuse tolerates some residual dissolved organic risk or if further source control is implemented"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatment_guidance_for_microcystins_and_algal_toxin_management",
+          "AWWA_case_knowledge_on_DAF_ozone_BAF_GAC_for_surface_water_and_algal_impacts",
+          "public_guidance_on_GAC_for_hydrophobic_pesticide_removal",
+          "CASE_010_source_water_protection_planning_for_PFAS_and_1_4_dioxane_highlighting_upstream_control_when_treatment_is_uncertain"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "nanofiltration_or_low_pressure_RO",
+          "GAC_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce variability before membrane treatment",
+          "coagulation_flocculation_and_clarification": "lower turbidity and part of NOM to protect membranes",
+          "ultrafiltration": "provide particulate and microbial barrier",
+          "nanofiltration_or_low_pressure_RO": "reduce divalent ions, some NOM, and improve reuse-water consistency",
+          "GAC_polishing": "capture hydrophobic organics and residual oxidation-independent contaminants",
+          "final_disinfection": "maintain microbial safety in reuse distribution"
+        },
+        "applicability_rationale": [
+          "this option may appeal if moderate desalting and product consistency are needed but full RO plus AOP is viewed as too intensive",
+          "it provides better dissolved-solids control than purely conventional trains",
+          "GAC can help address permethrin and nitrofen concerns after membrane pretreatment",
+          "however, the train remains weak for 1,4-dioxane compared with dedicated AOP-based alternatives",
+          "it is included as a plausible but less protective compromise under cost-energy pressure"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "nanofiltration or low-pressure RO may not provide dependable control of 1,4-dioxane",
+          "brine generation still exists without fully solving the key emerging contaminant issue",
+          "membrane fouling remains sensitive to NOM and algal episodes",
+          "GAC alone is not a strong safeguard for hydrophilic low-molecular-weight contaminants",
+          "uncertainty flag: process ranking would worsen if future monitoring confirms higher 1,4-dioxane variability or additional solvent-like compounds"
+        ],
+        "evidence_list": [
+          "engineering_case_knowledge_for_UF_NF_RO_reuse_trains",
+          "public_guidance_on_GAC_for_pesticides_and_NOM_polishing",
+          "EPA_guidance_and_case_knowledge_noting_limits_of_adsorption_or_membranes_alone_for_1_4_dioxane",
+          "CASE_009_monitoring_for_emerging_contaminants_including_1_4_dioxane_to_reduce_design_uncertainty"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "dual_media_filtration",
+          "activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and remove part of the NOM burden",
+          "sedimentation": "separate settled solids and floc",
+          "dual_media_filtration": "polish suspended solids and improve clarity",
+          "activated_carbon": "adsorb some hydrophobic organics and improve organic polishing",
+          "disinfection": "control pathogens"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional-plus-carbon option",
+          "it may reduce turbidity, some microcystins, and hydrophobic pesticides if carefully operated",
+          "it has comparatively lower complexity and energy demand",
+          "it is not sufficient as a primary recommendation because it does not reliably address 1,4-dioxane or uncertainty in the industrial organic fraction",
+          "it may only be defensible as temporary risk reduction while enhanced monitoring and capital planning proceed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "inadequate control of 1,4-dioxane is the principal failure mode",
+          "activated carbon performance may be rapidly consumed by NOM, reducing protection against target pesticides",
+          "microcystin control depends heavily on avoiding cell lysis and maintaining optimized coagulation",
+          "finished-water quality may fluctuate too much for reliable industrial reuse under high influent variability",
+          "uncertainty flag: unknown dissolved industrial contaminants could pass through largely untreated"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_and_GAC_references_for_surface_water_organics",
+          "EPA_guidance_for_microcystin_management_with_conventional_treatment_cautions",
+          "public_case_knowledge_showing_need_for_advanced_processes_for_emerging_contaminants_such_as_1_4_dioxane"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains combining pretreatment with dedicated advanced oxidation for 1,4-dioxane should rank above conventional or adsorption-only options",
+        "equalization should appear in higher-ranked options because influent variability and partial characterisation are explicit",
+        "processes that address both hydrophilic and hydrophobic contaminants should outrank trains that only target one class",
+        "simple conventional treatment should rank lower because it does not adequately manage the uncertainty and dissolved contaminant profile"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the mixed industrial-municipal source requires robustness to changing NOM, algal, and industrial organic loads",
+        "cost-energy tradeoffs should be explicit when comparing AOP-heavy and membrane-heavy solutions",
+        "residuals and especially brine management concerns should be discussed for membrane-based options",
+        "industrial reuse requires stable product water quality, not only partial contaminant reduction",
+        "uncertainty around unknown organics should influence ranking and caveats rather than be ignored"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why UV_H2O2 or comparable AOP is favored for 1,4-dioxane relative to adsorption-only treatment",
+        "why NOM and algal solids should be reduced upstream to protect oxidation and membrane performance",
+        "why activated carbon is useful for hydrophobic pesticides and polishing but insufficient alone for the full contaminant set",
+        "why cyanotoxin control requires attention to cell-associated versus dissolved toxin behavior",
+        "why monitoring expansion or phased design remains important when the industrial fraction is not fully characterised"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "high influent variability from industrial scheduling and storm returns",
+        "uncertainty in the unknown industrial organic fraction and the possibility of unmeasured solvents or byproducts",
+        "1,4-dioxane breakthrough risk if no dedicated AOP is provided",
+        "NOM-driven increases in ozone demand, UV absorbance, and activated carbon exhaustion",
+        "membrane fouling and limited brine disposal capacity for RO-based options",
+        "microcystin release risk if treatment damages algal cells before adequate separation",
+        "potential transformation products or byproduct formation after ozone or advanced oxidation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

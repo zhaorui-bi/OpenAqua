@@ -1,0 +1,18 @@
+[
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Life Span",
+    "Value": "1",
+    "Units": "year",
+    "Condition": "5°C, oocysts in aqueous solution",
+    "Ref#": "525"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Life Span",
+    "Value": "3",
+    "Units": "months",
+    "Condition": "20°C, oocysts in aqueous solution",
+    "Ref#": "525"
+  }
+]

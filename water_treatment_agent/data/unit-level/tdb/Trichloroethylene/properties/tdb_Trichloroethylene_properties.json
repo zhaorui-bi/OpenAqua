@@ -1,0 +1,154 @@
+[
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Chemical Formula",
+    "Value": "C2HCl3",
+    "Units": "unitless",
+    "Condition": "under any condition",
+    "Ref#": "1629"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Molecular Weight",
+    "Value": "131.39",
+    "Units": "g/mol",
+    "Condition": "under any condition",
+    "Ref#": "1625"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Solubility",
+    "Value": "1000 to 1100",
+    "Units": "mg/L",
+    "Condition": "not stated",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Solubility",
+    "Value": "1.1 to 1.4",
+    "Units": "g/L",
+    "Condition": "not stated",
+    "Ref#": "1629"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Solubility",
+    "Value": "0.124",
+    "Units": "g/100 g water",
+    "Condition": "60 degree Celsius",
+    "Ref#": "1625"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Solubility",
+    "Value": "0.107",
+    "Units": "g/100 g water",
+    "Condition": "20 degree Celsius",
+    "Ref#": "1625"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Density",
+    "Value": "1.46",
+    "Units": "g/mL",
+    "Condition": "not stated",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Vapor Pressure",
+    "Value": "74",
+    "Units": "mm Hg",
+    "Condition": "not stated",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Vapor Pressure",
+    "Value": "8.0 to 9.9",
+    "Units": "kPa",
+    "Condition": "20 to 25 degree Celsius",
+    "Ref#": "1629"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.327",
+    "Units": "unitless",
+    "Condition": "20 degree Celsius",
+    "Ref#": "1628"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.48 to 0.49",
+    "Units": "unitless",
+    "Condition": "not stated",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "11.7 x 10^(-3)",
+    "Units": "atm.m3/mole",
+    "Condition": "not stated",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "540",
+    "Units": "atm",
+    "Condition": "20 degree Celsius",
+    "Ref#": "1621"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.1",
+    "Units": "kPa.m3/mole",
+    "Condition": "25 degree Celsius",
+    "Ref#": "1629"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Henry's Law Constant",
+    "Value": "0.46",
+    "Units": "unitless",
+    "Condition": "27 degree Celsius",
+    "Ref#": "1627"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Kow",
+    "Value": "2.29 to 2.42",
+    "Units": "unitless",
+    "Condition": "not stated",
+    "Ref#": "1629"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Boiling Point",
+    "Value": "73",
+    "Units": "degree Celsius",
+    "Condition": "azeotropic",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Boiling Point",
+    "Value": "87",
+    "Units": "degree Celsius",
+    "Condition": "atmospheric",
+    "Ref#": "1622"
+  },
+  {
+    "Contaminant Name": "Trichloroethylene",
+    "Parameter": "Water Odor Threshold",
+    "Value": "0.31",
+    "Units": "mg/L",
+    "Condition": "not stated",
+    "Ref#": "1629"
+  }
+]

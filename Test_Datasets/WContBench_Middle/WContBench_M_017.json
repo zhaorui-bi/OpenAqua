@@ -1,0 +1,296 @@
+{
+  "case_id": "WContBench_M_017",
+  "case_name": "Cryptosporidium control for surface water recharge project under cost, simplicity, and residuals constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Cryptosporidium"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for Cryptosporidium-risk surface water intended for groundwater recharge while balancing pathogen log-removal needs against cost, operator simplicity, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A small inland water reuse agency plans to divert seasonally variable river water to infiltration basins for managed aquifer recharge. Monitoring has shown periodic livestock and wildlife influence in the watershed, creating concern about Cryptosporidium oocyst presence during runoff events. The agency needs a treatment train that can reliably reduce protozoan risk before recharge, but it has limited staff, wants to avoid chemically intensive sludge handling, and cannot justify a highly complex membrane plant unless the added reliability clearly outweighs cost and concentrate burdens.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 7.8,
+      "DOC_mg_L": 4.9,
+      "UV254_cm_1": 0.118,
+      "alkalinity_mg_L_as_CaCO3": 128,
+      "hardness_mg_L_as_CaCO3": 146,
+      "conductivity_uS_cm": 512,
+      "TSS_mg_L": 12.0,
+      "TOC_mg_L": 5.6,
+      "true_color_PCU": 19,
+      "chloride_mg_L": 38,
+      "sulfate_mg_L": 44,
+      "E_coli_CFU_100mL": 180,
+      "Cryptosporidium_oocysts_per_100L": 6.5
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should provide robust Cryptosporidium risk reduction suitable for groundwater recharge, with emphasis on physical removal and validated pathogen barrier performance rather than reliance on free chlorine alone.",
+      "secondary_goals": [
+        "maintain stable performance during moderate turbidity swings",
+        "minimize operator-intensive process control",
+        "avoid difficult residuals or concentrate disposal",
+        "preserve practical affordability for a small agency"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer low-sludge and no high-strength membrane concentrate management",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must tolerate seasonal raw-water variability and maintain protozoan barrier performance during runoff events"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation",
+          "flocculation",
+          "sedimentation",
+          "rapid_gravity_filtration",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation": "destabilize suspended particles and aid association of oocysts with floc",
+          "flocculation": "form settleable floc that captures protozoa and colloids",
+          "sedimentation": "remove bulk solids and reduce filter loading",
+          "rapid_gravity_filtration": "provide particulate and Cryptosporidium-associated removal barrier",
+          "uv_disinfection": "provide effective protozoan inactivation barrier independent of chlorine susceptibility"
+        },
+        "applicability_rationale": [
+          "This conventional clarification plus filtration route is a well-established approach for protozoan risk reduction in surface waters.",
+          "UV is strongly aligned with Cryptosporidium control because the organism is resistant to practical free chlorine disinfection levels.",
+          "Compared with membrane systems, this train has lower capital intensity and avoids concentrate management.",
+          "Although coagulation and sedimentation generate sludge, the residuals burden is generally more manageable for a small utility than membrane reject streams.",
+          "The process balances reliable barrier performance with moderate operational complexity that many small-to-mid-size plants can support."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "Performance depends on maintaining coagulant dose control and filter integrity during turbidity spikes.",
+          "Sludge handling and solids dewatering are still required.",
+          "UV effectiveness depends on maintaining adequate UV transmittance after filtration."
+        ],
+        "evidence_list": [
+          "EPA_surface_water_treatment_guidance_for_filtration_and_protozoan_control",
+          "LT2ESWTR_concepts_for_Cryptosporidium_barrier_credit",
+          "AWWA_case_knowledge_on_conventional_filtration_plus_UV_for_protozoan_risk_reduction"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coarse_screening",
+          "bank_or_roughing_pretreatment",
+          "slow_sand_filtration",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coarse_screening": "remove large debris and protect downstream units",
+          "bank_or_roughing_pretreatment": "dampen solids peaks and reduce particulate loading to slow sand filters",
+          "slow_sand_filtration": "provide robust particulate and protozoan removal with relatively simple operation",
+          "uv_disinfection": "add an independent inactivation barrier for Cryptosporidium"
+        },
+        "applicability_rationale": [
+          "Slow sand filtration is attractive where low operator complexity is highly valued and source water turbidity is moderate rather than extreme.",
+          "The route uses limited chemicals and can reduce sludge management burden relative to full conventional coagulation-sedimentation treatment.",
+          "Adding UV strengthens the multi-barrier approach for Cryptosporidium and reduces reliance on only biological/physical removal.",
+          "This option ranks below conventional treatment because seasonal turbidity excursions can challenge slow sand loading rates and require more area."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Requires sufficient footprint and careful management of filter ripening and scraping cycles.",
+          "High raw-water solids episodes may reduce run times or require bypass/storage management.",
+          "Performance is less suitable if watershed events cause frequent sharp turbidity spikes."
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_slow_sand_filtration_for_pathogen_removal",
+          "public_water_treatment_references_on_UV_effectiveness_for_Cryptosporidium",
+          "small_system_case_knowledge_for_slow_sand_filtration_on_moderate_turbidity_surface_water"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_inline",
+          "cloth_media_or_high_rate_filtration",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_inline": "improve particulate capture without full sedimentation basin infrastructure",
+          "cloth_media_or_high_rate_filtration": "remove coagulated solids and associated protozoan particles",
+          "uv_disinfection": "provide primary inactivation barrier for Cryptosporidium"
+        },
+        "applicability_rationale": [
+          "A compact inline coagulation and direct filtration style train can reduce footprint and some capital cost compared with full conventional clarification.",
+          "This option can be appealing where moderate solids levels are typical and space is limited.",
+          "Residuals volumes may be somewhat lower than full sedimentation-based treatment, helping sludge management.",
+          "It ranks below the top options because direct filtration is generally less forgiving of raw-water variability and demands tighter process control during runoff events."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "Lower resilience to abrupt turbidity spikes than conventional clarification plus filtration.",
+          "Coagulant optimization and filter monitoring are still important and may strain limited staffing.",
+          "If pretreatment is insufficient, UV transmittance and filter performance may degrade."
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_direct_filtration_applicability_for_surface_water",
+          "AWWA_design_knowledge_for_inline_coagulation_and_filtration",
+          "UV_disinfection_guidance_for_protozoan_control_in_filtered_water"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "screening",
+          "microfiltration_or_ultrafiltration",
+          "uv_disinfection"
+        ],
+        "core_unit_functions": {
+          "screening": "protect membrane modules from large particles and debris",
+          "microfiltration_or_ultrafiltration": "provide strong physical barrier removal of Cryptosporidium-sized particles and turbidity",
+          "uv_disinfection": "add a redundant pathogen barrier and support conservative recharge protection"
+        },
+        "applicability_rationale": [
+          "Low-pressure membranes are technically very strong for Cryptosporidium control because oocysts are much larger than membrane pore sizes used for MF and UF.",
+          "This route offers high finished-water consistency and strong turbidity control.",
+          "However, the option ranks lower because it increases capital cost, cleaning complexity, and backwash residual handling compared with simpler filtration approaches.",
+          "For a small agency prioritizing low O&M burden, the technical advantage may not justify the operational and residuals penalties unless source-water variability becomes more severe."
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "Membrane integrity monitoring and chemically enhanced cleaning add operational complexity.",
+          "Backwash water and cleaning waste require management.",
+          "Lifecycle replacement costs can be significant for small systems."
+        ],
+        "evidence_list": [
+          "EPA_membrane_filtration_guidance_for_pathogen_removal_credit",
+          "LT2ESWTR_membrane_barrier_case_knowledge_for_Cryptosporidium",
+          "public_design_references_on_UF_MF_residuals_and_integrity_testing"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment",
+          "reverse_osmosis",
+          "uv_advanced_oxidation_or_uv"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect RO from fouling and stabilize operation",
+          "reverse_osmosis": "provide high-level particulate and dissolved constituent rejection",
+          "uv_advanced_oxidation_or_uv": "supply post-membrane disinfection barrier where needed"
+        },
+        "applicability_rationale": [
+          "RO is technically capable of excluding Cryptosporidium and can address many dissolved contaminants simultaneously.",
+          "Despite technical capability, it is poorly aligned with this case because Cryptosporidium control does not require such an energy-intensive dissolved-solids barrier.",
+          "The concentrate stream is a major disadvantage for a recharge project with residuals-management constraints.",
+          "This option is included as a lower-ranked route to show that technically powerful treatment can still be a poor recommendation when constraints are misaligned."
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "High-pressure operation and scaling control increase operator burden.",
+          "Concentrate disposal can be difficult and expensive.",
+          "Treatment may be overdesigned for a primarily protozoan-control problem."
+        ],
+        "evidence_list": [
+          "public_guidance_on_RO_operational_complexity_and_concentrate_management",
+          "EPA_and_state_reuse_case_knowledge_on_membrane_tradeoffs_for_recharge_projects",
+          "engineering_practice_references_showing_RO_is_not_first_choice_for_standalone_Cryptosporidium_control"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional particulate removal plus UV should rank near the top",
+        "slow sand plus UV should appear as a plausible low-complexity alternative rather than an obvious first-place choice",
+        "membrane options should not rank first under cost and residuals constraints",
+        "RO should rank low because its technical capability is outweighed by cost and concentrate burden"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small-agency preference for low-to-medium operational complexity",
+        "importance of avoiding difficult residuals or concentrate handling",
+        "need to balance pathogen robustness against affordability rather than only maximizing removal performance"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why Cryptosporidium requires strong physical removal and/or UV rather than reliance on free chlorine alone",
+        "why conventional clarification and filtration are often used for protozoan control in surface water",
+        "why slow sand filtration can be attractive for low-complexity systems but can be limited by turbidity peaks",
+        "why technically capable membrane routes are downgraded under residuals and O&M constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal turbidity spikes and filter loading stress",
+        "sludge or backwash residual handling",
+        "UV transmittance dependence",
+        "membrane cleaning and integrity monitoring burden"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

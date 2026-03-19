@@ -1,0 +1,345 @@
+{
+  "case_id": "WContBench_D_087",
+  "case_name": "Agricultural drainage for groundwater recharge with radionuclide-pesticide mixture and incompletely characterized episodic contamination",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "agricultural_drainage",
+    "contaminant_type": [
+      "Uranium",
+      "Methomyl",
+      "Simazine and Simazine Degradates",
+      "Strychnine",
+      "Acetochlor Degradates"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "industrial_shock_load",
+      "brine_management_constraint",
+      "membrane_fouling_risk"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process trains for treating agricultural drainage to groundwater-recharge quality under uncertain mixed contamination, episodic non-agricultural inputs, and residuals-management constraints.",
+  "input_data": {
+    "scenario_background": "A water district is evaluating capture and treatment of blended agricultural drainage before managed aquifer recharge. Routine monitoring shows salinity, nitrate, uranium, and seasonal herbicide residues, but recent screenings also detected methomyl and low-level strychnine, suggesting intermittent non-routine inputs from nearby pest-control or storage activities. The exact speciation of uranium, the fraction of transformation products among pesticide degradates, and the magnitude of short-duration shock loads are not fully characterized. Influent quality changes markedly with irrigation season, storm runoff, and occasional return-flow mixing with drainage from a light industrial service corridor.",
+    "water_quality": {
+      "source_type": "agricultural_drainage_blended_return_flow",
+      "pH": 7.8,
+      "temperature_C": 22,
+      "turbidity_NTU": 19,
+      "TSS_mg_L": 34,
+      "TDS_mg_L": 1680,
+      "conductivity_uS_cm": 2560,
+      "alkalinity_mg_L_as_CaCO3": 235,
+      "hardness_mg_L_as_CaCO3": 410,
+      "TOC_mg_L": 8.6,
+      "DOC_mg_L": 6.9,
+      "UV254_cm_1": 0.16,
+      "nitrate_mg_L_as_N": 18.4,
+      "sulfate_mg_L": 210,
+      "chloride_mg_L": 295,
+      "silica_mg_L_as_SiO2": 28,
+      "boron_mg_L": 1.4,
+      "iron_mg_L": 0.42,
+      "manganese_mg_L": 0.08,
+      "uranium_ug_L": 54,
+      "methomyl_ug_L": 12.5,
+      "simazine_ug_L": 2.8,
+      "simazine_degradates_total_ug_L": 6.7,
+      "strychnine_ug_L": 0.35,
+      "acetochlor_degradates_total_ug_L": 11.9,
+      "microbial_indicator_e_coli_CFU_100mL": 140,
+      "SAR": 7.2,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "pesticide_degradate_distribution_and_possible_additional_trace_organics_are_suspected_but_not_fully_characterized; uranium_complexation_with_carbonate_is_likely_but_not_confirmed_by_speciation_data",
+      "episodic_shock_load_note": "occasional short-duration spikes in pesticides and suspended solids are suspected following runoff events and possible service-corridor discharges"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should be protective for groundwater recharge, with strong reduction of uranium, pesticides and degradates, nitrate and salinity where practicable, low particulate and pathogen loading, and stable quality suitable for managed aquifer recharge operations.",
+      "secondary_goals": [
+        "maintain robustness against seasonal and event-driven influent fluctuations",
+        "limit membrane fouling and scaling from hardness, silica, and natural organic matter",
+        "minimize concentrate and spent-media disposal burden",
+        "retain flexibility for incompletely characterized trace organics",
+        "provide a risk-aware recommendation despite uncertain shock-load composition"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "brine disposal options are limited and costly; residuals generation should be minimized and any concentrated uranium-bearing waste stream requires controlled handling",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_seasonal_variability_event_spikes_and_incompletely_characterized_trace_contaminants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_event_diversion",
+          "coagulation_flocculation_and_clarification",
+          "biological_denitrification",
+          "ozonation_or_UV_AOP",
+          "biological_activated_carbon",
+          "selective_uranium_removal_by_strong_base_anion_exchange_or_adsorptive_media",
+          "ultrafiltration_or_cartridge_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_event_diversion": "buffer routine variability and isolate suspected shock loads for controlled treatment",
+          "coagulation_flocculation_and_clarification": "reduce suspended solids, colloids, and part of organic fouling precursors",
+          "biological_denitrification": "remove nitrate before recharge and reduce downstream oxidant demand interactions",
+          "ozonation_or_UV_AOP": "transform methomyl, simazine-related compounds, strychnine, and other possible trace organics",
+          "biological_activated_carbon": "biodegrade and adsorb oxidation byproducts and residual pesticides while lowering DOC",
+          "selective_uranium_removal_by_strong_base_anion_exchange_or_adsorptive_media": "target dissolved uranium under likely carbonate-complex conditions without full-stream desalination",
+          "ultrafiltration_or_cartridge_polishing": "provide final particulate control and recharge-system protection",
+          "final_disinfection": "reduce pathogen loading for managed aquifer recharge"
+        },
+        "applicability_rationale": [
+          "this train addresses the mixed contaminant problem with multiple barriers while avoiding full RO dependence under a strong brine-management constraint",
+          "equalization and event diversion are important because influent variability and possible shock loads are explicitly high and not fully characterized",
+          "AOP plus BAC is a practical strategy when parent pesticides and degradates are present but the full trace-organic inventory is uncertain",
+          "selective uranium removal is appropriate because uranium is elevated and groundwater recharge requires a more protective approach than simple conventional treatment",
+          "biological denitrification addresses a major agricultural drainage constituent that would otherwise remain problematic for recharge"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "uranium removal effectiveness by ion exchange or adsorptive media depends on water chemistry, especially carbonate alkalinity and competing anions, so pilot testing is needed",
+          "AOP performance for degradates and unknown co-contaminants is uncertain without treatability data, and oxidation byproducts must be checked",
+          "BAC breakthrough or biological instability can occur after shock pesticide pulses if equalization and diversion are undersized",
+          "this approach does not materially reduce TDS, so recharge acceptance depends on site-specific salinity tolerance and basin hydrogeology",
+          "spent uranium-bearing resin or media requires controlled residuals handling"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_managed_aquifer_recharge_and_multi_barrier_source_control",
+          "EPA_guidance_for_uranium_removal_in_groundwater_by_anion_exchange_and_adsorptive_media",
+          "public_drinking_water_treatment_references_for_pesticide_removal_using_ozone_GAC_BAC",
+          "case_knowledge_on_agricultural_drainage_nitrate_and_trace_organic_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_event_diversion",
+          "coagulation_flocculation_and_clarification",
+          "biological_denitrification",
+          "granular_activated_carbon",
+          "nanofiltration_or_low_recovery_reverse_osmosis",
+          "stabilization_and_final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_event_diversion": "manage seasonal and episodic variability and reduce risk from shock contamination",
+          "coagulation_flocculation_and_clarification": "remove solids and lower membrane fouling load",
+          "biological_denitrification": "reduce nitrate loading before membrane treatment",
+          "granular_activated_carbon": "adsorb pesticides and some degradates while reducing organic fouling precursors",
+          "nanofiltration_or_low_recovery_reverse_osmosis": "remove uranium, dissolved salts, nitrate residuals, and many dissolved organics",
+          "stabilization_and_final_disinfection": "condition finished water and reduce microbial risk before recharge"
+        },
+        "applicability_rationale": [
+          "membrane desalting provides the most comprehensive barrier for uranium and dissolved contaminants when recharge objectives are stringent",
+          "pretreatment with clarification, denitrification, and GAC is important given the stated membrane fouling risk and uncertain organic fraction",
+          "NF may be attractive if moderate salt reduction is sufficient and concentrate volume must be constrained relative to conventional RO",
+          "this train is robust for variable mixed contamination if pretreatment is conservative and operational controls are strong"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine management is the dominant drawback and may make this option difficult to permit or operate economically",
+          "high hardness, silica, and organic matter increase scaling and fouling risk, especially during shock events",
+          "unknown trace compounds may partition unpredictably between permeate and concentrate without full characterization",
+          "if low recovery is selected to control scaling, concentrate volume may become operationally burdensome"
+        ],
+        "evidence_list": [
+          "EPA_desalination_and_brackish_groundwater_treatment_guidance",
+          "public_guidance_on_membrane_treatment_for_nitrate_and_radium_uranium_related_inorganics",
+          "engineering_case_knowledge_for_GAC_plus_NF_RO_in_reuse_and_recharge_applications"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "roughing_filtration_or_dissolved_air_flotation_as_needed",
+          "biological_denitrification",
+          "powdered_activated_carbon_with_membrane_bioreactor",
+          "uranium_selective_adsorptive_media",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen flow and quality swings before biological and membrane units",
+          "roughing_filtration_or_dissolved_air_flotation_as_needed": "manage suspended solids surges and reduce particulate fouling load",
+          "biological_denitrification": "remove nitrate under agricultural drainage conditions",
+          "powdered_activated_carbon_with_membrane_bioreactor": "combine biological treatment, solids separation, and adsorption support for pesticides and degradates",
+          "uranium_selective_adsorptive_media": "remove dissolved uranium after organic and solids reduction",
+          "UV_disinfection": "provide pathogen control before recharge"
+        },
+        "applicability_rationale": [
+          "this compact train may perform well where footprint is moderate and a combined bio-adsorptive process is desired",
+          "PAC-supported MBR offers some resilience to uncertain trace organics relative to biology alone",
+          "placing selective uranium removal after bulk organics reduction can improve media utilization",
+          "it avoids large brine production compared with desalination-centered trains"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MBR fouling risk is substantial under high solids variability and possible industrial-like shock loads",
+          "trace pesticide degradates may not be consistently controlled without careful PAC dosing and replacement strategy",
+          "uranium removal remains chemistry-sensitive and may require pH adjustment or alternative media",
+          "operational complexity may exceed the stated medium preference unless staffing is strong"
+        ],
+        "evidence_list": [
+          "public_case_knowledge_for_PAC_MBR_removal_of_micropollutants",
+          "EPA_guidance_for_uranium_adsorptive_treatment",
+          "water_reuse_and_recharge_references_on_multi_barrier_trains_with_biological_and_adsorptive_steps"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization_and_source_segregation",
+          "coagulation_flocculation_and_clarification",
+          "granular_activated_carbon_lead_lag",
+          "anion_exchange_for_uranium_and_nitrate",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_source_segregation": "buffer routine variation and divert suspicious inflow from the main train",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and reduce GAC fouling potential",
+          "granular_activated_carbon_lead_lag": "adsorb pesticides and some degradates with redundancy for breakthrough control",
+          "anion_exchange_for_uranium_and_nitrate": "remove uranium and nitrate in a compact physico-chemical step",
+          "final_disinfection": "reduce pathogen risk for recharge application"
+        },
+        "applicability_rationale": [
+          "this is a simpler non-membrane option that directly targets the key listed contaminants while avoiding large desalination brine volumes",
+          "lead-lag GAC improves resilience under uncertain pesticide composition and breakthrough uncertainty",
+          "anion exchange can be effective for uranium and nitrate when water chemistry is favorable and suspended solids are controlled"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "this train does not reduce TDS and may be insufficient if recharge criteria or basin sensitivity require salinity control",
+          "anion exchange selectivity can be impaired by sulfate and alkalinity, increasing regeneration frequency or media exhaustion",
+          "spent brine or regenerant handling remains a residuals challenge, including uranium-bearing waste streams",
+          "GAC alone may not fully control all degradates or unknown polar compounds during episodic shock loads"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_nitrate_and_uranium_removal_by_ion_exchange",
+          "public_drinking_water_case_knowledge_for_GAC_pesticide_control",
+          "managed_aquifer_recharge_guidance_emphasizing_source_control_and_multiple_barriers"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "settling_or_clarification",
+          "media_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "settling_or_clarification": "remove a portion of suspended solids",
+          "media_filtration": "polish particulates and lower turbidity",
+          "granular_activated_carbon": "adsorb some pesticides and improve organic quality",
+          "disinfection": "reduce microbial indicators before recharge"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline conventional approach",
+          "it may improve solids, some organics, and microbial quality at relatively lower complexity",
+          "however it does not adequately address the full mixed dissolved contaminant problem in this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "uranium removal is likely inadequate",
+          "nitrate and TDS remain essentially untreated",
+          "GAC alone may not reliably manage methomyl, degradates, or unknown event-driven compounds without frequent replacement",
+          "insufficient protection for groundwater recharge under the stated uncertainty and contaminant profile"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_references",
+          "public_guidance_indicating_conventional_treatment_limitations_for_dissolved_radionuclides_and_nitrate"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that explicitly address both uranium and pesticide-related contaminants should rank above simple conventional treatment",
+        "equalization or event-diversion should appear in higher-ranked options because influent variability and episodic shock loads are stated as important uncertainties",
+        "solutions that avoid or limit full-scale desalination may rank above RO-centric options when brine-management constraints are severe, unless recharge salinity needs clearly dominate",
+        "recommendations should recognize nitrate as a relevant co-contaminant in agricultural drainage even though it is not the only named target"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "agricultural drainage often carries salinity, nitrate, hardness, and organic fouling precursors that affect process choice",
+        "brine management is a major constraint for membrane-centered options",
+        "membrane fouling and scaling risks should be linked to hardness, silica, suspended solids, and DOC",
+        "industrial_shock_load_tag should be interpreted as occasional atypical or non-agricultural inputs requiring buffering, diversion, or conservative design",
+        "groundwater recharge requires risk-aware control of dissolved contaminants and microbial loading, not only aesthetic improvement"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why selective uranium removal may be favored over full desalination under strong concentrate-disposal limits",
+        "why AOP and/or activated carbon is justified when pesticides, degradates, and unknown trace organics are incompletely characterized",
+        "why pretreatment and equalization are important for membrane or adsorptive process protection",
+        "why simple clarification-filtration-disinfection alone is insufficient for this contaminant mix and recharge goal"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in pesticide degradate composition and possible additional trace organics",
+        "uranium chemistry uncertainty related to carbonate complexation and competing anions",
+        "episodic shock-load risk from runoff or nearby service-corridor discharges",
+        "membrane fouling and scaling risk from hardness, silica, solids, and DOC",
+        "brine or regenerant handling challenges for uranium-bearing residuals",
+        "possibility that TDS reduction may still be required depending on site-specific recharge basin and aquifer sensitivity"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

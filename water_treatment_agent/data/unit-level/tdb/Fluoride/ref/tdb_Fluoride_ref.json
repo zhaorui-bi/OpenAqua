@@ -1,0 +1,947 @@
+[
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1830",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "He, G., Chang, Y., and Ji, R.",
+    "Year": "1995",
+    "Title": "Mechanisms of defluoridation of drinking water by tricalcium phosphate",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1848",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Larsen, M., Pearce, E., and Jensen, S.",
+    "Year": "1993",
+    "Title": "Defluoridation of water at high pH with use of brushite, calcium hydroxide, and bone char",
+    "Source": "Journal of Dental Research"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1838",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bregnhøj, H., Dahi, E., and Jensen, M.",
+    "Year": "1995",
+    "Title": "Modeling defluoridation of water in bone char columns",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1860",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Ghorai, S. and Pant, K.",
+    "Year": "2004",
+    "Title": "Investigations on the column performance of fluoride adsorption by activated alumina in a fixed-bed",
+    "Source": "Chemical Engineering Journal"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1837",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Dahi, E., Singano, J., and Nielsen, J.",
+    "Year": "1995",
+    "Title": "Kinetics of defluoridation of water by calcined magnesia and clay",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1970",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Ruixia, L., Jinlong, G. and Hongxiao, T.",
+    "Year": "2002",
+    "Title": "Adsorption of fluoride, phosphate, and arsenate ions on a new type of ion exchange fiber",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1844",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Ramos, R., Ovalle-Turrubiartes, J., and Sanchez-Castillo, M.",
+    "Year": "1999",
+    "Title": "Adsorption of fluoride from aqueous solution on aluminum-impregnated carbon",
+    "Source": "Carbon"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1873",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Maliyekkal, S., Sharma, A., and Philip, L.",
+    "Year": "2006",
+    "Title": "Manganese-oxide-coated alumina: A promising sorbent for defluoridation of water",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1868",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Agarwal, K., Gupta, S, and Gupta, A.",
+    "Year": "1999",
+    "Title": "Development of new low cost defluoridation technology (Krass)",
+    "Source": "Wat. Sci. Tech."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1872",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Fan, X., Parker, D., and Smith, M.",
+    "Year": "2003",
+    "Title": "Adsorption kinetics of fluoride on low cost materials",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1955",
+    "Treatment Process": "N/A",
+    "Author": "Tylenda, C.",
+    "Year": "2003",
+    "Title": "Chemical and Physical Information",
+    "Source": "Toxicological Profile for Fluorides, Hydrogen Fluoride, and Fluorine (Update)"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1843",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Li, Y., Wang, S., Cao, A., Zhao, D., Zhang, X., Xu, C., Luan, Z., Ruan, D., Liang, J., Wu, D., and Wei, B.",
+    "Year": "2001",
+    "Title": "Adsorption of fluoride from water by amorphous alumina supported on carbon nanotubes",
+    "Source": "Chemical Physics Letters"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1971",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Chikuma, M. andNishimura , M.",
+    "Year": "1990",
+    "Title": "Selective sorption of fluoride ions by anion-exchange resin modified with alizarin fluorine blue-praseodymium(III) complex",
+    "Source": "Reactive Polymers"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1859",
+    "Treatment Process": "Other Treatment",
+    "Author": "Hu, C., Lo, S., and Kuan, W.",
+    "Year": "2003",
+    "Title": "Effects of co-existing anions on fluoride removal in electrocoagulation (EC) process using aluminum electrodes",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1973",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Sairam Sundarama, C. and Meenakshi, S.",
+    "Year": "2009",
+    "Title": "Fluoride sorption using organic-inorganic hybrid type ion exchangers",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1863",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Dey, S., Goswami, S., and Ghosh, U.",
+    "Year": "2004",
+    "Title": "Hydrous ferric oxide (HFO) - a scavenger for fluoride from contaminated water",
+    "Source": "Water, Air, and Soil Pollution"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1876",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Amor, Z., Bariou, B., Mameri, N., Taky, M., Nicolas, S., and Elmidaoui, A.",
+    "Year": "2001",
+    "Title": "Fluoride removal from brackish water by electrodialysis",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1828",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Ku, Y. and Chiou, H.",
+    "Year": "2002",
+    "Title": "The adsorption of fluoride ion from aqueous solution by activated alumina",
+    "Source": "Water, Air, and Soil Pollution"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1842",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Sujana, M., Thakur, R., and Rao, S.",
+    "Year": "1998",
+    "Title": "Removal of fluoride from aqueous solution by using alum sludge",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1881",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Tahaikt, M., Habbani, R., Haddou, A., Achary, I., Amor, Z., Taky, M., Alami, A., Boughriba, A., Hafsi, M., and Elmidaoui, A.",
+    "Year": "2007",
+    "Title": "Fluoride removal from groundwater by nanofiltration",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1968",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Popat, K. , Anand, P. and Dasare, B.",
+    "Year": "1994",
+    "Title": "Selective removal of fluoride ions from water by the aluminium form of the aminomethylphosphonic acid-type ion exchanger",
+    "Source": "Reactive Polymers"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1867",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Meenakshi, S., Sundaram, C., and Sukumar, R.",
+    "Year": "2008",
+    "Title": "Enhanced fluoride sorption by mechanochemically activated kaolinites",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1874",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Wang, H., Chen, J., Cai, Y., Ji, J., Liu, L., and Teng, H.",
+    "Year": "2007",
+    "Title": "Defluoridation of drinking water by Mg/Al hydrotalcite-like compounds and their calcined products",
+    "Source": "Applied Clay Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1977",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Viswanathan, N. and Meenakshi, S.",
+    "Year": "2008",
+    "Title": "Effect of metal ion loaded in a resin towards fluoride retention",
+    "Source": "Journal of Fluorine Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1967",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Fang,L., Nath Ghimire, K., Kuriyama, M., Inoue, K. and Makino, K.",
+    "Year": "2003",
+    "Title": "Removal of fluoride using some lanthanum(III)-loaded adsorbents with different functional groups and polymer matrices",
+    "Source": "Journal of Chemical Technology and Biotechnology"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2028",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Adler, H. and Klein, G.",
+    "Year": "1938",
+    "Title": "Removal of fluorides from potable water by tricalcium phosphate",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2025",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Boruff, C.",
+    "Year": "1934",
+    "Title": "Removal of fluorides from drinking waters",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1883",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Hu, K. and Dickson, J.",
+    "Year": "2006",
+    "Title": "Nanofiltration membrane performance on fluoride removal from water",
+    "Source": "J. Membrane Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1871",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Srimurali, M., Pragathi, A., and Karthikeyan, J.",
+    "Year": "1998",
+    "Title": "A study on removal of fluorides from drinking water by adsorption onto low-cost materials",
+    "Source": "Environmental Pollution"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1978",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Viswanathan, N. and Meenakshi, S.",
+    "Year": "2009",
+    "Title": "Role of metal ion incorporation in ion exchange resin on the selectivity of fluoride",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1826",
+    "Treatment Process": "Precipitative Softening",
+    "Author": "Fink, G. and Lindsay, F.",
+    "Year": "1936",
+    "Title": "Activated alumina for removing fluorides from drinking water",
+    "Source": "Ind. Eng. Chem."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1887",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Hu, C., Lo, S., and Kuan, W.",
+    "Year": "2005",
+    "Title": "Effects of the molar ratio of hydroxide and fluoride to Al(III) on fluoride removal by coagulation and electrocoagulation",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2027",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Swope, H. and Hess, R.",
+    "Year": "1937",
+    "Title": "Removal of fluorides from natural waters by defluorite",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1850",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Turner, B., Binning, P., and Stipp, S.",
+    "Year": "2005",
+    "Title": "Fluoride removal by calcite: evidence for fluorite precipitation and surface adsorption",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1834",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bårdsen, A. and Bjorvatn, K.",
+    "Year": "1995",
+    "Title": "Fluoride sorption isotherm in fired clay",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2029",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Goodwin, R. and Litton, J.",
+    "Year": "1941",
+    "Title": "Removal of fluorides from public water supplies",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1845",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Das, N., Pattanaik, P., and Das, R.",
+    "Year": "2005",
+    "Title": "Defluoridation of drinking water using activated titanium rich bauxite",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1858",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Veressinina, Y., Trapido, M., Ahelik, V., and Munter, R.",
+    "Year": "2001",
+    "Title": "Fluoride in drinking water: the problem and its possible solutions",
+    "Source": "Proc. Estonian Acad. Sci. Chem."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1851",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "He, G., and Cao, S.",
+    "Year": "1996",
+    "Title": "Assessment of fluoride removal from drinking water by calcium phosphate systems",
+    "Source": "Fluoride"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2017",
+    "Treatment Process": "Precipitative Softening",
+    "Author": "Scott, R., Kimberly, A., Van Horn, A., Ey, L. and Waring, F.",
+    "Year": "1937",
+    "Title": "Fluoride in Ohio water supplies - its effect, occurrence and reduction",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1836",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bregnhøj, H. and Dahi, E.",
+    "Year": "1995",
+    "Title": "Kinetics of uptake of fluoride on bone char in batch",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1831",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Singano, J., Mashauri, D., Dahi, E., and Mtalo, F.",
+    "Year": "1995",
+    "Title": "Effect of pH on defluoridation of water by magnesite",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2024",
+    "Treatment Process": "Powdered Activated Carbon",
+    "Author": "McKee, R. and Johnston, W.",
+    "Year": "1934",
+    "Title": "Removal of fluorides from drinking water",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1833",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bjorvatn, K. and Bårdsen, A.",
+    "Year": "1995",
+    "Title": "Use of activated clay for defluoridation of water",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1976",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Sundaram, C., Viswanathan, N. and Meenakshi, S.",
+    "Year": "2009",
+    "Title": "Fluoride sorption by nano-hydroxyapatite/chitin composite",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1891",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Schoeman, J. and MacLeod, H.",
+    "Year": "1987",
+    "Title": "The effect of particle size and interfering ions on fluoride removal by activated alumina",
+    "Source": "Water SA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1854",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Zevenbergen, C., Van Reeuwijk, L., Frapporti, G., Louws, R., and Schuiling, R.",
+    "Year": "1996",
+    "Title": "A simple method for defluoridation of drinking water at village level by adsorption on Ando soil in Kenya",
+    "Source": "The Science of the Total Environment"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2022",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Fink, G. and Lindsay, F.",
+    "Year": "1936",
+    "Title": "Activated alumina for removing fluorides from drinking water",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2018",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Culp, R. and Stoltenberg, H.",
+    "Year": "1958",
+    "Title": "Fluoride reduction at La Crosse, KA",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1827",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Tripathy, S., Bersillon, J., and Gopal, K.",
+    "Year": "2006",
+    "Title": "Removal of fluoride from drinking water by adsorption onto alum-impregnated activated alumina",
+    "Source": "Sep. Purif. Tech."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1980",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Ku, Y., Chiou, H. and Wang, W.",
+    "Year": "2002",
+    "Title": "The removal of fluroide ion from aqueous solution by a cation synthetic membrane",
+    "Source": "Separation Science and Technology"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1853",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Sahli, M., Annouar, S., Tahaikt, M., Mountadar, M., Soufiane, A., and Elmidaoui, A.",
+    "Year": "2007",
+    "Title": "Fluoride removal for underground brackish water by adsorption on the natural chitosan and by electrodialysis",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1870",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Sarkar, M., Banerjee, A., Pramanick, P., and Sarkar, A.",
+    "Year": "2006",
+    "Title": "Use of laterite for the removal of fluoride from contaminated drinking water",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1866",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Meenakshi, S. and Viswanathan, N.",
+    "Year": "2007",
+    "Title": "Identification of selective ion-exchange resin for fluoride sorption",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1861",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Garmes, H., Persin, F., Sandeaux, J., Pourcelly, G., and Mountadar, M.",
+    "Year": "2002",
+    "Title": "Defluoridation of groundwater by a hybrid process combining adsorption and Donnan dialysis",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2026",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Macintire, W. and Hammond, J.",
+    "Year": "1938",
+    "Title": "Removal of fluorides from natural waters by calcium phosphate",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1889",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Chidambaram, S., Ramanathan, A. and Vasudevan, S.",
+    "Year": "2003",
+    "Title": "Fluoride removal studies in water using natural materials",
+    "Source": "Water SA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1902",
+    "Treatment Process": "N/A",
+    "Author": "United States Department of Labor Occupational Safety and Health Administration",
+    "Year": "2010",
+    "Title": "Occupational safety and health guideline for hydrogen fluoride",
+    "Source": "http://www.osha.gov/SLTC/healthguidelines/hydrogenfluoride/recognition.html"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1852",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Chaturvedi, A., Pathak, K., and Singh, V.",
+    "Year": "1988",
+    "Title": "Fluoride removal from water by adsorption on china clay",
+    "Source": "Applied Clay Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1855",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Chauhan, V., Dwivedi, P., and Iyengar, L.",
+    "Year": "2007",
+    "Title": "Investigations on activated alumina based domestic defluoridation units",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1979",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Rao, M. and Bhaskaran, C.",
+    "Year": "1988",
+    "Title": "Studies on defluoridation of water",
+    "Source": "Journal of Fluorine Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1982",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Tanaka, D., Kerketta, S., Tanco, M., Yokoyama, T. and Suzuki, T.",
+    "Year": "2002",
+    "Title": "Adsorption of fuoride ion on the zirconium(IV) complexes of the chelating resins functionalized with amine-N-acetate ligands",
+    "Source": "Separation Science and Technology"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1856",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Hichour, M., Persin, F., Sandeaux, J., and Gavach, C.",
+    "Year": "2000",
+    "Title": "Fluoride removal from waters by Donnan dialysis",
+    "Source": "Sep. Purif. Tech."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1959",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Horowitz, H., Maier, J. and Law, F.",
+    "Year": "1967",
+    "Title": "Partial defluoridation of a community water supply and dental fluorosis",
+    "Source": "Health Serv. Rep."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1975",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Bakhsh Solangi, I., Memon, S. and Bhanger, M.I.",
+    "Year": "2010",
+    "Title": "An excellent fluoride sorption behavior of modified amberlite resin",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1875",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Hichour, M., Persin, F., Molenat, J., Sandeaux, J., and Gavach, C.",
+    "Year": "1999",
+    "Title": "Fluoride removal from diluted solutions by Donnan dialysis with anion-exchange membranes",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1869",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Sarkar, M., Banerjee, A., Pramanick, P., and Sarkar, A.",
+    "Year": "2007",
+    "Title": "Design and operation of fixed bed laterite column for the removal of fluoride from water",
+    "Source": "Chemical Engineering Journal"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1884",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Choi, S., Yun, Z., Hong, S., and Ahr, K.",
+    "Year": "2001",
+    "Title": "The effect of co-existing ions and surface characteristics of nanomembranes on the removal of nitrate and fluoride",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1829",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Schoeman, J. and Botha, G.",
+    "Year": "1985",
+    "Title": "An evaluation of the activated alumina process for fluoride removal from drinking-water and some factors influencing its performance",
+    "Source": "Water SA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1983",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Zhao, Y., Li, X., Liu, L. and Chen, F.",
+    "Year": "2008",
+    "Title": "Fluoride removal by Fe(III)-loaded ligand exchange cotton cellulose adsorbent in drinking water",
+    "Source": "Carbohydrate Polymers"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1972",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Haron, M. and Wan Yunus, W.",
+    "Year": "2001",
+    "Title": "Removal of fluoride ion from aqueous solution by a cerium-poly(hydroxamic acid) resin complex",
+    "Source": "J. Environ. Sci. Health"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1890",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Lounici, H., Addour, L., Belhocine, D., Grib, H., Nicolas, S., Bariou, B. and Mameri, N.",
+    "Year": "1997",
+    "Title": "Study of a new technique for fluoride removal from water",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1847",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Mohan, S., Ramanaiah, S., Rajkumar, B., and Sarma, P.",
+    "Year": "2007",
+    "Title": "Removal of fluoride from aqueous phase by biosorption onto algal biosorbent Spirogyra sp.-IO2: Sorption mechanism elucidation",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1961",
+    "Treatment Process": "N/A",
+    "Author": "Lauer, B. and Rubel, F.",
+    "Year": "2004",
+    "Title": "Water Fluoridation Principles and Practices",
+    "Source": "Water Fluoridation Principles and Practices"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1892",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Cengeloglu, Y., Kir, E. and Ersoz, M.",
+    "Year": "2002",
+    "Title": "Removal of fluoride from aqueous solution by using red mud",
+    "Source": "Separation and Purification Technology"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1886",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Bhatnagar, M., Bhatnagar, A., and Jha, S.",
+    "Year": "2002",
+    "Title": "Interactive biosorption by microalgal biomass as a tool for fluoride removal",
+    "Source": "Biotechnology Letters"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1981",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Viswanathan, N. and Meenakshi, S.",
+    "Year": "2010",
+    "Title": "Development of chitosan supported zirconium (IV) tungstophosphate composite for fluoride removal",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1841",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Li, Y., Wang, S., Zhang, X., Wei, J., Xu, C., Luan, Z., and Wu, D.",
+    "Year": "2003",
+    "Title": "Adsorption of fluoride from water by aligned carbon nanotubes",
+    "Source": "Materials Research Bulletin"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1984",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Biswas, K., Gupta, K., Goswani, A. and Ghosh, U.",
+    "Year": "2010",
+    "Title": "Fluoride removal efficiency from aqueous solution by synthetic iron (III)-aluminum(III)-chromium(III) ternary mixed oxide",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1880",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Cohen, D. and Conrad, H.",
+    "Year": "1998",
+    "Title": "65,000 GPD fluoride removal membrane system in Lakeland, California, USA",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2021",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Boruff, C., Buswell, M. and Upton, W.",
+    "Year": "1934",
+    "Title": "Adsorption of fluoride from salts by alum floc",
+    "Source": "Industrial and Engineering Chemistry"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1865",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Castel, C., Schweizer, M., Simonnot, M., and Sardin, M.",
+    "Year": "2000",
+    "Title": "Selective removal of fluoride ions by a two-way ion-exchange cyclic process",
+    "Source": "Chemical Engineering Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1974",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Bakhsh Solangi, I., Memon, S. and Bhanger, M.I.",
+    "Year": "2009",
+    "Title": "Removal of fluoride from aqueous environment by modified Amberlite resin",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1879",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Arora, M., Maheshwari, R., Jain, S., and Gupta, A.",
+    "Year": "2004",
+    "Title": "Use of membrane technology for potable water production",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1956",
+    "Treatment Process": "N/A",
+    "Author": "Fawell, J., Ohaniam, E., Giddings, M., Toft, P., Magara, Y. and Jackson, P.",
+    "Year": "2004",
+    "Title": "Fluoride in Drinking Water - Background document for development of WHO Guidelines in Drinking-Water Quality",
+    "Source": "Fluoride in Drinking Water - Background document for development of WHO Guidelines in Drinking-Water Quality"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1840",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Gumbo, F. and Mkongo, G.",
+    "Year": "1995",
+    "Title": "Water defluoridation for rural fluoride affected communities in Tanzania",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1969",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Samatya, S., Mizuki, H., Ito, Y., Kawakita, H. and Uezu, K.",
+    "Year": "2010",
+    "Title": "The effect of polystyrene as a porogen on the fluoride ion adsorption of Zr(IV) surface-immobilized resin",
+    "Source": "Reactive & Functional Polymers"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1857",
+    "Treatment Process": "N/A",
+    "Author": "Meenakshi and Maheshwari, R.",
+    "Year": "2006",
+    "Title": "Fluoride in drinking water and its removal",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1846",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Mohan, S., Ramanaiah, S., Rajkumar, B., and Sarma, P.",
+    "Year": "2007",
+    "Title": "Biosorption of Xuoride from aqueous phase onto algal Spirogyra IO1 and evaluation of adsorption kinetics",
+    "Source": "Bioresource Technology"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1957",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2010",
+    "Title": "Basic Information About Fluoride in Drinking Water",
+    "Source": "http://water.epa.gov/drink/contaminants/basicinformation/fluoride.cfm"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1877",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Kabay, N., Arar, O., Samatya, S., Yuksel, U., and Yuksel, M.",
+    "Year": "2008",
+    "Title": "Separation of fluoride from aqueous solution by electrodialysis: Effect of process parameters and other ionic species",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1832",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Dahi, E., Bregnhøj, H., and Orio, L.",
+    "Year": "1995",
+    "Title": "Sorption isotherms of fluoride on flocculated alumina",
+    "Source": "Proceedings of the 1st International Workshop on Fluorosis Prevention and Defluoridation of Water"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1862",
+    "Treatment Process": "Other Treatment",
+    "Author": "Sinha, S., Saxena, R., and Singh, S.",
+    "Year": "2000",
+    "Title": "Fluoride removal from water by hydrilla verticillata (l.f.) royle and its toxic effects",
+    "Source": "Bull. Environ. Contam. Toxicol."
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2016",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Maier, F.",
+    "Year": "1953",
+    "Title": "Defluoridation of municipal water supplies",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1893",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Rao, S. and Mamatha, P.",
+    "Year": "2004",
+    "Title": "Water quality in sustainable water management",
+    "Source": "Current Science"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1904",
+    "Treatment Process": "N/A",
+    "Author": "Agency for Toxic Substances and Disease Registry",
+    "Year": "2010",
+    "Title": "Fluorides, hydrogen fluoride, and fluorine",
+    "Source": "http://www.atsdr.cdc.gov/tfacts11.html"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1849",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "Piñón-Miramontes, M., Bautista-Margulis, R., and Pérez-Hernándeza, A.",
+    "Year": "2003",
+    "Title": "Removal of arsenic and fluoride from drinking water with cake alum and a polymeric anionic flocculent",
+    "Source": "Fluoride"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1958",
+    "Treatment Process": "N/A",
+    "Author": "U.S. Department of the Interior Bureau of Reclamation",
+    "Year": "2001",
+    "Title": "Fluoride Fact Sheet",
+    "Source": "Fluoride Fact Sheet"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1878",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Amor, Z., Malki, S., Taky, M., Bariou, B., Mameri, N., and Elmidaoui, A.",
+    "Year": "1998",
+    "Title": "Optimization of fluoride removal from brackish water by electrodialysis",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1960",
+    "Treatment Process": "N/A",
+    "Author": "Health Canada",
+    "Year": "2009",
+    "Title": "Fluoride in Drinking Water",
+    "Source": "Guidelines for Canadian Drinking Water Quality: Guideline Technical Document"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1888",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Tor, A.",
+    "Year": "2006",
+    "Title": "Removal of fluoride from an aqueous solution by using montmorillonite",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1895",
+    "Treatment Process": "N/A",
+    "Author": "Sorg, T.",
+    "Year": "1978",
+    "Title": "Treatment Technology to Meet the Interim Primary Drinking Water Regulations for Inorganics",
+    "Source": "JAWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2023",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bellack, E.",
+    "Year": "1971",
+    "Title": "Arsenic removal from potable water",
+    "Source": "Journal AWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "1896",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Fox, K. and Sorg, T.",
+    "Year": "1987",
+    "Title": "Controlling Arsenic, Fluoride, and Uranium by Point-of-Use Treatment",
+    "Source": "JAWWA"
+  },
+  {
+    "Contaminant Name": "Fluoride",
+    "Ref#": "2009",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2003",
+    "Title": "Water Treatment Technology Feasibility Support Document for Chemical Contaminants; In Support of EPA Six-Year Review of National Primary Drinking Water Regulations",
+    "Source": "Office of Ground Water and Drinking Water, Standards and Risk Management Division, Washington, DC"
+  }
+]

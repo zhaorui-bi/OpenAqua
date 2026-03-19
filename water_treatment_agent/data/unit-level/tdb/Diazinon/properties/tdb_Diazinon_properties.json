@@ -1,0 +1,194 @@
+[
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Chemical Formula",
+    "Value": "C12H21N2O3PS",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Class",
+    "Value": "II",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "770"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Molecular Weight",
+    "Value": "304.35",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Molecular Weight",
+    "Value": "304.3",
+    "Units": "g/mol",
+    "Condition": "N/A",
+    "Ref#": "770"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Solubility",
+    "Value": "40",
+    "Units": "mg/l",
+    "Condition": "Water at 25oC",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Solubility",
+    "Value": "40",
+    "Units": "mg/l",
+    "Condition": "Water at 20oC",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Density",
+    "Value": "1.116 - 1.118",
+    "Units": "g/ml",
+    "Condition": "at 20oC/ 4oC",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Density",
+    "Value": "1.11",
+    "Units": "g/ml",
+    "Condition": "at 20oC",
+    "Ref#": "770"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Vapor Pressure",
+    "Value": "9.01 x 10-5",
+    "Units": "mm Hg",
+    "Condition": "at 20oC",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.1 x 10-3",
+    "Units": "mm Hg",
+    "Condition": "at 40oC",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.4 x 10-4",
+    "Units": "mm Hg",
+    "Condition": "at 20oC",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.4 x 10-6",
+    "Units": "atm m3/mol",
+    "Condition": "N/A",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.17 x 10-7",
+    "Units": "atm-m3/mol",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Kow",
+    "Value": "6456.54",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Kow",
+    "Value": "1995.26",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Koc",
+    "Value": "11.54 - 431.52",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Boiling Point",
+    "Value": "83-84",
+    "Units": "oC",
+    "Condition": "at 2 x 10-3 mm Hg",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Odor",
+    "Value": "Faint ester-like",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Basudin",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Spectracide",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Diazol",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Gardentox",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Knox-Out",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Trade Names",
+    "Value": "Alfa-tox",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "762"
+  }
+]

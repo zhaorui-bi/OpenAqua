@@ -1,0 +1,319 @@
+{
+  "case_id": "WContBench_M_032",
+  "case_name": "River-water potable reuse polishing for pesticide residues and radium under pilot-scale and remote-site constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Tebufenozide",
+      "Acetochlor Degradates",
+      "Radium"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river-water treatment to potable reuse quality when tebufenozide, acetochlor degradates, and radium must be controlled under pilot-scale, capital, and remote-location constraints.",
+  "input_data": {
+    "scenario_background": "A remote inland utility is piloting a compact potable reuse train that uses river water as a blending and augmentation source for a small drinking water system. Monitoring has identified seasonal pesticide-related contaminants from agricultural runoff together with measurable radium contributed by upstream groundwater-fed baseflow and sediment interaction. Several treatment routes are technically plausible, but the preferred option must balance limited pilot capital, low staffing at the remote site, avoidance of difficult chemical supply chains, and the need to demonstrate stable potable-quality effluent rather than simply maximize removal at any cost.",
+    "water_quality": {
+      "source_type": "river_water",
+      "temperature_C": 16.8,
+      "pH": 7.6,
+      "turbidity_NTU": 8.4,
+      "TOC_mg_L": 5.9,
+      "DOC_mg_L": 4.6,
+      "UV254_cm_1": 0.128,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 176,
+      "calcium_mg_L": 46,
+      "magnesium_mg_L": 15,
+      "sulfate_mg_L": 54,
+      "chloride_mg_L": 29,
+      "nitrate_as_N_mg_L": 2.4,
+      "iron_ug_L": 140,
+      "manganese_ug_L": 28,
+      "conductivity_uS_cm": 512,
+      "TSS_mg_L": 11,
+      "target_contaminants": {
+        "tebufenozide_ug_L": 1.9,
+        "acetochlor_ESA_ug_L": 8.7,
+        "acetochlor_OXA_ug_L": 3.6,
+        "radium_226_pCi_L": 3.1,
+        "radium_228_pCi_L": 2.4,
+        "combined_radium_226_228_pCi_L": 5.5
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should consistently achieve potable-reuse quality with combined radium controlled below drinking-water standards and pesticide-related contaminants reduced to low, stable levels suitable for public-health protection and permitting.",
+      "secondary_goals": [
+        "keep process train compatible with pilot-only deployment",
+        "minimize operator intervention at a remote site",
+        "avoid highly complex concentrate or radioactive residual handling where possible",
+        "maintain resilience to seasonal turbidity and organic matter swings"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "remote site should avoid large volumes of difficult brine and should minimize specialized handling of radium-bearing solids, though periodic managed disposal is acceptable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate river-water variability and operate reliably with infrequent operator attendance"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "selective_radium_ion_exchange",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce turbidity and natural organic matter to stabilize downstream adsorption and ion exchange performance",
+          "dual_media_filtration": "polish particulates and protect GAC and resin",
+          "granular_activated_carbon": "adsorb hydrophobic pesticide compounds including tebufenozide and provide partial removal of pesticide degradate-associated organics",
+          "selective_radium_ion_exchange": "remove dissolved radium to below combined-radium compliance targets",
+          "UV_disinfection": "provide final microbial barrier appropriate for potable reuse polishing"
+        },
+        "applicability_rationale": [
+          "this train balances the mixed contaminant problem by separating organic-micropollutant control from radium control rather than forcing one high-cost unit to do everything",
+          "conventional clarification and filtration are well matched to variable river water and reduce DOC loading that would otherwise shorten GAC life",
+          "GAC is a practical pilot-scale barrier for tebufenozide and can help with a broad suite of trace organics likely to matter in potable reuse demonstrations",
+          "radium ion exchange is a known targeted approach for dissolved radium and is generally less energy-intensive than membranes",
+          "compared with membrane-heavy alternatives, this route better fits remote operation and avoids continuous concentrate generation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "acetochlor degradates are more polar than parent pesticides and may not be removed as strongly by GAC as more hydrophobic compounds",
+          "radium-selective resin or media will require monitored replacement and managed disposal of radium-bearing residuals",
+          "if DOC increases sharply during storm events, GAC run length may shorten and pilot data will need to confirm replacement frequency"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "public_drinking_water_practice_for_GAC_control_of_pesticides_and_trace_organics",
+          "potable_reuse_frameworks_emphasizing_multiple_barriers_and_operational_robustness",
+          "case_knowledge_on_DOC_competition_reducing_GAC_adsorption_capacity"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ozonation",
+          "biological_activated_carbon",
+          "selective_radium_ion_exchange",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and lower oxidant demand",
+          "ozonation": "transform susceptible organic micropollutants and improve downstream biodegradability",
+          "biological_activated_carbon": "adsorb and biologically polish oxidized organics including some pesticide degradates",
+          "selective_radium_ion_exchange": "remove dissolved radium",
+          "UV_disinfection": "final microbial control"
+        },
+        "applicability_rationale": [
+          "this route is attractive because acetochlor degradates can be less amenable to adsorption alone, and ozone plus BAC may broaden control across more polar organics",
+          "BAC offers a combined adsorption and biologically active polishing step that can be useful in potable reuse pilots with mixed trace-organic concerns",
+          "radium still requires a dedicated dissolved-ion removal step, making the train technically sound for the full contaminant set",
+          "it ranks below the top option because ozone systems, off-gas safety, and tighter process monitoring increase operational burden at a remote pilot site"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "ozonation adds mechanical and control complexity that may strain low-staff remote operation",
+          "bromate formation risk must be checked if bromide is present even at modest levels",
+          "BAC performance can be variable during start-up and requires biological process management"
+        ],
+        "evidence_list": [
+          "drinking_water_guidance_on_ozone_and_BAC_for_micropollutant_control",
+          "potable_reuse_case_knowledge_for_advanced_oxidation_and_biological_polishing",
+          "EPA_guidance_for_radium_removal_using_ion_exchange_and_lime_softening"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "selective_radium_ion_exchange",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove bulk suspended matter and some organic matter",
+          "dual_media_filtration": "provide solids polishing",
+          "powdered_activated_carbon": "provide flexible intermittent adsorption for pesticide-related organics",
+          "selective_radium_ion_exchange": "remove dissolved radium",
+          "UV_disinfection": "final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "PAC can be attractive at pilot scale because dosing equipment may have lower upfront cost than full GAC contactors",
+          "the approach offers operational flexibility during seasonal pesticide peaks rather than requiring continuously loaded fixed beds",
+          "a dedicated radium removal step preserves technical feasibility for the radiological requirement",
+          "this option ranks lower because remote handling of carbon slurry, dose optimization, solids capture, and spent solids management can become labor-intensive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC effectiveness on more persistent degradates may be inconsistent without careful contact time and dose control",
+          "additional solids handling can complicate a remote pilot and generate radium-associated waste if process residuals become mixed",
+          "performance may vary with storm-driven DOC spikes"
+        ],
+        "evidence_list": [
+          "public_water_treatment_references_for_PAC_use_on_pesticides_and_taste_odor_compounds",
+          "EPA_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "case_knowledge_on_pilot_scale_tradeoffs_between_PAC_and_GAC"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_coagulation_and_filtration",
+          "nanofiltration",
+          "stabilization",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_coagulation_and_filtration": "control fouling potential before membranes",
+          "nanofiltration": "provide broad rejection of divalent ions including radium and partial to strong rejection of many organic micropollutants",
+          "stabilization": "adjust finished water chemistry after membrane treatment",
+          "UV_disinfection": "final microbial barrier"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of addressing the mixed contaminant challenge in a compact barrier process and can be very effective for radium",
+          "it may also provide strong co-benefits for hardness and other dissolved constituents relevant to potable reuse quality",
+          "despite this technical strength, it ranks lower because concentrate handling at a remote site is difficult, membrane systems require more skilled attention, and capital intensity is high for a pilot-only deployment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "brine or concentrate management is a major challenge in remote inland locations",
+          "membrane fouling risk is significant for variable river water unless pretreatment is carefully managed",
+          "pilot economics may not represent full-scale feasibility because concentrate disposal can dominate lifecycle cost"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_membrane_rejection_of_radium_and_multivalent_ions",
+          "public_references_on_nanofiltration_for_trace_organic_and_pesticide_control",
+          "case_knowledge_on_remote_site_limitations_for_inland_membrane_concentrate_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "lime_softening_clarification",
+          "recarbonation",
+          "filtration",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "lime_softening_clarification": "precipitate hardness and co-remove radium with softening solids",
+          "recarbonation": "stabilize pH and finished water chemistry after softening",
+          "filtration": "remove carryover solids",
+          "granular_activated_carbon": "adsorb pesticide-related organics",
+          "UV_disinfection": "final microbial control"
+        },
+        "applicability_rationale": [
+          "lime softening is a recognized radium control approach and can work well where hardness is high enough to support co-precipitation",
+          "pairing with GAC can make the route technically capable for the full contaminant list",
+          "however, the option ranks last because chemical-intensive operation, sludge production, pH control demands, and operator attention are poorly aligned with a remote pilot under capital and staffing constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_good",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "high sludge generation complicates disposal logistics and may create radium-bearing solids requiring careful management",
+          "chemical feed reliability and process control are challenging at a remote site",
+          "pilot operation may be unstable if source-water hardness and alkalinity vary seasonally"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_using_ion_exchange_and_lime_softening",
+          "conventional_water_treatment_references_for_lime_softening_operations",
+          "public_guidance_on_GAC_for_pesticide_control_in_drinking_water"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid trains that separate organics removal from radium-specific removal should rank near the top",
+        "membrane options may appear as technically strong but should not rank first under pilot-only, capital, and remote-location constraints",
+        "chemical- and sludge-intensive conventional radium removal routes should rank below simpler adsorption and ion-exchange combinations"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot-only deployment favors modular and lower-complexity equipment",
+        "remote location penalizes options needing intensive chemical logistics or specialist oversight",
+        "capital constraint should downgrade membrane and large softening systems even when technically capable",
+        "residuals discussion should distinguish between periodic media disposal and continuous concentrate or sludge burdens"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why GAC or BAC is relevant for pesticide and trace-organic control in river water",
+        "why radium generally requires a dedicated dissolved-ion removal mechanism such as ion exchange, softening, or membranes",
+        "why acetochlor degradates can be harder to remove by adsorption alone than more hydrophobic parent compounds",
+        "why membrane concentrate handling or softening sludge management lowers rank in this scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal DOC and turbidity impacts on adsorption performance",
+        "management of radium-bearing residuals",
+        "remote-site reliability and operator burden",
+        "uncertainty in removal of more polar pesticide degradates"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

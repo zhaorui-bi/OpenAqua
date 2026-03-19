@@ -1,0 +1,350 @@
+{
+  "case_id": "WContBench_D_058",
+  "case_name": "Landfill leachate discharge control with mercury, organophosphorus pesticides, and incompletely characterised trace organics",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "landfill_leachate",
+    "contaminant_type": [
+      "Mevinphos",
+      "Ibuprofen",
+      "Terbufos",
+      "Mercury"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for landfill leachate containing mixed conventional and trace contaminants for reliable environmental discharge under uncertain influent composition.",
+  "input_data": {
+    "scenario_background": "A municipal landfill operates a leachate treatment system that receives seasonally variable flows from active and older cells, with occasional recirculated leachate returning to the equalization basin. Recent screening detected ibuprofen, mevinphos, terbufos, and low-level mercury, but the broader micropollutant profile is only partially characterised and may vary after storm events. The discharge point is an environmentally sensitive receiving water, so the operator needs a robust multi-barrier train that can manage ammonia, COD, color, metals, and uncertain trace organics rather than relying on one polishing step alone.",
+    "water_quality": {
+      "source_type": "landfill_leachate",
+      "pH": 8.1,
+      "temperature_C": 24,
+      "conductivity_uS_cm": 13800,
+      "COD_mg_L": 2750,
+      "BOD5_mg_L": 320,
+      "BOD5_COD_ratio": 0.12,
+      "TOC_mg_L": 690,
+      "ammonia_mg_L_as_N": 540,
+      "TKN_mg_L": 610,
+      "nitrate_mg_L_as_N": 6.5,
+      "chloride_mg_L": 2550,
+      "sulfate_mg_L": 180,
+      "alkalinity_mg_L_as_CaCO3": 4250,
+      "TDS_mg_L": 8600,
+      "TSS_mg_L": 145,
+      "turbidity_NTU": 82,
+      "color_Pt_Co": 4300,
+      "hardness_mg_L_as_CaCO3": 920,
+      "iron_mg_L": 6.8,
+      "manganese_mg_L": 1.9,
+      "mercury_ug_L": 3.4,
+      "ibuprofen_ug_L": 18,
+      "mevinphos_ug_L": 1.6,
+      "terbufos_ug_L": 0.42,
+      "AOX_ug_L": 95,
+      "trace_contaminant_note": "suspected_additional_PFAS_pharmaceuticals_and_pesticide_transformation_products_not_fully_characterized",
+      "influent_variability": "high",
+      "variability_note": "ammonia_COD_and_trace_organics_increase_during_wet_weather_and_after_leachate_recirculation_events"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Effluent should be suitable for environmental discharge with strong reduction of ammonia, COD, suspended solids, mercury, and detected pesticides/pharmaceuticals, while maintaining low toxicity and stable compliance despite variable leachate composition.",
+      "secondary_goals": [
+        "provide resilience to highly variable influent strength and trace contaminant uncertainty",
+        "minimize risk of breakthrough of poorly characterised micropollutants",
+        "avoid placing excessive fouling or toxicity load on terminal membrane stages",
+        "control residuals generation and concentrate management burden",
+        "support defensible permitting decisions for sensitive receiving waters"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "metal-bearing sludge and membrane concentrate can be handled off-site, but volumes should be minimized and hazardous classification risk for mercury residuals is a concern",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_high_ammonia_refractory_organics_and_partially_unknown_trace_pollutants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "screening_and_pH_control",
+          "chemical_precipitation_for_mercury_and_metals",
+          "air_stripping_or_membrane_stripping_for_ammonia_with_scrubber",
+          "biologically_aerated_filter_or_MBBR",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "UV_or_UV_H2O2_polishing"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant fluctuations from variable leachate generation",
+          "screening_and_pH_control": "remove gross solids and optimize downstream metal precipitation and ammonia removal conditions",
+          "chemical_precipitation_for_mercury_and_metals": "convert dissolved mercury and co-occurring metals into removable solids, typically using sulfide or specialized precipitant chemistry",
+          "air_stripping_or_membrane_stripping_for_ammonia_with_scrubber": "remove a major portion of very high ammonia before biological polishing and protect downstream processes",
+          "biologically_aerated_filter_or_MBBR": "reduce residual biodegradable COD and oxidize remaining ammonia with relatively robust attached-growth biology",
+          "ultrafiltration": "polish suspended solids and biomass to protect adsorption and membrane barriers",
+          "granular_activated_carbon": "adsorb hydrophobic pesticides and some pharmaceutical and humic-associated organics",
+          "reverse_osmosis": "provide strong reduction of dissolved salts, residual COD, and many trace organic contaminants",
+          "UV_or_UV_H2O2_polishing": "provide final micropollutant and toxicity polishing for uncertain residual trace organics"
+        },
+        "applicability_rationale": [
+          "this is the most defensible multi-barrier train for sensitive environmental discharge when both known and unknown trace contaminants are a concern",
+          "very high ammonia and refractory leachate strength justify front-end ammonia removal rather than relying on biological nitrification alone",
+          "explicit mercury precipitation is appropriate because mercury is present and can concentrate in downstream residuals if not removed early",
+          "GAC plus RO plus optional UV-based polishing addresses the co-occurrence of ibuprofen, mevinphos, terbufos, and partially characterised micropollutants better than a single polishing barrier",
+          "attached-growth biological polishing is more robust than simple suspended-growth systems under variable landfill leachate loading"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "RO concentrate and mercury-bearing sludge may require costly off-site management and careful hazardous waste classification",
+          "if unknown low-molecular-weight compounds are poorly adsorbed or poorly oxidized, additional polishing validation may be needed",
+          "ammonia stripping performance depends strongly on pH, temperature, scaling control, and scrubber reliability",
+          "biological stage may still suffer inhibition from salinity or episodic toxic loads unless equalization and monitoring are strong",
+          "UV_H2O2 effectiveness for pesticide transformation products is uncertain without site-specific treatability testing"
+        ],
+        "evidence_list": [
+          "landfill_leachate_treatment_guidance_for_high_ammonia_and_refractory_COD_control",
+          "EPA_guidance_and_case_knowledge_for_mercury_precipitation_and_metals_removal",
+          "public_guidance_for_GAC_and_RO_as_multi_barrier_control_of_trace_organics",
+          "Shakopee_Mdewakanton_Sioux_Community_WRF_case_showing_biologically_aerated_filter_plus_membrane_plus_UV_multi_barrier_logic"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "chemical_precipitation_for_mercury",
+          "MBR_with_nitrification_denitrification",
+          "granular_activated_carbon_or_PAC",
+          "reverse_osmosis",
+          "final_UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize variable landfill leachate strength and flow",
+          "coagulation_flocculation_and_clarification": "reduce colloids, color, humic substances, and particulate fouling load",
+          "chemical_precipitation_for_mercury": "target dissolved mercury removal before advanced polishing",
+          "MBR_with_nitrification_denitrification": "provide high-quality biological treatment with solids separation and ammonia removal",
+          "granular_activated_carbon_or_PAC": "reduce residual pharmaceuticals, pesticides, and refractory dissolved organics",
+          "reverse_osmosis": "remove dissolved salts and remaining dissolved contaminants for stringent discharge quality",
+          "final_UV_disinfection": "provide pathogen control and final barrier before discharge"
+        },
+        "applicability_rationale": [
+          "an MBR-centered train can deliver very stable solids-free effluent and strong ammonia control if toxicity and salinity are manageable",
+          "pre-coagulation helps reduce color and humics that would otherwise burden membranes and carbon",
+          "RO is justified where discharge sensitivity or permit stringency makes dissolved contaminant reduction important despite the environmental discharge endpoint",
+          "this option is slightly lower ranked than rank 1 because MBR biological stability is less certain at the stated ammonia and salinity levels unless substantial equalization and pretreatment are maintained"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "nitrification may be inhibited by salinity, free ammonia, or uncharacterized toxicants, creating compliance risk under peak loads",
+          "membrane fouling risk is high if coagulant carryover, humics, or iron are not well controlled",
+          "carbon stage replacement frequency may be difficult to predict because the trace organic mixture is not fully characterised",
+          "RO concentrate still contains unresolved trace contaminants and may need separate disposal",
+          "uncertainty flag: mevinphos and terbufos may partition differently than ibuprofen, so carbon bed design should not rely on one surrogate compound"
+        ],
+        "evidence_list": [
+          "membrane_bioreactor_case_knowledge_for_leachate_with_high_ammonia",
+          "public_guidance_for_coagulation_and_adsorption_to_reduce_leachate_color_and_refractory_organics",
+          "EPA_and_state_guidance_for_multi_barrier_trace_organic_control_before_sensitive_discharge"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "chemical_precipitation_for_mercury_and_metals",
+          "ammonia_stripping_with_acid_scrubber",
+          "nanofiltration_or_tight_RO",
+          "granular_activated_carbon",
+          "UV_H2O2"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen influent variability and shock loads",
+          "chemical_precipitation_for_mercury_and_metals": "remove mercury and associated metals before membrane concentration",
+          "ammonia_stripping_with_acid_scrubber": "substantially reduce ammonia load chemically and physically",
+          "nanofiltration_or_tight_RO": "reduce dissolved organics, salts, and many trace contaminants",
+          "granular_activated_carbon": "polish residual organic micropollutants and oxidation byproducts",
+          "UV_H2O2": "address residual low-level pharmaceuticals, pesticides, and toxicologically relevant unknowns"
+        },
+        "applicability_rationale": [
+          "this mostly physicochemical route may be attractive where biological inhibition is a major concern or where seasonal operation complicates stable nitrification",
+          "front-end mercury removal and ammonia stripping directly address two difficult leachate parameters before advanced barriers",
+          "multiple polishing steps acknowledge uncertainty in the broader trace contaminant mixture"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "without biological treatment, residual biodegradable COD and some nitrogen species may remain problematic if stripping is incomplete",
+          "chemical consumption, scaling control, and concentrate generation are substantial",
+          "advanced oxidation can create transformation products that still require verification by bioassay or targeted analysis",
+          "uncertainty flag: NF may not adequately reject all low-molecular-weight neutral compounds compared with tighter RO"
+        ],
+        "evidence_list": [
+          "case_knowledge_for_physicochemical_leachate_treatment_where_biology_is_constrained",
+          "EPA_guidance_for_mercury_removal_and_hazardous_residuals_management",
+          "public_references_for_AOP_plus_adsorption_as_polishing_for_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biologically_aerated_filter",
+          "activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer flow and concentration swings",
+          "coagulation_flocculation_and_clarification": "reduce suspended solids, color, and some metal-associated matter",
+          "biologically_aerated_filter": "remove part of biodegradable COD and some ammonia in a compact attached-growth process",
+          "activated_carbon": "reduce some pesticide and pharmaceutical contaminants and improve residual color",
+          "UV_disinfection": "provide final microbial control"
+        },
+        "applicability_rationale": [
+          "this option is more moderate in cost and complexity than membrane-intensive trains",
+          "it may be considered if the actual discharge permit is driven more by conventional pollutants than by dissolved salts",
+          "attached-growth biology echoes successful wastewater polishing concepts such as BAF plus downstream barriers used in public reclamation systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "likely insufficient for the stated case because very high ammonia, TDS, and uncertain dissolved micropollutants may not be reliably controlled without stronger barriers",
+          "mercury removal may be inconsistent unless a dedicated precipitation step is added",
+          "carbon exhaustion could occur rapidly due to high dissolved organic background",
+          "uncertainty flag: this train is only plausible if site-specific testing shows permit compliance without desalination-level separation"
+        ],
+        "evidence_list": [
+          "Shakopee_Mdewakanton_Sioux_Community_WRF_case_showing_BAF_plus_membrane_plus_UV_as_a_relevant_multi_barrier_precedent",
+          "public_guidance_for_BAF_use_in_ammonia_and_organics_polishing",
+          "adsorptive_polishing_references_for_trace_organics_in_complex_wastewaters"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate hydraulic variation",
+          "coagulation_flocculation": "aggregate colloids and some particulate-bound contaminants",
+          "sedimentation": "remove settleable solids",
+          "sand_filtration": "polish residual suspended solids",
+          "disinfection": "reduce pathogen indicators"
+        },
+        "applicability_rationale": [
+          "included as a low-ranked baseline representing conventional treatment only",
+          "it may improve solids, turbidity, and some color but does not match the complexity of this leachate case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cannot reliably remove high ammonia, dissolved mercury, salinity, or the listed pharmaceuticals and pesticides to a protective environmental discharge standard",
+          "offers little protection against unknown trace pollutants",
+          "high risk of regulatory non-compliance and chronic toxicity persistence",
+          "uncertainty flag: even if occasional grab samples appear acceptable, variable influent would likely cause breakthrough events"
+        ],
+        "evidence_list": [
+          "basic_conventional_wastewater_treatment_references_showing_limits_for_dissolved_contaminants",
+          "public_leachate_treatment_case_knowledge_indicating_need_for_multi_barrier_advanced_processes"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that explicitly address mercury, ammonia, refractory organics, and uncertain trace contaminants should rank above conventional trains",
+        "equalization should appear in higher-ranked options because influent variability is high",
+        "recommendations should recognize that environmental discharge in a sensitive receiving water can still justify advanced polishing and possibly RO for dissolved contaminant control",
+        "simple adsorption-only or clarification-only schemes should not outrank trains with dedicated ammonia and trace-organic control"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "landfill leachate has high ammonia, salinity, color, and refractory COD that require staged treatment",
+        "unknown trace pollutants and variable seasonal composition require robustness and uncertainty-aware recommendations",
+        "mercury should be addressed early to reduce downstream concentration into membranes or carbon residuals",
+        "residuals management tradeoffs for mercury sludge and membrane concentrate should be discussed explicitly",
+        "the unusual constraint tag reuse_quality_required should be interpreted as a need for high and stable treated-water quality even though the endpoint is environmental discharge"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why dedicated ammonia removal or robust nitrification is needed before final polishing",
+        "why carbon and/or advanced oxidation are justified for ibuprofen, mevinphos, terbufos, and incompletely characterised trace organics",
+        "why early mercury precipitation is preferable to letting mercury pass into downstream concentrate or biosolids",
+        "why conventional-only trains are insufficient for this leachate matrix",
+        "how the Shakopee BAF plus membrane plus UV precedent supports the logic of staged multi-barrier treatment even though the source water differs"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "storm-driven influent variability and leachate recirculation causing treatment upsets",
+        "biological inhibition risk from salinity, free ammonia, or unknown toxicants",
+        "mercury-bearing residuals handling and hazardous waste implications",
+        "carbon exhaustion uncertainty due to high background dissolved organics",
+        "membrane fouling, scaling, and concentrate disposal",
+        "possible transformation products after advanced oxidation and the need for treatability validation",
+        "uncertainty that additional PFAS or other trace pollutants may be present but not yet fully characterised"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

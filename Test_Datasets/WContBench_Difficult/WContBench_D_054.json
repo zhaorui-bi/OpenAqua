@@ -1,0 +1,338 @@
+{
+  "case_id": "WContBench_D_054",
+  "case_name": "Groundwater recharge from variable reclaimed water containing perfluorinated compounds (PFCs) and 1,2-dibromoethane under uncertain industrial intrusion",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "reclaimed_water_source",
+    "contaminant_type": [
+      "Per- and Polyfluoroalkyl Substances",
+      "1,2-Dibromoethane"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "industrial_shock_load",
+      "brine_management_constraint",
+      "membrane_fouling_risk"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for reclaimed water polishing and advanced treatment to support groundwater recharge where per- and polyfluoroalkyl substances and 1,2-dibromoethane co-occur under uncertain and variable influent conditions.",
+  "input_data": {
+    "scenario_background": "A regional water agency plans to use tertiary-treated reclaimed water for groundwater recharge, but recent monitoring detected perfluorinated compounds (PFCs) and low-level 1,2-dibromoethane in water reaching the advanced treatment facility. The source is not fully resolved: suspected intermittent industrial contributions may be superimposed on legacy contamination, and the relative proportions of short-chain versus long-chain PFCs are only partially characterized. Influent TOC, surfactant load, and trace solvent signals appear to spike episodically after certain industrial discharge periods, creating uncertainty about adsorption capacity, membrane fouling, and air-stripping effectiveness. The agency has limited tolerance for concentrated residuals because brine disposal options are available only at restricted volume and cost.",
+    "water_quality": {
+      "source_type": "tertiary_reclaimed_municipal_water_with_possible_industrial_intrusion",
+      "pH": 7.3,
+      "temperature_C": 22,
+      "turbidity_NTU": 1.9,
+      "TSS_mg_L": 4.0,
+      "TOC_mg_L": 7.8,
+      "DOC_mg_L": 6.1,
+      "UV254_cm_1": 0.11,
+      "COD_mg_L": 24,
+      "BOD5_mg_L": 5,
+      "ammonia_mg_L_as_N": 0.6,
+      "nitrate_mg_L_as_N": 8.4,
+      "TDS_mg_L": 920,
+      "hardness_mg_L_as_CaCO3": 210,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "conductivity_uS_cm": 1450,
+      "chloride_mg_L": 180,
+      "sulfate_mg_L": 95,
+      "bromide_mg_L": 0.42,
+      "total_organic_fluorine_ug_L": 480,
+      "PFAS_ug_L": {
+        "PFOS": 0.085,
+        "PFOA": 0.062,
+        "PFHxS": 0.041,
+        "PFBS": 0.19,
+        "GenX_HFPO_DA": 0.028
+      },
+      "one_two_dibromoethane_ug_L": 0.46,
+      "VOC_note": "trace_halogenated_organics_detected_intermittently_but_not_fully_characterized",
+      "surfactant_as_MBAS_mg_L": 0.22,
+      "SDI_15": 4.8,
+      "microconstituent_note": "short_chain_and_precursor_pfc_fraction_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should be suitable for groundwater recharge with strong reduction of per- and polyfluoroalkyl substances, 1,2-dibromoethane, dissolved organic matter, and other trace organics while maintaining a stable advanced-treated water quality protective of aquifer and public-health objectives.",
+      "secondary_goals": [
+        "maintain robustness under episodic industrial shock loads",
+        "minimize membrane fouling and irreversible adsorption breakthrough risk",
+        "limit brine and spent media generation where possible",
+        "retain flexibility for partially characterized PFC mixtures including short-chain species and possible precursors",
+        "provide recommendations with explicit uncertainty and monitoring caveats"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "brine_disposal_and_spent_media_handling_are_available_but_tightly_constrained_by_cost_and_offsite_capacity",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_groundwater_recharge_protection_and_variable_industrial_shock_loads"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "coagulation_or_inline_coagulant_aid_as_needed",
+          "MF_or_UF",
+          "air_stripping_with_offgas_treatment",
+          "reverse_osmosis",
+          "GAC_or_ion_exchange_lead_lag_polishing",
+          "UV_AOP_or_UV_disinfection_final_barrier"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "buffer variable reclaimed water quality and detect episodic industrial shock loads before advanced treatment",
+          "coagulation_or_inline_coagulant_aid_as_needed": "reduce colloids and fouling precursors when influent variability increases",
+          "MF_or_UF": "remove suspended solids and lower membrane fouling load to downstream RO",
+          "air_stripping_with_offgas_treatment": "remove volatile 1,2-dibromoethane and transfer vapor to controlled off-gas treatment rather than the atmosphere",
+          "reverse_osmosis": "provide broad dissolved contaminant reduction including many PFAS species, DOC, salts, and trace organics for recharge-quality water",
+          "GAC_or_ion_exchange_lead_lag_polishing": "capture residual PFAS species and provide protection against variable breakthrough, especially where short-chain behavior is uncertain",
+          "UV_AOP_or_UV_disinfection_final_barrier": "provide final pathogen control and an additional barrier for certain residual trace organics, while acknowledging limited PFAS destruction at typical water reuse doses"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is most defensible for groundwater recharge because the contaminant set includes both volatile legacy contaminant 1,2-dibromoethane and emerging PFAS/PFC concerns",
+          "air stripping is specifically useful for 1,2-dibromoethane, whereas adsorption alone is less reliable as the primary control for a volatile halogenated compound",
+          "RO is a strong central barrier for many PFAS species and simultaneously improves recharge water quality by lowering DOC, TDS, and many trace co-contaminants",
+          "post-RO GAC or selective ion exchange in lead-lag configuration provides added resilience against uncertainty in PFAS speciation, occasional membrane passage, and fluctuating influent episodes",
+          "equalization and online monitoring rank highly because the scenario explicitly includes industrial shock loads and incomplete characterization of PFC fractions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "RO concentrate management is a major constraint and may become the controlling implementation issue if PFAS mass loading rises",
+          "short-chain PFAS and precursors may not be fully represented by current monitoring panels, so polishing media design carries uncertainty",
+          "off-gas treatment for stripped 1,2-dibromoethane must be designed carefully to avoid media breakthrough or air emissions risk",
+          "high SDI and episodic surfactant increases can accelerate membrane fouling unless pretreatment and equalization are actively managed",
+          "UV-AOP is included mainly as a supplemental barrier for trace organics and disinfection, not as a primary PFAS destruction step under conventional reuse conditions"
+        ],
+        "evidence_list": [
+          "EPA_guidance_and_treatment_fact_sheets_for_PFAS_in_drinking_water_and_source_waters",
+          "public_water_reuse_guidance_for_advanced_treatment_prior_to_groundwater_recharge",
+          "engineering_case_knowledge_for_air_stripping_of_volatile_halonated_organics_in_water",
+          "state_reuse_practice_of_MF_RO_AOP_multi_barrier_trains_for_recharge_projects",
+          "adsorptive_polishing_guidance_for_PFAS_with_lead_lag_GAC_or_ion_exchange"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "MF_or_UF",
+          "air_stripping_with_offgas_treatment",
+          "anion_exchange_or_specialized_PFAS_resin_lead_lag",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "manage variable influent and trigger operational responses during shock events",
+          "MF_or_UF": "protect downstream adsorptive media by reducing particulate and biological fouling",
+          "air_stripping_with_offgas_treatment": "remove volatile 1,2-dibromoethane",
+          "anion_exchange_or_specialized_PFAS_resin_lead_lag": "remove a broad range of PFAS with high affinity and provide easier breakthrough tracking through lead-lag operation",
+          "UV_disinfection": "provide final pathogen barrier for recharge application"
+        },
+        "applicability_rationale": [
+          "this train avoids RO brine production, which is attractive where concentrate disposal is strongly constrained",
+          "specialized PFAS ion exchange can be highly effective at low concentrations and may outperform GAC for some short-chain species",
+          "the train is operationally simpler than full RO-based advanced reuse while still directly targeting the two named contaminants",
+          "it is a credible option when TDS reduction is not the principal objective and aquifer compatibility can be met without desalination"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance for PFAS precursors and very complex mixed PFC signatures is uncertain because adsorption and ion exchange target measured species more directly than unknown transformation products",
+          "spent resin handling and regeneration or disposal create concentrated residual management issues even though liquid brine volumes are lower than RO",
+          "without RO, dissolved salts, nitrate, and some neutral low-molecular-weight organics remain largely untreated and may matter for site-specific recharge permits",
+          "shock loads of competing dissolved organic matter or sulfate can shorten resin run length and complicate prediction of breakthrough"
+        ],
+        "evidence_list": [
+          "EPA_PFAS_treatment_technology_overviews_for_GAC_and_ion_exchange",
+          "case_knowledge_on_lead_lag_IX_systems_for_low_level_PFAS_control",
+          "groundwater_recharge_guidance_emphasizing_multiple_barriers_and_site_specific_compatibility",
+          "volatile_organic_compound_removal_guidance_for_air_stripping_with_offgas_controls"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "MF_or_UF",
+          "air_stripping_with_offgas_treatment",
+          "nanofiltration_or_tight_NF",
+          "GAC_polishing",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "buffer variations and support adaptive operation under uncertain influent episodes",
+          "MF_or_UF": "reduce suspended solids and membrane fouling precursors",
+          "air_stripping_with_offgas_treatment": "remove 1,2-dibromoethane",
+          "nanofiltration_or_tight_NF": "provide partial rejection of dissolved organics and some PFAS with lower pressure than RO",
+          "GAC_polishing": "capture residual PFAS and trace organics downstream of membrane treatment",
+          "UV_disinfection": "final microbial barrier"
+        },
+        "applicability_rationale": [
+          "this option seeks to reduce energy and brine burden relative to RO while still using a membrane barrier and adsorptive polishing",
+          "tight NF may be considered where recharge objectives tolerate partial salt passage and where target PFAS are dominated by longer-chain species",
+          "GAC polishing compensates for incomplete membrane rejection and provides an additional safety factor"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "NF rejection of short-chain PFAS is less reliable than RO, which is a meaningful uncertainty in this case because short-chain and precursor fractions are not fully characterized",
+          "NF still generates concentrate, though typically less severe than RO, so residuals constraints are reduced but not removed",
+          "if background TDS or nitrate limits for recharge are stringent, NF may be insufficient",
+          "GAC exhaustion can occur faster than expected if uncharacterized co-contaminants or surfactants increase"
+        ],
+        "evidence_list": [
+          "PFAS_treatment_case_knowledge_comparing_RO_NF_GAC_and_IX",
+          "advanced_reclaimed_water_treatment_guidance_for_membrane_plus_adsorption_trains",
+          "VOC_control_practice_using_air_stripping_before_downstream_polishing"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "air_stripping_with_offgas_treatment",
+          "dual_stage_GAC_lead_lag",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "stabilize inflow quality and support conservative media changeout decisions",
+          "air_stripping_with_offgas_treatment": "remove the volatile legacy contaminant 1,2-dibromoethane",
+          "dual_stage_GAC_lead_lag": "adsorb PFAS and co-occurring organic microconstituents while enabling sentinel monitoring through lead-lag operation",
+          "UV_disinfection": "final microbial protection"
+        },
+        "applicability_rationale": [
+          "this is a lower-complexity non-membrane route that directly addresses 1,2-dibromoethane and can remove a portion of PFAS, especially longer-chain compounds",
+          "it may be attractive where membrane fouling risk or brine disposal barriers make RO difficult to implement in the near term",
+          "lead-lag GAC offers operationally understandable breakthrough management and can be deployed as an interim risk-reduction measure"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "GAC is generally less reliable for short-chain PFAS such as PFBS and for unknown precursor-related contributions, making this option comparatively riskier under the stated uncertainty",
+          "without a membrane barrier, dissolved salts, nitrate, and some poorly adsorbing trace organics are not well controlled for recharge",
+          "media usage could become uneconomic under industrial shock loads or if TOF reflects significant unidentified PFAS mass",
+          "air stripping does not address PFAS and therefore the train depends heavily on carbon performance"
+        ],
+        "evidence_list": [
+          "EPA_information_on_GAC_effectiveness_for_longer_chain_PFAS_and_breakthrough_management",
+          "public_guidance_for_air_stripping_of_volatile_contaminants_in_water_treatment",
+          "reuse_practice_notes_that_non_membrane_trains_offer_less_comprehensive_barrier_performance_for_recharge"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "MF_or_UF",
+          "UV_AOP",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "MF_or_UF": "remove suspended solids and provide basic pretreatment",
+          "UV_AOP": "oxidize some susceptible trace organics and provide disinfection support",
+          "disinfection": "final microbial control"
+        },
+        "applicability_rationale": [
+          "included as a clearly lower-ranked comparator because it resembles simplified advanced reuse treatment without targeted barriers for the named contaminants",
+          "it may improve pathogen control and some organic indicators but does not constitute a robust primary strategy for PFAS plus 1,2-dibromoethane"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "UV-AOP is not a dependable conventional treatment for PFAS removal and is not the preferred primary control for 1,2-dibromoethane at these concentrations",
+          "the train lacks an explicit volatile-organic removal step and lacks an adsorption or desalting barrier for PFAS",
+          "under uncertain industrial intrusion, this option provides insufficient resilience and poor contaminant-specific defensibility for groundwater recharge",
+          "any apparent performance inferred from surrogate parameters would be misleading because target contaminant behavior is decoupled from basic bulk water indicators"
+        ],
+        "evidence_list": [
+          "public_reuse_guidance_showing_need_for_contaminant_specific_advanced_barriers_for_recharge",
+          "PFAS_treatment_references_noting_limits_of_conventional_AOP_for_practical_removal",
+          "engineering_guidance_that_simple_polishing_trains_are_insufficient_for_complex_trace_contaminants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that separately address volatile 1,2-dibromoethane and PFAS should rank above simple polishing trains",
+        "equalization and online monitoring should be recognized as important because influent variability and industrial shock loads are explicit",
+        "RO-based or equivalent high-barrier solutions should rank near the top when groundwater recharge protection and partially characterized PFAS mixtures are central concerns",
+        "non-membrane options may rank competitively only if brine-management constraints are explicitly weighed and caveated"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "co-occurring legacy and emerging contaminants require different removal mechanisms rather than a single-unit solution",
+        "brine management constraints must be discussed if RO or NF is recommended",
+        "membrane fouling risk from variable reclaimed water quality should influence pretreatment and ranking logic",
+        "groundwater recharge requires conservative barrier reasoning under uncertainty, not only nominal contaminant removal claims",
+        "industrial shock loads should motivate buffering, monitoring, and lead-lag or redundant barrier concepts"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why air stripping or another volatilization-based step is relevant for 1,2-dibromoethane",
+        "why adsorption or ion exchange alone may be uncertain for partially characterized PFAS mixtures, especially short-chain or precursor fractions",
+        "why RO can provide a broad barrier but creates concentrate management tradeoffs",
+        "why simpler UV-only or conventional polishing trains are insufficient for the stated groundwater recharge objective"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in short-chain versus long-chain PFC composition and possible precursor content",
+        "episodic industrial shock loads causing adsorption breakthrough or membrane fouling excursions",
+        "need for off-gas treatment and secondary waste handling when removing 1,2-dibromoethane by air stripping",
+        "RO or NF concentrate disposal as a potentially decisive implementation constraint",
+        "limits of relying on surrogate parameters such as TOC or conductivity to infer PFAS and 1,2-dibromoethane control",
+        "site-specific aquifer compatibility concerns if a non-desalting option is selected"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

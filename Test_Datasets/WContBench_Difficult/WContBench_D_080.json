@@ -1,0 +1,333 @@
+{
+  "case_id": "WContBench_D_080",
+  "case_name": "Industrial pesticide-formulation wastewater with uncertain pathogen intrusion and mixed pesticide residues for environmental discharge",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "Aldicarb",
+      "Simazine",
+      "Simazine degradates",
+      "V. cholerae",
+      "Vinclozolin"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for industrial wastewater containing mixed pesticide residues and uncertain microbial contamination to achieve compliant environmental discharge under significant influent uncertainty and cost-energy tradeoffs.",
+  "input_data": {
+    "scenario_background": "A specialty agrochemical blending and equipment-wash facility discharges wastewater from batch vessel cleaning, floor washdown, and intermittent stormwater ingress into an on-site equalization basin. Historical monitoring confirms aldicarb, simazine, and vinclozolin occurrence, while simazine degradates are suspected from aged residues and off-spec product handling but are not fully characterized analytically. Vibrio cholerae is not expected from process chemistry itself, but has been intermittently detected after cross-connection and warm-weather sanitary intrusion concerns, so the microbial component is real but its persistence and source remain uncertain. Influent strength varies substantially by production campaign, and the receiving stream is moderately sensitive, creating uncertainty around the level of polishing needed for trace organics before discharge.",
+    "water_quality": {
+      "source_type": "industrial_wastewater_from_pesticide_formulation_and_equipment_washdown",
+      "pH": 7.4,
+      "temperature_C": 26,
+      "turbidity_NTU": 46,
+      "TSS_mg_L": 118,
+      "COD_mg_L": 520,
+      "BOD5_mg_L": 165,
+      "TOC_mg_L": 92,
+      "oil_and_grease_mg_L": 14,
+      "TDS_mg_L": 980,
+      "conductivity_uS_cm": 1540,
+      "ammonia_mg_L_as_N": 11.8,
+      "total_nitrogen_mg_L_as_N": 28,
+      "total_phosphorus_mg_L_as_P": 3.9,
+      "chloride_mg_L": 185,
+      "sulfate_mg_L": 96,
+      "alkalinity_mg_L_as_CaCO3": 165,
+      "Aldicarb_ug_L": 82,
+      "Simazine_ug_L": 310,
+      "Simazine_degradates_total_ug_L": 145,
+      "Vinclozolin_ug_L": 61,
+      "V_cholerae_CFU_100mL": 220,
+      "fecal_indicator_note": "intermittent_sanitary_intrusion_suspected_but_not_fully_confirmed",
+      "acute_toxicity_screen_note": "episodic_toxicity_to_aquatic_bioassays_reported_during_high_strength_campaigns",
+      "trace_contaminant_note": "additional_pesticide_byproducts_and_formulation_additives_suspected_but_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Finished effluent should be suitable for discharge to a sensitive receiving stream, with strong reduction of suspended solids, bulk organics, ammonia, pathogen risk, and trace pesticide residues including probable transformation products, while maintaining stable compliance under variable influent conditions.",
+      "secondary_goals": [
+        "provide resilience to batch-driven concentration spikes",
+        "limit formation of problematic oxidation byproducts",
+        "avoid overcommitting to high-energy desalination that is not clearly required for discharge",
+        "address uncertain simazine degradates and other uncharacterized organics through a risk-aware multi-barrier approach",
+        "maintain manageable sludge and spent-media residuals"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "chemical_sludge_and_spent_carbon_can_be_managed_offsite_but_high_volume_brine_generation_is_unfavorable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_batch_operations_stormwater_intrusion_and_uncertain_microbial_events"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "pH_adjustment_and_coagulation_flocculation_clarification",
+          "biological_treatment_with_nitrification",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "UV_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant spikes from batch cleaning and stormwater intrusion",
+          "pH_adjustment_and_coagulation_flocculation_clarification": "remove suspended solids, reduce particulate-associated organics, and improve downstream biological stability",
+          "biological_treatment_with_nitrification": "reduce biodegradable COD and ammonia while providing a stable core treatment barrier",
+          "dual_media_filtration": "polish solids and protect the adsorption step",
+          "granular_activated_carbon": "adsorb residual pesticides and partially address uncertain simazine degradates and other trace organics",
+          "UV_or_chlorine_disinfection": "provide pathogen risk reduction for intermittent V_cholerae contamination before discharge"
+        },
+        "applicability_rationale": [
+          "this is the best overall fit because environmental discharge requires reliable bulk contaminant removal plus targeted polishing for low-level pesticides rather than full desalination",
+          "equalization is especially important because influent variability is high and microbial intrusion events are episodic",
+          "biological treatment is justified by the moderate BOD5 and ammonia concentrations and lowers the organic load before carbon polishing",
+          "GAC is a practical barrier for simazine, vinclozolin, aldicarb, and partially characterized transformation products when the contaminant profile is uncertain",
+          "final disinfection is necessary because V_cholerae has been detected intermittently and the receiving water is sensitive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "carbon breakthrough for polar or poorly characterized degradates may occur faster than expected if contaminant peaks are higher than current data indicate",
+          "biological performance may be inhibited during high-strength pesticide wash campaigns unless equalization and toxicity management are effective",
+          "UV performance can degrade if filtration is inadequate, while chlorination may form byproducts and some pesticides can be oxidation-sensitive in uncertain ways",
+          "the recommendation assumes dissolved salts are not the limiting discharge issue; if future permit conditions tighten on conductivity or whole-effluent toxicity, additional polishing may be needed"
+        ],
+        "evidence_list": [
+          "epa_wastewater_disinfection_guidance_for_pathogen_control",
+          "public_guidance_on_biological_treatment_followed_by_GAC_for_trace_organic_reduction",
+          "drinking_water_and_groundwater_case_knowledge_on_GAC_removal_of_triazine_pesticides",
+          "engineering_practice_for_equalization_in_variable_industrial_wastewater_systems"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biological_treatment_with_nitrification",
+          "ozonation_followed_by_biologically_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen concentration swings and provide controlled feed to downstream treatment",
+          "coagulation_flocculation_and_clarification": "remove solids and reduce fouling or scavenging demand ahead of oxidation",
+          "biological_treatment_with_nitrification": "remove biodegradable organics and ammonia prior to advanced polishing",
+          "ozonation_followed_by_biologically_activated_carbon": "transform and remove residual pesticides and some transformation products while polishing biodegradable oxidation intermediates",
+          "final_disinfection": "provide an additional microbial barrier before discharge"
+        },
+        "applicability_rationale": [
+          "a strong option when concern is elevated for trace pesticides and uncertain degradates that may not be fully captured by adsorption alone",
+          "placing ozone after biological treatment reduces oxidant demand and improves advanced polishing efficiency",
+          "BAC can stabilize effluent quality by removing ozone-generated biodegradable byproducts and residual organics",
+          "this train remains discharge-focused and avoids unnecessary desalination energy"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation may form transformation products that are less characterized toxicologically, so post-ozone BAC monitoring is important",
+          "ozone dose control is uncertain because the influent contains variable organic scavenging demand and possibly uncharacterized additives",
+          "capital and operator skill requirements are higher than rank 1",
+          "if bromide is present but not monitored, oxidation byproduct risk may be underestimated"
+        ],
+        "evidence_list": [
+          "water_reuse_and_advanced_wastewater_treatment_guidance_for_ozone_BAC",
+          "case_knowledge_on_advanced_oxidation_and_biological_polishing_for_pesticide_micropollutants",
+          "epa_and_state_guidance_on_multi_barrier_treatment_for_sensitive_receiving_waters"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "dissolved_air_flotation_or_clarification",
+          "MBR_with_nitrification",
+          "powdered_or_granular_activated_carbon_polishing",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and quality fluctuations and reduce shock loading",
+          "dissolved_air_flotation_or_clarification": "remove suspended solids, surfactant-associated matter, and some hydrophobic contaminant load",
+          "MBR_with_nitrification": "provide compact high-quality biological treatment with strong solids separation and ammonia oxidation",
+          "powdered_or_granular_activated_carbon_polishing": "remove residual dissolved pesticides and uncertain byproducts after biological treatment",
+          "UV_disinfection": "reduce microbial discharge risk"
+        },
+        "applicability_rationale": [
+          "this compact multi-barrier train can produce very consistent effluent quality when footprint and solids polishing are priorities",
+          "MBR effluent quality is beneficial for downstream adsorption and UV performance",
+          "the approach is suitable where stable discharge compliance is prioritized despite variable upstream conditions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "membrane fouling and pesticide-related biomass stress may be significant under poorly equalized batch discharges",
+          "operator attention and maintenance burden are higher than preferred for a medium-complexity target",
+          "PAC handling or GAC replacement frequency remains uncertain because simazine degradates are not fully characterized",
+          "UV alone does not provide a residual disinfectant barrier if downstream recontamination is possible"
+        ],
+        "evidence_list": [
+          "mbr_case_studies_for_industrial_wastewater_with_variable_loads",
+          "public_guidance_on_UV_disinfection_after_low_turbidity_treatment",
+          "engineering_references_for_carbon_polishing_of_micropollutants_after_biological_treatment"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_clarification",
+          "ultrafiltration",
+          "nanofiltration",
+          "activated_carbon_or_dechlorination_as_needed",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize feed water quality and reduce shock loads to membranes",
+          "coagulation_flocculation_clarification": "remove suspended and colloidal matter to protect membrane processes",
+          "ultrafiltration": "provide fine solids and microbial removal before tighter membrane separation",
+          "nanofiltration": "remove a broad fraction of dissolved pesticides and some organic byproducts",
+          "activated_carbon_or_dechlorination_as_needed": "polish residual organics or conditioning chemicals depending on selected disinfection strategy",
+          "final_disinfection": "ensure pathogen control prior to discharge"
+        },
+        "applicability_rationale": [
+          "this train can offer strong trace-organic and pathogen control where very conservative discharge quality is required",
+          "NF is more aligned than RO when the main issue is pesticide removal rather than full desalination",
+          "the option is included because uncertain whole-effluent toxicity and receiving-stream sensitivity may push decision-makers toward a tighter physical barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major drawback for a discharge application and conflicts with the stated residuals preference",
+          "membrane rejection of all simazine degradates and very polar transformation products is uncertain and site-specific",
+          "pretreatment must be robust to avoid rapid fouling under high variability",
+          "this may represent over-treatment if permit drivers are primarily organic and pathogen based rather than dissolved-salt based"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_micropollutant_control_in_industrial_effluents",
+          "case_knowledge_on_NF_for_pesticide_removal_with_concentrate_management_tradeoffs",
+          "public_engineering_guidance_on_uf_nf_pretreatment_requirements"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate gross variability in flow and concentration",
+          "coagulation_flocculation_and_clarification": "remove settleable and colloidal solids",
+          "sand_filtration": "polish remaining suspended solids",
+          "chlorination": "provide basic microbial inactivation"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline because it is simpler and less energy intensive",
+          "it may improve conventional discharge parameters such as TSS and some pathogen control, but it does not adequately address dissolved pesticides and uncertain degradates"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "likely insufficient for aldicarb, simazine, vinclozolin, and transformation product control",
+          "chlorination alone may not be a preferred primary barrier where organic loads and solids fluctuate",
+          "whole-effluent toxicity or trace-organic permit concerns would remain unresolved",
+          "this option is not robust against high uncertainty in micropollutant composition"
+        ],
+        "evidence_list": [
+          "basic_conventional_wastewater_treatment_references",
+          "public_guidance_showing_conventional_treatment_limits_for_dissolved_micropollutants",
+          "epa_disinfection_guidance_noting_need_for_adequate_pretreatment"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains combining equalization bulk organics removal trace-organic polishing and disinfection should rank above conventional-only trains",
+        "recommendations should avoid defaulting to RO unless clearly justified because the discharge goal does not inherently require desalination",
+        "equalization should appear in higher-ranked options due to high influent variability and uncertain contaminant peaks",
+        "solutions with a specific barrier for pesticides and uncertain degradates such as activated carbon or ozone_BAC should rank highly"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the case involves both legacy and emerging pesticide-related contaminants plus intermittent pathogen risk",
+        "cost and energy tradeoffs should be discussed explicitly, especially for ozone and membrane options",
+        "residuals concerns should recognize that brine generation is less acceptable than manageable sludge or spent carbon",
+        "environmental discharge targets differ from potable reuse and therefore may not justify the highest-energy desalination train"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why biological treatment is useful for reducing COD and ammonia before trace-organic polishing",
+        "why adsorption or advanced oxidation is needed because conventional solids removal alone is insufficient for dissolved pesticides",
+        "why disinfection is necessary given intermittent V_cholerae detection and uncertain sanitary intrusion",
+        "why uncertainty around simazine degradates and other uncharacterized byproducts changes the treatment ranking and monitoring needs"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "influent variability from batch operations and stormwater intrusion",
+        "uncertainty in the identity and treatability of simazine degradates and other formulation byproducts",
+        "possible biological inhibition or shock loading from pesticide spikes",
+        "carbon breakthrough or oxidation byproduct formation under incomplete characterization",
+        "membrane fouling and concentrate disposal risk if NF or similar high-pressure options are proposed",
+        "the possibility that intermittent pathogen detections reflect infrastructure issues requiring source control in addition to treatment"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

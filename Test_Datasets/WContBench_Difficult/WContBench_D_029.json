@@ -1,0 +1,344 @@
+{
+  "case_id": "WContBench_D_029",
+  "case_name": "Agricultural drainage reuse under uncertain cyanotoxin, chromium, and enteric pathogen co-contamination",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "agricultural_drainage",
+    "contaminant_type": [
+      "Cylindrospermopsin",
+      "Chromium",
+      "S. typhi"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "legacy_contamination",
+      "evolving_standards",
+      "mixed_organic_inorganic"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for agricultural drainage intended for agricultural reuse, accounting for uncertain cyanotoxin occurrence, chromium speciation ambiguity, and enteric pathogen risk under practical cost and operational constraints.",
+  "input_data": {
+    "scenario_background": "A drainage district collects return flows from irrigated fields and tailwater ponds, then wants to reuse the water for restricted and potentially expanded irrigation uses during dry periods. Monitoring shows intermittent cyanobacterial blooms in storage canals, detectable chromium likely linked to legacy agrochemical inputs and nearby historical industrial fill, and sporadic detection of Salmonella indicators; however, chromium speciation is not consistently measured and cylindrospermopsin episodes appear highly seasonal and event-driven. The operator has only partial characterization of dissolved organic matter and possible co-occurring algal metabolites, so the treatment recommendation must remain robust under uncertainty rather than assuming a fully stable influent.",
+    "water_quality": {
+      "source_type": "agricultural_drainage_mixed_canal_and_tailwater",
+      "pH": 7.8,
+      "temperature_C": 24.0,
+      "turbidity_NTU": 32,
+      "TSS_mg_L": 46,
+      "TOC_mg_L": 9.2,
+      "DOC_mg_L": 6.8,
+      "UV254_cm_1": 0.16,
+      "COD_mg_L": 34,
+      "BOD5_mg_L": 8,
+      "ammonia_mg_L_as_N": 1.4,
+      "nitrate_mg_L_as_N": 11.8,
+      "phosphate_mg_L_as_P": 1.9,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 240,
+      "TDS_mg_L": 890,
+      "conductivity_uS_cm": 1380,
+      "chloride_mg_L": 145,
+      "sulfate_mg_L": 122,
+      "chromium_total_mg_L": 0.11,
+      "chromium_hexavalent_mg_L": 0.03,
+      "cylindrospermopsin_ug_L": 1.8,
+      "microcystin_LR_ug_L": 0.4,
+      "S_typhi_presence_note": "suspected_intermittent_pathogen_presence_based_on_upstream_sanitary_intrusion_and_salmonella_monitoring_not_continuously_quantified",
+      "E_coli_CFU_100mL": 2200,
+      "chlorophyll_a_ug_L": 48,
+      "cyanobacterial_bloom_note": "seasonal_blooms_observed_in_warm_months_with_toxin_spikes_after_low_flow_conditions",
+      "trace_contaminant_note": "other_algal_metabolites_and_chromium_speciation_not_fully_characterized",
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Produce reclaimed water suitable for agricultural irrigation with reliable reduction of pathogen risk, chromium, suspended solids, and cyanotoxin concerns, while avoiding treatment byproducts or residual contaminant breakthrough that could affect crops, soils, workers, or downstream produce safety programs.",
+      "secondary_goals": [
+        "maintain performance during seasonal bloom events and fluctuating drainage quality",
+        "provide a barrier approach despite incomplete chromium speciation and intermittent pathogen monitoring",
+        "limit energy and chemical demand where possible for district-scale operation",
+        "support explainable risk-aware treatment selection under evolving cyanotoxin guidance"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "metal-bearing sludge can be hauled offsite in limited quantities, but concentrated brine disposal is difficult and frequent carbon replacement is undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_seasonal_blooms_variable_pathogen_inputs_and_uncertain_chromium_speciation"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_offline_blend_control",
+          "coagulation_flocculation_and_clarification",
+          "media_filtration",
+          "chromium_reduction_and_precipitation_if_CrVI_confirmed_or_elevated",
+          "granular_activated_carbon_or_biologically_active_carbon",
+          "UV_plus_free_chlorine_or_chloramination_final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_offline_blend_control": "buffer hydraulic and quality variability and avoid sending peak bloom or pathogen loads directly downstream",
+          "coagulation_flocculation_and_clarification": "remove algae, turbidity, particulate organic matter, and some particle-associated metals and microbes",
+          "media_filtration": "polish suspended solids and reduce particle shielding before adsorption and disinfection",
+          "chromium_reduction_and_precipitation_if_CrVI_confirmed_or_elevated": "convert hexavalent chromium to trivalent form and remove it as precipitated solids when speciation indicates need",
+          "granular_activated_carbon_or_biologically_active_carbon": "adsorb dissolved cylindrospermopsin and other partially characterized algal organic contaminants while providing additional organic polishing",
+          "UV_plus_free_chlorine_or_chloramination_final_disinfection": "provide robust pathogen inactivation with a multi-barrier approach and a residual where distribution or storage is involved"
+        },
+        "applicability_rationale": [
+          "this train directly addresses the mixed organic-inorganic-pathogen problem without relying on high-salinity brine-producing processes that fit poorly with drainage-water reuse",
+          "equalization is important because cylindrospermopsin and microbial risk are episodic and the scenario explicitly states high influent variability",
+          "clarification and filtration reduce algae and turbidity that would otherwise impair adsorption and disinfection performance",
+          "GAC or BAC is a practical polishing barrier for dissolved cyanotoxins when the full organic profile is uncertain and standards may evolve",
+          "a conditional chromium reduction-precipitation step is justified because total chromium is elevated and CrVI has been detected, but speciation is incomplete",
+          "combined UV and chemical disinfection is more resilient to intermittent S. typhi risk than a single disinfection barrier alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "adsorption capacity for cylindrospermopsin can drop faster than expected during bloom periods if natural organic matter spikes are larger than characterized",
+          "if chromium is primarily dissolved trivalent-complexed or speciation shifts rapidly, the chemical removal step may need jar testing and tighter pH control than currently assumed",
+          "disinfection byproduct formation risk must be checked because algal organic matter can change chlorine demand and precursor behavior",
+          "S. typhi is not continuously quantified, so disinfection design should use conservative microbial log-reduction assumptions rather than sparse detections alone",
+          "metal-bearing sludge handling is manageable but still a residuals burden under repeated chromium precipitation events"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_safe_use_of_wastewater_and_excreta_in_agriculture",
+          "EPA_cyanotoxin_treatment_optimization_guidance_for_drinking_water_systems",
+          "AWWA_case_knowledge_on_GAC_and_oxidant_barriers_for_cyanotoxin_control",
+          "EPA_guidance_for_hexavalent_and_total_chromium_removal_in_water_treatment",
+          "public_health_guidance_on_multi_barrier_disinfection_for_enteric_pathogens"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_dissolved_air_flotation",
+          "dual_media_filtration",
+          "anion_exchange_or_selective_adsorptive_chromium_polishing",
+          "granular_activated_carbon",
+          "UV_disinfection_with_chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer event-driven variability and allow operational response to bloom episodes",
+          "coagulation_flocculation_dissolved_air_flotation": "remove buoyant algae and associated organics more effectively under bloom conditions than settling alone",
+          "dual_media_filtration": "reduce remaining solids and improve downstream adsorption and disinfection reliability",
+          "anion_exchange_or_selective_adsorptive_chromium_polishing": "remove dissolved chromium species, especially where hexavalent chromium remains after clarification",
+          "granular_activated_carbon": "adsorb dissolved cyanotoxins and partially characterized organic compounds",
+          "UV_disinfection_with_chlorine_residual": "inactivate pathogens and maintain post-treatment microbial control"
+        },
+        "applicability_rationale": [
+          "DAF can outperform simple sedimentation when algal content is seasonally high and solids are buoyant",
+          "a selective dissolved chromium polishing step may be attractive if monitoring confirms persistent dissolved chromium after solids removal",
+          "the train remains compatible with agricultural reuse and avoids desalination-related brine challenges",
+          "this option is slightly lower ranked because chromium polishing media performance depends strongly on actual speciation and competing anions such as sulfate"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "anion exchange or specialty adsorbents may lose capacity quickly under high sulfate or variable nitrate conditions common in drainage water",
+          "if dissolved organic matter is underestimated, GAC usage rates could be materially higher than planned",
+          "DAF chemical optimization can be sensitive to seasonal algae type and pH shifts",
+          "uncertainty in S. typhi occurrence still requires conservative validation of UV dose and residual maintenance"
+        ],
+        "evidence_list": [
+          "EPA_cyanotoxin_management_brief_for_source_waters_with_blooms",
+          "water_reuse_case_knowledge_for_DAF_filtration_disinfection_trains",
+          "technical_guidance_on_selective_adsorption_and_ion_exchange_for_chromium_control",
+          "WHO_agricultural_reuse_risk_reduction_framework"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "advanced_oxidation_contingency",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen swings in turbidity, algae, and microbial load",
+          "coagulation_flocculation_and_clarification": "remove bulk suspended solids and a portion of algae and metal-associated particulates",
+          "ultrafiltration": "provide strong particulate and microbial barrier and protect downstream polishing units",
+          "granular_activated_carbon": "adsorb dissolved cylindrospermopsin and reduce organic load",
+          "advanced_oxidation_contingency": "provide additional oxidation capacity during severe toxin events or unexpected dissolved organic contaminant episodes",
+          "final_disinfection": "ensure microbial safety and residual control for reuse distribution"
+        },
+        "applicability_rationale": [
+          "UF offers a robust physical barrier for turbidity and microbial control when pathogen uncertainty is a major concern",
+          "the train can be effective where operators want stronger protection against particle-associated breakthrough during bloom conditions",
+          "an AOP contingency is included because evolving standards or uncharacterized algal metabolites may occasionally justify extra treatment",
+          "the option is ranked below the top two because chromium removal is less explicit unless chromium is mainly particulate or separately treated upstream"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "UF does not reliably remove dissolved chromium or dissolved cylindrospermopsin on its own, so performance depends heavily on downstream polishing",
+          "AOP effectiveness for cylindrospermopsin and byproduct formation needs site-specific verification under the actual matrix",
+          "membrane fouling could intensify during algal peaks if pretreatment control is inconsistent",
+          "this train may exceed operator complexity preferences for a drainage district unless strong automation and support are available"
+        ],
+        "evidence_list": [
+          "membrane_treatment_case_knowledge_for_algae_impacted_surface_waters",
+          "EPA_guidance_on_optimization_of_cyanotoxin_treatment_barriers",
+          "public_guidance_on_UF_as_a_particle_and_pathogen_barrier",
+          "AOP_case_examples_for_trace_organic_polishing_under_uncertain_contaminant_profiles"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "pre_oxidation_with_caution",
+          "coagulation_flocculation_and_clarification",
+          "sand_or_dual_media_filtration",
+          "constructed_wetland_or_storage_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate variable inflow and allow diversion of worst-quality episodes",
+          "pre_oxidation_with_caution": "control algae and partially address dissolved contaminants when carefully managed",
+          "coagulation_flocculation_and_clarification": "remove solids and algae biomass",
+          "sand_or_dual_media_filtration": "polish suspended solids and reduce disinfection interference",
+          "constructed_wetland_or_storage_polishing": "provide additional attenuation of nutrients and some microbial reduction",
+          "final_disinfection": "reduce enteric pathogen risk before reuse"
+        },
+        "applicability_rationale": [
+          "this lower-energy approach may be attractive where district infrastructure favors natural systems and conventional unit operations",
+          "it can improve general irrigation suitability and pathogen reduction if land is available",
+          "it ranks lower because dissolved cylindrospermopsin and chromium control are too uncertain for a wetland-centered polishing strategy alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "pre-oxidation can lyse cyanobacterial cells and release intracellular toxin if applied at the wrong location or dose",
+          "wetland or storage polishing does not provide reliably quantifiable removal of chromium or dissolved cyanotoxins under all conditions",
+          "pathogen regrowth or wildlife-related recontamination can occur in open polishing systems",
+          "seasonal temperature and hydraulic variation may cause unstable performance"
+        ],
+        "evidence_list": [
+          "WHO_guidance_on_agricultural_reuse_with_multi_barrier_risk_reduction",
+          "surface_water_treatment_case_knowledge_on_algae_management_and_oxidation_cautions",
+          "constructed_wetland_guidance_for_agricultural_return_flow_polishing"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "media_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "aggregate suspended solids and some algae",
+          "sedimentation": "remove settleable floc",
+          "media_filtration": "polish remaining suspended solids",
+          "chlorination": "provide disinfection residual"
+        },
+        "applicability_rationale": [
+          "included as a baseline conventional option with low implementation complexity",
+          "may improve basic water quality for less demanding irrigation contexts but is not adequate as a preferred solution for the stated mixed contamination problem"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cannot be relied upon for dissolved cylindrospermopsin control without validated oxidation strategy and contact conditions",
+          "does not adequately address dissolved chromium if present beyond particulate forms",
+          "single-barrier chlorination is insufficiently robust for intermittent S. typhi concerns when influent quality is highly variable",
+          "risk of disinfection byproduct formation remains without strong precursor control"
+        ],
+        "evidence_list": [
+          "basic_conventional_surface_water_treatment_references",
+          "public_guidance_noting_limits_of_conventional_treatment_for_dissolved_cyanotoxins",
+          "public_health_guidance_on_need_for_multi_barrier_pathogen_control"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that explicitly address cyanotoxin, chromium, and pathogen risks should rank above conventional-only treatment",
+        "equalization or bloom-management buffering should appear in higher-ranked options because influent variability is high",
+        "top-ranked solutions should avoid unnecessary desalination because agricultural reuse does not primarily require TDS removal and brine disposal is constrained",
+        "recommendations should favor explicit dissolved cyanotoxin polishing and pathogen barriers over simple solids removal alone"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the source is agricultural drainage with seasonal bloom behavior and intermittent sanitary intrusion rather than stable municipal wastewater",
+        "legacy and emerging contaminants co-occur, so staged treatment and conditional decision points are appropriate",
+        "chromium speciation uncertainty should affect process ranking and caveats",
+        "energy sensitivity and difficult brine disposal should make RO-like desalination options less attractive",
+        "residuals discussion should include metal-bearing sludge and media replacement tradeoffs"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why clarification and filtration are important before adsorption and disinfection in algae-impacted water",
+        "why GAC or equivalent polishing is useful for cylindrospermopsin under uncertain dissolved organic co-contaminant conditions",
+        "why chromium treatment may need a speciation-aware step rather than assuming one universal removal mechanism",
+        "why a multi-barrier microbial strategy is justified despite incomplete direct quantification of S. typhi",
+        "why simple chlorination after conventional treatment is not a sufficiently robust top recommendation"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in chromium speciation and the possibility that CrVI fraction changes over time",
+        "seasonal cyanobacterial bloom spikes and the risk of toxin release during poorly managed oxidation",
+        "sparse direct S. typhi data requiring conservative pathogen design assumptions",
+        "natural organic matter competition reducing adsorption performance for cylindrospermopsin",
+        "disinfection byproduct formation and changing chlorine demand in algae-affected drainage water",
+        "operational risk that low-complexity options may fail during short-duration peak contamination events"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "case_id": "WContBench_M_062",
+  "case_name": "Balancing Arsenate, radium, and nitrofen control in reservoir water for groundwater recharge under moderate cost and limited operator skill constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "reservoir_water",
+    "contaminant_type": [
+      "Arsenic",
+      "Nitrofen",
+      "Radium"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for reservoir water containing arsenate, radium, and nitrofen for groundwater recharge, balancing contaminant removal performance with moderate cost, manageable residuals, and limited operator skill.",
+  "input_data": {
+    "scenario_background": "A regional water agency plans to seasonally divert reservoir water to recharge a depleted aquifer through spreading basins and injection wells. The source contains low but significant levels of arsenate and radium, along with trace nitrofen likely associated with legacy agricultural runoff in the watershed. Several treatment routes are technically possible, but the agency has only moderate budget flexibility, wants to avoid highly specialized membrane operation, and needs reliable compliance without creating difficult residuals streams that small operating crews cannot manage.",
+    "water_quality": {
+      "source_type": "reservoir_water",
+      "pH": 7.9,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 7.6,
+      "DOC_mg_L": 4.2,
+      "TOC_mg_L": 5.1,
+      "UV254_cm_1": 0.108,
+      "alkalinity_mg_L_as_CaCO3": 118,
+      "hardness_mg_L_as_CaCO3": 146,
+      "calcium_mg_L": 38,
+      "magnesium_mg_L": 12,
+      "sulfate_mg_L": 64,
+      "chloride_mg_L": 29,
+      "nitrate_mg_L_as_N": 1.9,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.03,
+      "TSS_mg_L": 11,
+      "conductivity_uS_cm": 465,
+      "target_contaminants": {
+        "arsenic_ug_L": 18.0,
+        "radium226_pCi_L": 4.1,
+        "radium228_pCi_L": 2.8,
+        "nitrofen_ug_L": 0.42
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for regulated groundwater recharge with stable reduction of arsenate, combined radium, and nitrofen to protective levels compatible with recharge operations and downstream aquifer protection.",
+      "secondary_goals": [
+        "maintain low-to-moderate operator burden",
+        "avoid difficult brine or concentrate handling",
+        "protect recharge basin or well performance by reducing suspended solids",
+        "provide robust performance during seasonal raw water quality variation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer manageable solids residuals over hazardous or high-volume concentrate streams; radioactive residuals require controlled but practical handling",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment should tolerate seasonal turbidity and natural organic matter fluctuations while maintaining recharge-compatible effluent quality"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flculation_sedimentation",
+          "media_filtration",
+          "ferric_based_adsorptive_media",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flculation_sedimentation": "reduce turbidity and a portion of natural organic matter to stabilize downstream adsorptive performance",
+          "media_filtration": "remove carryover solids and protect adsorptive units",
+          "ferric_based_adsorptive_media": "remove arsenate effectively and provide co-removal support for radium through adsorption/coprecipitation interactions",
+          "granular_activated_carbon": "adsorb nitrofen and other hydrophobic organic trace contaminants",
+          "final_disinfection": "control microbial risk prior to recharge and maintain biological stability"
+        },
+        "applicability_rationale": [
+          "this route balances the three target contaminants without relying on high-pressure membrane operation",
+          "pretreatment is well matched to reservoir water with moderate turbidity and DOC and improves reliability of both iron-based media and GAC",
+          "arsenate removal is strong with ferric media, while radium can be partly addressed through associated sorption and solids capture when upstream coagulation is optimized",
+          "GAC is a practical polishing step for hydrophobic pesticide-like compounds such as nitrofen",
+          "overall process complexity is manageable for a utility with limited specialist staffing"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "radium removal may require piloting to confirm stable compliance because performance is more matrix-dependent than arsenate removal",
+          "spent ferric media and sludge may require controlled handling due to accumulated radium",
+          "GAC replacement frequency can increase if DOC spikes seasonally"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_arsenic_removal_with_iron_based_adsorptive_media",
+          "public_guidance_on_surface_water_clarification_before_adsorption",
+          "EPA_and_state_guidance_on_GAC_for_hydrophobic_pesticide_removal",
+          "public_case_knowledge_on_radium_association_with_iron_manganese_sorbents_and_solids"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "lime_softening_clarification",
+          "recarbonation_or_pH_adjustment",
+          "media_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "lime_softening_clarification": "precipitate hardness-related solids while removing radium and supporting arsenate reduction through coprecipitation and solids separation",
+          "recarbonation_or_pH_adjustment": "stabilize water chemistry after softening",
+          "media_filtration": "remove precipitated solids and improve effluent clarity for recharge",
+          "granular_activated_carbon": "remove nitrofen and polish remaining trace organic contaminants",
+          "final_disinfection": "provide microbiological control prior to recharge"
+        },
+        "applicability_rationale": [
+          "lime softening is a credible multi-benefit route where radium control is important and can also contribute to arsenate reduction",
+          "the process creates a strong solids-based removal mechanism rather than a concentrate stream",
+          "GAC downstream addresses nitrofen well and complements the inorganic removal train",
+          "this option can outperform iron-media-only schemes on radium in some waters"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "chemical feed control, sludge production, and pH stabilization add more operational burden than ferric media plus GAC",
+          "arsenate removal may depend on maintaining proper softening chemistry and may need coagulant addition in some cases",
+          "radioactive solids management planning is still required"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_removal_by_lime_softening",
+          "EPA_guidance_for_arsenic_coprecipitation_and_clarification_processes",
+          "state_recharge_treatment_practice_for_low_turbidity_filtered_effluent",
+          "public_guidance_on_GAC_use_for_pesticide_and_trace_organic_removal"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flculation_sedimentation",
+          "media_filtration",
+          "anion_exchange",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flculation_sedimentation": "reduce solids and natural organic matter to protect resin and carbon performance",
+          "media_filtration": "provide low-solids feed to ion exchange and GAC",
+          "anion_exchange": "remove arsenate and radium species or associated ionic forms depending on resin selection and pretreatment conditions",
+          "granular_activated_carbon": "remove nitrofen",
+          "final_disinfection": "provide microbial control before recharge"
+        },
+        "applicability_rationale": [
+          "anion exchange can be highly effective for arsenate and can be configured for radium control in selected water chemistries",
+          "the configuration remains more compact than full softening and avoids high-pressure membranes",
+          "GAC remains an appropriate dedicated barrier for nitrofen"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "brine or regenerant waste complicates residuals management and is poorly aligned with operator-limited facilities",
+          "sulfate and competing anions can reduce resin capacity and increase operational attention",
+          "radium control performance can be less straightforward than with softening where precipitation removal is dominant"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_arsenic_removal_by_ion_exchange",
+          "public_references_on_radium_removal_by_cation_or_specialized_ion_exchange_processes",
+          "guidance_on_competing_anion_effects_in_ion_exchange_systems",
+          "public_guidance_for_GAC_removal_of_hydrophobic_organic_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flculation_sedimentation",
+          "media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "granular_activated_carbon_or_AOP_polishing",
+          "stabilization",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flculation_sedimentation": "protect membrane system by reducing turbidity and foulants",
+          "media_filtration": "provide further solids control before membranes",
+          "nanofiltration_or_reverse_osmosis": "provide strong barrier removal for arsenate, radium, and many dissolved contaminants",
+          "granular_activated_carbon_or_AOP_polishing": "address any trace organic residuals or membrane bypass concerns",
+          "stabilization": "adjust permeate chemistry for recharge compatibility",
+          "final_disinfection": "ensure microbiological quality"
+        },
+        "applicability_rationale": [
+          "this route is technically capable of high removal across all target contaminants",
+          "membranes may be attractive if future contaminant expansion is expected or very conservative recharge criteria apply",
+          "a barrier approach provides strong water quality assurance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major challenge, especially with radionuclides present",
+          "membrane fouling control and skilled operation are significant burdens for a limited-staff agency",
+          "post-treatment stabilization is required before recharge"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_processes_for_arsenic_removal",
+          "public_case_knowledge_on_radium_rejection_by_NF_and_RO",
+          "water_reuse_and_recharge_guidance_on_membrane_post_stabilization_needs",
+          "public_guidance_on_RO_concentrate_management_challenges"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "powdered_activated_carbon",
+          "coagulation_flculation_sedimentation",
+          "media_filtration",
+          "advanced_oxidation_process",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "powdered_activated_carbon": "provide some adsorption of nitrofen ahead of clarification",
+          "coagulation_flculation_sedimentation": "remove suspended solids and PAC-associated solids",
+          "media_filtration": "polish clarified water",
+          "advanced_oxidation_process": "oxidize susceptible organics but not provide primary control for arsenate or radium",
+          "final_disinfection": "ensure microbiological quality prior to recharge"
+        },
+        "applicability_rationale": [
+          "this route can target the organic contaminant but is included mainly as a technically partial option",
+          "it may appear attractive where pesticide removal is emphasized, but it does not align well with the full contaminant set"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "does not provide a dependable primary removal barrier for arsenate and radium",
+          "AOP adds energy and chemical complexity without solving the inorganic compliance problem",
+          "PAC handling and solids generation add messiness for limited operators"
+        ],
+        "evidence_list": [
+          "public_guidance_on_limitations_of_AOP_for_inorganic_contaminants",
+          "EPA_and_state_guidance_on_PAC_GAC_for_pesticide_control",
+          "general_treatment_practice_that_radionuclides_require_separation_not_oxidation"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "integrated clarification_plus_adsorptive_media_plus_GAC routes should rank near the top",
+        "lime_softening_based treatment should appear as a strong alternative because of radium control benefits",
+        "membrane options should not rank first under moderate cost and operator skill limitations",
+        "an option focused mainly on organic oxidation or adsorption should rank low because it misaligns with inorganic removal needs"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "need to control multiple contaminants with different treatment mechanisms",
+        "moderate cost limits preference for highly capital-intensive or energy-intensive systems",
+        "limited operator skill disfavors high-complexity regeneration and membrane management",
+        "residuals handling must consider radioactive solids or concentrate implications"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why reservoir turbidity and DOC justify pretreatment before adsorption or ion exchange",
+        "why radium control can shift preference toward precipitation or solids-removal routes",
+        "why GAC is relevant for nitrofen as a hydrophobic trace organic",
+        "why membranes, though technically strong, are downgraded by concentrate and O&M constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "radioactive residuals management",
+        "seasonal organic matter impacts on adsorptive media or GAC life",
+        "matrix dependence of radium removal",
+        "need for piloting to confirm simultaneous multi-contaminant compliance"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

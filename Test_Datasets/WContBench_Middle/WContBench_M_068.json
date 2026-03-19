@@ -1,0 +1,294 @@
+{
+  "case_id": "WContBench_M_068",
+  "case_name": "Cobalt and manganese control from reservoir water for groundwater recharge under seasonal and energy-cost constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "reservoir_water",
+    "contaminant_type": [
+      "Cobalt",
+      "Manganese"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "seasonal_variation",
+      "cost_constraint",
+      "energy_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for cobalt- and manganese-impacted reservoir water intended for groundwater recharge while balancing seasonal raw-water variability, cost, and energy constraints.",
+  "input_data": {
+    "scenario_background": "A regional utility wants to divert reservoir water to managed aquifer recharge basins during dry months, but late-summer stratification and periodic runoff events increase dissolved metals and suspended solids. The recharge permit is focused on protecting aquifer quality, so cobalt and manganese must be reduced reliably while avoiding high-energy treatment that would make seasonal operation uneconomic. Several technically feasible routes exist, but the preferred option must balance metal removal performance with robustness to seasonal swings in turbidity and organic matter, manageable sludge production, and modest operator burden.",
+    "water_quality": {
+      "source_type": "reservoir_water",
+      "pH": 7.1,
+      "temperature_C": 18.4,
+      "turbidity_NTU": 11.8,
+      "true_color_Hazen": 28,
+      "DOC_mg_L": 5.2,
+      "TOC_mg_L": 6.1,
+      "UV254_cm-1": 0.118,
+      "alkalinity_mg_L_as_CaCO3": 92,
+      "hardness_mg_L_as_CaCO3": 108,
+      "conductivity_uS_cm": 315,
+      "dissolved_oxygen_mg_L": 6.4,
+      "iron_ug_L": 210,
+      "cobalt_ug_L": 82,
+      "manganese_ug_L": 340,
+      "aluminum_ug_L": 45,
+      "nitrate_mg_L_as_N": 0.9,
+      "sulfate_mg_L": 36,
+      "chloride_mg_L": 24
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Finished water should be suitable for groundwater recharge with stable reduction of cobalt and manganese to levels protective of receiving aquifer quality and infiltration operations.",
+      "secondary_goals": [
+        "maintain reliable treatment during seasonal turbidity and DOC changes",
+        "avoid unnecessarily high electrical demand",
+        "limit chemical and sludge handling burden",
+        "preserve a practical seasonal operating strategy"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "high",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional sludge streams over difficult brines or regenerant wastes",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "process must tolerate seasonal increases in turbidity, DOC, and metal speciation shifts without frequent process upsets"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_oxidation_with_permanganate_or_aeration_assist",
+          "coagulation_flocculation",
+          "sedimentation_or_high_rate_clarification",
+          "dual_media_filtration"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation_with_permanganate_or_aeration_assist": "promote oxidation of dissolved manganese and facilitate conversion of cobalt-associated species to particulate forms that can be removed downstream",
+          "coagulation_flocculation": "capture oxidized metal solids and reservoir colloids including NOM-associated metal fractions",
+          "sedimentation_or_high_rate_clarification": "remove bulk floc and reduce solids loading to filters",
+          "dual_media_filtration": "polish remaining suspended solids and metal particulates before recharge"
+        },
+        "applicability_rationale": [
+          "this route balances metal removal, seasonal solids handling, and relatively low energy demand better than pressure-driven membranes",
+          "reservoir water with moderate DOC and variable turbidity generally benefits from clarification ahead of filtration",
+          "manganese can often be improved substantially by controlled oxidation and filtration, while cobalt can be reduced through oxidation plus coagulation capture of particulate or adsorbed fractions",
+          "the process uses familiar unit operations with manageable operator burden for seasonal service",
+          "conventional sludge handling is typically easier to manage than membrane concentrate or ion-exchange regenerant waste"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "dissolved cobalt removal may be incomplete if a large fraction remains truly soluble after oxidation and coagulation",
+          "oxidant dose control is important because underdosing can leave manganese breakthrough and overdosing can affect downstream solids characteristics",
+          "seasonal cold-water periods may slow oxidation kinetics and require closer monitoring"
+        ],
+        "evidence_list": [
+          "AWWA_guidance_on_oxidation_and_filtration_for_manganese_in_surface_waters",
+          "EPA_surface_water_treatment_practice_for_coagulation_clarification_filtration",
+          "case_knowledge_on_trace_metal_capture_by_oxidation_followed_by_conventional_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation",
+          "clarification",
+          "manganese_dioxide_coated_media_filtration"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "reduce turbidity and NOM that interfere with catalytic media performance",
+          "clarification": "remove floc and stabilize solids loading",
+          "manganese_dioxide_coated_media_filtration": "provide catalytic oxidation and filtration for manganese and some cobalt-bearing particulates"
+        },
+        "applicability_rationale": [
+          "catalytic media can be effective for manganese control with moderate energy demand and compact footprint",
+          "placing clarification ahead of the media improves resilience during reservoir turbidity spikes",
+          "this route can outperform plain dual-media filtration for manganese when influent chemistry is well controlled",
+          "it remains less energy intensive than nanofiltration or reverse osmosis"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "cobalt removal may be less predictable than manganese removal and may depend on oxidation state and particulate association",
+          "media performance can degrade if pH or oxidant residual are not well maintained",
+          "seasonal DOC and algae-derived foulants may shorten run lengths or increase maintenance"
+        ],
+        "evidence_list": [
+          "AWWA_reference_for_manganese_dioxide_media_in_manganese_control",
+          "EPA_technical_documents_on_filtration_of_oxidized_metals",
+          "public_case_examples_of_catalytic_filtration_for_manganese_rich_surface_water"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pH_adjustment",
+          "chemical_precipitation_with_hydroxide",
+          "clarification",
+          "sand_or_dual_media_filtration"
+        ],
+        "core_unit_functions": {
+          "pH_adjustment": "increase pH to favor metal hydroxide precipitation",
+          "chemical_precipitation_with_hydroxide": "convert dissolved cobalt and some other metals into settleable precipitates",
+          "clarification": "remove precipitated solids",
+          "sand_or_dual_media_filtration": "polish residual metal particulates before recharge"
+        },
+        "applicability_rationale": [
+          "hydroxide precipitation is a technically plausible route for cobalt reduction and uses conventional equipment",
+          "it can be attractive when dissolved cobalt removal rather than only particulate capture is the main compliance concern",
+          "the chemistry is generally understandable and compatible with standard solids separation processes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "cobalt precipitation may require elevated pH, increasing chemical consumption and the need for post-adjustment before recharge",
+          "manganese precipitation is less favorable at moderate pH unless oxidation is also well managed",
+          "sludge production can be significant and more chemically dense than simple coagulation sludge",
+          "seasonal raw-water changes can make pH control and settleability less stable"
+        ],
+        "evidence_list": [
+          "standard_industrial_water_treatment_guidance_for_cobalt_hydroxide_precipitation",
+          "EPA_guidance_on_metal_precipitation_and_clarification_principles",
+          "public_knowledge_on_pH_dependence_of_cobalt_and_manganese_precipitation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "ultrafiltration_pretreatment",
+          "nanofiltration"
+        ],
+        "core_unit_functions": {
+          "ultrafiltration_pretreatment": "remove suspended solids and reduce membrane fouling load",
+          "nanofiltration": "reject dissolved multivalent metals and associated complexes to achieve strong finished water quality"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically capable of strong cobalt and manganese reduction and provides a robust barrier for dissolved species",
+          "this option may be attractive if future recharge requirements tighten for a wider set of dissolved contaminants",
+          "the compact footprint can help where site area is constrained"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high specific energy demand conflicts with the seasonal and cost-sensitive operating model",
+          "concentrate management is difficult for recharge projects and may require off-site disposal or a separate waste strategy",
+          "membrane fouling risk increases during seasonal DOC and algae events",
+          "operator skill and cleaning requirements are materially higher than for conventional treatment"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_inorganic_constituent_removal",
+          "AWWA_membrane_manual_considerations_for_surface_water_variability",
+          "public_guidance_on_concentrate_management_challenges_for_NF_systems"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "media_filtration",
+          "chelating_ion_exchange"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "reduce suspended solids to protect downstream resin",
+          "chelating_ion_exchange": "selectively remove dissolved cobalt and some other divalent metals"
+        },
+        "applicability_rationale": [
+          "ion exchange is technically capable for dissolved cobalt under controlled water chemistry",
+          "it can achieve low residual metal concentrations when competing ions and foulants are limited",
+          "included here as a plausible but less aligned route under the stated reservoir-water conditions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_good",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "moderate DOC, seasonal solids, and variable reservoir organics increase fouling risk and reduce resin practicality",
+          "competing divalent ions and manganese can reduce cobalt selectivity and increase regeneration frequency",
+          "regenerant waste handling is less desirable than conventional sludge for this project",
+          "the process is less robust to raw-water swings than clarification-plus-filtration systems"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ion_exchange_limitations_in_high_fouling_surface_waters",
+          "case_knowledge_on_selective_resins_for_transition_metal_removal",
+          "EPA_principles_for_ion_exchange_operation_and_regenerant_waste_management"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "conventional oxidation_plus_clarification_plus_filtration should rank near the top for seasonal reservoir water",
+        "catalytic manganese media should appear as a strong alternative but not necessarily first because cobalt control may be less certain",
+        "membrane treatment should not rank first under high energy sensitivity and difficult concentrate handling",
+        "at least one technically capable dissolved-metal option should rank lower due to mismatch with seasonal fouling or waste constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "seasonal reservoir variability makes pretreatment and robust solids handling important",
+        "energy-sensitive seasonal operation disfavors pressure membrane systems",
+        "cost limits favor conventional treatment trains over highly specialized or waste-intensive systems"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why manganese oxidation and filtration are relevant for this source water",
+        "why cobalt may be harder to remove consistently than manganese depending on dissolved versus particulate speciation",
+        "why clarification is valuable under turbidity and DOC fluctuations",
+        "why concentrate or regenerant waste pushes membranes and ion exchange lower in rank"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "seasonal changes in metal speciation",
+        "oxidant dose control and breakthrough risk",
+        "sludge or residuals handling burden",
+        "fouling sensitivity during high DOC or algae periods"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

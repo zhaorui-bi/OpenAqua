@@ -1,0 +1,272 @@
+{
+  "case_id": "WContBench_E_087",
+  "case_name": "Treatment of well water containing alachlor oxanilic acid (OA) for drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "Alachlor Degradates"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "minimal_chemical_use"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for well water contaminated with Alachlor Degradates intended for drinking water use under minimal chemical use constraints.",
+  "input_data": {
+    "scenario_background": "A rural community water system draws from a deep well and has detected alachlor oxanilic acid (OA), an alachlor degradate, in the raw water. The well water is otherwise relatively clean and stable, and the utility wants a proven treatment approach that minimizes ongoing chemical addition. The plant can handle routine filtration equipment and periodic media replacement, but it does not want a chemically intensive advanced oxidation program.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.3,
+      "turbidity_NTU": 0.4,
+      "DOC_mg_L": 1.0,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "nitrate_mg_L_as_NO3": 4.6,
+      "sulfate_mg_L": 32,
+      "chloride_mg_L": 18,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.01,
+      "alachlor_oxanilic_acid_OA_ug_L": 3.4
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable reduction of alachlor oxanilic acid (OA) to support drinking water compliance and consumer protection.",
+      "secondary_goals": [
+        "minimize chemical addition",
+        "use established drinking water treatment practice",
+        "maintain simple and robust operation",
+        "avoid unnecessarily high energy demand"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_replacement_is_feasible_but_large_volume_liquid_waste_is_unwanted",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_with_limited_operator_intervention_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "granular_activated_carbon_adsorption": "adsorb dissolved alachlor degradate organics from otherwise low-turbidity well water",
+          "post_filtration": "retain carbon fines and provide polished finished water",
+          "disinfection": "ensure microbiological safety in distributed drinking water"
+        },
+        "applicability_rationale": [
+          "alachlor oxanilic acid (OA) is an organic micropollutant for which activated carbon is a conventional drinking water control option",
+          "the well water has low turbidity and low DOC, which supports effective carbon adsorption and longer media life",
+          "this approach uses little to no continuous chemical addition and aligns directly with the minimal chemical use constraint",
+          "operation is straightforward for a small utility with routine media monitoring and replacement capability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "breakthrough can occur if carbon is not changed or regenerated on schedule",
+          "natural organic matter changes could shorten bed life",
+          "empty bed contact time must be adequate for reliable micropollutant removal"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_granular_activated_carbon",
+          "public_case_knowledge_on_gac_for_pesticides_and_degradates_in_groundwater",
+          "awwa_practice_references_for_gac_adsorption_of_trace_organic_contaminants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "powdered_or_granular_activated_carbon_contact",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "powdered_or_granular_activated_carbon_contact": "provide adsorption capacity for dissolved alachlor degradates with flexible carbon dosing or contact configuration",
+          "filtration": "separate carbon particles or polish effluent after contact",
+          "disinfection": "maintain microbiological protection"
+        },
+        "applicability_rationale": [
+          "activated carbon remains a well-supported approach for trace organic contaminant control in drinking water",
+          "a contact-and-filter configuration can be adapted where the utility wants carbon treatment without highly specialized systems",
+          "it still uses much less oxidant chemistry than advanced oxidation approaches"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "powdered carbon handling can add solids management complexity",
+          "performance depends on contact time and carbon dose selection",
+          "less preferred than fixed-bed GAC for consistent small-system operation"
+        ],
+        "evidence_list": [
+          "epa_treatability_information_on_activated_carbon_for_organic_contaminants",
+          "drinking_water_plant_case_examples_using_carbon_for_pesticide_related_compounds"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "reject dissolved organic micropollutants including pesticide degradates",
+          "stabilization": "adjust corrosivity and finished water mineral balance after membrane treatment",
+          "disinfection": "ensure microbiological safety in distribution"
+        },
+        "applicability_rationale": [
+          "membranes can technically achieve strong removal of dissolved low-level organic contaminants",
+          "this option may be considered if future source water issues expand beyond a single degradate",
+          "the raw water quality is otherwise favorable for membrane pretreatment requirements"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "creates concentrate requiring disposal",
+          "higher energy and operator attention than necessary for a single-contaminant case",
+          "post-treatment stabilization is needed"
+        ],
+        "evidence_list": [
+          "membrane_process_guidance_for_synthetic_organic_contaminant_control_in_drinking_water",
+          "public_reference_examples_of_nf_ro_for_micropollutant_removal"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "uv_hydrogen_peroxide_advanced_oxidation",
+          "biological_or_gac_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "uv_hydrogen_peroxide_advanced_oxidation": "oxidize dissolved organic contaminants through hydroxyl radical reactions",
+          "biological_or_gac_polishing": "remove oxidation byproducts and provide final organic polishing",
+          "disinfection": "maintain microbiological protection"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can degrade certain organic micropollutants when adsorption alone is insufficient",
+          "a polishing step is commonly paired to capture transformation products",
+          "it is technically plausible but not naturally aligned with the stated desire for minimal chemical use"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "requires continuous oxidant chemical addition and UV system control",
+          "may form intermediate byproducts that still need downstream removal",
+          "greater operational complexity than needed for this relatively clean well water"
+        ],
+        "evidence_list": [
+          "advanced_oxidation_guidance_for_trace_organic_contaminants_in_drinking_water",
+          "public_treatability_references_on_uv_peroxide_for_pesticide_related_compounds"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "air_stripping",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping": "remove volatile compounds by phase transfer to air",
+          "filtration": "provide general polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included only as a low-priority contrast option from established contaminant-control practice",
+          "it is generally used for volatile organics rather than polar pesticide degradates like alachlor oxanilic acid"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "likely ineffective for alachlor oxanilic acid because the compound is not suitably volatile",
+          "could misallocate capital without meaningful contaminant reduction"
+        ],
+        "evidence_list": [
+          "epa_guidance_distinguishing_air_stripping_applicability_for_vocs_versus_nonvolatile_organics",
+          "public_treatability_knowledge_that_pesticide_degradates_are_not_primary_air_stripping_targets"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_treatment_should_rank_first_for_alachlor_degradates_in_clean_well_water",
+        "high_chemical_or_high_energy_options_should_rank_below_adsorption_under_minimal_chemical_use_constraints",
+        "air_stripping_should_rank_low_due_to_poor_applicability_for_nonvolatile_pesticide_degradates"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "minimal chemical use should favor adsorption over oxidation-heavy treatment",
+        "simple robust operation should favor fixed-bed carbon systems",
+        "membrane and advanced oxidation options should not outrank conventional carbon adsorption in this case"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for organic micropollutants such as alachlor oxanilic acid",
+        "why low turbidity and low DOC well water support adsorption treatment",
+        "why advanced oxidation ranks lower because it conflicts with minimal chemical use",
+        "why membrane options rank lower because of concentrate and complexity burden"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "carbon breakthrough and media replacement needs",
+        "competition from natural organic matter even if low",
+        "concentrate disposal for membrane systems",
+        "possible transformation byproducts from advanced oxidation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

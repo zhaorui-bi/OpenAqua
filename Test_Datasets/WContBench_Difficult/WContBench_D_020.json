@@ -1,0 +1,353 @@
+{
+  "case_id": "WContBench_D_020",
+  "case_name": "Uncertain mixed industrial-municipal effluent with trace endocrine-active organics and naturally occurring radionuclide-related metals for compliant discharge",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "4-Nonylphenol",
+      "Alachlor Degradates",
+      "Uranium",
+      "Strontium"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "multi_objective",
+      "mixed_pollution",
+      "high_uncertainty",
+      "cost_energy_tradeoff"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for mixed industrial-municipal wastewater to achieve environmentally protective discharge under uncertain and partially characterized contaminant conditions.",
+  "input_data": {
+    "scenario_background": "A regional utility receives combined flow from a municipal wastewater plant, a small plastics and resin manufacturing area, and intermittent groundwater dewatering from redevelopment sites. Monitoring has confirmed 4-nonylphenol, alachlor degradates, uranium, and strontium, but the relative contribution from industrial side-streams and dewatering return flows varies by week and some co-occurring trace organics are suspected but not fully characterized. Seasonal wet-weather dilution changes bulk parameters, while dry-weather periods can increase dissolved mineral content and trace contaminant concentrations. The owner needs a treatment strategy for environmental discharge that is robust to uncertain influent composition without defaulting immediately to the highest-energy option.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_wastewater_with_intermittent_groundwater_return",
+      "pH": 7.4,
+      "temperature_C": 21,
+      "turbidity_NTU": 18,
+      "TSS_mg_L": 42,
+      "COD_mg_L": 96,
+      "BOD5_mg_L": 28,
+      "TOC_mg_L": 17,
+      "DOC_mg_L": 9.8,
+      "ammonia_mg_L_as_N": 7.6,
+      "nitrate_mg_L_as_N": 3.1,
+      "total_phosphorus_mg_L": 2.4,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 335,
+      "TDS_mg_L": 910,
+      "conductivity_uS_cm": 1410,
+      "chloride_mg_L": 138,
+      "sulfate_mg_L": 172,
+      "calcium_mg_L": 82,
+      "magnesium_mg_L": 31,
+      "4_nonylphenol_ug_L": 2.7,
+      "alachlor_degradates_total_ug_L": 1.9,
+      "uranium_ug_L": 38,
+      "strontium_mg_L": 3.8,
+      "zinc_mg_L": 0.11,
+      "copper_mg_L": 0.03,
+      "surfactant_note": "nonionic_and_industrial_surfacant_residues_possible_but_not_fully_speciated",
+      "trace_organic_note": "additional_polar_transformation_products_suspected_but_not_fully_characterized",
+      "influent_variability": "high",
+      "sampling_note": "current_dataset_combines_four_campaigns_and_may_not_capture_peak_industrial_slug_events"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Finished effluent should support environmentally protective discharge by reducing suspended solids, bulk organics, ammonia, endocrine-active trace organics, and dissolved uranium/strontium-related mineral risk to a level consistent with site-specific discharge permitting and receiving-water protection.",
+      "secondary_goals": [
+        "maintain performance under variable mixed-source influent",
+        "avoid over-design where lower-energy staged control is sufficient",
+        "provide a defensible barrier for suspected but incompletely characterized trace organics",
+        "limit concentrate or secondary waste generation where possible",
+        "explicitly account for uncertainty in dissolved contaminant speciation and treatability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "site_can_manage_moderate_biosolids_and_spent_media_but_has_limited_tolerance_for_large_brine_volumes_or_radioactive-classified_secondary_wastes",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_industrial_contributions_and_uncertain_trace_contaminant_profile"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "biological_nutrient_removal",
+          "coagulation_flocculation_and_clarification",
+          "ozonation_or_UV_H2O2_followed_by_biologically_active_filtration",
+          "granular_activated_carbon",
+          "selective_ion_exchange_for_uranium_and_strontium",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer flow and contaminant variability and reduce the impact of intermittent industrial or groundwater return spikes",
+          "biological_nutrient_removal": "remove biodegradable organics and ammonia and stabilize bulk effluent quality before advanced polishing",
+          "coagulation_flocculation_and_clarification": "remove suspended solids and colloid-associated organic matter to protect downstream oxidation and adsorption units",
+          "ozonation_or_UV_H2O2_followed_by_biologically_active_filtration": "transform and reduce trace organic contaminants including endocrine-active and pesticide-related residues while biologically polishing oxidation byproducts",
+          "granular_activated_carbon": "adsorb residual nonylphenol and partially characterized trace organics and provide a polishing barrier under uncertainty",
+          "selective_ion_exchange_for_uranium_and_strontium": "target dissolved uranium and strontium where bulk desalination is not strictly required for discharge",
+          "final_disinfection": "ensure microbial control for discharge compliance"
+        },
+        "applicability_rationale": [
+          "a staged multi-barrier train is well aligned with mixed contaminants spanning biodegradable organics, hydrophobic micropollutants, and dissolved inorganic species",
+          "equalization is important because the scenario explicitly notes high variability and incomplete characterization of side-stream inputs",
+          "biological treatment removes the lower-cost bulk load first, improving downstream advanced treatment efficiency and avoiding unnecessary oxidation or adsorbent consumption",
+          "advanced oxidation plus biologically active filtration is a strong fit for uncertain trace organics because alachlor degradates can be polar and less adsorbable while 4-nonylphenol is more amenable to oxidation and carbon polishing",
+          "selective ion exchange is ranked above full desalination because the use is environmental discharge rather than high-purity reuse, making targeted dissolved metal/radionuclide control potentially more cost-effective",
+          "this train provides robustness if future monitoring confirms additional micropollutants, but still avoids immediate dependence on a high-brine membrane system"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "actual uranium and strontium speciation may reduce ion exchange performance and needs treatability verification",
+          "AOP dose requirements could increase substantially if episodic DOC or radical scavengers are higher than current data suggest",
+          "spent ion exchange media may require special handling depending on radionuclide loading and local waste classification rules",
+          "if unidentified persistent polar organics are present at higher levels than expected, GAC polishing alone may not be sufficient without more intensive oxidation or membrane backup",
+          "seasonal conductivity and hardness shifts could shorten media run lengths and increase replacement frequency"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_wastewater_treatment_and_water_quality_based_discharge_control",
+          "EPA_and_state_guidance_on_advanced_oxidation_and_GAC_for_trace_organic_micropollutants",
+          "EPA_drinking_water_guidance_and_case_knowledge_for_uranium_removal_by_ion_exchange_and_adsorptive_media",
+          "technical_references_on_BAF_following_ozonation_for_micropollutant_control",
+          "engineering_case_knowledge_for_equalization_in_variable_mixed_wastewater_systems"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "biological_nutrient_removal",
+          "ultrafiltration_or_tertiary_filtration",
+          "granular_activated_carbon",
+          "nanofiltration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variable influent loading and improve downstream process stability",
+          "biological_nutrient_removal": "remove BOD and ammonia and reduce fouling load before advanced treatment",
+          "ultrafiltration_or_tertiary_filtration": "polish solids and protect carbon and membrane units",
+          "granular_activated_carbon": "remove hydrophobic organic contaminants such as 4-nonylphenol and some unknown trace organics",
+          "nanofiltration": "partially remove dissolved uranium, strontium, hardness, and remaining micropollutants",
+          "final_disinfection": "provide final pathogen control before discharge"
+        },
+        "applicability_rationale": [
+          "this option is attractive when targeted removal uncertainty is high and a broader dissolved-contaminant barrier is desired",
+          "nanofiltration can provide a more universal barrier for uranium and strontium than selective media when speciation is uncertain",
+          "placing biology and filtration upstream lowers membrane fouling risk and reduces unnecessary membrane loading",
+          "GAC ahead of NF can reduce hydrophobic organic load and may help protect membrane performance",
+          "it is ranked below option 1 because concentrate management is a more significant concern for environmental discharge than for reuse-driven systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "NF concentrate will contain concentrated uranium, strontium, and trace organics and may be difficult to discharge or manage",
+          "membrane scaling risk is non-trivial because hardness and sulfate are elevated",
+          "if wet-weather dilution strongly changes ionic strength, membrane recovery and antiscalant strategy may need frequent adjustment",
+          "GAC alone may not adequately control all polar alachlor degradates ahead of NF if breakthrough monitoring is weak",
+          "this route may be viewed as over-treatment if permit limits for dissolved minerals are not stringent"
+        ],
+        "evidence_list": [
+          "EPA_water_reuse_and_membrane_treatment_guidance_relevant_to_advanced_effluent_polishing",
+          "technical_guidance_on_nanofiltration_for_divalent_ion_and_trace_micropollutant_removal",
+          "case_knowledge_for_GAC_plus_membrane_barriers_in_municipal_industrial_blend_effluents"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "MBR",
+          "powdered_or_granular_activated_carbon",
+          "selective_adsorptive_media_or_ion_exchange_for_uranium",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer contaminant spikes and stabilize MBR operation",
+          "coagulation_flocculation_and_clarification": "reduce suspended solids and some colloidal organic load prior to membrane bioreactor treatment",
+          "MBR": "combine biological degradation with high-quality solids separation for stable tertiary effluent",
+          "powdered_or_granular_activated_carbon": "provide adsorption polishing for 4-nonylphenol and other uncertain trace organics",
+          "selective_adsorptive_media_or_ion_exchange_for_uranium": "reduce uranium specifically and potentially some strontium depending on media selection",
+          "final_disinfection": "ensure microbiological compliance for discharge"
+        },
+        "applicability_rationale": [
+          "MBR offers stable effluent quality under variable loading and can be attractive where footprint is moderate and effluent consistency matters",
+          "carbon polishing is justified because 4-nonylphenol is hydrophobic and the scenario notes potentially uncharacterized organic residues",
+          "a selective uranium-focused polishing step can be reasonable if uranium is the main dissolved compliance driver and strontium is less stringently regulated at the site",
+          "this train is more compact than conventional biology plus separate filtration, which may aid siting flexibility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "MBR fouling and operator skill requirements are higher than for conventional activated sludge systems",
+          "strontium removal may be inconsistent without a dedicated hardness-reduction or membrane barrier",
+          "if alachlor degradates are predominantly polar and weakly adsorbable, carbon polishing may underperform relative to AOP-based approaches",
+          "uncertain industrial shock loads could inhibit biology unless equalization is sufficiently sized",
+          "spent adsorptive media and sludge may require characterization if radionuclide loading accumulates"
+        ],
+        "evidence_list": [
+          "public_guidance_and_case_knowledge_for_MBR_tertiary_effluent_polishing",
+          "EPA_references_on_adsorptive_media_and_ion_exchange_for_uranium_control",
+          "micropollutant_control_references_for_activated_carbon_in_wastewater_effluents"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "lime_softening_and_clarification",
+          "biological_treatment",
+          "media_filtration",
+          "granular_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce short-term variability and improve process control",
+          "lime_softening_and_clarification": "remove hardness-associated species and potentially co-remove a portion of uranium and strontium through precipitation or co-precipitation",
+          "biological_treatment": "reduce biodegradable organics and ammonia",
+          "media_filtration": "polish solids and carryover from clarification and biology",
+          "granular_activated_carbon": "remove hydrophobic organics and provide trace organic polishing",
+          "final_disinfection": "ensure microbiological control"
+        },
+        "applicability_rationale": [
+          "this route uses relatively established unit processes and may appeal where operators prefer conventional chemistry over membrane systems",
+          "lime softening can be relevant because hardness is elevated and some uranium and strontium reduction may occur alongside hardness removal",
+          "GAC is still needed because mineral-softening chemistry alone does not address 4-nonylphenol or unknown organics",
+          "it is ranked lower because dissolved contaminant removal for uranium, strontium, and polar degradates is less reliable than with targeted ion exchange or membrane barriers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "uranium and strontium removal by softening is site-specific and may be insufficient for stringent discharge requirements",
+          "chemical sludge production can be substantial and may become a handling challenge if radionuclides partition into solids",
+          "GAC alone may not manage more polar alachlor degradates effectively",
+          "pH adjustment and recarbonation needs complicate operation",
+          "performance may drift with seasonal changes in alkalinity and hardness"
+        ],
+        "evidence_list": [
+          "conventional_water_treatment_guidance_for_lime_softening_and_clarification",
+          "EPA_case_knowledge_for_uranium_reduction_via_softening_or_co_precipitation_in_some_waters",
+          "tertiary_GAC_references_for_endocrine_active_compound_reduction"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "primary_clarification",
+          "conventional_activated_sludge",
+          "secondary_clarification",
+          "sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "primary_clarification": "remove settleable solids and reduce initial suspended load",
+          "conventional_activated_sludge": "remove biodegradable organic matter and some ammonia if fully nitrifying",
+          "secondary_clarification": "separate biomass from treated water",
+          "sand_filtration": "polish residual suspended solids",
+          "disinfection": "control microbial risk before discharge"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline representing conventional municipal treatment performance",
+          "it can improve bulk BOD, TSS, and pathogen-related discharge metrics at relatively moderate cost and energy",
+          "however, it does not provide a dependable barrier for uranium, strontium, 4-nonylphenol, or uncertain pesticide degradates under variable mixed-source conditions"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient control of dissolved uranium and strontium",
+          "limited and variable removal of endocrine-active or transformation-product organics",
+          "high uncertainty remains unmanaged because there is no dedicated polishing barrier for unknown fractions",
+          "may fail future permit tightening or receiving-water toxicity review despite acceptable conventional metrics"
+        ],
+        "evidence_list": [
+          "basic_municipal_wastewater_treatment_guidance",
+          "public_case_knowledge_showing_conventional_secondary_treatment_is_not_reliable_for_many_trace_organics_or_dissolved_metals"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier trains that address both trace organics and dissolved uranium/strontium should rank above conventional-only treatment",
+        "equalization should appear in higher-ranked solutions because influent variability and uncertain side-stream contributions are explicitly stated",
+        "targeted polishing such as AOP_GAC_and_selective_ion_exchange_or_membranes should rank above simple biological treatment alone",
+        "full membrane desalination-type solutions may appear but should not automatically outrank targeted lower-brine options because the endpoint is environmental discharge rather than high-purity reuse"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "mixed industrial-municipal influent requires staged treatment rather than a single unit process",
+        "uncertain trace organic composition justifies a polishing barrier beyond bulk organic removal",
+        "uranium and strontium control should be discussed as dissolved contaminant issues with speciation or co-removal uncertainty",
+        "cost-energy-residuals tradeoffs should be explicit, especially where nanofiltration or other concentrate-producing options are recommended",
+        "residuals management limits should affect ranking of brine-heavy or potentially radionuclide-bearing waste streams"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why biological treatment is still useful even though the named priority contaminants are largely trace organics and dissolved inorganics",
+        "why 4-nonylphenol and alachlor degradates may need different polishing mechanisms",
+        "why selective ion exchange or adsorptive media can be preferable to full desalination for environmental discharge in some cases",
+        "why simple secondary treatment and filtration are insufficient under the stated uncertainty"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "influent variability and uncertain source apportionment between municipal, industrial, and groundwater-return contributions",
+        "uncertainty in uranium and strontium speciation affecting removal performance",
+        "possibility of unknown polar transformation products not well controlled by adsorption alone",
+        "membrane fouling, scaling, and concentrate disposal risks if NF or similar options are proposed",
+        "secondary waste classification or handling concerns for spent media, sludge, or concentrate containing uranium"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

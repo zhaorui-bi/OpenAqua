@@ -1,0 +1,551 @@
+[
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2477",
+    "Treatment Process": "Ultraviolet Irradiation and Ozone",
+    "Author": "Asano, M., N. Kishimoto, H. Shimada, and Y. Ono",
+    "Year": "2012",
+    "Title": "Degradation of 1,4-Dioxane Using Ozone Oxidation with UV Irradiation (Ozone/UV) Treatment",
+    "Source": "Journal of Environmental Science and Engineering A"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2035",
+    "Treatment Process": "Other Treatment",
+    "Author": "Nakajima, A., Tanaka, M., Kameshima, Y. and Okada, K.",
+    "Year": "2004",
+    "Title": "Sonophotocatalytic destruction of 1,4-dioxane in aqueous systems by HF-treated TiO2 powder",
+    "Source": "Journal of Photochemistry and Photobiology A: Chemistry"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2034",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Maurino, V., Calza, P., Minero, C., Pelizzetti, E. and Vincenti, M.",
+    "Year": "1997",
+    "Title": "Light-assisted 1,4-dioxane degradation",
+    "Source": "Chemosphere"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2086",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Vescovi, T., Coleman, H.M. and Amal, R.",
+    "Year": "2010",
+    "Title": "The effect of pH on UV-based advanced oxidation technologies  1,4-Dioxane degradation",
+    "Source": "Journal of Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2038",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Coleman, H.M., Vimonses, V., Leslie, G. and Amal, R.",
+    "Year": "2007",
+    "Title": "Degradation of 1,4-dioxane in water using TiO2 based photocatalytic and H2O2/UV processes",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2098",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Zenker, M.J., Borden, R.C. and Barlaz, M.A.",
+    "Year": "2004",
+    "Title": "Biodegradation of 1,4-dioxane using trickling filter",
+    "Source": "Journal of Environmental Engineering"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2055",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Yamazaki, S., Yamabe, N., Nagano, S. and Fukuda, A.",
+    "Year": "2007",
+    "Title": "Adsorption and photocatalytic degradation of 1,4-dioxane on TiO2",
+    "Source": "Jour. Photochem. & Photobio."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2059",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Klecka, G. and Gonsior, S.",
+    "Year": "1986",
+    "Title": "Removal of 1,4-dioxane from wastewater",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2037",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Suh, J.H. and Mohseni, M.",
+    "Year": "2004",
+    "Title": "A study on the relationship between biodegradability enhancement and oxidation of 1,4-dioxane using ozone and hydrogen peroxide",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2045",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Kiker, J.H., Connolly, J.B., Murray, W.A., Pearson, S.C., Reed, S.E. and Tess, R.J.",
+    "Year": "2010",
+    "Title": "Ex-situ wellhead treatment of 1,4-dioxane using Fenton's reagent",
+    "Source": "Proceedings of the Annual International Conference on Soils,Sediments, Water and Energy"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2033",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Stefan, M.I. and Bolton, J.R.",
+    "Year": "1998",
+    "Title": "Mechanism of the degradation of 1, 4-dioxane in dilute aqueous solution using the UV/hydrogen peroxide process",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2039",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Mahendra, S., Petzold, C.J., Baidoo, E.E., Keasling, J.D. and Alvarez-Cohen, L.",
+    "Year": "2007",
+    "Title": "Identification of the intermediates of in vivo oxidation of 1,4-dioxane by monooxygenase-containing bacteria",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2036",
+    "Treatment Process": "Other Treatment",
+    "Author": "Beckett, M.A. and Hua, I.",
+    "Year": "2000",
+    "Title": "Elucidation of the 1,4-dioxane decomposition pathway at discrete ultrasonic frequencies",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2481",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Roccaro, J., P. Brandt, S. Meyerdierks, E. Rosenfeldt, and A. Royce",
+    "Year": "2012",
+    "Title": "Advanced Oxidation for 1, 4 Dioxane and VOC Removal From Drinking Water: Results of a Demonstration-Scale Pilot Study",
+    "Source": "AWWA Annual Conference and Exposition"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2476",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Takahashi, N., T. Hibino, H. Torii, S. Shibata, S. Tasaka, J. Yoneya, M. Matsuda, H. Ogasawara, K. Sugimoto, and T. Fujioka",
+    "Year": "2013",
+    "Title": "Evaluation of O3/UV and O3/H2O2 as Practical Advanced Oxidation Processes for Degradation of 1,4-Dioxane",
+    "Source": "Science and Engineering"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2106",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Li, M., Fiorenza, S., Chatham, J.R., Mahendra, S. and Alvarez, P.J.J",
+    "Year": "2010",
+    "Title": "1,4-Dioxane biodegradation at low temperatures in Arctic groundwater samples",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2044",
+    "Treatment Process": "Ozone",
+    "Author": "Suh, J., Kang, D., Park, J. and Lee, H.",
+    "Year": "2005",
+    "Title": "A study on the catalytic ozonation of 1,4-dioxane",
+    "Source": "KORUS Annual Conference"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2142",
+    "Treatment Process": "N/A",
+    "Author": "Fielder, Linda",
+    "Year": "2011",
+    "Title": "1,4-Dioxane",
+    "Source": "http://www.clu-in.org/contaminantfocus/default.focus/sec/1,4-dioxane/cat/overview"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2048",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Lam, S.W., Hermawan, M., Coleman, H.M., Fisher, K. and Amal, R.",
+    "Year": "2007",
+    "Title": "The role of copper(II) ions in the photocatalytic oxidation of 1,4-dioxane",
+    "Source": "Journal of Molecular Catalysis A: Chemical"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2092",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Min, B.K. and Lee, Y.H.",
+    "Year": "2009",
+    "Title": "Tuning of the photocatalytic oxidation with surface plasmon resonance of gold nanoparticles on titania",
+    "Source": "Presentation - Overall research trends in nano-based water treatment technologies in South Korea"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2064",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Martijn, B., Fuller, A., Malley, J. and Kruithof, J.",
+    "Year": "2004",
+    "Title": "Impact of advanced pretreatment on the feasibility of UV/H2O2 treatment for degradation of organic micro pollutants",
+    "Source": "http://www.pwntechnologies.nl"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2062",
+    "Treatment Process": "N/A",
+    "Author": "U.S. Department of Health and Human Services: Public Health Service Agency for Toxic Substances and Disease Registry",
+    "Year": "2007",
+    "Title": "DRAFT Toxicological Profile for 1,4-Dioxane",
+    "Source": "DRAFT Toxicological Profile for 1,4-Dioxane"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2065",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Son, H., Im, J. and Zoh, K.",
+    "Year": "2009",
+    "Title": "A Fenton-like degradation mechanism for 1,4-dioxane using zero-valent iron (Fe0) and UV light",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2107",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Sun, B., Ko, K. and Ramsay, J.A.",
+    "Year": "2010",
+    "Title": "Biodegradation of 1,4-dioxane by a Flavobacterium",
+    "Source": "Biodegradation"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2046",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Kim, H.S., Kwon, B.H., Yoa, S.J. and Kim, I.K.",
+    "Year": "2008",
+    "Title": "Degradation of 1,4-dioxane by photo-Fenton processes",
+    "Source": "Journal of Chemical Engineering of Japan"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2726",
+    "Treatment Process": "Other Treatment",
+    "Author": "Lee, K.C., and Choo, K.H.",
+    "Year": "2013",
+    "Title": "Hybridization of TiO2 photocatalysis with coagulation and flocculation for 1,4-dioxane removal in drinking water treatment",
+    "Source": "Chemical Engineering Journal"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2482",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Collins, J., C. Cotton, and K. Linden",
+    "Year": "2012",
+    "Title": "Maximizing water resources: comparison of UV and Ozone advanced oxidation processes for turning contaminated water into potable drinking water",
+    "Source": "AWWA Annual Conference and Exposition"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2090",
+    "Treatment Process": "Other Treatment",
+    "Author": "Hua, I.",
+    "Year": "2000",
+    "Title": "An investigation of homogeneous and heterogeneous sonochemistry for destruction of hazardous waste",
+    "Source": "An Investigation of Homogeneous and Heterogeneous Sonochemistry for Destruction of Hazardous Waste"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2101",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Yanagida, S., Nakajima, A., Kameshima, Y. and Okada, K.",
+    "Year": "2008",
+    "Title": "Voltage swing interval effects on photocatalytic decomposition of 1,4-dioxane in aqueous media using TiO2-coated stainless mesh",
+    "Source": "Journal of the Ceramic Society of Japan"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2108",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Vimonses, V., Coleman, H.M., Leslie, G. and Amal, R.",
+    "Year": "2006",
+    "Title": "Degradation of 1,4-dioxane in water using advanced oxidation processes",
+    "Source": "First European Conference on Environmental Applications of Advanced Oxidation Processes"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2475",
+    "Treatment Process": "Ultraviolet Irradiation and Ozone",
+    "Author": "Kishimoto, N. and E. Nakamura",
+    "Year": "2011",
+    "Title": "Effects of Ozone-Gas Bubble Size and pH on Ozone/UV Treatment",
+    "Source": "Science and Engineering"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2070",
+    "Treatment Process": "N/A",
+    "Author": "Stefan, M. and Bolton, J.",
+    "Year": "1998",
+    "Title": "Mechanism of the degradation of 1,4-dioxane in dilute aqueous solution using the UV/hydrogen peroxide process",
+    "Source": "Environ. Sci. Technol."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2099",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Kim, Y.M., Jeon, J.R., Murugesan, K., Kim, E.J. and Chang, Y.S.",
+    "Year": "2009",
+    "Title": "Biodegradation of 1,4-dioxane and transformation of related cyclic compounds by a newly isolated Mycobacterium sp. PH-06",
+    "Source": "Biodegradation"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2110",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Kegel, F. S., Rietman, B. M. and Verliefde, A. R. D.",
+    "Year": "2010",
+    "Title": "Reverse osmosis followed by activated carbon filtration for efficient removal of organic micropollutants from river bank filtrate",
+    "Source": "Water Science & Technology"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2054",
+    "Treatment Process": "Ozone",
+    "Author": "Kishimoto, N., Nakagawa, T., Asano, M., Abe, M., Yamada, Y. and Ono, Y.",
+    "Year": "2008",
+    "Title": "Ozonation combined with electrolysis of 1,4-dioxane using a two-compartment electrolytic flow cell with solid electrolyte",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2104",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Yanagida, S., Nakajima, A., Kameshima, Y. and Okada, K.",
+    "Year": "2006",
+    "Title": "Effect of applying voltage on photocatalytic destruction of 1,4-dioxane in aqueous system",
+    "Source": "Catalysis Communications"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2067",
+    "Treatment Process": "Chlorine",
+    "Author": "McGuire, M., Suffet, I. and Radziul, J.",
+    "Year": "1978",
+    "Title": "Assessment of unit processes for the removal of trace organic compounds from drinking water",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2105",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Mehrvar, M., Anderson, W.A. and Moo-Young, M.",
+    "Year": "2000",
+    "Title": "Photocatalytic degradation of aqueous tetrahydrofuran, 1,4-dioxane, and their mixture with TiO2",
+    "Source": "International Journal of Photoenergy"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2091",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Mehrvar, M., Anderson, W.A. and Moo-Young, M.",
+    "Year": "2002",
+    "Title": "Comparison of the photoactivities of two commercial titanium dioxide powders in the degradation of 1,4-dioxane",
+    "Source": "International Journal of Photoenergy"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2728",
+    "Treatment Process": "Other Treatment",
+    "Author": "Loeb, S., Andrews, S.A., and Hofmann, R.",
+    "Year": "2015",
+    "Title": "The effect of immobilized catalyst structure on the degradation of chemical and biological contaminants in simulated solar photocatalytic water purification",
+    "Source": "Journal of Water Supply"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2102",
+    "Treatment Process": "Other Treatment",
+    "Author": "Even-Ezra, I., Mizrahi, A., Gerrity, D., Snyder, S., Salveson, A. and Lahav, O.",
+    "Year": "2009",
+    "Title": "Application of a novel plasma-based advanced oxidation process for efficient and cost-effective destruction of refractory organics in tertiary effluents and contaminated groundwater",
+    "Source": "Desalination and Water Treatment"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2109",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Yanagida, S., Nakajima, A., Kameshima, Y. and Okada, K.",
+    "Year": "2009",
+    "Title": "Photocatalytic destruction of 1,4-dioxane in aqueous system by surface-roughened TiO2 coating on stainless mesh",
+    "Source": "Key Engineering Materials"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2731",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Myers, M.A., Johnson, N.W., Marin, E.Z., Pornwongthong, P., Liu, Y., Gedalanga, P.B., and Mahendra, S.",
+    "Year": "2017",
+    "Title": "Abiotic and bioaugmented granular activated carbon for the treatment of 1,4-dioxane-contaminated water",
+    "Source": "Environmental Pollution"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2030",
+    "Treatment Process": "Ozone and Hydrogen Peroxide",
+    "Author": "Adams, C.D., Scanian, P.A. and Secrist, N.D.",
+    "Year": "1994",
+    "Title": "Oxidation and biodegradability enhancement of 1,4-dioxane using hydrogen peroxide and ozone",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2051",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2010",
+    "Title": "Emerging contaminant - 1,4-dioxane",
+    "Source": "http://www.epa.gov/fedfac/documents/emerging_contaminant_1,4-dioxane.pdf"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2047",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Fan, W., Kubota, Y. and Tatsumi, T.",
+    "Year": "2008",
+    "Title": "Oxidation of 1,4-dioxane over Ti-MWW in the presence of H2O2",
+    "Source": "ChemSusChem"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2082",
+    "Treatment Process": "Other Treatment",
+    "Author": "Nakajima, A., Sasaki, H., Kameshima, Y., Okada, K. and Harada, H.",
+    "Year": "2007",
+    "Title": "Effect of TiO2 powder addition on sonochemical destruction of 1,4-dioxane in aqueous systems",
+    "Source": "Ultrason. Sonochem."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2050",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Edmiston, P. and Underwood, L.",
+    "Year": "2009",
+    "Title": "Adsorption of dissolved organic species fromw ater using organically modified silica that swells",
+    "Source": "Sep Purif Tech"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2479",
+    "Treatment Process": "Ozone",
+    "Author": "Dietrich, M., G. Andaluri, and R. Suri",
+    "Year": "2016",
+    "Title": "1,4-Dioxane removal from drinking water using O3/ultrasound and other AOP's",
+    "Source": "AWWA Annual Conference and Exposition"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2032",
+    "Treatment Process": "Hydrogen Peroxide",
+    "Author": "Son, H.S., Choi, S.B., Khan, E. and Zoh, K.D.",
+    "Year": "2006",
+    "Title": "Removal of 1,4-dioxane from water using sonication: effect of adding oxidants on the degradation kinetics",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2079",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Parales, R., Adamus, J., White, N. and May, H.",
+    "Year": "1994",
+    "Title": "Degradation of 1,4-dioxane by an actinomycetes in pure culture",
+    "Source": "Appl. & Env. Microbiol."
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2478",
+    "Treatment Process": "Ozone",
+    "Author": "Lopez-Velandia, C. and D. Knappe",
+    "Year": "2016",
+    "Title": "Occurrence of 1,4-Dioxane in the Cape Fear River Watershed and Effectiveness of Point-of-use treatment options for 1,4-dioxane Control",
+    "Source": "AWWA Annual Conference and Exposition"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2085",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "Safarzadeh-Amiri, A., Bolton, J.R. and Cater, S.R.",
+    "Year": "1997",
+    "Title": "Ferrioxalate-mediated photodegradation of organic pollutants in contaminated water",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2723",
+    "Treatment Process": "Other Treatment",
+    "Author": "Coleman, H.M., Vimonses, V., Leslie, G., and Amal, R.",
+    "Year": "2007",
+    "Title": "Removal of contaminants of concern in water using advanced oxidation techniques",
+    "Source": "Water, Science, and Technology"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2733",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Tackaert, R.A., Pisarenko, A.N., Chen, E.C., Kolakovsky, A., Pecson, B.M., Drewes, J.E., Trussell, R.R., and Trussell, R.S.",
+    "Year": "2019",
+    "Title": "Demonstrating process robustness of potable reuse trains during challenge testing with elevated levels of acetone, formaldehyde, NDMA, and 1,4-dioxane",
+    "Source": "Journal of Water Supply"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2075",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2006",
+    "Title": "Treatment technologies for 1,4-dioxane: fundamentals and field applications",
+    "Source": "Treatment technologies for 1,4-dioxane: fundamentals and field applications"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2100",
+    "Treatment Process": "Other Treatment",
+    "Author": "Gehringer, P. and Matschiner, H.",
+    "Year": "1998",
+    "Title": "Radiation induced pollutant decomposition in water",
+    "Source": "Water Science and Technology"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2480",
+    "Treatment Process": "Ultraviolet Irradiation and Hydrogen Peroxide",
+    "Author": "DeCarolis, J., B. Pearce, and G. Wetterau",
+    "Year": "2013",
+    "Title": "San Diego's Advanced Water Purification Demonstration Project: Performance and Integrity",
+    "Source": "AWWA Annual Conference and Exposition"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2097",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Hill, R.R., Jeffs, G.E. and Roberts, D.R.",
+    "Year": "1997",
+    "Title": "Photocatalytic degradation of 1,4-dioxane in aqueous solution",
+    "Source": "Journal of Photochemistry and Photobiology A: Chemistry"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2089",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Yangali-Quintanilla, V., Maeng, S.K., Fujioka, T., Kennedy, M. and Amy, G.",
+    "Year": "2010",
+    "Title": "Proposing nanofiltration as acceptable barrier for organic contaminants in water reuse",
+    "Source": "Journal of Membrane Science"
+  },
+  {
+    "Contaminant Name": "1,4-dioxane",
+    "Ref#": "2724",
+    "Treatment Process": "Other Treatment",
+    "Author": "Dietrich, M., Andaluri G., Smith, R.C., and Suri, R.",
+    "Year": "2017",
+    "Title": "Combined Ozone and Ultrasound for the Removal of 1,4-Dioxane from Drinking Water",
+    "Source": "The Journal of the International Ozone Association"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "29.9 -37.1",
+    "Units": "hours",
+    "Condition": "N/A",
+    "Ref#": "737"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "12",
+    "Units": "hours",
+    "Condition": "at pH 9",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "1",
+    "Units": "day",
+    "Condition": "at pH 11",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "3",
+    "Units": "days",
+    "Condition": "at pH < 6.2",
+    "Ref#": "738"
+  },
+  {
+    "Contaminant Name": "Malathion",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "24",
+    "Units": "hours",
+    "Condition": "at pH 7.7",
+    "Ref#": "738"
+  }
+]

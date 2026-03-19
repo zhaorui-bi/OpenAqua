@@ -1,0 +1,348 @@
+{
+  "case_id": "WContBench_D_126",
+  "case_name": "Emergency treatment selection for mine drainage impacted by mixed pesticides and suspected ricin before environmental discharge",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mine_drainage",
+    "contaminant_type": [
+      "Acetochlor",
+      "Simazine",
+      "Simazine degradates",
+      "Thiodicarb",
+      "Terbufos",
+      "Ricin"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for emergency stabilization and treatment of contaminated mine drainage for environmental discharge under uncertain mixed-contaminant conditions and rapid deployment constraints.",
+  "input_data": {
+    "scenario_background": "Following intense rainfall and unauthorized dumping near a legacy mine adit, acidic mine drainage is now mixed with runoff containing agricultural chemicals and a suspected high-concern biological toxin source. Field screening confirms several pesticides, but the full contaminant mixture is not yet characterized, and ricin presence is based on preliminary screening and security reporting rather than a fully validated laboratory result. Flow and chemistry are varying daily because of storm-driven infiltration, so the treatment system must work under uncertainty while being deployable quickly and scalable over a short emergency response period.",
+    "water_quality": {
+      "source_type": "storm_impacted_mine_drainage",
+      "pH": 3.4,
+      "temperature_C": 14.8,
+      "turbidity_NTU": 76,
+      "TSS_mg_L": 112,
+      "acidity_mg_L_as_CaCO3": 285,
+      "alkalinity_mg_L_as_CaCO3": 8,
+      "sulfate_mg_L": 1380,
+      "TDS_mg_L": 2140,
+      "conductivity_uS_cm": 3220,
+      "TOC_mg_L": 14.6,
+      "DOC_mg_L": 9.8,
+      "COD_mg_L": 41,
+      "dissolved_iron_mg_L": 58,
+      "manganese_mg_L": 6.2,
+      "aluminum_mg_L": 11.4,
+      "zinc_mg_L": 1.8,
+      "copper_mg_L": 0.21,
+      "lead_mg_L": 0.034,
+      "acetochlor_ug_L": 8.7,
+      "simazine_ug_L": 5.1,
+      "simazine_degradates_total_ug_L": 3.9,
+      "thiodicarb_ug_L": 1.6,
+      "terbufos_ug_L": 0.42,
+      "ricin_ug_L": 0.12,
+      "microbial_indicator_note": "not_primary_driver_but_biosecurity_precautions_recommended_due_to_suspected_toxin_event",
+      "trace_contaminant_note": "additional_pesticide_transformation_products_and_co_contaminants_suspected_but_not_fully_characterized",
+      "influent_flow_m3_d": 1850,
+      "influent_variability": "high"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Treated effluent should be suitable for controlled environmental discharge with neutralized acidity, substantially reduced dissolved metals, suspended solids, and organic micropollutants, while applying a precautionary barrier against the suspected ricin signal and coping with rapidly changing influent conditions.",
+      "secondary_goals": [
+        "deploy rapidly using modular or mobile equipment where possible",
+        "maintain treatment robustness under storm-driven variability",
+        "minimize ecological risk from residual pesticides and metal toxicity",
+        "avoid overcommitting to a highly specific process before full forensic characterization is complete",
+        "provide transparent uncertainty-aware recommendations for emergency decision making"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "metal_hydroxide_sludge_and_spent_adsorbent_can_be_containerized_offsite_but_onsite_brine_management_is_limited_and_biohazard_precautions_are_required_if_ricin_is_confirmed",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_emergency_deployment_high_flow_variability_and_partially_characterized_contaminant_mix"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "flow_equalization",
+          "alkaline_neutralization_and_oxidation",
+          "coagulation_flocculation_and_clarification",
+          "dual_media_filtration",
+          "powdered_or_granular_activated_carbon",
+          "UV_H2O2_or_ozone_based_advanced_oxidation",
+          "final_polishing_and_controlled_discharge"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "buffer short-term hydraulic and chemistry fluctuations to stabilize downstream treatment",
+          "alkaline_neutralization_and_oxidation": "raise pH, reduce acidity, and promote precipitation and oxidation of iron and other metals typical of mine drainage",
+          "coagulation_flocculation_and_clarification": "remove precipitated metals, suspended solids, colloids, and some toxin- or organic-associated particulate matter",
+          "dual_media_filtration": "polish residual solids and protect adsorption and oxidation stages",
+          "powdered_or_granular_activated_carbon": "adsorb hydrophobic pesticides and provide a precautionary barrier for incompletely characterized organics and protein-associated contaminant fractions",
+          "UV_H2O2_or_ozone_based_advanced_oxidation": "provide additional degradation of residual pesticides and degradates not fully captured by carbon, with emergency multi-barrier risk reduction",
+          "final_polishing_and_controlled_discharge": "verify pH and solids stability, manage discharge pacing, and support compliance monitoring"
+        },
+        "applicability_rationale": [
+          "this train addresses the dominant mine-drainage issues first because low pH, iron, aluminum, manganese, and suspended solids would otherwise undermine downstream organic removal",
+          "equalization is important because the influent variability is explicitly high and storm-driven",
+          "a combined adsorption plus advanced oxidation strategy is appropriate under uncertainty because the pesticide mixture includes compounds with differing treatability and likely degradates that are not fully characterized",
+          "the suspected ricin signal justifies a precautionary multi-barrier approach even though analytical confirmation is incomplete",
+          "the train is compatible with modular emergency deployment using temporary tanks, mobile clarification, rental filters, PAC/GAC contactors, and skid-mounted AOP equipment",
+          "for environmental discharge, this approach is usually more practical than full desalination because sulfate and TDS reduction are secondary to toxicity and metals control in this scenario"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "AOP effectiveness will depend on oxidant demand from iron, residual organics, and turbidity, so pretreatment performance is critical",
+          "carbon exhaustion may occur faster than expected if the uncharacterized organic load is larger than current screening suggests",
+          "ricin fate under the selected oxidation conditions should be treated as a precautionary assumption rather than a fully validated field outcome until confirmatory data are available",
+          "metal sludge volumes may increase substantially during high-flow storm periods",
+          "if simazine degradates or other polar metabolites dominate, adsorption alone may be insufficient and AOP contact time may need adjustment"
+        ],
+        "evidence_list": [
+          "epa_guidance_for_mine_drainage_neutralization_and_metal_precipitation",
+          "public_drinking_water_and_surface_water_guidance_on_activated_carbon_for_pesticide_removal",
+          "water_research_case_knowledge_on_AOP_for_triazine_and_acetanilide_pesticides",
+          "multi_barrier_emergency_treatment_practice_for_partially_characterized_contaminant_events",
+          "surface_water_discharge_risk_management_guidance_for_emergency_response"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "flow_equalization",
+          "alkaline_neutralization",
+          "high_rate_clarification",
+          "ultrafiltration",
+          "granular_activated_carbon",
+          "final_polishing_and_controlled_discharge"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "dampen variable influent flow and chemistry",
+          "alkaline_neutralization": "raise pH and precipitate iron, aluminum, and some other dissolved metals",
+          "high_rate_clarification": "rapidly remove metal hydroxide floc and bulk solids in an emergency setting",
+          "ultrafiltration": "provide a strong solids and colloid barrier and improve consistency before carbon adsorption",
+          "granular_activated_carbon": "adsorb pesticides and some transformation products while providing flexible modular polishing",
+          "final_polishing_and_controlled_discharge": "stabilize final effluent quality and support verification monitoring before discharge"
+        },
+        "applicability_rationale": [
+          "this is a strong emergency option when rapid modular deployment and scale-up are prioritized over maximum destruction of dissolved organics",
+          "UF can improve reliability of downstream GAC under highly variable metal floc carryover conditions",
+          "the train is simpler than adding full AOP while still providing a multi-barrier approach for mixed metals and pesticides",
+          "it is often easier to mobilize containerized UF and GAC units than specialty oxidation systems during early emergency response"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "without AOP, removal of more polar simazine degradates may be incomplete",
+          "UF does not remove dissolved pesticides directly and depends on stable upstream chemistry",
+          "the suspected ricin risk is addressed mainly through clarification and adsorption barriers, which is more uncertain than a train including an oxidative destruction step",
+          "frequent backwashing and chemically enhanced cleaning may be needed if iron breakthrough occurs"
+        ],
+        "evidence_list": [
+          "mobile_UF_GAC_emergency_water_treatment_case_knowledge",
+          "epa_and_state_guidance_on_clarification_filtration_for_metal_laden_mine_waters",
+          "public_guidance_on_GAC_for_agricultural_pesticides_in_water",
+          "field_practice_references_for_modular_containerized_treatment_scale_up"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "flow_equalization",
+          "alkaline_neutralization_and_clarification",
+          "settling_pond_or_lamella_separator",
+          "powdered_activated_carbon_contact",
+          "ceramic_or_membrane_microfiltration",
+          "advanced_oxidation_polishing",
+          "final_polishing_and_controlled_discharge"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "manage incoming surges and chemistry swings",
+          "alkaline_neutralization_and_clarification": "remove acidity and precipitate major dissolved metals",
+          "settling_pond_or_lamella_separator": "provide emergency solids-liquid separation with scalable capacity",
+          "powdered_activated_carbon_contact": "deliver flexible dose-responsive adsorption during uncertain contaminant loading",
+          "ceramic_or_membrane_microfiltration": "retain PAC and residual fine solids while improving effluent consistency",
+          "advanced_oxidation_polishing": "further degrade residual dissolved pesticides and uncertain co-contaminants",
+          "final_polishing_and_controlled_discharge": "confirm treatment stability and manage discharge conditions"
+        },
+        "applicability_rationale": [
+          "PAC dosing can be adjusted quickly if contaminant concentrations fluctuate more than expected",
+          "this train is useful when a temporary high-rate fixed GAC system is not immediately available but bulk chemical and membrane support can be mobilized",
+          "AOP after PAC and solids removal may reduce oxidant demand relative to raw-water oxidation",
+          "the configuration provides emergency flexibility under uncertain contaminant composition"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC handling and spent solids management can be logistically difficult in a hazardous emergency setting",
+          "microfiltration fouling may be significant if upstream neutralization and settling are not tightly controlled",
+          "treatment efficacy for ricin remains uncertain and would require confirmatory analytical and safety oversight",
+          "operator burden is higher because PAC dose optimization and membrane operation must be adjusted frequently during variable influent periods"
+        ],
+        "evidence_list": [
+          "emergency_response_practice_for_PAC_dosing_in_contaminant_spikes",
+          "mine_water_treatment_references_for_neutralization_settling_and_polishing",
+          "AOP_case_knowledge_for_mixed_pesticide_polishing",
+          "membrane_barrier_use_in_mobile_surface_water_treatment_systems"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "flow_equalization",
+          "alkaline_neutralization_and_clarification",
+          "constructed_wetland_or_passive_polishing_cell",
+          "granular_activated_carbon",
+          "final_polishing_and_controlled_discharge"
+        ],
+        "core_unit_functions": {
+          "flow_equalization": "buffer variable inflow before treatment",
+          "alkaline_neutralization_and_clarification": "remove acidity and metals characteristic of mine drainage",
+          "constructed_wetland_or_passive_polishing_cell": "provide additional settling and passive polishing of residual metals under lower intensity operation",
+          "granular_activated_carbon": "target residual pesticides and some dissolved organics prior to discharge",
+          "final_polishing_and_controlled_discharge": "support monitoring and controlled release"
+        },
+        "applicability_rationale": [
+          "included as a conditional option where passive infrastructure already exists onsite and can be adapted quickly",
+          "the train may reduce energy demand relative to more intensive membrane or oxidation-based systems",
+          "it can help with metal polishing after primary neutralization if hydraulic loading remains manageable"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this option is generally too slow and uncertain for an acute mixed-contaminant emergency if no passive cell already exists",
+          "wetlands and passive polishing are not reliable primary barriers for sudden pesticide peaks or suspected ricin contamination",
+          "storm events can short-circuit passive systems and reduce retention time",
+          "carbon demand may still be high because passive units do little to directly remove dissolved pesticides"
+        ],
+        "evidence_list": [
+          "passive_mine_drainage_treatment_guidance_for_metal_polishing",
+          "public_case_knowledge_on_limits_of_constructed_wetlands_for_acute_organic_spikes",
+          "guidance_on_GAC_as_downstream_polishing_after_conventional_treatment"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "lime_neutralization",
+          "sedimentation",
+          "sand_filtration",
+          "controlled_discharge"
+        ],
+        "core_unit_functions": {
+          "lime_neutralization": "raise pH and precipitate some dissolved metals",
+          "sedimentation": "settle metal hydroxide sludge and coarse suspended solids",
+          "sand_filtration": "provide basic particulate polishing",
+          "controlled_discharge": "manage discharge timing and basic compliance checks"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline because it is common for mine drainage emergency stabilization",
+          "it may quickly reduce acidity and visible solids but does not adequately address the stated organic contaminant profile",
+          "the option can serve only as an interim first-response measure if advanced polishing is delayed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "insufficient removal of dissolved pesticides and transformation products",
+          "provides weak and highly uncertain control for the suspected ricin hazard",
+          "may achieve pH and metal improvement while still leaving ecotoxicologically relevant organic contaminants",
+          "sludge production remains significant despite limited overall risk reduction"
+        ],
+        "evidence_list": [
+          "basic_mine_water_neutralization_and_settling_guidance",
+          "surface_water_treatment_references_showing_limits_of_conventional_solids_removal_for_dissolved_pesticides",
+          "emergency_response_guidance_emphasizing_multi_barrier_treatment_for_uncertain_hazardous_contaminants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier treatment trains combining mine-drainage conditioning with organic contaminant polishing should rank above simple neutralization-only options",
+        "equalization or surge management should appear in higher-ranked solutions because influent variability is high and storm-driven",
+        "recommendations should prioritize metals and acidity control before adsorption or oxidation because untreated mine drainage chemistry can impair downstream performance",
+        "solutions using adsorption and or advanced oxidation should rank above conventional clarification-only trains because pesticides and suspected ricin create dissolved contaminant risk"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency deployment and rapid scale-up favor modular, containerized, or otherwise quickly mobilized unit processes",
+        "mine drainage requires pH adjustment and metal removal as core early steps",
+        "mixed contaminants include both legacy pesticides and an emerging high-concern toxin, so treatment recommendations must acknowledge uncertainty rather than assuming complete characterization",
+        "residuals management limitations should discourage highly brine-intensive options and explicitly consider sludge and spent carbon handling"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why neutralization and metal removal are needed before organic polishing for mine drainage",
+        "why activated carbon is relevant for hydrophobic pesticides but may be less certain for all degradates",
+        "why advanced oxidation is included as a risk-reduction step under incomplete contaminant characterization",
+        "why simpler lime-settle-filter trains are insufficient for the stated environmental discharge objective"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in the ricin result and the need for precautionary multi-barrier treatment until confirmation",
+        "storm-driven influent variability and shock loading risks",
+        "possible underperformance of adsorption for polar degradates or uncharacterized co-contaminants",
+        "oxidant demand and fouling impacts from high iron, aluminum, solids, and low pH",
+        "sludge and spent adsorbent handling complications under emergency and possible biohazard conditions"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

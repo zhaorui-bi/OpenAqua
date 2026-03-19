@@ -1,0 +1,299 @@
+[
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "637",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Shuibo, X., Z. Chun, Z. Xinghuo, Y. Jing, Z. Xiaojian, and W. Jingsong",
+    "Year": "2009",
+    "Title": "Removal of uranium (VI) from aqueous solution by adsorption of hematite",
+    "Source": "Jour. Env. Radioactivity"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "626",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Favre-Reguillon, A., Lebuzit, G., Murat, D., Foos, J., Mansour, C., and Draye, M.",
+    "Year": "2008",
+    "Title": "Selective removal of dissolved uranium in drinking water by nanofiltration",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "627",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Huikuri, P., Salonen, L. and Raff, O.",
+    "Year": "1998",
+    "Title": "Removal of natural radionuclides from drinking water by point of entry reverse osmosis",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "634",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "Lee, S.Y. and E.A. Bondietti",
+    "Year": "1983",
+    "Title": "Removing uranium from drinking water by metal hydroxides and anion-exchange resin",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "640",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Gu, B., L. Liang, M. Dickey, X. Yin, and S. Dai",
+    "Year": "1998",
+    "Title": "Reductive precipitation of uranium(VI) by zero-valent iron",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "632",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Phillips, D.H., B. Gu, D.B. Watson, and C.S. Parmele",
+    "Year": "2008",
+    "Title": "Uranium removal from contaminated groundwater by synthetic resins",
+    "Source": "Water Research"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "621",
+    "Treatment Process": "N/A",
+    "Author": "Agency for Toxic Substances and Disease Registry U.S. Public Health Services and U.S. Environmental Protection Agency",
+    "Year": "1990",
+    "Title": "Toxicological Profile for Uranium",
+    "Source": "Toxicological Profile for Uranium"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "587",
+    "Treatment Process": "N/A",
+    "Author": "Longtin, J.",
+    "Year": "1988",
+    "Title": "Occurrence of radon, radium and uranium in groundwater",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "643",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Farrell, J., W. Bostick, R. Jarabek, and J. Fiedor",
+    "Year": "1999",
+    "Title": "Uranium removal from ground water using zero valent iron media",
+    "Source": "Groundwater"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "630",
+    "Treatment Process": "Precipitative Softening",
+    "Author": "White S. and Bondietti E.",
+    "Year": "1983",
+    "Title": "Removing uranium by current municipal water treatment processes",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "636",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Bryant, D., D. Stewart, T. Kee, and C. Barton",
+    "Year": "2003",
+    "Title": "Development of a functionalized polymer-coated silica for the removal of uranium from groundwater",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "584",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Basic information about radionuclides in drinking water",
+    "Source": "http://www.epa.gov/safewater/radionuclides/basicinformation.html"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "625",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Raff, O. and Wilken, R.",
+    "Year": "1999",
+    "Title": "Removal of dissolved uranium by nanofiltration",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "628",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Gu, B., Ku, Y. and Brown G.",
+    "Year": "2005",
+    "Title": "Sorption and desorption of perchlorate and U(VI) by strong-base anion-exchange resins",
+    "Source": "Evr. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "373",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "Gafvert, T., Ellmark, C. and Holm, E.",
+    "Year": "2002",
+    "Title": "Removal of radionuclides at a waterworks",
+    "Source": "Jour. Env. Radioactivity"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "644",
+    "Treatment Process": "Conventional Treatment",
+    "Author": "Baeza, A., M. Fernandez, M. Herranz, F. Lagarda, C. Miro, and A. Salas",
+    "Year": "2006",
+    "Title": "Removing uranium and radium from a natural water",
+    "Source": "Water, Air, and Soil Pollution"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "623",
+    "Treatment Process": "N/A",
+    "Author": "Argonne National Laboratory, EVS",
+    "Year": "2005",
+    "Title": "Uranium Human Health Fact Sheet",
+    "Source": "http://www.ead.anl.gov/pub/doc/uranium.pdf"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "633",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Anirudhan, T.S. and P.G. Radhakrishnan",
+    "Year": "2009",
+    "Title": "Improved performance of a biomaterial-based cation exchanger for the adsorption of uranium(VI) from water and nuclear industry wastewater",
+    "Source": "Jour. Env. Radioactivity"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "645",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Cheng, T., M. Barnett, E. Roden, and J. Zhuang",
+    "Year": "2004",
+    "Title": "Effects of phosphate on uranium(VI) adsorption to goethite-coated sand",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "646",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Barton, C., D. Stewart, K. Morris, and D. Bryant",
+    "Year": "2004",
+    "Title": "Performance of three resin-based materials for treating uranium-contaminated groundwater within a PRB",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "639",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Coleman, S., P. Coronado, R. Maxwell, and J. Reynolds",
+    "Year": "2003",
+    "Title": "Granulated activated carbon modified with hydrophobic silica aerogel-potential composite materials for the removal of uranium from aqueous solutions",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "642",
+    "Treatment Process": "Adsorptive Media",
+    "Author": "Noubactep, C., A. Schoner, and G. Meinrath",
+    "Year": "2006",
+    "Title": "Mechanism of uranium removal from the aqueous solution by elemental iron",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "363",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Clifford, D. and Zhang Z.",
+    "Year": "1994",
+    "Title": "Modifying ion exchange for combined removal of uranium and radium",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "635",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Thomson, B., C. Smith, R. Busch, M. Siegel, and C. Baldwin",
+    "Year": "2003",
+    "Title": "Removal of metals and radionuclides using apatite and toher natural sorbents",
+    "Source": "Env. Eng."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "624",
+    "Treatment Process": "N/A",
+    "Author": "J.K. Barbalace, Inc.",
+    "Year": "2007",
+    "Title": "Periodic Table of Elements",
+    "Source": "http://environmentalchemistry.com/yogi/periodic/U.html"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "641",
+    "Treatment Process": "Biological Treatment",
+    "Author": "N'Guessan, A., H. Vrionis, C. Resch, P. Long, and D. Lovley",
+    "Year": "2008",
+    "Title": "Sustained removal of uranium from contaminated groundwater following stimulation of dissimilatory metal reduction",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "631",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Jelinek, R. and Sorg, T.",
+    "Year": "1988",
+    "Title": "Operating a small full-scale ion exchange system for uranium removal",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "629",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Gu, B., Ku, Y. and Jardine, P.",
+    "Year": "2004",
+    "Title": "Sorption and binary exchange of nitrate, sulfate, and uranium on an anion-exchange resin",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "638",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Mellah, A., S. Chegrouche, and M. Barkat",
+    "Year": "2006",
+    "Title": "The removal of uranium(VI) from aqueous solutions onto activated carbon: kinetic and thermodynamic investigations",
+    "Source": "Journal of Colloid and Interface Science"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "622",
+    "Treatment Process": "N/A",
+    "Author": "American Chemical Society",
+    "Year": "2007",
+    "Title": "Periodic Table",
+    "Source": "http://acswebcontent.acs.org/games/pt.html"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "566",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2002",
+    "Title": "Implementation Guidance for Radionuclides",
+    "Source": "Implementation Guidance for Radionuclides"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "585",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Technical fact sheet: final rule for (non-radon) radionuclides in drinking water",
+    "Source": "http://www.epa.gov/safewater/radionuclides/regulation_techfactsheet.html"
+  },
+  {
+    "Contaminant Name": "Uranium",
+    "Ref#": "586",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2000",
+    "Title": "Radionuclides Notice of Data Availability: Technical Support Document",
+    "Source": "Radionuclides Notice of Data Availability: Technical Support Document"
+  }
+]

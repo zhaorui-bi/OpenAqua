@@ -1,0 +1,106 @@
+[
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Chemical Formula",
+    "Value": "C15H24O",
+    "Units": "N/A",
+    "Condition": "4-Nonylphenol",
+    "Ref#": "1535"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Molecular Weight",
+    "Value": "220.36",
+    "Units": "g/mol",
+    "Condition": "4-Nonylphenol",
+    "Ref#": "1538"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Solubility",
+    "Value": "5.0",
+    "Units": "mg/L",
+    "Condition": "Nonylphenol",
+    "Ref#": "1545"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Solubility",
+    "Value": "7",
+    "Units": "mg/L",
+    "Condition": "25 °C for 4-Nonylphenol",
+    "Ref#": "1548"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Solubility",
+    "Value": "1.6",
+    "Units": "mg/L",
+    "Condition": "25 °C for 4-Nonylphenol",
+    "Ref#": "1538"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.000818",
+    "Units": "mm Hg",
+    "Condition": "25 °C for 4-Nonylphenol",
+    "Ref#": "1548"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Henry's Law Constant",
+    "Value": "3.4E-5",
+    "Units": "atm-m3/mole",
+    "Condition": "25 °C for 4-Nonylphenol",
+    "Ref#": "1548"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "pKa",
+    "Value": "10.3",
+    "Units": "N/A",
+    "Condition": "Nonylphenol",
+    "Ref#": "1545"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "pKa",
+    "Value": "10.25",
+    "Units": "N/A",
+    "Condition": "4-Nonylphenol",
+    "Ref#": "1538"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Kow",
+    "Value": "5.8",
+    "Units": "N/A",
+    "Condition": "log Kow",
+    "Ref#": "1538"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Kow",
+    "Value": "5.77",
+    "Units": "N/A",
+    "Condition": "log Kow",
+    "Ref#": "1545"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Kow",
+    "Value": "5.76",
+    "Units": "N/A",
+    "Condition": "log Kow",
+    "Ref#": "1535"
+  },
+  {
+    "Contaminant Name": "4-Nonylphenol",
+    "Parameter": "Melting Point",
+    "Value": "42",
+    "Units": "°C",
+    "Condition": "4-Nonylphenol",
+    "Ref#": "1548"
+  }
+]

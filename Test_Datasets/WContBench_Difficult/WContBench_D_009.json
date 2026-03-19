@@ -1,0 +1,346 @@
+{
+  "case_id": "WContBench_D_009",
+  "case_name": "Agricultural reuse planning for mixed industrial-municipal water with radionuclides, pesticides, and pathogen uncertainty",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Strontium",
+      "Fenamiphos",
+      "Radium",
+      "Acetochlor",
+      "E. coli O157"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "regulatory_ambiguity",
+      "co_occurring_pollutants",
+      "limited_site_data"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for agricultural reuse of a mixed industrial-municipal wastewater stream containing inorganic, organic, microbial, and radiological concerns under incomplete site characterization.",
+  "input_data": {
+    "scenario_background": "A peri-urban utility is evaluating reuse of a blended stream receiving municipal wastewater plus intermittent discharge from a nearby agrochemical packaging area and groundwater infiltration from an older industrial zone. Available monitoring indicates co-occurring pesticides, elevated strontium, low-level radium activity, and episodic pathogen indicators, but the frequency and peak concentrations are uncertain because sampling has been infrequent and flow-weighted composite data are incomplete. It is also unclear whether all pesticide degradates and other emerging organics have been characterized, and regulators have not yet finalized the exact reuse permit conditions for food-crop versus non-food-crop irrigation. The selected treatment train therefore needs to be robust to variable influent quality and explicit about uncertainty, monitoring needs, and residuals handling.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_wastewater",
+      "pH": 7.3,
+      "turbidity_NTU": 21,
+      "TSS_mg_L": 42,
+      "COD_mg_L": 118,
+      "BOD5_mg_L": 36,
+      "TOC_mg_L": 17,
+      "ammonia_mg_L_as_N": 11.2,
+      "nitrate_mg_L_as_N": 4.1,
+      "total_phosphorus_mg_L": 5.6,
+      "chloride_mg_L": 168,
+      "sulfate_mg_L": 112,
+      "TDS_mg_L": 760,
+      "hardness_mg_L_as_CaCO3": 310,
+      "conductivity_uS_cm": 1240,
+      "strontium_mg_L": 3.8,
+      "radium_226_pCi_L": 4.1,
+      "radium_228_pCi_L": 1.7,
+      "acetochlor_ug_L": 18,
+      "fenamiphos_ug_L": 6.4,
+      "E_coli_O157_CFU_100mL": 38,
+      "total_coliform_CFU_100mL": 18000,
+      "UV254_cm_inv": 0.23,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "pesticide_degradates_and_other_trace_organics_suspected_but_not_fully_characterized; radionuclide_data_based_on_limited_sampling_rounds",
+      "flow_variation_note": "industrial_contribution_is_batch_like_and_can_cause_short_duration_spikes_in_organics_and_specific_ions"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Produce reclaimed water suitable for agricultural reuse with strong pathogen control and reduced pesticide, suspended solids, and dissolved inorganic contaminant levels, while accounting for possible radionuclide constraints and uncertainty in final permit conditions.",
+      "secondary_goals": [
+        "maintain treatment stability under fluctuating mixed loads",
+        "provide a defensible barrier approach for E. coli O157 risk",
+        "reduce acetochlor and fenamiphos to low practical levels despite incomplete trace-organic characterization",
+        "manage strontium and radium risk with explicit residuals controls",
+        "preserve flexibility if the permit becomes more restrictive for food-crop irrigation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "radioactive_or_metal_enriched_residuals_can_be_handled_only_through_offsite_specialty_disposal_and_should_be_minimized",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_influent_and_incomplete_contaminant_characterization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "screening_and_primary_solids_removal",
+          "biological_treatment_with_nitrification",
+          "coagulation_flocculation_and_media_filtration",
+          "granular_activated_carbon",
+          "nanofiltration_or_low_recovery_reverse_osmosis",
+          "UV_disinfection_with_chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant spikes from mixed municipal and batch industrial inputs",
+          "screening_and_primary_solids_removal": "remove gross solids and lower particulate load to protect downstream biological and membrane units",
+          "biological_treatment_with_nitrification": "reduce biodegradable organics, ammonia, and part of the overall fouling and disinfection demand",
+          "coagulation_flocculation_and_media_filtration": "polish suspended solids and colloids and improve downstream adsorption and membrane reliability",
+          "granular_activated_carbon": "adsorb acetochlor, fenamiphos, and partly address suspected uncharacterized trace organics",
+          "nanofiltration_or_low_recovery_reverse_osmosis": "reduce strontium, radium, hardness, dissolved salts, and residual dissolved organic contaminants",
+          "UV_disinfection_with_chlorine_residual": "provide high-log pathogen reduction and distribution or storage protection for reuse water"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is warranted because the case combines pathogens, pesticides, and dissolved inorganic contaminants including radionuclide concern",
+          "equalization is especially important because influent variability is high and industrial inputs are intermittent",
+          "biological pretreatment reduces organic load and ammonia before advanced polishing, improving downstream GAC and membrane performance",
+          "GAC is justified because the pesticide mixture is only partially characterized and likely includes degradates not fully captured by routine monitoring",
+          "NF or low-recovery RO provides a practical route to lower divalent ions such as strontium and radium while also improving reuse-water consistency",
+          "UV plus chlorine residual aligns with reuse-oriented pathogen control and adds robustness for irrigation storage and distribution"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "concentrate or spent media may contain concentrated radium and require specialized residuals handling",
+          "actual pesticide breakthrough risk depends on the uncharacterized fraction of trace organics and degradates",
+          "membrane scaling and fouling may increase because hardness and sulfate are moderate to elevated",
+          "regulatory ambiguity remains if future permit conditions require more stringent microbial or crop-specific criteria",
+          "limited radionuclide sampling creates uncertainty about design basis and required rejection margins"
+        ],
+        "evidence_list": [
+          "CASE_021_shows_multi_barrier_wastewater_treatment_with_biological_filtration_membrane_filtration_and_UV_for_complex_effluent_control",
+          "CASE_024_NSF_ANSI_350_supports_filtration_plus_disinfection_barriers_for_water_reuse_protection",
+          "EPA_guidance_for_radionuclide_removal_indicates_NF_RO_and_ion_exchange_are_effective_for_radium_control",
+          "EPA_and_state_reuse_guidance_support_multi_barrier_pathogen_control_for_agricultural_reuse",
+          "public_case_knowledge_for_GAC_use_in_pesticide_removal_from_impacted_waters"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "biological_aerated_filter_or_MBBR_with_nitrification",
+          "membrane_filtration",
+          "granular_activated_carbon",
+          "ion_exchange_for_radium_and_strontium",
+          "UV_disinfection_with_chlorine_residual"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen batch-driven influent fluctuations and improve downstream process stability",
+          "biological_aerated_filter_or_MBBR_with_nitrification": "remove biodegradable organics and ammonia in a compact biological stage",
+          "membrane_filtration": "provide solids and biomass separation to protect adsorption and ion exchange units",
+          "granular_activated_carbon": "remove pesticides and some uncharacterized dissolved organics",
+          "ion_exchange_for_radium_and_strontium": "selectively reduce radium and strontium where ion composition is compatible",
+          "UV_disinfection_with_chlorine_residual": "control E. coli O157 and maintain a disinfectant barrier in reuse storage"
+        },
+        "applicability_rationale": [
+          "this option targets the key contaminants with more selective dissolved-inorganic removal than a full desalination process",
+          "BAF or MBBR plus membrane filtration reflects treatment concepts used in robust wastewater systems for variable mixed loads",
+          "ion exchange can be attractive if the main concern is divalent radionuclide-associated ions rather than broad TDS reduction",
+          "GAC before or alongside ion exchange provides risk reduction for acetochlor and fenamiphos without assuming they are fully biodegradable",
+          "this train may offer lower energy demand than RO-centered alternatives while preserving multiple barriers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "ion exchange performance can be strongly affected by competing ions, hardness, and limited site-specific treatability data",
+          "regenerant waste or spent resin may carry radium and create a difficult residual management issue",
+          "this train does not provide as broad a dissolved-contaminant barrier as NF or RO if future reuse criteria tighten",
+          "if pesticide degradates are more polar than expected, GAC alone may not fully control them",
+          "uncertainty remains around radionuclide variability because monitoring data are sparse"
+        ],
+        "evidence_list": [
+          "CASE_021_supports_use_of_biological_aerated_filter_and_membrane_filtration_for wastewater_with_multiple_compliance_targets",
+          "CASE_024_supports_filtration_and_disinfection_as_core_reuse_barriers",
+          "EPA_guidance_and_state_practice_notes_identify_ion_exchange_as_a_common_radium_removal_technology",
+          "public_drinking_water_treatment_references_note_GAC_effectiveness_for_many_pesticides_and_trace_organics"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "membrane_bioreactor",
+          "powdered_or_granular_activated_carbon_polishing",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce shock loading from mixed-source fluctuations",
+          "coagulation_flocculation_and_clarification": "remove suspended matter and reduce particulate-associated contaminant load",
+          "membrane_bioreactor": "provide strong BOD, TSS, and ammonia removal with high-quality clarified effluent",
+          "powdered_or_granular_activated_carbon_polishing": "improve removal of pesticides and some unknown trace organics",
+          "UV_disinfection": "deliver pathogen inactivation for reuse"
+        },
+        "applicability_rationale": [
+          "this compact advanced biological train is credible when the dominant near-term need is stable reuse water with strong solids and pathogen precursor control",
+          "MBR can provide very consistent effluent quality under variable load conditions compared with simpler conventional secondary treatment",
+          "carbon polishing helps address the known pesticides and uncertainty around other trace organics",
+          "the option may be attractive where full desalination is unaffordable or where regulatory focus remains primarily on microbial and organic contaminants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this train does not reliably address dissolved strontium and radium to the same degree as NF, RO, or dedicated ion exchange",
+          "it may become non-compliant if regulators require explicit radionuclide reduction for the reuse permit",
+          "MBR fouling management and operator skill requirements are significant",
+          "carbon dosing and replacement frequency are uncertain because the trace-organic mixture is not fully characterized",
+          "UV alone may be insufficient without a residual if reclaimed water is stored before irrigation"
+        ],
+        "evidence_list": [
+          "CASE_021_demonstrates_biological_and_membrane_barriers_followed_by_UV_for_complex_wastewater_treatment",
+          "CASE_024_supports_filtration_plus_disinfection_for_reuse_systems",
+          "public_reuse_case_knowledge_for_MBR_plus_carbon_polishing_in_variable_wastewater_reclamation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "lime_softening_or_barium_assisted_precipitation",
+          "clarification_and_filtration",
+          "granular_activated_carbon",
+          "chlorination_followed_by_UV"
+        ],
+        "core_unit_functions": {
+          "equalization": "stabilize influent swings before chemical treatment",
+          "lime_softening_or_barium_assisted_precipitation": "reduce hardness and potentially co-remove some radium and strontium through chemical precipitation pathways",
+          "clarification_and_filtration": "separate generated solids and polish turbidity",
+          "granular_activated_carbon": "adsorb pesticide contaminants and lower organic residuals",
+          "chlorination_followed_by_UV": "provide pathogen control with a residual barrier and additional inactivation assurance"
+        },
+        "applicability_rationale": [
+          "this route is included because chemical softening can contribute to divalent-ion reduction and may be more familiar to some operators than membranes",
+          "it may be considered when energy sensitivity is high and broad desalination is not feasible",
+          "GAC is still needed because chemical treatment alone is inadequate for acetochlor and fenamiphos control",
+          "the train can form a pragmatic interim approach while site data are expanded"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "radium and strontium removal may be inconsistent and highly chemistry-dependent without bench testing",
+          "chemical sludge generation can be substantial and may create residuals with elevated radionuclide content",
+          "pesticide removal remains dependent on GAC performance and unknown degradate behavior",
+          "disinfection by-product formation risk should be checked because chlorination follows partial organic removal only",
+          "this option is less robust than membrane-based approaches if regulators impose stricter dissolved-contaminant targets"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_radium_control_notes_softening_and_specialized_precipitation_as_possible_removal_routes",
+          "CASE_024_supports_filtration_and_disinfection_as_reuse_critical_barriers",
+          "public_case_knowledge_for_GAC_polishing_of_agricultural_chemicals_in_impacted_water"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "destabilize colloids and improve solids removal",
+          "sedimentation": "remove settleable solids and associated particulate matter",
+          "sand_filtration": "polish suspended solids and reduce turbidity",
+          "chlorination": "provide basic disinfection"
+        },
+        "applicability_rationale": [
+          "this is a low-complexity baseline option included for contrast rather than recommendation",
+          "it can improve turbidity and provide some microbial control at relatively low cost",
+          "however, it does not offer credible control of dissolved strontium, radium, or trace pesticides for this case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient removal of radium and strontium for a risk-sensitive reuse setting",
+          "acetochlor and fenamiphos would likely persist to unacceptable or uncertain levels",
+          "single disinfectant reliance is weak against variable pathogen loads and storage-related recontamination",
+          "not robust to regulatory ambiguity if the final permit is conservative for food-crop irrigation",
+          "limited resilience to fluctuating mixed industrial-municipal influent quality"
+        ],
+        "evidence_list": [
+          "CASE_024_shows_that_basic_filtration_and_disinfection_are_core_reuse_elements_but_not_sufficient_for_complex_mixed_contaminant_cases",
+          "general_conventional_treatment_references_indicate_limited_control_of_dissolved_radionuclides_and_many_pesticides"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi_barrier_trains_with_equalization_should_rank above simple conventional treatment because influent variability is high",
+        "higher ranked options should explicitly address both pesticide removal and dissolved strontium_radium control rather than only one contaminant class",
+        "strong disinfection with reuse-oriented redundancy should appear in upper-ranked options because E_coli_O157 is present and irrigation storage may occur",
+        "solutions that preserve flexibility under uncertain future permit conditions should rank higher than narrowly optimized trains"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "limited site data means recommendations should acknowledge need for pilot or bench testing rather than assume exact removal performance",
+        "regulatory ambiguity should affect ranking, favoring trains that remain defensible if food-crop irrigation standards are imposed",
+        "residuals handling for radium-bearing brine_sludge_resin_or_spent_media must be discussed as a major constraint",
+        "co-occurring pollutants require staged treatment rather than relying on a single unit process"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization is important for fluctuating mixed industrial_municipal loads",
+        "why adsorption is useful because pesticides and degradates may not be fully characterized",
+        "why NF_RO_or_ion_exchange are considered for radium and strontium rather than conventional clarification alone",
+        "why reuse-focused disinfection needs more than a minimal single barrier when E_coli_O157 risk and storage are possible",
+        "why simpler conventional-only trains are insufficient for this combined pathogen_pesticide_radiological case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in radionuclide occurrence due to sparse sampling and possible temporal spikes",
+        "uncertain presence of pesticide degradates or other trace organics not fully characterized",
+        "membrane scaling_fouling or adsorption breakthrough under variable influent conditions",
+        "special handling needs for radium-enriched residuals including concentrate sludge resin or spent carbon",
+        "regulatory uncertainty between non_food_crop and food_crop irrigation requirements",
+        "potential loss of microbial protection if disinfected water is stored without adequate residual"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

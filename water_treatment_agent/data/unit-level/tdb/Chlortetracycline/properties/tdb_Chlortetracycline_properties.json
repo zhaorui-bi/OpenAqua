@@ -1,0 +1,106 @@
+[
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Chemical Formula",
+    "Value": "C22H23ClN2O8",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Molecular Weight",
+    "Value": "478.88",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Solubility",
+    "Value": "0.5 to 0.6",
+    "Units": "mg/ml",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Melting Point",
+    "Value": "168 to 169",
+    "Units": "°C",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Aureocina",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Acronize",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Chlortet",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1328"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Aurogran",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1328"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Aureomycin",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Aurofac",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1328"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Chrysomykine",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Orospray",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  },
+  {
+    "Contaminant Name": "Chlortetracycline",
+    "Parameter": "Trade Names",
+    "Value": "Biomitsin",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1525"
+  }
+]

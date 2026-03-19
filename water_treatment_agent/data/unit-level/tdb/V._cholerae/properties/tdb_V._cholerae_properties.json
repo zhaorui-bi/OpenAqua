@@ -1,0 +1,82 @@
+[
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Class",
+    "Value": "Gamma Proteobacteria",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1676"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Taxomony",
+    "Value": "Vibrionaceae",
+    "Units": "N/A",
+    "Condition": "Family",
+    "Ref#": "1675"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Taxomony",
+    "Value": "Vibrio cholerae",
+    "Units": "N/A",
+    "Condition": "Species",
+    "Ref#": "1675"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Taxomony",
+    "Value": "Vibrio",
+    "Units": "N/A",
+    "Condition": "Genus",
+    "Ref#": "1675"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Apperance, Shape",
+    "Value": "Short, curved rods with a single polar flagellum",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1675"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Pathogenic Hosts",
+    "Value": "Human",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1677"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Pathogenic Hosts",
+    "Value": "Aquatic microscopic animals",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1677"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Thermal Inactivation",
+    "Value": "60 to 62",
+    "Units": "°C",
+    "Condition": "10 minutes",
+    "Ref#": "1668"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Thermal Inactivation",
+    "Value": "99.5",
+    "Units": "°C",
+    "Condition": "30 seconds at sea level",
+    "Ref#": "1668"
+  },
+  {
+    "Contaminant Name": "V. cholerae",
+    "Parameter": "Acid Stability",
+    "Value": "pH < 4.5",
+    "Units": "N/A",
+    "Condition": "Rapidly inactivated",
+    "Ref#": "1677"
+  }
+]

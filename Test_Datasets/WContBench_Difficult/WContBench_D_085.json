@@ -1,0 +1,369 @@
+{
+  "case_id": "WContBench_D_085",
+  "case_name": "Emergency potable reuse from variable industrial wastewater containing cyanide, PFAS, and trace persistent pesticides",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "industrial_wastewater",
+    "contaminant_type": [
+      "Diuron",
+      "Per- and Polyfluoroalkyl Substances",
+      "Cyanide",
+      "Disulfoton",
+      "1,2,3-Trichloropropane"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "fluctuating_mixed_load"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for rapidly deployable potable reuse of fluctuating industrial wastewater with mixed inorganic and persistent organic contaminants under substantial uncertainty.",
+  "input_data": {
+    "scenario_background": "A manufacturing corridor has diverted partially treated wastewater to a centralized emergency reclamation facility after a river intake outage, and the utility is evaluating whether accelerated indirect potable reuse treatment can be established. The combined influent appears to include metal-finishing and pesticide-formulation washwaters, but the exact source contribution varies by shift and some proprietary fluorinated compounds are suspected in addition to the measured PFAS. Cyanide appears intermittently elevated, and the relative proportions of adsorbable organics versus volatile chlorinated compounds are not yet fully characterized, creating uncertainty for polishing-stage selection and residuals handling.",
+    "water_quality": {
+      "source_type": "blended_industrial_wastewater_with_partial_upstream_treatment",
+      "pH": 8.4,
+      "temperature_C": 24.0,
+      "turbidity_NTU": 18,
+      "TSS_mg_L": 32,
+      "COD_mg_L": 145,
+      "BOD5_mg_L": 36,
+      "TOC_mg_L": 22,
+      "ammonia_mg_L_as_N": 5.8,
+      "nitrate_mg_L_as_N": 3.1,
+      "chloride_mg_L": 210,
+      "sulfate_mg_L": 96,
+      "TDS_mg_L": 820,
+      "conductivity_uS_cm": 1320,
+      "alkalinity_mg_L_as_CaCO3": 175,
+      "hardness_mg_L_as_CaCO3": 118,
+      "cyanide_total_mg_L": 0.42,
+      "cyanide_amenable_to_chlorination_mg_L": 0.21,
+      "diuron_ug_L": 18.0,
+      "disulfoton_ug_L": 3.2,
+      "tcp_1_2_3_ug_L": 1.4,
+      "PFAS_ug_L": {
+        "PFOS": 0.16,
+        "PFOA": 0.11,
+        "PFHxS": 0.07,
+        "PFBS": 0.42,
+        "6_2_FTS": 0.38
+      },
+      "trace_metals_mg_L": {
+        "Cr_total": 0.03,
+        "Ni": 0.05,
+        "Cu": 0.08
+      },
+      "AOX_mg_L": 0.19,
+      "UV254_cm_1": 0.21,
+      "influent_variability": "high",
+      "contaminant_characterization_note": "additional_short_chain_PFAS_and_other_fluorinated_organics_suspected_but_not_fully_characterized; cyanide_spikes_up_to_about_1.2_mg_L_reported_during_some_batches; relative_fraction_of_free_vs_complexed_cyanide_uncertain"
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Produce water suitable for potable reuse through a robust multi-barrier train capable of reducing cyanide, persistent pesticides, PFAS, 1,2,3-trichloropropane, bulk organics, solids, and microbial risk to levels compatible with downstream potable reuse barriers and regulatory review.",
+      "secondary_goals": [
+        "allow rapid deployment and staged scale-up during the supply emergency",
+        "maintain resilience under fluctuating mixed industrial loads",
+        "minimize risk of breakthrough for PFAS and low-biogradability micropollutants",
+        "avoid oxidation conditions that could create problematic cyanogen chloride or uncontrolled byproducts before cyanide is adequately managed",
+        "provide clear uncertainty flags where treatability confirmation is still needed"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "spent_carbon_and_ix_media_can_be_removed_offsite; RO_concentrate_handling_is_available_but_logistically_constrained; cyanide_bearing_side_streams_require_hazardous_management_and_cannot_be_routinely_stockpiled",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "very_high_due_to_emergency_operation_and_fluctuating_influent_with_partially_unknown_contaminants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "high_pH_cyanide_control_and_targeted_chemical_oxidation",
+          "coagulation_flocculation_and_clarification",
+          "biological_activated_carbon_or_biological_filtration",
+          "granular_activated_carbon_lead_lag",
+          "anion_exchange_or_specialized_PFAS_polishing",
+          "reverse_osmosis",
+          "advanced_oxidation_post_RO_for_TCP_and_trace_organics",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "buffer variable influent and provide rapid operational response using cyanide, TOC, conductivity, and surrogate monitoring",
+          "high_pH_cyanide_control_and_targeted_chemical_oxidation": "stabilize cyanide chemistry and destroy amenable cyanide before downstream oxidation-sensitive barriers",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and part of particulate-associated organic load to protect adsorptive and membrane steps",
+          "biological_activated_carbon_or_biological_filtration": "reduce biodegradable organics and assimilable carbon while improving downstream adsorbent and membrane performance",
+          "granular_activated_carbon_lead_lag": "adsorb diuron, disulfoton, some chlorinated organics, and provide a robust polishing barrier",
+          "anion_exchange_or_specialized_PFAS_polishing": "improve removal of short-chain and mobile PFAS fractions that may not be fully controlled by carbon alone",
+          "reverse_osmosis": "provide broad dissolved contaminant rejection and a core potable reuse barrier",
+          "advanced_oxidation_post_RO_for_TCP_and_trace_organics": "destroy 1,2,3-trichloropropane and residual low-level organic micropollutants after major scavengers are removed",
+          "final_stabilization_and_disinfection": "condition product water and provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "a multi-barrier approach is most defensible for potable reuse when cyanide, PFAS, pesticides, and chlorinated solvent-type contaminants co-occur",
+          "explicit cyanide management ahead of aggressive oxidation is important because cyanide speciation is uncertain and intermittent spikes are reported",
+          "lead-lag GAC plus PFAS-focused polishing provides redundancy under uncertainty about chain-length distribution and proprietary fluorinated compounds",
+          "RO is justified because potable reuse typically requires a high-confidence dissolved contaminant barrier beyond adsorption alone",
+          "placing advanced oxidation after RO improves effectiveness for TCP and residual trace organics by lowering oxidant demand from bulk organics",
+          "the train can be modularized for emergency deployment using containerized equalization, adsorptive, and membrane packages, though commissioning remains complex"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "cyanide destruction chemistry must be tightly controlled; poor pH control or unsuitable oxidant strategy may create byproduct risk including cyanogen chloride",
+          "PFAS removal uncertainty remains if significant unidentified ultra-short-chain or precursor compounds are present",
+          "RO concentrate and spent PFAS media create challenging residuals during emergency operation",
+          "advanced oxidation may have limited value for PFAS and should not be presented as a PFAS solution",
+          "treatability verification is needed to confirm whether BAC materially benefits disulfoton and diuron stability under fluctuating loads"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_cyanide_management_and_wastewater_treatment",
+          "EPA_potable_reuse_and_water_recycling_multi_barrier_guidance",
+          "public_case_knowledge_for_PFAS_removal_using_GAC_ion_exchange_and_RO",
+          "AWWA_and_WateReuse_guidance_on_advanced_treatment_trains_for_potable_reuse",
+          "public_treatability_knowledge_for_TCP_control_with_UV_AOP_and_GAC"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "high_pH_cyanide_control_and_targeted_chemical_oxidation",
+          "coagulation_flocculation_and_media_filtration",
+          "granular_activated_carbon_lead_lag",
+          "reverse_osmosis",
+          "UV_AOP",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "dampen mixed-load fluctuations and trigger operational changes during cyanide or TOC spikes",
+          "high_pH_cyanide_control_and_targeted_chemical_oxidation": "reduce cyanide hazard and protect downstream barriers",
+          "coagulation_flocculation_and_media_filtration": "reduce particulate fouling potential and remove solids before adsorption and membranes",
+          "granular_activated_carbon_lead_lag": "adsorb pesticides and some trace organics while offering partial PFAS control",
+          "reverse_osmosis": "provide strong broad-spectrum dissolved contaminant reduction for potable reuse",
+          "UV_AOP": "polish residual low-level organic contaminants including TCP after RO",
+          "final_stabilization_and_disinfection": "ensure finished-water conditioning and microbiological protection"
+        },
+        "applicability_rationale": [
+          "this train is somewhat simpler and faster to mobilize than rank 1 while retaining the core potable reuse barriers",
+          "it is suitable where specialized PFAS ion exchange vessels are not immediately available but GAC and RO skids can be rapidly sourced",
+          "GAC before RO can reduce organic fouling and provide a capture buffer for diuron and disulfoton",
+          "it remains a strong option if measured PFAS are dominated by carbon-amenable species and confirmatory monitoring is aggressive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "short-chain PFAS and some precursor compounds may break through GAC faster than expected under high variability",
+          "without a dedicated PFAS polishing step, confidence for long-term potable reuse approval may be lower",
+          "cyanide treatability must still be proven before startup because free and complexed fractions are uncertain",
+          "rapid media exhaustion is possible if unknown background organics are higher than current data suggest"
+        ],
+        "evidence_list": [
+          "EPA_PFAS_drinking_water_treatment_fact_sheets_for_GAC_and_RO",
+          "public_reuse_guidance_supporting_UV_AOP_after_membrane_treatment",
+          "engineering_case_knowledge_for_GAC_RO_trains_in_trace_organic_control",
+          "EPA_guidance_for_cyanide_oxidation_under_controlled_pH_conditions"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_online_monitoring",
+          "alkaline_chlorination_or_alternative_cyanide_destruction",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "anion_exchange_for_PFAS_polishing",
+          "UV_AOP",
+          "final_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_and_online_monitoring": "stabilize feed quality and provide warning of contaminant surges",
+          "alkaline_chlorination_or_alternative_cyanide_destruction": "destroy amenable cyanide prior to membrane treatment while maintaining safe chemistry",
+          "ultrafiltration": "provide particulate and colloidal removal to protect RO",
+          "reverse_osmosis": "serve as the principal dissolved contaminant barrier",
+          "anion_exchange_for_PFAS_polishing": "capture remaining PFAS species, particularly shorter-chain components that may pass carbon",
+          "UV_AOP": "oxidize TCP and residual trace organics after RO",
+          "final_stabilization_and_disinfection": "produce potable reuse-compatible finished water"
+        },
+        "applicability_rationale": [
+          "this arrangement emphasizes fast-deployable membrane modules and a dedicated PFAS step, which can be attractive in emergency procurement scenarios",
+          "UF plus RO offers compactness and fast startup compared with full biological pretreatment",
+          "the train can perform well when bulk biodegradable load is modest and current COD is not excessively high",
+          "it may be favored when footprint is constrained and operators are experienced with membrane systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "lack of substantial organic pretreatment may increase RO fouling and cleaning frequency if hidden organic variability is greater than indicated",
+          "anion exchange can be sensitive to competing anions and NOM background, affecting PFAS run length",
+          "this option is less forgiving if cyanide spikes coincide with membrane operation problems",
+          "UV_AOP still does not address PFAS and should be framed only as a TCP and residual-organics barrier"
+        ],
+        "evidence_list": [
+          "public_membrane_reuse_case_knowledge_for_UF_RO_barriers",
+          "EPA_PFAS_treatment_information_for_ion_exchange_and_RO",
+          "AWWA_guidance_on_membrane_fouling_control_with_variable_source_waters",
+          "public_guidance_for_cyanide_destruction_prior_to_downstream_advanced_treatment"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "high_pH_cyanide_control",
+          "powdered_activated_carbon_and_coagulation",
+          "clarification",
+          "membrane_bioreactor",
+          "granular_activated_carbon",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and composition swings",
+          "high_pH_cyanide_control": "maintain safer cyanide handling conditions and facilitate upstream treatment control",
+          "powdered_activated_carbon_and_coagulation": "capture some hydrophobic pesticides and reduce colloidal/organic loading",
+          "clarification": "remove formed solids and PAC-associated contaminants",
+          "membrane_bioreactor": "reduce biodegradable organics and provide consistent low-solids effluent",
+          "granular_activated_carbon": "provide polishing for residual organics and some PFAS capture",
+          "reverse_osmosis": "deliver dissolved contaminant rejection for potable reuse",
+          "final_disinfection": "provide final pathogen barrier"
+        },
+        "applicability_rationale": [
+          "this train can offer strong effluent stability when enough time and operator expertise are available",
+          "MBR can help if the actual biodegradable fraction is higher than current composite samples suggest",
+          "PAC plus GAC gives two adsorptive opportunities for pesticides and some trace organics"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "MBR startup and biological stability are poorly aligned with emergency deployment and rapidly changing industrial influent",
+          "cyanide and proprietary industrial constituents may inhibit biomass if upstream control is imperfect",
+          "PFAS removal remains uncertain without a dedicated PFAS-focused step",
+          "sludge and spent carbon handling become more complicated during emergency scale-up"
+        ],
+        "evidence_list": [
+          "public_case_knowledge_for_MBR_in_water_reuse_trains",
+          "EPA_reuse_multi_barrier_principles_for_potable_reuse",
+          "public_adsorption_knowledge_for_pesticide_control_with_PAC_and_GAC"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "clarification",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "remove suspended solids and some colloid-associated organics",
+          "clarification": "separate settled solids",
+          "granular_activated_carbon": "adsorb a portion of pesticides and some organic micropollutants",
+          "disinfection": "provide microbial control"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked contingency or stopgap baseline because it can be mobilized quickly",
+          "it may temporarily reduce visible water quality issues and some organic contaminants while a full advanced train is assembled",
+          "however it lacks the barrier redundancy expected for potable reuse with this contaminant profile"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "insufficient for reliable PFAS, TCP, dissolved cyanide, and broad potable reuse protection",
+          "GAC alone may show rapid breakthrough under fluctuating mixed industrial loads",
+          "does not provide the dissolved contaminant rejection or oxidation barrier generally expected for potable reuse",
+          "should not be recommended as a standalone potable reuse solution except as temporary pretreatment with explicit risk warning"
+        ],
+        "evidence_list": [
+          "basic_conventional_treatment_limitations_for_trace_organic_and_PFAS_control",
+          "EPA_and_reuse_guidance_supporting_multi_barrier_advanced_treatment_for_potable_reuse"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "trains with explicit cyanide management before strong oxidation should rank above generic advanced reuse trains",
+        "multi-barrier potable reuse trains including RO should rank above adsorption-only or conventional treatment options",
+        "recommendations that recognize dedicated PFAS polishing or at least PFAS-specific uncertainty management should outrank those that treat PFAS only incidentally",
+        "simpler rapidly deployable but less certain options may appear in the middle ranks, not above the most risk-aware designs"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency deployment favors modular and scalable unit processes but does not eliminate the need for potable reuse barriers",
+        "mixed contaminants require staged treatment rather than a single technology",
+        "high influent variability makes equalization and online monitoring important",
+        "residuals burdens from spent PFAS media, cyanide-bearing side streams, and RO concentrate should be discussed",
+        "rapid scale-up creates tension between deployment speed and process complexity"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why cyanide control should occur before aggressive oxidation and before downstream potable reuse barriers",
+        "why RO is valuable for potable reuse even when adsorption is used upstream",
+        "why GAC or ion exchange may be needed for PFAS and pesticide control but have breakthrough and waste-management limitations",
+        "why UV_AOP is more relevant to TCP and residual trace organics than to PFAS",
+        "why conventional clarification plus disinfection alone is insufficient for this scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in free versus complexed cyanide and the possibility of intermittent cyanide spikes",
+        "risk of unidentified short-chain PFAS or precursor compounds reducing confidence in adsorptive treatment alone",
+        "potential formation of undesirable byproducts if chlorination-based cyanide destruction is poorly controlled",
+        "RO fouling and concentrate disposal challenges under fluctuating industrial loads",
+        "media exhaustion uncertainty during rapid scale-up when the organic mixture is only partially characterized",
+        "the regulatory and public-health implications of using emergency treatment for potable reuse with incompletely characterized industrial inputs"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

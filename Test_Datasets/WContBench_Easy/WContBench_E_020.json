@@ -1,0 +1,297 @@
+{
+  "case_id": "WContBench_E_020",
+  "case_name": "Removal of perfluorinated compounds (PFCs) from surface water for municipal drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Per- and Polyfluoroalkyl Substances"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "stable_operation_required"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for surface water containing Per- and Polyfluoroalkyl Substances intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A municipal utility draws water from a river-influenced reservoir that has detectable perfluorinated compounds (PFCs) linked to upstream industrial and firefighting training activities. The utility needs a reliable treatment approach for drinking water production and prefers established technologies that can operate steadily with moderate cost and routine operator attention. Existing plant staff are familiar with conventional clarification and filtration, but the utility wants to avoid unnecessarily high-energy solutions.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.2,
+      "temperature_C": 16.8,
+      "turbidity_NTU": 6.4,
+      "DOC_mg_L": 4.8,
+      "TOC_mg_L": 5.7,
+      "UV254_cm_1": 0.128,
+      "alkalinity_mg_L_as_CaCO3": 78,
+      "hardness_mg_L_as_CaCO3": 96,
+      "sulfate_mg_L": 34,
+      "chloride_mg_L": 22,
+      "nitrate_mg_L_as_NO3": 2.6,
+      "ammonia_mg_L_as_N": 0.08,
+      "iron_mg_L": 0.21,
+      "manganese_mg_L": 0.03,
+      "total_pfos_pfoa_ng_L": 128,
+      "pfos_ng_L": 54,
+      "pfoa_ng_L": 41,
+      "other_measured_pfAS_sum_ng_L": 33,
+      "microcystin_LR_ug_L": 0.2
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve robust reduction of Per- and Polyfluoroalkyl Substances to comply with applicable drinking water requirements and maintain consistent potable water quality.",
+      "secondary_goals": [
+        "use proven treatment technology for PFC control",
+        "maintain stable day-to-day operation under variable surface water quality",
+        "limit energy demand to a moderate level",
+        "fit within a conventional municipal treatment context"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_changeout_and_offsite_handling_are_feasible_but_large_brine_or_concentrate_streams_are_unattractive",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particulates and natural organic matter that can compete for downstream adsorption capacity",
+          "media_filtration": "polish clarified water and protect the adsorption step from solids loading",
+          "granular_activated_carbon": "adsorb PFAS, especially longer-chain compounds, and provide a well-established barrier for PFC reduction",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "GAC is one of the most established and widely applied drinking water technologies for PFAS control",
+          "the surface water has moderate DOC and turbidity, so conventional pretreatment will help preserve GAC bed life and support stable operation",
+          "the utility already has familiarity with conventional treatment, making this train operationally practical",
+          "this option fits moderate cost and energy constraints better than high-pressure membrane alternatives"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "short-chain PFAS may break through earlier than long-chain PFAS and require careful monitoring",
+          "high DOC episodes can increase carbon usage and shorten run length",
+          "spent carbon replacement or regeneration logistics must be managed"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatment_fact_sheets_for_pfas_with_gac_and_surface_water_pretreatment",
+          "state_drinking_water_guidance_identifying_gac_as_a_proven_pfas_control_option",
+          "awwa_case_knowledge_on_gac_design_and_breakthrough_monitoring_for_pfas"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "anion_exchange",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and lower organic fouling potential before resin treatment",
+          "media_filtration": "protect downstream ion exchange vessels from particle loading",
+          "anion_exchange": "remove PFAS using selective resin sorption and exchange mechanisms",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "anion exchange is a recognized best available treatment approach for many PFAS in drinking water",
+          "it can achieve strong removal, often including some compounds that are less strongly adsorbed by standard GAC",
+          "with proper pretreatment, it can operate reliably in a municipal setting",
+          "this is a strong alternative where compact footprint and high PFAS removal are important"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "resin fouling or reduced run length can occur if upstream particulate and organic control is insufficient",
+          "waste handling for spent or regenerated resin can be more complex than for GAC",
+          "performance depends on resin selection and breakthrough monitoring for target PFAS species"
+        ],
+        "evidence_list": [
+          "epa_pfas_treatment_technology_overviews_identifying_ion_exchange_for_drinking_water",
+          "public_utility_case_examples_of_selective_resin_use_for_pfas_removal",
+          "water_research_case_knowledge_on_pfas_resin_breakthrough_and_competing_water_matrix_effects"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "powdered_activated_carbon",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove bulk suspended matter and improve downstream solids handling",
+          "media_filtration": "provide conventional clarification polishing",
+          "powdered_activated_carbon": "provide adsorptive contact for PFAS reduction through dosed carbon",
+          "post_filtration": "remove carbon fines and associated solids before distribution",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "PAC can be considered where the plant already uses flexible chemical feed systems and wants an adsorption-based option",
+          "it can be integrated into conventional surface water treatment infrastructure",
+          "this route may be useful as an interim or supplemental approach when a fixed-bed system is not immediately available"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "PAC is generally less reliable than GAC or selective resin for robust PFAS removal, especially for short-chain compounds",
+          "performance depends strongly on dose, contact time, and water organic matter",
+          "increased solids production and carbon handling burden can complicate operations"
+        ],
+        "evidence_list": [
+          "epa_and_state_guidance_noting_pac_as_less_preferred_but_potentially_applicable_for_some_pfas_cases",
+          "published_case_knowledge_on_pac_limitations_for_short_chain_pfas_in_surface_waters"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and fouling load before membrane treatment",
+          "media_filtration": "provide additional particulate removal to protect membranes",
+          "nanofiltration_or_reverse_osmosis": "provide high rejection of a wide range of PFAS compounds",
+          "stabilization": "adjust permeate chemistry for corrosion control and finished water stability",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "membrane processes are technically very effective for PFAS removal",
+          "they may be selected where very stringent multi-contaminant control is required",
+          "pretreatment is appropriate for a surface water source to support membrane performance"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a major challenge for PFAS applications",
+          "higher energy demand conflicts with the moderate energy preference",
+          "membrane fouling and more specialized O&M increase complexity beyond what is needed for this straightforward case"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_membrane_rejection_of_pfas_and_concentrate_management_challenges",
+          "drinking_water_membrane_case_knowledge_showing_high_pfas_removal_but_higher_cost_and_complexity"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "media_filtration",
+          "advanced_oxidation_process",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "perform conventional solids and organic matter reduction",
+          "media_filtration": "remove remaining particulate matter",
+          "advanced_oxidation_process": "provide strong oxidation for compounds susceptible to radical attack",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "included as a contrast option because advanced oxidation is common for some trace organics in drinking water treatment",
+          "it may still have value for other co-contaminants even though PFAS is the main target"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "conventional oxidation and advanced oxidation are not considered effective mainstream PFAS destruction methods in drinking water plants",
+          "the process could add cost and complexity without providing dependable PFAS compliance",
+          "selection based on general micropollutant experience would be poorly aligned with PFAS-specific evidence"
+        ],
+        "evidence_list": [
+          "epa_pfas_treatment_references_indicating_limited_applicability_of_conventional_oxidation_for_pfas_removal",
+          "public_guidance_distinguishing_pfAS_adsorption_and_membrane_methods_from_nonpreferred_oxidation_routes"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "granular_activated_carbon_with_conventional_surface_water_pretreatment should rank first or second",
+        "anion_exchange should rank near the top as another established PFAS control option",
+        "high-pressure_membrane_options should rank below adsorption_or_resin_options under moderate cost and stable operation constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven drinking water technologies for PFAS",
+        "moderate operational capability at a conventional municipal surface water plant",
+        "avoidance of unnecessarily high-energy and concentrate-producing solutions as the top choice"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why pretreatment for turbidity and natural organic matter matters before PFAS adsorption or resin treatment",
+        "why GAC and anion exchange are appropriate established options for PFAS in drinking water",
+        "why reverse_osmosis_or_nanofiltration rank lower despite strong removal performance"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "earlier breakthrough of short-chain PFAS",
+        "impact of DOC competition on adsorption media life",
+        "spent media or resin handling requirements",
+        "membrane concentrate disposal challenges"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "211",
+    "Units": "N/A",
+    "Condition": "2-chloro-2-ethyl-6-methylacetanilide",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "135",
+    "Units": "N/A",
+    "Condition": "2-ethyl-6-methylaniline",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "193",
+    "Units": "N/A",
+    "Condition": "2-hydroxy-2-ethyl-6-methylacetanilide",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "251",
+    "Units": "N/A",
+    "Condition": "Hydroxyacetochlor",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "177",
+    "Units": "N/A",
+    "Condition": "2-ethyl-6-methylacetanilide",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Molecular Weight",
+    "Value": "235",
+    "Units": "N/A",
+    "Condition": "Deschloroacetochlor",
+    "Ref#": "1820"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "40-160",
+    "Units": "N/A",
+    "Condition": "Acetochlor OXA",
+    "Ref#": "1461"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "49",
+    "Units": "N/A",
+    "Condition": "2-ethyl-6-methylacetanilide, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "560",
+    "Units": "N/A",
+    "Condition": "Hydroxyacetochlor, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "200",
+    "Units": "N/A",
+    "Condition": "2-chloro-2-ethyl-6-methylacetanilide, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "220",
+    "Units": "N/A",
+    "Condition": "2-ethyl-6-methylaniline, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "10",
+    "Units": "N/A",
+    "Condition": "2-hydroxy-2-ethyl-6-methylacetanilide, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "1200",
+    "Units": "N/A",
+    "Condition": "Deschloroacetochlor, estimated using ClogP software",
+    "Ref#": "1449"
+  },
+  {
+    "Contaminant Name": "Acetochlor Degradates",
+    "Parameter": "Kow",
+    "Value": "16",
+    "Units": "N/A",
+    "Condition": "Acetochlor ESA",
+    "Ref#": "1461"
+  }
+]

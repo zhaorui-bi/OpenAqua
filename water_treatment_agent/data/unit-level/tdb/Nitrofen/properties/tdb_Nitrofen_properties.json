@@ -1,0 +1,106 @@
+[
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Chemical Formula",
+    "Value": "C12H7Cl2NO3",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1942"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Molecular Weight",
+    "Value": "284.1",
+    "Units": "g/mol",
+    "Condition": "Nitrofen",
+    "Ref#": "1941"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Solubility",
+    "Value": "0.7 to 1.2",
+    "Units": "mg/L",
+    "Condition": "at 22 °C",
+    "Ref#": "1942"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Solubility",
+    "Value": "1",
+    "Units": "mg/L",
+    "Condition": "20 C",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Density",
+    "Value": "1.33",
+    "Units": "g/mL",
+    "Condition": "at 90 °C",
+    "Ref#": "1942"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Density",
+    "Value": "1.33",
+    "Units": "g/mL",
+    "Condition": "N/A",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Vapor Pressure",
+    "Value": "1.06",
+    "Units": "mPa",
+    "Condition": "25 C",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Henry's Law Constant",
+    "Value": "1.24x10^-4",
+    "Units": "unitless",
+    "Condition": "20 C",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Kow",
+    "Value": "5.534",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1942"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Kow",
+    "Value": "2.51x10^3",
+    "Units": "unitless",
+    "Condition": "pH 7, 20 C",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Melting Point",
+    "Value": "70 to 71",
+    "Units": "°C",
+    "Condition": "at 0.25 mm Hg",
+    "Ref#": "1941"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Melting Point",
+    "Value": "67",
+    "Units": "C",
+    "Condition": "N/A",
+    "Ref#": "2007"
+  },
+  {
+    "Contaminant Name": "Nitrofen",
+    "Parameter": "Boiling Point",
+    "Value": "180 to 190",
+    "Units": "°C",
+    "Condition": "at 0.25 mm Hg",
+    "Ref#": "1941"
+  }
+]

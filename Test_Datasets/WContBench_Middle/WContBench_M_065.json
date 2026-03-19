@@ -1,0 +1,339 @@
+{
+  "case_id": "WContBench_M_065",
+  "case_name": "PFAS and salinity management for brackish groundwater intended for recharge under energy and seasonal variability constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Per- and Polyfluoroalkyl Substances",
+      "salinity"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "seasonal_variation",
+      "cost_constraint",
+      "energy_constraint"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for PFAS-impacted brackish groundwater intended for groundwater recharge while balancing salinity control, seasonal variability, cost, and energy constraints.",
+  "input_data": {
+    "scenario_background": "A coastal inland-basin water utility plans to treat brackish groundwater for managed aquifer recharge. The source contains both PFAS and elevated dissolved salts, and dry-season pumping causes conductivity and PFAS concentrations to rise while wet-season blending lowers them. The utility must meet recharge-oriented water quality expectations without committing to the highest-energy desalination option unless the broader contaminant control benefit clearly justifies it. The key trade-off is between robust simultaneous PFAS and salinity reduction versus minimizing power use, concentrate burden, and lifecycle cost.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "turbidity_NTU": 1.4,
+      "temperature_C": 21.0,
+      "TDS_mg_L": 2380,
+      "conductivity_uS_cm": 3720,
+      "DOC_mg_L": 2.9,
+      "TOC_mg_L": 3.4,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 410,
+      "calcium_mg_L": 108,
+      "magnesium_mg_L": 34,
+      "sodium_mg_L": 455,
+      "chloride_mg_L": 760,
+      "sulfate_mg_L": 235,
+      "silica_mg_L_as_SiO2": 24,
+      "nitrate_mg_L_as_N": 4.8,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "target_contaminants": {
+        "PFOA_ng_L": 31,
+        "PFOS_ng_L": 18,
+        "PFHxS_ng_L": 14,
+        "PFBS_ng_L": 64,
+        "sum_PFAS_ng_L": 162,
+        "TDS_mg_L": 2380,
+        "chloride_mg_L": 760
+      },
+      "seasonal_variation": {
+        "dry_season_TDS_mg_L": 2850,
+        "wet_season_TDS_mg_L": 1850,
+        "dry_season_sum_PFAS_ng_L": 215,
+        "wet_season_sum_PFAS_ng_L": 105
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should be suitable for groundwater recharge with reliable PFAS reduction and enough salinity control to avoid degrading receiving aquifer quality or creating recharge permit compliance concerns.",
+      "secondary_goals": [
+        "limit specific conductivity and chloride loading to the recharge basin",
+        "control PFAS through a treatment train with stable seasonal performance",
+        "avoid excessive energy consumption where possible",
+        "minimize difficult concentrate or brine disposal volumes"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "high",
+      "operation_complexity": "medium",
+      "residuals_management": "brine and spent media handling should be minimized because disposal options are available but costly and seasonally capacity-limited",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate seasonal increases in salinity and PFAS while maintaining recharge suitability with limited operator intervention"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_and_blending",
+          "media_filtration",
+          "nanofiltration_partial_desalting",
+          "granular_activated_carbon_polishing",
+          "stabilization",
+          "recharge_basin_feed_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "dampen seasonal and short-term variability in salinity and PFAS loading",
+          "media_filtration": "remove suspended solids and protect membranes",
+          "nanofiltration_partial_desalting": "reduce TDS, chloride, hardness, and a substantial fraction of PFAS at lower pressure than full RO",
+          "granular_activated_carbon_polishing": "polish residual PFAS and provide additional compliance margin during seasonal peaks",
+          "stabilization": "adjust finished water chemistry for recharge compatibility and scaling control",
+          "recharge_basin_feed_monitoring": "verify conductivity and PFAS-related operational compliance before recharge"
+        },
+        "applicability_rationale": [
+          "this route best balances the dual-contaminant problem because salinity must be reduced as well as PFAS",
+          "nanofiltration offers meaningful dissolved salt reduction with lower energy demand than reverse osmosis, which is important under the stated energy constraint",
+          "adding GAC polishing improves confidence for PFAS control, especially where short-chain fractions and seasonal peaks may challenge membrane-only assumptions",
+          "partial desalting is often more aligned with recharge objectives than full potable-style desalination when the goal is to avoid aquifer degradation rather than produce very low TDS water",
+          "equalization and blending improve resilience to dry-season concentration increases and reduce abrupt loading swings on both membrane and carbon units"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "nanofiltration still generates a concentrate stream requiring disposal or management",
+          "PFAS rejection and salt removal performance can vary with membrane selection and recovery target",
+          "GAC replacement frequency may increase if seasonal PFAS peaks are sustained",
+          "stabilization needs careful control to avoid recharge-basin scaling or unfavorable geochemical impacts"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_PFAS_treatment_in_water_systems",
+          "membrane_desalination_case_knowledge_for_brackish_groundwater",
+          "public_guidance_on_managed_aquifer_recharge_source_water_salinity_control",
+          "AWWA_case_knowledge_on_GAC_polishing_after_membrane_treatment"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_and_blending",
+          "cartridge_filtration",
+          "reverse_osmosis_high_recovery",
+          "stabilization",
+          "recharge_basin_feed_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "moderate seasonal variability prior to treatment",
+          "cartridge_filtration": "protect RO membranes from particulate fouling",
+          "reverse_osmosis_high_recovery": "provide strong rejection of PFAS and dissolved salts including chloride",
+          "stabilization": "adjust permeate chemistry before recharge",
+          "recharge_basin_feed_monitoring": "confirm recharge water quality performance"
+        },
+        "applicability_rationale": [
+          "RO is the most technically robust single barrier for simultaneous PFAS and salinity reduction in brackish groundwater",
+          "this option is attractive if recharge permit compliance is expected to tighten on conductivity or chloride",
+          "high-recovery RO can reduce feedwater volume losses relative to lower-recovery systems, partially offsetting disposal burden",
+          "the route is ranked below NF plus GAC because the case emphasizes strong energy sensitivity and cost trade-offs rather than maximum removal alone"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "highest power demand among the leading options",
+          "concentrate disposal remains a major lifecycle and permitting issue",
+          "membrane scaling risk is elevated by hardness and silica unless pretreatment and recovery are carefully managed",
+          "finished water may require remineralization or stabilization to be suitable for recharge"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_reverse_osmosis_for_PFAS_and_brackish_water",
+          "USBR_brackish_groundwater_desalination_design_knowledge",
+          "public_guidance_on_membrane_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization_and_blending",
+          "anion_exchange_resin",
+          "electrodialysis_reversal",
+          "stabilization",
+          "recharge_basin_feed_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "reduce influent variability and smooth contaminant loading",
+          "anion_exchange_resin": "target PFAS removal ahead of salinity control step",
+          "electrodialysis_reversal": "reduce ionic salinity and chloride with potentially lower energy than RO at moderate brackish conditions",
+          "stabilization": "adjust chemistry for recharge compatibility",
+          "recharge_basin_feed_monitoring": "verify performance and detect seasonal drift"
+        },
+        "applicability_rationale": [
+          "this is a plausible lower-energy alternative where moderate salinity reduction is needed and ionic transport technologies are locally supportable",
+          "separating PFAS removal from salinity reduction can improve control over each objective",
+          "EDR can be competitive for brackish water in some salinity ranges and may be attractive when full RO is considered too energy intensive",
+          "it ranks below the top options because the combined train is more specialized operationally and still creates residual streams from both resin and EDR concentrate"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PFAS-selective resin management adds replacement or regeneration planning complexity",
+          "EDR performance depends strongly on ionic composition and scaling control",
+          "dual residual streams from resin and concentrate complicate operations",
+          "short-chain PFAS behavior depends on resin type and bed management strategy"
+        ],
+        "evidence_list": [
+          "public_references_on_PFAS_ion_exchange_treatment",
+          "USBR_and_industry_guidance_on_electrodialysis_reversal_for_brackish_groundwater",
+          "case_knowledge_on_combined_selective_removal_and_desalting_trains"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization_and_blending",
+          "granular_activated_carbon_dual_bed",
+          "managed_blending_with_lower_TDS_source",
+          "stabilization",
+          "recharge_basin_feed_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "smooth seasonal PFAS and salinity fluctuations",
+          "granular_activated_carbon_dual_bed": "remove PFAS with staged adsorption to reduce breakthrough risk",
+          "managed_blending_with_lower_TDS_source": "lower final salinity through operational blending rather than full desalination",
+          "stabilization": "adjust chemistry before recharge",
+          "recharge_basin_feed_monitoring": "ensure blended water remains within recharge operating targets"
+        },
+        "applicability_rationale": [
+          "this route is attractive on energy use because adsorption and blending are generally less power intensive than pressure-driven desalination",
+          "it can be reasonable if a dependable lower-TDS supplemental source already exists seasonally",
+          "the dual-bed GAC configuration improves PFAS reliability compared with a single vessel arrangement",
+          "it ranks lower because salinity reduction is indirect and depends on blending availability, making drought and dry-season performance less robust"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "does not directly remove dissolved salts from the brackish source",
+          "performance is vulnerable if lower-TDS blending water is unavailable during dry periods",
+          "short-chain PFAS may break through carbon earlier than long-chain compounds",
+          "aquifer salt loading could remain problematic if blending ratios are not tightly controlled"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_PFAS_removal_with_granular_activated_carbon",
+          "managed_aquifer_recharge_case_knowledge_on_source_water_blending",
+          "public_guidance_on_adsorption_breakthrough_monitoring_for_PFAS"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "equalization_and_blending",
+          "foam_fractionation",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "recharge_basin_feed_monitoring"
+        ],
+        "core_unit_functions": {
+          "equalization_and_blending": "buffer influent variability",
+          "foam_fractionation": "concentrate selected surface-active PFAS into a smaller sidestream",
+          "nanofiltration_or_reverse_osmosis": "reduce salinity and polish PFAS remaining in bulk water",
+          "stabilization": "adjust finished water chemistry for recharge",
+          "recharge_basin_feed_monitoring": "confirm operational compliance"
+        },
+        "applicability_rationale": [
+          "this option is technically interesting because foam fractionation can reduce PFAS loading before desalination in some PFAS mixtures",
+          "it may lower downstream PFAS burden where surfactant-like compounds are dominant",
+          "however, for the low-ng/L groundwater setting here, benefits are uncertain and system complexity rises relative to more established treatment routes",
+          "the option ranks last because it does not align well with the cost and operational simplicity implied by the project constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "foam fractionation may be less effective at relatively low PFAS concentrations and with mixed PFAS species",
+          "still requires a downstream desalination step for salinity control",
+          "produces a concentrated PFAS residual stream requiring specialized handling",
+          "performance uncertainty is higher than for conventional membrane and adsorption trains"
+        ],
+        "evidence_list": [
+          "emerging_case_knowledge_on_foam_fractionation_for_PFAS",
+          "public_guidance_on_limits_of_emerging_PFAS_concentration_technologies",
+          "membrane_desalination_references_for_brackish_groundwater"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "a treatment route combining at least moderate desalting with PFAS control should rank first",
+        "reverse_osmosis should appear as a strong but not necessarily top-ranked option because of energy and concentrate penalties",
+        "adsorption-only PFAS solutions should not rank first when recharge suitability also depends on salinity management",
+        "at least one technically capable but constraint-misaligned advanced option should rank near the bottom"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "seasonal dry-season increases in both salinity and PFAS should influence robustness ranking",
+        "high energy sensitivity should downgrade full desalination options unless they clearly solve both contaminants",
+        "cost and concentrate management should affect membrane route ranking",
+        "recharge use should require attention to chloride, conductivity, and geochemical compatibility rather than PFAS alone"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why simultaneous management of PFAS and dissolved salts changes the ranking relative to a PFAS-only case",
+        "why nanofiltration may be favored over reverse osmosis under strong energy constraints for moderately brackish water",
+        "why adsorption-only options can be insufficient for recharge when TDS and chloride remain elevated",
+        "why seasonal variation justifies equalization, blending, or polishing measures"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "concentrate or brine disposal burden",
+        "short-chain PFAS polishing uncertainty",
+        "membrane scaling and recovery trade-offs",
+        "blending reliability during dry-season conditions",
+        "recharge-water stabilization and aquifer compatibility"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "case_id": "WContBench_E_056",
+  "case_name": "Nonylphenol removal from groundwater for drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "4-Nonylphenol"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "stable_operation_required"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for groundwater contaminated with 4-Nonylphenol intended for drinking water supply.",
+  "input_data": {
+    "scenario_background": "A small town wellfield has detected Nonylphenol in a groundwater source used for potable supply, likely related to historical industrial chemical handling in the recharge area. The utility needs a reliable treatment approach that can consistently reduce this hydrophobic organic contaminant to support drinking water compliance and public confidence. Operators prefer established treatment processes with moderate cost and straightforward routine monitoring rather than highly energy-intensive systems.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.2,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 1.8,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 210,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrate_mg_L_as_N": 2.4,
+      "sulfate_mg_L": 36,
+      "chloride_mg_L": 24,
+      "4_nonylphenol_ug_L": 3.6,
+      "temperature_C": 14.5
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve strong and reliable reduction of 4-Nonylphenol for drinking water production using established treatment practice and stable effluent quality.",
+      "secondary_goals": [
+        "prefer proven treatment for trace hydrophobic organic contaminants",
+        "maintain moderate capital and operating cost",
+        "avoid unnecessarily high energy demand",
+        "support stable routine operation by a small municipal utility"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_changeout_and_offsite_disposal_are_manageable_but_large_liquid_waste_streams_are_not_preferred",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_filtration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "remove incidental particulates and protect downstream adsorptive media",
+          "granular_activated_carbon_adsorption": "adsorb hydrophobic trace organic contaminants including nonylphenol",
+          "disinfection": "provide microbiological protection in the finished drinking water"
+        },
+        "applicability_rationale": [
+          "nonylphenol is a hydrophobic organic micropollutant for which activated carbon is a well-established control approach",
+          "the raw groundwater has low turbidity and modest DOC, which supports effective carbon adsorption performance",
+          "fixed-bed GAC is compatible with stable municipal operation and moderate cost constraints",
+          "this process chain avoids the unnecessary energy and concentrate burden of high-pressure membranes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "media breakthrough can occur if bed life is not tracked with monitoring and timely replacement or reactivation",
+          "background DOC may gradually reduce adsorption capacity",
+          "biological growth in carbon beds requires appropriate operation and disinfection management"
+        ],
+        "evidence_list": [
+          "epa_drinking_water_treatability_guidance_for_synthetic_organic_chemicals_using_granular_activated_carbon",
+          "awwa_water_quality_treatment_practice_for_gac_removal_of_taste_odor_and_trace_organics",
+          "case_knowledge_hydrophobic_organic_micropollutants_are_effectively_removed_by_activated_carbon"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_filtration",
+          "powdered_activated_carbon_contact",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pre_filtration": "stabilize influent solids loading prior to chemical addition",
+          "powdered_activated_carbon_contact": "provide adsorption of dissolved nonylphenol during contact period",
+          "filtration": "remove PAC-associated solids and polish the water",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "PAC is also a recognized activated carbon option for organic contaminant reduction",
+          "it can be implemented where the utility prefers chemical feed over fixed-bed adsorber vessels",
+          "the process is feasible under moderate cost conditions and remains based on established adsorption principles",
+          "it is somewhat less convenient for continuous groundwater treatment than GAC but still technically appropriate"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance depends on adequate contact time and PAC dose control",
+          "continuous solids handling and filter loading increase operational attention",
+          "carbon slurry handling may be less convenient for a small utility than fixed-bed GAC"
+        ],
+        "evidence_list": [
+          "public_treatability_guidance_on_powdered_activated_carbon_for_organic_contaminants",
+          "conventional_drinking_water_treatment_references_for_pac_plus_filtration",
+          "case_knowledge_pac_is_used_for_adsorbable_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "advanced_oxidation",
+          "biological_or_gac_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation": "transform nonylphenol and related organic molecules through hydroxyl_radical_or_equivalent_oxidation",
+          "biological_or_gac_polishing": "remove oxidation byproducts and polish remaining dissolved organics",
+          "disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can address persistent trace organics when adsorption alone is insufficient or when additional destruction is desired",
+          "a downstream polishing step is appropriate because partial oxidation products may remain",
+          "this route is technically sound but more complex than direct activated carbon adsorption for the presented groundwater quality",
+          "it ranks below carbon-only options because the case emphasizes stable operation with moderate cost and energy use"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "oxidation byproducts may require additional polishing and verification",
+          "process effectiveness depends strongly on oxidant dose, UV delivery, or peroxide control depending on AOP type",
+          "higher technical complexity may challenge a small municipal staff"
+        ],
+        "evidence_list": [
+          "drinking_water_guidance_on_advanced_oxidation_for_trace_organic_contaminants",
+          "public_case_examples_of_uv_peroxide_or_ozone_based_aop_followed_by_biofiltration_or_gac",
+          "engineering_knowledge_that_aop_often_requires_post_treatment_for_byproduct_control"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "air_stripping_or_aeration",
+          "granular_activated_carbon_adsorption",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "air_stripping_or_aeration": "provide general volatile compound control and oxygenation though limited direct benefit for nonylphenol",
+          "granular_activated_carbon_adsorption": "perform the main removal of nonylphenol by adsorption",
+          "disinfection": "ensure finished water microbiological safety"
+        },
+        "applicability_rationale": [
+          "the GAC stage can still remove the target contaminant effectively",
+          "however, aeration is not a primary treatment mechanism for nonylphenol because it is relatively nonvolatile and strongly hydrophobic",
+          "this option is only considered when the utility already has aeration infrastructure or wishes to address secondary water quality issues simultaneously",
+          "it is less direct and less efficient than a simpler GAC-based train"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "aeration provides limited direct removal benefit for nonylphenol and may add unnecessary equipment",
+          "operators may overestimate the role of stripping for this contaminant",
+          "carbon monitoring is still required because GAC remains the actual control barrier"
+        ],
+        "evidence_list": [
+          "contaminant_property_guidance_indicating_nonylphenol_is_not_well_suited_to_air_stripping_as_primary_control",
+          "gac_treatability_references_for_hydrophobic_organic_contaminants",
+          "engineering_case_knowledge_that_process_steps_without_primary_removal_value_should_rank_lower"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide broad rejection of dissolved contaminants including many organic micropollutants",
+          "stabilization": "adjust permeate chemistry for corrosion control and distribution suitability",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable of reducing nonylphenol",
+          "it may be justified if multiple dissolved contaminants must be controlled at the same time",
+          "for this single-contaminant groundwater case it is more expensive and operationally intensive than necessary",
+          "the stated moderate-cost and stable-operation constraints make membranes a lower-ranked fallback option"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management creates an added disposal burden",
+          "membrane fouling and scaling require more specialized operation",
+          "high energy use is difficult to justify for a straightforward nonylphenol case"
+        ],
+        "evidence_list": [
+          "public_guidance_on_nf_ro_for_micropollutant_control_in_drinking_water",
+          "drinking_water_membrane_operation_references_on_fouling_scaling_and_concentrate_management",
+          "engineering_knowledge_that_high_pressure_membranes_rank_lower_when_adsorption_is_sufficient"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based_processes_should_rank_at_or_near_the_top_for_nonylphenol_in_groundwater",
+        "high_pressure_membrane_options_should_not_rank_first_under_moderate_cost_and_stable_operation_constraints",
+        "processes_that_do_not_directly_target_hydrophobic_organic_micropollutants_should_rank_below_direct_adsorption_options"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference_for_proven_and_stable_municipal_treatment",
+        "moderate_operational_capability_of_a_small_groundwater_utility",
+        "avoidance_of_unnecessarily_high_energy_or_high_complexity_solutions"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_activated_carbon_is_appropriate_for_hydrophobic_trace_organic_contaminants_like_nonylphenol",
+        "why_low_turbidity_and_modest_doc_groundwater_support_adsorptive_treatment",
+        "why_aop_or_membrane_options_rank_lower_despite_technical_feasibility"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "activated_carbon_breakthrough_and_media_replacement",
+        "competitive_adsorption_from_background_doc",
+        "possible_oxidation_byproduct_management_if_aop_is_selected",
+        "concentrate_management_if_membranes_are_considered"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

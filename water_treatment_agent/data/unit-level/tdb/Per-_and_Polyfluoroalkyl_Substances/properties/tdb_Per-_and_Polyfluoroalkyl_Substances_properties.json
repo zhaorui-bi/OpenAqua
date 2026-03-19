@@ -1,0 +1,786 @@
+[
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C5F9O2H",
+    "Units": "N/A",
+    "Condition": "PFPeA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C10HF19O2",
+    "Units": "N/A",
+    "Condition": "PFDA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C6F13SO3H",
+    "Units": "N/A",
+    "Condition": "PFHxS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C4HF7O2",
+    "Units": "N/A",
+    "Condition": "PFBA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C7F13O2H",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C5F11COOH",
+    "Units": "N/A",
+    "Condition": "PFHxA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C7HF13O2",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C11F21O2H",
+    "Units": "N/A",
+    "Condition": "PFUnA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C10F21SO3H",
+    "Units": "N/A",
+    "Condition": "PFDS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C12F23O2H",
+    "Units": "N/A",
+    "Condition": "PFDoA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C4F9SO3H",
+    "Units": "N/A",
+    "Condition": "PFBS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C12F17SO4NH8",
+    "Units": "N/A",
+    "Condition": "N-EtFOSAA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C11F17SO4NH6",
+    "Units": "N/A",
+    "Condition": "N-MeFOSAA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C8F17COOH",
+    "Units": "N/A",
+    "Condition": "PFNA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "F17SO2NH2",
+    "Units": "N/A",
+    "Condition": "PFOSA",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Chemical Formula",
+    "Value": "C6H4F11NO3",
+    "Units": "N/A",
+    "Condition": "GenX",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "438",
+    "Units": "N/A",
+    "Condition": "PFHxS, Potassium salt",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "338",
+    "Units": "N/A",
+    "Condition": "PFBS, Potassium salt",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "514",
+    "Units": "N/A",
+    "Condition": "PFDA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "214",
+    "Units": "N/A",
+    "Condition": "PFBA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "364",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "464",
+    "Units": "N/A",
+    "Condition": "PFNA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "400",
+    "Units": "N/A",
+    "Condition": "PFHxS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "314",
+    "Units": "N/A",
+    "Condition": "PFHxA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "300",
+    "Units": "N/A",
+    "Condition": "PFBS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "614",
+    "Units": "N/A",
+    "Condition": "PFDoA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "585",
+    "Units": "N/A",
+    "Condition": "N-EtFOSAA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "571",
+    "Units": "N/A",
+    "Condition": "N-MeFOSAA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "600",
+    "Units": "N/A",
+    "Condition": "PFDS",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "564",
+    "Units": "N/A",
+    "Condition": "PFUnA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "364",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "264",
+    "Units": "N/A",
+    "Condition": "PFPeA",
+    "Ref#": "2512"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "499.14",
+    "Units": "N/A",
+    "Condition": "PFOSA",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Molecular Weight",
+    "Value": "426",
+    "Units": "N/A",
+    "Condition": "FtS 6:2",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "15.7",
+    "Units": "g/L",
+    "Condition": "PFHxA",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "1.4",
+    "Units": "g/L",
+    "Condition": "PFHxS",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "46.2",
+    "Units": "g/L",
+    "Condition": "PFBS",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "92.3",
+    "Units": "mg/L",
+    "Condition": "PFUnA, 22.9 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "510",
+    "Units": "mg/L",
+    "Condition": "PFBS, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "118",
+    "Units": "g/L",
+    "Condition": "PFHpA, 21.6 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "118000",
+    "Units": "mg/L",
+    "Condition": "PFHpA, 21.6 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Solubility",
+    "Value": "260",
+    "Units": "mg/L",
+    "Condition": "PFDA, 22.4 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Vapor Pressure",
+    "Value": "851",
+    "Units": "Pa",
+    "Condition": "PFBA, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.008",
+    "Units": "Pa",
+    "Condition": "PFDoA, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Vapor Pressure",
+    "Value": "20.89",
+    "Units": "Pa",
+    "Condition": "PFHpA, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.23",
+    "Units": "Pa",
+    "Condition": "PFDA, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Vapor Pressure",
+    "Value": "0.1",
+    "Units": "Pa",
+    "Condition": "PFUnA, 25 degrees C",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.14",
+    "Units": "N/A",
+    "Condition": "PFBS",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.16",
+    "Units": "N/A",
+    "Condition": "PFHxA",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.14",
+    "Units": "N/A",
+    "Condition": "PFHxS",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.4",
+    "Units": "N/A",
+    "Condition": "PFBA",
+    "Ref#": "2507"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-1.36",
+    "Units": "N/A",
+    "Condition": "GenX, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-3.57",
+    "Units": "N/A",
+    "Condition": "PFBS, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.42",
+    "Units": "N/A",
+    "Condition": "PFHxA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.84",
+    "Units": "N/A",
+    "Condition": "PFHxA, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-3.34",
+    "Units": "N/A",
+    "Condition": "PFHxS, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.52",
+    "Units": "N/A",
+    "Condition": "PFNA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "2.61",
+    "Units": "N/A",
+    "Condition": "PFNA, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.37",
+    "Units": "N/A",
+    "Condition": "PFBA, Predicated data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.39",
+    "Units": "N/A",
+    "Condition": "PFBA, Experimental value",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.52",
+    "Units": "N/A",
+    "Condition": "PFDA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "2.61",
+    "Units": "N/A",
+    "Condition": "PFDA, Experimental value",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.4",
+    "Units": "N/A",
+    "Condition": "PFPeA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.57",
+    "Units": "N/A",
+    "Condition": "PFPeA, Experimental value",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.47",
+    "Units": "N/A",
+    "Condition": "PFHpA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.19",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.21",
+    "Units": "N/A",
+    "Condition": "PFNA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "6.52",
+    "Units": "N/A",
+    "Condition": "PFOSA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.21",
+    "Units": "N/A",
+    "Condition": "PFDA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.21",
+    "Units": "N/A",
+    "Condition": "PFUnA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.21",
+    "Units": "N/A",
+    "Condition": "PFDoA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.36",
+    "Units": "N/A",
+    "Condition": "FtS 6:2",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "0.14",
+    "Units": "N/A",
+    "Condition": "PFDS",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.1",
+    "Units": "N/A",
+    "Condition": "PFPeA",
+    "Ref#": "2530"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "pKa",
+    "Value": "-0.3",
+    "Units": "N/A",
+    "Condition": "PFHpA",
+    "Ref#": "2551"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "4.98",
+    "Units": "Log Kow",
+    "Condition": "PFHxA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "5.71",
+    "Units": "log Kow",
+    "Condition": "PFHpA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "2.81",
+    "Units": "log Kow",
+    "Condition": "PFPeA, Predicted data from US EPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "4.39",
+    "Units": "log Kow",
+    "Condition": "PFPeA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "6.15",
+    "Units": "Log Kow",
+    "Condition": "PFDA, Predicted data from US EPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "6.33",
+    "Units": "Log Kow",
+    "Condition": "GenX, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "1.69",
+    "Units": "Log Kow",
+    "Condition": "PFBS, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "1.82",
+    "Units": "Log Kow",
+    "Condition": "PFBS, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "3.48",
+    "Units": "Log Kow",
+    "Condition": "PFHxA, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "3.05",
+    "Units": "Log Kow",
+    "Condition": "PFHxS, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "3.16",
+    "Units": "Log Kow",
+    "Condition": "PFHxS, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "7.17",
+    "Units": "Log Kow",
+    "Condition": "PFNA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "5.48",
+    "Units": "Log Kow",
+    "Condition": "PFNA, Predicted data from USEPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "4.14",
+    "Units": "log Kow",
+    "Condition": "PFHpA, Predicted data from US EPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "3.39",
+    "Units": "log Kow",
+    "Condition": "PFBA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "2.14",
+    "Units": "log Kow",
+    "Condition": "PFBA, Predicted data from US EPA EPI Suite software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "7.9",
+    "Units": "log Kow",
+    "Condition": "PFDA, Predicted data from ACD/Labs software",
+    "Ref#": "2521"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Kow",
+    "Value": "5.3",
+    "Units": "Log Kow",
+    "Condition": "PFHpA",
+    "Ref#": "2552"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Koc",
+    "Value": "2.32",
+    "Units": "log Koc (L/kg)",
+    "Condition": "PFUnA",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Koc",
+    "Value": "2.37",
+    "Units": "log Koc (L/kg)",
+    "Condition": "PFDA",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Koc",
+    "Value": "0.97",
+    "Units": "Log Koc (L/kg)",
+    "Condition": "PFHxS",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Koc",
+    "Value": "2.06",
+    "Units": "Log Koc (L/kg)",
+    "Condition": "PFNA",
+    "Ref#": "2520"
+  },
+  {
+    "Contaminant Name": "Per- and Polyfluoroalkyl Substances",
+    "Parameter": "Koc",
+    "Value": "2.56",
+    "Units": "log Koc (L/kg)",
+    "Condition": "PFOSA",
+    "Ref#": "2520"
+  }
+]

@@ -1,0 +1,312 @@
+{
+  "case_id": "WContBench_M_103",
+  "case_name": "Arsenite and iron control from river water for groundwater recharge under moderate cost and limited-operator conditions",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "river_water",
+    "contaminant_type": [
+      "Arsenic"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for river water containing arsenic and co-occurring iron intended for groundwater recharge, balancing arsenic compliance, solids handling, cost, and operator simplicity.",
+  "input_data": {
+    "scenario_background": "A regional water agency plans to seasonally divert river water to recharge basins, but the source contains dissolved Arsenite and elevated iron that could both impair recharge performance and create groundwater quality concerns. The utility has basic coagulation-filtration experience but limited staff for highly instrumented or chemistry-sensitive systems. The trade-off is that several routes can remove arsenic, but the best choice must also control iron, avoid excessive operator burden, and keep residuals management practical under a moderate budget.",
+    "water_quality": {
+      "source_type": "river_water",
+      "temperature_C": 18.6,
+      "pH": 7.5,
+      "turbidity_NTU": 14.8,
+      "TSS_mg_L": 19.0,
+      "DOC_mg_L": 4.6,
+      "UV254_cm-1": 0.112,
+      "alkalinity_mg_L_as_CaCO3": 98,
+      "hardness_mg_L_as_CaCO3": 126,
+      "conductivity_uS_cm": 412,
+      "dissolved_oxygen_mg_L": 7.1,
+      "manganese_mg_L": 0.07,
+      "iron_mg_L": 1.85,
+      "phosphate_mg_L_as_PO4": 0.18,
+      "silica_mg_L_as_SiO2": 11.4,
+      "sulfate_mg_L": 39,
+      "chloride_mg_L": 28,
+      "target_contaminants": {
+        "arsenic_total_ug_L": 42,
+        "arsenite_AsIII_fraction_percent": 72,
+        "iron_mg_L": 1.85
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should reliably reduce total arsenic to at or below 10 ug/L and lower suspended solids and iron sufficiently to support groundwater recharge operation without chronic clogging concerns.",
+      "secondary_goals": [
+        "minimize operator-intensive chemical control",
+        "maintain stable performance during seasonal turbidity swings",
+        "avoid difficult hazardous residuals handling where possible",
+        "limit life-cycle cost to a moderate municipal budget"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "residuals should be manageable as conventional arsenic-bearing solids or backwash waste; avoid high-difficulty concentrate streams",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "process should tolerate variable river turbidity and maintain arsenic control despite changing iron oxidation state and particulate loading"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pre_oxidation",
+          "ferric_coagulation_flocculation",
+          "sedimentation_or_DAF",
+          "rapid_sand_or_dual_media_filtration",
+          "managed_recharge_post_monitoring"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation": "convert arsenite to arsenate and oxidize dissolved iron to improve subsequent removal",
+          "ferric_coagulation_flocculation": "form iron hydroxide floc that adsorbs and coprecipitates arsenic while aggregating suspended solids",
+          "sedimentation_or_DAF": "remove bulk floc and reduce solids loading to filters",
+          "rapid_sand_or_dual_media_filtration": "polish remaining particulate iron and arsenic-bearing floc before recharge",
+          "managed_recharge_post_monitoring": "verify treated water quality remains suitable for aquifer recharge operations"
+        },
+        "applicability_rationale": [
+          "this route directly addresses the key trade-off by using a conventional treatment train that most municipal operators can run with moderate support",
+          "arsenite-dominant water usually benefits from oxidation because arsenate is more effectively captured by ferric hydroxide solids",
+          "coagulation and filtration also remove turbidity and particulate matter that would otherwise reduce recharge basin infiltration performance",
+          "co-occurring iron can be treated synergistically rather than as a separate difficult contaminant",
+          "compared with membrane options, this approach avoids a concentrate stream and better matches moderate cost and limited-skill constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "arsenic removal may decline if oxidation is incomplete and arsenite remains high",
+          "phosphate and natural organic matter can compete with arsenic adsorption onto iron floc",
+          "arsenic-bearing sludge requires appropriate handling and disposal planning",
+          "seasonal turbidity spikes may require coagulant dose adjustment and careful solids management"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_arsenic_removal_using_oxidation_and_ferric_coagulation",
+          "AWWA_case_knowledge_for_surface_water_clarification_and_filtration",
+          "public_guidance_on_managed_aquifer_recharge_need_for_low_turbidity_feedwater",
+          "arsenic_removal_references_showing_improved_capture_of_arsenate_over_arsenite"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pre_oxidation",
+          "contact_filtration_with_ferric_addition",
+          "backwash_handling",
+          "managed_recharge_post_monitoring"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation": "convert arsenite and ferrous iron to more readily removable oxidized forms",
+          "contact_filtration_with_ferric_addition": "adsorb and filter arsenic and iron precipitates in a compact combined step",
+          "backwash_handling": "manage solids removed from filter backwash water",
+          "managed_recharge_post_monitoring": "confirm stable treated water quality for recharge application"
+        },
+        "applicability_rationale": [
+          "this route can be attractive where footprint is moderate and the utility wants fewer unit processes than full clarification plus filtration",
+          "contact filtration can remove oxidized iron and ferric-adsorbed arsenic with lower capital cost than a full clarifier train",
+          "it remains more aligned with operator familiarity than ion exchange or membrane systems",
+          "it is plausible because the source turbidity is elevated but not extreme year-round"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher raw-water turbidity events can shorten filter runs and reduce robustness",
+          "performance is sensitive to oxidation completeness and ferric dose control",
+          "backwash waste will contain arsenic-bearing solids and needs proper management",
+          "less process buffering than full clarification can increase compliance risk during influent variability"
+        ],
+        "evidence_list": [
+          "EPA_arsenic_treatment_technology_fact_sheets_for_iron_based_adsorptive_and_filtration_approaches",
+          "surface_water_contact_filtration_operational_case_knowledge",
+          "public_guidance_on_oxidation_of_arsenite_prior_to_removal"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pre_oxidation",
+          "greensand_or_catalytic_media_filtration_with_iron_assist",
+          "managed_recharge_post_monitoring"
+        ],
+        "core_unit_functions": {
+          "pre_oxidation": "promote conversion of arsenite and dissolved iron before filtration",
+          "greensand_or_catalytic_media_filtration_with_iron_assist": "oxidize and filter iron and capture associated arsenic on metal oxide coated media",
+          "managed_recharge_post_monitoring": "verify arsenic and iron goals are met consistently"
+        },
+        "applicability_rationale": [
+          "manganese dioxide or other catalytic media filters can be technically viable for simultaneous iron and arsenic control when oxidation is well managed",
+          "the process is more compact than full clarification and may have moderate capital cost",
+          "it can suit utilities already comfortable with pressure or gravity media filtration systems"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "arsenic removal can be less predictable than ferric coagulation on variable river water",
+          "media performance may be affected by competing ions, organic matter, and changing iron loading",
+          "regeneration or oxidant control increases operational sensitivity",
+          "influent turbidity and solids can foul media faster than in cleaner groundwater applications"
+        ],
+        "evidence_list": [
+          "EPA_technical_references_for_arsenic_removal_with_manganese_green_sand_and_iron_based_media",
+          "public_case_knowledge_on_iron_manganese_filtration_limitations_in_surface_water",
+          "guidance_noting_importance_of_oxidation_state_for_arsenic_treatment_selection"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_or_media_prefiltration",
+          "anion_exchange",
+          "post_filtration",
+          "managed_recharge_post_monitoring"
+        ],
+        "core_unit_functions": {
+          "coagulation_or_media_prefiltration": "reduce turbidity, iron solids, and organics to protect resin performance",
+          "anion_exchange": "remove arsenate through selective exchange",
+          "post_filtration": "capture fines and provide polishing before recharge",
+          "managed_recharge_post_monitoring": "check arsenic breakthrough and treated water stability"
+        },
+        "applicability_rationale": [
+          "anion exchange is technically capable of low arsenic effluent when arsenic is present as arsenate and pretreatment is adequate",
+          "it can achieve strong polishing performance if oxidation and solids control are well established",
+          "this route becomes more plausible if future arsenic targets tighten"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "arsenite must be oxidized first because anion exchange is much more effective for arsenate than arsenite",
+          "competing sulfate and other anions can reduce run length and increase replacement or regeneration frequency",
+          "resin fouling risk is significant with inadequately treated river water",
+          "brine or spent resin management is less aligned with simple residuals handling objectives"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_arsenic_removal_by_anion_exchange",
+          "public_drinking_water_references_on_need_for_arsenite_preoxidation_before_anion_exchange",
+          "case_knowledge_on_resin_fouling_and_brine_management_constraints"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment_coagulation_and_cartridge_filtration",
+          "reverse_osmosis",
+          "concentrate_management",
+          "stabilization_if_needed",
+          "managed_recharge_post_monitoring"
+        ],
+        "core_unit_functions": {
+          "pretreatment_coagulation_and_cartridge_filtration": "protect membranes from turbidity and fouling",
+          "reverse_osmosis": "reject dissolved arsenic, iron species, and many other dissolved constituents",
+          "concentrate_management": "handle arsenic-enriched reject stream",
+          "stabilization_if_needed": "adjust permeate chemistry before recharge if required",
+          "managed_recharge_post_monitoring": "verify permeate quality and recharge compatibility"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically capable and offers a strong barrier for dissolved contaminants",
+          "it may be attractive if the project later needs broader dissolved salt or trace contaminant control in addition to arsenic"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is difficult because arsenic is transferred into a smaller high-strength waste stream",
+          "surface water pretreatment requirements increase complexity and operator burden",
+          "membrane fouling risk rises with turbidity, iron, and organic matter variability",
+          "this option is misaligned with moderate budget and limited-skill staffing despite high technical removal capability"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_membrane_processes_for_arsenic_control",
+          "public_references_on_reverse_osmosis_concentrate_management_challenges",
+          "case_knowledge_for_surface_water_RO_pretreatment_and_fouling_control"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "oxidation_plus_ferric_coagulation_and_filtration should rank near the top for arsenite-rich river water",
+        "anion_exchange may appear as a technically plausible but lower-ranked option because of pretreatment and residuals burdens",
+        "reverse_osmosis should not rank first under moderate cost and limited-operator constraints",
+        "recommendations should reflect the need to remove both arsenic and co-occurring iron rather than considering arsenic alone"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "operator familiarity with conventional surface water treatment should favor coagulation-filtration approaches",
+        "moderate budget should penalize highly capital-intensive or concentrate-producing systems",
+        "limited operator skill should penalize routes requiring tight chemistry control, regeneration logistics, or membrane-intensive operation",
+        "groundwater recharge use should reward solids and iron control to protect infiltration performance"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why oxidation of arsenite to arsenate matters for treatment effectiveness",
+        "why co-occurring iron can either assist arsenic capture or create solids-management challenges",
+        "why river-water turbidity and DOC affect suitability of adsorption, ion exchange, or membrane options",
+        "why residuals form matters differently for sludge-based versus concentrate-based processes"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "incomplete arsenite oxidation",
+        "competition from phosphate or natural organic matter",
+        "arsenic-bearing sludge or backwash handling",
+        "seasonal turbidity variability and filter loading",
+        "concentrate disposal challenges for membrane systems"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "case_id": "WContBench_E_028",
+  "case_name": "Removal of 1,2,3-Trichloropropane from well water for municipal drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "well_water",
+    "contaminant_type": [
+      "1,2,3-Trichloropropane"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for removing 1,2,3-Trichloropropane from well water intended for drinking water use.",
+  "input_data": {
+    "scenario_background": "A community water supplier operates a groundwater well field and has detected 1,2,3-Trichloropropane in one production well above drinking water screening and regulatory concern levels. The utility wants a proven treatment approach that can be integrated into a conventional small municipal treatment setting with reliable day-to-day operation. Raw water is otherwise relatively clean and does not require extensive solids treatment, so the main design question is selection of the best-established process for the organic contaminant.",
+    "water_quality": {
+      "source_type": "well_water",
+      "pH": 7.2,
+      "temperature_C": 17.0,
+      "turbidity_NTU": 0.4,
+      "DOC_mg_L": 0.8,
+      "TOC_mg_L": 1.1,
+      "alkalinity_mg_L_as_CaCO3": 168,
+      "hardness_mg_L_as_CaCO3": 196,
+      "chloride_mg_L": 24,
+      "sulfate_mg_L": 31,
+      "nitrate_as_N_mg_L": 2.1,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.01,
+      "1_2_3_trichloropropane_ug_L": 0.09,
+      "total_coliform_presence": "not_detected"
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable reduction of 1,2,3-Trichloropropane to meet applicable drinking water requirements and provide stable potable water quality.",
+      "secondary_goals": [
+        "use proven and publicly documented treatment technology",
+        "maintain straightforward municipal operation",
+        "avoid unnecessarily high energy demand",
+        "preserve finished water quality without extensive post-treatment complexity"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent_media_changeout_and_offsite_handling_are_feasible_but_large_hazardous_liquid_waste_streams_are_not_preferred",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "proven_reliable_operation_with_clear_breakthrough_monitoring_is_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "granular_activated_carbon_adsorption",
+          "lead_lag_vessels",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "granular_activated_carbon_adsorption": "adsorb 1,2,3-Trichloropropane from groundwater using a well-established physical removal process",
+          "lead_lag_vessels": "provide operational redundancy, breakthrough control, and reliable effluent compliance",
+          "post_disinfection": "maintain microbiological safety in the drinking water distribution system"
+        },
+        "applicability_rationale": [
+          "1,2,3-Trichloropropane is a trace hydrophobic synthetic organic contaminant for which activated carbon is a well-established drinking water treatment option",
+          "raw well water has low turbidity and low organic carbon, which supports efficient carbon adsorption performance",
+          "a lead-lag GAC configuration is widely used in municipal VOC and SOC control to improve reliability and simplify breakthrough management",
+          "this option matches the utility preference for proven technology and moderate operational complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "carbon exhaustion and contaminant breakthrough require routine monitoring and timely media replacement",
+          "unexpected increases in competing organic matter could shorten bed life",
+          "spent carbon handling and reactivation logistics must be managed properly"
+        ],
+        "evidence_list": [
+          "epa_guidance_and_treatment_technology_reviews_for_1_2_3_trichloropropane_in_drinking_water",
+          "state_drinking_water_case_knowledge_showing_gac_as_a_primary_bat_for_tcp_removal",
+          "public_water_system_practice_for_lead_lag_gac_on_trace_organic_contaminants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "packed_tower_aeration_or_air_stripping",
+          "off_gas_control_if_required",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "packed_tower_aeration_or_air_stripping": "transfer volatile organic contaminant mass from water to air",
+          "off_gas_control_if_required": "manage stripped contaminant in the vapor phase where required by air regulations or community acceptance",
+          "post_disinfection": "provide final microbiological protection"
+        },
+        "applicability_rationale": [
+          "air stripping is an established technology for many volatile organic compounds in groundwater treatment",
+          "it can be considered for 1,2,3-Trichloropropane where site-specific mass transfer design confirms adequate performance",
+          "well water quality is otherwise clean, which simplifies upstream conditioning needs"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "1,2,3-Trichloropropane is less easily stripped than more volatile chlorinated solvents, so tower size and design demands may be substantial",
+          "off-gas treatment may be required, adding complexity and cost",
+          "cold weather and flow variability can affect stripping efficiency"
+        ],
+        "evidence_list": [
+          "epa_voc_groundwater_treatment_guidance_for_air_stripping_applications",
+          "state_case_examples_evaluating_air_stripping_for_tcp_and_other_chlorinated_organics",
+          "design_knowledge_on_mass_transfer_limitations_for_less_volatile_vocs"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "advanced_oxidation_uv_hydrogen_peroxide",
+          "biologically_stable_post_treatment",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation_uv_hydrogen_peroxide": "generate hydroxyl radicals to degrade recalcitrant organic contaminants",
+          "biologically_stable_post_treatment": "remove residual oxidant byproducts and stabilize finished water quality",
+          "post_disinfection": "ensure distribution system microbiological protection"
+        },
+        "applicability_rationale": [
+          "advanced oxidation can be technically capable of degrading 1,2,3-Trichloropropane when adsorption or stripping are not preferred or need polishing support",
+          "the low DOC in the well water is favorable for radical efficiency relative to high-organic waters",
+          "this is a recognized treatment family for difficult trace organics, but it is less conventional than adsorption for a simple single-contaminant well-water case"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher operator skill and process monitoring are needed compared with GAC",
+          "energy use and chemical consumption are greater than for simple adsorption",
+          "formation of transformation byproducts requires evaluation and verification"
+        ],
+        "evidence_list": [
+          "advanced_oxidation_guidance_for_refractory_organic_contaminants_in_drinking_water",
+          "public_research_and_pilot_case_knowledge_on_uv_peroxide_for_tcp_degradation"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "synthetic_resin_adsorption",
+          "post_filtration",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "synthetic_resin_adsorption": "adsorb target organic contaminant using specialty polymeric media",
+          "post_filtration": "retain fines or media carryover and polish the treated water",
+          "post_disinfection": "maintain drinking water microbiological safety"
+        },
+        "applicability_rationale": [
+          "specialty adsorptive resins can remove hydrophobic organic contaminants and may be considered as an alternative adsorptive approach",
+          "the clean well water is suitable for fixed-bed adsorption service",
+          "however, GAC has broader public-sector operating history and stronger recognition as the conventional choice"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "media selection is site-specific and may have less full-scale municipal precedent than GAC for this contaminant",
+          "replacement frequency and disposal requirements may be uncertain early in operation",
+          "vendor-specific performance claims require verification"
+        ],
+        "evidence_list": [
+          "adsorptive_media_case_knowledge_for_trace_organic_removal_in_groundwater",
+          "engineering_practice_references_comparing_gac_and_polymeric_resins_for_soc_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "reverse_osmosis_or_nanofiltration",
+          "stabilization",
+          "post_disinfection"
+        ],
+        "core_unit_functions": {
+          "reverse_osmosis_or_nanofiltration": "provide broad contaminant rejection through pressure-driven membrane separation",
+          "stabilization": "adjust corrosivity and finished water chemistry after membrane treatment",
+          "post_disinfection": "ensure microbiological safety after treatment"
+        },
+        "applicability_rationale": [
+          "high-pressure membranes can reduce many dissolved contaminants and could technically address 1,2,3-Trichloropropane",
+          "they may be reasonable only when multiple dissolved contaminants also require simultaneous treatment",
+          "for a single trace organic in otherwise good-quality well water, this is usually unnecessarily complex relative to proven adsorption"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand and membrane replacement costs",
+          "concentrate management burden for a contaminant present at trace concentration",
+          "more extensive post-treatment and operational oversight than needed for this case"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_drinking_water_with_trace_organic_contaminants",
+          "public_engineering_knowledge_that_high_pressure_membranes_are_not_first_line_for_simple_tcp_well_cases"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "granular_activated_carbon_with_lead_lag_operation should rank first",
+        "air_stripping may be considered but should usually rank below GAC for TCP due to lower stripping favorability",
+        "high_pressure_membranes should not rank first under a proven-technology preference and otherwise clean well water"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for proven municipal drinking water technology",
+        "moderate energy sensitivity favoring adsorption over energy-intensive oxidation or membrane systems",
+        "simple robust operation with clear breakthrough monitoring",
+        "avoidance of unnecessarily complex residual or concentrate management"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why GAC is appropriate for trace organic removal in clean groundwater",
+        "why lead_lag adsorption operation improves reliability for drinking water compliance",
+        "why air stripping is less favored than GAC for 1_2_3_trichloropropane",
+        "why membrane options rank lower for a single-contaminant well-water scenario"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "adsorbent breakthrough and media replacement scheduling",
+        "possible off_gas management needs for air stripping",
+        "byproduct or operational complexity concerns for advanced oxidation",
+        "concentrate disposal concerns for membrane treatment"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

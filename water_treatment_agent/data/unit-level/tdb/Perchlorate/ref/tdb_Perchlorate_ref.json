@@ -1,0 +1,677 @@
+[
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "488",
+    "Treatment Process": "N/A",
+    "Author": "Lide, D.",
+    "Year": "2000",
+    "Title": "Analytical Chemistry",
+    "Source": "CRC Handbook of Chemistry and Physics"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2320",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Russell, C.G., Qin, G., Blute, N.K., McGuire, M.J., and Williams, C.",
+    "Year": "2008",
+    "Title": "Pilot Testing of Single Pass Perchlorate-Selective Ion Exchange Resins at Three Utilities in the Main San Gabriel Basin.",
+    "Source": "2008 AWWA WQTC"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2341",
+    "Treatment Process": "Ion Exchange",
+    "Author": "California Environmental Protection Agency",
+    "Year": "2004",
+    "Title": "Perchlorate Contamination Treatment Alternatives.",
+    "Source": "California Environmental Protection Agency"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "466",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Moore, A., De Leon, C. and Young, T.",
+    "Year": "2003",
+    "Title": "Rate and extent of aqueous perchlorate removal by iron surfaces",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "440",
+    "Treatment Process": "Other Treatment",
+    "Author": "Oh, S., Chiu, P., Kim, B. and Cha, D.",
+    "Year": "2006",
+    "Title": "Enhanced reduction of perchlorate by elemental iron at elevated temperatures",
+    "Source": "J. Hazardous Materials"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2330",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Interstate Technology & Regulatory Council",
+    "Year": "2008",
+    "Title": "Technical/Regulatory Guidance: Remediation Technologies for Perchlorate Contamination in Water and Soil.",
+    "Source": "www.itrcweb.org"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "386",
+    "Treatment Process": "Membrane Filtration",
+    "Author": "Yoon, J., Yoon, Y., Amy, G., Cho, J., Foss, D. and Kim, T.",
+    "Year": "2003",
+    "Title": "Use of surfactant modified ultrafiltration for perchlorate removal",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "458",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Theis, T., Zander, A., Li, X., Anderson, M. and Sene, J.",
+    "Year": "2002",
+    "Title": "Assessment of Electrochemical Reduction of Perchlorate Ion",
+    "Source": "Assessment of Electrochemical Reduction of Perchlorate Ion"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "483",
+    "Treatment Process": "N/A",
+    "Author": "U.S. Department of Health and Human Services",
+    "Year": "2005",
+    "Title": "Draft Toxicological Profile for Perchlorates",
+    "Source": "Draft Toxicological Profile for Perchlorates"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "434",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Gu, B., Dong, W., Brown, G. and Cole, D.",
+    "Year": "2003",
+    "Title": "Complete degration of perchlorate in ferric chloride and hydrochloric acid under controlled temperature and pressure",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "445",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Na, C., Cannon, F. and Hagerup, B.",
+    "Year": "2002",
+    "Title": "Perchlorate removal via iron-preloaded GAC and borohydride regeneration",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2499",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Sanyal, O., Sommerfeld, A., and Lee, I.",
+    "Year": "2015",
+    "Title": "Design of ultrathin nanostructured polyelectrolyte-based membranes with high perchlorate rejection and high permeability",
+    "Source": "Separation and Purification Technology"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "387",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Yoon, Y., Amy, G., Cho, J., Her, N. and Pellegrino, J.",
+    "Year": "2002",
+    "Title": "Transport of perchlorate through NF and UF membranes",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "394",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Roquebert, V., Booth, S., Cushing, R., Crozes, G. and Hansen, E.",
+    "Year": "2000",
+    "Title": "Electrodialysis reversal (EDR) and ion exchange as polishing treatment for perchlorate treatment",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "405",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Kim, K. and Logan, B.",
+    "Year": "2001",
+    "Title": "Microbial reduction of perchlorate in pure and mixed culture packed-bed bioreactors",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "389",
+    "Treatment Process": "GAC Isotherm",
+    "Author": "Chen, W., Cannon, F. and Rangel-Mendez, J.",
+    "Year": "2005",
+    "Title": "Ammonia-tailoring of GAC to enhance perchlorate removal. II: Perchlorate adsorption",
+    "Source": "Carbon"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "388",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Parette, R. and Cannon, F.",
+    "Year": "2005",
+    "Title": "The removal of perchlorate from groundwater by activated carbon tailored with cationic surfactants",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "436",
+    "Treatment Process": "Ultraviolet Irradiation",
+    "Author": "Gurol, M. and Kim, K. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "Investigation of Perchlorate Removal in Drinking Water Sources by Chemical Methods",
+    "Source": "Perchlorate in the Environment"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2324",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Blute, N.K., Seidel, C.J., McGuire, M.J., Qin, D., and Byerrum, J.",
+    "Year": "2006",
+    "Title": "Bench and Pilot Testing of High Capacity, Single-Pass Ion Exchange Resins for Perchlorate Removal.",
+    "Source": "2006 AWWA ACE"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "459",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Logan, B., Min, B., Kim, K., Miller, J., LaPoint, D., Batista, J., Liu, J., Evans, P., Chu, A. and Price, S.",
+    "Year": "2004",
+    "Title": "Bioreactor Systems for Treating Perchlorate-Contaminated Water Bench- and Pilot-Scale Investigations",
+    "Source": "Bioreactor Systems for Treating Perchlorate-Contaminated Water Bench- and Pilot-Scale Investigations"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "443",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Cao, J., Elliott, D. and Zhang, W.",
+    "Year": "2005",
+    "Title": "Perchlorate reduction by nanoscale iron particles",
+    "Source": "J. Nanoparticle Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "461",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Aldridge, D., Gillogly, T., Lehman, D., Clifford, D., Roberts, D. and Lin, X.",
+    "Year": "2004",
+    "Title": "Treatability of Perchlorate in Groundwater Using Ion Exchange Technology-Phase II",
+    "Source": "Treatability of Perchlorate in Groundwater Using Ion Exchange Technology-Phase II"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "427",
+    "Treatment Process": "Other Treatment",
+    "Author": "Nerenberg, R., Rittmann, B. and Najm, I.",
+    "Year": "2002",
+    "Title": "Perchlorate reduction in a hydrogen-based membrane-biofilm reactor",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2338",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Wu, X. and Blute, N.K.",
+    "Year": "2010",
+    "Title": "Perchlorate Removal Using Single-Pass Ion Exchange Resin - Pilot Testing Purolite A532E at the San Gabriel B6 Plant.",
+    "Source": "CA-NV AWWA Spring Conference 2010"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2502",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Kotlarz, N., Upadhyaya, G., Togna, P., and Raskin, L.",
+    "Year": "2016",
+    "Title": "Evaluation of electron donors for biological perchlorate removal highlights the importance of diverse perchlorate-reducing populations",
+    "Source": "Environ. Sci.: Water Res. Technol."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "468",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Makris, K., Sarkar, D. and Datta, R.",
+    "Year": "2006",
+    "Title": "Aluminum-based drinking water treatment residuals: a novel sorbent for perchlorate removal",
+    "Source": "Environmental Pollution"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "492",
+    "Treatment Process": "N/A",
+    "Author": "Syracuse Research Corporation",
+    "Year": "2007",
+    "Title": "SRC PhysProp Database",
+    "Source": "http://www.syrres.com/esc/physdemo.htm"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "611",
+    "Treatment Process": "Chemical Treatment",
+    "Author": "Xiong, Z.. Zhao, D. and Pan, G.",
+    "Year": "2007",
+    "Title": "Rapid and complete destruction of perchlorate in water and ion-exchange brine using stabilized zero-valent iron nonparticles",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "485",
+    "Treatment Process": "N/A",
+    "Author": "U.S. National Library of Medicine",
+    "Year": "2007",
+    "Title": "Perchloric Acid",
+    "Source": "http://toxnet.nlm.nih.gov/cgi-bin/sis/search/f?./temp/~e32Nus:1"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "404",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Batista, J., McGarvey, F. and Vieira, A. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "The Removal of Perchlorate from Water Using Ion-Exchange Resins",
+    "Source": "Perchlorate in the Environement"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "465",
+    "Treatment Process": "Membrane Separation",
+    "Author": "Amy, G., Yoon, Y., Yoon, J., Song, M., Pellegrino, J., Liang, S., Scott, K. and Min, J.",
+    "Year": "2003",
+    "Title": "Treatability of Perchlorate-Containing Water by RO, NF, and UF Membranes",
+    "Source": "Treatability of Perchlorate-Containing Water by RO, NF, and UF Membranes"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "414",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Giblin, T., Herman, D., Deshusses, M. and Frankenberger, W.",
+    "Year": "2000",
+    "Title": "Removal of perchlorate in ground water with a flow-through bioreactor",
+    "Source": "J. Environ. Qual."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "398",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Matos, C., Velizarov, S., Crespo, J. and Reis, M.",
+    "Year": "2006",
+    "Title": "Simultaneous removal of perchlorate and nitrate from drinking water using the ion exchange membrane bioreactor concept",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2345",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Siemens Water Technologies Corp.",
+    "Year": "2009",
+    "Title": "Case Study: Municipality in the State of Massachusetts.",
+    "Source": "www.siemens.com/water"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "396",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Batista, J., Gingras, T. and Vieira, A.",
+    "Year": "2002",
+    "Title": "Combining ion-exchange (IX) technology and biological reduction for perchlorate removal",
+    "Source": "Remediation"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "572",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Perchlorate",
+    "Source": "http://www.epa.gov/safewater/ccl/perchlorate/perchlorate.html"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2349",
+    "Treatment Process": "Ion Exchange",
+    "Author": "U.S. Department of Defense",
+    "Year": "2007",
+    "Title": "Perchlorate Removal, Destruction, and Field Monitoring Demonstration.",
+    "Source": "Environmental Security Technology Certification Program (ESTCP) Cost and Performance Report (ER-0312)"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "430",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Giblin, T., Herman, D. and Frankenberger, W. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "An Autotrophic System for the Bioremediation of Perchlorate from Groundwater",
+    "Source": "Perchlorate in the Environment"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "426",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Brown, J., Anderson, R., Min, J., Boulos, L., Prasifka, D. and Juby, G.",
+    "Year": "2005",
+    "Title": "Fixed-bed biological treatment of perchlorate-contaminated drinking water",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "571",
+    "Treatment Process": "N/A",
+    "Author": "Gullick, R., LeChevallier, M. and Barhorst, T.",
+    "Year": "2001",
+    "Title": "Occurrence of perchlorate in drinking water sources",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "392",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Xiong, Z., Dimick, P., Zhao, D., Kney, A. and Tavakoli, J.",
+    "Year": "2006",
+    "Title": "Removal of perchlorate from contaminated water using a regenerable polymeric ligand exchanger",
+    "Source": "Separation Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "390",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Tripp, A. and Clifford, D.",
+    "Year": "2006",
+    "Title": "Ion exchange for the remediation of perchlorate-contaminated drinking water",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "441",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Son, A., Lee, J., Chiu, P., Kim, B. and Cha, D.",
+    "Year": "2006",
+    "Title": "Microbial reduction of perchlorate with zero-valent iron",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "577",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Occurrence data- accessing unregulated contaminant monitoring data, large public water systems, list 1",
+    "Source": "http://www.epa.gov/safewater/ucmr/data.html"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "401",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Venkatesh, K., Klara, S., Jennings, D. and Wagner, N. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "Removal and Destruction of Perchlorate and Other Anions from Ground Water Using the ISEP+ System",
+    "Source": "Perchlorate in the Environement"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "400",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Gu, B., Brown, G., Alexandratos, S., Ober, R., Dale, J. and Plant, S. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "Efficient Treatment of Perchlorate-Contaminated Groundwater with Bifunctional Anion Exchange Resins",
+    "Source": "Perchlorate in the Environement"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2501",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Upadhyaya, G., Kotlarz, N., Togna, P., and Raskin, L.",
+    "Year": "2015",
+    "Title": "Carbohydrate-based electron donor for biological nitrate and perchlorate removal from drinking water",
+    "Source": "Journal American Water Works Association"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "397",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Velizarov, S., Matos, C., Reis, M. and Crespo, J.",
+    "Year": "2005",
+    "Title": "Removal of inorganic charged micropollutants in an ion-exchange membrane bioreactor",
+    "Source": "Desalination"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "573",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2007",
+    "Title": "Federal facilities restoration and reuse- perchlorate",
+    "Source": "http://www.epa.gov/fedfac/documents/perchlorate.htm"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "442",
+    "Treatment Process": "Other Treatment",
+    "Author": "Rusanova, M., Polaskova, P., Muzikar, M. and Fawcett, R.",
+    "Year": "2006",
+    "Title": "Electrochemical reduction of perchlorate ions on platinum-activated nickel",
+    "Source": "Electrochimica Acta"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2350",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Lutes, C., Henderson, T., Singer, C., Garcia, D., Pollack, N., Chiang, C., and Gu, B.",
+    "Year": "2010",
+    "Title": "Final Report: Integrated Ion Exchange Regeneration Process for Drinking Water.",
+    "Source": "Environmental Security Technology Certification Program (ESTCP) Project ER-0545"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2328",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Hayward, R.J. and Gillen, D.F.",
+    "Year": "2005",
+    "Title": "Do Your Homework! Careful Research Helps Solve Perchlorate Problems.",
+    "Source": "Opflow, Volume 31, Issue 4,"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2343",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Siemens Water Technologies Corp.",
+    "Year": "2009",
+    "Title": "Case Study: East Coast Aerospace Manufacturer.",
+    "Source": "www.siemens.com/water"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "424",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Min, B., Evans, P., Chu, A. and Logan, B.",
+    "Year": "2004",
+    "Title": "Perchlorate removal in sand and plastic media bioreactors",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "464",
+    "Treatment Process": "Ozone",
+    "Author": "Kirisits, M., Brown, J., Snoeyink, V., Raskin, L., Chee-Sanford, J., Liang, S. and Min, J.",
+    "Year": "2001",
+    "Title": "Removal of Bromate and Perchlorate in Conventional Ozone/GAC Systems",
+    "Source": "Removal of Bromate and Perchlorate in Conventional Ozone/GAC Systems"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "460",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Evans, P. and Logan, B.",
+    "Year": "2004",
+    "Title": "Biological Treatment and Downstream Processing of Perchlorate-Contaminated",
+    "Source": "Biological Treatment and Downstream Processing of Perchlorate-Contaminated"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "574",
+    "Treatment Process": "N/A",
+    "Author": "Logan, B.",
+    "Year": "2001",
+    "Title": "Outlook for for perchlorate remediation",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2321",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Membrane Technology",
+    "Year": "2006",
+    "Title": "News: Ion-Exchange System Removes Perchlorate",
+    "Source": "Membrane Technology"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2346",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Siemens Water Technologies Corp.",
+    "Year": "2009",
+    "Title": "Case Study: Lincoln Avenue Water Company, Altadena, California.",
+    "Source": "www.siemens.com/water"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "601",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Logan, B.E. and LaPoint, D.",
+    "Year": "2002",
+    "Title": "Treatment of perchlorate- and nitrate-conatminated groundwater in an autotrophic, gas phase, packed-bed bioreactor",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "463",
+    "Treatment Process": "Other Treatment",
+    "Author": "Adham, S., Gillogly, T., Lehman, G., Rittmann, B. and Nerenberg, R.",
+    "Year": "2004",
+    "Title": "Membrane Biofilm Reactor Process for Nitrate and Perchlorate Removal",
+    "Source": "Membrane Biofilm Reactor Process for Nitrate and Perchlorate Removal"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "620",
+    "Treatment Process": "N/A",
+    "Author": "USEPA Office of Ground Water and Drinking Water",
+    "Year": "2008",
+    "Title": "Contaminant Candidate List 3 (CCL3)",
+    "Source": "USEPA Office of Ground Water and Drinking Water"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "423",
+    "Treatment Process": "Biological Filtration",
+    "Author": "Brown, J., Snoeyink, V., Raskin, L. and Lin, R.",
+    "Year": "2003",
+    "Title": "The sensitivity of fixed-bed biological perchlorate removal to changes in operating conditions and water quality characteristics",
+    "Source": "Wat. Res."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "575",
+    "Treatment Process": "N/A",
+    "Author": "U.S. Food and Drug Administration",
+    "Year": "2007",
+    "Title": "Perchlorate questions and answers",
+    "Source": "http://www.cfsan.fda.gov/~dms/clo4qa.html"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "385",
+    "Treatment Process": "Other Treatment",
+    "Author": "Bowman, R.",
+    "Year": "2005",
+    "Title": "Reduction of perchlorate and nitrate in ground water using a hollow-fiber membrane biofilm reactor(MBfR)",
+    "Source": "NGWA Conference on MTBE and Perchlorate: Assessment, Remediation, and Public Policy"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "421",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Hatzinger, P., Whittier, M., Arkins, M., Bryan, C. and Guarini, W.",
+    "Year": "2002",
+    "Title": "In-situ and ex-situ bioremediation options for treating perchlorate in groundwater",
+    "Source": "Remediation"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "406",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Miller, J. and Logan, B.",
+    "Year": "2000",
+    "Title": "Sustained perchlorate degradation in an autotrophic, gas-phase, packed-bed bioreactor",
+    "Source": "Env. Sci. & Tech."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "484",
+    "Treatment Process": "N/A",
+    "Author": "U.S. National Library of Medicine",
+    "Year": "2007",
+    "Title": "Potassium Perchlorate",
+    "Source": "http://toxnet.nlm.nih.gov/cgi-bin/sis/search/f?./temp/~4yeHXA:1"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2348",
+    "Treatment Process": "Ion Exchange",
+    "Author": "U.S. Department of Defense",
+    "Year": "2008",
+    "Title": "Perchlorate Removal, Destruction, and Field Monitoring Demonstration (Drinking Water - Pilot Scale).",
+    "Source": "Environmental Security Technology Certification Program (ESTCP) Cost and Performance Report (ER-0312)."
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "564",
+    "Treatment Process": "N/A",
+    "Author": "USEPA",
+    "Year": "2006",
+    "Title": "Regulatory Determinations Support Document for Selected Contaminants from the Second Drinking Water Contaminant Candidate List (CCL2)",
+    "Source": "Regulatory Determinations Support Document for Selected Contaminants from the Second Drinking Water Contaminant Candidate List (CCL2)"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "418",
+    "Treatment Process": "Other Treatment",
+    "Author": "Hunter, W.",
+    "Year": "2002",
+    "Title": "Bioremediation of chlorate or perchlorate contaminated water using permeable barriers containing vegetable oil",
+    "Source": "Current Microbiology"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2500",
+    "Treatment Process": "Biological Treatment",
+    "Author": "Webster, T., and Litchfield, M.",
+    "Year": "2017",
+    "Title": "Full-Scale Biological Treatment of Nitrate and Perchlorate for Potable Water Production",
+    "Source": "Journal American Water Works Association"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "402",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Brown, G., Bonnesen, P., Moyer, B., Gu, B., Alexandratos, S., Patel, V. and Ober, R. Urbansky, E. (Ed.)",
+    "Year": "2000",
+    "Title": "The Design of Selective Resins for the Removal of Pertechnetate and Perchlorate from Groundwater",
+    "Source": "Perchlorate in the Environement"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "446",
+    "Treatment Process": "Granular Activated Carbon",
+    "Author": "Brown, J., Snoeyink, V. and Kiristis, M.",
+    "Year": "2002",
+    "Title": "Abiotic and biotic perchlorate removal in an activated carbon filter",
+    "Source": "J. AWWA"
+  },
+  {
+    "Contaminant Name": "Perchlorate",
+    "Ref#": "2322",
+    "Treatment Process": "Ion Exchange",
+    "Author": "Drago, J.A. and Leserman, J.R.",
+    "Year": "2011",
+    "Title": "Castaic Lake Water Agency Operating Experience with Lead-Lag Anion Exchange for Perchlorate Removal",
+    "Source": "2011 AWWA WQTC"
+  }
+]

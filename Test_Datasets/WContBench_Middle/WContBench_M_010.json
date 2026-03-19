@@ -1,0 +1,314 @@
+{
+  "case_id": "WContBench_M_010",
+  "case_name": "Pilot-scale treatment selection for mixed VOC and trace organic removal from remote brackish groundwater",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Metolachlor Degradates",
+      "Ibuprofen",
+      "Vinyl Chloride"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for pilot-scale production of drinking water from brackish groundwater containing vinyl chloride and trace organic micropollutants under capital, remote-operation, and residuals constraints.",
+  "input_data": {
+    "scenario_background": "A remote desert community is evaluating a pilot drinking-water system to use a brackish groundwater well affected by historical landfill impacts and agricultural recharge. The immediate compliance driver is vinyl chloride, but the utility also wants reduction of metolachlor degradates and ibuprofen to improve finished-water quality and public confidence. Multiple treatment routes are technically plausible, including air stripping, adsorption, and membrane-based desalting, but the preferred option must work at pilot scale with limited operator attendance, restrained capital spending, and no easy pathway for managing difficult concentrate or frequent chemical deliveries.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.4,
+      "temperature_C": 18.6,
+      "turbidity_NTU": 0.9,
+      "DOC_mg_L": 2.6,
+      "TOC_mg_L": 3.1,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 320,
+      "TDS_mg_L": 1850,
+      "conductivity_uS_cm": 2860,
+      "chloride_mg_L": 520,
+      "sulfate_mg_L": 260,
+      "sodium_mg_L": 340,
+      "bromide_mg_L": 0.42,
+      "iron_mg_L": 0.12,
+      "manganese_mg_L": 0.03,
+      "ammonia_mg_L_as_N": 0.18,
+      "nitrate_mg_L_as_N": 2.4,
+      "target_contaminants": {
+        "vinyl_chloride_ug_L": 3.1,
+        "metolachlor_esa_ug_L": 1.8,
+        "metolachlor_oa_ug_L": 0.9,
+        "ibuprofen_ug_L": 0.42
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably meet potable requirements for vinyl chloride and provide meaningful reduction of trace organic contaminants while producing acceptable salinity for distribution.",
+      "secondary_goals": [
+        "minimize pilot-system capital cost",
+        "keep operator burden suitable for remote intermittent staffing",
+        "avoid difficult concentrate or hazardous residuals handling where possible",
+        "maintain stable treatment under moderate groundwater quality variability"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "remote site prefers minimal liquid concentrate generation and limited off-site handling of spent media or chemical residuals",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "system should tolerate salinity and trace-organic fluctuations with limited on-site process tuning"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "pretreatment_cartridge_filtration",
+          "packed_tower_aeration",
+          "granular_activated_carbon",
+          "post_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_cartridge_filtration": "remove particulates and protect downstream units",
+          "packed_tower_aeration": "strip volatile vinyl chloride from groundwater",
+          "granular_activated_carbon": "polish remaining VOCs and adsorb ibuprofen and a portion of metolachlor degradates",
+          "post_stabilization_and_disinfection": "condition treated water and provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "vinyl chloride is a volatile contaminant and air stripping is a well-established direct removal approach for groundwater treatment",
+          "adding GAC after aeration creates a practical hybrid route that addresses the trace organic co-contaminants better than stripping alone",
+          "this sequence avoids high-pressure desalting equipment and therefore better matches pilot-only and capital-constrained deployment",
+          "the brackish TDS level is elevated but not so extreme that desalting must automatically dominate the design decision for a pilot focused on organic removal and compliance",
+          "compared with more complex oxidation routes, this train is easier to pilot and troubleshoot in a remote location"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "metolachlor degradates are often more polar and may show limited adsorption compared with parent pesticides",
+          "off-gas control may be needed depending on air emissions management requirements for vinyl chloride",
+          "GAC changeout frequency may increase if DOC or competing organics rise",
+          "finished water salinity reduction is limited compared with membrane-based alternatives"
+        ],
+        "evidence_list": [
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_groundwater",
+          "EPA_drinking_water_treatment_technology_information_for_vinyl_chloride_control",
+          "public_case_knowledge_on_GAC_polishing_for_trace_organics_in_groundwater",
+          "engineering_practice_for_hybrid_air_stripping_plus_GAC_trains"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "pretreatment_cartridge_filtration",
+          "reverse_osmosis",
+          "granular_activated_carbon_polishing",
+          "post_stabilization_and_disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_cartridge_filtration": "protect membrane elements from fouling",
+          "reverse_osmosis": "reduce salinity and reject many dissolved trace organic contaminants",
+          "granular_activated_carbon_polishing": "provide polishing for any residual organics and improve taste and odor resilience",
+          "post_stabilization_and_disinfection": "remineralize as needed and provide final disinfection"
+        },
+        "applicability_rationale": [
+          "RO is attractive because the source is brackish and it can address TDS while also reducing many micropollutants",
+          "this route may produce the best overall finished-water salinity and broad-spectrum contaminant reduction of the candidate options",
+          "the option remains below rank 1 because concentrate handling, membrane maintenance, and higher operator demands are poorly aligned with a remote pilot site",
+          "for pilot objectives that strongly prioritize finished-water mineral reduction in addition to organic control, this could become more favorable"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "vinyl chloride rejection can be less straightforward than removal of nonvolatile ionic contaminants, so pilot confirmation is needed",
+          "brine concentrate disposal is a major challenge at remote sites",
+          "membrane scaling and cleaning logistics increase O&M burden",
+          "post-treatment stabilization is required to avoid corrosive low-mineral permeate"
+        ],
+        "evidence_list": [
+          "brackish_groundwater_RO_guidance_for_drinking_water_desalting",
+          "public_references_on_membrane_rejection_of_trace_organic_contaminants",
+          "engineering_case_knowledge_on_remote_site_RO_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "pretreatment_cartridge_filtration",
+          "packed_tower_aeration",
+          "anion_exchange_or_specialty_resin",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_cartridge_filtration": "remove solids and protect downstream columns",
+          "packed_tower_aeration": "remove volatile vinyl chloride",
+          "anion_exchange_or_specialty_resin": "target more polar organic degradates that may not adsorb as strongly on standard GAC",
+          "disinfection": "provide final microbial safety barrier"
+        },
+        "applicability_rationale": [
+          "this route directly addresses the main weakness of GAC-only polishing, namely less reliable capture of some polar pesticide degradates",
+          "resin-based treatment can be competitive where metolachlor degradate reduction is weighted more heavily",
+          "it ranks below the GAC hybrid because specialty resin selection, replacement, and waste handling are usually less familiar and less convenient for a remote pilot program",
+          "high dissolved salts in brackish water can also complicate resin performance and operating economics depending on resin type"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "resin fouling or competitive effects from background anions and natural organic matter may reduce performance",
+          "spent resin management can be more complicated than routine GAC replacement",
+          "technology fit for ibuprofen and mixed degradates depends strongly on resin chemistry and pilot validation"
+        ],
+        "evidence_list": [
+          "public_guidance_on_resin_based_treatment_for_polar_organic_micropollutants",
+          "case_knowledge_on_pesticide_degradate_mobility_and_treatment_challenges",
+          "EPA_guidance_for_air_stripping_of_volatile_organic_compounds_in_groundwater"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_filtration",
+          "granular_activated_carbon_dual_bed",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "protect adsorption media from particulates",
+          "granular_activated_carbon_dual_bed": "adsorb vinyl chloride to a limited extent and remove ibuprofen and some other organic contaminants with improved breakthrough control",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "a dual-bed GAC system is mechanically simple and relatively easy to pilot in a remote location",
+          "it can provide broad organic polishing and low operator burden compared with membranes or oxidation systems",
+          "the option ranks lower because relying on adsorption alone for vinyl chloride is less direct and less robust than air stripping",
+          "for a site where vinyl chloride concentrations were much lower and micropollutant reduction was the dominant goal, GAC-only could become more attractive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "vinyl chloride breakthrough may occur too quickly for reliable compliance if used as the sole primary barrier",
+          "metolachlor degradates may not be consistently removed to the same degree as hydrophobic organics",
+          "spent carbon replacement logistics still require remote-site planning"
+        ],
+        "evidence_list": [
+          "public_guidance_on_GAC_for_drinking_water_organic_contaminant_control",
+          "EPA_information_on_vinyl_chloride_treatment_technology_considerations",
+          "engineering_practice_on_dual_bed_GAC_for_breakthrough_management"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "pretreatment_filtration",
+          "advanced_oxidation_process",
+          "biological_or_GAC_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment_filtration": "reduce particulate interference with oxidation equipment",
+          "advanced_oxidation_process": "oxidize susceptible organic contaminants",
+          "biological_or_GAC_polishing": "remove oxidation byproducts and provide finishing treatment",
+          "disinfection": "provide final microbial safety barrier"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is technically capable for some organic contaminants and may be considered when destructive treatment is prioritized",
+          "however, this route is poorly aligned with the stated constraints because it requires chemical or UV system support, tighter process control, and careful byproduct management",
+          "the brackish groundwater contains bromide, increasing concern for oxidation byproducts in some AOP configurations",
+          "it is included as a technically plausible but lower-ranked option due to remote-site misalignment rather than lack of treatment capability"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "formation of bromate or other oxidation byproducts may be a concern because bromide is present",
+          "vinyl chloride destruction performance and control reliability can be more complex than straightforward stripping",
+          "chemical supply and instrumentation burden are unfavorable for a remote pilot system",
+          "downstream polishing is still needed to manage byproducts and incomplete oxidation products"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_for_drinking_water_trace_organics",
+          "EPA_references_on_bromide_related_bromate_risk_in_oxidation_processes",
+          "engineering_case_knowledge_on_remote_operation_limitations_for_AOP_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid air_stripping_plus_polishing routes should rank near the top because vinyl chloride is the primary compliance driver",
+        "RO-based desalting should appear as a strong but not first-ranked alternative due to brackish water benefits offset by concentrate and remote O&M burdens",
+        "a technically capable option such as AOP or RO should be downgraded when it conflicts with pilot-only, capital, and remote-location constraints",
+        "simple adsorption-only routes should not outrank air stripping when vinyl chloride removal reliability is central"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "pilot-only scale favors modular and easier-to-commission treatment trains",
+        "remote location penalizes systems needing frequent chemical delivery or intensive troubleshooting",
+        "capital constraint disfavors high-pressure membrane or complex oxidation systems unless their broader benefits clearly justify them",
+        "residuals and concentrate handling should materially affect ranking"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why vinyl chloride volatility makes air stripping attractive",
+        "why metolachlor degradates can be harder to remove than more hydrophobic organics and may weaken GAC-only options",
+        "why brackish groundwater makes RO technically appealing but operationally burdensome in a remote pilot",
+        "why bromide presence raises caution for oxidation-based approaches"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "off-gas management for stripped vinyl chloride",
+        "uncertain removal of polar pesticide degradates",
+        "spent media replacement planning",
+        "membrane concentrate disposal",
+        "oxidation byproduct formation risk"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

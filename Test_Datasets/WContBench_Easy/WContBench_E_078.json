@@ -1,0 +1,276 @@
+{
+  "case_id": "WContBench_E_078",
+  "case_name": "Microcystin removal from groundwater influenced by surface-water intrusion for drinking water supply",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Microcystins"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "proven_technology_preference"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for microcystin-contaminated groundwater intended for drinking water production.",
+  "input_data": {
+    "scenario_background": "A municipal wellfield located near a river-reservoir system has detected episodic microcystins in raw groundwater during late summer, likely due to bank infiltration from cyanobacteria-affected surface water. The utility needs a clear, proven treatment approach for drinking water compliance and wants to avoid unnecessarily complex or high-energy systems. Existing staff can operate standard chemical dosing, filtration, and disinfection equipment, and moderate capital and operating costs are acceptable.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.3,
+      "turbidity_NTU": 0.6,
+      "DOC_mg_L": 2.1,
+      "alkalinity_mg_L_as_CaCO3": 128,
+      "hardness_mg_L_as_CaCO3": 176,
+      "iron_mg_L": 0.18,
+      "manganese_mg_L": 0.03,
+      "nitrate_mg_L_as_N": 2.4,
+      "microcystins_total_ug_L": 2.1,
+      "temperature_C": 14.8,
+      "uv254_cm_1": 0.052
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable microcystin control for drinking water production and maintain consistent treated water quality.",
+      "secondary_goals": [
+        "prioritize established drinking water treatment practices",
+        "maintain moderate operating complexity",
+        "avoid excessive energy demand",
+        "provide a robust barrier during seasonal contamination events"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "spent carbon handling and routine backwash residuals are manageable, but complex concentrate disposal is undesirable",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable operation is required during seasonal raw-water quality fluctuations"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "powdered_activated_carbon_dosing",
+          "coagulation",
+          "filtration",
+          "post_oxidation_with_ozone_or_permanganate_under_controlled_conditions",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "powdered_activated_carbon_dosing": "adsorb dissolved microcystins and provide a proven barrier for cyanotoxins",
+          "coagulation": "capture PAC and associated contaminants into removable flocs",
+          "filtration": "remove flocs and PAC solids to polish treated water",
+          "post_oxidation_with_ozone_or_permanganate_under_controlled_conditions": "provide additional destruction of remaining dissolved microcystins when carefully applied",
+          "disinfection": "ensure microbiological safety of finished drinking water"
+        },
+        "applicability_rationale": [
+          "PAC is a well-established and commonly recommended response for dissolved microcystin events in drinking water treatment",
+          "the groundwater is low in turbidity, so PAC plus filtration can be integrated without excessive solids loading",
+          "a controlled oxidation step after solids removal adds an additional barrier while reducing the risk of releasing toxins from intact cyanobacterial cells",
+          "the train matches the utility preference for proven municipal technologies with moderate complexity"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "PAC dose requirements can increase with DOC and seasonal toxin peaks",
+          "poorly controlled pre-oxidation could lyse any intact cells entering the process and release intracellular toxins",
+          "oxidant dose and contact time must be validated for site-specific microcystin destruction"
+        ],
+        "evidence_list": [
+          "epa_cyanotoxin_treatment_guidance_for_microcystins_in_drinking_water",
+          "who_guidance_on_management_of_cyanotoxins_in_drinking_water",
+          "awwa_case_knowledge_on_pac_application_for_microcystin_events"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "granular_activated_carbon_adsorption",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "granular_activated_carbon_adsorption": "adsorb dissolved microcystins in a fixed-bed polishing step",
+          "post_filtration": "retain fines and provide treated water polishing",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "GAC is a proven technology for dissolved organic contaminant control and is frequently cited for microcystin removal",
+          "the low-turbidity groundwater is favorable for GAC operation because bed fouling pressure is limited",
+          "this approach is operationally straightforward for a utility seeking a robust fixed-bed barrier"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "adsorption capacity can decline with DOC competition and media aging",
+          "breakthrough monitoring is required because microcystin removal is not permanent once the bed is exhausted",
+          "media replacement or regeneration planning is needed"
+        ],
+        "evidence_list": [
+          "epa_cyanotoxin_treatment_guidance_for_activated_carbon_use",
+          "public_drinking_water_case_examples_of_gac_for_microcystin_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "controlled_oxidation_with_ozone_or_permanganate",
+          "biologically_active_or_granular_activated_carbon_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "controlled_oxidation_with_ozone_or_permanganate": "oxidize dissolved microcystins under validated contact conditions",
+          "biologically_active_or_granular_activated_carbon_filtration": "polish residual organics and remove oxidation byproducts or remaining dissolved contaminants",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "microcystins are among the cyanotoxins that can be effectively treated by appropriately selected oxidants",
+          "the raw water has moderate DOC, so post-carbon filtration provides polishing support after oxidation",
+          "this route is technically sound where the utility can maintain oxidant control and monitoring"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "pre-oxidation is not preferred if intact cyanobacterial cells are present because toxin release can occur",
+          "oxidation effectiveness is sensitive to oxidant type, dose, pH, and contact time",
+          "bromate or other byproduct concerns may apply for ozone depending on source-water chemistry"
+        ],
+        "evidence_list": [
+          "epa_guidance_on_oxidation_of_microcystins_in_drinking_water",
+          "who_cyanobacterial_toxin_management_guidance_for_oxidation_processes"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "nanofiltration_or_reverse_osmosis": "provide strong physical rejection of dissolved microcystins",
+          "stabilization": "adjust finished water chemistry after membrane treatment",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "pressure membranes are technically capable of removing low-molecular-weight organic contaminants including cyanotoxins",
+          "this option may be considered if future broader contaminant control is needed beyond the current single microcystin issue"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is a significant disadvantage for this otherwise straightforward case",
+          "membranes impose higher energy and operational demands than needed under the stated constraints",
+          "finished water stabilization may be required"
+        ],
+        "evidence_list": [
+          "membrane_treatment_reference_examples_for_cyanotoxin_control",
+          "public_guidance_noting_membrane_effectiveness_but_higher_complexity"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "conventional_coagulation",
+          "sedimentation",
+          "rapid_sand_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "conventional_coagulation": "remove particles and any intact cells associated with solids",
+          "sedimentation": "separate formed flocs from water",
+          "rapid_sand_filtration": "polish remaining suspended matter",
+          "disinfection": "ensure microbiological safety"
+        },
+        "applicability_rationale": [
+          "conventional treatment is proven for particulate removal and can help if contamination is associated with intact cyanobacterial cells",
+          "it is familiar to many utilities and fits a preference for established operations"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "conventional solids removal alone is generally not sufficient for dissolved microcystins",
+          "the groundwater source has low turbidity, so this train may add unit processes without providing the best toxin-specific barrier",
+          "if toxin is primarily dissolved, compliance reliability may be inadequate without PAC, GAC, or effective oxidation"
+        ],
+        "evidence_list": [
+          "epa_guidance_distinguishing_cell_removal_from_dissolved_microcystin_removal",
+          "drinking_water_treatment_case_knowledge_on_limits_of_conventional_treatment_for_cyanotoxins"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "activated_carbon_based treatment with optional carefully controlled oxidation should rank at or near the top",
+        "conventional solids removal alone should not rank above carbon-based treatment for dissolved microcystins",
+        "high-pressure membrane options should not rank first under proven-technology moderate-constraint conditions"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "preference for established drinking water treatment technologies",
+        "moderate operational capability rather than advanced specialist operation",
+        "avoidance of unnecessarily high-energy or concentrate-producing options"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is appropriate for dissolved microcystin control",
+        "why oxidation must be carefully applied and validated for cyanotoxins",
+        "why membrane treatment ranks lower despite technical effectiveness"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "possibility of intracellular versus dissolved toxin behavior",
+        "site-specific oxidant performance and byproduct concerns",
+        "carbon breakthrough or exhaustion monitoring needs"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

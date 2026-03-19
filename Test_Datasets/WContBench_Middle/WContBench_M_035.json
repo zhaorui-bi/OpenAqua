@@ -1,0 +1,311 @@
+{
+  "case_id": "WContBench_M_035",
+  "case_name": "Reservoir water with tebufenozide and seasonal pesticide mixture under pilot-scale and remote-operation constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "reservoir_water",
+    "contaminant_type": [
+      "Tebufenozide"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "pilot_only_scale",
+      "capital_constraint",
+      "remote_location"
+    ],
+    "pollution_pattern": "regulated_contaminant_mix"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for tebufenozide-affected reservoir water intended for drinking water, balancing pesticide removal performance with capital limits, remote operation, and pilot-scale implementation constraints.",
+  "input_data": {
+    "scenario_background": "A remote mountain community draws from a small reservoir influenced by seasonal orchard runoff and has detected tebufenozide along with trace levels of other agricultural pesticides. The utility can only justify a pilot-to-near-full-scale modular upgrade and has limited onsite staffing, so the best option is not simply the highest-removal technology but the one that balances reliable compliance, simple operation, and manageable residuals. Raw water quality varies during storm events, which increases concern about breakthrough and treatment robustness. High-pressure systems are technically feasible but difficult to support because the site has limited technical service access and a constrained capital budget.",
+    "water_quality": {
+      "source_type": "reservoir_water",
+      "temperature_C": 14.8,
+      "pH": 7.6,
+      "turbidity_NTU": 6.4,
+      "TOC_mg_L": 4.9,
+      "DOC_mg_L": 3.8,
+      "UV254_cm_1": 0.122,
+      "alkalinity_mg_L_as_CaCO3": 78,
+      "hardness_mg_L_as_CaCO3": 96,
+      "conductivity_uS_cm": 242,
+      "color_PCU": 18,
+      "chlorophyll_a_ug_L": 9.7,
+      "manganese_ug_L": 18,
+      "iron_ug_L": 64,
+      "nitrate_mg_L_as_N": 1.6,
+      "bromide_mg_L": 0.05,
+      "target_contaminants": {
+        "tebufenozide_ug_L": 3.2,
+        "atrazine_ug_L": 0.46,
+        "simazine_ug_L": 0.21,
+        "metolachlor_ug_L": 0.38
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should reliably meet drinking water pesticide-related requirements and maintain stable compliance during seasonal runoff events.",
+      "secondary_goals": [
+        "maintain low operator burden at a remote site",
+        "favor modular or pilot-expandable configurations",
+        "avoid difficult residuals or concentrate management",
+        "preserve treatment reliability during turbidity and NOM fluctuations"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids residuals or replaceable media; avoid difficult concentrate disposal and highly specialized waste streams",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must tolerate seasonal changes in turbidity and natural organic matter with limited onsite optimization"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and reduce part of the NOM load to protect downstream adsorption",
+          "dual_media_filtration": "polish clarified water and stabilize particulate loading to the adsorber",
+          "granular_activated_carbon": "adsorb tebufenozide and co-occurring hydrophobic pesticides while providing a polishing barrier",
+          "disinfection": "provide final microbial protection for potable use"
+        },
+        "applicability_rationale": [
+          "tebufenozide and the accompanying pesticide mixture are well aligned with adsorption-based polishing after conventional clarification",
+          "moderate reservoir NOM and storm-driven turbidity make pretreatment important to preserve GAC run length and reduce breakthrough risk",
+          "the process train uses well-established unit operations that are easier to support in a remote community than membrane or advanced oxidation systems",
+          "modular GAC contactors can be piloted and then expanded without committing to a highly complex full treatment platform",
+          "this route balances compliance reliability with manageable capex and conventional residuals handling"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher NOM episodes can shorten carbon life and increase media replacement frequency",
+          "empty-bed contact time and media changeout planning are important for seasonal pesticide peaks",
+          "spent carbon management and offsite regeneration logistics must be arranged for the remote site"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_GAC_for_synthetic_organic_chemical_removal",
+          "AWWA_case_knowledge_for_pesticide_control_with_conventional_treatment_plus_GAC",
+          "public_drinking_water_guidance_on_NOM_reduction_to_protect_adsorption_processes"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove turbidity and allow PAC to be integrated with clarification for solids capture",
+          "dual_media_filtration": "remove carryover solids and provide final particulate polishing",
+          "powdered_activated_carbon": "provide flexible adsorptive control of tebufenozide and episodic pesticide spikes",
+          "disinfection": "provide final microbial protection for drinking water"
+        },
+        "applicability_rationale": [
+          "PAC is attractive where contamination is seasonal and the utility wants a pilot-friendly, lower-capital option",
+          "dosing can be adjusted during runoff periods rather than maintaining permanent large GAC vessels",
+          "the approach can fit a remote site if operators are already familiar with conventional clarification and chemical feed systems",
+          "this route ranks below GAC because performance is more dose- and mixing-dependent and may be less robust for stable polishing over variable events"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "pesticide removal can vary with dose control, contact time, and NOM competition",
+          "added carbon increases sludge production and solids handling needs",
+          "chemical storage and feed reliability may be challenging at a remote site during adverse weather"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_PAC_application_for_taste_odor_and_synthetic_organic_control",
+          "surface_water_treatment_case_examples_using_PAC_for_pesticide_events",
+          "public_knowledge_on_NOM_competition_affecting_activated_carbon_adsorption"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "ozonation",
+          "biologically_active_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particles and some organic matter before oxidation",
+          "dual_media_filtration": "stabilize particulate loading to the oxidation and biofiltration steps",
+          "ozonation": "oxidize a portion of organic micropollutants and transform NOM fractions",
+          "biologically_active_filtration": "remove biodegradable byproducts and polish organic residuals",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "ozone plus biologically active filtration can address a broader set of micropollutants than adsorption alone and may be considered where mixed pesticide occurrence is a concern",
+          "the train offers resilience benefits if the utility anticipates future organic contaminant variability beyond tebufenozide",
+          "however, for this remote and capital-limited case it ranks below carbon-based options because ozone systems require more instrumentation, off-gas safety management, and process oversight",
+          "pilot demonstration is possible, but scaling and operator training demands are materially higher than the top-ranked options"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "micropollutant transformation does not always guarantee complete mineralization and may require careful validation for tebufenozide-specific performance",
+          "bromate formation potential must be controlled even though bromide is modest",
+          "process reliability depends on tighter operational control than the site currently prefers"
+        ],
+        "evidence_list": [
+          "EPA_and_WHO_guidance_on_ozonation_and_bromate_control_in_drinking_water",
+          "public_case_knowledge_on_ozone_biofiltration_for_micropollutant_management",
+          "drinking_water_guidance_on_advanced_treatment_operational_requirements_for_remote_sites"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce particulate and fouling load before membranes",
+          "dual_media_filtration": "provide pretreatment polishing to protect membrane elements",
+          "nanofiltration_or_reverse_osmosis": "reject dissolved organic micropollutants including tebufenozide and co-occurring pesticides",
+          "stabilization": "adjust treated water chemistry after membrane treatment",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "membrane treatment is technically capable of providing strong barrier performance for a regulated contaminant mixture",
+          "it may be favored if the utility also needed broad dissolved contaminant control beyond the current pesticide issue",
+          "despite technical capability, it ranks lower because capital cost, energy demand, membrane-fouling management, and concentrate disposal are poorly aligned with a remote pilot-first deployment",
+          "the source water has moderate NOM and seasonal solids variation, increasing pretreatment and operational burden"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate management is difficult for an inland remote location",
+          "membrane fouling and cleaning support may exceed local staffing capacity",
+          "pilot results may not translate economically to long-term operation under budget limits"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_membrane_treatment_for_synthetic_organic_and_multiple_contaminants",
+          "public_drinking_water_references_on_inland_concentrate_management_challenges",
+          "AWWA_operational_guidance_for_surface_water_membrane_pretreatment_and_fouling_control"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_process_uv_h2o2",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and reduce UV-scattering particulate matter ahead of UV treatment",
+          "dual_media_filtration": "improve optical clarity and protect downstream oxidation performance",
+          "advanced_oxidation_process_uv_h2o2": "generate hydroxyl radicals for oxidation of organic micropollutants",
+          "disinfection": "provide final microbial protection"
+        },
+        "applicability_rationale": [
+          "advanced oxidation is included as a technically plausible route for trace organic contaminant control",
+          "it may appear attractive in pilot studies because it avoids concentrated reject streams",
+          "however, it ranks last because tebufenozide removal under real reservoir water conditions can be strongly influenced by NOM scavenging and UV transmittance, and the process is less simple than adsorption for this site",
+          "chemical handling, UV equipment maintenance, and performance validation under variable source water make it a weaker fit than carbon-based treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidant demand from NOM can reduce treatment efficiency during runoff periods",
+          "transformation products would need verification rather than assuming direct removal equivalence",
+          "remote replacement of lamps, sensors, and peroxide supply adds logistical burden"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_uv_and_advanced_oxidation_for_trace_organic_chemicals",
+          "public_references_on_AOP_limitations_in_high_NOM_surface_waters",
+          "drinking_water_case_knowledge_on_validation_needs_for_pesticide_oxidation_byproducts"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "carbon-based treatment integrated with conventional surface water pretreatment should rank near the top",
+        "PAC should appear as a credible lower-capex alternative for seasonal pesticide episodes",
+        "membrane treatment should not rank first under pilot-only, capital-constrained, remote-location conditions",
+        "at least one technically capable advanced treatment option should be downgraded because of operational mismatch rather than lack of removal capability"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "remote location and limited specialist support",
+        "capital limits favoring modular or pilot-expandable solutions",
+        "importance of conventional residuals over difficult concentrate disposal",
+        "need for treatment robustness under seasonal turbidity and NOM variability"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why activated carbon is suitable for tebufenozide and similar hydrophobic pesticides",
+        "why upstream clarification and filtration matter for protecting adsorption or oxidation performance in reservoir water",
+        "why membrane and advanced oxidation routes are penalized by pilot-only scale and remote operation constraints"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "NOM competition and breakthrough risk",
+        "seasonal runoff variability",
+        "spent carbon or sludge handling",
+        "concentrate disposal challenges",
+        "possible oxidation byproduct or partial-transformation concerns"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

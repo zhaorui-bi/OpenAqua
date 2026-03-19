@@ -1,0 +1,324 @@
+{
+  "case_id": "WContBench_D_006",
+  "case_name": "Emergency municipal effluent control for Romdan, aldicarb, and diuron during uncertain upstream contamination episodes",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "municipal_wastewater",
+    "contaminant_type": [
+      "Tebufenozide",
+      "Aldicarb",
+      "Diuron"
+    ],
+    "effluent_use": "environmental_discharge",
+    "constraint_tags": [
+      "emergency_deployment",
+      "rapid_scale_up",
+      "mixed_contaminants"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for emergency control of mixed pesticide contamination in municipal wastewater prior to environmental discharge under uncertain influent conditions and rapid deployment constraints.",
+  "input_data": {
+    "scenario_background": "A municipal wastewater treatment plant serving peri-urban and horticultural areas has detected intermittent pesticide contamination associated with storm-driven inflow and suspected illicit or accidental discharges from storage and washdown activities. Romdan, aldicarb, and diuron have been confirmed in some composite samples, but peak events, metabolite formation, and the presence of other co-occurring pesticides are not fully characterized. The plant must continue environmental discharge under tightened scrutiny while deploying measures that can be scaled up quickly and that do not rely on fully stable influent conditions. Unknowns include the short-term spike concentrations, whether aldicarb oxidation byproducts will appear during treatment, and how much of the toxic load is dissolved versus associated with particulate or dissolved organic matter during wet-weather events.",
+    "water_quality": {
+      "source_type": "secondary_municipal_wastewater_with_tertiary_upgrade_needed",
+      "pH": 7.3,
+      "temperature_C": 19.0,
+      "turbidity_NTU": 9.5,
+      "TSS_mg_L": 18,
+      "COD_mg_L": 46,
+      "BOD5_mg_L": 14,
+      "TOC_mg_L": 10.8,
+      "DOC_mg_L": 7.9,
+      "ammonia_mg_L_as_N": 4.6,
+      "nitrate_mg_L_as_N": 9.1,
+      "total_phosphorus_mg_L": 1.4,
+      "alkalinity_mg_L_as_CaCO3": 145,
+      "conductivity_uS_cm": 980,
+      "hardness_mg_L_as_CaCO3": 210,
+      "UV254_cm_1": 0.19,
+      "E_coli_CFU_100mL": 18000,
+      "contaminants_ug_L": {
+        "Tebufenozide": 3.6,
+        "Aldicarb": 1.4,
+        "Diuron": 2.3
+      },
+      "suspected_additional_contaminants_note": "other_pesticides_and_transformation_products_suspected_but_not_fully_characterized_after_rain_events",
+      "influent_variability": "high",
+      "variability_note": "pesticide concentrations rise sharply during first_flush_storm_events and may fall below detection between incidents"
+    },
+    "treatment_goal": {
+      "use_type": "environmental_discharge",
+      "target_requirement": "Achieve a robust emergency treatment barrier that materially reduces confirmed pesticides, likely co-occurring micropollutants, residual solids, and microbial indicators prior to environmental discharge, while limiting formation of problematic transformation products and maintaining stable compliance during variable influent episodes.",
+      "secondary_goals": [
+        "deploy rapidly using modular or retrofit-friendly processes",
+        "maintain effectiveness under fluctuating pesticide loading",
+        "provide multi-barrier control for partially characterized micropollutants",
+        "avoid treatment choices that create high uncertainty in toxic byproducts without monitoring",
+        "preserve discharge reliability during wet-weather and shock-loading conditions"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "spent_media_and_backwash_handling_available_on_site_but_large_new_sludge_streams_and_complex_hazardous_residuals_are_unfavored_during_emergency_response",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_event_driven_spikes_rapid_scale_up_and_incomplete_characterization_of_micropollutants"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization_or_high_rate_storm_blending_control",
+          "coagulation_flocculation_if_needed_for_event_turbidity",
+          "ozonation",
+          "biologically_active_filtration",
+          "granular_activated_carbon",
+          "final_UV_or_chlorine_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_or_high_rate_storm_blending_control": "buffer short-term pesticide spikes and damp hydraulic and quality variability during storm events",
+          "coagulation_flocculation_if_needed_for_event_turbidity": "remove colloids and reduce particulate-associated organic matter that can consume oxidant and foul downstream media",
+          "ozonation": "oxidize a broad range of trace organic contaminants and improve biodegradability of some residual organics",
+          "biologically_active_filtration": "remove biodegradable oxidation byproducts and provide polishing of residual dissolved organics",
+          "granular_activated_carbon": "adsorb remaining pesticides and partially characterized micropollutants as a final barrier",
+          "final_UV_or_chlorine_disinfection": "maintain microbial discharge control after advanced micropollutant treatment"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is appropriate because the contaminant mixture includes co-occurring pesticides with different treatability and uncertain transformation behavior",
+          "equalization or controlled blending is important because event-driven influent variability is explicitly high and grab data may understate peaks",
+          "ozonation is widely used in advanced municipal effluent polishing for trace organics and can rapidly add treatment capacity in emergency retrofit scenarios when paired with downstream polishing",
+          "biologically active filtration helps manage oxidation byproducts that would otherwise pass through and provides more resilience than oxidation alone",
+          "GAC provides an additional safety barrier for incompletely characterized pesticides and metabolites, improving robustness for environmental discharge under uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "uncertain formation of oxidation byproducts, including products from aldicarb and other unidentified pesticides, requires targeted monitoring and may change risk profiles",
+          "ozone demand can rise during wet-weather DOC and nitrite excursions, reducing treatment margin if not controlled",
+          "bromate risk should be checked if bromide is present even though bromide data are not currently available",
+          "rapid breakthrough of GAC is possible if contaminant spikes are larger than current composite sampling suggests",
+          "this approach is less suitable if plant staffing cannot support dose control and online monitoring during emergency operation"
+        ],
+        "evidence_list": [
+          "municipal_wastewater_advanced_treatment_guidance_for_ozonation_and_BAC_for_micropollutants",
+          "EPA_water_reuse_and_wastewater_polishing_case_knowledge_for_trace_organic_control",
+          "European_micropollutant_removal_practice_using_ozone_followed_by_biological_filtration",
+          "public_guidance_on_GAC_as_polishing_barrier_for_pesticides_and_emerging_contaminants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization_or_flow_pacing",
+          "cloth_media_or_dual_media_filtration",
+          "powdered_activated_carbon_contact",
+          "ultrafiltration_or_existing_tertiary_filtration_capture",
+          "granular_activated_carbon_polishing",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization_or_flow_pacing": "moderate concentration swings and improve controllability of emergency adsorption dosing",
+          "cloth_media_or_dual_media_filtration": "reduce suspended solids and improve downstream adsorptive performance",
+          "powdered_activated_carbon_contact": "provide rapidly deployable adsorption for dissolved pesticides during episodic contamination",
+          "ultrafiltration_or_existing_tertiary_filtration_capture": "retain PAC and fine solids while improving effluent clarity",
+          "granular_activated_carbon_polishing": "add a second adsorptive barrier and buffer uncertainty in contaminant composition",
+          "final_disinfection": "ensure microbial control before environmental discharge"
+        },
+        "applicability_rationale": [
+          "PAC can often be implemented quickly in emergency municipal settings using temporary contact tanks and existing clarification or filtration assets",
+          "adsorption is attractive here because the confirmed contaminants are present at low microgram-per-liter levels and additional unknown pesticides may also be amenable to carbon capture",
+          "a PAC plus GAC approach offers flexibility for short-term spikes and a more stable downstream polishing barrier",
+          "this train avoids some oxidation byproduct uncertainty present in ozone-first approaches and can be easier to scale modularly"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "performance is highly dependent on carbon dose, contact time, and competition from DOC, which may increase sharply during storm events",
+          "PAC handling and residuals management can become operationally demanding during rapid scale-up",
+          "without oxidation or biological polishing, some polar transformation products or very weakly adsorbing compounds may persist",
+          "actual removal of aldicarb may be more variable than for more hydrophobic pesticides, so uncertainty flags should remain until site testing is completed"
+        ],
+        "evidence_list": [
+          "public_case_knowledge_for_PAC_dosing_in_wastewater_micropollutant_control",
+          "water_research_practice_references_on_GAC_and_PAC_for_pesticide_removal",
+          "municipal_tertiary_filtration_and_carbon_polishing_guidance_for_trace_organic_reduction"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "membrane_bioreactor_or_optimized_activated_sludge_upgrade",
+          "granular_activated_carbon",
+          "UV_or_peracetic_acid_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer shock loads and reduce biological process upset risk during episodic pesticide events",
+          "membrane_bioreactor_or_optimized_activated_sludge_upgrade": "improve solids separation and provide biological removal of conventional pollutants while creating a more consistent effluent for polishing",
+          "granular_activated_carbon": "remove residual pesticides and partially characterized micropollutants not reliably removed biologically",
+          "UV_or_peracetic_acid_disinfection": "deliver final pathogen control for discharge"
+        },
+        "applicability_rationale": [
+          "a biologically stable tertiary-quality effluent improves the reliability of downstream GAC for trace organic removal",
+          "this can be a strong option if the site already has advanced biological infrastructure or modular MBR assets available for rapid connection",
+          "the train addresses both conventional effluent quality and micropollutants without relying immediately on strong oxidants"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "this option may be too slow to deploy from scratch under emergency timelines unless compatible assets already exist",
+          "biological removal of the named pesticides is uncertain and should not be assumed sufficient without downstream adsorption confirmation",
+          "MBR or intensified biology can suffer upset if uncharacterized toxic co-contaminants accompany the pesticide episodes",
+          "membrane fouling and maintenance burden may conflict with rapid scale-up if staffing is limited"
+        ],
+        "evidence_list": [
+          "municipal_MBR_reuse_and_polishing_guidance_for_consistent_effluent_quality",
+          "public_guidance_on_GAC_post_biological_treatment_for_trace_organic_control",
+          "case_knowledge_on_biological_limits_for_pesticide_removal_in_wastewater"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_filtration",
+          "advanced_oxidation_UV_H2O2",
+          "granular_activated_carbon_or_BAC",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "moderate short-term concentration fluctuations and support more stable oxidant dosing",
+          "coagulation_flocculation_and_filtration": "remove turbidity and organic matter fractions that interfere with UV transmission and downstream treatment",
+          "advanced_oxidation_UV_H2O2": "generate hydroxyl radicals for oxidation of selected trace organics",
+          "granular_activated_carbon_or_BAC": "capture residual parent compounds and oxidation byproducts",
+          "final_disinfection": "maintain pathogen control before discharge"
+        },
+        "applicability_rationale": [
+          "included because UV-based advanced oxidation can be effective for some micropollutants and may fit sites with strong UV infrastructure",
+          "pre-filtration and post-carbon polishing create a more defensible emergency barrier than AOP alone",
+          "this route may be considered if ozone implementation is not feasible or bromate concerns make ozone unattractive"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "UV transmittance can deteriorate during storm events, making delivered oxidation highly variable",
+          "chemical consumption and energy demand are significant relative to emergency municipal budgets",
+          "compound-specific performance for the confirmed pesticide mixture is uncertain without pilot data, so this recommendation carries a clear uncertainty flag",
+          "byproduct control still requires downstream polishing and analytical confirmation"
+        ],
+        "evidence_list": [
+          "AOP_guidance_for_trace_organic_reduction_in_municipal_effluents",
+          "public_reference_material_on_UV_H2O2_design_limits_with_wastewater_matrix_effects",
+          "municipal_polishing_case_knowledge_using_AOP_followed_by_carbon"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "sand_or_disc_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "remove suspended and colloidal matter",
+          "sedimentation": "separate formed solids",
+          "sand_or_disc_filtration": "polish residual solids and improve clarity",
+          "final_disinfection": "reduce microbial indicators for discharge"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked baseline that may help stabilize conventional effluent quality during wet-weather events",
+          "this route is fast and familiar to deploy but does not provide a reliable barrier for dissolved pesticides at the concentrations and uncertainty described"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "likely insufficient as a standalone response for Tebufenozide, aldicarb, diuron, and suspected co-occurring micropollutants",
+          "may create false confidence because improved clarity does not equate to dissolved pesticide removal",
+          "cannot adequately address unknown transformation products or dissolved toxic load under event-driven spikes"
+        ],
+        "evidence_list": [
+          "basic_tertiary_treatment_references_showing_limits_for_dissolved_micropollutant_removal",
+          "public_guidance_on_need_for_advanced_barriers_for_pesticides_in_municipal_effluent"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi_barrier_trains_with_equalization_and_advanced_micropollutant_control_should_rank_above_conventional_solids_only_treatment",
+        "options_using_ozonation_or_activated_carbon_polishing_should_rank highly because environmental discharge requires trace organic reduction under uncertainty",
+        "simple_clarification_filtration_only_trains_should_appear_as_lower_ranked_baselines_due_to_likely_insufficient_dissolved_pesticide_removal"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "emergency_deployment_and_rapid_scale_up_favor_modular_or_retrofittable_processes",
+        "high_influent_variability_requires_buffering_flow_pacing_or_equalization",
+        "mixed_contaminants_and_partially_characterized_pesticide_mixtures_require_more_than_one_removal_mechanism",
+        "residuals_and_operational_burden_tradeoffs_should_be_explicit_for_carbon_and_chemical_based_options"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_adsorption_or_oxidation_based_advanced_treatment_is_needed_for_low_level_dissolved_pesticides_in_municipal_effluent",
+        "why_equalization_or_blending_control_matters_when_storm_events_drive_short_term_spikes",
+        "why_oxidation_should_be_paired_with_BAC_or_GAC_when_transformation_products_are_uncertain",
+        "why_conventional_tertiary_treatment_alone_is_not_sufficient_for_the_stated_environmental_discharge_risk"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty_in_peak_concentrations_due_to_composite_sampling_and_event_driven_spikes",
+        "possible_uncharacterized_pesticides_and_transformation_products_including_aldicarb_related_byproducts",
+        "matrix_effects_from_DOC_turbidity_or_nitrite_on_oxidation_and_adsorption_performance",
+        "carbon_breakthrough_or_under_dosing_risk_during_rapid_scale_up",
+        "bromate_or_other_oxidation_byproduct_risks_if_ozone_is_selected_without_full_source_water_characterization"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "case_id": "WContBench_M_101",
+  "case_name": "Lake water treatment for potable reuse with simultaneous strontium and herbicide control under moderate cost and limited operator skill",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "lake_water",
+    "contaminant_type": [
+      "Strontium",
+      "Diuron",
+      "Glyphosate"
+    ],
+    "effluent_use": "potable_reuse",
+    "constraint_tags": [
+      "multiple_contaminant_targets",
+      "moderate_cost_constraint",
+      "operator_skill_limited"
+    ],
+    "pollution_pattern": "dual_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for lake water intended for potable reuse that must control strontium, diuron, and glyphosate while balancing cost, operator simplicity, residuals handling, and reliable effluent quality.",
+  "input_data": {
+    "scenario_background": "A regional utility is upgrading a lake-water treatment plant to support indirect potable reuse after periodic watershed runoff introduces herbicides while the source also carries elevated dissolved strontium from local geology. The utility needs a robust treatment train that can consistently meet potable reuse expectations, but the site has only moderately trained operators and cannot support a highly membrane-intensive system unless clearly justified. The trade-off is that pesticide control favors adsorption and oxidation barriers, while strontium control is more effectively addressed by desalting or selective ion exchange, creating tension between treatment completeness and operational simplicity.",
+    "water_quality": {
+      "source_type": "lake_water",
+      "pH": 8.1,
+      "turbidity_NTU": 6.8,
+      "DOC_mg_L": 5.6,
+      "TOC_mg_L": 6.3,
+      "alkalinity_mg_L_as_CaCO3": 112,
+      "hardness_mg_L_as_CaCO3": 178,
+      "conductivity_uS_cm": 515,
+      "calcium_mg_L": 44,
+      "magnesium_mg_L": 16,
+      "sulfate_mg_L": 38,
+      "chloride_mg_L": 27,
+      "nitrate_as_N_mg_L": 2.1,
+      "ammonia_as_N_mg_L": 0.08,
+      "UV254_cm_1": 0.135,
+      "temperature_C": 19.5,
+      "target_contaminants": {
+        "strontium_mg_L": 5.2,
+        "diuron_ug_L": 8.4,
+        "glyphosate_ug_L": 19.0
+      }
+    },
+    "treatment_goal": {
+      "use_type": "potable_reuse",
+      "target_requirement": "Finished water should be suitable for potable reuse with strong and reliable reduction of diuron and glyphosate to very low levels and meaningful control of dissolved strontium consistent with a protective finished-water quality objective.",
+      "secondary_goals": [
+        "maintain stable performance during seasonal algae and runoff events",
+        "limit operator-intensive unit operations",
+        "avoid difficult brine or hazardous residuals handling where possible",
+        "provide multiple barriers appropriate for potable reuse"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "prefer conventional solids handling and avoid large-volume high-salinity concentrate unless justified by contaminant control benefits",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "must tolerate seasonal variability in turbidity, natural organic matter, and herbicide pulses while maintaining consistent effluent quality"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "granular_activated_carbon",
+          "selective_cation_exchange_for_strontium",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and lower natural organic matter to stabilize downstream adsorption and ion exchange",
+          "dual_media_filtration": "polish particulates and protect adsorption and exchange media",
+          "granular_activated_carbon": "adsorb diuron and provide an additional barrier for organic micropollutants",
+          "selective_cation_exchange_for_strontium": "reduce dissolved strontium through exchange on suitable media or resin",
+          "UV_disinfection": "provide final pathogen control for potable reuse"
+        },
+        "applicability_rationale": [
+          "this route balances the need for strong herbicide control with practical dissolved strontium reduction without requiring a full high-pressure membrane system",
+          "diuron is well suited to adsorption-based removal, and upstream NOM reduction improves GAC capacity",
+          "glyphosate is challenging for GAC alone, but substantial reduction can be supported by conventional pretreatment plus adsorption and a multi-barrier potable reuse approach when combined with careful design and monitoring",
+          "selective cation exchange can target strontium with lower energy demand and lower operator burden than reverse osmosis",
+          "the process train uses familiar surface-water operations and is therefore better aligned with limited operator skill than a membrane-dominant alternative"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "glyphosate removal may be less robust than diuron removal if adsorption is relied upon too heavily",
+          "cation exchange performance for strontium can be affected by competing hardness ions and requires media management planning",
+          "spent carbon and exhausted resin handling remain necessary",
+          "if potable reuse targets for trace organics are extremely stringent, additional oxidation or membrane polishing may be needed"
+        ],
+        "evidence_list": [
+          "EPA_guidance_on_activated_carbon_for_organic_micropollutant_control",
+          "surface_water_treatment_practice_for_NOM_reduction_ahead_of_GAC",
+          "ion_exchange_case_knowledge_for_divalent_cation_and_strontium_reduction",
+          "potable_reuse_multi_barrier_guidance_for_trace_organic_management"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ozonation",
+          "biological_activated_carbon",
+          "selective_cation_exchange_for_strontium",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "reduce solids and organic load before oxidation and biologically active filtration",
+          "ozonation": "transform diuron and improve treatment of oxidizable trace organics",
+          "biological_activated_carbon": "adsorb and biologically polish organic byproducts and residual herbicides including improved control of more polar compounds",
+          "selective_cation_exchange_for_strontium": "remove dissolved strontium",
+          "UV_disinfection": "final disinfection barrier"
+        },
+        "applicability_rationale": [
+          "this route offers a stronger organic micropollutant barrier than GAC alone and can improve control of glyphosate-related treatment challenges through oxidation plus biologically active polishing",
+          "ozone plus BAC is recognized in advanced surface-water and reuse treatment for trace organics and taste-and-odor resilience",
+          "strontium still requires a dedicated dissolved-ion step, making cation exchange a lower-energy complement",
+          "it ranks below the top option because ozone-BAC introduces more controls, monitoring, and process tuning than the utility prefers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "higher operator attention is needed for ozone dose control, biological filter management, and byproduct awareness",
+          "bromate formation risk must be assessed if bromide is present",
+          "selective ion exchange still requires regeneration or media replacement planning",
+          "seasonal low temperatures can affect biological polishing performance"
+        ],
+        "evidence_list": [
+          "ozone_BAC_guidance_for_trace_organic_control_in_reuse_and_drinking_water",
+          "WHO_and_EPA_discussion_of_ozonation_byproduct_management",
+          "case_knowledge_on_BAC_for_polar_pesticide_polishing",
+          "ion_exchange_references_for_strontium_in_mineralized_water"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "stabilization",
+          "advanced_UV_AOP"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "lower particulate and fouling load ahead of membrane treatment",
+          "ultrafiltration": "provide reliable particulate and pathogen barrier and protect RO",
+          "reverse_osmosis": "remove dissolved strontium and reject diuron and glyphosate effectively",
+          "stabilization": "restore finished-water chemistry after desalting",
+          "advanced_UV_AOP": "provide an additional potable reuse barrier for residual trace organics and pathogens"
+        },
+        "applicability_rationale": [
+          "this is the most technically comprehensive option for simultaneous control of dissolved strontium and herbicides",
+          "RO is highly effective for ionic species such as strontium and also provides strong rejection of many organic micropollutants",
+          "the train aligns well with conservative potable reuse philosophy through multiple engineered barriers",
+          "it does not rank first because concentrate management, energy demand, membrane maintenance, and operator complexity are misaligned with the moderate-cost and limited-skill constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "RO concentrate disposal is a major implementation challenge",
+          "membrane fouling and scaling control require stronger operator capability and chemical oversight",
+          "post-treatment remineralization and corrosion control are required",
+          "higher lifecycle cost may be difficult to justify for this source water quality"
+        ],
+        "evidence_list": [
+          "potable_reuse_guidance_supporting_RO_plus_UV_AOP_multi_barrier_trains",
+          "EPA_membrane_treatment_guidance_for_dissolved_inorganics_and_trace_organics",
+          "reverse_osmosis_case_knowledge_for_strontium_removal",
+          "reuse_design_references_on_concentrate_management_constraints"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "powdered_activated_carbon",
+          "nanofiltration",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove solids and reduce organic loading",
+          "dual_media_filtration": "polish particulates and support stable downstream operation",
+          "powdered_activated_carbon": "provide flexible adsorption support for episodic herbicide pulses",
+          "nanofiltration": "partially remove dissolved strontium and reject a portion of organic micropollutants",
+          "UV_disinfection": "final disinfection step"
+        },
+        "applicability_rationale": [
+          "this option can be attractive where runoff-driven herbicide spikes need a flexible adsorption response and where some mineral rejection is desired without full RO",
+          "NF may reduce strontium meaningfully, but it is generally less definitive than RO for dissolved ionic control",
+          "PAC can help respond to episodic diuron events, but it increases solids and dosing management complexity",
+          "the route ranks lower because it combines variable PAC operations with membrane residuals and still may not offer the same strontium certainty as RO or the simplicity of GAC plus ion exchange"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC feed optimization and slurry handling require attentive operation",
+          "NF concentrate still creates residuals management burden",
+          "strontium removal may be insufficient if a stringent finished-water target is imposed",
+          "membrane performance can be sensitive to seasonal fouling loads"
+        ],
+        "evidence_list": [
+          "public_guidance_on_PAC_for_pesticide_event_response",
+          "nanofiltration_references_for_partial_divalent_cation_removal",
+          "surface_water_membrane_fouling_case_knowledge",
+          "potable_reuse_practice_notes_on_residuals_and_concentrate_tradeoffs"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "dual_media_filtration",
+          "advanced_oxidation_process",
+          "granular_activated_carbon",
+          "UV_disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended matter and reduce NOM demand",
+          "dual_media_filtration": "particulate polishing before advanced treatment",
+          "advanced_oxidation_process": "oxidize susceptible organic contaminants",
+          "granular_activated_carbon": "polish remaining organic contaminants and oxidation byproducts",
+          "UV_disinfection": "final pathogen barrier"
+        },
+        "applicability_rationale": [
+          "this route can address organic herbicides reasonably well, especially diuron, and may appeal where a non-membrane train is strongly preferred",
+          "however, it does not directly address dissolved strontium, which is a major limitation in this case",
+          "it is included as a technically plausible but poorly aligned option because it solves only part of the contaminant problem while adding operational complexity for oxidation chemistry"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient strontium reduction for the potable reuse objective",
+          "advanced oxidation efficiency depends on water matrix and oxidant demand",
+          "oxidation byproducts and GAC replacement frequency require monitoring",
+          "the train may create a false sense of comprehensiveness because the inorganic target remains largely untreated"
+        ],
+        "evidence_list": [
+          "advanced_oxidation_guidance_for_pesticide_transformation_in_water",
+          "GAC_polishing_references_after_oxidation",
+          "public_treatment_knowledge_that_AOP_does_not_remove_dissolved_alkaline_earth_metals",
+          "potable_reuse_guidance_emphasizing_alignment_between_process_selection_and_all_target_contaminants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "hybrid adsorption_plus_strontium_specific_removal routes should rank near the top",
+        "RO_based potable reuse trains should appear as technically strong but not first under moderate cost and limited operator skill constraints",
+        "options that only address herbicides but not dissolved strontium should rank low"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "simultaneous need to control an inorganic dissolved contaminant and two herbicides",
+        "moderate budget and energy sensitivity rather than unlimited advanced treatment spending",
+        "preference for treatment trains manageable by operators with limited advanced-process expertise",
+        "importance of residuals handling differences between spent media and membrane concentrate"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why diuron and glyphosate create different treatment challenges due to adsorption and oxidation behavior",
+        "why strontium generally requires membrane separation or ion-exchange type removal rather than oxidation",
+        "why NOM and seasonal lake-water variability matter for adsorption and oxidation performance",
+        "why membrane options are downgraded despite strong contaminant removal capability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "competition from hardness ions for strontium-selective removal approaches",
+        "glyphosate control uncertainty in simple adsorption-only trains",
+        "ozonation or AOP byproduct and process-control needs",
+        "concentrate or spent media management burdens"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

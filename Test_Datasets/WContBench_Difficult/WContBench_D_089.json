@@ -1,0 +1,333 @@
+{
+  "case_id": "WContBench_D_089",
+  "case_name": "Agricultural reuse planning for mixed industrial-municipal wastewater with variable organophosphate and triazole pesticide residues",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Dicrotophos",
+      "Tebuconazole"
+    ],
+    "effluent_use": "agricultural_reuse",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "unknown_fraction_present"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for producing agricultural reuse water from a variable mixed industrial-municipal influent containing detected pesticide residues and potentially uncharacterized trace organics.",
+  "input_data": {
+    "scenario_background": "A peri-urban utility receives sewage mixed with intermittent discharges from a pesticide formulation and packaging cluster, plus storm-driven inflow episodes. Monitoring has confirmed Dicrotophos and Tebuconazole, but the industrial contribution is episodic and screening indicates there may be additional formulation additives or degradation products that are suspected but not fully characterized. The reclaimed water is intended for irrigation of non-food and restricted food crops, so the operator needs a robust multi-barrier treatment approach that can handle variable influent quality without assuming the contaminant list is complete.",
+    "water_quality": {
+      "source_type": "mixed_industrial_municipal_wastewater",
+      "pH": 7.3,
+      "temperature_C": 24,
+      "turbidity_NTU": 46,
+      "TSS_mg_L": 82,
+      "COD_mg_L": 265,
+      "BOD5_mg_L": 118,
+      "TOC_mg_L": 54,
+      "ammonia_mg_L_as_N": 19.5,
+      "nitrate_mg_L_as_N": 2.1,
+      "total_nitrogen_mg_L_as_N": 31,
+      "total_phosphorus_mg_L_as_P": 5.8,
+      "TDS_mg_L": 1120,
+      "conductivity_uS_cm": 1730,
+      "alkalinity_mg_L_as_CaCO3": 235,
+      "hardness_mg_L_as_CaCO3": 210,
+      "chloride_mg_L": 165,
+      "sulfate_mg_L": 98,
+      "oil_and_grease_mg_L": 5.4,
+      "DOC_mg_L": 16.8,
+      "UV254_cm_1": 0.29,
+      "E_coli_CFU_100mL": 2400000,
+      "Dicrotophos_ug_L": 38,
+      "Tebuconazole_ug_L": 12,
+      "selected_metals_mg_L": {
+        "Zn": 0.21,
+        "Cu": 0.06,
+        "Cr_total": 0.03
+      },
+      "trace_pollutant_note": "co_formulants_degradation_products_and_other_trace_organics_suspected_but_not_fully_characterized_due_to_intermittent_industrial_inputs",
+      "influent_variability": "high",
+      "variability_note": "pesticide_peaks_and_COD_surges_observed_after_batch_cleanouts_and_rainfall_events"
+    },
+    "treatment_goal": {
+      "use_type": "agricultural_reuse",
+      "target_requirement": "Finished water should be suitable for agricultural irrigation reuse with strong reduction of suspended solids, biodegradable organics, pathogens, ammonia, and detected pesticide residues, while managing salinity and minimizing the likelihood that uncharacterized trace organics pass through untreated.",
+      "secondary_goals": [
+        "maintain resilience to episodic industrial shock loads",
+        "provide a barrier for both hydrophilic and hydrophobic pesticide-related compounds",
+        "avoid overcommitting to desalination unless justified by reuse salinity needs",
+        "support explainable risk-aware operation under incomplete characterization"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "waste_biosolids_handling_available_and_spent_carbon_replacement_possible_but_concentrate_disposal_options_are_limited",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_mixed_influent_and_uncertain_trace_contaminant_profile"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "primary_clarification",
+          "biological_nutrient_removal",
+          "tertiary_filtration",
+          "ozonation_followed_by_biologically_activated_carbon",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant concentration swings from intermittent industrial inputs",
+          "primary_clarification": "remove settleable solids and reduce particulate organic load",
+          "biological_nutrient_removal": "remove biodegradable organics and ammonia while improving overall effluent stability",
+          "tertiary_filtration": "polish suspended solids and protect downstream oxidation and adsorption units",
+          "ozonation_followed_by_biologically_activated_carbon": "oxidize and biologically/adsorptively remove pesticide residues and a broader spectrum of partially unknown trace organics",
+          "final_disinfection": "control pathogen risk for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "a multi-barrier train is justified because the influent contains both conventional wastewater pollutants and trace pesticides with an incomplete industrial contaminant inventory",
+          "equalization is particularly important because pesticide and COD peaks are reported after batch cleanouts and rainfall events",
+          "biological treatment should precede advanced polishing so readily biodegradable organics and ammonia are removed before applying more selective and costly trace-organic controls",
+          "ozonation plus BAC is a strong candidate when both known pesticides and suspected unknown trace organics must be addressed with broader-spectrum polishing than media filtration alone",
+          "this route better fits agricultural reuse than full desalination because TDS is elevated but not clearly high enough to make RO the default first choice under energy and concentrate-disposal constraints"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "oxidation byproducts and transformation products may form, so pilot testing and downstream BAC sizing are important under uncertainty",
+          "if unknown industrial constituents strongly scavenge ozone, pesticide removal could be less reliable than expected during peak events",
+          "BAC breakthrough or biological instability can occur if contaminant surges are not buffered effectively",
+          "salinity control is limited compared with membrane desalination, so crop-specific irrigation tolerance still needs confirmation"
+        ],
+        "evidence_list": [
+          "who_guidance_on_safe_use_of_wastewater_for_agriculture",
+          "epa_water_reuse_guidelines_for_agricultural_reuse",
+          "public_guidance_on_ozonation_and_bac_for_trace_organic_removal_in_wastewater_reuse",
+          "engineering_case_knowledge_for_multibarrier_control_of_pesticides_and_micropollutants"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "primary_clarification",
+          "MBR",
+          "granular_activated_carbon",
+          "UV_or_chlorination_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variable industrial and storm-related loadings",
+          "primary_clarification": "reduce gross solids and lower membrane fouling burden",
+          "MBR": "provide high-quality biological treatment with effective solids separation and nitrification",
+          "granular_activated_carbon": "adsorb tebuconazole and provide polishing for residual dicrotophos and other unknown trace organics",
+          "UV_or_chlorination_disinfection": "provide final pathogen control for reuse"
+        },
+        "applicability_rationale": [
+          "MBR offers stable low-turbidity effluent that benefits downstream carbon adsorption and reuse reliability under variable influent conditions",
+          "GAC is a practical polishing barrier when pesticides are present and additional unknown formulation-related organics are suspected",
+          "this train avoids concentrate management challenges associated with RO while still providing strong effluent quality for agricultural reuse",
+          "it is especially suitable if the utility can manage somewhat higher membrane O&M but prefers to avoid oxidation byproduct uncertainty"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "dicrotophos is relatively more polar than many hydrophobic pesticides, so GAC performance may be less robust without sufficient empty-bed contact time or complementary oxidation",
+          "MBR fouling risk increases during shock loads and surfactant-rich industrial episodes",
+          "carbon exhaustion rates are uncertain because the unknown trace-organic fraction is not fully characterized",
+          "disinfection by itself will not compensate for trace-organic breakthrough if adsorption is underdesigned"
+        ],
+        "evidence_list": [
+          "water_reuse_guidance_supporting_mbr_for_high_quality_reclaimed_water",
+          "public_case_knowledge_on_gac_polishing_for_pesticides_and_micropollutants",
+          "epa_guidance_on_multibarrier_approaches_for_water_reuse"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biological_treatment",
+          "ultrafiltration",
+          "nanofiltration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer flow and concentration variability",
+          "coagulation_flocculation_and_clarification": "remove colloids and some particulate-associated organic matter to protect downstream units",
+          "biological_treatment": "reduce BOD and ammonia before membrane polishing",
+          "ultrafiltration": "provide low-solids feed to NF",
+          "nanofiltration": "reduce dissolved organics, some pesticides, color, and part of the salinity load",
+          "final_disinfection": "ensure microbiological suitability for irrigation reuse"
+        },
+        "applicability_rationale": [
+          "this is a stronger candidate if the irrigation program includes more salt-sensitive crops or if future monitoring shows higher dissolved organic and trace contaminant persistence than expected",
+          "NF can provide a broader dissolved-contaminant barrier than adsorption alone while using less energy than RO in some applications",
+          "pretreatment steps are needed because the mixed influent has enough solids and organics to create significant membrane fouling risk without staged removal"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal is a major caveat because residuals management options are limited in this case",
+          "actual rejection of dicrotophos and unknown small polar compounds may vary with membrane selection and water matrix effects",
+          "fouling risk remains significant during episodic industrial surges despite pretreatment",
+          "this route may be unnecessarily intensive if salinity and trace-organic targets can be met by non-concentrating alternatives"
+        ],
+        "evidence_list": [
+          "reuse_engineering_guidance_on_nf_ro_for_dissolved_contaminant_control",
+          "public_knowledge_on_membrane_treatment_of_pesticides_in_secondary_effluents",
+          "epa_water_reuse_guidelines_for_irrigation_quality_management"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "biological_treatment",
+          "powdered_activated_carbon_contact",
+          "secondary_clarification",
+          "sand_or_disc_filtration",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "manage influent variability and reduce process shock",
+          "biological_treatment": "remove biodegradable organics and ammonia",
+          "powdered_activated_carbon_contact": "provide intermittent adsorption capacity for pesticide residues and some unknown trace organics",
+          "secondary_clarification": "separate biomass and PAC-associated solids",
+          "sand_or_disc_filtration": "tertiary solids polishing",
+          "final_disinfection": "reduce pathogen risk for agricultural reuse"
+        },
+        "applicability_rationale": [
+          "this is a lower-cost advanced option when utilities want some micropollutant adsorption without installing GAC contactors or ozone systems",
+          "PAC can be flexibly dosed upward during suspected pesticide peaks, which is useful under influent uncertainty",
+          "the train may be acceptable where agricultural reuse standards are moderate and salinity is not the limiting factor"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "PAC performance is less predictable for a mixed and incompletely characterized trace-organic load than a dedicated oxidation plus BAC barrier",
+          "sludge production and carbon carryover management become more important",
+          "removal of dissolved pesticides may be inconsistent during short high-concentration pulses if dosing control is not responsive",
+          "this route does not materially reduce TDS"
+        ],
+        "evidence_list": [
+          "public_guidance_on_pac_use_for_micropollutant_control_in_wastewater",
+          "engineering_case_knowledge_for_flexible_adsorption_under_variable_influent_conditions",
+          "agricultural_reuse_guidance_for_tertiary_treatment_and_disinfection"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "conventional_activated_sludge",
+          "secondary_clarification",
+          "sand_filtration",
+          "chlorination"
+        ],
+        "core_unit_functions": {
+          "conventional_activated_sludge": "reduce biodegradable organics",
+          "secondary_clarification": "separate biomass",
+          "sand_filtration": "polish suspended solids",
+          "chlorination": "provide disinfection"
+        },
+        "applicability_rationale": [
+          "included as a baseline conventional reuse train that addresses standard wastewater pollutants and pathogens but not the full uncertainty profile",
+          "it may produce visually acceptable reclaimed water for some basic applications, yet it lacks a dedicated barrier for the detected pesticides and the suspected unknown trace-organic fraction"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "likely insufficient for reliable removal of tebuconazole, dicrotophos, and unidentified co-contaminants",
+          "does not provide enough robustness for episodic industrial pesticide peaks",
+          "could leave decision-makers with false confidence because conventional effluent quality indicators may improve while trace-organic risk remains",
+          "pathogen control alone does not satisfy the broader reuse-quality uncertainty in this case"
+        ],
+        "evidence_list": [
+          "basic_wastewater_reuse_treatment_references",
+          "public_guidance_indicating_conventional_secondary_treatment_is_not_a_complete_barrier_for_trace_organic_contaminants"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi_barrier_trains_with_equalization_and_targeted_trace_organic_polishing_should_rank_above_conventional_only_options",
+        "solutions_that_explicitly_address_detected_pesticides_and_unknown_trace_pollutants_should_rank_higher_than_trains_focused_only_on_bod_tss_pathogens",
+        "full_desalination_should_not_automatically_rank_first_because_tds_is_moderate_and_concentrate_management_is_constrained"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "high_influent_variability_requires_buffering_or_operational_flexibility",
+        "agricultural_reuse_requires_pathogen_control_and_consideration_of_salinity_and_crop_sensitivity",
+        "unknown_trace_pollutants_require_more_than_standard_secondary_treatment",
+        "residuals_and_concentrate_management_tradeoffs_should_be_explicitly_discussed"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why_biological_treatment_is_still_useful_before_targeted_pesticide_polishing",
+        "why_adsorption_or_advanced_oxidation_is_relevant_for_dicrotophos_tebuconazole_and_possible_unknowns",
+        "why_simple_conventional_treatment_is_not_sufficient_under_incomplete_contaminant_characterization",
+        "why_membrane_desalination_is_a_tradeoff_rather_than_an_obvious_default_for_this_irrigation_case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "episodic_industrial_shock_loads_and_rainfall_dilution_or_first_flush_effects",
+        "uncertainty_about_co_formulants_degradation_products_and_small_polar_compounds",
+        "adsorbent_breakthrough_or_oxidation_byproduct_risk_under_variable_matrix_conditions",
+        "membrane_fouling_and_concentrate_disposal_if_nf_or_ro_is_selected",
+        "crop_specific_salinity_and_trace_contaminant_tolerance_uncertainty_for_agricultural_reuse"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "1H-1,2,4-triazol-1-ylacetic acid",
+    "Units": "N/A",
+    "Condition": "Plant as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "5-(4-chlorophenyl)-2,2-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentane-1,3-diol",
+    "Units": "N/A",
+    "Condition": "Plant as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "2-chloro-5-[4-hydroxy-5,5-dimethyl-3-(1H-1,2,4-triazol-1-yl)hexyl]phenol",
+    "Units": "N/A",
+    "Condition": "Plant as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "5-tert-butyl-5-(1H-1,2,4-triazol-1-ylmethyl)dihydrofuran-2(3H)-one",
+    "Units": "N/A",
+    "Condition": "Water (photolysis); Water/sediment as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "sodium 5-(4-chlorophenyl)-3-hydroxy-2,2-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentyl sulfate",
+    "Units": "N/A",
+    "Condition": "Animal as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "(R,S)-2-amino-3-(1H-1,2,4-triazol-1-yl)propanoic acid, or 3-(1H-1,2,4-triazol-1-yl)-D,L-alanine",
+    "Units": "N/A",
+    "Condition": "Plant as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "1,2,4-triazole",
+    "Units": "N/A",
+    "Condition": "Soil as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "4-hydroxy-5,5-dimethyl-4-(1H-1,2,4-triazol-1-ylmethyl)hexanoic acid",
+    "Units": "N/A",
+    "Condition": "Water (photolysis); Water/sediment as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "5-(4-chlorophenyl)-3-hydroxy-2,2-dimethyl-3-(1H-1,2,4-triazol-1-ylmethyl)pentanoic acid",
+    "Units": "N/A",
+    "Condition": "Animal as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Degradates",
+    "Value": "2-hydroxy-3-(1H-1,2,4-triazol-1-yl)propanoic acid",
+    "Units": "N/A",
+    "Condition": "Plant as formation medium",
+    "Ref#": "2152"
+  },
+  {
+    "Contaminant Name": "Tebuconazole",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "198",
+    "Units": "days",
+    "Condition": "N/A",
+    "Ref#": "2143"
+  }
+]

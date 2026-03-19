@@ -1,0 +1,288 @@
+{
+  "case_id": "WContBench_E_053",
+  "case_name": "Perchlorate removal from surface water for municipal drinking water production",
+  "category_level_1": "easy",
+  "category_level_2": {
+    "water_source_type": "surface_water",
+    "contaminant_type": [
+      "Perchlorate"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "moderate_cost_constraint",
+      "stable_operation_required"
+    ],
+    "pollution_pattern": "single_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for perchlorate-contaminated surface water intended for drinking water supply under moderate cost and stable operation constraints.",
+  "input_data": {
+    "scenario_background": "A municipal treatment plant draws from a river-influenced reservoir and has identified perchlorate as the principal regulated contaminant concern. The utility already operates conventional surface-water clarification and filtration and wants a reliable add-on process that can consistently reduce perchlorate for finished drinking water compliance. The city prefers established technologies with moderate operating burden and does not want to adopt unnecessarily energy-intensive treatment.",
+    "water_quality": {
+      "source_type": "surface_water",
+      "pH": 7.6,
+      "turbidity_NTU": 8.4,
+      "DOC_mg_L": 4.8,
+      "alkalinity_mg_L_as_CaCO3": 96,
+      "temperature_C": 18.0,
+      "sulfate_mg_L": 42,
+      "nitrate_as_N_mg_L": 2.1,
+      "chloride_mg_L": 27,
+      "hardness_mg_L_as_CaCO3": 118,
+      "perchlorate_ug_L": 26
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve reliable perchlorate reduction suitable for drinking water compliance while maintaining stable overall water quality.",
+      "secondary_goals": [
+        "use proven treatment technology",
+        "maintain stable year-round operation for variable surface water",
+        "limit energy demand and avoid excessive process complexity",
+        "remain compatible with existing conventional treatment infrastructure"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium",
+      "energy_constraint": "medium",
+      "operation_complexity": "low_to_medium",
+      "residuals_management": "utility can manage routine backwash waste and periodic media replacement but prefers to avoid difficult brine or high-strength concentrate disposal",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "stable_operation_required"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "conventional_pretreatment",
+          "selective_perchlorate_ion_exchange",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "conventional_pretreatment": "reduce suspended solids and protect downstream perchlorate removal units from surface-water particulate loading",
+          "selective_perchlorate_ion_exchange": "remove perchlorate using highly selective resin designed for oxyanion control",
+          "post_filtration": "polish effluent and retain any carryover particles or resin fines",
+          "disinfection": "provide final microbiological protection for drinking water distribution"
+        },
+        "applicability_rationale": [
+          "perchlorate is the single primary contaminant and selective ion exchange is a well-established drinking water control technology",
+          "surface water solids and organics justify use after conventional clarification and filtration rather than direct raw-water polishing alone",
+          "the utility already has conventional treatment, making selective ion exchange a practical add-on process",
+          "this approach offers stable and predictable contaminant removal without the energy demand of high-pressure membranes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "competing anions such as sulfate, nitrate, and natural organic matter can shorten resin run length",
+          "resin exhaustion monitoring is required to prevent perchlorate breakthrough",
+          "spent resin replacement or regeneration residual handling must be planned carefully"
+        ],
+        "evidence_list": [
+          "EPA_drinking_water_treatability_guidance_for_perchlorate_using_selective_ion_exchange",
+          "AWWA_case_knowledge_on_perchlorate_removal_in_municipal_drinking_water",
+          "public_guidance_on_using_conventional_pretreatment_to_protect_downstream_IX_for_surface_water"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "conventional_pretreatment",
+          "biological_fluidized_bed_or_fixed_bed_perchlorate_reduction",
+          "filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "conventional_pretreatment": "remove particulates and reduce upstream fouling load for biological treatment",
+          "biological_fluidized_bed_or_fixed_bed_perchlorate_reduction": "biologically reduce perchlorate to chloride under controlled anoxic conditions with an electron donor",
+          "filtration": "remove biomass or detached solids from the biological stage",
+          "disinfection": "ensure finished water microbiological safety after biological treatment"
+        },
+        "applicability_rationale": [
+          "biological perchlorate reduction is a recognized treatment route and can be effective for selective perchlorate removal",
+          "it can avoid frequent resin replacement when operated well",
+          "the approach is more suitable where the utility can manage process monitoring and biological control",
+          "it remains lower energy than reverse osmosis but is operationally more involved than selective ion exchange"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "requires careful control of electron donor addition and anoxic conditions",
+          "biological instability or seasonal temperature effects can affect performance",
+          "additional attention is needed to prevent biological solids carryover and maintain disinfectant strategy"
+        ],
+        "evidence_list": [
+          "EPA_treatability_information_on_biological_reduction_of_perchlorate",
+          "drinking_water_case_studies_for_biological_perchlorate_treatment",
+          "engineering_guidance_on_post_filtration_and_disinfection_after_biological_processes"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "coagulation_flocculation_sedimentation",
+          "granular_media_filtration",
+          "selective_perchlorate_ion_exchange",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation_sedimentation": "remove suspended solids and part of natural organic matter from variable surface water",
+          "granular_media_filtration": "provide clarified water with reduced particle loading to downstream selective resin",
+          "selective_perchlorate_ion_exchange": "remove dissolved perchlorate from clarified water",
+          "disinfection": "provide microbiological protection in finished water"
+        },
+        "applicability_rationale": [
+          "this is a more explicit full-train version of the preferred approach for utilities with conventional surface-water treatment already in place",
+          "good pretreatment can improve resin life and operational stability",
+          "it is highly compatible with reservoir water having moderate turbidity and DOC"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "conventional treatment alone will not remove perchlorate, so ion exchange performance remains critical",
+          "chemical dose optimization affects pretreatment consistency and resin protection",
+          "sludge production from clarification increases solids handling needs"
+        ],
+        "evidence_list": [
+          "surface_water_treatment_guidance_for_clarification_before_advanced_adsorptive_or_IX_processes",
+          "public_case_knowledge_on_selective_ion_exchange_following_conventional_surface_water_treatment",
+          "EPA_conventional_treatment_practice_references_for_municipal_surface_water"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "conventional_pretreatment",
+          "reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "conventional_pretreatment": "control particulate and fouling load before membrane treatment",
+          "reverse_osmosis": "reject perchlorate and other dissolved ions through high-pressure membrane separation",
+          "stabilization": "adjust finished water chemistry after desalting to maintain corrosivity control",
+          "disinfection": "ensure microbiological safety in finished water"
+        },
+        "applicability_rationale": [
+          "reverse osmosis can effectively reduce perchlorate",
+          "it may be considered when broader dissolved contaminant reduction is also desired",
+          "however, for a single perchlorate problem it is usually more complex and costly than needed"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "high energy demand and membrane fouling sensitivity for surface water",
+          "concentrate management is a major disadvantage under moderate constraints",
+          "post-treatment stabilization is required"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatability_information_for_perchlorate_and_other_anions",
+          "public_guidance_on_reverse_osmosis_for_drinking_water_with_concentrate_management_considerations",
+          "case_knowledge_showing_RO_as_effective_but_not_first_choice_for_single_perchlorate_cases"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "conventional_pretreatment",
+          "electrodialysis_or_electrodialysis_reversal",
+          "post_filtration",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "conventional_pretreatment": "reduce solids and foulants before electrically driven desalting",
+          "electrodialysis_or_electrodialysis_reversal": "separate perchlorate and other ions using ion-selective membranes under electric potential",
+          "post_filtration": "polish water quality and remove incidental particulate carryover",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "electrically driven membrane processes can remove ionic contaminants including perchlorate",
+          "they may be technically feasible in selected installations",
+          "for this straightforward municipal case they are less commonly preferred than selective ion exchange and less aligned with a stable low-complexity strategy"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "specialized operation and membrane management increase complexity",
+          "brine or concentrate disposal remains a disadvantage",
+          "surface-water organic and particulate fouling control is important"
+        ],
+        "evidence_list": [
+          "alternative_desalting_process_references_for_perchlorate_control",
+          "drinking_water_membrane_case_examples_for_ionic_contaminant_removal",
+          "public_guidance_on_concentrate_management_limitations_for_electromembrane_processes"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "selective_perchlorate_ion_exchange with appropriate surface-water pretreatment should rank first",
+        "biological perchlorate reduction may rank high but generally below selective ion exchange when stable low-to-medium complexity operation is preferred",
+        "high-energy membrane options should not rank first for a single perchlorate problem under moderate constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "moderate cost sensitivity favors established targeted treatment over full desalination",
+        "stable operation requirement favors robust add-on treatment compatible with existing conventional surface-water systems",
+        "residuals and concentrate handling should influence ranking of regeneration-based and membrane options"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why selective ion exchange is a mainstream treatment for perchlorate in drinking water",
+        "why conventional surface-water pretreatment is important before targeted perchlorate removal",
+        "why reverse osmosis or other membrane desalting options rank lower for this simple single-contaminant case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "resin exhaustion and perchlorate breakthrough monitoring",
+        "competition from sulfate nitrate and natural organic matter",
+        "biological process control needs if bioreduction is selected",
+        "concentrate or brine management challenges for membrane-based options"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

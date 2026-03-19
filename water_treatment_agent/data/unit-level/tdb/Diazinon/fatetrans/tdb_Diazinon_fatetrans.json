@@ -1,0 +1,50 @@
+[
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "0.5",
+    "Units": "days",
+    "Condition": "at pH 3.1 and 20-21oC",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "171",
+    "Units": "days",
+    "Condition": "at pH 7.3 and 20-21oC",
+    "Ref#": "763"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "145",
+    "Units": "hours",
+    "Condition": "at pH 10.4",
+    "Ref#": "773"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "12",
+    "Units": "hours",
+    "Condition": "at pH 3.1",
+    "Ref#": "773"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "4436",
+    "Units": "hours",
+    "Condition": "at pH 7.4",
+    "Ref#": "773"
+  },
+  {
+    "Contaminant Name": "Diazinon",
+    "Parameter": "Hydrolysis Rate",
+    "Value": "6",
+    "Units": "days",
+    "Condition": "at pH 10.4 and 20-21oC",
+    "Ref#": "763"
+  }
+]

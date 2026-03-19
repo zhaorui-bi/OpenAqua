@@ -1,0 +1,18 @@
+[
+  {
+    "Contaminant Name": "Tebufenozide",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "30",
+    "Units": "days",
+    "Condition": "N/A",
+    "Ref#": "1815"
+  },
+  {
+    "Contaminant Name": "Tebufenozide",
+    "Parameter": "Photolysis Half Life",
+    "Value": "stable",
+    "Units": "N/A",
+    "Condition": "pH 7, 20 C",
+    "Ref#": "2001"
+  }
+]

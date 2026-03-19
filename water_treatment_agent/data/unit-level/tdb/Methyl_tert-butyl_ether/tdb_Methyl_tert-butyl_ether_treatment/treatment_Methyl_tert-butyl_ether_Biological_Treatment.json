@@ -1,0 +1,5 @@
+{
+  "Contaminant Name": "Methyl tert-butyl ether",
+  "Function": "Biological Treatment",
+  "Details": "Removal of MTBE from water using biological treatment can be effective (from 60 to greater than 90 percent). The common method of biological treatment is by passing contaminated water through biologically activated carbon (BAC) columns. Batch studies have been done to explore the effect of microbial consortium composition and reactor configuration on MTBE in presence of benzene, toluene, ethylbenzene, and p-xylenes (BTEX). Results show that MTBE bioremediation in the presence of BTEX is feasible and the culture composition and reactor configuration are key factors.\nImplementing biological GAC as a post treatment for an advanced oxidation process (AOP) can provide an additional treatment barrier for MTBE during the possible upset of the system. In a post treatment application, the BAC pilot-scale column treating surface or ground waters enhanced overall MTBE and byproducts (TBA) removal efficiency by providing some chemical adsorption and biological reduction."
+}

@@ -1,0 +1,297 @@
+{
+  "case_id": "WContBench_M_090",
+  "case_name": "Metolachlor degradate control in municipal groundwater under cost, simplicity, and residuals constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "groundwater",
+    "contaminant_type": [
+      "Metolachlor Degradates"
+    ],
+    "effluent_use": "drinking_water",
+    "constraint_tags": [
+      "cost_constraint",
+      "low_operation_complexity",
+      "residuals_management_constraint"
+    ],
+    "pollution_pattern": "emerging_contaminant"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for groundwater containing metolachlor degradates intended for drinking water, balancing removal performance against cost, operator simplicity, and residuals handling constraints.",
+  "input_data": {
+    "scenario_background": "A small agricultural town is evaluating a replacement drinking water well, but routine screening detected metolachlor degradates associated with row-crop herbicide use in the recharge area. The utility has limited staff and prefers treatment trains that are straightforward to operate, with no difficult brine or concentrate disposal. Several technologies are technically plausible, but the best option depends on balancing uncertain adsorptive performance for polar degradates against the higher cost and residuals burden of membrane or regenerable systems.",
+    "water_quality": {
+      "source_type": "groundwater",
+      "pH": 7.4,
+      "turbidity_NTU": 0.5,
+      "DOC_mg_L": 2.6,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 240,
+      "conductivity_uS_cm": 760,
+      "nitrate_as_N_mg_L": 6.8,
+      "sulfate_mg_L": 38,
+      "chloride_mg_L": 44,
+      "iron_mg_L": 0.08,
+      "manganese_mg_L": 0.02,
+      "target_contaminants": {
+        "metolachlor_ESA_ug_L": 2.9,
+        "metolachlor_OXA_ug_L": 1.7,
+        "parent_metolachlor_ug_L": 0.12
+      }
+    },
+    "treatment_goal": {
+      "use_type": "drinking_water",
+      "target_requirement": "Finished water should achieve stable potable compliance and substantially reduce metolachlor degradates to a level acceptable for drinking water risk management and utility oversight.",
+      "secondary_goals": [
+        "maintain simple routine operation for a small utility",
+        "avoid high-difficulty concentrate or regenerant disposal",
+        "limit lifecycle cost while preserving treatment reliability",
+        "provide resilience to seasonal concentration changes linked to recharge events"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_low",
+      "opex_level": "medium_low",
+      "energy_constraint": "medium",
+      "operation_complexity": "low",
+      "residuals_management": "avoid_high_difficulty_brine_concentrate_or_frequent_hazardous_media_handling",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "needs consistent performance despite moderate seasonal variation in degradate concentrations"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "granular_activated_carbon_dual_bed",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect adsorption vessels from particulates and support stable hydraulic performance",
+          "granular_activated_carbon_dual_bed": "provide primary adsorption of parent pesticide and partial to substantial removal of metolachlor degradates with staged breakthrough control",
+          "disinfection": "ensure microbiological safety for potable distribution"
+        },
+        "applicability_rationale": [
+          "for a small groundwater system, GAC offers a relatively familiar and low-complexity treatment platform compared with high-pressure membrane treatment",
+          "dual-bed configuration improves operational robustness and gives earlier warning before breakthrough reaches finished water",
+          "low turbidity groundwater is favorable for simple pretreatment ahead of adsorption",
+          "although polar degradates can be more difficult to adsorb than the parent herbicide, GAC remains a practical first-choice balance when low operator burden and avoidance of brine disposal are major decision drivers",
+          "spent carbon replacement is generally easier to manage than membrane concentrate or resin regenerant for a small utility"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "metolachlor ESA and OXA are more polar than the parent compound and may show shorter GAC bed life than expected from parent-pesticide experience",
+          "DOC competition can reduce adsorption capacity over time",
+          "requires monitoring and timely media changeout to avoid breakthrough"
+        ],
+        "evidence_list": [
+          "EPA_small_system_guidance_on_GAC_for_synthetic_organic_chemical_control",
+          "public_case_knowledge_on_pesticide_and_metabolite_adsorption_in_drinking_water",
+          "AWWA_practice_references_for_GAC_operation_in_groundwater_systems"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "anion_exchange_resin",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect resin beds from fouling solids",
+          "anion_exchange_resin": "remove anionic metolachlor degradates such as ESA and OXA through selective exchange or adsorption interactions",
+          "disinfection": "provide final pathogen control"
+        },
+        "applicability_rationale": [
+          "anion exchange is technically plausible for acidic pesticide degradates and can outperform GAC for some polar, anionic metabolites",
+          "the process has a compact footprint and low energy demand",
+          "it is a strong alternative where the utility can manage resin replacement or regenerant logistics",
+          "this option ranks below GAC because residuals and media management can become more complicated, especially if regenerable systems are considered"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "performance depends strongly on resin chemistry and competing anions in the source water",
+          "regeneration can create brine waste, while single-use resin creates periodic replacement and disposal obligations",
+          "less standard experience may be available locally compared with GAC for small municipal systems"
+        ],
+        "evidence_list": [
+          "public_guidance_on_ion_exchange_for_anionic_contaminants_in_drinking_water",
+          "case_knowledge_on_polar_pesticide_metabolite_removal_by_specialty_resins",
+          "EPA_design_considerations_for_small_system_ion_exchange"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "cartridge_or_guard_filtration",
+          "granular_activated_carbon",
+          "anion_exchange_polishing",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "cartridge_or_guard_filtration": "protect downstream adsorptive units",
+          "granular_activated_carbon": "remove parent metolachlor and reduce organic loading to the polishing step",
+          "anion_exchange_polishing": "capture residual anionic degradates that may pass GAC",
+          "disinfection": "ensure finished water safety"
+        },
+        "applicability_rationale": [
+          "the hybrid train is attractive when compliance certainty is prioritized because it addresses both parent compound adsorption and more difficult degradate polishing",
+          "GAC upfront can lower burden on the polishing resin and may improve overall run length",
+          "this route is technically robust for uncertain influent variability",
+          "it ranks below the simpler single-barrier options because higher capital cost, more valves and monitoring points, and dual media management reduce fit with the utility's low-complexity preference"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "more complex scheduling of carbon and resin replacement",
+          "higher upfront cost may be difficult for a small system",
+          "added complexity may exceed operator comfort level despite good technical performance"
+        ],
+        "evidence_list": [
+          "engineering_case_knowledge_for_hybrid_adsorption_and_ion_exchange_trains",
+          "AWWA_references_on_multi_barrier_design_for_trace_organic_control",
+          "public_practice_guidance_on_polishing_steps_for_persistent_micropollutants"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment",
+          "nanofiltration_or_reverse_osmosis",
+          "stabilization",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "pretreatment": "protect membranes by controlling fouling and scaling risk",
+          "nanofiltration_or_reverse_osmosis": "provide strong rejection of metolachlor degradates and other dissolved contaminants",
+          "stabilization": "restore permeate chemistry and corrosion control suitability",
+          "disinfection": "provide final barrier for potable use"
+        },
+        "applicability_rationale": [
+          "NF or RO can offer strong and relatively reliable removal of small polar organic contaminants when adsorption uncertainty is a concern",
+          "the route may also provide co-benefits for nitrate or hardness reduction if those become future priorities",
+          "despite technical capability, it ranks low because high-pressure membranes conflict with the case constraints on cost, operator simplicity, and residuals handling",
+          "concentrate management is especially problematic for a small inland groundwater system"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "concentrate disposal may be difficult or costly",
+          "membrane scaling and fouling control increase operator burden",
+          "post-treatment stabilization is required for corrosivity control"
+        ],
+        "evidence_list": [
+          "EPA_membrane_treatment_guidance_for_small_drinking_water_systems",
+          "public_guidance_on_NF_RO_rejection_of_polar_organic_micropollutants",
+          "case_knowledge_on_concentrate_management_constraints_for_inland_utilities"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "advanced_oxidation_process",
+          "biologically_active_filtration_or_GAC",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "advanced_oxidation_process": "attempt oxidative transformation of trace organic contaminants",
+          "biologically_active_filtration_or_GAC": "polish oxidation byproducts and remove residual organics",
+          "disinfection": "ensure potable water safety"
+        },
+        "applicability_rationale": [
+          "this option is included as a technically conceivable but generally unfavorable route for metolachlor degradate-focused treatment",
+          "advanced oxidation is more often applied where contaminants are readily oxidizable, while herbicide degradates may not justify the cost and process complexity as a primary barrier",
+          "for this small system, the added controls, chemical handling, and uncertainty in byproduct formation make it a poor fit compared with adsorption or membrane separation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "poor",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "may provide inconsistent primary control for metolachlor degradates compared with separation-based approaches",
+          "can create transformation byproducts requiring additional polishing and validation",
+          "operator skill and monitoring demands are not well aligned with the utility profile"
+        ],
+        "evidence_list": [
+          "public_guidance_on_advanced_oxidation_applicability_for_trace_organics",
+          "case_knowledge_on_limitations_of_AOP_as_primary_control_for_pesticide_metabolites",
+          "EPA_operational_considerations_for_AOP_in_small_drinking_water_systems"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "GAC-based routes should rank at or near the top because of simplicity and manageable residuals",
+        "anion exchange should appear as a strong alternative because metolachlor degradates are polar and often anionic",
+        "a hybrid GAC_plus_ion_exchange route may be included but should not outrank simpler options under low-complexity constraints",
+        "NF_or_RO should not rank first because concentrate disposal and O&M complexity conflict with the scenario constraints",
+        "advanced oxidation should rank low as a technically possible but less aligned option"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "small-utility preference for low operator burden",
+        "importance of avoiding brine or concentrate disposal challenges",
+        "trade-off between stronger technical certainty and lifecycle simplicity",
+        "cost sensitivity that disfavors overengineered multi-barrier systems unless clearly justified"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why polar metolachlor degradates can be harder to remove by standard GAC than the parent pesticide",
+        "why anion exchange is a plausible competitor for ESA_and_OXA_species",
+        "why membrane treatment is technically strong but downgraded by residuals and complexity constraints",
+        "why dual-bed or staged adsorption helps reduce breakthrough risk under seasonal variability"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "breakthrough risk for polar degradates",
+        "competition from background DOC or anions",
+        "spent media replacement planning",
+        "brine or concentrate disposal burden",
+        "uncertainty in oxidation effectiveness and byproduct formation"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

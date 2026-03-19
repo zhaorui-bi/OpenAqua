@@ -1,0 +1,42 @@
+[
+  {
+    "Contaminant Name": "Acetochlor",
+    "Parameter": "Degradates",
+    "Value": "acetochlor ethanesulfonic acid (ESA)",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1444"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Parameter": "Degradates",
+    "Value": "acetochlor oxanilic acid (OXA)",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "1444"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "14",
+    "Units": "days",
+    "Condition": "in soil",
+    "Ref#": "1463"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "Stable",
+    "Units": "N/A",
+    "Condition": "20 deg C, pH 7",
+    "Ref#": "1463"
+  },
+  {
+    "Contaminant Name": "Acetochlor",
+    "Parameter": "Photolysis Half Life",
+    "Value": "Stable",
+    "Units": "N/A",
+    "Condition": "aqueous, pH 7",
+    "Ref#": "1463"
+  }
+]

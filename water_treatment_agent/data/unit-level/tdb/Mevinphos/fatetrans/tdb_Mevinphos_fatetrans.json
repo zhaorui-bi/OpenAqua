@@ -1,0 +1,58 @@
+[
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "<25",
+    "Units": "Hour",
+    "Condition": "In soil under aerobic conditions",
+    "Ref#": "1644"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Biodegradation Half Life",
+    "Value": "36",
+    "Units": "Hour",
+    "Condition": "In soil under anaerobic conditions",
+    "Ref#": "1644"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "120",
+    "Units": "Day",
+    "Condition": "pH 6",
+    "Ref#": "1642"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "3",
+    "Units": "Day",
+    "Condition": "pH 9",
+    "Ref#": "1642"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "35",
+    "Units": "Day",
+    "Condition": "pH 7",
+    "Ref#": "1642"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Hydrolysis Half Life",
+    "Value": "1.4",
+    "Units": "Hour",
+    "Condition": "pH 11",
+    "Ref#": "1642"
+  },
+  {
+    "Contaminant Name": "Mevinphos",
+    "Parameter": "Volitization Rate",
+    "Value": "3.6E-5",
+    "Units": "1/Hour",
+    "Condition": "Water in a dish in an environmental chamber with a wind speed of 1 m/s",
+    "Ref#": "1643"
+  }
+]

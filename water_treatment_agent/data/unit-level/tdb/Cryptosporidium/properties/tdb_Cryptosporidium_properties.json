@@ -1,0 +1,114 @@
+[
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Taxomony",
+    "Value": "Apicomplexa",
+    "Units": "N/A",
+    "Condition": "Phylum",
+    "Ref#": "474"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Taxomony",
+    "Value": "Coccidia",
+    "Units": "N/A",
+    "Condition": "Subclass",
+    "Ref#": "474"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Strains",
+    "Value": "Cyrptosporidium parvum and Cryptosporidium hominis (formerly Cryptosporidium parvum genotype 1)",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "479"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Apperance, Size",
+    "Value": "4-6",
+    "Units": "micrometers",
+    "Condition": "Oocyst stage",
+    "Ref#": "476"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Apperance, Shape",
+    "Value": "Ovoid to Elliptical",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "474"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Pathogenic Hosts",
+    "Value": "Mammals",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "474"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Thermal Inactivation",
+    "Value": "64.2",
+    "Units": "°C",
+    "Condition": "Inactivated after 5 minutes",
+    "Ref#": "491"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Thermal Inactivation",
+    "Value": "37",
+    "Units": "°C",
+    "Condition": "Complete inactivation after 72 hours",
+    "Ref#": "490"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Density",
+    "Value": "1.05",
+    "Units": "g/cm3",
+    "Condition": "N/A",
+    "Ref#": "476"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Zeta Potential",
+    "Value": "-20.8±1.8",
+    "Units": "mV",
+    "Condition": "CaCl2 solution at neutral pH",
+    "Ref#": "476"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Zeta Potential",
+    "Value": "-25± 2.8",
+    "Units": "mV",
+    "Condition": "pH 6",
+    "Ref#": "478"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Zeta Potential",
+    "Value": "-38",
+    "Units": "mV",
+    "Condition": "Neutral pH",
+    "Ref#": "477"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Hydrophobicity",
+    "Value": "18.75±10.05",
+    "Units": "%",
+    "Condition": "pH close to 6",
+    "Ref#": "478"
+  },
+  {
+    "Contaminant Name": "Cryptosporidium",
+    "Parameter": "Acid Stability",
+    "Value": "pH of 4.0 results in some loss of viability",
+    "Units": "N/A",
+    "Condition": "N/A",
+    "Ref#": "475"
+  }
+]

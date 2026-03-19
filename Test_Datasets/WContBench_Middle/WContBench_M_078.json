@@ -1,0 +1,308 @@
+{
+  "case_id": "WContBench_M_078",
+  "case_name": "Ammonium perchlorate and PFAS control from brackish groundwater for recharge under high-recovery and concentrate constraints",
+  "category_level_1": "middle",
+  "category_level_2": {
+    "water_source_type": "brackish_groundwater",
+    "contaminant_type": [
+      "Perchlorate",
+      "Per- and Polyfluoroalkyl Substances"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "high_water_recovery",
+      "concentrate_handling_constraint"
+    ],
+    "pollution_pattern": "primary_with_co_contaminants"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for brackish groundwater containing perchlorate and PFAS for groundwater recharge, balancing contaminant control with high recovery and difficult concentrate management constraints.",
+  "input_data": {
+    "scenario_background": "A groundwater replenishment project plans to treat a brackish wellfield impacted by historical releases of ammonium perchlorate and co-occurring PFAS from nearby industrial activity. The recharge basin operator wants high water recovery because source availability is limited, and local disposal options for high-salinity or PFAS-bearing concentrate are expensive and tightly restricted. Several technologies are technically capable, but the preferred solution must balance recharge suitability, concentrate minimization, operating burden, and reliable control of both contaminant groups.",
+    "water_quality": {
+      "source_type": "brackish_groundwater",
+      "pH": 7.6,
+      "turbidity_NTU": 1.4,
+      "TDS_mg_L": 2680,
+      "DOC_mg_L": 2.9,
+      "alkalinity_mg_L_as_CaCO3": 185,
+      "hardness_mg_L_as_CaCO3": 410,
+      "sulfate_mg_L": 420,
+      "chloride_mg_L": 760,
+      "nitrate_mg_L_as_N": 5.8,
+      "silica_mg_L": 24,
+      "conductivity_uS_cm": 4180,
+      "target_contaminants": {
+        "Perchlorate_ug_L": 31,
+        "PFOA_ng_L": 27,
+        "PFOS_ng_L": 19,
+        "PFHxS_ng_L": 14,
+        "PFBS_ng_L": 72
+      }
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Treated water should support compliant groundwater recharge with stable reduction of perchlorate and PFAS while avoiding a treatment approach that creates unmanageable reject streams.",
+      "secondary_goals": [
+        "maximize water recovery",
+        "minimize PFAS-bearing concentrate generation",
+        "maintain moderate operator burden",
+        "provide robust performance under brackish water matrix conditions"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "medium",
+      "residuals_management": "avoid_large_volumes_of_high_TDS_and_PFAS_bearing_concentrate_due_to_limited_disposal_options",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "treatment_should_tolerate_moderate_salinity_and_competing_anions_without_frequent_upsets"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "media_filtration",
+          "single_use_perchlorate_selective_ion_exchange",
+          "granular_activated_carbon_dual_bed",
+          "recharge_stabilization_or_conditioning"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "remove suspended solids and protect downstream media",
+          "single_use_perchlorate_selective_ion_exchange": "selectively remove perchlorate under brackish groundwater conditions without generating a liquid regenerant waste stream",
+          "granular_activated_carbon_dual_bed": "adsorb PFAS and provide staged breakthrough control",
+          "recharge_stabilization_or_conditioning": "confirm water chemistry is suitable for recharge operations and downstream aquifer compatibility"
+        },
+        "applicability_rationale": [
+          "this route targets perchlorate and PFAS with non-membrane unit processes, supporting very high water recovery because there is essentially no continuous reject stream",
+          "perchlorate-selective single-use ion exchange is well established for ammonium perchlorate impacts and avoids the brine management burden of regenerable systems",
+          "PFAS concentrations are moderate and DOC is not excessively high, making GAC a practical adsorption-based option for recharge service",
+          "the combined train is more aligned with the concentrate-handling constraint than reverse osmosis even though brackish groundwater could otherwise invite membrane treatment",
+          "dual-bed GAC improves reliability for PFAS compliance and reduces breakthrough risk compared with a single vessel"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "good",
+          "operation_fit": "medium_good",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "high sulfate and other competing anions can shorten perchlorate resin run length depending on resin selectivity and loading design",
+          "short-chain PFAS such as PFBS may break through GAC earlier than long-chain PFAS",
+          "spent resin and spent carbon still require off-site management or reactivation planning",
+          "this approach does not reduce bulk salinity if recharge permits later become more stringent on TDS"
+        ],
+        "evidence_list": [
+          "EPA_and_state_guidance_on_perchlorate_selective_ion_exchange_for_groundwater",
+          "AWWA_case_knowledge_for_single_use_ion_exchange_on_perchlorate",
+          "EPA_PFAS_treatment_guidance_for_GAC_applications",
+          "engineering_practice_for_dual_bed_GAC_breakthrough_management"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "media_filtration",
+          "single_use_perchlorate_selective_ion_exchange",
+          "anion_exchange_resin_for_PFAS",
+          "recharge_stabilization_or_conditioning"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "protect adsorption and ion exchange vessels from solids fouling",
+          "single_use_perchlorate_selective_ion_exchange": "remove perchlorate efficiently in the presence of brackish groundwater matrix constituents",
+          "anion_exchange_resin_for_PFAS": "remove PFAS with a compact adsorptive polishing step",
+          "recharge_stabilization_or_conditioning": "adjust and verify chemistry for recharge compatibility"
+        },
+        "applicability_rationale": [
+          "anion exchange can be a strong PFAS option where compact footprint or lower empty-bed contact time than GAC is attractive",
+          "this route also avoids a continuous membrane concentrate stream and therefore preserves high water recovery",
+          "it may offer better control for some shorter-chain PFAS fractions than GAC",
+          "the overall process remains feasible for co-occurring ammonium perchlorate and PFAS in brackish groundwater"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "good",
+          "operation_fit": "medium",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "PFAS resin replacement costs can be significant and lifecycle economics may be less favorable than GAC depending on run length",
+          "performance can be sensitive to sulfate, DOC, and resin selection",
+          "spent resin management still requires careful handling and vendor take-back arrangements",
+          "using ion exchange for both target contaminants increases dependence on media changeout logistics"
+        ],
+        "evidence_list": [
+          "public_guidance_on_perchlorate_selective_resins_in_groundwater",
+          "public_references_on_PFAS_ion_exchange_treatment",
+          "case_knowledge_on_competing_anion_effects_for_ion_exchange_systems"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "media_filtration",
+          "nanofiltration",
+          "perchlorate_selective_ion_exchange_on_bypass_or_blended_sidestream",
+          "recharge_stabilization_or_conditioning"
+        ],
+        "core_unit_functions": {
+          "media_filtration": "pretreat feed to reduce particulate fouling of membranes and polishing units",
+          "nanofiltration": "reduce PFAS and partially lower salinity with less pressure than full RO",
+          "perchlorate_selective_ion_exchange_on_bypass_or_blended_sidestream": "polish residual perchlorate where membrane rejection alone may be insufficient or variable",
+          "recharge_stabilization_or_conditioning": "adjust permeate chemistry and blended water quality for recharge application"
+        },
+        "applicability_rationale": [
+          "nanofiltration is technically plausible because it can reduce PFAS and some dissolved salts while potentially operating at higher recovery than RO",
+          "where recharge objectives include some salinity relief, NF can offer broader water-quality improvement than purely adsorptive trains",
+          "adding selective perchlorate ion exchange addresses the fact that perchlorate rejection by NF may be less robust than dedicated selective resin treatment"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_poor",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "even at elevated recovery, NF still generates a PFAS-bearing concentrate stream that is difficult to manage under this scenario",
+          "scaling risk is meaningful because hardness and sulfate are elevated",
+          "blending and sidestream design add operational complexity",
+          "perchlorate removal performance cannot rely on membrane rejection alone without validation"
+        ],
+        "evidence_list": [
+          "membrane_treatment_guidance_for_brackish_groundwater_NF_and_RO",
+          "public_discussion_of_PFAS_rejection_by_pressure_membranes",
+          "perchlorate_case_knowledge_showing_preference_for_selective_ion_exchange_over_partial_membrane_rejection"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "pretreatment_for_scaling_control",
+          "high_recovery_reverse_osmosis",
+          "stabilization",
+          "recharge_conditioning"
+        ],
+        "core_unit_functions": {
+          "pretreatment_for_scaling_control": "limit membrane fouling and scaling from hardness, sulfate, and silica",
+          "high_recovery_reverse_osmosis": "provide strong rejection of PFAS and perchlorate while reducing salinity",
+          "stabilization": "adjust corrosivity and mineral balance after desalting",
+          "recharge_conditioning": "verify final quality for recharge basin or injection compatibility"
+        },
+        "applicability_rationale": [
+          "reverse osmosis is technically powerful for both target contaminant groups and also addresses the brackish character of the source water",
+          "if salinity reduction were the dominant objective, this option could move higher in the ranking",
+          "high-recovery design can reduce but not eliminate reject volume, making it more attractive than conventional lower-recovery RO in water-limited settings"
+        ],
+        "constraint_fit": {
+          "cost_fit": "poor",
+          "energy_fit": "poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "poor"
+        },
+        "potential_risks": [
+          "PFAS- and perchlorate-bearing concentrate remains the major drawback and may be the decisive implementation barrier",
+          "brackish groundwater chemistry creates nontrivial scaling and antiscalant management challenges",
+          "membrane replacement, CIP, and higher operator skill requirements increase O&M burden",
+          "very high recovery targets may compromise reliability if scaling control is insufficient"
+        ],
+        "evidence_list": [
+          "EPA_brackish_groundwater_desalination_guidance",
+          "public_guidance_on_RO_for_PFAS_and_perchlorate_rejection",
+          "case_knowledge_on_concentrate_management_as_a_primary_limit_for_inland_brackish_RO"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "biological_perchlorate_reduction",
+          "filtration",
+          "granular_activated_carbon",
+          "recharge_stabilization_or_conditioning"
+        ],
+        "core_unit_functions": {
+          "biological_perchlorate_reduction": "reduce perchlorate to chloride under controlled biological conditions",
+          "filtration": "remove biomass and suspended solids after biological treatment",
+          "granular_activated_carbon": "polish PFAS and residual organics",
+          "recharge_stabilization_or_conditioning": "prepare treated water for recharge compatibility"
+        },
+        "applicability_rationale": [
+          "biological reduction is a technically credible perchlorate treatment route and can avoid a liquid concentrate stream",
+          "pairing biological perchlorate removal with GAC for PFAS is conceptually workable",
+          "this option is included because it can satisfy the high-recovery objective without membranes"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "biological systems require electron donor control, biomass management, and tighter process monitoring than the preferred adsorption and selective IX trains",
+          "for recharge use, operators may be cautious about biological process stability and control of byproducts or excess nutrients",
+          "PFAS are not destroyed and still rely on downstream adsorption with corresponding media management needs",
+          "salinity and background water chemistry can complicate biological performance and post-treatment requirements"
+        ],
+        "evidence_list": [
+          "EPA_and_state_case_knowledge_on_biological_perchlorate_reduction",
+          "public_guidance_on_post_filtration_after_biological_drinking_water_or_reuse_treatment",
+          "EPA_PFAS_GAC_guidance_for_polishing_applications"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "non_membrane_high_recovery_routes should rank above RO_or_NF because concentrate handling is a dominant constraint",
+        "selective_perchlorate_ion_exchange should appear near the top for ammonium perchlorate control",
+        "at least one PFAS adsorption route using GAC or PFAS_resin should rank in the top two",
+        "RO may appear as technically strong but should not rank first under the stated residuals constraints"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "importance of preserving water recovery for recharge supply reliability",
+        "difficulty of inland disposal for PFAS-bearing brine or concentrate",
+        "need to weigh broad desalting benefits against concentrate penalties",
+        "brackish groundwater matrix effects such as sulfate and hardness competition or scaling"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why selective ion exchange is attractive for perchlorate in groundwater",
+        "why adsorption_or_resin_based PFAS control can better fit high-recovery goals than membranes",
+        "why NF_or_RO are downgraded despite strong contaminant rejection",
+        "why short-chain PFAS and competing anions affect media selection and replacement frequency"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "PFAS breakthrough risk",
+        "resin exhaustion under high sulfate or competing anions",
+        "membrane concentrate disposal burden",
+        "scaling risk in brackish groundwater",
+        "spent media management"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "middle",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}

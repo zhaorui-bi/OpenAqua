@@ -1,0 +1,347 @@
+{
+  "case_id": "WContBench_D_079",
+  "case_name": "Managed aquifer recharge from mixed industrial-municipal wastewater with variable pesticides, nitroaromatics, and pharmaceuticals",
+  "category_level_1": "difficult",
+  "category_level_2": {
+    "water_source_type": "mixed_industrial_municipal",
+    "contaminant_type": [
+      "Fenamiphos",
+      "Nitrobenzene",
+      "Ibuprofen"
+    ],
+    "effluent_use": "groundwater_recharge",
+    "constraint_tags": [
+      "influent_variability",
+      "unknown_trace_pollutants",
+      "reuse_quality_required"
+    ],
+    "pollution_pattern": "co_occurring_legacy_and_emerging"
+  },
+  "task_description": "Recommend a ranked list of feasible treatment process chains for producing groundwater-recharge-quality water from a mixed industrial-municipal influent containing known and suspected trace organic contaminants under uncertain influent conditions.",
+  "input_data": {
+    "scenario_background": "A regional utility is blending municipal secondary effluent with intermittent discharges from a light industrial estate before advanced treatment for groundwater recharge. Monitoring has confirmed fenamiphos, nitrobenzene, and ibuprofen, but source investigations suggest additional trace organics may enter episodically from chemical handling, equipment washing, and sewer cross-connections. The influent quality varies significantly during storm infiltration and batch industrial releases, and the full trace contaminant mixture is not yet fully characterized. The utility needs a robust multi-barrier train that is protective for recharge while acknowledging uncertainty in oxidation byproducts, concentrate management, and variable pretreatment needs.",
+    "water_quality": {
+      "source_type": "blended_municipal_secondary_effluent_with_intermittent_industrial_contribution",
+      "pH": 7.3,
+      "turbidity_NTU": 9.6,
+      "TSS_mg_L": 14,
+      "COD_mg_L": 52,
+      "BOD5_mg_L": 14,
+      "TOC_mg_L": 11.8,
+      "DOC_mg_L": 8.9,
+      "ammonia_mg_L_as_N": 4.2,
+      "nitrate_mg_L_as_N": 9.4,
+      "total_nitrogen_mg_L": 18.6,
+      "total_phosphorus_mg_L": 2.4,
+      "alkalinity_mg_L_as_CaCO3": 175,
+      "hardness_mg_L_as_CaCO3": 228,
+      "TDS_mg_L": 865,
+      "conductivity_uS_cm": 1380,
+      "chloride_mg_L": 146,
+      "sulfate_mg_L": 92,
+      "UV254_cm_1": 0.21,
+      "bromide_mg_L": 0.28,
+      "fenamiphos_ug_L": 0.42,
+      "nitrobenzene_ug_L": 6.8,
+      "ibuprofen_ug_L": 14.5,
+      "trace_metals_ug_L": {
+        "Cr_total": 12,
+        "Ni": 18,
+        "Cu": 29,
+        "Zn": 74
+      },
+      "microbial_indicators": {
+        "E_coli_CFU_100mL": 2400,
+        "total_coliform_CFU_100mL": 18000
+      },
+      "influent_variability": "high",
+      "trace_pollutant_note": "additional_solvents_pesticide_metabolites_and_polar_trace_organics_are_suspected_but_not_fully_characterized; short_term_spikes_possible_after_industrial_batch_events"
+    },
+    "treatment_goal": {
+      "use_type": "groundwater_recharge",
+      "target_requirement": "Produce advanced treated water suitable for groundwater recharge with strong reduction of suspended solids, biodegradable organics, nutrients, pathogens, and trace organic contaminants including fenamiphos, nitrobenzene, and ibuprofen, while minimizing risk from unknown co-contaminants and transformation byproducts.",
+      "secondary_goals": [
+        "maintain robust performance under variable influent quality",
+        "provide multiple barriers for both known and suspected trace organics",
+        "limit membrane fouling and scaling potential",
+        "control oxidation byproduct risk where bromide and DOC are present",
+        "make uncertainty and monitoring needs explicit in the recommendation"
+      ]
+    },
+    "engineering_constraints": {
+      "capex_level": "medium_high",
+      "opex_level": "medium_high",
+      "energy_constraint": "medium_to_high_sensitivity",
+      "operation_complexity": "high",
+      "residuals_management": "spent_media_and_chemical_sludge_can_be_managed_on_site_but_RO_concentrate_disposal_is_feasible_only_at_moderate_volume_and_high_offsite_cost",
+      "footprint_constraint": "medium",
+      "robustness_requirement": "high_due_to_variable_blended_influent_and_protective_groundwater_recharge_objective"
+    }
+  },
+  "expected_output_format": {
+    "top_k": 5,
+    "require_fields": [
+      "rank",
+      "process_chain",
+      "core_unit_functions",
+      "applicability_rationale",
+      "constraint_fit",
+      "potential_risks",
+      "evidence_list"
+    ]
+  },
+  "reference_answer": {
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "biological_activated_carbon_or_ozonation_followed_by_BAC",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "UV_advanced_oxidation",
+          "stabilization_and_final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer hydraulic and contaminant concentration swings from mixed municipal and industrial inputs",
+          "coagulation_flocculation_and_clarification": "remove suspended solids, colloids, and part of organic and metal-associated fouling load",
+          "biological_activated_carbon_or_ozonation_followed_by_BAC": "reduce DOC and trace organics and provide broader-spectrum control for known and suspected micropollutants",
+          "ultrafiltration": "provide low-turbidity barrier and protect downstream RO",
+          "reverse_osmosis": "remove dissolved salts, many trace organics, and pathogens to produce a high-quality recharge feed",
+          "UV_advanced_oxidation": "destroy low-molecular-weight and potentially RO-passing trace organics as a final advanced barrier",
+          "stabilization_and_final_disinfection": "condition water for recharge compatibility and preserve microbial safety in conveyance"
+        },
+        "applicability_rationale": [
+          "a multi-barrier potable-reuse-style train is the strongest fit because groundwater recharge requires high confidence removal of both known and unknown trace organics",
+          "equalization is important because influent variability is high and industrial contributions are episodic",
+          "combining adsorption-biological polishing or ozonation_BAC before membranes can reduce fouling load and improve resilience to mixed contaminant classes including pesticides, nitroaromatics, and pharmaceuticals",
+          "RO plus UV-AOP provides a robust dual advanced barrier widely used when trace organic uncertainty is significant",
+          "this train explicitly addresses recharge protection rather than only conventional reclamation"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_poor"
+        },
+        "potential_risks": [
+          "RO concentrate management remains a major cost and residuals challenge",
+          "if ozonation is selected in the polishing step, bromate and other oxidation byproducts require careful control because bromide is present",
+          "unknown polar or highly mobile trace contaminants may show variable removal and require site-specific verification despite the strong barrier train",
+          "pretreatment must be tuned to avoid membrane fouling during industrial shock events",
+          "there is uncertainty in whether BAC alone is sufficient for nitrobenzene spikes without adequate empty bed contact time or complementary oxidation"
+        ],
+        "evidence_list": [
+          "california_and_australian_guidance_for_advanced_treated_recycled_water_for_groundwater_recharge",
+          "epa_water_reuse_guidance_on_multi_barrier_advanced_treatment",
+          "public_case_knowledge_for_MF_UF_RO_UV_AOP_trains_in_recharge_projects",
+          "ozonation_and_BAC_guidance_for_trace_organic_control_in_water_reuse"
+        ]
+      },
+      {
+        "rank": 2,
+        "process_chain": [
+          "equalization",
+          "high_rate_biological_treatment_or_optimized_existing_biological_polishing",
+          "powdered_or_granular_activated_carbon",
+          "ultrafiltration",
+          "reverse_osmosis",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "dampen variable influent quality and short-term industrial spikes",
+          "high_rate_biological_treatment_or_optimized_existing_biological_polishing": "remove biodegradable organics, some nitrogen, and reduce downstream oxidant or adsorbent demand",
+          "powdered_or_granular_activated_carbon": "adsorb hydrophobic and moderately adsorbable trace organics including pesticide and aromatic compounds",
+          "ultrafiltration": "provide particle and biomass removal before RO",
+          "reverse_osmosis": "achieve strong dissolved contaminant and pathogen reduction for recharge quality",
+          "final_disinfection": "provide distribution and recharge-system microbial protection"
+        },
+        "applicability_rationale": [
+          "this is a strong candidate where utilities prefer to reduce reliance on pre-ozonation because of bromide-related byproduct concerns",
+          "activated carbon is relevant for fenamiphos and nitrobenzene risk reduction and can also help buffer partially characterized trace organics",
+          "the train still includes RO because groundwater recharge quality expectations and unknown trace pollutant concerns justify a high-rejection barrier",
+          "it may offer a somewhat simpler chemistry profile than ozone-based schemes while preserving multi-barrier protection"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium",
+          "operation_fit": "medium",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "adsorption performance for ibuprofen and some polar unknowns can be variable and carbon exhaustion or breakthrough must be monitored closely",
+          "without a final destructive barrier such as UV-AOP, reliance on RO integrity and carbon performance is higher",
+          "spent carbon regeneration or replacement logistics add operating complexity",
+          "if biological polishing is unstable during industrial events, downstream carbon and RO loading may increase unexpectedly"
+        ],
+        "evidence_list": [
+          "activated_carbon_guidance_for_micropollutant_removal_in_reuse_and_drinking_water",
+          "epa_water_reuse_guidance_on_membrane_based_advanced_treatment",
+          "engineering_case_knowledge_for_GAC_plus_RO_in_trace_organic_control"
+        ]
+      },
+      {
+        "rank": 3,
+        "process_chain": [
+          "equalization",
+          "coagulation_flocculation_and_clarification",
+          "ozonation",
+          "biological_activated_carbon",
+          "ultrafiltration",
+          "managed_aquifer_recharge_with_engineered_residence_time"
+        ],
+        "core_unit_functions": {
+          "equalization": "reduce variability and improve process stability",
+          "coagulation_flocculation_and_clarification": "remove solids and some DOC fractions that contribute to ozone demand and fouling",
+          "ozonation": "transform many trace organics and improve biodegradability",
+          "biological_activated_carbon": "remove biodegradable ozonation byproducts and polish residual trace organics",
+          "ultrafiltration": "provide low-turbidity barrier and microbial polishing before recharge",
+          "managed_aquifer_recharge_with_engineered_residence_time": "provide additional attenuation and environmental buffer if hydrogeology and regulations allow"
+        },
+        "applicability_rationale": [
+          "this non-RO advanced polishing route can be attractive where concentrate disposal is the dominant limiting factor",
+          "ozone plus BAC is a recognized micropollutant control strategy and can address a broad contaminant spectrum under partially unknown organic mixtures",
+          "engineered subsurface residence can add resilience as a final environmental barrier when recharge design, monitoring, and regulatory framework are strong",
+          "it ranks below RO-based options because dissolved salts and some mobile trace organics may not be controlled as reliably"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium_good",
+          "energy_fit": "medium_good",
+          "operation_fit": "medium",
+          "residuals_fit": "good"
+        },
+        "potential_risks": [
+          "uncertainty is higher for recharge protection against very persistent, polar, or ozone-resistant compounds because there is no RO barrier",
+          "bromate formation risk is material due to measurable bromide and must be assessed through pilot testing and dose-pH optimization",
+          "reliance on aquifer attenuation requires site-specific hydrogeologic evidence and regulatory acceptance",
+          "TDS and nitrate are only modestly affected, which may be problematic if local recharge permits are stringent"
+        ],
+        "evidence_list": [
+          "ozonation_BAC_public_guidance_for_trace_organic_reduction",
+          "managed_aquifer_recharge_guidance_on_source_water_quality_and_subsurface_residence",
+          "water_reuse_case_knowledge_for_non_RO_advanced_treatment_where_concentrate_management_is_constrained"
+        ]
+      },
+      {
+        "rank": 4,
+        "process_chain": [
+          "equalization",
+          "membrane_bioreactor",
+          "granular_activated_carbon",
+          "UV_advanced_oxidation",
+          "final_disinfection"
+        ],
+        "core_unit_functions": {
+          "equalization": "buffer variable loading to protect the biological system",
+          "membrane_bioreactor": "remove biodegradable organics and suspended solids with high effluent clarity",
+          "granular_activated_carbon": "polish residual trace organics and reduce UV-AOP scavenging demand",
+          "UV_advanced_oxidation": "destroy selected residual micropollutants and provide an advanced oxidation barrier",
+          "final_disinfection": "maintain microbiological control before recharge"
+        },
+        "applicability_rationale": [
+          "this compact train can achieve strong solids and biodegradable organics control and adds dual polishing barriers without RO concentrate generation",
+          "it may be considered where footprint is constrained and salinity is not the primary limiting factor for recharge",
+          "MBR effluent quality can support downstream carbon and UV-AOP performance if operation is skilled and stable"
+        ],
+        "constraint_fit": {
+          "cost_fit": "medium",
+          "energy_fit": "medium_poor",
+          "operation_fit": "medium_poor",
+          "residuals_fit": "medium_good"
+        },
+        "potential_risks": [
+          "without RO, confidence for removing all unknown trace pollutants is lower, especially for mobile dissolved compounds",
+          "MBR fouling and process upsets may increase under industrial toxicity or solvent spikes",
+          "UV-AOP dose requirements may become costly if DOC variability remains high",
+          "this route is more uncertain for nitrobenzene peak events unless carbon and AOP are carefully sized"
+        ],
+        "evidence_list": [
+          "MBR_reuse_guidance_for_high_quality_secondary_polishing",
+          "UV_AOP_guidance_for_trace_organic_control_in_recycled_water",
+          "public_case_knowledge_for_MBR_GAC_AOP_combinations"
+        ]
+      },
+      {
+        "rank": 5,
+        "process_chain": [
+          "coagulation_flocculation",
+          "sedimentation",
+          "media_filtration",
+          "activated_carbon",
+          "disinfection"
+        ],
+        "core_unit_functions": {
+          "coagulation_flocculation": "remove colloids and some particulate-associated organic matter",
+          "sedimentation": "separate formed solids",
+          "media_filtration": "polish turbidity and suspended solids",
+          "activated_carbon": "provide limited adsorption of some trace organics",
+          "disinfection": "reduce microbial risk"
+        },
+        "applicability_rationale": [
+          "included as a lower-ranked comparator because it is simpler and less energy-intensive",
+          "it could improve conventional effluent quality and provide partial trace organic reduction but does not constitute a sufficiently robust advanced reuse train for this recharge scenario",
+          "it may only be acceptable as a pretreatment segment upstream of additional advanced barriers"
+        ],
+        "constraint_fit": {
+          "cost_fit": "good",
+          "energy_fit": "good",
+          "operation_fit": "good",
+          "residuals_fit": "medium"
+        },
+        "potential_risks": [
+          "insufficient control of dissolved salts, nutrients, and many dissolved trace organics for groundwater recharge",
+          "performance against unknown trace contaminants is too uncertain to rely on as a standalone solution",
+          "microbial and chemical safety margin is weak relative to recharge protection expectations",
+          "activated carbon alone may not reliably handle concentration spikes or broad unknown mixtures"
+        ],
+        "evidence_list": [
+          "basic_conventional_reclamation_references",
+          "water_reuse_guidance_indicating_need_for_advanced_multi_barrier_treatment_for_recharge"
+        ]
+      }
+    ]
+  },
+  "evaluation_targets": {
+    "top_k_quality": {
+      "preferred_rank_pattern": [
+        "multi-barrier advanced reuse trains with explicit buffering and trace-organic barriers should rank above conventional trains",
+        "solutions including equalization should be favored because influent variability is high",
+        "RO-based options should generally rank high for groundwater recharge when unknown trace pollutants are present, unless concentrate constraints are explicitly used to justify alternatives",
+        "non-RO options may appear but should be ranked below more protective advanced trains unless their caveats are clearly stated"
+      ]
+    },
+    "constraint_consistency": {
+      "must_reflect": [
+        "the blended municipal-industrial source has variable quality and partially characterized trace organics",
+        "groundwater recharge requires stronger pathogen and chemical barriers than routine non-potable reuse",
+        "bromide and DOC create a real tradeoff for ozone-based processes because of oxidation byproduct concerns",
+        "residuals and concentrate management should be discussed where RO is recommended",
+        "recommendations should acknowledge that episodic industrial contributions may challenge biological stability and membrane fouling control"
+      ]
+    },
+    "explanation_grounding": {
+      "must_contain": [
+        "why equalization is important under batch industrial contributions and storm-related variability",
+        "why activated carbon, ozonation_BAC, UV-AOP, or equivalent advanced polishing is relevant for fenamiphos, nitrobenzene, ibuprofen, and unknown trace organics",
+        "why RO provides added confidence for recharge applications compared with non-RO trains",
+        "why simpler conventional treatment alone is insufficient for this use case"
+      ]
+    },
+    "risk_awareness": {
+      "should_mention": [
+        "uncertainty in the uncharacterized trace-organic mixture and the need for targeted monitoring or pilot testing",
+        "possible bromate or other oxidation byproduct formation if ozone is used in bromide-bearing water",
+        "membrane fouling, scaling, integrity monitoring, and concentrate disposal issues where RO is included",
+        "adsorbent breakthrough uncertainty and variable removal of polar pharmaceuticals such as ibuprofen",
+        "potential industrial shock loads causing biological inhibition or short-term contaminant spikes that may bypass undersized systems"
+      ]
+    }
+  },
+  "metadata": {
+    "difficulty": "difficult",
+    "benchmark_split": "test",
+    "language": "en",
+    "case_source_type": "synthetic_case_based_on_public_water_treatment_knowledge"
+  }
+}
