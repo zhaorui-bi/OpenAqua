@@ -1,5 +1,0 @@
-{
-  "Contaminant Name": "Cryptosporidium",
-  "Function": "Ultraviolet Irradiation",
-  "Details": "Inactivation of Cryptosporidium in water by ultraviolet irradiation (UV) can be very effective (2- to over 4-log inactivation) where the effectiveness is dependent primarily on UV dose and contact time. Cryptosporidium inactivation is also highly dependent on water quality because of blinding effects of particles within the water (caused from turbidity, etc). Relatively low doses of UV (1-9mJ/cm2) have been shown to inactivate 2-4 log (99-99.9%) of Cryptosporidium oocysts. UV irradiation is in the LT2 microbial tool box for control of Cryptosporidium. Temperature and UV intensity have been shown to have little impact on inactivation by UV. Modeling efforts show that each full scale reactor should be characterized in order to properly understand flow patterns and calculate an applied UV dose."
-}
