@@ -1,5 +1,0 @@
-{
-  "Contaminant Name": "Arsenic",
-  "Function": "Membrane Filtration",
-  "Details": "Membrane filtration is generally very effective for the removal of arsenic depending on the treatment conditions (up to greater than 99 percent removal) [151, 166, 179, 188, 230, 248, 2689, 2718]. The process typically consists of the addition of an iron-based coagulant to water after oxidation of As(III). Without coagulation, removal of As(V) by membrane filtration is minimal (20% on UF membranes) and less so for As(III)[2718]. With coagulation, the precipitated As-Fe complexes are filtered out by the membrane via cake formation. Lowering of pH prior to the addition of coagulant lowers the coagulant dose necessary (thereby lowering solids loading on the membrane and increasing membrane flux) and also increases arsenic removal efficiency."
-}
