@@ -1,12 +1,12 @@
 # OpenAqua 💧
 
-> **Evidence-grounded multi-agent recommendation for water treatment process chains**
+> **Evidence-grounded multi-agent design for water treatment trains**
 >
 > A research-style codebase for turning water quality conditions, contaminant profiles, and engineering constraints into ranked treatment-chain recommendations with retrieved evidence and structured explanations.
 
 ## 🔍 Abstract
 
-OpenAqua is a prototype research system for **water treatment process-chain recommendation**. Given a user query describing source water, contaminants, treatment targets, and operational constraints, the system runs a multi-stage pipeline that parses the request, retrieves relevant evidence, proposes candidate treatment chains, critiques them against constraints, and returns ranked recommendations with supporting rationale.
+OpenAqua is a prototype research system for **water treatment trains design**. Given a user query describing source water, contaminants, treatment targets, and operational constraints, the system runs a multi-stage pipeline that parses the request, retrieves relevant evidence, proposes candidate treatment chains, critiques them against constraints, and returns ranked recommendations with supporting rationale.
 
 The runnable product lives in [`water_treatment_agent/`](./water_treatment_agent/). The top-level [`data/`](./data/) directory contains crawler and data-preparation scripts used to build the knowledge base from unit-level treatment records and case-level EPA-style reports. In other words, this repository includes both the **research artifact** and the **data pipeline** behind it.
 
@@ -27,7 +27,7 @@ flowchart LR
 - **Task Parser Agent** converts natural-language or structured input into a validated normalized query.
 - **Retrieval Agent** searches the indexed corpus and returns evidence from `kb_unit` and `kb_case`.
 - **Process Planning Agent** generates candidate treatment chains using LLM planning or a template/seed fallback.
-- **Constraint Critic Agent** checks candidates against operational constraints and proposes revisions or drops.
+- **Critic Agent** checks candidates against operational constraints and proposes revisions or drops.
 - **Explanation Agent** binds citations, computes interpretable scores, and produces final recommendation text.
 
 ## ✨ Highlights
