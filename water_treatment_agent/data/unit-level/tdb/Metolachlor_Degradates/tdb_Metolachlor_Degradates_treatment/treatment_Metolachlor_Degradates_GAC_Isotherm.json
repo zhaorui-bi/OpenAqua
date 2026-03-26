@@ -1,5 +1,0 @@
-{
-  "Contaminant Name": "Metolachlor Degradates",
-  "Function": "GAC Isotherm",
-  "Details": "PAC adsorption data was modeled as a Freundlich isotherm in one study for the following metolachlor degradates: hydroxymetolachlor, deschlorometolachlor, metolachlor morpholinone, metolachlor propanol, deschloroacetylmetolachlor, deschloroacetylmetolachlor propanol. Hydroxymetolachlor, deschlorometolachlor, metolachlor morpholinone, metolachlor propanol and deschloroacetylmetolachlor were better removed (higher K values); deschloroacetylmetolachlor propanol had poor removal (lower K value). The parent compound, metolachlor, had higher affinity for than all of the degradates except for metolachlor morpholinone."
-}
