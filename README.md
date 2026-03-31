@@ -115,7 +115,7 @@ In a second terminal:
 cd water_treatment_agent
 streamlit run gui/app.py
 ```
-## Raw data and WContBench
+## 📊 Raw data and WContBench
 
 Raw data and WContBench are available at huggingface [https://huggingface.co/datasets/zhaorui-bi/OpenAqua](https://huggingface.co/datasets/zhaorui-bi/OpenAqua)
 
