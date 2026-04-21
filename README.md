@@ -1,8 +1,5 @@
 # OpenAqua 💧
 
-> **Evidence-grounded multi-agent design for water treatment trains**
->
-> A research-style codebase for turning water quality conditions, contaminant profiles, and engineering constraints into ranked treatment-chain recommendations with retrieved evidence and structured explanations.
 
 ## 🔍 Abstract
 
