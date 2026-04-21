@@ -1,4 +1,4 @@
-# OpenAqua 💧
+# 💧 OpenAqua: An automated multi-agent framework for early-stage water treatment train design with retrieval augmentation and critic-based refinement 
 
 
 ## 🔍 Abstract
@@ -6,26 +6,6 @@
 OpenAqua is a prototype research system for **water treatment trains design**. Given a user query describing source water, contaminants, treatment targets, and operational constraints, the system runs a multi-stage pipeline that parses the request, retrieves relevant evidence, proposes candidate treatment chains, critiques them against constraints, and returns ranked recommendations with supporting rationale.
 
 The runnable product lives in [`water_treatment_agent/`](./water_treatment_agent/). The top-level [`data/`](./data/) directory contains crawler and data-preparation scripts used to build the knowledge base from unit-level treatment records and case-level EPA-style reports. In other words, this repository includes both the **research artifact** and the **data pipeline** behind it.
-
-## 🧠 Method At A Glance
-
-```mermaid
-flowchart LR
-    Q[User Query] --> P[Task Parser Agent]
-    P --> R[Retrieval Agent]
-    R --> PL[Process Planning Agent]
-    PL --> C[Constraint Critic Agent]
-    C --> E[Explanation Agent]
-    E --> O[Ranked Recommendations + Evidence]
-```
-
-### Current pipeline
-
-- **Task Parser Agent** converts natural-language or structured input into a validated normalized query.
-- **Retrieval Agent** searches the indexed corpus and returns evidence from `kb_unit` and `kb_case`.
-- **Process Planning Agent** generates candidate treatment chains using LLM planning or a template/seed fallback.
-- **Critic Agent** checks candidates against operational constraints and proposes revisions or drops.
-- **Explanation Agent** binds citations, computes interpretable scores, and produces final recommendation text.
 
 ## ✨ Highlights
 
