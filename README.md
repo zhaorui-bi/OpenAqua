@@ -1,5 +1,4 @@
-# 💧 OpenAqua: An automated multi-agent framework for early-stage water treatment train design with retrieval augmentation and critic-based refinement 
-
+# 💧 OpenAqua
 
 ## 🔍 Abstract
 
