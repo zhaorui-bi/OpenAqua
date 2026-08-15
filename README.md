@@ -21,6 +21,7 @@
 
 <br/>
 
+[![Release](https://img.shields.io/github/v/release/zhaorui-bi/OpenAqua?style=for-the-badge&label=Release&color=0B3A53)](https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0)
 [![GitHub stars](https://img.shields.io/github/stars/zhaorui-bi/OpenAqua?style=for-the-badge&logo=github&color=0B3A53)](https://github.com/zhaorui-bi/OpenAqua/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E8A76?style=for-the-badge)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -34,6 +35,7 @@
 [![OpenRouter](https://img.shields.io/badge/LLM-OpenRouter%20%2B%20rule%20fallback-12556F?style=flat-square)](./water_treatment_agent/.env.example)
 
 <p>
+  <a href="https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0"><b>Release</b></a> ·
   <a href="https://huggingface.co/datasets/zhaorui-bi/OpenAqua"><b>Dataset</b></a> ·
   <a href="#installation"><b>Installation</b></a> ·
   <a href="#quick-start"><b>Quick Start</b></a> ·
@@ -58,7 +60,8 @@ The runnable system lives in [`water_treatment_agent/`](./water_treatment_agent/
 
 ## News
 
-- **[2026-08]** GitHub homepage refreshed. Knowledge base, raw crawls, and WContBench are now served from the [Hugging Face dataset](https://huggingface.co/datasets/zhaorui-bi/OpenAqua).
+- **[2026-08]** **v1.0.0** released. See the [release notes](https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0).
+- **[2026-08]** Knowledge base, raw crawls, and WContBench are served from the [Hugging Face dataset](https://huggingface.co/datasets/zhaorui-bi/OpenAqua).
 - **[2026-03]** OpenAqua code and WContBench released.
 
 ## Highlights
@@ -265,6 +268,7 @@ pytest tests -v
 ```text
 OpenAqua/
 ├── assets/                      # logo + framework figure (paper-resolution + web preview)
+├── CHANGELOG.md
 ├── test_openaqua.py             # WContBench train-level metrics
 ├── test_retrieval.py            # WContBench retrieval metrics
 └── water_treatment_agent/
