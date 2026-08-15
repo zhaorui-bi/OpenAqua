@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="140" alt="OpenAqua logo"/>
-
-# OpenAqua
+<img src="assets/logo.png" width="100" alt="OpenAqua logo"/>
 
 **An automated multi-agent framework for early-stage water treatment train design with retrieval augmentation and critic-based refinement**
 
@@ -314,9 +312,6 @@ If you use OpenAqua or WContBench, please cite:
              Dataset: https://huggingface.co/datasets/zhaorui-bi/OpenAqua}
 }
 ```
-
-Hanzhang Liu<sup>a,f,1</sup>, Zhaorui Jiang<sup>a,b,d,1,*</sup>, Huiling Zhong<sup>c</sup>, Jinshuo Li<sup>b,e</sup>, Wei Pang<sup>b</sup>, Yingfang Yuan<sup>b,*</sup>
-
 ## License
 
 This project is released under the [MIT License](./LICENSE). Dataset files on Hugging Face follow the same MIT license.
