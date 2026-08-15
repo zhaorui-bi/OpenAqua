@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="100" alt="OpenAqua logo"/>
+<img src="assets/logo.png" width="120" alt="OpenAqua logo"/>
 
 **An automated multi-agent framework for early-stage water treatment train design with retrieval augmentation and critic-based refinement**
 
