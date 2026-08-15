@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.svg" width="86" alt="OpenAqua logo"/>
+<img src="assets/logo.png" width="96" alt="OpenAqua logo"/>
 
 # OpenAqua
 
@@ -12,11 +12,11 @@
   Huiling Zhong<sup>c</sup>,
   Jinshuo Li<sup>b,e</sup>,
   Wei Pang<sup>b</sup>,
-  Yingfang Yuan<sup>b</sup>
+  Yingfang Yuan<sup>b,*</sup>
 </p>
 <p>
   <sup>1</sup> Equal contribution &nbsp;&nbsp;|&nbsp;&nbsp;
-  <sup>*</sup> Corresponding author: Zhaorui Jiang
+  <sup>*</sup> Corresponding authors: Zhaorui Jiang, Yingfang Yuan
 </p>
 
 <br/>
@@ -305,13 +305,13 @@ If you use OpenAqua or WContBench, please cite:
              and Li, Jinshuo and Pang, Wei and Yuan, Yingfang},
   year    = {2026},
   note    = {Equal contribution: Hanzhang Liu and Zhaorui Jiang.
-             Corresponding author: Zhaorui Jiang.
+             Corresponding authors: Zhaorui Jiang and Yingfang Yuan.
              Code: https://github.com/zhaorui-bi/OpenAqua.
              Dataset: https://huggingface.co/datasets/zhaorui-bi/OpenAqua}
 }
 ```
 
-Hanzhang Liu<sup>a,f,1</sup>, Zhaorui Jiang<sup>a,b,d,1,*</sup>, Huiling Zhong<sup>c</sup>, Jinshuo Li<sup>b,e</sup>, Wei Pang<sup>b</sup>, Yingfang Yuan<sup>b</sup>
+Hanzhang Liu<sup>a,f,1</sup>, Zhaorui Jiang<sup>a,b,d,1,*</sup>, Huiling Zhong<sup>c</sup>, Jinshuo Li<sup>b,e</sup>, Wei Pang<sup>b</sup>, Yingfang Yuan<sup>b,*</sup>
 
 ## License
 
