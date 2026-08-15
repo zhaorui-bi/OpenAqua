@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="96" alt="OpenAqua logo"/>
+<img src="assets/logo.png" width="168" alt="OpenAqua logo"/>
 
 # OpenAqua
 
