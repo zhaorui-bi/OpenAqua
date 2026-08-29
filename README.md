@@ -19,6 +19,7 @@
 
 <br/>
 
+[![Paper](https://img.shields.io/badge/Water%20Research-10.1016%2Fj.watres.2026.126761-0B3A53?style=for-the-badge)](https://doi.org/10.1016/j.watres.2026.126761)
 [![Release](https://img.shields.io/github/v/release/zhaorui-bi/OpenAqua?style=for-the-badge&label=Release&color=0B3A53)](https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0)
 [![GitHub stars](https://img.shields.io/github/stars/zhaorui-bi/OpenAqua?style=for-the-badge&logo=github&color=0B3A53)](https://github.com/zhaorui-bi/OpenAqua/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E8A76?style=for-the-badge)](./LICENSE)
@@ -33,6 +34,7 @@
 [![OpenRouter](https://img.shields.io/badge/LLM-OpenRouter%20%2B%20rule%20fallback-12556F?style=flat-square)](./water_treatment_agent/.env.example)
 
 <p>
+  <a href="https://doi.org/10.1016/j.watres.2026.126761"><b>Paper</b></a> ·
   <a href="https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0"><b>Release</b></a> ·
   <a href="https://huggingface.co/datasets/zhaorui-bi/OpenAqua"><b>Dataset</b></a> ·
   <a href="#installation"><b>Installation</b></a> ·
@@ -58,6 +60,7 @@ The runnable system lives in [`water_treatment_agent/`](./water_treatment_agent/
 
 ## News
 
+- **[2026-08]** Our paper is published in [Water Research](https://doi.org/10.1016/j.watres.2026.126761).
 - **[2026-08]** **v1.0.0** released. See the [release notes](https://github.com/zhaorui-bi/OpenAqua/releases/tag/v1.0.0).
 - **[2026-08]** Knowledge base, raw crawls, and WContBench are served from the [Hugging Face dataset](https://huggingface.co/datasets/zhaorui-bi/OpenAqua).
 - **[2026-03]** OpenAqua code and WContBench released.
@@ -305,7 +308,12 @@ If you use OpenAqua or WContBench, please cite:
              augmentation and critic-based refinement},
   author  = {Liu, Hanzhang and Jiang, Zhaorui and Zhong, Huiling
              and Li, Jinshuo and Pang, Wei and Yuan, Yingfang},
+  journal = {Water Research},
+  pages   = {126761},
   year    = {2026},
+  issn    = {0043-1354},
+  doi     = {10.1016/j.watres.2026.126761},
+  url     = {https://doi.org/10.1016/j.watres.2026.126761},
   note    = {Equal contribution: Hanzhang Liu and Zhaorui Jiang.
              Corresponding authors: Zhaorui Jiang and Yingfang Yuan.
              Code: https://github.com/zhaorui-bi/OpenAqua.
